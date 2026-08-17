@@ -1,0 +1,10 @@
+// Cloudflare Workers + static assets configuration.
+// Serves the site/ folder as a static-assets-only Worker (same pattern as kongaprojects).
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "atokiausia-lietuva",
+  "compatibility_date": "2025-10-01",
+  "assets": {
+    "directory": "./site"
+  }
+}

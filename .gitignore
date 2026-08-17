@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.DS_Store
+node_modules/
+
+# raw OSM extracts and derived layers (regenerable via scripts/01-02)
+/data/
+
+# large recomputable grids
+out/dist_A.npy
+out/dist_B.npy
+out/land.gpkg

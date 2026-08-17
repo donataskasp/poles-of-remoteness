@@ -1,0 +1,301 @@
+{
+  "crs_note": "lks94 = EPSG:3346 [x_east, y_north] m; wgs84 = [lat, lon]",
+  "scenarios": {
+    "A": {
+      "label": "any drivable way (incl. track)",
+      "ways": 543644,
+      "road_km": 196903,
+      "winner": {
+        "lks94": [
+          469968.0,
+          6033947.7
+        ],
+        "wgs84": [
+          54.441473,
+          23.53702
+        ],
+        "distance_m": 3425.6,
+        "osm_link": "https://www.openstreetmap.org/?mlat=54.441473&mlon=23.537020#map=13/54.441473/23.537020",
+        "nearest_road": {
+          "osm_way": 1385319417,
+          "url": "https://www.openstreetmap.org/way/1385319417",
+          "highway": "track",
+          "surface": NaN,
+          "name": NaN,
+          "ref": NaN,
+          "country": "Lithuania"
+        }
+      },
+      "runners_up": [
+        {
+          "lks94": [
+            534698.0,
+            5986032.7
+          ],
+          "wgs84": [
+            54.010641,
+            24.529371
+          ],
+          "distance_m": 3406.5,
+          "osm_link": "https://www.openstreetmap.org/?mlat=54.010641&mlon=24.529371#map=13/54.010641/24.529371",
+          "nearest_road": {
+            "osm_way": 259109636,
+            "url": "https://www.openstreetmap.org/way/259109636",
+            "highway": "track",
+            "surface": NaN,
+            "name": NaN,
+            "ref": NaN,
+            "country": "Lithuania"
+          }
+        },
+        {
+          "lks94": [
+            415898.0,
+            6239607.7
+          ],
+          "wgs84": [
+            56.282578,
+            22.64181
+          ],
+          "distance_m": 2560.9,
+          "osm_link": "https://www.openstreetmap.org/?mlat=56.282578&mlon=22.641810#map=13/56.282578/22.641810",
+          "nearest_road": {
+            "osm_way": 522616588,
+            "url": "https://www.openstreetmap.org/way/522616588",
+            "highway": "track",
+            "surface": NaN,
+            "name": NaN,
+            "ref": NaN,
+            "country": "Lithuania"
+          }
+        },
+        {
+          "lks94": [
+            325933.0,
+            6127072.7
+          ],
+          "wgs84": [
+            55.248363,
+            21.262109
+          ],
+          "distance_m": 2148.5,
+          "osm_link": "https://www.openstreetmap.org/?mlat=55.248363&mlon=21.262109#map=13/55.248363/21.262109",
+          "nearest_road": {
+            "osm_way": 1242509661,
+            "url": "https://www.openstreetmap.org/way/1242509661",
+            "highway": "track",
+            "surface": NaN,
+            "name": NaN,
+            "ref": NaN,
+            "country": "Russia (Kaliningrad)"
+          }
+        },
+        {
+          "lks94": [
+            452143.0,
+            6231627.7
+          ],
+          "wgs84": [
+            56.215939,
+            23.228502
+          ],
+          "distance_m": 2131.2,
+          "osm_link": "https://www.openstreetmap.org/?mlat=56.215939&mlon=23.228502#map=13/56.215939/23.228502",
+          "nearest_road": {
+            "osm_way": 372603129,
+            "url": "https://www.openstreetmap.org/way/372603129",
+            "highway": "tertiary",
+            "surface": "gravel",
+            "name": NaN,
+            "ref": "1610",
+            "country": "Lithuania"
+          }
+        },
+        {
+          "lks94": [
+            563613.0,
+            6183442.7
+          ],
+          "wgs84": [
+            55.781309,
+            25.014061
+          ],
+          "distance_m": 2082.4,
+          "osm_link": "https://www.openstreetmap.org/?mlat=55.781309&mlon=25.014061#map=13/55.781309/25.014061",
+          "nearest_road": {
+            "osm_way": 365677728,
+            "url": "https://www.openstreetmap.org/way/365677728",
+            "highway": "track",
+            "surface": NaN,
+            "name": NaN,
+            "ref": NaN,
+            "country": "Lithuania"
+          }
+        }
+      ],
+      "verification": {
+        "exact_recheck_m": 3425.56,
+        "densified_vertex_min_m": 3425.56
+      }
+    },
+    "B": {
+      "label": "public roads (no track)",
+      "ways": 393100,
+      "road_km": 120153,
+      "winner": {
+        "lks94": [
+          530358.0,
+          5984352.7
+        ],
+        "wgs84": [
+          53.995818,
+          24.462993
+        ],
+        "distance_m": 6674.6,
+        "osm_link": "https://www.openstreetmap.org/?mlat=53.995818&mlon=24.462993#map=13/53.995818/24.462993",
+        "nearest_road": {
+          "osm_way": 70542812,
+          "url": "https://www.openstreetmap.org/way/70542812",
+          "highway": "unclassified",
+          "surface": "unpaved",
+          "name": "Baublių g.",
+          "ref": NaN,
+          "country": "Lithuania"
+        }
+      },
+      "runners_up": [
+        {
+          "lks94": [
+            526748.0,
+            5974797.7
+          ],
+          "wgs84": [
+            53.910157,
+            24.407101
+          ],
+          "distance_m": 4940.6,
+          "osm_link": "https://www.openstreetmap.org/?mlat=53.910157&mlon=24.407101#map=13/53.910157/24.407101",
+          "nearest_road": {
+            "osm_way": 376660293,
+            "url": "https://www.openstreetmap.org/way/376660293",
+            "highway": "residential",
+            "surface": "unpaved",
+            "name": NaN,
+            "ref": NaN,
+            "country": "Lithuania"
+          }
+        },
+        {
+          "lks94": [
+            400208.0,
+            6111382.7
+          ],
+          "wgs84": [
+            55.128063,
+            22.43524
+          ],
+          "distance_m": 4831.6,
+          "osm_link": "https://www.openstreetmap.org/?mlat=55.128063&mlon=22.435240#map=13/55.128063/22.435240",
+          "nearest_road": {
+            "osm_way": 397437293,
+            "url": "https://www.openstreetmap.org/way/397437293",
+            "highway": "service",
+            "surface": "grass",
+            "name": NaN,
+            "ref": NaN,
+            "country": "Lithuania"
+          }
+        },
+        {
+          "lks94": [
+            567148.0,
+            6024772.7
+          ],
+          "wgs84": [
+            54.355498,
+            25.033019
+          ],
+          "distance_m": 4688.4,
+          "osm_link": "https://www.openstreetmap.org/?mlat=54.355498&mlon=25.033019#map=13/54.355498/25.033019",
+          "nearest_road": {
+            "osm_way": 1498216824,
+            "url": "https://www.openstreetmap.org/way/1498216824",
+            "highway": "service",
+            "surface": NaN,
+            "name": NaN,
+            "ref": NaN,
+            "country": "Lithuania"
+          }
+        },
+        {
+          "lks94": [
+            409103.0,
+            6119807.7
+          ],
+          "wgs84": [
+            55.205444,
+            22.571962
+          ],
+          "distance_m": 3895.3,
+          "osm_link": "https://www.openstreetmap.org/?mlat=55.205444&mlon=22.571962#map=13/55.205444/22.571962",
+          "nearest_road": {
+            "osm_way": 447977712,
+            "url": "https://www.openstreetmap.org/way/447977712",
+            "highway": "unclassified",
+            "surface": "unpaved",
+            "name": NaN,
+            "ref": NaN,
+            "country": "Lithuania"
+          }
+        },
+        {
+          "lks94": [
+            535503.0,
+            6000247.7
+          ],
+          "wgs84": [
+            54.138317,
+            24.543317
+          ],
+          "distance_m": 3885.2,
+          "osm_link": "https://www.openstreetmap.org/?mlat=54.138317&mlon=24.543317#map=13/54.138317/24.543317",
+          "nearest_road": {
+            "osm_way": 1295978209,
+            "url": "https://www.openstreetmap.org/way/1295978209",
+            "highway": "secondary",
+            "surface": "asphalt",
+            "name": NaN,
+            "ref": "5014",
+            "country": "Lithuania"
+          }
+        }
+      ],
+      "verification": {
+        "exact_recheck_m": 6674.6,
+        "densified_vertex_min_m": 6674.6
+      }
+    }
+  },
+  "verification_cross_border": {
+    "by_roads_near_cepkeliai": 252,
+    "pl_roads_near_kalvarija": 8426
+  },
+  "verification_patrol_road": {
+    "roads_within_1200m_of_border": 536,
+    "breakdown": {
+      "Belarus/residential": 11,
+      "Belarus/secondary": 7,
+      "Belarus/service": 30,
+      "Belarus/tertiary": 8,
+      "Belarus/track": 203,
+      "Belarus/unclassified": 11,
+      "Lithuania/residential": 8,
+      "Lithuania/secondary": 7,
+      "Lithuania/service": 25,
+      "Lithuania/tertiary": 7,
+      "Lithuania/track": 210,
+      "Lithuania/unclassified": 9
+    }
+  },
+  "sanity_A_le_B": true
+}
