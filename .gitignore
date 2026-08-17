@@ -10,3 +10,6 @@ node_modules/
 out/dist_A.npy
 out/dist_B.npy
 out/land.gpkg
+
+# wrangler local cache
+.wrangler/
