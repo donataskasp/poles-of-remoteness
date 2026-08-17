@@ -358,6 +358,7 @@ async function boot() {
 }
 
 function cacheEls() {
+  el.hdr = document.getElementById('hdr');
   el.scenarioSeg = document.getElementById('scenario-seg');
   el.langSeg = document.getElementById('lang-seg');
   el.baseSeg = document.getElementById('basemap-seg');
@@ -440,6 +441,7 @@ function round1(v) { return Math.round(v * 10) / 10; }
 function placeControls() {
   if (zoomCtl) zoomCtl.setPosition(isMobile() ? 'topleft' : 'topright');
   syncSheetHeight();
+  syncHdrHeight();
   syncReadoutState();
 }
 
@@ -448,7 +450,15 @@ function syncSheetHeight() {
   document.documentElement.style.setProperty('--sheet-h', `${h}px`);
 }
 
-/** The floating cluster owns the map's top-right; the zoom buttons go under it. */
+/** The mobile readout hangs off the bottom of the map and opens upward, so it
+    needs to know where the header ends to stop growing there. */
+function syncHdrHeight() {
+  const h = Math.round(el.hdr.getBoundingClientRect().height);
+  document.documentElement.style.setProperty('--hdr-h', `${h}px`);
+}
+
+/** The floating cluster owns the map's top-right; the zoom buttons go under it.
+    On mobile the readout is out of the cluster's flow, so it is not counted. */
 function syncCtlHeight() {
   const h = Math.round(el.mapCtl.getBoundingClientRect().height);
   document.documentElement.style.setProperty('--ctl-h', `${h}px`);
@@ -1107,7 +1117,8 @@ function wireUI() {
 
   el.panelBody.addEventListener('scroll', syncScrollHint, { passive: true });
   if (typeof ResizeObserver === 'function') {
-    const ro = new ResizeObserver(() => { syncSheetHeight(); syncCtlHeight(); syncScrollHint(); });
+    const ro = new ResizeObserver(() => { syncSheetHeight(); syncHdrHeight(); syncCtlHeight(); syncScrollHint(); });
+    ro.observe(el.hdr);
     ro.observe(el.panel);
     ro.observe(el.mapCtl);
     ro.observe(el.readout);

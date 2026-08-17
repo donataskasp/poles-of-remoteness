@@ -700,7 +700,10 @@ button, input { font: inherit; color: inherit; }
 /* ───────────────────────── mobile: bottom sheet ───────────────────────── */
 
 @media (max-width: 720px) {
-  :root { --hdr-pad: 11px; }
+  :root {
+    --hdr-pad: 11px;
+    --readout-lift: 26px;   /* attribution strip plus a gap above it */
+  }
 
   .hdr { gap: 8px 10px; padding-bottom: 9px; }
   .hdr__brand { flex: 1 1 auto; }
@@ -719,9 +722,41 @@ button, input { font: inherit; color: inherit; }
     max-width: calc(100% - 20px);
   }
 
-  /* The map band between header and sheet is short: a new selection lands as a
-     one-line pill, and only the expanded card outranks the legend. */
+  /* The pill clears the legend, but the expanded card still rises into its
+     corner on a phone-sized map band, so that one state outranks it. */
   .mapctl--expanded .legend-card { display: none; }
+
+  /* The readout leaves the cluster here and rides the bottom of the map, just
+     above the attribution, so it never sits on top of the selected marker.
+     Out of the cluster's flow, it also drops out of the --ctl-h measurement. */
+  .readout {
+    position: fixed;
+    left: 0; right: 0;
+    bottom: calc(var(--sheet-h, 0px) + var(--readout-lift));
+    margin: 0 auto;
+  }
+
+  /* Expanded it grows upward from that same anchor, and stops short of the
+     header: on a short viewport the overflow scrolls inside the card. */
+  .readout--expanded {
+    max-height: calc(100vh - var(--hdr-h, 92px) - var(--sheet-h, 0px) - var(--readout-lift) - 10px);
+    max-height: calc(100dvh - var(--hdr-h, 92px) - var(--sheet-h, 0px) - var(--readout-lift) - 10px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--hair-strong) transparent;
+  }
+
+  /* Scrolled or not, the close and collapse buttons stay in reach. */
+  .readout--expanded .readout__top {
+    position: sticky;
+    top: -8px;
+    margin: -8px -11px 0;
+    padding: 8px 11px 0;
+    background: var(--panel);
+    z-index: 1;
+  }
 
   .readout:not(.readout--expanded) {
     padding: 0;
