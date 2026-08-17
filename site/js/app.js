@@ -30,7 +30,7 @@ const I18N = {
     noSurface: 'danga nenurodyta',
     rankAria: (n) => `${n}-a vieta`,
 
-    layersHeading: 'Sluoksniai',
+    legendHeading: 'Atokumo zonos',
     basemapLabel: 'Pagrindas',
     baseOsm: 'Žemėlapis',
     baseSat: 'Palydovas',
@@ -96,7 +96,7 @@ const I18N = {
     noSurface: 'surface not recorded',
     rankAria: (n) => `rank ${n}`,
 
-    layersHeading: 'Layers',
+    legendHeading: 'Remoteness bands',
     basemapLabel: 'Basemap',
     baseOsm: 'Map',
     baseSat: 'Satellite',
@@ -216,7 +216,7 @@ const state = {
   scenario: 'A',
   spot: null,          // rank number or null
   bands: true,
-  base: 'osm',
+  base: 'sat',         // default; only base=osm is ever written to the hash
   point: null,         // {lat, lon, name?}
   zoom: null,
 };
@@ -232,7 +232,7 @@ const data = {
 };
 
 const el = {};
-let map, baseLayer, bandsLayer, landLayer, selLayer, pointMarker, zoomCtl;
+let map, baseLayer, baseKind, bandsLayer, landLayer, selLayer, pointMarker, zoomCtl;
 let rankMarkers = [];
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -342,6 +342,7 @@ function cacheEls() {
   el.langSeg = document.getElementById('lang-seg');
   el.baseSeg = document.getElementById('basemap-seg');
   el.bandsToggle = document.getElementById('bands-toggle');
+  el.mapCtl = document.getElementById('mapctl');
   el.spots = document.getElementById('spots');
   el.spotsNote = document.getElementById('spots-note');
   el.legend = document.getElementById('legend');
@@ -414,6 +415,7 @@ function round1(v) { return Math.round(v * 10) / 10; }
 function placeControls() {
   if (zoomCtl) zoomCtl.setPosition(isMobile() ? 'topleft' : 'topright');
   syncSheetHeight();
+  syncCtlHeight();
 }
 
 function syncSheetHeight() {
@@ -421,8 +423,15 @@ function syncSheetHeight() {
   document.documentElement.style.setProperty('--sheet-h', `${h}px`);
 }
 
+/** The floating cluster owns the map's top-right; the zoom buttons go under it. */
+function syncCtlHeight() {
+  const h = Math.round(el.mapCtl.getBoundingClientRect().height);
+  document.documentElement.style.setProperty('--ctl-h', `${h}px`);
+}
+
 function setBasemap(kind, initial) {
-  if (!initial && state.base === kind && baseLayer) return;
+  if (baseKind === kind && baseLayer) return;
+  baseKind = kind;
   state.base = kind;
   if (baseLayer) map.removeLayer(baseLayer);
   const b = BASEMAPS[kind];
@@ -432,6 +441,7 @@ function setBasemap(kind, initial) {
   }
   if (bandsLayer) bandsLayer.setStyle(bandStyle);
   try { localStorage.setItem('al.base', kind); } catch { /* ignore */ }
+  if (!initial) writeHash();
 }
 
 function landBounds() {
@@ -955,7 +965,9 @@ function wireUI() {
 
   el.panelBody.addEventListener('scroll', syncScrollHint, { passive: true });
   if (typeof ResizeObserver === 'function') {
-    new ResizeObserver(() => { syncSheetHeight(); syncScrollHint(); }).observe(el.panel);
+    const ro = new ResizeObserver(() => { syncSheetHeight(); syncCtlHeight(); syncScrollHint(); });
+    ro.observe(el.panel);
+    ro.observe(el.mapCtl);
   }
   syncScrollHint();
 }
@@ -998,7 +1010,7 @@ function restorePrefs() {
     const lang = localStorage.getItem('al.lang');
     if (!hashHas('lang') && (lang === 'lt' || lang === 'en')) state.lang = lang;
     const base = localStorage.getItem('al.base');
-    if (base === 'osm' || base === 'sat') state.base = base;
+    if (!hashHas('base') && (base === 'osm' || base === 'sat')) state.base = base;
     const bands = localStorage.getItem('al.bands');
     if (bands === '0') state.bands = false;
   } catch { /* ignore */ }
@@ -1016,6 +1028,8 @@ function readHash() {
   if (s === 'A' || s === 'B') state.scenario = s;
   const lang = hashParams.get('lang');
   if (lang === 'lt' || lang === 'en') state.lang = lang;
+  const base = hashParams.get('base');
+  if (base === 'osm' || base === 'sat') state.base = base;
 }
 
 function hashHas(k) {
@@ -1056,6 +1070,7 @@ function applyHashState() {
   const want = hashParams;                       // setScenario/selectSpot rewrite hashParams
   setScenario(state.scenario, { initial: true }).then(() => {
     applyLang();
+    setBasemap(state.base, true);
     hashParams = want;
     restoreFromHash();
     writeHash();
@@ -1071,6 +1086,7 @@ function writeHash() {
     if (state.zoom) p.set('z', String(state.zoom));
   }
   if (state.lang !== 'lt') p.set('lang', state.lang);
+  if (state.base !== 'sat') p.set('base', state.base);
   const next = `#${p.toString().replace(/%2C/g, ',')}`;
   if (next === location.hash) return;
   writingHash = true;

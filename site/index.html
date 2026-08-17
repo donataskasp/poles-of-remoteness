@@ -45,6 +45,18 @@
 <main class="stage">
   <div id="map"></div>
 
+  <div class="mapctl" id="mapctl">
+    <div class="seg seg--sm" role="group" id="basemap-seg" data-i18n-aria="basemapLabel">
+      <button type="button" class="seg__btn" data-base="osm" aria-pressed="false" data-i18n="baseOsm"></button>
+      <button type="button" class="seg__btn" data-base="sat" aria-pressed="true" data-i18n="baseSat"></button>
+    </div>
+
+    <div class="mapctl__check">
+      <input type="checkbox" id="bands-toggle" checked>
+      <label for="bands-toggle" data-i18n="bandsToggle"></label>
+    </div>
+  </div>
+
   <aside class="panel" id="panel" aria-label="Info">
     <button type="button" class="panel__handle" id="panel-handle" aria-expanded="true" aria-controls="panel-body">
       <span class="panel__grip" aria-hidden="true"></span>
@@ -61,20 +73,7 @@
       </section>
 
       <section class="block">
-        <h2 class="block__h" data-i18n="layersHeading"></h2>
-
-        <div class="row">
-          <span class="row__label" data-i18n="basemapLabel"></span>
-          <div class="seg seg--sm" role="group" id="basemap-seg" data-i18n-aria="basemapLabel">
-            <button type="button" class="seg__btn" data-base="osm" aria-pressed="true" data-i18n="baseOsm"></button>
-            <button type="button" class="seg__btn" data-base="sat" aria-pressed="false" data-i18n="baseSat"></button>
-          </div>
-        </div>
-
-        <div class="row row--check">
-          <input type="checkbox" id="bands-toggle" checked>
-          <label for="bands-toggle" data-i18n="bandsToggle"></label>
-        </div>
+        <h2 class="block__h" data-i18n="legendHeading"></h2>
 
         <p class="legend__intro" data-i18n="legendIntro"></p>
         <ul class="legend" id="legend"></ul>
