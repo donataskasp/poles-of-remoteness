@@ -43,6 +43,8 @@ const I18N = {
     readoutKicker: 'Pasirinktas taškas',
     readoutPoint: 'Taškas žemėlapyje',
     readoutTitle: 'Iki artimiausio kelio',
+    expandCard: 'Išskleisti kortelę',
+    collapseCard: 'Suskleisti kortelę',
     nodata: 'Jūra arba užsienis, duomenų nėra',
     noValue: 'Duomenų nėra',
     computing: 'Skaičiuojama…',
@@ -112,6 +114,8 @@ const I18N = {
     readoutKicker: 'Selected point',
     readoutPoint: 'Point on the map',
     readoutTitle: 'To the nearest road',
+    expandCard: 'Expand the card',
+    collapseCard: 'Collapse the card',
     nodata: 'Sea or abroad, no data',
     noValue: 'No data',
     computing: 'Computing…',
@@ -233,6 +237,7 @@ const state = {
   base: 'sat',         // default; only base=osm is ever written to the hash
   point: null,         // {lat, lon, name?}
   zoom: null,
+  readoutExpanded: false,   // mobile only: a new selection lands as the collapsed pill
 };
 
 const data = {
@@ -250,7 +255,8 @@ let map, baseLayer, baseKind, bandsLayer, landLayer, selLayer, pointMarker, zoom
 let rankMarkers = [];
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-const isMobile = () => window.matchMedia('(max-width: 720px)').matches;
+const mobileMQ = window.matchMedia('(max-width: 720px)');
+const isMobile = () => mobileMQ.matches;
 const t = () => I18N[state.lang];
 
 /* ═══════════════════════════ formatting ═══════════════════════════ */
@@ -434,7 +440,7 @@ function round1(v) { return Math.round(v * 10) / 10; }
 function placeControls() {
   if (zoomCtl) zoomCtl.setPosition(isMobile() ? 'topleft' : 'topright');
   syncSheetHeight();
-  syncCtlHeight();
+  syncReadoutState();
 }
 
 function syncSheetHeight() {
@@ -605,6 +611,7 @@ function renderRankMarkers() {
 
 function selectSpot(rank, opts = {}) {
   state.spot = rank;
+  state.readoutExpanded = false;   // every new selection opens as the pill on mobile
   // One card, one subject: a spot takes the readout over from any clicked point.
   if (rank && state.point) {
     state.point = null;
@@ -753,6 +760,7 @@ function sample(scenario, lat, lon) {
 
 function setPoint(p, opts = {}) {
   state.point = p;
+  state.readoutExpanded = false;   // same rule for a clicked or searched point
   if (pointMarker) map.removeLayer(pointMarker);
   pointMarker = L.marker([p.lat, p.lon], { title: p.name || coordText(p.lat, p.lon) }).addTo(map);
   renderReadout();
@@ -782,14 +790,55 @@ function renderReadout() {
 
   el.readout.hidden = !html;
   el.readout.innerHTML = html;
-  el.mapCtl.classList.toggle('mapctl--readout', !!html);   // mobile drops the legend for it
-  if (html) el.readout.querySelector('.readout__close').addEventListener('click', closeReadout);
+  if (html) {
+    for (const b of el.readout.querySelectorAll('.readout__close')) b.addEventListener('click', closeReadout);
+    el.readout.querySelector('.readout__pill').addEventListener('click', () => setReadoutExpanded(true));
+    // Anywhere in the header folds the card back up; the close button keeps its own job.
+    el.readout.querySelector('.readout__top').addEventListener('click', (e) => {
+      if (!isMobile() || e.target.closest('.readout__close')) return;
+      setReadoutExpanded(false);
+    });
+  }
+  syncReadoutState();
+}
+
+function setReadoutExpanded(on) {
+  state.readoutExpanded = on;
+  syncReadoutState();
+}
+
+/** Above the breakpoint there is no pill: the card is always the full card. */
+function syncReadoutState() {
+  const expanded = !isMobile() || state.readoutExpanded;
+  el.readout.classList.toggle('readout--expanded', expanded);
+  el.mapCtl.classList.toggle('mapctl--expanded', expanded && !el.readout.hidden);   // mobile drops the legend for it
+  for (const b of el.readout.querySelectorAll('.readout__pill, .readout__collapse')) {
+    b.setAttribute('aria-expanded', String(expanded));
+  }
   syncCtlHeight();
+}
+
+/** The collapsed state: one line, distance first, place name ellipsised.
+    The label carries the reading too: the visible text is ellipsised, and a bare
+    "expand" would leave a screen reader with no idea what it is expanding. */
+function readoutPill(dist, name) {
+  return `<div class="readout__pillrow">
+      <button type="button" class="readout__pill" aria-controls="readout-card" aria-expanded="false"
+              aria-label="${esc(`${t().expandCard}: ${dist} · ${name}`)}">
+        <span class="readout__pill-dist">${esc(dist)}</span>
+        <span class="readout__pill-sep" aria-hidden="true">·</span>
+        <span class="readout__pill-name">${esc(name)}</span>
+        <span class="readout__chev" aria-hidden="true">&rsaquo;</span>
+      </button>
+      <button type="button" class="readout__close readout__close--pill" aria-label="${esc(t().close)}">&times;</button>
+    </div>`;
 }
 
 function readoutTop(kicker) {
   return `<div class="readout__top">
       <span class="readout__kicker">${esc(kicker)}</span>
+      <button type="button" class="readout__collapse" aria-controls="readout-card" aria-expanded="true"
+              aria-label="${esc(t().collapseCard)}"><span class="readout__chev" aria-hidden="true">&rsaquo;</span></button>
       <button type="button" class="readout__close" aria-label="${esc(t().close)}">&times;</button>
     </div>`;
 }
@@ -803,18 +852,21 @@ function spotCard(s) {
   const prot = s.protected && s.protected.length ? s.protected.join(' · ') : '';
   const near = nearText(s.near);
   const [lat, lon] = s.latlng;
-  return `${readoutTop(t().rankAria(s.rank))}
-    <p class="readout__dist">${esc(km2(s.distance_m))}<small>km</small></p>
-    <p class="readout__cap">${esc(t().readoutTitle)}</p>
-    <p class="readout__name">${esc(prot || near)}</p>
-    ${prot ? `<p class="readout__sub">${esc(near)}</p>` : ''}
-    <p class="readout__road">${esc(t().nearestRoad)}: ${roadText(s.nearest_road)}</p>
-    <div class="readout__foot">
-      <span class="readout__ll">${esc(coordText(lat, lon))}</span>
-      <span class="readout__links">
-        <a class="readout__link" target="_blank" rel="noopener" href="${esc(s.nearest_road.url)}">OSM ↗</a>
-        ${googleLink(lat, lon)}
-      </span>
+  return `${readoutPill(`${km2(s.distance_m)} km`, prot || near)}
+    <div class="readout__card" id="readout-card">
+      ${readoutTop(t().rankAria(s.rank))}
+      <p class="readout__dist">${esc(km2(s.distance_m))}<small>km</small></p>
+      <p class="readout__cap">${esc(t().readoutTitle)}</p>
+      <p class="readout__name">${esc(prot || near)}</p>
+      ${prot ? `<p class="readout__sub">${esc(near)}</p>` : ''}
+      <p class="readout__road">${esc(t().nearestRoad)}: ${roadText(s.nearest_road)}</p>
+      <div class="readout__foot">
+        <span class="readout__ll">${esc(coordText(lat, lon))}</span>
+        <span class="readout__links">
+          <a class="readout__link" target="_blank" rel="noopener" href="${esc(s.nearest_road.url)}">OSM ↗</a>
+          ${googleLink(lat, lon)}
+        </span>
+      </div>
     </div>`;
 }
 
@@ -844,11 +896,18 @@ function pointCard(p) {
        ${active === null || active === undefined ? ''
          : `<p class="readout__say">${esc(t().say[sayIndex(active)])}</p>`}`;
 
-  return `${readoutTop(t().readoutKicker)}
-    ${body}
-    <div class="readout__foot">
-      <span class="readout__ll">${esc(coordText(p.lat, p.lon))}</span>
-      <span class="readout__links">${googleLink(p.lat, p.lon)}</span>
+  const pillDist = loading ? t().computing
+    : active === null || active === undefined ? t().noValue
+      : approx(active);
+
+  return `${readoutPill(pillDist, p.name || t().readoutPoint)}
+    <div class="readout__card" id="readout-card">
+      ${readoutTop(t().readoutKicker)}
+      ${body}
+      <div class="readout__foot">
+        <span class="readout__ll">${esc(coordText(p.lat, p.lon))}</span>
+        <span class="readout__links">${googleLink(p.lat, p.lon)}</span>
+      </div>
     </div>`;
 }
 
@@ -1044,6 +1103,7 @@ function wireUI() {
 
   wireSearch();
   window.addEventListener('hashchange', () => { readHash(); applyHashState(); });
+  mobileMQ.addEventListener('change', placeControls);   // crossing it re-decides pill vs card
 
   el.panelBody.addEventListener('scroll', syncScrollHint, { passive: true });
   if (typeof ResizeObserver === 'function') {

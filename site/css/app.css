@@ -601,6 +601,50 @@ button, input { font: inherit; color: inherit; }
 .readout__links { display: flex; gap: 10px; margin-left: auto; }
 .readout__link { font-size: 11.5px; white-space: nowrap; }
 
+/* Collapsed pill: a mobile-only state, inert above the breakpoint. */
+
+.readout__pillrow { display: none; align-items: center; min-height: 40px; }
+
+.readout__pill {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 9px 2px 9px 14px;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.readout__pill:focus-visible { outline-offset: -4px; border-radius: 999px; }
+
+.readout__pill-dist {
+  flex: 0 0 auto;
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+}
+.readout__pill-sep { flex: 0 0 auto; color: var(--ink-2); }
+.readout__pill-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.readout__chev { flex: 0 0 auto; font-size: 15px; line-height: 1; color: var(--accent-ink); }
+
+.readout__close--pill { margin: 0 8px 0 0; width: 30px; height: 30px; font-size: 18px; }
+
+/* The collapse affordance only exists in the mobile expanded state. */
+.readout__collapse { display: none; }
+
 /* ───────────────────────── legend ───────────────────────── */
 
 .legend-card {
@@ -675,8 +719,33 @@ button, input { font: inherit; color: inherit; }
     max-width: calc(100% - 20px);
   }
 
-  /* The map band between header and sheet is short: the card outranks the legend. */
-  .mapctl--readout .legend-card { display: none; }
+  /* The map band between header and sheet is short: a new selection lands as a
+     one-line pill, and only the expanded card outranks the legend. */
+  .mapctl--expanded .legend-card { display: none; }
+
+  .readout:not(.readout--expanded) {
+    padding: 0;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+  }
+  .readout:not(.readout--expanded) .readout__pillrow { display: flex; }
+  .readout:not(.readout--expanded) .readout__card { display: none; }
+
+  .readout--expanded .readout__collapse {
+    display: grid;
+    place-items: center;
+    margin: -4px 0 0 auto;
+    width: 26px; height: 26px;
+    padding: 0;
+    border: 0; border-radius: 50%;
+    background: none;
+    color: var(--ink-2);
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+  .readout--expanded .readout__collapse:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); color: var(--ink); }
+  .readout--expanded .readout__collapse .readout__chev { color: inherit; transform: rotate(-90deg); }
+  .readout--expanded .readout__close { margin-left: 2px; }
 
   .panel {
     top: auto; left: 0; right: 0; bottom: 0;
