@@ -14,14 +14,27 @@
 
 <header class="hdr">
   <div class="hdr__brand">
-    <h1 class="hdr__title">Atokiausia Lietuva</h1>
+    <h1 class="hdr__title">
+      <button type="button" class="hdr__reset" id="brand-reset"
+              data-i18n-aria="resetView" data-i18n-title="resetView">Atokiausia Lietuva</button>
+    </h1>
     <p class="hdr__sub" data-i18n="subtitle"></p>
   </div>
 
   <div class="hdr__center">
-    <div class="seg" role="group" id="scenario-seg" data-i18n-aria="scenarioGroup">
-      <button type="button" class="seg__btn" data-scenario="A" aria-pressed="true"></button>
-      <button type="button" class="seg__btn" data-scenario="B" aria-pressed="false"></button>
+    <div class="scenario" id="scenario-wrap">
+      <div class="seg" role="group" id="scenario-seg" data-i18n-aria="scenarioGroup">
+        <button type="button" class="seg__btn" data-scenario="A" aria-pressed="true"></button>
+        <button type="button" class="seg__btn" data-scenario="B" aria-pressed="false"></button>
+      </div>
+
+      <button type="button" class="info-btn" id="scenario-info" aria-expanded="false"
+              aria-controls="scenario-pop" data-i18n-aria="scenarioHelp" data-i18n-title="scenarioHelp">?</button>
+
+      <div class="pop" id="scenario-pop" role="dialog" aria-modal="false" data-i18n-aria="scenarioHelp" hidden>
+        <p class="pop__item"><b data-i18n="scenarioA"></b><span data-i18n="scenarioAHint"></span></p>
+        <p class="pop__item"><b data-i18n="scenarioB"></b><span data-i18n="scenarioBHint"></span></p>
+      </div>
     </div>
   </div>
 
@@ -46,15 +59,23 @@
   <div id="map"></div>
 
   <div class="mapctl" id="mapctl">
-    <div class="seg seg--sm" role="group" id="basemap-seg" data-i18n-aria="basemapLabel">
-      <button type="button" class="seg__btn" data-base="osm" aria-pressed="false" data-i18n="baseOsm"></button>
-      <button type="button" class="seg__btn" data-base="sat" aria-pressed="true" data-i18n="baseSat"></button>
+    <div class="mapctl__row">
+      <div class="seg seg--sm" role="group" id="basemap-seg" data-i18n-aria="basemapLabel">
+        <button type="button" class="seg__btn" data-base="osm" aria-pressed="false" data-i18n="baseOsm"></button>
+        <button type="button" class="seg__btn" data-base="sat" aria-pressed="true" data-i18n="baseSat"></button>
+      </div>
+
+      <div class="mapctl__check">
+        <input type="checkbox" id="bands-toggle" checked>
+        <label for="bands-toggle" data-i18n="bandsToggle"></label>
+      </div>
     </div>
 
-    <div class="mapctl__check">
-      <input type="checkbox" id="bands-toggle" checked>
-      <label for="bands-toggle" data-i18n="bandsToggle"></label>
+    <div class="legend-card" id="legend-card" data-i18n-aria="legendHeading" data-i18n-title="legendHint">
+      <ul class="legend" id="legend"></ul>
     </div>
+
+    <section class="readout" id="readout" hidden aria-live="polite"></section>
   </div>
 
   <aside class="panel" id="panel" aria-label="Info">
@@ -64,19 +85,10 @@
     </button>
 
     <div class="panel__body" id="panel-body">
-      <section class="card readout" id="readout" hidden aria-live="polite"></section>
-
       <section class="block" id="spots-block">
         <h2 class="block__h" data-i18n="spotsHeading"></h2>
         <p class="block__note" id="spots-note"></p>
         <ol class="spots" id="spots"></ol>
-      </section>
-
-      <section class="block">
-        <h2 class="block__h" data-i18n="legendHeading"></h2>
-
-        <p class="legend__intro" data-i18n="legendIntro"></p>
-        <ul class="legend" id="legend"></ul>
       </section>
 
       <footer class="panel__foot">

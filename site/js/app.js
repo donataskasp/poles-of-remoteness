@@ -12,8 +12,10 @@ const I18N = {
     scenarioGroup: 'Kelių apibrėžimas',
     scenarioA: 'Su miško keliukais',
     scenarioB: 'Tik tikri keliai',
-    scenarioAHint: 'Skaičiuojami visi važiuojami keliai, įskaitant miško ir lauko keliukus.',
-    scenarioBHint: 'Miško ir lauko keliukai neskaičiuojami, lieka tik tikri keliai ir gatvės.',
+    scenarioAHint: 'Skaičiuojami visi pravažiuojami keliai, įskaitant miško ir lauko keliukus.',
+    scenarioBHint: 'Keliukai neskaičiuojami, lieka tik prižiūrimi keliai nuo magistralių iki gatvių.',
+    scenarioHelp: 'Ką reiškia šie du variantai?',
+    resetView: 'Rodyti visą Lietuvą',
     searchLabel: 'Ieškoti vietovės arba koordinačių',
     searchPlaceholder: 'Kaimas, miestelis arba koordinatės…',
     searchLoading: 'Kraunamas vietovardžių sąrašas…',
@@ -35,13 +37,14 @@ const I18N = {
     baseOsm: 'Žemėlapis',
     baseSat: 'Palydovas',
     bandsToggle: 'Atokumo zonos',
-    legendIntro: 'Plotai, nutolę nuo bet kokio kelio bent:',
-    legendItem: (km) => `${km} km ir daugiau`,
+    legendHint: 'Plotai, nutolę nuo bet kokio kelio bent tiek',
+    legendItem: (km) => `${km} km`,
 
     readoutKicker: 'Pasirinktas taškas',
     readoutPoint: 'Taškas žemėlapyje',
     readoutTitle: 'Iki artimiausio kelio',
     nodata: 'Jūra arba užsienis, duomenų nėra',
+    noValue: 'Duomenų nėra',
     computing: 'Skaičiuojama…',
     rasterFail: 'Nepavyko įkelti atstumų tinklelio.',
     googleSat: 'Google palydovas ↗',
@@ -79,7 +82,9 @@ const I18N = {
     scenarioA: 'Tracks count',
     scenarioB: 'Real roads only',
     scenarioAHint: 'Every drivable way counts, including forest and field tracks.',
-    scenarioBHint: 'Forest and field tracks are excluded; real roads and streets only.',
+    scenarioBHint: 'Tracks are excluded, only maintained roads from motorways down to streets.',
+    scenarioHelp: 'What do these two options mean?',
+    resetView: 'Show all of Lithuania',
     searchLabel: 'Search for a place or coordinates',
     searchPlaceholder: 'Village, town or coordinates…',
     searchLoading: 'Loading the gazetteer…',
@@ -101,13 +106,14 @@ const I18N = {
     baseOsm: 'Map',
     baseSat: 'Satellite',
     bandsToggle: 'Remoteness bands',
-    legendIntro: 'Area at least this far from any road:',
-    legendItem: (km) => `${km} km and more`,
+    legendHint: 'Areas at least this far from any road',
+    legendItem: (km) => `${km} km`,
 
     readoutKicker: 'Selected point',
     readoutPoint: 'Point on the map',
     readoutTitle: 'To the nearest road',
     nodata: 'Sea or abroad, no data',
+    noValue: 'No data',
     computing: 'Computing…',
     rasterFail: 'Could not load the distance grid.',
     googleSat: 'Google satellite ↗',
@@ -211,8 +217,16 @@ const BASEMAPS = {
 
 /* ═══════════════════════════ state ═══════════════════════════ */
 
+/** Lowest-priority language pick: the browser's own list. Hash and prefs override it. */
+function browserLang() {
+  const tags = navigator.languages && navigator.languages.length
+    ? navigator.languages
+    : [navigator.language || ''];
+  return tags.some((tag) => String(tag).toLowerCase().split('-')[0] === 'lt') ? 'lt' : 'en';
+}
+
 const state = {
-  lang: 'lt',
+  lang: browserLang(),
   scenario: 'A',
   spot: null,          // rank number or null
   bands: true,
@@ -346,7 +360,12 @@ function cacheEls() {
   el.spots = document.getElementById('spots');
   el.spotsNote = document.getElementById('spots-note');
   el.legend = document.getElementById('legend');
+  el.legendCard = document.getElementById('legend-card');
   el.readout = document.getElementById('readout');
+  el.brandReset = document.getElementById('brand-reset');
+  el.scenarioWrap = document.getElementById('scenario-wrap');
+  el.scenarioInfo = document.getElementById('scenario-info');
+  el.scenarioPop = document.getElementById('scenario-pop');
   el.q = document.getElementById('q');
   el.qList = document.getElementById('q-list');
   el.qClear = document.getElementById('q-clear');
@@ -509,6 +528,13 @@ function renderLegend(gj) {
   el.legend.innerHTML = kms
     .map((k) => `<li><span class="sw" style="background:${BAND_COLORS[k]}"></span><span>${esc(t().legendItem(k))}</span></li>`)
     .join('');
+  syncLegend();
+}
+
+/** The legend only means something while the bands are drawn. */
+function syncLegend() {
+  el.legendCard.hidden = !state.bands || !el.legend.children.length;
+  syncCtlHeight();
 }
 
 /* ═══════════════════════════ spots ═══════════════════════════ */
@@ -579,6 +605,12 @@ function renderRankMarkers() {
 
 function selectSpot(rank, opts = {}) {
   state.spot = rank;
+  // One card, one subject: a spot takes the readout over from any clicked point.
+  if (rank && state.point) {
+    state.point = null;
+    state.zoom = null;
+    if (pointMarker) { map.removeLayer(pointMarker); pointMarker = null; }
+  }
   drawSelection();
   renderRankMarkers();
   for (const b of el.spots.querySelectorAll('.spot')) {
@@ -587,6 +619,7 @@ function selectSpot(rank, opts = {}) {
   for (const li of el.spots.querySelectorAll('.spot-item')) {
     li.classList.toggle('is-on', Number(li.dataset.item) === rank);
   }
+  renderReadout();
   if (!opts.silent) {
     if (rank) {
       viewSpot(activeSpots().find((x) => x.rank === rank));
@@ -742,49 +775,94 @@ function clearPoint() {
   writeHash();
 }
 
+/** The floating card: a clicked point wins over a selected spot, since it is the newer act. */
 function renderReadout() {
-  const p = state.point;
-  if (!p) { el.readout.hidden = true; el.readout.innerHTML = ''; syncScrollHint(); return; }
+  const spot = state.spot ? activeSpots().find((s) => s.rank === state.spot) : null;
+  const html = state.point ? pointCard(state.point) : spot ? spotCard(spot) : '';
 
+  el.readout.hidden = !html;
+  el.readout.innerHTML = html;
+  el.mapCtl.classList.toggle('mapctl--readout', !!html);   // mobile drops the legend for it
+  if (html) el.readout.querySelector('.readout__close').addEventListener('click', closeReadout);
+  syncCtlHeight();
+}
+
+function readoutTop(kicker) {
+  return `<div class="readout__top">
+      <span class="readout__kicker">${esc(kicker)}</span>
+      <button type="button" class="readout__close" aria-label="${esc(t().close)}">&times;</button>
+    </div>`;
+}
+
+function googleLink(lat, lon) {
+  return `<a class="readout__link" target="_blank" rel="noopener"
+     href="https://www.google.com/maps?q=${lat.toFixed(5)},${lon.toFixed(5)}&t=k">${esc(t().googleSat)}</a>`;
+}
+
+function spotCard(s) {
+  const prot = s.protected && s.protected.length ? s.protected.join(' · ') : '';
+  const near = nearText(s.near);
+  const [lat, lon] = s.latlng;
+  return `${readoutTop(t().rankAria(s.rank))}
+    <p class="readout__dist">${esc(km2(s.distance_m))}<small>km</small></p>
+    <p class="readout__cap">${esc(t().readoutTitle)}</p>
+    <p class="readout__name">${esc(prot || near)}</p>
+    ${prot ? `<p class="readout__sub">${esc(near)}</p>` : ''}
+    <p class="readout__road">${esc(t().nearestRoad)}: ${roadText(s.nearest_road)}</p>
+    <div class="readout__foot">
+      <span class="readout__ll">${esc(coordText(lat, lon))}</span>
+      <span class="readout__links">
+        <a class="readout__link" target="_blank" rel="noopener" href="${esc(s.nearest_road.url)}">OSM ↗</a>
+        ${googleLink(lat, lon)}
+      </span>
+    </div>`;
+}
+
+function pointCard(p) {
   const a = sample('A', p.lat, p.lon);
   const b = sample('B', p.lat, p.lon);
   const loading = a === undefined || b === undefined;
   const nodata = !loading && a === null && b === null;
   const active = state.scenario === 'A' ? a : b;
+  const other = state.scenario === 'A' ? b : a;
+  const otherLabel = state.scenario === 'A' ? t().scenarioB : t().scenarioA;
 
-  const rows = [
-    { key: 'A', label: t().scenarioA, v: a },
-    { key: 'B', label: t().scenarioB, v: b },
-  ]
-    .map((r) => `<div class="readout__row${r.key === state.scenario ? ' readout__row--on' : ''}">
-        <span class="readout__row-l">${esc(r.label)}</span>
-        <span class="readout__row-v">${r.v === undefined ? esc(t().computing) : r.v === null ? '—' : esc(approx(r.v))}</span>
-      </div>`)
-    .join('');
+  const head = loading
+    ? `<p class="readout__wait">${esc(t().computing)}</p>`
+    : active === null
+      ? `<p class="readout__wait">${esc(data.rasterError ? t().rasterFail : t().noValue)}</p>`
+      : `<p class="readout__dist">${esc(approx(active))}</p>
+         <p class="readout__cap">${esc(t().readoutTitle)} · ${esc(state.scenario === 'A' ? t().scenarioA : t().scenarioB)}</p>`;
 
   const body = nodata
-    ? `<p class="readout__nodata">${esc(t().nodata)}</p>`
-    : `<p class="readout__cap">${esc(t().readoutTitle)}</p>
-       <div class="readout__rows">${rows}</div>
-       ${loading || active === null ? (data.rasterError ? `<p class="readout__say">${esc(t().rasterFail)}</p>` : '')
+    ? `<p class="readout__wait">${esc(t().nodata)}</p>
+       <p class="readout__name">${esc(p.name || t().readoutPoint)}</p>`
+    : `${head}
+       <p class="readout__name">${esc(p.name || t().readoutPoint)}</p>
+       ${other === undefined || other === null ? ''
+         : `<p class="readout__road">${esc(otherLabel)}: ${esc(approx(other))}</p>`}
+       ${active === null || active === undefined ? ''
          : `<p class="readout__say">${esc(t().say[sayIndex(active)])}</p>`}`;
 
-  el.readout.hidden = false;
-  el.readout.innerHTML = `
-    <div class="readout__top">
-      <span class="readout__kicker">${esc(t().readoutKicker)}</span>
-      <button type="button" class="readout__close" id="readout-close" aria-label="${esc(t().close)}">&times;</button>
-    </div>
-    <p class="readout__name">${esc(p.name || t().readoutPoint)}</p>
+  return `${readoutTop(t().readoutKicker)}
     ${body}
     <div class="readout__foot">
       <span class="readout__ll">${esc(coordText(p.lat, p.lon))}</span>
-      <a class="readout__link" target="_blank" rel="noopener"
-         href="https://www.google.com/maps?q=${p.lat.toFixed(5)},${p.lon.toFixed(5)}&t=k">${esc(t().googleSat)}</a>
+      <span class="readout__links">${googleLink(p.lat, p.lon)}</span>
     </div>`;
+}
 
-  document.getElementById('readout-close').addEventListener('click', clearPoint);
-  syncScrollHint();
+/** Closing the card drops the selection behind it, but leaves the viewport alone. */
+function closeReadout() {
+  if (state.spot !== null) selectSpot(null, { silent: true });
+  if (state.point) clearPoint();
+}
+
+/** The title is the way back: full country, nothing selected. */
+function resetView() {
+  if (state.spot !== null) selectSpot(null, { silent: true });
+  if (state.point) clearPoint();
+  fitCountry(true);
 }
 
 /* ═══════════════════════════ search ═══════════════════════════ */
@@ -940,8 +1018,12 @@ function wireUI() {
     if (bandsLayer) {
       if (state.bands) bandsLayer.addTo(map); else map.removeLayer(bandsLayer);
     }
+    syncLegend();
     try { localStorage.setItem('al.bands', state.bands ? '1' : '0'); } catch { /* ignore */ }
   });
+
+  el.brandReset.addEventListener('click', resetView);
+  wireScenarioHelp();
 
   el.aboutBtn.addEventListener('click', () => {
     if (typeof el.about.showModal === 'function') el.about.showModal();
@@ -955,9 +1037,9 @@ function wireUI() {
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && state.spot !== null && document.activeElement !== el.q && !el.about.open) {
-      selectSpot(null);
-    }
+    if (e.key !== 'Escape' || el.about.open) return;
+    if (popOpen()) { closePop(el.scenarioWrap.contains(document.activeElement)); return; }
+    if (state.spot !== null && document.activeElement !== el.q) selectSpot(null);
   });
 
   wireSearch();
@@ -968,8 +1050,54 @@ function wireUI() {
     const ro = new ResizeObserver(() => { syncSheetHeight(); syncCtlHeight(); syncScrollHint(); });
     ro.observe(el.panel);
     ro.observe(el.mapCtl);
+    ro.observe(el.readout);
   }
   syncScrollHint();
+}
+
+/* ── scenario explainer ── */
+
+let popPinned = false;
+let popTimer;
+
+function popOpen() { return !el.scenarioPop.hidden; }
+
+function openPop() {
+  clearTimeout(popTimer);
+  el.scenarioPop.hidden = false;
+  el.scenarioInfo.setAttribute('aria-expanded', 'true');
+}
+
+function closePop(refocus) {
+  clearTimeout(popTimer);
+  popPinned = false;
+  el.scenarioPop.hidden = true;
+  el.scenarioInfo.setAttribute('aria-expanded', 'false');
+  if (refocus) el.scenarioInfo.focus();
+}
+
+/** Hover on a pointer device, click or tap anywhere else; a click pins it open. */
+function wireScenarioHelp() {
+  const canHover = window.matchMedia('(hover: hover)').matches;
+  const leave = () => { if (!popPinned) popTimer = setTimeout(() => closePop(false), 160); };
+
+  el.scenarioInfo.addEventListener('click', () => {
+    if (popPinned) { closePop(false); return; }
+    popPinned = true;
+    openPop();
+  });
+
+  if (canHover) {
+    el.scenarioInfo.addEventListener('mouseenter', openPop);
+    el.scenarioInfo.addEventListener('mouseleave', leave);
+    el.scenarioPop.addEventListener('mouseenter', () => clearTimeout(popTimer));
+    el.scenarioPop.addEventListener('mouseleave', leave);
+  }
+
+  document.addEventListener('pointerdown', (e) => {
+    if (!popOpen() || el.scenarioWrap.contains(e.target)) return;
+    closePop(false);
+  });
 }
 
 function syncScrollHint() {
@@ -990,6 +1118,10 @@ function applyLang() {
   for (const n of document.querySelectorAll('[data-i18n-aria]')) {
     const v = d[n.dataset.i18nAria];
     if (typeof v === 'string') n.setAttribute('aria-label', v);
+  }
+  for (const n of document.querySelectorAll('[data-i18n-title]')) {
+    const v = d[n.dataset.i18nTitle];
+    if (typeof v === 'string') n.title = v;
   }
   for (const b of el.langSeg.querySelectorAll('[data-lang]')) {
     b.setAttribute('aria-pressed', String(b.dataset.lang === state.lang));
@@ -1085,7 +1217,7 @@ function writeHash() {
     p.set('ll', `${state.point.lat.toFixed(5)},${state.point.lon.toFixed(5)}`);
     if (state.zoom) p.set('z', String(state.zoom));
   }
-  if (state.lang !== 'lt') p.set('lang', state.lang);
+  p.set('lang', state.lang);            // always: a shared link keeps the sharer's language
   if (state.base !== 'sat') p.set('base', state.base);
   const next = `#${p.toString().replace(/%2C/g, ',')}`;
   if (next === location.hash) return;
