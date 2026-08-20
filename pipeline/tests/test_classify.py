@@ -4,6 +4,7 @@ from pyogrio import read_info
 from pyogrio.raw import read
 
 from poles import classify
+from poles.extract import write_union_vrt
 from poles.workspace import Workspace
 from tests.helpers import write_fgb
 
@@ -62,7 +63,7 @@ def _highways_fixture(ws: Workspace) -> dict[int, dict]:
         i += 1
         rows[1000 + i] = tags
     geoms = [shapely.LineString([(25 + k * 0.001, 55), (25 + k * 0.001, 55.001)]) for k in range(len(rows))]
-    write_fgb(ws.dir("extract") / "highways.fgb", "highways", geoms, {
+    fgb = write_fgb(ws.dir("extract") / "highways.fgb", "highways", geoms, {
         "osm_id": list(rows),
         "highway": [t.get("highway") for t in rows.values()],
         "name": [t.get("name") for t in rows.values()],
@@ -70,6 +71,8 @@ def _highways_fixture(ws: Workspace) -> dict[int, dict]:
         "ice_road": [t.get("ice_road") for t in rows.values()],
         "winter_road": [t.get("winter_road") for t in rows.values()],
     })
+    # The extract stage hands every layer on as a VRT, so classify reads the VRT, not the FlatGeobuf.
+    write_union_vrt(ws.dir("extract") / "highways.vrt", "highways", [fgb])
     return rows
 
 
@@ -86,8 +89,11 @@ def test_run_matches_classify_highway_row_by_row(tmp_path, cfg, log):
     assert got_a == {i for i, t in rows.items() if classify.classify_highway(t)[0]}
     assert got_b == {i for i, t in rows.items() if classify.classify_highway(t)[1]}
     assert meta == {"roads_A": len(got_a), "roads_B": len(got_b)}
-    info = read_info(str(ws.dir("classify") / "roads_A.fgb"))
+    info = read_info(str(ws.dir("classify") / "roads_A.fgb"), force_feature_count=True)
     assert list(info["fields"]) == ["way_id", "highway", "name", "ref"]
+    # No spatial index anywhere in stage 1 (issue #16): a packed R-tree over a continent is unreadable.
+    if "fast_spatial_filter" in info.get("capabilities", {}):
+        assert info["capabilities"]["fast_spatial_filter"] is False
 
 
 def test_run_writes_two_layers_with_subset_relation(tmp_path, cfg, log):

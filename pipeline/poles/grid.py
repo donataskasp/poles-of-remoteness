@@ -118,7 +118,8 @@ def write_float_tif(path: Path, data: np.ndarray, frame: Frame) -> None:
 
 def build_land_mask(land_fgb: Path, water_fgb: Path, frame: Frame, out_tif: Path, min_water_m2: float,
                     log: logging.Logger, workdir: Path) -> int:
-    """land = 1 where osmdata land polygons cover the cell centre, minus water polygons of at least min_water_m2
+    """land = 1 where osmdata land polygons cover the cell centre, minus water polygons of at least min_water_m2.
+    The sources are the extract stage's `.vrt` handles (any OGR source with layers `land` and `water` works).
     (area measured in the frame's equal-area CRS). Cell-centre rule for both; no ALL_TOUCHED.
     Returns the peak RSS in bytes over the commands it ran."""
     tools_log = Path(workdir) / "tools.log"
@@ -304,7 +305,7 @@ def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
             del dist
 
     with _step(log, meta, "land") as info:
-        info["tool_peak_rss_bytes"] = build_land_mask(ws.shared_dir() / "land.fgb", extract_dir / "water.fgb", frame,
+        info["tool_peak_rss_bytes"] = build_land_mask(ws.shared_dir() / "land.vrt", extract_dir / "water.vrt", frame,
                                                       out_dir / "land.tif", 1_000_000, log, out_dir)
         with rasterio.open(out_dir / "land.tif") as ds:
             meta["land_cells"] = int(sum(int(ds.read(1, window=w).sum()) for _, w in ds.block_windows(1)))

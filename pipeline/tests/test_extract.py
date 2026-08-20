@@ -13,6 +13,7 @@ from poles.extract import chunk_lines
 from poles.osmium import osmium
 from poles.shell import ToolError
 from poles.workspace import Workspace
+from tests.helpers import write_fgb
 
 
 def _land_zip(tmp_path):
@@ -42,6 +43,10 @@ def _fields(path) -> list[str]:
     return list(read_info(str(path))["fields"])
 
 
+def _vrt_count(path, layer) -> int:
+    return int(read_info(str(path), layer=layer, force_feature_count=True)["features"])
+
+
 def _column(path, name):
     meta, _, _, field_data = read(str(path), read_geometry=False)
     return list(field_data[list(meta["fields"]).index(name)])
@@ -63,13 +68,67 @@ def test_extract_tiny_fixture_produces_five_layers_with_expected_counts(tmp_path
     assert _column(ex / "water.fgb", "name") == ["Ezeras"]
     assert read_info(str(ex / "water.fgb"))["geometry_type"] in ("Polygon", "MultiPolygon")
     assert (ws.shared_dir() / "land.fgb").is_file() and read_info(str(ws.shared_dir() / "land.fgb"))["features"] == 1
+    # Every layer is handed on as a VRT, whichever branch produced it, land included.
+    for layer in ("highways", "boundaries", "places", "water"):
+        assert _vrt_count(ex / f"{layer}.vrt", layer) == meta["counts"][layer]
+    assert _vrt_count(ws.shared_dir() / "land.vrt", "land") == 1
     assert not list(ex.glob("*.geojsonseq")) and not list(ex.glob("*-filtered.pbf"))
-    # The chunked conversion leaves no chunks, no chunk logs and no VRT behind.
-    assert not list(ex.glob("*.part-*")) and not list(ex.glob("*.vrt"))
+    # The chunked conversion leaves no chunks, no chunk logs and no scratch merge VRT behind.
+    assert not list(ex.glob("*.part-*")) and not list(ex.glob("*.merge.vrt"))
     # Every artefact that survives carries its done marker, so a rerun can skip it.
-    assert {p.name for p in ex.glob("*.ok")} == {
-        "filtered.pbf.ok", "highways.pbf.ok", "highways.fgb.ok", "boundaries.pbf.ok", "boundaries.fgb.ok",
-        "places.pbf.ok", "places.fgb.ok", "water.pbf.ok", "water.fgb.ok"}
+    assert {p.name for p in ex.glob("*.ok")} == {"filtered.pbf.ok"} | {
+        f"{layer}.{kind}.ok" for layer in ("highways", "boundaries", "places", "water")
+        for kind in ("pbf", "fgb", "vrt")}
+
+
+def test_extract_large_layer_keeps_chunks_behind_vrt(tmp_path, tiny_pbf, cfg, log, monkeypatch):
+    """Above the merge cap the chunks stay put and the VRT unions them: a single FlatGeobuf that big grows
+    a packed R-tree GDAL cannot read back (issue #16)."""
+    monkeypatch.setattr(extract, "CHUNK_BYTES", 1)      # one feature per chunk
+    monkeypatch.setattr(extract, "MERGE_MAX_FEATURES", 1)
+    ws = _workspace(tmp_path, tiny_pbf)
+    meta = extract.run(cfg, ws, log, land_zip=_land_zip(tmp_path))
+    ex = ws.dir("extract")
+    assert meta["counts"]["highways"] == 2
+    assert not (ex / "highways.fgb").exists()
+    assert sorted(p.name for p in ex.glob("highways.part-*.fgb")) == [
+        "highways.part-0000.fgb", "highways.part-0001.fgb"]
+    assert _vrt_count(ex / "highways.vrt", "highways") == 2
+    fields = set(read_info(str(ex / "highways.vrt"), layer="highways")["fields"])
+    assert {"osm_id", "highway", "name", "ref", "ice_road"} <= fields
+    # The chunk text and per chunk logs still go, only the chunk FlatGeobufs stay.
+    assert not list(ex.glob("*.geojsonseq")) and not list(ex.glob("*.part-*.log"))
+    # The one-feature layers are under the cap and still merge into a single file.
+    assert (ex / "water.fgb").is_file() and not list(ex.glob("water.part-*"))
+
+
+def test_extract_upgrades_a_layer_done_by_the_old_layout(tmp_path, tiny_pbf, cfg, log, monkeypatch):
+    """A layer finished before VRT handles existed keeps its FlatGeobuf and only gains the VRT: re-exporting
+    it would cost an hour on a continent."""
+    ws = _workspace(tmp_path, tiny_pbf)
+    ex = ws.dir("extract")
+    write_fgb(ex / "water.fgb", "water", [shapely.box(25.100, 55.040, 25.132, 55.058)],
+              {"osm_id": [104], "natural": ["water"], "water": ["lake"], "name": ["Ezeras"]})
+    (ex / "water.fgb.ok").touch()
+
+    calls: list[list[str]] = []
+    real = extract.osmium
+
+    def record(args, *a, **kw):
+        calls.append([str(x) for x in args])
+        return real(args, *a, **kw)
+
+    monkeypatch.setattr(extract, "osmium", record)
+    meta = extract.run(cfg, ws, log, land_zip=_land_zip(tmp_path))
+
+    def exported(layer: str) -> bool:
+        return any(c[0] == "export" and any(f"{layer}.geojsonseq" in x for x in c) for c in calls)
+
+    assert (ex / "water.vrt").is_file() and (ex / "water.vrt.ok").is_file()
+    assert _vrt_count(ex / "water.vrt", "water") == 1 and meta["counts"]["water"] == 1
+    assert _column(ex / "water.fgb", "name") == ["Ezeras"]
+    assert not exported("water"), "the finished layer must not be exported again"
+    assert exported("highways"), "the unfinished layers must still be exported"
 
 
 def test_extract_rerun_skips_osmium_when_markers_exist(tmp_path, tiny_pbf, cfg, log, monkeypatch):
@@ -101,7 +160,26 @@ def test_extract_with_one_feature_per_chunk_keeps_every_row_and_field(tmp_path, 
     assert sorted(_column(ex / "highways.fgb", "highway")) == ["primary", "track"]
     assert sorted(v for v in _column(ex / "highways.fgb", "name") if v) == ["Main road"]
     assert sorted(v for v in _column(ex / "highways.fgb", "ref") if v) == ["T1"]
-    assert not list(ex.glob("*.part-*")) and not list(ex.glob("*.vrt")) and not list(ex.glob("*.geojsonseq"))
+    assert not list(ex.glob("*.part-*")) and not list(ex.glob("*.merge.vrt")) and not list(ex.glob("*.geojsonseq"))
+    assert _vrt_count(ex / "highways.vrt", "highways") == 2
+
+
+def test_extract_rebuilds_a_merged_layer_that_is_over_the_cap(tmp_path, tiny_pbf, cfg, log, monkeypatch):
+    """The layer Europe already merged is over the cap and unreadable. Wrapping it in a VRT would hand the
+    broken file to every later stage, so an over-cap FlatGeobuf on disk is dropped and rebuilt (issue #16)."""
+    monkeypatch.setattr(extract, "MERGE_MAX_FEATURES", 0)
+    ws = _workspace(tmp_path, tiny_pbf)
+    ex = ws.dir("extract")
+    write_fgb(ex / "water.fgb", "water", [shapely.box(25.100, 55.040, 25.132, 55.058)],
+              {"osm_id": [104], "natural": ["water"], "water": ["lake"], "name": ["Stale"]})
+    (ex / "water.fgb.ok").touch()
+
+    meta = extract.run(cfg, ws, log, land_zip=_land_zip(tmp_path))
+
+    assert not (ex / "water.fgb").exists() and not (ex / "water.fgb.ok").exists()
+    assert _vrt_count(ex / "water.vrt", "water") == 1 and meta["counts"]["water"] == 1
+    # Rebuilt from the PBF, so the stale row is gone.
+    assert _column(ex / "water.part-0000.fgb", "name") == ["Ezeras"]
 
 
 def test_chunk_lines_splits_on_line_boundaries_and_roundtrips(tmp_path):

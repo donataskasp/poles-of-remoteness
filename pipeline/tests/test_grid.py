@@ -9,6 +9,7 @@ from pyproj import Transformer
 from scipy.ndimage import distance_transform_edt
 
 from poles import grid
+from poles.extract import write_union_vrt
 from poles.poly import parse_poly
 from poles.workspace import Workspace
 from tests.helpers import write_fgb
@@ -190,9 +191,11 @@ def test_run_on_synthetic_inputs(tmp_path, cfg, log, monkeypatch):
     far = shapely.LineString([(10.12, 52.05), (10.16, 52.05)])
     write_fgb(ws.dir("classify") / "roads_A.fgb", "roads_A", [near, far], {"way_id": [1, 2]})
     write_fgb(ws.dir("classify") / "roads_B.fgb", "roads_B", [far], {"way_id": [2]})
-    write_fgb(ws.dir("extract") / "water.fgb", "water", [shapely.box(10.03, 52.03, 10.06, 52.05)], {"osm_id": [1]})
-    write_fgb(ws.shared_dir() / "land.fgb", "land",
-              [shapely.box(9.7, 51.6, 10.5, 52.4).segmentize(0.01)], {"fid": [1]})
+    water_fgb = write_fgb(ws.dir("extract") / "water.fgb", "water", [shapely.box(10.03, 52.03, 10.06, 52.05)], {"osm_id": [1]})
+    write_union_vrt(ws.dir("extract") / "water.vrt", "water", [water_fgb])
+    land_fgb = write_fgb(ws.shared_dir() / "land.fgb", "land",
+                         [shapely.box(9.7, 51.6, 10.5, 52.4).segmentize(0.01)], {"fid": [1]})
+    write_union_vrt(ws.shared_dir() / "land.vrt", "land", [land_fgb])
 
     meta = grid.run(region, ws, log)
 
