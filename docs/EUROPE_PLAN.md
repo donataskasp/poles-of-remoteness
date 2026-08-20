@@ -107,7 +107,7 @@ work/                            gitignored; <region>/<snapshot>/<stage>/
 
 Defined once here; tasks reference them by name. Types are Python unless marked JS.
 
-- `RegionConfig` (dataclass, `poles/config.py`): `id, name, sources: list[str], supplement_sources: list[str], coarse_crs: str, coarse_res_m: int, unit_admin_level: int, unit_countries: list[str] | None, unit_exclude: list[str], unit_code_tag: str, territory_mask: list[dict], edge_mask_m: int, max_distance_m: int, top_n: int, detail_res_m: int, detail_window_m: int, class_table: list[int] | None`. `load_region(path) -> RegionConfig` validates types and required keys and raises `ConfigError` with the offending key.
+- `RegionConfig` (dataclass, `poles/config.py`): `id, name, sources: list[str], supplement_sources: list[str], coarse_crs: str, coarse_res_m: int, unit_admin_level: int, unit_countries: list[str] | None, unit_exclude: list[str], unit_code_tag: str, territory_mask: list[dict], edge_mask_m: int, max_distance_m: int, top_n: int, detail_res_m: int, detail_window_m: int, class_table: list[int] | None, expected_units: int | None, transcontinental: list[str]`. `load_region(path) -> RegionConfig` validates types and required keys and raises `ConfigError` with the offending key.
 - `Workspace` (`poles/workspace.py`): `Workspace(root, region, snapshot)`; `.dir(stage) -> Path` (created on demand); `.is_done(stage) -> bool`; `.mark_done(stage, meta: dict)`; `.meta(stage) -> dict`. Done-markers are `done.json` files with timestamps, durations, and peak RSS.
 - Stage functions all share the signature `run(cfg: RegionConfig, ws: Workspace, log: Logger) -> None` and are idempotent: if `ws.is_done(stage)` they return immediately unless `--force`.
 - `classify_highway(tags: dict[str, str]) -> tuple[bool, bool]` returns `(in_a, in_b)`.
@@ -168,7 +168,7 @@ Issue: "Stage 1: pipeline foundation (config, CLI, container, fetch to grid)". D
 
 **Files:** create `pipeline/poles/extract.py`, `pipeline/poles/osmium.py` (thin subprocess wrapper that logs the exact command and fails loudly), `pipeline/tests/test_extract.py`, `pipeline/tests/fixtures/tiny.osm.pbf` (a hand-made extract a few KB in size containing: two highways of different classes, one admin_level 2 relation with ISO3166-1, one place node, one water polygon).
 
-**Behaviour:** `osmium merge` of all sources into `merged.pbf` (or `osmium cat` if one source); `tags-filter w/highway` then `osmium export -f fgb` keeping `@id, highway, name, ref, ice_road, winter_road`; `tags-filter r/boundary=administrative` at the configured admin levels then export polygons with `admin_level, ISO3166-1, ISO3166-2, name, name:en`; `tags-filter n/place=city,town,village,hamlet,isolated_dwelling` to `places.fgb`; `tags-filter wr/natural=water` polygons to `water.fgb`; download osmdata `land-polygons-split-4326.zip` once into `work/shared/` with checksum, unzip to `land.fgb` via ogr2ogr.
+**Behaviour:** `osmium merge` of all sources into `merged.pbf` (or `osmium cat` if one source); `tags-filter w/highway` then `osmium export -f geojsonseq` piped into `ogr2ogr -f FlatGeobuf /vsistdin/` (osmium cannot write FlatGeobuf itself; piping avoids a 40 GB text intermediate) keeping `@id, highway, name, ref, ice_road, winter_road`; `tags-filter r/boundary=administrative` at the configured admin levels then export polygons with `admin_level, ISO3166-1, ISO3166-2, name, name:en`; `tags-filter n/place=city,town,village,hamlet,isolated_dwelling` to `places.fgb`; `tags-filter wr/natural=water` polygons to `water.fgb`; download osmdata `land-polygons-split-4326.zip` once into `work/shared/` with checksum, unzip to `land.fgb` via ogr2ogr.
 
 **Tests:** `test_extract_tiny_fixture_produces_five_layers_with_expected_counts`; `test_osmium_failure_raises_with_command_in_message`.
 
@@ -295,15 +295,15 @@ Issue: "Stage 3: class table, tiles, PMTiles, detail rasters, R2 upload, site JS
 
 **Files:** create `pipeline/poles/classes.py`, `pipeline/tests/test_classes.py`, `site/js/classes.js`, `site/js/classes.test.html` (a zero-dependency page that runs the same table cases in the browser and prints PASS/FAIL; opened once by hand, not a test suite).
 
-**Tests:** `test_default_edges_match_spec_breakpoints` (254 entries; entry 49 is 2450; entry 50 is 2500; entry 124 is 9900; entry 125 is 10000; entry 204 is 29750; entry 205 is 30000; entry 234 is 59000; entry 235 is 60000; entry 253 is 250000); `test_roundtrip_lower_le_value_lt_upper` for 10,000 random distances; `test_reserved_values_never_returned`; `test_custom_edges_validated_strictly_increasing_from_zero`.
+**Tests:** `test_default_edges_match_spec_breakpoints` (254 entries; entry 49 is 2450; entry 50 is 2500; entry 124 is 9900; entry 125 is 10000; entry 204 is 29750; entry 205 is 30000; entry 234 is 59000; entry 235 is 60000; entry 252 is 230000; entry 253 is 240000); `test_roundtrip_lower_le_value_lt_upper` for 10,000 random distances; `test_reserved_values_never_returned`; `test_custom_edges_validated_strictly_increasing_from_zero`.
 
 ### Task 3.2: explore raster to PMTiles
 
 **Files:** create `pipeline/poles/publish/raster.py`, `pipeline/tests/test_publish_raster.py`.
 
-**Behaviour:** `quantise(dist, table, land, edge_dist)` returns uint8 with `NODATA` where not land and `EDGE` where `edge_dist < edge_mask_m`; writes a paletted GeoTIFF (palette = the site's band colours, index = class); `gdalwarp` to EPSG:3857 at the z9 resolution (nearest neighbour, keeps class indices intact); `gdal2tiles`-style tiling z0-z9 into MBTiles with PNG8; `pmtiles convert` to `A.pmtiles`, `B.pmtiles`. Overviews for z0-z8 use mode resampling, never average, so a pixel is always a real class.
+**Behaviour:** `quantise(dist, table, land, edge_dist)` returns uint8 with `NODATA` where not land and `EDGE` where `edge_dist < edge_mask_m`; writes a single-band uint8 GeoTIFF (value = class, no colour table); `gdalwarp` to EPSG:3857 at the z9 resolution (nearest neighbour, keeps class values intact); a small tiler (`tile_pyramid(warped_tif, out_mbtiles)`) reads 256x256 windows with rasterio at z9 and writes grayscale PNGs (Pillow mode `L`) into an MBTiles sqlite file directly, builds z8 down to z0 by mode-downsampling in numpy (never average, so a pixel is always a real class), skips all-NODATA tiles; `pmtiles convert` to `A.pmtiles`, `B.pmtiles`. Colours are applied in the browser.
 
-**Tests:** `test_quantise_marks_water_nodata_and_edge_band`; `test_warp_preserves_class_indices` (small synthetic raster round trip: every output value is in the input set); `test_overview_uses_mode_not_average`.
+**Tests:** `test_quantise_marks_water_nodata_and_edge_band`; `test_warp_preserves_class_values` (small synthetic raster round trip: every output value is in the input set); `test_downsample_uses_mode_not_average`; `test_tiler_skips_empty_tiles_and_writes_valid_mbtiles_schema`; `test_png_roundtrip_is_lossless` (encode a 256x256 class array, decode, compare).
 
 **Acceptance:** both Europe archives built; sizes recorded in spec 4.1; `pmtiles show` reports z0-z9 and the expected tile count.
 
@@ -311,7 +311,7 @@ Issue: "Stage 3: class table, tiles, PMTiles, detail rasters, R2 upload, site JS
 
 **Files:** create `pipeline/poles/publish/detail.py`, `pipeline/tests/test_detail.py`.
 
-**Behaviour:** for every published pole, compute a 50 m grid (exact vector distances, STRtree, same roads as refine) over a `detail_window_m` square in EPSG:4326 with `dlat = 50 m` and `dlon = 50 m / cos(lat)`, quantise with the class table, write an indexed PNG plus the georeference JSON from the shared interfaces. Top 10 per unit per scenario.
+**Behaviour:** for every published pole, compute a 50 m grid (exact vector distances, STRtree, same roads as refine) over a `detail_window_m` square in EPSG:4326 with `dlat = 50 m` and `dlon = 50 m / cos(lat)`, quantise with the class table, write a grayscale PNG (value = class) plus the georeference JSON from the shared interfaces. Top 10 per unit per scenario.
 
 **Tests:** `test_detail_georef_matches_window_and_latitude`; `test_detail_values_match_refined_distance_at_pole_pixel_within_one_class`.
 
@@ -369,7 +369,7 @@ Issue: "Stage 4: new site on the preview worker". Visual verification: Playwrigh
 
 **Files:** create `site/js/map.js`, `site/js/explore.js`.
 
-**Behaviour:** Leaflet map, Esri World Imagery default and OSM alternative with attributions (OSM ODbL, Esri, the site's data ODbL); `explore.js` adds the scenario's PMTiles archive via `pmtiles.leafletRasterLayer` with `maxNativeZoom: 9`; on tap (mobile) or hover (desktop) it fetches the covering z9 tile through the same PMTiles instance, decodes the pixel in a canvas, and emits `{class, lower, upper, mid}` or `edge` or `nodata`; the readout formats "about 1.2 km" (one decimal under 10 km, integer above, "over 250 km" for class 253, "no data: edge of map data" for EDGE, nothing for NODATA). Switching scenario swaps the archive.
+**Behaviour:** Leaflet map, Esri World Imagery default and OSM alternative with attributions (OSM ODbL, Esri, the site's data ODbL); `explore.js` is a Leaflet `GridLayer` whose `createTile` fetches the tile through `pmtiles.getZxy`, decodes it with `createImageBitmap` into a canvas, reads the grayscale class array once, keeps it on the tile element, and paints the colormap (light and dark palettes from the design tokens) into the visible canvas; `maxNativeZoom: 9`; on tap (mobile) or hover (desktop) it looks up the class under the point from the kept array and emits `{class, lower, upper, mid}` or `edge` or `nodata`; the readout formats "about 1.2 km" (one decimal under 10 km, integer above, "over 250 km" for class 253, "no data: edge of map data" for EDGE, nothing for NODATA). Switching scenario swaps the archive.
 
 **Acceptance:** screenshots at continental and country zoom; tapping five known places gives readouts consistent with the detail JSON within one class.
 
@@ -377,7 +377,7 @@ Issue: "Stage 4: new site on the preview worker". Visual verification: Playwrigh
 
 **Files:** create `site/js/detail.js`, `site/js/card.js`.
 
-**Behaviour:** at zoom 12 and above, when the view intersects a published pole's detail window, overlay the detail PNG as an `ImageOverlay` with the palette and use it for the readout instead of the z9 tile; the pole card shows exact distance (two decimals), nearest road type and name, nearest settlement with its distance, coordinates, and the Google Maps link; marker per pole with rank.
+**Behaviour:** at zoom 12 and above, when the view intersects a published pole's detail window, decode the grayscale detail PNG into a canvas, paint it with the same colormap, place it as an `ImageOverlay` (canvas data URL), and use its class array for the readout instead of the z9 tile; the pole card shows exact distance (two decimals), nearest road type and name, nearest settlement with its distance, coordinates, and the Google Maps link; marker per pole with rank.
 
 **Acceptance:** screenshots at a pole; readout switches sources at the zoom threshold without flicker.
 
@@ -537,4 +537,4 @@ Issue: "Stage 7: scheduled refresh via Hetzner with a PR gate", labelled as park
 
 Coverage: spec 2.1 regions (1.1, 5.1); 2.2 units and exclusions (2.1, 3.5); 2.3 definitions (1.5, 2.3, 2.4); 2.4 accuracy tiers (2.3, 3.2, 3.3, 4.3); 3 pipeline stages and tests (1.2-1.7, 2.x, 3.x); 3.3 resource envelope (1.6, 1.8, 5.2 record the numbers); 3.4 class table (3.1); 4.1 data layout and manifest (3.4, 3.5); 4.2 R2 hostname (3.4 dev, 6.3 production); 5.1-5.10 site (4.1-4.9, 5.3); 6 validation (2.5, 2.6); 7 cadence (snapshot everywhere, 7.x); 8 naming, domain, cutover (6.x); 9 not included (nothing here builds any of it); 10 stages (this document).
 
-Interface consistency: `ClassTable` constants `EDGE`/`NODATA` are used by 3.2, 3.3, 4.3; `Pole.detail` keys match the R2 key pattern used by 3.3 and 4.4; `router.js` hash keys match the state list in 4.2 and 4.6; `RegionConfig.expected_units` and `transcontinental` are added to the config by tasks 2.1 and 5.1 (a spec 2.1 table addition, noted in DECISIONS when 2.1 lands).
+Interface consistency: `ClassTable` constants `EDGE`/`NODATA` are used by 3.2, 3.3, 4.3, 4.4; `Pole.detail` keys match the R2 key pattern used by 3.3 and 4.4; `router.js` hash keys match the state list in 4.2 and 4.6; `RegionConfig.expected_units` and `transcontinental` are in the shared interface and in spec 2.1; tiles and detail rasters are grayscale class values everywhere (3.2, 3.3, 4.3, 4.4), colours live only in the site's tokens.
