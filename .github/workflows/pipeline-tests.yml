@@ -1,0 +1,33 @@
+# Builds the pipeline container (pipeline/Dockerfile) and runs the pytest suite
+# inside it, so CI exercises the same image as the laptop and any rented box.
+# The tests need osmium, the GDAL CLI tools and pmtiles, which the image carries.
+# No secrets, no deploy: this workflow only builds and tests.
+name: pipeline-tests
+
+on:
+  push:
+    paths:
+      - "pipeline/**"
+      - ".github/workflows/pipeline-tests.yml"
+  pull_request:
+    paths:
+      - "pipeline/**"
+      - ".github/workflows/pipeline-tests.yml"
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: docker/setup-buildx-action@v3
+      - name: Build the pipeline image
+        uses: docker/build-push-action@v6
+        with:
+          context: pipeline
+          tags: poles:ci
+          load: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: Run the pipeline tests in the image
+        run: docker run --rm --entrypoint pytest poles:ci -q /app/tests
