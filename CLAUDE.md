@@ -1,4 +1,4 @@
-# Atokiausia Lietuva — pole of remoteness
+# Atokiausia Lietuva: pole of remoteness
 
 Interactive map of the places in Lithuania farthest from any drivable road, computed from OpenStreetMap data on a 50 m grid.
 
@@ -13,10 +13,10 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, current statu
 
 ## Layout
 
-- `scripts/` — Python compute pipeline (OSM extract -> distance grids -> spots/bands). Heavy inputs and grids are gitignored and regenerable.
-- `site/` — the deployed website. Plain HTML/CSS/JS, no build step, no framework. Vendored Leaflet 1.9.4. `site/data/` holds the published results and MUST stay in git (the root `.gitignore` entry is `/data/`, root-anchored on purpose).
-- `worker.js` + `wrangler.jsonc` — Cloudflare Worker: serves `site/` as static assets; GET requests to `/` also log one privacy-clean view to Workers Analytics Engine (dataset `atokiausia_views`, blob order documented in the file). No IPs, no raw user agents, no cookies.
-- `.github/workflows/deploy-cloudflare.yml` — deploys the Worker on pushes to main touching `site/**`, `worker.js`, or `wrangler.jsonc`, then verifies the live URL.
+- `scripts/`: Python compute pipeline (OSM extract -> distance grids -> spots/bands). Heavy inputs and grids are gitignored and regenerable.
+- `site/`: the deployed website. Plain HTML/CSS/JS, no build step, no framework. Vendored Leaflet 1.9.4. `site/data/` holds the published results and MUST stay in git (the root `.gitignore` entry is `/data/`, root-anchored on purpose).
+- `worker.js` + `wrangler.jsonc`: Cloudflare Worker: serves `site/` as static assets; GET requests to `/` also log one privacy-clean view to Workers Analytics Engine (dataset `atokiausia_views`, blob order documented in the file). No IPs, no raw user agents, no cookies.
+- `.github/workflows/deploy-cloudflare.yml`: deploys the Worker on pushes to main touching `site/**`, `worker.js`, or `wrangler.jsonc`, then verifies the live URL.
 
 ## Site conventions
 
@@ -41,10 +41,10 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, current statu
 
 ## Docs cadence
 
-- `docs/OVERVIEW.md` — update immediately when what-works or project status changes; this is the re-orientation doc for sessions weeks apart.
-- `docs/DECISIONS.md` — dated decision log with rationale; append immediately when a significant decision lands, never delete; a reversal is a new entry.
-- `docs/IDEAS.md` — parked plans; build only on owner's go.
-- `docs/LOG.md` — sparse project log of big events only, not a changelog.
+- `docs/OVERVIEW.md`: update immediately when what-works or project status changes; this is the re-orientation doc for sessions weeks apart.
+- `docs/DECISIONS.md`: dated decision log with rationale; append immediately when a significant decision lands, never delete; a reversal is a new entry.
+- `docs/IDEAS.md`: parked plans; build only on owner's go.
+- `docs/LOG.md`: sparse project log of big events only, not a changelog.
 
 ## What not to do
 
@@ -70,7 +70,7 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, current statu
 
 ## Docs
 
-- `docs/OVERVIEW.md` — what works, what is not done, current status; read first
-- `docs/DECISIONS.md` — dated decision log with rationale; append, don't relitigate
-- `docs/IDEAS.md` — parked plans (Europe, app, stats viewer); build only on owner's go
-- `docs/LOG.md` — sparse project log of big events
+- `docs/OVERVIEW.md`: what works, what is not done, current status; read first
+- `docs/DECISIONS.md`: dated decision log with rationale; append, don't relitigate
+- `docs/IDEAS.md`: parked plans (Europe, app, stats viewer); build only on owner's go
+- `docs/LOG.md`: sparse project log of big events

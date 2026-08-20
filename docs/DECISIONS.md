@@ -2,33 +2,33 @@
 
 Dated, append-only. Newest at the bottom. Each entry: what was decided and why, so future sessions do not relitigate.
 
-## 2026-08-16/17 — Computation
+## 2026-08-16/17: Computation
 
 - **OSM as the single road source**, snapshot 2026-08-17. Distances are to mapped ways; unmapped private tracks exist in reality. Neighbouring countries' roads count, so border spots are scored honestly.
 - **Two scenarios instead of one**: A (any drivable way, tracks included) answers "how far from anything drivable", B (tracks excluded) answers "how far from real roads". Both are legitimate and they crown different poles, which is the interesting finding.
 - **25 m coarse pass + 5 m refinement** (EPSG:3346, EDT then exact vector distances; see README). The published web raster is a separate 50 m grid, small enough to ship (site/data ~5 MB).
 
-## 2026-08-17 — Site and hosting
+## 2026-08-17: Site and hosting
 
 - **Plain HTML/CSS/JS, no build step, vendored Leaflet 1.9.4.** Longevity and zero maintenance beat framework comfort for a site this size; any future session can edit it without a toolchain.
 - **Cloudflare Workers (static assets) as primary, GitHub Pages as mirror.** Static serving on Workers is free and unlimited; Pages is the redundancy and the CI exercise. Both deploy from the same repo.
 - **Public repo under the personal GitHub account** (donataskasp), with a repo-local git identity so work identity never leaks into commits.
 - **workers.dev URL lock-in accepted for now.** A custom domain (~10 EUR/yr) is deliberately deferred until the Europe version makes the project permanent.
 
-## 2026-08-17/18 — UI (v2-v5)
+## 2026-08-17/18: UI (v2-v5)
 
 - Satellite is the **default basemap** (bogs and forests read better); OSM a click away.
 - Map controls live in a **floating top-right cluster** (basemap, bands toggle, legend, selected-spot readout); clicking the brand resets the map; language defaults to the browser (lt if the browser says lt, else en), hash and localStorage override.
 - **Mobile (<=720px) collapses the readout into a bottom-anchored pill** above the attribution. Rule established: mobile-only changes must leave desktop byte-identical (verify with sha256 screenshots).
 
-## 2026-08-18 — Analytics
+## 2026-08-18: Analytics
 
 - **Three layers, each honest about what it sees**: raw asset requests (volume, sees everyone, coarse), CF Web Analytics beacon (referrers/countries but blocked by Brave/uBlock, treat as a sample), and the **edge logger as ground truth**: the worker writes one Analytics Engine data point per GET of `/`.
 - **GDPR by design, not by banner**: no IPs, no raw user agents, no cookies, no unique identifiers. Consequence accepted: we count page loads, not unique visitors. Browser/OS stored as coarse families; referrer stored as www-stripped host only.
 - **Beacon kept anyway**: costs nothing and is the only signal for the GitHub Pages mirror, which has no server side.
 - **Workers Analytics Engine over a VPS or self-hosted analytics**: free tier (100k writes/day) is ~1000x headroom, no server to babysit, and blockers cannot see server-side logging at all.
 
-## 2026-08-20 — Project structure
+## 2026-08-20: Project structure
 
 - Split out of the life-hub Claude session into a dedicated `claude-poles` session with isolated config. Knowledge split: CLAUDE.md (public, technical), CLAUDE.local.md (gitignored, operational), docs/ (this folder).
 
