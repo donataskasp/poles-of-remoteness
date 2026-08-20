@@ -88,7 +88,18 @@ One command per region: `poles run europe`. Seven stages, each resumable and ide
 
 ### 3.3 Resource envelope
 
-Measured 2026-08-20: this machine is an M4 Pro, 12 cores, 24 GB, 233 GB free. Europe's extract bbox at 250 m is roughly 22,000 x 20,000 cells (440 M). The distance transform fits in about 9 GB untiled; tiled it is bounded by tile size. Expected wall clock for Europe on this machine: 4-5 hours, dominated by download and osmium, one command, laptop kept awake with `caffeinate`. A rented Hetzner box (16 vCPU, 32 GB, about 0.10 EUR/h) does a full run for under 1 EUR and pulls the extract in minutes; the container makes the two interchangeable. GitHub-hosted runners (14 GB disk) cannot run the compute and are used only as orchestrator and deployer.
+Machine: M4 Pro, 12 cores, 24 GB, 233 GB free before the run. Measured on the first full Europe run (snapshot 2026-08-19, stage 1, 2026-08-20/21), one command, laptop kept awake with `caffeinate`:
+
+| Stage | Wall clock | Peak RSS | Disk after |
+| --- | --- | --- | --- |
+| fetch | download 12 min at about 50 MB/s (34.8 GB Europe plus 0.5 GB supplements), verification 58 s | 75 MB | 35.3 GB |
+| extract | about 60 min from scratch: per-source combined filters 3.6 min, merge 102 s, highways filter 97 s, highways GeoJSONSeq export 30 to 50 min (single-threaded osmium, 37.7 GB of text), chunk conversion 3 min with 6 ogr2ogr processes, boundaries, places, water, land about 5 min; 259 s when resumed from the markers | osmium export 11 GB; each ogr2ogr chunk about 1.5 GB | 50.1 GB (filtered.pbf 10.2, highways.pbf 8.7, 141 highway chunks 24, water 3.8, boundaries 1.2, places 0.3) plus 2.3 GB of shared land polygons |
+| classify | 255 s | about 1 GB | 30.9 GB (roads_A 74,664,480 ways, roads_B 57,262,375) |
+| grid | 402 s: rasterize A 146 s and B 87 s, EDT 52 s and 50 s with 6 workers, land mask 58 s, A <= B check 10 s | gdal_rasterize 14.8 GB (A); EDT parent 6.2 GB plus 3.1 GB per worker | 4.5 GB (dist_A 0.34 GB, dist_B 0.37 GB compressed float32, masks) |
+
+About 1.5 hours end to end including the download; the planning estimate of 4-5 hours was pessimistic because osmium and the tiled transform are fast and the download ran at 50 MB/s. The frame is 28,588 x 23,625 cells (675 M) at 250 m with the 250 km margin (the planning figure of 440 M ignored the margin and underestimated the bbox); the transform ran as 42 tiles with overlap 1000 cells and needed no doubling; 371 M (A) and 377 M (B) cells are saturated at 250 km, all sea or beyond the data edge; road cells 58.6 M (A) and 33.9 M (B); land cells inside the frame 308 M (19.3 M km2, the frame reaches into North Africa, the Middle East and Russia beyond the extract). Total disk about 123 GB for Europe (the planning figure was 70 GB); `filtered.pbf` and the thematic PBFs (about 19 GB) are only needed for reruns. Memory rule learned: EDT workers take 3.1 GB each at this window, so 4 workers is the safe default on 24 GB (`POLES_WORKERS` overrides); gdal_rasterize in single-pass mode is the other memory peak.
+
+A rented Hetzner box (16 vCPU, 32 GB, about 0.10 EUR/h) does a full run for under 1 EUR and pulls the extract in minutes; the container makes the two interchangeable. GitHub-hosted runners (14 GB disk) cannot run the compute and are used only as orchestrator and deployer.
 
 ### 3.4 Class table
 
