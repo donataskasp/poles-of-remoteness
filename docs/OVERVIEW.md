@@ -4,9 +4,9 @@ The re-orientation doc for sessions weeks apart. Read after CLAUDE.md, before to
 
 ## Status (2026-08-20)
 
-The LT-only site is a finished quick demo, live at the Cloudflare URL. Owner decision 2026-08-20: **it is disposable**. The Europe-wide version will be planned from scratch (superpowers brainstorming session) and may change or replace any part of the current code, data format, or serving setup. Do not build around the demo's structure.
+The LT-only site is a finished quick demo, live at the Cloudflare URL, and **disposable** (owner decision 2026-08-20). The Europe version is **planned and approved**: spec `docs/EUROPE_SPEC.md`, staged plan `docs/EUROPE_PLAN.md`, epic #6 with stage issues #7 to #13. Nothing of it is built yet.
 
-**NEXT-UP**: Europe build planning session via the superpowers alias. Scaffolding (CI, issues, docs) is in place; the kickoff prompt comes from the owner.
+**NEXT-UP**: Stage 1 (#7), pipeline foundation, on branch `europe`. Before coding: label #7 `in-progress`, write the step-level plan from `docs/EUROPE_PLAN.md` Stage 1, then start with task 1.1. The first overnight step is the 34 GB Geofabrik download (task 1.3).
 
 ## What works
 
@@ -20,14 +20,13 @@ The LT-only site is a finished quick demo, live at the Cloudflare URL. Owner dec
 
 ## Not done yet / parked (build only on owner's go)
 
-- Europe-wide version: NEXT UP, planning first
-- Custom domain (deferred until Europe makes the project permanent)
-- Country selector, per-country leaderboards
-- Stats viewer page for the Analytics Engine data
+- Europe and North America version: planned, see the stage issues. Stage order: pipeline foundation (#7), poles and validation (#8), publish (#9), site on the preview worker (#10), North America (#11), cutover with name and domain (#12), automated refresh (#13, parked).
+- Custom domain and the rename: part of the cutover stage (#12); the name is parked until then, owner wants help picking it; domain will be bought at Hostinger.
+- Stats viewer page for the Analytics Engine data (parked, unchanged)
 - Analytics retention snapshots (AE keeps ~3 months; ground truth starts 2026-08-18, first data at risk ~2026-11-18)
-- Mobile app exercise (Expo, GPS remoteness compass)
+- Mobile app exercise (Expo, GPS remoteness compass): explicitly not v1; the spec keeps the data usable offline later
 
-## Known gaps (fold into Europe planning)
+## Known gaps (addressed by the Europe plan)
 
-- No version stamp on the site, so CI verify jobs prove content is served, not that THIS commit is live; a `/version` route stamped at deploy would fix it
-- No automated screenshot check for the desktop-byte-identical rule; it is a manual Playwright routine
+- No version stamp on the site, so CI verify jobs prove content is served, not that THIS commit is live; `version.json` lands in stage 4 (#10)
+- No automated screenshot check for the desktop-byte-identical rule; stage 4 commits reference screenshots and the routine

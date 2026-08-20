@@ -4,7 +4,9 @@ Everything here is **parked**: build only on the owner's explicit go. Captured 2
 
 ## Europe version (the big one)
 
-The design already thought through:
+**Specified and approved 2026-08-20**: `docs/EUROPE_SPEC.md` and `docs/EUROPE_PLAN.md`, epic #6. The sketch below is the pre-planning thinking, kept for history; where it differs from the spec, the spec wins (notably: the coarse projection is a per-region proj string, not EPSG:3035 by construction; settlements ship inside each pole's JSON instead of a sharded lookup; archives live on R2 behind the bucket's own hostname).
+
+The design as first thought through:
 
 - Input: Geofabrik `europe` PBF (~30 GB). Compute runs locally or on a rented box; only outputs get published.
 - Pass 1: continental grid at 250 m in EPSG:3035 (ETRS89-LAEA, the EU standard equal-area CRS).
@@ -14,7 +16,7 @@ The design already thought through:
 - Settlement/nearest-place lookup sharded per country.
 - Launch together with a **custom domain**; that is the moment URL permanence starts mattering.
 
-## Naming and URLs (decide with the domain, not before)
+## Naming and URLs (decide with the domain, not before; now stage 6, issue #12)
 
 "Atokiausia Lietuva" stops being accurate the moment the map covers Europe, so a rename is coming. Park it until the domain is bought, then do it ONCE, because the pieces move together:
 
@@ -27,7 +29,7 @@ The design already thought through:
 
 ## Site features
 
-- Country selector + per-country pole leaderboard ("every country's most remote point").
+- Country selector + per-country pole leaderboard ("every country's most remote point"): **absorbed into the Europe spec as the hero**; no longer parked.
 - More scenario toggles were brainstormed in an earlier session (pre-compaction); re-run that brainstorm before the next feature round rather than trusting memory.
 - Self-serve stats viewer: a `/stats-<random-suffix>` route on the worker that queries Analytics Engine server-side (read token as a worker secret, never client-side) and renders daily views, countries, referrers, devices. Unguessable URL, works from a phone.
 - Analytics retention snapshots: AE keeps ~3 months, so a scheduled job should append daily aggregates to a file in the repo if launch-era history is worth keeping.

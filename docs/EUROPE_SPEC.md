@@ -1,6 +1,6 @@
 # Europe version: design spec
 
-Status: written 2026-08-20 in the Europe planning session, from the kickoff brief in `docs/EUROPE_KICKOFF.md`. Every choice below was discussed and agreed with the owner in that session; the rationale is recorded in `docs/DECISIONS.md` under the same date. The staged plan that implements this spec is `docs/EUROPE_PLAN.md`; the stages are tracked as GitHub issues under the Europe epic.
+Status: written 2026-08-20 in the Europe planning session, from the kickoff brief in `docs/EUROPE_KICKOFF.md`. Every choice below was discussed and agreed with the owner in that session; the rationale is recorded in `docs/DECISIONS.md` under the same date. The staged plan that implements this spec is `docs/EUROPE_PLAN.md`; the stages are tracked as GitHub issues under the Europe epic (#6, stages #7 to #13).
 
 The LT-only site is a disposable demo. Nothing here preserves its code, data format, or layout for compatibility. What is preserved: the LT site stays live and untouched until the cutover stage, and its public URL never breaks.
 

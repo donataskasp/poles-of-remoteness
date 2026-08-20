@@ -40,6 +40,8 @@ Copied from the spec and CLAUDE.md; every task inherits them.
 | 6 Cutover | name, domain, R2 hostname, new worker, redirect, monitors, analytics, merge, docs | 5 (or 4, owner's call) | 1 session + owner's one-time steps |
 | 7 Automated refresh (parked) | scheduled Hetzner run, PR with diff report | 6, owner's go | 1 session |
 
+GitHub: epic #6, stages #7 to #13 in order.
+
 Stage 4's skeleton (tasks 4.1-4.3) may start as soon as task 3.5 fixes the JSON schema, against the LT-sized Europe subset if the full run is not in yet.
 
 ## Repository layout after stage 4
@@ -129,7 +131,7 @@ Defined once here; tasks reference them by name. Types are Python unless marked 
 
 ## Stage 1: Pipeline foundation
 
-Issue: "Stage 1: pipeline foundation (config, CLI, container, fetch to grid)". Done when every acceptance criterion below is checked and the numbers are written into spec section 3.3.
+Issue: #7 "Stage 1: pipeline foundation (config, CLI, container, fetch to grid)". Done when every acceptance criterion below is checked and the numbers are written into spec section 3.3.
 
 ### Task 1.1: Package skeleton, region config, workspace
 
@@ -222,7 +224,7 @@ Issue: "Stage 1: pipeline foundation (config, CLI, container, fetch to grid)". D
 
 ## Stage 2: Poles and validation
 
-Issue: "Stage 2: poles, attribution, validation, contact sheet; Lithuania reproduced".
+Issue: #8 "Stage 2: poles, attribution, validation, contact sheet; Lithuania reproduced".
 
 ### Task 2.1: units
 
@@ -289,7 +291,7 @@ Issue: "Stage 2: poles, attribution, validation, contact sheet; Lithuania reprod
 
 ## Stage 3: Publish
 
-Issue: "Stage 3: class table, tiles, PMTiles, detail rasters, R2 upload, site JSON, manifest".
+Issue: #9 "Stage 3: class table, tiles, PMTiles, detail rasters, R2 upload, site JSON, manifest".
 
 ### Task 3.1: class table
 
@@ -347,7 +349,7 @@ Issue: "Stage 3: class table, tiles, PMTiles, detail rasters, R2 upload, site JS
 
 ## Stage 4: Site
 
-Issue: "Stage 4: new site on the preview worker". Visual verification: Playwright screenshots at 390x844 (phone) and 1440x900 (desktop) kept under `site/screenshots/` and updated deliberately; the owner opens the preview URL on a real phone before the stage closes.
+Issue: #10 "Stage 4: new site on the preview worker". Visual verification: Playwright screenshots at 390x844 (phone) and 1440x900 (desktop) kept under `site/screenshots/` and updated deliberately; the owner opens the preview URL on a real phone before the stage closes.
 
 ### Task 4.1: skeleton, vendoring, preview worker
 
@@ -429,7 +431,7 @@ Issue: "Stage 4: new site on the preview worker". Visual verification: Playwrigh
 
 ## Stage 5: North America
 
-Issue: "Stage 5: North America region run and region switch".
+Issue: #11 "Stage 5: North America region run and region switch".
 
 ### Task 5.1: region config and masks
 
@@ -462,7 +464,7 @@ Issue: "Stage 5: North America region run and region switch".
 
 ## Stage 6: Cutover
 
-Issue: "Stage 6: name, domain, cutover, docs". Human one-time steps are marked (owner).
+Issue: #12 "Stage 6: name, domain, cutover, docs". Human one-time steps are marked (owner).
 
 ### Task 6.1: name
 
@@ -509,7 +511,7 @@ Issue: "Stage 6: name, domain, cutover, docs". Human one-time steps are marked (
 
 ## Stage 7: Automated refresh (parked until the owner says go)
 
-Issue: "Stage 7: scheduled refresh via Hetzner with a PR gate", labelled as parked.
+Issue: #13 "Stage 7: scheduled refresh via Hetzner with a PR gate", labelled `parked`.
 
 ### Task 7.1: provisioning workflow
 
