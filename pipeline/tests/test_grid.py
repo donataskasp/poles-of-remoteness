@@ -81,8 +81,8 @@ def test_tiled_edt_rejects_non_positive_overlap():
 def test_default_workers_respects_memory_and_cpus():
     window = 6096 ** 2          # the production window: tile 4096 plus 2 x overlap 1000
     gib = 1024 ** 3
-    assert grid.default_workers(window, 24 * gib, 12) == 8       # memory binds below the 10 cpus allow
-    assert grid.default_workers(window, 8 * gib, 12) == 2        # less memory, fewer workers
+    assert grid.default_workers(window, 24 * gib, 12) == 4       # memory binds below the 10 cpus allow (3.1 GB per worker)
+    assert grid.default_workers(window, 8 * gib, 12) == 1        # less memory, fewer workers
     assert grid.default_workers(256 * 256, 12 * gib, 12) == 10   # tiny window: cpus - 2 binds
     assert grid.default_workers(window, 24 * gib, 1) == 1        # never more than the cpus allow
     assert grid.default_workers(window, 1024, 12) == 1           # never zero, however little memory

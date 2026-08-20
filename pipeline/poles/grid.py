@@ -32,7 +32,8 @@ STAGE = "grid"
 TILE = 4096
 # scipy's EDT holds the int32 feature transform, the index grids and a float64 square at window size.
 # Measured at the production window (6096 x 6096): 1.64 GB, about 44 bytes per window cell.
-BYTES_PER_WINDOW_CELL = 48
+# Measured on the Europe run (2026-08-20): 3.07 GB per worker at the 6096 x 6096 production window, 83 bytes per cell.
+BYTES_PER_WINDOW_CELL = 84
 RAM_FRACTION = 0.6
 GTIFF_OPTS = dict(driver="GTiff", tiled=True, blockxsize=512, blockysize=512, compress="deflate", bigtiff="IF_SAFER")
 
