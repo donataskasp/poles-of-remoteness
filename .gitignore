@@ -13,3 +13,7 @@ out/land.gpkg
 
 # wrangler local cache
 .wrangler/
+
+# Claude session config and local notes (public repo, never commit)
+.claude/
+CLAUDE.local.md
