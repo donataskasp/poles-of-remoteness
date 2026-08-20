@@ -56,7 +56,7 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, current statu
 ## Hard rules
 
 - No em dashes anywhere: site copy, docs, commit messages.
-- No secrets in this repo, ever (it is public). Operational notes with local paths live in `CLAUDE.local.md`, which is gitignored. Never commit `.claude/` or `CLAUDE.local.md`.
+- No secrets in this repo, ever (private since 2026-08-20, but visibility can change and history is forever). Operational notes with local paths live in `CLAUDE.local.md`, which is gitignored. Never commit `.claude/` or `CLAUDE.local.md`.
 - Keep the no-build-step property; do not introduce bundlers or frameworks.
 - Never commit with the work identity; never `git push --force` to main.
 
@@ -78,5 +78,5 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, current statu
 - `docs/OVERVIEW.md`: what works, what is not done, current status; read first
 - `docs/EUROPE_SPEC.md` and `docs/EUROPE_PLAN.md`: the approved design and staged plan for the Europe build; `docs/EUROPE_KICKOFF.md` is the brief that produced them
 - `docs/DECISIONS.md`: dated decision log with rationale; append, don't relitigate
-- `docs/IDEAS.md`: parked plans (Europe, app, stats viewer); build only on owner's go
+- `docs/IDEAS.md`: parked plans (app, stats viewer, extra scenarios); build only on owner's go
 - `docs/LOG.md`: sparse project log of big events
