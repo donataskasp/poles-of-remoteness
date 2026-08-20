@@ -15,4 +15,8 @@ ORDER: tuple[str, ...] = ("fetch", "extract", "classify", "grid", "poles", "vali
 def registry() -> dict[str, StageFn | None]:
     """Stage name -> run function, or None for stages that later plan stages will add."""
     reg: dict[str, StageFn | None] = {name: None for name in ORDER}
+    from . import fetch
+    reg["fetch"] = fetch.run
+    from . import classify
+    reg["classify"] = classify.run
     return reg
