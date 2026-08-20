@@ -21,4 +21,6 @@ def registry() -> dict[str, StageFn | None]:
     reg["classify"] = classify.run
     from . import extract
     reg["extract"] = extract.run
+    from . import grid
+    reg["grid"] = grid.run
     return reg
