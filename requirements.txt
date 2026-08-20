@@ -1,0 +1,29 @@
+# Python deps for the compute pipeline (scripts/).
+# Install: python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
+# System dep alongside: brew install osmium-tool
+affine==3.0.0
+attrs==26.1.0
+branca==0.8.2
+certifi==2026.7.22
+charset-normalizer==3.5.1
+click==8.4.2
+folium==0.20.0
+geopandas==1.1.4
+idna==3.18
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+numpy==2.5.2
+packaging==26.3
+pandas==3.0.5
+pillow==12.3.0
+pyogrio==0.13.0
+pyparsing==3.3.2
+pyproj==3.7.2
+python-dateutil==2.9.0.post0
+rasterio==1.5.1
+requests==2.34.2
+scipy==1.18.0
+shapely==2.1.2
+six==1.17.0
+urllib3==2.7.0
+xyzservices==2026.3.0

@@ -41,12 +41,12 @@ jobs:
           fi
 
       - name: Deploy with wrangler
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # The action default wrangler (3.90.0) predates wrangler.jsonc
-          # support and fails with "Missing entry-point". Pin v4.
+          # Pin wrangler for reproducible deploys (and wrangler.jsonc needs v4;
+          # the action's old v3 default, wrangler 3.90.0, could not read it).
           wranglerVersion: "4.124.0"
 
   verify:

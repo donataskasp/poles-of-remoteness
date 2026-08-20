@@ -30,5 +30,4 @@ The LT-only site is a finished quick demo, live at the Cloudflare URL. Owner dec
 ## Known gaps (fold into Europe planning)
 
 - No version stamp on the site, so CI verify jobs prove content is served, not that THIS commit is live; a `/version` route stamped at deploy would fix it
-- Python pipeline deps are unpinned (no `requirements.txt`)
 - No automated screenshot check for the desktop-byte-identical rule; it is a manual Playwright routine

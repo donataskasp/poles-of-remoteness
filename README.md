@@ -29,8 +29,8 @@ scripts/02_prepare.sh    # osmium: clip to LT+20 km, filter highway=*, export la
 .venv/bin/python scripts/04_report.py    # -> out/results.md, out/map.html
 ```
 
-Dependencies: `brew install osmium-tool`; Python 3.12 venv with
-numpy pandas geopandas pyogrio shapely pyproj rasterio scipy folium.
+Dependencies: `brew install osmium-tool`; Python 3.12 venv from
+`requirements.txt` (pinned with pip freeze).
 
 ## Method
 
