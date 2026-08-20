@@ -46,3 +46,7 @@ Honest premise: little unique value on its own; the point is learning the publis
 ## Marketing follow-ups
 
 - The Europe build is a natural second LinkedIn post; the app a third. Launch pattern observed: ~60% of all traffic in the first hour, one-day half-life, so publish when people are online (evening worked).
+
+## Distance to anything (owner idea, 2026-08-20)
+
+Not only "how far from any road" but "how far from any shop, building, bus stop, pub, railway station". The pipeline is already shaped for it: a scenario is a tag filter over OSM objects followed by the same tiled distance transform, so each new layer is one more filter in the extract stage (points work like lines) plus one grid run (about an hour for Europe) and one more tile archive (about 155 MB per layer at 250 m, measured 2026-08-20). The extract stage currently drops everything but roads, borders, settlements, and water, so adding a layer means keeping one more tag class there. Open questions when this is picked up: which features people would actually care about, whether a layer ranks per unit like roads do or is explore-only, and the storage budget on R2 (each layer is another archive per snapshot). Parked until the road version has shipped.
