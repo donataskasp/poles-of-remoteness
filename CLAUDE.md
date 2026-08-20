@@ -2,8 +2,7 @@
 
 Interactive map of the places in Lithuania farthest from any drivable road, computed from OpenStreetMap data on a 50 m grid.
 
-- Live: https://atokiausia-lietuva.donatas-kasparavicius.workers.dev (primary, Cloudflare Workers)
-- Mirror: https://donataskasp.github.io/atokiausia-lietuva/ (GitHub Pages, deployed by CI)
+- Live: https://atokiausia-lietuva.donatas-kasparavicius.workers.dev (Cloudflare Workers, the only deploy target)
 
 Orient first: read docs/OVERVIEW.md (what works, what is not done, current status), then docs/DECISIONS.md if a past choice needs context.
 
@@ -17,7 +16,7 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, current statu
 - `scripts/` — Python compute pipeline (OSM extract -> distance grids -> spots/bands). Heavy inputs and grids are gitignored and regenerable.
 - `site/` — the deployed website. Plain HTML/CSS/JS, no build step, no framework. Vendored Leaflet 1.9.4. `site/data/` holds the published results and MUST stay in git (the root `.gitignore` entry is `/data/`, root-anchored on purpose).
 - `worker.js` + `wrangler.jsonc` — Cloudflare Worker: serves `site/` as static assets; GET requests to `/` also log one privacy-clean view to Workers Analytics Engine (dataset `atokiausia_views`, blob order documented in the file). No IPs, no raw user agents, no cookies.
-- `.github/workflows/` — `deploy-cloudflare.yml` (Worker deploy + live verify) and `pages.yml` (Pages mirror deploy + verify), both on pushes to main touching their paths.
+- `.github/workflows/deploy-cloudflare.yml` — deploys the Worker on pushes to main touching `site/**`, `worker.js`, or `wrangler.jsonc`, then verifies the live URL.
 
 ## Site conventions
 
@@ -35,10 +34,9 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, current statu
 
 ## Deploying
 
-- **Cloudflare (primary): CI deploys on push to main** touching `site/**`, `worker.js`, or `wrangler.jsonc` (`deploy-cloudflare.yml`), then verifies the live URL. Needs repo secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. Manual fallback: `npx --yes wrangler deploy` from the repo root.
-- **GitHub Pages (mirror)**: push to main touching `site/**` triggers `pages.yml`, which deploys and then verifies the mirror.
-- After pushing anything that deploys, watch the runs to conclusion (`gh run watch`); a red verify job is a real outage signal, fix it immediately.
-- Verify against BOTH live URLs. The workers.dev edge may serve briefly cached HTML after a deploy; use a cache-buster query param before concluding a deploy failed. New worker versions also take a few seconds to roll out.
+- **CI deploys on push to main** touching `site/**`, `worker.js`, or `wrangler.jsonc` (`deploy-cloudflare.yml`), then verifies the live URL. Needs repo secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. Manual fallback: `npx --yes wrangler deploy` from the repo root.
+- After pushing anything that deploys, watch the run to conclusion (`gh run watch`); a red verify job is a real outage signal, fix it immediately.
+- The workers.dev edge may serve briefly cached HTML after a deploy; use a cache-buster query param before concluding a deploy failed. New worker versions also take a few seconds to roll out.
 - The CI verify jobs are content-presence checks only (no version stamp on the site yet); freshness still needs a human or /ship style grep for the specific change.
 
 ## Docs cadence

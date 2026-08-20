@@ -4,7 +4,7 @@ The re-orientation doc for sessions weeks apart. Read after CLAUDE.md, before to
 
 ## Status (2026-08-20)
 
-The LT-only site is a finished quick demo, live at both URLs. Owner decision 2026-08-20: **it is disposable**. The Europe-wide version will be planned from scratch (superpowers brainstorming session) and may change or replace any part of the current code, data format, or serving setup. Do not build around the demo's structure.
+The LT-only site is a finished quick demo, live at the Cloudflare URL. Owner decision 2026-08-20: **it is disposable**. The Europe-wide version will be planned from scratch (superpowers brainstorming session) and may change or replace any part of the current code, data format, or serving setup. Do not build around the demo's structure.
 
 **NEXT-UP**: Europe build planning session via the superpowers alias. Scaffolding (CI, issues, docs) is in place; the kickoff prompt comes from the owner.
 
@@ -14,8 +14,8 @@ The LT-only site is a finished quick demo, live at both URLs. Owner decision 202
 - Compute pipeline `scripts/01..06` (download -> prepare -> compute -> report -> webdata -> sitedata); heavy inputs gitignored and regenerable
 - Site: lt/en i18n, URL-hash state, satellite default basemap, mobile bottom pill, dark variant
 - Analytics, three honest layers: edge logger to Workers Analytics Engine (ground truth since 2026-08-18), raw asset request counts, CF Web Analytics beacon (undercounts, but covers the mirror)
-- Deploys: Cloudflare Worker via CI on push (since 2026-08-20, `deploy-cloudflare.yml`), Pages mirror via CI, both with post-deploy verify jobs
-- Monitoring: UptimeRobot checks both live URLs every 5 minutes with email alerts (since 2026-08-20)
+- Deploys: Cloudflare Worker via CI on push (since 2026-08-20, `deploy-cloudflare.yml`) with a post-deploy verify job. Cloudflare is the only target; the GitHub Pages mirror was removed 2026-08-20.
+- Monitoring: UptimeRobot checks the live URL every 5 minutes with email alerts (since 2026-08-20)
 - Launched 2026-08-17 via LinkedIn post
 
 ## Not done yet / parked (build only on owner's go)
