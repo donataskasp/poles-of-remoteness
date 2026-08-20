@@ -19,3 +19,9 @@ CF Web Analytics beacon added, then the server-side edge logger (Workers Analyti
 ## 2026-08-20: First traffic review; own session
 
 Three-day tally: ~20-25 page opens by other people, ~60% in the launch hour, all referred traffic from LinkedIn, iPhone-in-LinkedIn-app the dominant device. Decayed to ~1 visitor/day. Project moved from the life-hub Claude session to its own `claude-poles` session; CLAUDE.md, CLAUDE.local.md, and docs/ written as the durable memory.
+
+## 2026-08-20: Project scaffolding, and the demo declared disposable
+
+Second session of the day. Decided the LT-only site is a demo to plan away from, not a foundation. Built the scaffolding the Europe build will need: CI deploys to Cloudflare on push with post-deploy verification (manual `wrangler deploy` demoted to fallback), GitHub Issues adopted as the task tracker, dependabot, pinned `requirements.txt`, expanded CLAUDE.md working rules, `docs/OVERVIEW.md` as the re-orientation doc, and `/ship` plus `/session-close` skills.
+
+Three things were removed rather than added: the GitHub Pages mirror (a second URL nobody opened), its uptime monitor, and the CF Web Analytics beacon (redundant once the mirror went). The repo went private in the same pass, since Pages was the only thing requiring it to be public. External uptime monitoring now covers the one live URL. Session ended with the Europe kickoff brief written to `docs/EUROPE_KICKOFF.md`.
