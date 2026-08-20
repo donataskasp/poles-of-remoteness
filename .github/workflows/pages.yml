@@ -25,3 +25,24 @@ jobs:
           path: site
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Content-presence check for the mirror (no version stamp yet; see the note
+  # in deploy-cloudflare.yml).
+  verify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Verify mirror
+        run: |
+          url="https://donataskasp.github.io/atokiausia-lietuva/?ci=${GITHUB_SHA}"
+          for i in $(seq 1 18); do
+            if curl -fsSL "$url" | grep -q "Atokiausia Lietuva"; then
+              echo "Mirror serving expected content (attempt $i)."
+              exit 0
+            fi
+            echo "Attempt $i: not yet, retrying in 10s."
+            sleep 10
+          done
+          echo "::error::Pages mirror did not serve expected content within 3 minutes."
+          exit 1

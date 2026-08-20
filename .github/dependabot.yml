@@ -1,0 +1,11 @@
+# Weekly PRs for GitHub Actions version bumps. The site has no npm deps by
+# design (Leaflet is vendored); Python pipeline deps are unpinned for now
+# (a requirements.txt is on the Europe planning agenda, see docs/OVERVIEW.md).
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    labels: ["dependencies", "ci"]

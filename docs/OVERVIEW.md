@@ -1,0 +1,33 @@
+# Overview: what works, what is not done
+
+The re-orientation doc for sessions weeks apart. Read after CLAUDE.md, before touching anything. Update immediately when a feature lands or status changes, not at session end.
+
+## Status (2026-08-20)
+
+The LT-only site is a finished quick demo, live at both URLs. Owner decision 2026-08-20: **it is disposable**. The Europe-wide version will be planned from scratch (superpowers brainstorming session) and may change or replace any part of the current code, data format, or serving setup. Do not build around the demo's structure.
+
+**NEXT-UP**: Europe build planning session via the superpowers alias. Scaffolding (CI, issues, docs) is in place; the kickoff prompt comes from the owner.
+
+## What works
+
+- LT map with scenarios A and B, computed on a 50 m grid from a 2026-08-17 OSM snapshot; spots and distance bands published in `site/data/` (~5 MB)
+- Compute pipeline `scripts/01..06` (download -> prepare -> compute -> report -> webdata -> sitedata); heavy inputs gitignored and regenerable
+- Site: lt/en i18n, URL-hash state, satellite default basemap, mobile bottom pill, dark variant
+- Analytics, three honest layers: edge logger to Workers Analytics Engine (ground truth since 2026-08-18), raw asset request counts, CF Web Analytics beacon (undercounts, but covers the mirror)
+- Deploys: Cloudflare Worker via CI on push (since 2026-08-20, `deploy-cloudflare.yml`), Pages mirror via CI, both with post-deploy verify jobs
+- Launched 2026-08-17 via LinkedIn post
+
+## Not done yet / parked (build only on owner's go)
+
+- Europe-wide version: NEXT UP, planning first
+- Custom domain (deferred until Europe makes the project permanent)
+- Country selector, per-country leaderboards
+- Stats viewer page for the Analytics Engine data
+- Analytics retention snapshots (AE keeps ~3 months; ground truth starts 2026-08-18, first data at risk ~2026-11-18)
+- Mobile app exercise (Expo, GPS remoteness compass)
+
+## Known gaps (fold into Europe planning)
+
+- No version stamp on the site, so CI verify jobs prove content is served, not that THIS commit is live; a `/version` route stamped at deploy would fix it
+- Python pipeline deps are unpinned (no `requirements.txt`)
+- No automated screenshot check for the desktop-byte-identical rule; it is a manual Playwright routine

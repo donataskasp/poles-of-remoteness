@@ -31,3 +31,10 @@ Dated, append-only. Newest at the bottom. Each entry: what was decided and why, 
 ## 2026-08-20 — Project structure
 
 - Split out of the life-hub Claude session into a dedicated `claude-poles` session with isolated config. Knowledge split: CLAUDE.md (public, technical), CLAUDE.local.md (gitignored, operational), docs/ (this folder).
+
+## 2026-08-20: Scaffolding before the Europe build
+
+- **The LT-only site is a demo, not a foundation.** The Europe version gets a from-scratch planning pass (superpowers brainstorming); nothing in the current code, data format, or serving setup is sacred. Decided to plan properly first rather than accrete onto the demo.
+- **CI deploys Cloudflare on push** (`deploy-cloudflare.yml`, wrangler-action, secrets in repo settings). Replaces manual `wrangler deploy` as the primary path, killing the "pushed but forgot to deploy the primary" failure mode; manual stays as fallback. Both workflows gained post-deploy verify jobs (content-presence only until a version stamp exists).
+- **GitHub Issues adopted as the task tracker** with the keenquote discipline: acceptance criteria, `in-progress` label while a session works an issue, search before filing. Labels created: in-progress, dependencies, ci, epic.
+- **Keenquote scaffolding reused where it fits**: dependabot (github-actions ecosystem only, no npm by design), docs/OVERVIEW.md as the re-orientation doc, expanded CLAUDE.md working rules, /ship and /session-close local skills. VPS machinery, marketing skills, and daily-log cadence deliberately not copied.

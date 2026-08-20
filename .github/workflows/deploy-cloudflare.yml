@@ -1,0 +1,70 @@
+# Deploys the Worker (worker.js + site/ static assets) to Cloudflare on push,
+# then verifies the live URL actually serves the site.
+# Requires two repo secrets: CLOUDFLARE_API_TOKEN (Workers Scripts:Edit) and
+# CLOUDFLARE_ACCOUNT_ID. Manual fallback stays available: npx --yes wrangler deploy.
+name: Deploy to Cloudflare Workers
+on:
+  # Manual trigger: validate the pipeline without an empty commit.
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "worker.js"
+      - "wrangler.jsonc"
+      - ".github/workflows/deploy-cloudflare.yml"
+
+# One deploy at a time. A newer push replaces the queued run; the running deploy
+# is never killed mid-flight (cancel-in-progress: false), only queued ones are.
+concurrency:
+  group: cloudflare-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check deploy credentials
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          missing=""
+          [ -z "$CF_TOKEN" ] && missing="CLOUDFLARE_API_TOKEN"
+          [ -z "$CF_ACCOUNT" ] && missing="${missing:+$missing, }CLOUDFLARE_ACCOUNT_ID"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing repo secret(s): $missing. Add with: gh secret set <NAME>"
+            exit 1
+          fi
+
+      - name: Deploy with wrangler
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  verify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      # Content-presence check only: the site carries no version stamp yet, so
+      # this proves the Worker serves the site, not that THIS commit is live.
+      # A /version route stamped at deploy is a decision for the Europe planning
+      # session (see docs/OVERVIEW.md).
+      - name: Verify live site
+        run: |
+          url="https://atokiausia-lietuva.donatas-kasparavicius.workers.dev/?ci=${GITHUB_SHA}"
+          for i in $(seq 1 18); do
+            if curl -fsSL "$url" | grep -q "Atokiausia Lietuva"; then
+              echo "Live site serving expected content (attempt $i)."
+              exit 0
+            fi
+            echo "Attempt $i: not yet, retrying in 10s."
+            sleep 10
+          done
+          echo "::error::Cloudflare URL did not serve expected content within 3 minutes."
+          exit 1
