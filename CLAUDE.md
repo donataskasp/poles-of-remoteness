@@ -43,3 +43,9 @@ Interactive map of the places in Lithuania farthest from any drivable road, comp
 - Self-serve stats viewer page for the Analytics Engine data
 - Analytics retention snapshots (AE keeps ~3 months)
 - Mobile app exercise (Expo, GPS remoteness compass, offline; no backend)
+
+## Docs
+
+- `docs/DECISIONS.md` — dated decision log with rationale; append, don't relitigate
+- `docs/IDEAS.md` — parked plans (Europe, app, stats viewer); build only on owner's go
+- `docs/LOG.md` — sparse project log of big events

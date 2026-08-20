@@ -15,7 +15,10 @@ is only as remote as the nearest foreign road. Two definitions:
 - **B: 6.67 km**, Čepkelių raistas interior (53.995818, 24.462993).
 
 Full ranking, coordinates, and nearest-road identities: `out/results.md`.
-Interactive map: `out/map.html` (needs internet for basemap tiles).
+
+**Live interactive map**: https://atokiausia-lietuva.donatas-kasparavicius.workers.dev
+(mirror: https://donataskasp.github.io/atokiausia-lietuva/). The site itself
+lives in `site/`; `out/map.html` is the older compute-time preview.
 
 ## Reproduce
 
