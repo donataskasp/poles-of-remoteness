@@ -24,7 +24,7 @@ jobs:
         with:
           path: site
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   # Content-presence check for the mirror (no version stamp yet; see the note
   # in deploy-cloudflare.yml).
