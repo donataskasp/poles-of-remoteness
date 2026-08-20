@@ -19,4 +19,6 @@ def registry() -> dict[str, StageFn | None]:
     reg["fetch"] = fetch.run
     from . import classify
     reg["classify"] = classify.run
+    from . import extract
+    reg["extract"] = extract.run
     return reg

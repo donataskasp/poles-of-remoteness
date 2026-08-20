@@ -1,4 +1,6 @@
 import logging
+import shutil
+import subprocess
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -8,6 +10,7 @@ import pytest
 from poles.config import load_region
 
 REGIONS = Path(__file__).resolve().parents[1] / "regions"
+FIXTURES = Path(__file__).resolve().parent / "fixtures"
 
 
 @pytest.fixture
@@ -18,6 +21,16 @@ def regions_dir() -> Path:
 @pytest.fixture
 def cfg():
     return load_region(REGIONS / "europe.yaml")
+
+
+@pytest.fixture(scope="session")
+def tiny_pbf(tmp_path_factory) -> Path:
+    """tiny.osm converted to PBF at test time; keeps binaries out of git and proves osmium is installed."""
+    if shutil.which("osmium") is None:
+        pytest.fail("osmium-tool is required for the extract tests (brew install osmium-tool)")
+    out = tmp_path_factory.mktemp("tiny") / "tiny-latest.osm.pbf"
+    subprocess.run(["osmium", "cat", "--overwrite", "-o", str(out), str(FIXTURES / "tiny.osm")], check=True)
+    return out
 
 
 @pytest.fixture
