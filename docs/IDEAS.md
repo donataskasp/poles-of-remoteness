@@ -14,6 +14,17 @@ The design already thought through:
 - Settlement/nearest-place lookup sharded per country.
 - Launch together with a **custom domain**; that is the moment URL permanence starts mattering.
 
+## Naming and URLs (decide with the domain, not before)
+
+"Atokiausia Lietuva" stops being accurate the moment the map covers Europe, so a rename is coming. Park it until the domain is bought, then do it ONCE, because the pieces move together:
+
+- Worker name in `wrangler.jsonc` is what generates the workers.dev hostname; changing it changes the primary URL and **breaks the LinkedIn launch post link**, which is currently the project's only inbound traffic source. A custom domain absorbs this permanently: point the domain at the worker, and future renames never break a public link again.
+- Repo rename is cheap (GitHub redirects the old path) but the Pages mirror URL changes with it.
+- The Analytics Engine dataset name (`atokiausia_views`) is the analytics history. Renaming it starts a new series; keeping it under an old name is ugly but preserves continuity. Decide deliberately.
+- Site title, i18n strings, README, and the UptimeRobot monitors all follow.
+
+Open question for the planning session: **does the Pages mirror survive the Europe build at all?** Pages has a 1 GB site limit and a 100 GB/month soft bandwidth limit, and a PMTiles pyramid for Europe may not fit or may not serve well from it. If the mirror is dropped, the repo's public-vs-private question reopens (Pages on a free account requires a public repo; Cloudflare does not).
+
 ## Site features
 
 - Country selector + per-country pole leaderboard ("every country's most remote point").
