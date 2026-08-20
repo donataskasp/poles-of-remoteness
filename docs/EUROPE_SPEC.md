@@ -132,7 +132,7 @@ A visit pulls 30-100 tiles. R2's free 10 M reads a month count only cache misses
 
 ### 5.1 Stack
 
-Plain HTML/CSS/JS, no bundler, no framework, vendored Leaflet 1.9.4 and the pmtiles JavaScript adapter (`leafletRasterLayer`). The site has no build step; the data has one, and it is the pipeline. Design tokens in `:root` with a `prefers-color-scheme` dark variant. MapLibre GL is the named fallback if the raster adapter disappoints on phones; it is not used in v1.
+Plain HTML/CSS/JS, no bundler, no framework, vendored Leaflet 1.9.4 and the pmtiles JavaScript library (used only to fetch tiles by range request; a Leaflet `GridLayer` paints them). The site has no build step; the data has one, and it is the pipeline. Design tokens in `:root` with a `prefers-color-scheme` dark variant. MapLibre GL is the named fallback if the canvas tile layer disappoints on phones; it is not used in v1.
 
 ### 5.2 URLs
 

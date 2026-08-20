@@ -60,10 +60,15 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, current statu
 - Keep the no-build-step property; do not introduce bundlers or frameworks.
 - Never commit with the work identity; never `git push --force` to main.
 
+## Europe and North America build (approved 2026-08-20)
+
+- Spec `docs/EUROPE_SPEC.md`, staged plan `docs/EUROPE_PLAN.md`, kickoff brief `docs/EUROPE_KICKOFF.md`; epic #6 with stage issues #7 to #13.
+- **Build on branch `europe`, never on `main` before the cutover stage**; `main` keeps serving the live LT site. Each stage: label its issue `in-progress`, write the step-level plan from `docs/EUROPE_PLAN.md` first, then implement.
+- Region configs are the only place a region is described; nothing in code names Europe.
+
 ## Roadmap (parked, build only on owner's go)
 
-- Europe-wide version (30 GB Geofabrik PBF, 250 m continental pass in EPSG:3035, local UTM refinement, PMTiles for serving) plus a custom domain when it lands
-- Country selector and per-country leaderboards
+- Custom domain and rename: stage 6 of the Europe plan (#12), name still to be picked
 - Self-serve stats viewer page for the Analytics Engine data
 - Analytics retention snapshots (AE keeps ~3 months)
 - Mobile app exercise (Expo, GPS remoteness compass, offline; no backend)
@@ -71,6 +76,7 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, current statu
 ## Docs
 
 - `docs/OVERVIEW.md`: what works, what is not done, current status; read first
+- `docs/EUROPE_SPEC.md` and `docs/EUROPE_PLAN.md`: the approved design and staged plan for the Europe build; `docs/EUROPE_KICKOFF.md` is the brief that produced them
 - `docs/DECISIONS.md`: dated decision log with rationale; append, don't relitigate
 - `docs/IDEAS.md`: parked plans (Europe, app, stats viewer); build only on owner's go
 - `docs/LOG.md`: sparse project log of big events
