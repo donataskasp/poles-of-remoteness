@@ -15,6 +15,7 @@ The LT-only site is a finished quick demo, live at both URLs. Owner decision 202
 - Site: lt/en i18n, URL-hash state, satellite default basemap, mobile bottom pill, dark variant
 - Analytics, three honest layers: edge logger to Workers Analytics Engine (ground truth since 2026-08-18), raw asset request counts, CF Web Analytics beacon (undercounts, but covers the mirror)
 - Deploys: Cloudflare Worker via CI on push (since 2026-08-20, `deploy-cloudflare.yml`), Pages mirror via CI, both with post-deploy verify jobs
+- Monitoring: UptimeRobot checks both live URLs every 5 minutes with email alerts (since 2026-08-20)
 - Launched 2026-08-17 via LinkedIn post
 
 ## Not done yet / parked (build only on owner's go)
