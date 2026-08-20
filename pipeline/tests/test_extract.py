@@ -9,6 +9,7 @@ from pyogrio import read_info
 from pyogrio.raw import read, write
 
 from poles import extract
+from poles.extract import chunk_lines
 from poles.osmium import osmium
 from poles.shell import ToolError
 from poles.workspace import Workspace
@@ -63,6 +64,68 @@ def test_extract_tiny_fixture_produces_five_layers_with_expected_counts(tmp_path
     assert read_info(str(ex / "water.fgb"))["geometry_type"] in ("Polygon", "MultiPolygon")
     assert (ws.shared_dir() / "land.fgb").is_file() and read_info(str(ws.shared_dir() / "land.fgb"))["features"] == 1
     assert not list(ex.glob("*.geojsonseq")) and not list(ex.glob("*-filtered.pbf"))
+    # The chunked conversion leaves no chunks, no chunk logs and no VRT behind.
+    assert not list(ex.glob("*.part-*")) and not list(ex.glob("*.vrt"))
+    # Every artefact that survives carries its done marker, so a rerun can skip it.
+    assert {p.name for p in ex.glob("*.ok")} == {
+        "filtered.pbf.ok", "highways.pbf.ok", "highways.fgb.ok", "boundaries.pbf.ok", "boundaries.fgb.ok",
+        "places.pbf.ok", "places.fgb.ok", "water.pbf.ok", "water.fgb.ok"}
+
+
+def test_extract_rerun_skips_osmium_when_markers_exist(tmp_path, tiny_pbf, cfg, log, monkeypatch):
+    """Every osmium step on a continent costs minutes to an hour; a rerun must resume, not redo."""
+    ws = _workspace(tmp_path, tiny_pbf)
+    land_zip = _land_zip(tmp_path)
+    first = extract.run(cfg, ws, log, land_zip=land_zip)
+
+    def refuse(*args, **kwargs):
+        raise AssertionError("osmium must not run")
+
+    monkeypatch.setattr(extract, "osmium", refuse)
+    again = extract.run(cfg, ws, log, land_zip=land_zip)
+    assert again["counts"] == first["counts"]
+    assert again["level2_iso_codes"] == first["level2_iso_codes"]
+
+
+def test_extract_with_one_feature_per_chunk_keeps_every_row_and_field(tmp_path, tiny_pbf, cfg, log, monkeypatch):
+    """CHUNK_BYTES of 1 puts every feature in its own chunk, so the VRT union merges schemas that differ:
+    the highway chunks carry name / ice_road+ref respectively and both sets of fields must survive. It also
+    pins the empty-chunk arithmetic: the boundaries chunk holding the maritime relation is emptied by the
+    -where, and an empty FlatGeobuf reports a feature count of -1 unless the count is forced."""
+    monkeypatch.setattr(extract, "CHUNK_BYTES", 1)
+    ws = _workspace(tmp_path, tiny_pbf)
+    meta = extract.run(cfg, ws, log, land_zip=_land_zip(tmp_path))
+    ex = ws.dir("extract")
+    assert meta["counts"] == {"highways": 2, "boundaries": 1, "places": 1, "water": 1, "land": 1}
+    assert {"osm_id", "highway", "name", "ref", "ice_road"} <= set(_fields(ex / "highways.fgb"))
+    assert sorted(_column(ex / "highways.fgb", "highway")) == ["primary", "track"]
+    assert sorted(v for v in _column(ex / "highways.fgb", "name") if v) == ["Main road"]
+    assert sorted(v for v in _column(ex / "highways.fgb", "ref") if v) == ["T1"]
+    assert not list(ex.glob("*.part-*")) and not list(ex.glob("*.vrt")) and not list(ex.glob("*.geojsonseq"))
+
+
+def test_chunk_lines_splits_on_line_boundaries_and_roundtrips(tmp_path):
+    src = tmp_path / "in.geojsonseq"
+    lines = [b"a" * 5, b"b" * 30, b"c" * 1, b"d" * 12, b"e" * 7, b"f" * 40, b"g" * 3]
+    src.write_bytes(b"".join(line + b"\n" for line in lines))
+    chunk_bytes = 20
+
+    parts = chunk_lines(src, chunk_bytes, tmp_path / "out")
+
+    assert [p.name for p in parts] == [f"out.part-{i:04d}.geojsonseq" for i in range(len(parts))]
+    assert b"".join(p.read_bytes() for p in parts) == src.read_bytes()
+    assert all(p.read_bytes().endswith(b"\n") for p in parts)
+    for part in parts:
+        data = part.read_bytes()
+        # Over the cap only when the chunk is one line that does not fit on its own.
+        assert len(data) <= chunk_bytes or data.count(b"\n") == 1
+    assert any(len(p.read_bytes()) > chunk_bytes for p in parts), "the oversized-line case must be exercised"
+
+
+def test_chunk_lines_on_an_empty_file_produces_no_chunks(tmp_path):
+    src = tmp_path / "in.geojsonseq"
+    src.write_bytes(b"")
+    assert chunk_lines(src, 1024, tmp_path / "out") == []
 
 
 def test_osmium_failure_raises_with_command_in_message(tmp_path, log):
