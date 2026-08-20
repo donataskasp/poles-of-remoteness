@@ -33,6 +33,8 @@ A **region** is a config file, not a code path. Nothing in the pipeline or the s
 | `edge_mask_m` | 50,000 | 50,000 |
 | `max_distance_m` | 150,000 | 400,000 |
 | `top_n` | 10 | 10 |
+| `expected_units` | set once counted in stage 2 | 64 (51 US incl. DC, 13 CA) |
+| `transcontinental` | `tr`, `ge` | none |
 | `detail_res_m` / `detail_window_m` | 50 / 20,000 | 50 / 20,000 |
 
 Europe ships first. North America is the stage immediately after Europe passes validation, on the same branch, before or after public launch at the owner's discretion. Regions never share a ranking.
@@ -82,7 +84,7 @@ One command per region: `poles run europe`. Seven stages, each resumable and ide
 4. **grid**: roads rasterised at `coarse_res_m` in `coarse_crs` over the extract bbox plus a margin of `max_distance_m`. Euclidean distance transform, **tiled with an exactness guarantee**: tiles of 4096 cells with overlap `max_distance_m / coarse_res_m`; any cell whose result is at least the overlap is unresolved and its tile is recomputed with doubled overlap until none remain. Runs on all cores. A single-array fallback exists for debugging. Output: float32 GeoTIFF per scenario, plus the land mask and unit-id raster at the same grid.
 5. **poles**: per unit and scenario, branch-and-bound over the coarse grid: a cell is refined only if `coarse_value + 2 * half_diagonal * (1 + distortion_pad) >= best_confirmed_lower_bound`, where the pad is the LAEA scale error at that cell (2% at 2,500 km from centre). Refinement: exact vector distances (STRtree over the scenario's ways within `coarse_value * 1.2 + 1 km`) at 25 m then 5 m in the cell's UTM zone, as in the LT method. Top `top_n` per unit per scenario, deduplicated at 10 km, each with nearest way (id, highway, name, ref, country), nearest settlement (name, type, distance, coordinates), and unit membership.
 6. **validate**: section 6. Writes `validation/report.json`, `report.html`, and `contact-sheet.html`. Any failure stops the run before publish.
-7. **publish**: explore field masked at the data edge and over water, quantised to 8-bit classes (3.4), warped to EPSG:3857, tiled z0-z9 as indexed PNG, packed into one PMTiles archive per scenario; detail rasters rendered for every published pole; everything uploaded to R2 under the immutable snapshot key; `units.json`, per-unit JSON, and `manifest.json` written into `site/data/`. Upload is part of the command, not a separate step.
+7. **publish**: explore field masked at the data edge and over water, quantised to 8-bit classes (3.4), warped to EPSG:3857, tiled z0-z9 as single-band 8-bit PNG whose pixel value is the class (colours are applied client-side, so the readout is exact and palettes can change without regenerating tiles), packed into one PMTiles archive per scenario; detail rasters rendered for every published pole; everything uploaded to R2 under the immutable snapshot key; `units.json`, per-unit JSON, and `manifest.json` written into `site/data/`. Upload is part of the command, not a separate step.
 
 ### 3.3 Resource envelope
 
@@ -90,7 +92,7 @@ Measured 2026-08-20: this machine is an M4 Pro, 12 cores, 24 GB, 233 GB free. Eu
 
 ### 3.4 Class table
 
-The explore layer and detail rasters store one byte per pixel: a class index whose lower edge is the distance. Default table (per-region override allowed): 50 m steps to 2.5 km (classes 0-49), 100 m steps to 10 km (50-124), 250 m steps to 30 km (125-204), 1 km steps to 60 km (205-234), 10 km steps to 250 km (235-252), class 253 is "250 km or more", 254 is edge-masked, 255 is no-data. The table ships in `regions.json` so the site decodes without hard-coding it. Monotonicity and round-trip are unit-tested.
+The explore layer and detail rasters store one byte per pixel: a class index whose lower edge is the distance. Default table (per-region override allowed): 50 m steps to 2.5 km (classes 0-49), 100 m steps to 10 km (50-124), 250 m steps to 30 km (125-204), 1 km steps to 60 km (205-234), 10 km steps from 60 km to 230 km (235-252), class 253 is "240 km or more", 254 is edge-masked, 255 is no-data. The table ships in `regions.json` so the site decodes without hard-coding it. Monotonicity and round-trip are unit-tested.
 
 ### 3.5 Tests
 
