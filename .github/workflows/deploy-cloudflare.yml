@@ -45,6 +45,9 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # The action default wrangler (3.90.0) predates wrangler.jsonc
+          # support and fails with "Missing entry-point". Pin v4.
+          wranglerVersion: "4.124.0"
 
   verify:
     needs: deploy
