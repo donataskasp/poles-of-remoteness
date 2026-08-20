@@ -1,6 +1,6 @@
 from poles.poly import parse_poly
 
-SAMPLE = """europe
+SAMPLE = """sample
 1
    0.0   0.0
    4.0   0.0

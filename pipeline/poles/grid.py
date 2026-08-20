@@ -30,6 +30,10 @@ from .workspace import Workspace
 
 STAGE = "grid"
 TILE = 4096
+# scipy's EDT holds the int32 feature transform, the index grids and a float64 square at window size.
+# Measured at the production window (6096 x 6096): 1.64 GB, about 44 bytes per window cell.
+BYTES_PER_WINDOW_CELL = 48
+RAM_FRACTION = 0.6
 GTIFF_OPTS = dict(driver="GTiff", tiled=True, blockxsize=512, blockysize=512, compress="deflate", bigtiff="IF_SAFER")
 
 
@@ -131,6 +135,27 @@ def build_land_mask(land_fgb: Path, water_fgb: Path, frame: Frame, out_tif: Path
 
 # ---------- distance transform ----------
 
+def physical_ram_bytes() -> int:
+    """Physical RAM. sysconf carries both names on macOS and Linux."""
+    return os.sysconf("SC_PAGE_SIZE") * os.sysconf("SC_PHYS_PAGES")
+
+
+def window_shape(shape: tuple[int, int], tile: int, overlap_cells: int) -> tuple[int, int]:
+    """The largest window a tile job holds: a full core plus the overlap on each side, clipped to the array."""
+    h, w = shape
+    return (min(h, min(tile, h) + 2 * overlap_cells), min(w, min(tile, w) + 2 * overlap_cells))
+
+
+def default_workers(window_cells: int, total_ram_bytes: int, cpus: int, bytes_per_cell: int = BYTES_PER_WINDOW_CELL,
+                    ram_fraction: float = RAM_FRACTION) -> int:
+    """How many tile jobs fit in a fraction of RAM, capped at cpus - 2 and never below 1.
+
+    Core count alone is the wrong budget: at the production window one worker peaks near 1.6 GB, so a
+    10-worker default would ask for 16 GB of workers on top of the parent's own several GB."""
+    by_ram = math.floor(ram_fraction * total_ram_bytes / (bytes_per_cell * window_cells))
+    return max(1, min(cpus - 2 if cpus > 2 else 1, by_ram))
+
+
 def untiled_edt(mask: np.ndarray, res_m: float) -> np.ndarray:
     """Single-array reference: metres to the nearest True cell. Debug fallback (POLES_EDT_UNTILED=1)."""
     if not mask.any():
@@ -167,8 +192,12 @@ def tiled_edt(road_mask: np.ndarray, res_m: float, overlap_cells: int, tile: int
     than the overlap. Cells at or above it are recomputed with doubled overlap until none remain, or, when max_m
     is given, until overlap * res_m >= max_m, after which they are set to max_m ("at least this far"). With
     max_m = None the result is bit-identical to untiled_edt everywhere."""
+    if overlap_cells < 1:
+        raise ValueError(f"overlap_cells must be at least 1, got {overlap_cells}; the doubling ladder cannot start from 0")
     H, W = road_mask.shape
-    workers = workers or max(1, (os.cpu_count() or 2) - 2)
+    if not workers:
+        wh, ww = window_shape((H, W), tile, overlap_cells)
+        workers = default_workers(wh * ww, physical_ram_bytes(), os.cpu_count() or 2)
     tiles = [(r0, min(r0 + tile, H), c0, min(c0 + tile, W)) for r0 in range(0, H, tile) for c0 in range(0, W, tile)]
     pending = {t: int(overlap_cells) for t in tiles}
     doublings = 0
@@ -257,11 +286,19 @@ def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
             stats: dict = {}
             if untiled:
                 dist = untiled_edt(mask, cfg.coarse_res_m)
+                np.minimum(dist, np.float32(cfg.max_distance_m), out=dist)  # same cap as the tiled path
             else:
-                dist = tiled_edt(mask, cfg.coarse_res_m, overlap, TILE, workers, max_m=float(cfg.max_distance_m), stats=stats)
+                cpus = os.cpu_count() or 2
+                wh, ww = window_shape(mask.shape, TILE, overlap)
+                chosen = workers or default_workers(wh * ww, physical_ram_bytes(), cpus)
+                log.info("edt %s: %d x %d cell windows, about %.2f GB per worker, %d of %d cpus, %.1f GB RAM",
+                         scenario, wh, ww, wh * ww * BYTES_PER_WINDOW_CELL / 1e9, chosen, cpus,
+                         physical_ram_bytes() / 1e9)
+                dist = tiled_edt(mask, cfg.coarse_res_m, overlap, TILE, chosen, max_m=float(cfg.max_distance_m), stats=stats)
             del mask
             info["worker_peak_rss_bytes"] = stats.get("worker_peak_rss_bytes")
-            meta["edt"].update({"tiles": stats.get("tiles"), "overlap_cells": overlap, "doublings": stats.get("doublings"),
+            meta["edt"].update({f"tiles_{scenario}": stats.get("tiles"), "overlap_cells": overlap,
+                                f"doublings_{scenario}": stats.get("doublings"),
                                 f"saturated_cells_{scenario}": stats.get("saturated_cells")})
             write_float_tif(out_dir / f"dist_{scenario}.tif", dist, frame)
             del dist

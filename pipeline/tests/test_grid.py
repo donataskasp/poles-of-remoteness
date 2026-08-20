@@ -1,3 +1,6 @@
+import json
+from dataclasses import replace
+
 import numpy as np
 import pytest
 import rasterio
@@ -6,6 +9,8 @@ from pyproj import Transformer
 from scipy.ndimage import distance_transform_edt
 
 from poles import grid
+from poles.poly import parse_poly
+from poles.workspace import Workspace
 from tests.helpers import write_fgb
 
 
@@ -62,6 +67,24 @@ def test_tiled_handles_non_multiple_shapes_and_all_road_tiles():
     mask[:64, :64] = True
     ref = grid.untiled_edt(mask, 1.0)
     assert np.array_equal(grid.tiled_edt(mask, 1.0, overlap_cells=8, tile=64, workers=2), ref)
+
+
+def test_tiled_edt_rejects_non_positive_overlap():
+    mask = np.zeros((40, 40), bool)
+    mask[0, 0] = True
+    for bad in (0, -1):
+        with pytest.raises(ValueError, match="overlap"):
+            grid.tiled_edt(mask, 1.0, overlap_cells=bad, tile=10, workers=1)
+
+
+def test_default_workers_respects_memory_and_cpus():
+    window = 6096 ** 2          # the production window: tile 4096 plus 2 x overlap 1000
+    gib = 1024 ** 3
+    assert grid.default_workers(window, 24 * gib, 12) == 8       # memory binds below the 10 cpus allow
+    assert grid.default_workers(window, 8 * gib, 12) == 2        # less memory, fewer workers
+    assert grid.default_workers(256 * 256, 12 * gib, 12) == 10   # tiny window: cpus - 2 binds
+    assert grid.default_workers(window, 24 * gib, 1) == 1        # never more than the cpus allow
+    assert grid.default_workers(window, 1024, 12) == 1           # never zero, however little memory
 
 
 # ---------- frame ----------
@@ -138,3 +161,58 @@ def test_land_mask_with_lonlat_inputs(tmp_path, log):
         arr = ds.read(1)
     assert arr[int((3_220_000 - 3_206_000) // 250), int((4_306_000 - 4_300_000) // 250)] == 0
     assert abs(int(arr.sum()) - (6400 - 64)) <= 40
+
+
+# ---------- stage ----------
+
+def _write_poly(path, west, south, east, north) -> None:
+    ring = [(west, south), (east, south), (east, north), (west, north), (west, south)]
+    body = "\n".join(f"   {x}   {y}" for x, y in ring)
+    path.write_text(f"sample\n1\n{body}\nEND\nEND\n", encoding="utf-8")
+
+
+def test_run_on_synthetic_inputs(tmp_path, cfg, log, monkeypatch):
+    """The whole stage on a tiny fake workspace: the frame comes from the primary poly only, all six
+    outputs land on that frame, and the meta carries the keys later stages read."""
+    monkeypatch.setenv("POLES_WORKERS", "1")
+    region = replace(cfg, coarse_res_m=250, max_distance_m=2000)
+    ws = Workspace(tmp_path / "work", "testland", "2026-01-01")
+
+    fetch_dir = ws.dir("fetch")
+    _write_poly(fetch_dir / "sample.poly", 10.0, 51.9, 10.2, 52.1)
+    _write_poly(fetch_dir / "supp.poly", 30.0, 40.0, 30.2, 40.2)   # far away: must not widen the frame
+    (fetch_dir / "snapshot.json").write_text(json.dumps({"sources": [
+        {"role": "primary", "poly": "sample.poly"},
+        {"role": "supplement", "poly": "supp.poly"},
+    ]}) + "\n", encoding="utf-8")
+
+    near = shapely.LineString([(10.05, 51.95), (10.09, 51.95)])
+    far = shapely.LineString([(10.12, 52.05), (10.16, 52.05)])
+    write_fgb(ws.dir("classify") / "roads_A.fgb", "roads_A", [near, far], {"way_id": [1, 2]})
+    write_fgb(ws.dir("classify") / "roads_B.fgb", "roads_B", [far], {"way_id": [2]})
+    write_fgb(ws.dir("extract") / "water.fgb", "water", [shapely.box(10.03, 52.03, 10.06, 52.05)], {"osm_id": [1]})
+    write_fgb(ws.shared_dir() / "land.fgb", "land",
+              [shapely.box(9.7, 51.6, 10.5, 52.4).segmentize(0.01)], {"fid": [1]})
+
+    meta = grid.run(region, ws, log)
+
+    out_dir = ws.dir("grid")
+    expected = grid.frame_from_polygons([parse_poly(fetch_dir / "sample.poly")], "EPSG:4326",
+                                        region.coarse_crs, region.coarse_res_m, region.max_distance_m)
+    assert grid.Frame.from_dict(json.loads((out_dir / "frame.json").read_text())) == expected
+    assert meta["frame"] == expected.to_dict()
+    cells = expected.width * expected.height
+    for name in ("roads_A", "roads_B", "dist_A", "dist_B", "land"):
+        with rasterio.open(out_dir / f"{name}.tif") as ds:
+            assert (ds.width, ds.height) == (expected.width, expected.height)
+            assert ds.transform == expected.transform
+
+    assert meta["a_le_b_violations"] == 0
+    assert meta["road_cells_A"] >= meta["road_cells_B"] > 0
+    assert 0 < meta["land_cells"] < cells        # land covers the frame, the lake is cut out of it
+    assert meta["land_cells"] > 0.9 * cells
+    for name in ("rasterize_A", "edt_A", "rasterize_B", "edt_B", "land", "invariant_a_le_b"):
+        assert "duration_s" in meta["steps"][name]
+    assert {"overlap_cells", "tiles_A", "tiles_B", "doublings_A", "doublings_B",
+            "saturated_cells_A", "saturated_cells_B"} <= set(meta["edt"])
+    assert meta["edt"]["overlap_cells"] == 8     # ceil(2000 / 250)
