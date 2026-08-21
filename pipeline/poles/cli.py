@@ -8,6 +8,7 @@ from pathlib import Path
 
 from . import http
 from .config import ConfigError, RegionConfig, load_region
+from .errors import PolesError
 from .logsetup import get_logger
 from .runner import run_pipeline
 from .stages import ORDER, registry
@@ -55,7 +56,11 @@ def main(argv: list[str] | None = None) -> int:
     log.info("poles run %s snapshot %s work %s%s", cfg.id, snapshot, ws.base, " (forced)" if args.force else "")
     if not args.snapshot:
         log.info("snapshot taken from the primary source's Last-Modified; pass --snapshot %s to resume this one later", snapshot)
-    run_pipeline(cfg, ws, log, only=args.stage, force=args.force, registry=registry())
+    try:
+        run_pipeline(cfg, ws, log, only=args.stage, force=args.force, registry=registry())
+    except PolesError as e:
+        log.error("%s", e)
+        return 1
     return 0
 
 
