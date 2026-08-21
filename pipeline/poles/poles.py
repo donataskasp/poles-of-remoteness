@@ -34,7 +34,7 @@ from shapely.ops import unary_union
 from shapely.prepared import prep
 from shapely.strtree import STRtree
 
-from .attrib import Countries, Places, nearest_way, pole_record
+from .attrib import Countries, Places, clean_text, nearest_way, pole_record
 from .boundaries import AdminArea, load_admin_areas
 from .candidates import Refined, Search, half_diag, pad_fn_for
 from .classify import where_clause
@@ -195,11 +195,16 @@ def prepare(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> Prepared:
 
 
 def _units_from_fgb(path: Path) -> list[Unit]:
+    """The units of a finished units.fgb, back in index order: FlatGeobuf hands features back in the order of
+    its packed R-tree, not the order they were written in."""
     meta, _, wkb, fields = read(str(path), layer="units")
     by = dict(zip(meta["fields"], fields))
     geoms = shapely.from_wkb(wkb)
-    return [Unit(by["code"][i], None, by["name_en"][i], 0, by["country"][i], geoms[i],
-                 bool(by["transcontinental"][i]), int(by["idx"][i])) for i in range(len(geoms))]
+    units = [Unit(by["code"][i], clean_text(by["name"][i]), clean_text(by["name_en"][i]), int(by["osm_id"][i]), by["country"][i],
+                  geoms[i], bool(by["transcontinental"][i]), int(by["idx"][i]),
+                  closed_by_edge=bool(by["closed_by_edge"][i])) for i in range(len(geoms))]
+    units.sort(key=lambda u: u.index)
+    return units
 
 
 @dataclass

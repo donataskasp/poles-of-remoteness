@@ -15,7 +15,7 @@ from .refine import RefinedPole, UtmRoads
 GEOD = Geod(ellps="WGS84")
 
 
-def _clean(value) -> str | None:
+def clean_text(value) -> str | None:
     """OGR nulls arrive as None or as a float nan depending on the field's dtype; both mean absent."""
     if value is None or (isinstance(value, float) and np.isnan(value)):
         return None
@@ -79,8 +79,8 @@ def nearest_way(roads: UtmRoads, pole: RefinedPole, countries: Countries) -> dic
     way_utm = roads.geoms[i]
     on_way = shapely.shortest_line(way_utm, shapely.Point(pole.x, pole.y)).coords[0]
     lon, lat = roads.to_lonlat.transform(on_way[0], on_way[1])
-    return {"id": int(attrs["osm_id"][i]), "highway": _clean(attrs["highway"][i]), "name": _clean(attrs["name"][i]),
-            "ref": _clean(attrs["ref"][i]), "country": countries.code_at(lon, lat)}
+    return {"id": int(attrs["osm_id"][i]), "highway": clean_text(attrs["highway"][i]), "name": clean_text(attrs["name"][i]),
+            "ref": clean_text(attrs["ref"][i]), "country": countries.code_at(lon, lat)}
 
 
 def pole_record(rank: int, pole: RefinedPole, way: dict, place: dict | None) -> dict:

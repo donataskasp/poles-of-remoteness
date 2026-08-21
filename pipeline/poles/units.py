@@ -119,12 +119,17 @@ def select_units(areas: list[AdminArea], cfg: RegionConfig, primary: BaseGeometr
 
 
 def write_units(units: list[Unit], path: Path) -> Path:
+    """Every field a resume needs: a run that finds units.fgb done rebuilds its units from this file alone,
+    so anything left out here is null for the rest of that run (cells and area_km2 excepted, since they come
+    from the raster)."""
     write(str(path), geometry=np.array([shapely.to_wkb(u.geometry) for u in units], dtype=object),
-          field_data=[np.array([u.code for u in units], dtype=object), np.array([u.name_en for u in units], dtype=object),
+          field_data=[np.array([u.code for u in units], dtype=object), np.array([u.name for u in units], dtype=object),
+                      np.array([u.name_en for u in units], dtype=object), np.array([u.osm_id for u in units], dtype=np.int64),
                       np.array([u.country for u in units], dtype=object), np.array([u.index for u in units], dtype=np.int32),
-                      np.array([int(u.transcontinental) for u in units], dtype=np.int32)],
-          fields=["code", "name_en", "country", "idx", "transcontinental"], layer="units", driver="FlatGeobuf",
-          geometry_type="MultiPolygon", crs="EPSG:4326")
+                      np.array([int(u.transcontinental) for u in units], dtype=np.int32),
+                      np.array([int(u.closed_by_edge) for u in units], dtype=np.int32)],
+          fields=["code", "name", "name_en", "osm_id", "country", "idx", "transcontinental", "closed_by_edge"],
+          layer="units", driver="FlatGeobuf", geometry_type="MultiPolygon", crs="EPSG:4326")
     return path
 
 

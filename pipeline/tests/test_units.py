@@ -9,7 +9,8 @@ from shapely.geometry import MultiPolygon, Point, box
 from poles.boundaries import AdminArea
 from poles.config import RegionConfig, load_region
 from poles.grid import Frame, create_raster
-from poles.units import (UnitsError, apply_territory_mask, country_of, inside_fraction, rasterize_units,
+from poles.poles import _units_from_fgb
+from poles.units import (Unit, UnitsError, apply_territory_mask, country_of, inside_fraction, rasterize_units,
                          select_units, unit_cells, write_units)
 
 
@@ -144,3 +145,11 @@ def test_unit_cells_window_reads_a_box_and_still_reports_absolute_rows(tmp_path,
     assert list(zip(rows.tolist(), cols.tolist())) == [(4, 1)]
     rows, cols = unit_cells(tmp_path / "units.tif", tt, frame, log, tmp_path, window=window)
     assert list(zip(rows.tolist(), cols.tolist())) == [(3, 2)]    # lat 1.1..1.2 is row 3, lon 1.1..1.2 is col 2
+
+
+def test_units_round_trip_through_the_fgb_keeps_every_persisted_field(tmp_path):
+    """The resume path rebuilds units from units.fgb, so what it drops there ends up null in units.json."""
+    units = [Unit("lt", "Lietuva", "Lithuania", 72596, "lt", MultiPolygon([box(0, 0, 2, 2)]), False, 1),
+             Unit("tr", "Türkiye", "Turkey", 174737, "tr", MultiPolygon([box(4, 4, 5, 5)]), True, 2, closed_by_edge=True)]
+    back = _units_from_fgb(write_units(units, tmp_path / "units.fgb"))
+    assert back == units
