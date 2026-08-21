@@ -3,6 +3,7 @@ import logging
 import numpy as np
 import pytest
 import rasterio
+from rasterio.windows import Window
 from shapely.geometry import MultiPolygon, Point, box
 
 from poles.boundaries import AdminArea
@@ -122,3 +123,24 @@ def test_unit_cells_falls_back_to_all_touched_for_a_microstate(tmp_path, log, re
     assert counts == {1: 0}
     rows, cols = unit_cells(tmp_path / "units.tif", units[0], frame, log, tmp_path)
     assert list(zip(rows.tolist(), cols.tolist())) == [(3, 2)]   # lat 1.1..1.2 is row 3, lon 1.1..1.2 is col 2
+
+
+def test_unit_cells_window_reads_a_box_and_still_reports_absolute_rows(tmp_path, log, regions_dir):
+    """A window covering the unit answers the same as the whole raster, for a unit that holds a cell centre
+    and for a microstate that has to fall back to all-touched."""
+    big = _area(1, "BB", box(0.55, 0.55, 0.95, 0.95))     # holds exactly the centre of the cell at row 4, col 1
+    tiny = _area(2, "TT", box(1.1, 1.1, 1.2, 1.2))        # smaller than a cell, contains no cell centre
+    cfg = _cfg(regions_dir, unit_exclude=[], territory_mask=[], expected_units=2, transcontinental=[])
+    units = select_units([big, tiny], cfg, box(0, 0, 10, 10))
+    fgb = write_units(units, tmp_path / "units.fgb")
+    frame = Frame("EPSG:4326", 0.5, 0.0, 3.0, 6, 6)
+    land = create_raster(frame, tmp_path / "land.tif")
+    with rasterio.open(land, "r+") as ds:
+        ds.write(np.ones((6, 6), dtype="uint8"), 1)
+    assert rasterize_units(fgb, frame, land, tmp_path / "units.tif", log, tmp_path) == {1: 1, 2: 0}
+    bb, tt = units                                                # sorted by code: bb then tt
+    window = Window(col_off=1, row_off=2, width=3, height=4)      # rows 2 to 5, cols 1 to 3
+    rows, cols = unit_cells(tmp_path / "units.tif", bb, frame, log, tmp_path, window=window)
+    assert list(zip(rows.tolist(), cols.tolist())) == [(4, 1)]
+    rows, cols = unit_cells(tmp_path / "units.tif", tt, frame, log, tmp_path, window=window)
+    assert list(zip(rows.tolist(), cols.tolist())) == [(3, 2)]    # lat 1.1..1.2 is row 3, lon 1.1..1.2 is col 2

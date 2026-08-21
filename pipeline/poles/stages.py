@@ -23,4 +23,6 @@ def registry() -> dict[str, StageFn | None]:
     reg["extract"] = extract.run
     from . import grid
     reg["grid"] = grid.run
+    from . import poles as poles_stage
+    reg["poles"] = poles_stage.run
     return reg

@@ -9,6 +9,7 @@ import numpy as np
 import rasterio
 import shapely
 from pyogrio.raw import read, write
+from rasterio.windows import Window
 from shapely.geometry import MultiPolygon, box
 from shapely.geometry.base import BaseGeometry
 
@@ -150,20 +151,29 @@ def rasterize_units(units_fgb: Path, frame: Frame, land_tif: Path, out_tif: Path
     return counts
 
 
-def unit_cells(units_tif: Path, unit: Unit, frame: Frame, log: logging.Logger,
-               workdir: Path) -> tuple[np.ndarray, np.ndarray]:
-    """(rows, cols) of the unit's cells. A unit too small to hold a cell centre (a microstate) gets the cells its
-    polygon touches instead, so it still has candidates; its refinement is masked to the polygon anyway."""
+def unit_cells(units_tif: Path, unit: Unit, frame: Frame, log: logging.Logger, workdir: Path,
+               window: Window | None = None) -> tuple[np.ndarray, np.ndarray]:
+    """(rows, cols) of the unit's cells, in whole-raster coordinates. A unit too small to hold a cell centre
+    (a microstate) gets the cells its polygon touches instead, so it still has candidates; its refinement is
+    masked to the polygon anyway.
+
+    `window` restricts both the read and the all-touched fallback to that box of the frame, so a caller that
+    already knows where the unit sits never pays for the whole raster (1.35 GB at the Europe frame). The
+    returned indices stay absolute whatever the window."""
+    row_off = int(window.row_off) if window is not None else 0
+    col_off = int(window.col_off) if window is not None else 0
     with rasterio.open(units_tif) as ds:
-        rows, cols = np.nonzero(ds.read(1) == unit.index)
+        rows, cols = np.nonzero(ds.read(1, window=window) == unit.index)
     if len(rows):
-        return rows, cols
+        return rows + row_off, cols + col_off
     log.warning("unit %s has no cell centre on the %g m grid; using all-touched cells", unit.code, frame.res)
+    sub = frame if window is None else Frame(frame.crs, frame.res, frame.x0 + col_off * frame.res,
+                                             frame.y1 - row_off * frame.res, int(window.width), int(window.height))
     tmp_fgb = Path(workdir) / f"unit-{unit.code}.fgb"
     tmp_fgb.unlink(missing_ok=True)
     write_units([unit], tmp_fgb)
     tmp_tif = Path(workdir) / f"unit-{unit.code}.tif"
-    create_raster(frame, tmp_tif)
+    create_raster(sub, tmp_tif)
     rasterize(tmp_fgb, "units", tmp_tif, log, Path(workdir) / "tools.log", burn=1, all_touched=True)
     with rasterio.open(tmp_tif) as ds:
         rows, cols = np.nonzero(ds.read(1))
@@ -171,4 +181,4 @@ def unit_cells(units_tif: Path, unit: Unit, frame: Frame, log: logging.Logger,
     tmp_tif.unlink(missing_ok=True)
     if not len(rows):
         raise UnitsError(f"unit {unit.code} touches no cell of the frame")
-    return rows, cols
+    return rows + row_off, cols + col_off
