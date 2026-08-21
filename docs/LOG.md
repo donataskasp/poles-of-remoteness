@@ -29,3 +29,7 @@ Three things were removed rather than added: the GitHub Pages mirror (a second U
 ## 2026-08-20: Europe planned
 
 Third session of the day, the first in the dedicated `claude-poles` session with the superpowers brainstorming path. Fetched the real numbers first (32 GB Europe extract ending at the Volga, Cloudflare's 20,000-file and 25 MiB asset caps, R2's 10 GB free tier), then settled the load-bearing calls: poles plus a continental explore layer as the hero, countries' main territories as units, Russia as roads only, scenario A as the headline, a dated snapshot with refresh parked, Europe first with North America straight after on a region-agnostic pipeline, R2 for the archives with publishing as a manifest commit. Spec (`docs/EUROPE_SPEC.md`) and staged plan (`docs/EUROPE_PLAN.md`) written and approved; epic #6 with stage issues #7 to #13 filed. No code written, by design.
+
+## 2026-08-21: Stage 1 of Europe done, first continental grids computed
+
+Pipeline foundation built on branch `europe` in one long session (spec to code to real data): the `poles` package with config, resumable CLI, fetch, extract, classify, grid, container and CI, 97 tests. Europe (snapshot 2026-08-19) computed through the grid stage on the Mac in about 1.5 hours, not the 4-5 planned. Two tool limits found on the real data and designed around (GDAL's GeoJSONSeq reader memory, a FlatGeobuf index limit near 100 M features); two stage-2 issues filed (#15, #16). Stages now proceed without waiting for owner review between them.

@@ -14,6 +14,7 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, current statu
 ## Layout
 
 - `scripts/`: Python compute pipeline (OSM extract -> distance grids -> spots/bands). Heavy inputs and grids are gitignored and regenerable.
+- `pipeline/` (branch `europe`): the region-agnostic Europe pipeline (`poles` CLI, see `pipeline/README.md`); replaces `scripts/` at cutover. Work data under `work/` is gitignored and regenerable from the snapshot identity.
 - `site/`: the deployed website. Plain HTML/CSS/JS, no build step, no framework. Vendored Leaflet 1.9.4. `site/data/` holds the published results and MUST stay in git (the root `.gitignore` entry is `/data/`, root-anchored on purpose).
 - `worker.js` + `wrangler.jsonc`: Cloudflare Worker: serves `site/` as static assets; GET requests to `/` also log one privacy-clean view to Workers Analytics Engine (dataset `atokiausia_views`, blob order documented in the file). No IPs, no raw user agents, no cookies.
 - `.github/workflows/deploy-cloudflare.yml`: deploys the Worker on pushes to main touching `site/**`, `worker.js`, or `wrangler.jsonc`, then verifies the live URL.
@@ -65,6 +66,7 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, current statu
 - Spec `docs/EUROPE_SPEC.md`, staged plan `docs/EUROPE_PLAN.md`, kickoff brief `docs/EUROPE_KICKOFF.md`; epic #6 with stage issues #7 to #13.
 - **Build on branch `europe`, never on `main` before the cutover stage**; `main` keeps serving the live LT site. Each stage: label its issue `in-progress`, write the step-level plan from `docs/EUROPE_PLAN.md` first, then implement.
 - Region configs are the only place a region is described; nothing in code names Europe.
+- Stage status lives in `docs/OVERVIEW.md` (stage 1 done 2026-08-21). Stages proceed one after another without waiting for the owner's review between them (owner decision 2026-08-21); stop only at the genuinely human steps: picking the name, buying the domain, pointing nameservers, and anything irreversible on the live site. Owner-review items such as the contact sheet are posted to the stage issue and flagged, not blocked on.
 
 ## Roadmap (parked, build only on owner's go)
 

@@ -2595,7 +2595,7 @@ from rasterio.transform import from_origin
 from rasterio.features import rasterize as rio_rasterize
 import pyogrio, shapely
 
-ROOT = Path("/Users/donatas.kasparavicius/Personal/pole-of-remoteness")
+ROOT = Path("<repo>")
 OUT = Path(sys.argv[1]); OUT.mkdir(parents=True, exist_ok=True)
 
 def default_edges():
