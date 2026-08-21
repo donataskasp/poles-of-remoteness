@@ -1,0 +1,130 @@
+import numpy as np
+import pytest
+
+from poles.candidates import Refined, Search, half_diag, pad_fn_for
+from poles.errors import PolesError
+
+
+def test_pad_grows_with_distance_from_centre():
+    pad = pad_fn_for("EPSG:3035")
+    near = pad(np.array([10.0]), np.array([52.0]))[0]
+    far = pad(np.array([-10.0]), np.array([35.0]))[0]
+    arctic = pad(np.array([30.0]), np.array([75.0]))[0]
+    assert 0.002 <= near < 0.003 and near < arctic and near < far
+    assert 0.02 < far < 0.04  # about 2,500 km from the centre: 1/cos(c/2) - 1 is about 2%
+
+
+def test_half_diag():
+    assert half_diag(250.0) == pytest.approx(176.7767)
+
+
+def _truth_field(rng, n=60, roads=25):
+    """A synthetic unit: n x n cells of 100 m; roads are random points; the true distance is exact."""
+    res = 100.0
+    road = rng.uniform(0, n * res, size=(roads, 2))
+    def true_dist(px, py):
+        return np.sqrt(((px[:, None] - road[None, :, 0]) ** 2 + (py[:, None] - road[None, :, 1]) ** 2).min(axis=1))
+    rows, cols = np.mgrid[0:n, 0:n]
+    xs, ys = (cols.ravel() + 0.5) * res, (rows.ravel() + 0.5) * res
+    # coarse = distance between cell centres after snapping roads to cells, scaled by a fake projection error
+    road_cells = (np.floor(road / res) + 0.5) * res
+    coarse = np.sqrt(((xs[:, None] - road_cells[None, :, 0]) ** 2 + (ys[:, None] - road_cells[None, :, 1]) ** 2).min(axis=1))
+    pads = 0.002 + 0.01 * (xs / (n * res))
+    coarse = coarse * (1 + (pads - 0.002) * rng.uniform(-1, 1, size=len(xs)))  # the 0.002 safety covers second-order terms, as in production
+    return res, xs, ys, coarse, pads, true_dist
+
+
+def _exact_refiner(xs, ys, res, true_dist):
+    sub = np.linspace(-res / 2 + 1, res / 2 - 1, 25)
+    gx, gy = np.meshgrid(sub, sub)
+    def refiner(i):
+        px, py = xs[i] + gx.ravel(), ys[i] + gy.ravel()
+        d = true_dist(px, py)
+        k = int(np.argmax(d))
+        return Refined(float(px[k]), float(py[k]), float(d[k]), None)
+    return refiner
+
+
+def _search(xs, ys, coarse, pads, res, true_dist, **kw):
+    """A Search over an exact refiner. The refiner is called with the sorted index, so it reads the
+    search's own sorted centres and is bound after construction, exactly as the poles stage does."""
+    search = Search(xs, ys, coarse, pads, res, refiner=lambda i: refine(i), **kw)
+    refine = _exact_refiner(search.xs, search.ys, res, true_dist)
+    return search
+
+
+@pytest.mark.parametrize("seed", range(12))
+def test_never_prunes_planted_maximum(seed):
+    rng = np.random.default_rng(seed)
+    res, xs, ys, coarse, pads, true_dist = _truth_field(rng)
+    # brute force truth: the best refined value over every cell
+    refine_all = _exact_refiner(xs, ys, res, true_dist)
+    best = max(refine_all(i).dist_m for i in range(len(xs)))
+    s = _search(xs, ys, coarse, pads, res, true_dist, top_n=1, dedup_m=0.0)
+    r = s.run()
+    assert r.accepted[0].dist_m == pytest.approx(best)
+    assert r.refinements < len(xs)  # it pruned something
+
+
+def test_dedup_and_dominance_give_top_n_at_least_dedup_apart():
+    rng = np.random.default_rng(3)
+    res, xs, ys, coarse, pads, true_dist = _truth_field(rng)
+    s = _search(xs, ys, coarse, pads, res, true_dist, top_n=3, dedup_m=800.0)
+    r = s.run()
+    assert len(r.accepted) == 3
+    for a in r.accepted:
+        for b in r.accepted:
+            if a is not b:
+                assert np.hypot(a.x - b.x, a.y - b.y) >= 800.0
+    # greedy truth: refine everything, sort, accept with the same dedup
+    allp = sorted((_exact_refiner(xs, ys, res, true_dist)(i) for i in range(len(xs))), key=lambda p: -p.dist_m)
+    greedy = []
+    for p in allp:
+        if all(np.hypot(p.x - q.x, p.y - q.y) >= 800.0 for q in greedy):
+            greedy.append(p)
+        if len(greedy) == 3:
+            break
+    assert [round(p.dist_m, 6) for p in r.accepted] == [round(p.dist_m, 6) for p in greedy]
+
+
+def test_exhausted_unit_returns_fewer_poles_with_reason():
+    xs = np.array([50.0, 150.0]); ys = np.array([50.0, 50.0])
+    coarse = np.array([300.0, 280.0]); pads = np.array([0.002, 0.002])
+    refiner = lambda i: Refined(xs[i], ys[i], coarse[i], None)
+    r = Search(xs, ys, coarse, pads, 100.0, top_n=5, refiner=refiner, dedup_m=10_000.0).run()
+    assert len(r.accepted) == 1 and r.exhausted and r.refinements <= 2
+
+
+def test_refiner_none_skips_cell_and_warn_threshold_logs():
+    xs = np.arange(10) * 100.0 + 50; ys = np.zeros(10) + 50
+    coarse = np.full(10, 1000.0); pads = np.full(10, 0.002)
+    calls = []
+    def refiner(i):
+        calls.append(i)
+        return None if i % 2 else Refined(xs[i], ys[i], coarse[i], None)
+    r = Search(xs, ys, coarse, pads, 100.0, top_n=2, refiner=refiner, dedup_m=150.0, warn_at=3).run()
+    assert len(r.accepted) == 2 and any("refinements" in w for w in r.warnings)
+
+
+def test_empty_unit_is_exhausted_not_an_error():
+    empty = np.array([], dtype=float)
+    r = Search(empty, empty, empty, empty, 100.0, top_n=3, refiner=lambda i: None).run()
+    assert r.accepted == [] and r.exhausted and r.refinements == 0
+
+
+def test_all_zero_coarse_still_returns_the_top_n():
+    xs = np.array([50.0, 150.0, 250.0, 350.0]); ys = np.zeros(4) + 50
+    coarse = np.zeros(4); pads = np.full(4, 0.002)
+    r = Search(xs, ys, coarse, pads, 100.0, top_n=2,
+               refiner=lambda i: Refined(xs[i], ys[i], float(i), None), dedup_m=150.0).run()
+    assert [p.dist_m for p in r.accepted] == [3.0, 1.0] and not r.exhausted
+
+
+def test_fail_at_raises_rather_than_capping_silently():
+    n = 50
+    xs = np.arange(n) * 1000.0; ys = np.zeros(n)
+    coarse = np.full(n, 1000.0); pads = np.full(n, 0.002)
+    s = Search(xs, ys, coarse, pads, 100.0, top_n=1,
+               refiner=lambda i: Refined(xs[i], ys[i], 10.0, None), dedup_m=0.0, warn_at=2, fail_at=5)
+    with pytest.raises(PolesError, match="5 refinements"):
+        s.run()
