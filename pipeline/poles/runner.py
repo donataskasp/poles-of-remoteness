@@ -14,6 +14,7 @@ from .workspace import Workspace
 def run_pipeline(cfg: RegionConfig, ws: Workspace, log: logging.Logger, *, only: str | None, force: bool, registry: dict) -> list[str]:
     """Returns the names of the stages that actually ran. Stops at the first unimplemented stage."""
     names = [only] if only else list(ORDER)
+    ws.forced = force
     executed: list[str] = []
     for name in names:
         fn = registry.get(name)

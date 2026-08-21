@@ -18,8 +18,10 @@ import json
 import logging
 import math
 import os
+import shutil
 import time
 from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures.process import BrokenProcessPool
 from dataclasses import dataclass, replace
 from functools import lru_cache
 from pathlib import Path
@@ -380,23 +382,66 @@ def validate_poles_json(data: list[dict], top_n: int) -> None:
                 raise ValueError(f"unit {entry['unit']}: coordinates")
 
 
+def _result_path(results_dir: Path, unit_code: str, scenario: str) -> Path:
+    return results_dir / f"{unit_code}-{scenario}.json"
+
+
+def _cache_result(results_dir: Path, result: dict) -> None:
+    """One finished job, written then renamed so a crash cannot leave half a result behind."""
+    path = _result_path(results_dir, result["unit"], result["scenario"])
+    tmp = path.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(result, ensure_ascii=False) + "\n", encoding="utf-8")
+    tmp.replace(path)
+
+
+def _cached_result(path: Path) -> dict:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise PolesError(f"{path}: not readable as JSON ({exc}); delete it to search that unit again") from exc
+
+
 def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
     prepared = prepare(cfg, ws, log)
     out, grid_dir = ws.dir(STAGE), ws.dir("grid")
     workers = int(os.environ.get("POLES_WORKERS", "0")) or 4
+    # One file per finished job, so a run that dies on job 59 of 104 keeps the 58 it already paid for. This
+    # is the `.ok` marker idea at job granularity; a forced run starts from nothing.
+    results_dir = out / "results"
+    if ws.forced and results_dir.exists():
+        shutil.rmtree(results_dir)
+    results_dir.mkdir(parents=True, exist_ok=True)
     # Every job is pickled to its worker, so the shared inputs travel once per job: the unit list would
     # carry every unit's outline along with each of them, and no worker ever reads it.
     shared = replace(prepared, units=[])
     jobs = [UnitJob(cfg, shared, u, s, grid_dir / f"dist_{s}.tif", cfg.top_n, ws.base / "log.txt")
             for s in SCENARIOS for u in sorted(prepared.units, key=lambda u: -u.cells)]
-    log.info("poles: %d jobs (%d units x %d scenarios) on %d workers", len(jobs), len(prepared.units), len(SCENARIOS), workers)
     results: list[dict] = []
-    with ProcessPoolExecutor(max_workers=workers) as pool:
-        for r in pool.map(search_unit, jobs):
-            results.append(r)
-            log.info("%s %s: %d poles, best %.0f m, %d refinements, %.0fs%s", r["unit"], r["scenario"], len(r["poles"]),
-                     r["poles"][0]["dist_m"] if r["poles"] else 0, r["refinements"], r["duration_s"],
-                     f" ({r['reason']})" if r["reason"] else "")
+    pending: list[UnitJob] = []
+    for job in jobs:
+        path = _result_path(results_dir, job.unit.code, job.scenario)
+        if path.is_file():
+            results.append(_cached_result(path))
+        else:
+            pending.append(job)
+    log.info("poles: %d jobs (%d units x %d scenarios) on %d workers; %d cached, %d to search", len(jobs),
+             len(prepared.units), len(SCENARIOS), workers, len(results), len(pending))
+    searched = 0
+    if pending:
+        try:
+            with ProcessPoolExecutor(max_workers=workers) as pool:
+                for r in pool.map(search_unit, pending):
+                    _cache_result(results_dir, r)
+                    results.append(r)
+                    searched += 1
+                    log.info("%s %s: %d poles, best %.0f m, %d refinements, %.0fs%s", r["unit"], r["scenario"], len(r["poles"]),
+                             r["poles"][0]["dist_m"] if r["poles"] else 0, r["refinements"], r["duration_s"],
+                             f" ({r['reason']})" if r["reason"] else "")
+        except BrokenProcessPool as exc:
+            stalled = pending[min(searched, len(pending) - 1)]
+            raise PolesError(f"a worker process died with unit {stalled.unit.code} scenario {stalled.scenario} in "
+                             f"flight; {searched} of {len(pending)} searched jobs are cached and a rerun resumes "
+                             f"there. Lower POLES_WORKERS (now {workers}) if the machine ran out of memory") from exc
     timing = {}
     for s in SCENARIOS:
         entries = [{"unit": r["unit"], "poles": r["poles"], "reason": r["reason"]} for r in results if r["scenario"] == s]
@@ -406,5 +451,5 @@ def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
         timing[s] = {r["unit"]: {"duration_s": r["duration_s"], "refinements": r["refinements"], "top_coarse_m": r["top_coarse_m"],
                                  "warnings": r["warnings"]} for r in results if r["scenario"] == s}
     (out / "timing.json").write_text(json.dumps(timing, indent=1) + "\n", encoding="utf-8")
-    return {"units": len(prepared.units), "jobs": len(jobs), "workers": workers,
-            "total_refinements": sum(r["refinements"] for r in results)}
+    return {"units": len(prepared.units), "jobs": len(jobs), "workers": workers, "cached": len(results) - searched,
+            "searched": searched, "total_refinements": sum(r["refinements"] for r in results)}

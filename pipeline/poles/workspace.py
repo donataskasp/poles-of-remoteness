@@ -17,6 +17,7 @@ class Workspace:
         self.snapshot = snapshot
         self.base = self.root / region / snapshot
         self.shared = self.root / "shared"
+        self.forced = False  # set by run_pipeline: a stage with its own sub-caches clears them when forced
 
     def dir(self, stage: str) -> Path:
         d = self.base / stage

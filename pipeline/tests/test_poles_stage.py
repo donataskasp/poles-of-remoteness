@@ -1,12 +1,18 @@
+import json
+from concurrent.futures.process import BrokenProcessPool
+
 import numpy as np
 import pytest
 import rasterio
 from pyogrio.raw import read
 from shapely.geometry import MultiPolygon, box
 
+from poles import poles as poles_mod
+from poles.errors import PolesError
 from poles.grid import Frame, create_raster
-from poles.poles import _allowed_factory, _unit_windows, top_n_dedup, validate_poles_json, write_water_big
+from poles.poles import Prepared, _allowed_factory, _unit_windows, top_n_dedup, validate_poles_json, write_water_big
 from poles.units import Unit
+from poles.workspace import Workspace
 from tests.helpers import write_fgb
 
 
@@ -66,3 +72,104 @@ def test_write_water_big_keeps_only_the_large_polygon(tmp_path, log):
     meta, _, wkb, fields = read(str(dst), layer="water")
     assert len(wkb) == 1 and dict(zip(meta["fields"], fields))["osm_id"].tolist() == [1]
     assert "4326" in meta["crs"]
+
+
+# ---------- run(): the per-unit result cache and worker deaths ----------
+
+class _SerialPool:
+    """Stands in for ProcessPoolExecutor with the same surface run() uses, minus the processes."""
+
+    def __init__(self, max_workers=None):
+        self.max_workers = max_workers
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        return False
+
+    def map(self, fn, jobs):
+        return (fn(job) for job in jobs)
+
+
+class _DyingPool(_SerialPool):
+    """Finishes the first job, then dies the way a worker killed by the OOM killer does."""
+
+    def map(self, fn, jobs):
+        def gen():
+            yield fn(jobs[0])
+            raise BrokenProcessPool("A process in the process pool was terminated abruptly")
+        return gen()
+
+
+def _prepared(tmp_path, codes) -> Prepared:
+    frame = Frame("EPSG:3035", 250, 0.0, 1000.0, 4, 4)
+    units = [Unit(c, c, c, i, c, MultiPolygon([box(0, 0, 1, 1)]), False, i, cells=100 - i)
+             for i, c in enumerate(codes, start=1)]
+    return Prepared(frame, units, tmp_path / "countries.fgb", tmp_path / "roads", tmp_path / "units.tif",
+                    tmp_path / "land_idx.fgb", tmp_path / "water_big.fgb", tmp_path / "places.vrt", {})
+
+
+def _result(code, scenario, dist):
+    return {"unit": code, "scenario": scenario, "poles": [_p(54.0, 24.0, dist) | {"rank": 1}], "reason": "one pole",
+            "refinements": 1, "warnings": [], "duration_s": 0.1, "top_coarse_m": dist}
+
+
+def _patch_run(monkeypatch, tmp_path, codes, pool=_SerialPool):
+    prepared = _prepared(tmp_path, codes)
+    searched: list[tuple[str, str]] = []
+
+    def fake_search(job):
+        searched.append((job.unit.code, job.scenario))
+        return _result(job.unit.code, job.scenario, 3000)
+
+    monkeypatch.setattr(poles_mod, "prepare", lambda cfg, ws, log: prepared)
+    monkeypatch.setattr(poles_mod, "search_unit", fake_search)
+    monkeypatch.setattr(poles_mod, "ProcessPoolExecutor", pool)
+    return searched
+
+
+def test_run_reuses_cached_unit_results_and_searches_only_the_rest(tmp_path, cfg, log, monkeypatch):
+    ws = Workspace(tmp_path / "work", "rr", "2026-01-01")
+    results = ws.dir("poles") / "results"
+    results.mkdir(parents=True, exist_ok=True)
+    (results / "aa-A.json").write_text(json.dumps(_result("aa", "A", 5000)), encoding="utf-8")
+    (results / "bb-B.json").write_text(json.dumps(_result("bb", "B", 4000)), encoding="utf-8")
+    searched = _patch_run(monkeypatch, tmp_path, ["aa", "bb"])
+    meta = poles_mod.run(cfg, ws, log)
+    assert sorted(searched) == [("aa", "B"), ("bb", "A")]
+    assert (meta["cached"], meta["searched"]) == (2, 2)
+    a = json.loads((ws.dir("poles") / "A.json").read_text(encoding="utf-8"))
+    assert [e["unit"] for e in a] == ["aa", "bb"] and a[0]["poles"][0]["dist_m"] == 5000   # the cached one, not a fresh search
+    assert (results / "aa-B.json").is_file()                                              # every searched job is cached too
+
+
+def test_forced_run_clears_the_result_cache(tmp_path, cfg, log, monkeypatch):
+    ws = Workspace(tmp_path / "work", "rr", "2026-01-01")
+    results = ws.dir("poles") / "results"
+    results.mkdir(parents=True, exist_ok=True)
+    (results / "aa-A.json").write_text(json.dumps(_result("aa", "A", 5000)), encoding="utf-8")
+    ws.forced = True
+    searched = _patch_run(monkeypatch, tmp_path, ["aa"])
+    meta = poles_mod.run(cfg, ws, log)
+    assert searched == [("aa", "A"), ("aa", "B")] and meta["cached"] == 0
+
+
+def test_a_dead_worker_becomes_a_poles_error_naming_the_job_and_the_finished_results_stay(tmp_path, cfg, log, monkeypatch):
+    ws = Workspace(tmp_path / "work", "rr", "2026-01-01")
+    _patch_run(monkeypatch, tmp_path, ["aa", "bb"], pool=_DyingPool)
+    with pytest.raises(PolesError, match="bb.*POLES_WORKERS|POLES_WORKERS.*bb"):
+        poles_mod.run(cfg, ws, log)
+    assert (ws.dir("poles") / "results" / "aa-A.json").is_file()
+
+
+def test_a_poles_error_from_a_worker_is_not_rewritten(tmp_path, cfg, log, monkeypatch):
+    ws = Workspace(tmp_path / "work", "rr", "2026-01-01")
+
+    def boom(job):
+        raise PolesError("unit aa scenario A: top coarse value 250000.0 m is the saturation cap")
+
+    _patch_run(monkeypatch, tmp_path, ["aa"])
+    monkeypatch.setattr(poles_mod, "search_unit", boom)
+    with pytest.raises(PolesError, match="saturation cap"):
+        poles_mod.run(cfg, ws, log)
