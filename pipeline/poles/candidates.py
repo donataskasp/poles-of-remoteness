@@ -6,9 +6,11 @@ half a diagonal of the road cell centre, so the true distance of any point in th
 (c + 2 * hd) * (1 + pad), where pad bounds the projection's scale error at that cell plus a small safety
 for UTM and the ellipsoid. Cells are visited in descending c; a refined point is a lower bound on the
 unit's maximum. A refined point becomes final once no unvisited cell can beat it; final points are
-accepted greedily with the dedup distance; every unvisited cell that lies surely within the dedup
-distance of an accepted pole is dominated and skipped. The result equals "refine every cell, sort,
-accept greedily", proven on synthetic fields in tests/test_candidates.py.
+accepted greedily with the dedup distance, measured as a lower bound on the ground separation so that
+an accepted pair survives the exact geodesic recheck the poles stage runs later; every unvisited cell
+that lies surely within the dedup distance of an accepted pole is dominated and skipped. The result
+equals "refine every cell, sort, accept greedily under the same separation rule", checked against a
+brute-force model on synthetic fields in tests/test_candidates.py.
 """
 from __future__ import annotations
 
@@ -30,14 +32,21 @@ def half_diag(res_m: float) -> float:
 
 
 def pad_fn_for(crs: str, safety: float = PAD_SAFETY) -> Callable[[np.ndarray, np.ndarray], np.ndarray]:
-    """Max relative length distortion of `crs` at lon/lat points, from Tissot's indicatrix, plus `safety`."""
+    """Relative length distortion of `crs` at lon/lat points, from Tissot's indicatrix, plus `safety`.
+
+    The Tissot semiaxes a and b are map over ground scale factors, so a map length m covers a ground
+    length between m / a and m / b. Both directions are needed: `upper()` wants m * (1 + pad) >= m / b,
+    hence pad >= 1 / b - 1, and the dedup test wants m / (1 + pad) <= m / a, hence pad >= a - 1. On an
+    equal-area frame (a * b = 1) the two forms agree, which is why the plan's 1 - b reads the same
+    there, but on a conformal frame such as UTM only 1 / b - 1 carries the upper direction.
+    """
     proj = Proj(crs)
 
     def pad(lons: np.ndarray, lats: np.ndarray) -> np.ndarray:
         f = proj.get_factors(np.asarray(lons, dtype=float), np.asarray(lats, dtype=float))
         a = np.asarray(f.tissot_semimajor, dtype=float)
         b = np.asarray(f.tissot_semiminor, dtype=float)
-        return np.maximum(np.abs(a - 1.0), np.abs(1.0 - b)) + safety
+        return np.maximum(a - 1.0, 1.0 / b - 1.0) + safety
 
     return pad
 
@@ -69,27 +78,30 @@ class Search:
 
     def __init__(self, xs, ys, coarse, pads, res_m: float, top_n: int, refiner: Callable[[int], Refined | None],
                  dedup_m: float = 10_000.0, warn_at: int = 500, fail_at: int = 20_000, log: logging.Logger | None = None):
-        order = np.argsort(-np.asarray(coarse, dtype=float), kind="stable")
+        xs, ys, coarse, pads = (np.asarray(a, dtype=float) for a in (xs, ys, coarse, pads))
+        if len({xs.size, ys.size, coarse.size, pads.size}) != 1:
+            raise ValueError("candidates: xs, ys, coarse and pads must have the same length, got "
+                             f"{xs.size}, {ys.size}, {coarse.size}, {pads.size}")
+        order = np.argsort(-coarse, kind="stable")
         self.order = order
-        self.xs = np.asarray(xs, dtype=float)[order]
-        self.ys = np.asarray(ys, dtype=float)[order]
-        self.coarse = np.asarray(coarse, dtype=float)[order]
-        self.pads = np.asarray(pads, dtype=float)[order]
+        self.xs, self.ys, self.coarse, self.pads = xs[order], ys[order], coarse[order], pads[order]
         self.hd = half_diag(res_m)
         self.top_n, self.refiner, self.dedup_m = top_n, refiner, dedup_m
         self.warn_at, self.fail_at, self.log = warn_at, fail_at, log
-        self.pad_max = float(self.pads.max()) if len(self.pads) else 0.0
+        self.pad_max = float(self.pads.max()) if self.pads.size else 0.0
 
     def upper(self, i: int) -> float:
-        """Upper bound on the exact distance of any point of cell i.
+        """Upper bound on the exact ground distance of any point of cell i.
 
-        Let p be a point of the cell and r the road nearest to p. The cell centre is within hd of p and
-        the road cell holding r has its centre within hd of r, so the centre-to-road-cell-centre distance
-        that produced coarse[i] is at least |p to r| - 2 * hd on the coarse grid. Both terms are measured
-        in the projection, where a length can be short of the true one by at most a factor 1 + pads[i]
-        (Tissot plus safety), so the whole sum scales: |p to r| <= (coarse[i] + 2 * hd) * (1 + pads[i]).
-        Scaling the half diagonals with the sum, rather than leaving them unscaled, is what makes the
-        argument hold for the grid step as well as for the distance (DECISIONS 2026-08-21 item 4).
+        Let p be a point of the cell and cR the centre of the road cell nearest the cell centre. That
+        road cell holds a road point r*, so the exact distance obeys |p to r*| <= |p to cR| + hd <=
+        |centre to cR| + 2 * hd, and |centre to cR| is what the coarse grid stored. Every term is a map
+        length, covering at most 1 + pads[i] ground metres (Tissot plus safety), so the whole sum
+        scales: |p to r*| <= (coarse[i] + 2 * hd) * (1 + pads[i]). Scaling the half diagonals with the
+        sum, rather than leaving them unscaled, is what makes the argument hold for the grid step as
+        well as for the distance (DECISIONS 2026-08-21 item 4). The pad is sampled at the cell centre
+        while the ray spans up to coarse + 2 * hd, so the scale varies along it; the 0.002 safety covers
+        that gradient too, which on a LAEA frame 2,500 km from the centre is about 3e-4 over 20 km.
         """
         return (self.coarse[i] + 2 * self.hd) * (1 + self.pads[i])
 
@@ -99,26 +111,26 @@ class Search:
         pending: list[Refined] = []      # refined, not yet final, kept sorted by dist_m descending
         accepted: list[Refined] = []
         refinements = 0
-        warnings: list[str] = []
+        warn_msgs: list[str] = []
         i = 0
 
         def finalize(up_to_value: float) -> None:
             """Make final every pending point above up_to_value, greedily accept, mask dominated cells."""
             while pending and pending[0].dist_m > up_to_value and len(accepted) < self.top_n:
                 p = pending.pop(0)
-                if all(math.hypot(p.x - q.x, p.y - q.y) * (1 + self.pad_max) >= self.dedup_m for q in accepted):
+                if all(math.hypot(p.x - q.x, p.y - q.y) / (1 + self.pad_max) >= self.dedup_m for q in accepted):
                     accepted.append(p)
                     if self.dedup_m > 0:
                         # A cell is dominated when even its farthest point is surely within dedup_m of p.
-                        # The acceptance test above measures a separation as hypot * (1 + pad_max), an upper
-                        # bound on the true ground distance; a point of this cell is at most hd beyond the
-                        # centre in the projection, so its separation from p measures at most
-                        # (d + hd) * (1 + pad_max). Below dedup_m every point of the cell would fail the very
-                        # test p just passed, so masking loses no pole; the same pad_max on both sides is what
-                        # makes the two exact complements, and a per-cell pad here would mask cells whose
-                        # points acceptance would still have taken.
+                        # The acceptance test above measures a separation as hypot / (1 + pad_max), a lower
+                        # bound on the true ground distance, so an accepted pair survives the exact geodesic
+                        # recheck downstream. A point of this cell is at most hd beyond the centre in the
+                        # projection, so its separation from p measures at most (d + hd) / (1 + pad_max).
+                        # Below dedup_m every point of the cell would fail the very test p just passed, so
+                        # masking loses no pole; the same pad_max on both sides is what makes the two exact
+                        # complements, and a per-cell pad here would mask cells acceptance would still take.
                         d = np.hypot(self.xs - p.x, self.ys - p.y)
-                        alive[(d + self.hd) * (1 + self.pad_max) < self.dedup_m] = False
+                        alive[(d + self.hd) / (1 + self.pad_max) < self.dedup_m] = False
 
         while i < n and len(accepted) < self.top_n:
             if not alive[i]:
@@ -135,7 +147,7 @@ class Search:
             refinements += 1
             if refinements == self.warn_at:
                 msg = f"{refinements} refinements and counting; the unit has a large plateau near its maximum"
-                warnings.append(msg)
+                warn_msgs.append(msg)
                 if self.log:
                     self.log.warning(msg)
             if refinements >= self.fail_at:
@@ -149,4 +161,4 @@ class Search:
             i += 1
         finalize(-math.inf)
         exhausted = len(accepted) < self.top_n
-        return SearchResult(accepted, refinements, exhausted, warnings)
+        return SearchResult(accepted, refinements, exhausted, warn_msgs)

@@ -1,3 +1,5 @@
+import logging
+
 import numpy as np
 import pytest
 
@@ -76,11 +78,13 @@ def test_dedup_and_dominance_give_top_n_at_least_dedup_apart():
         for b in r.accepted:
             if a is not b:
                 assert np.hypot(a.x - b.x, a.y - b.y) >= 800.0
-    # greedy truth: refine everything, sort, accept with the same dedup
+    # greedy truth: refine everything, sort, accept under the search's own separation rule, which is
+    # the lower bound of the ground distance, hence the map distance divided by the largest pad
+    pad_max = pads.max()
     allp = sorted((_exact_refiner(xs, ys, res, true_dist)(i) for i in range(len(xs))), key=lambda p: -p.dist_m)
     greedy = []
     for p in allp:
-        if all(np.hypot(p.x - q.x, p.y - q.y) >= 800.0 for q in greedy):
+        if all(np.hypot(p.x - q.x, p.y - q.y) / (1 + pad_max) >= 800.0 for q in greedy):
             greedy.append(p)
         if len(greedy) == 3:
             break
@@ -95,15 +99,21 @@ def test_exhausted_unit_returns_fewer_poles_with_reason():
     assert len(r.accepted) == 1 and r.exhausted and r.refinements <= 2
 
 
-def test_refiner_none_skips_cell_and_warn_threshold_logs():
+def test_refiner_none_skips_cell_and_warn_threshold_logs(caplog):
     xs = np.arange(10) * 100.0 + 50; ys = np.zeros(10) + 50
     coarse = np.full(10, 1000.0); pads = np.full(10, 0.002)
     calls = []
     def refiner(i):
         calls.append(i)
         return None if i % 2 else Refined(xs[i], ys[i], coarse[i], None)
-    r = Search(xs, ys, coarse, pads, 100.0, top_n=2, refiner=refiner, dedup_m=150.0, warn_at=3).run()
+    log = logging.getLogger("poles.candidates.test")
+    with caplog.at_level(logging.WARNING, logger=log.name):
+        r = Search(xs, ys, coarse, pads, 100.0, top_n=2, refiner=refiner, dedup_m=150.0, warn_at=3, log=log).run()
     assert len(r.accepted) == 2 and any("refinements" in w for w in r.warnings)
+    assert calls == list(range(10))  # every cell was tried, the odd ones just yielded nothing
+    assert [p.x for p in r.accepted] == [50.0, 250.0]  # both poles come from even cells
+    assert len(r.warnings) == 1  # the threshold warns once per run
+    assert [rec.message for rec in caplog.records] == r.warnings
 
 
 def test_empty_unit_is_exhausted_not_an_error():
@@ -128,3 +138,29 @@ def test_fail_at_raises_rather_than_capping_silently():
                refiner=lambda i: Refined(xs[i], ys[i], 10.0, None), dedup_m=0.0, warn_at=2, fail_at=5)
     with pytest.raises(PolesError, match="5 refinements"):
         s.run()
+
+
+def test_pad_window_pair_is_rejected_because_the_ground_distance_is_not_sure():
+    """A pair whose map separation sits inside the pad window is not accepted (map 1000 m, pad 0.01,
+    so the ground distance is only sure to be 1000 / 1.01 = 990.1 m)."""
+    xs = np.array([0.0, 1000.0]); ys = np.zeros(2)
+    coarse = np.array([500.0, 400.0]); pads = np.full(2, 0.01)
+    refiner = lambda i: Refined(xs[i], ys[i], coarse[i], None)
+    r = Search(xs, ys, coarse, pads, 100.0, top_n=2, refiner=refiner, dedup_m=1000.0).run()
+    assert len(r.accepted) == 1 and r.exhausted  # 990.1 < 1000, so the second pole is not sure to be far enough
+    r = Search(xs, ys, coarse, pads, 100.0, top_n=2, refiner=refiner, dedup_m=980.0).run()
+    assert len(r.accepted) == 2  # 990.1 >= 980, so the same pair passes just below the window
+
+
+def test_order_maps_back_to_the_callers_index_and_upper_bounds_one_cell():
+    xs = np.array([0.0, 10.0, 20.0]); ys = np.zeros(3)
+    coarse = np.array([100.0, 300.0, 200.0]); pads = np.array([0.01, 0.02, 0.03])
+    s = Search(xs, ys, coarse, pads, 100.0, top_n=1, refiner=lambda i: None)
+    assert list(s.order) == [1, 2, 0]
+    assert list(s.coarse) == [300.0, 200.0, 100.0] and list(s.xs) == [10.0, 20.0, 0.0]
+    assert s.upper(0) == pytest.approx((300.0 + 2 * half_diag(100.0)) * 1.02)
+
+
+def test_mismatched_input_lengths_are_rejected():
+    with pytest.raises(ValueError, match="same length"):
+        Search(np.zeros(3), np.zeros(3), np.zeros(2), np.zeros(3), 100.0, top_n=1, refiner=lambda i: None)
