@@ -33,6 +33,16 @@ def tiny_pbf(tmp_path_factory) -> Path:
     return out
 
 
+@pytest.fixture(scope="session")
+def admin_pbf(tmp_path_factory) -> Path:
+    """admin.osm converted to PBF at test time (hand-written admin boundaries, see test_boundaries.py)."""
+    if shutil.which("osmium") is None:
+        pytest.fail("osmium-tool is required (brew install osmium-tool)")
+    out = tmp_path_factory.mktemp("admin") / "boundaries.pbf"
+    subprocess.run(["osmium", "cat", "--overwrite", "-o", str(out), str(FIXTURES / "admin.osm")], check=True)
+    return out
+
+
 @pytest.fixture
 def log() -> logging.Logger:
     logger = logging.getLogger("poles.test")
