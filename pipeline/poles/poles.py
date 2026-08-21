@@ -195,6 +195,11 @@ def prepare(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> Prepared:
             "bbox": list(u.geometry.bounds), "window": list(windows_by_index[u.index]) if u.index in windows_by_index else None}
             for u in units]}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         _mark(units_tif)
+        # A cached job is keyed by unit code alone, so keeping the cache here would republish results
+        # searched against the outlines these units just replaced.
+        if (out / "results").exists():
+            log.info("poles: cleared the result cache, the units were rebuilt")
+            shutil.rmtree(out / "results", ignore_errors=True)
     windows = _unit_meta(units_json, units)
 
     roads_dir = out / "roads"
@@ -288,9 +293,9 @@ def _allowed_factory(unit: Unit, land_idx: Path, water_big: Path):
 
     def allowed(lons, lats):
         pts = shapely.points(lons, lats)
-        ok = shapely.contains_xy(geom, lons, lats)
         if land_tree is None:
             return np.zeros(len(pts), bool)
+        ok = shapely.contains_xy(geom, lons, lats)
         on_land = np.zeros(len(pts), bool)
         on_land[np.unique(land_tree.query(pts, predicate="within")[0])] = True
         ok &= on_land
@@ -403,6 +408,10 @@ def validate_poles_json(data: list[dict], top_n: int) -> None:
                 raise ValueError(f"unit {entry['unit']}: coordinates")
 
 
+# What `run` reads off every result when it assembles the stage output; a cached file without these is not one.
+RESULT_KEYS = ("unit", "scenario", "poles", "reason", "refinements", "warnings", "duration_s", "top_coarse_m")
+
+
 def _result_path(results_dir: Path, unit_code: str, scenario: str) -> Path:
     return results_dir / f"{unit_code}-{scenario}.json"
 
@@ -416,10 +425,16 @@ def _cache_result(results_dir: Path, result: dict) -> None:
 
 
 def _cached_result(path: Path) -> dict:
+    """A finished job read back, or a PolesError naming the file: a foreign or half-written file must not
+    reach the published output through a bare KeyError further down."""
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError as exc:
-        raise PolesError(f"{path}: not readable as JSON ({exc}); delete it to search that unit again") from exc
+        result = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as exc:
+        raise PolesError(f"{path}: not readable as a cached result ({exc}); delete it to search that unit again") from exc
+    missing = [k for k in RESULT_KEYS if k not in result] if isinstance(result, dict) else list(RESULT_KEYS)
+    if missing:
+        raise PolesError(f"{path}: not a cached result, no {', '.join(missing)}; delete it to search that unit again")
+    return result
 
 
 def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:

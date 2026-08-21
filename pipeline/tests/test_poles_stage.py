@@ -13,7 +13,8 @@ from poles.errors import PolesError
 from poles.grid import Frame, create_raster
 from poles.poles import (Prepared, _allowed_factory, _bbox_window, _unit_meta, _unit_windows, top_n_dedup,
                          validate_poles_json, write_water_big)
-from poles.units import Unit
+from poles.extract import MARKER
+from poles.units import Unit, write_units
 from poles.workspace import Workspace
 from tests.helpers import write_fgb
 
@@ -175,6 +176,59 @@ def test_a_poles_error_from_a_worker_is_not_rewritten(tmp_path, cfg, log, monkey
     monkeypatch.setattr(poles_mod, "search_unit", boom)
     with pytest.raises(PolesError, match="saturation cap"):
         poles_mod.run(cfg, ws, log)
+
+
+def test_a_cache_file_of_the_wrong_shape_is_a_poles_error_naming_the_file(tmp_path, cfg, log, monkeypatch):
+    ws = Workspace(tmp_path / "work", "rr", "2026-01-01")
+    results = ws.dir("poles") / "results"
+    results.mkdir(parents=True, exist_ok=True)
+    (results / "aa-A.json").write_text(json.dumps({"unit": "aa", "poles": []}), encoding="utf-8")
+    _patch_run(monkeypatch, tmp_path, ["aa"])
+    with pytest.raises(PolesError, match="aa-A.json"):
+        poles_mod.run(cfg, ws, log)
+    (results / "aa-A.json").write_text("{not json", encoding="utf-8")
+    with pytest.raises(PolesError, match="aa-A.json"):
+        poles_mod.run(cfg, ws, log)
+
+
+def _prepare_workspace(tmp_path, monkeypatch):
+    """The least on-disk state prepare() needs to reach its units.tif branch: the rest is marked done or stubbed."""
+    ws = Workspace(tmp_path / "work", "rr", "2026-01-01")
+    frame = Frame("EPSG:3035", 250.0, 0.0, 1000.0, 4, 4)
+    (ws.dir("grid") / "frame.json").write_text(json.dumps(frame.to_dict()), encoding="utf-8")
+    fetch = ws.dir("fetch")
+    (fetch / "r.poly").write_text("r\n1\n 0 0\n 1 0\n 1 1\n 0 1\n 0 0\nEND\nEND\n", encoding="utf-8")
+    (fetch / "snapshot.json").write_text(json.dumps({"sources": [
+        {"url": "http://x/r-latest.osm.pbf", "role": "primary", "poly": "r.poly"}]}), encoding="utf-8")
+    out = ws.dir("poles")
+    write_units([Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([box(0, 0, 1, 1)]), False, 1)], out / "units.fgb")
+    for name in ("countries.fgb", "units.fgb", "land_idx.fgb", "water_big.fgb"):
+        (out / name).touch()
+        (out / (name + MARKER)).touch()
+    (out / "roads").mkdir(exist_ok=True)
+    (out / "roads" / "tiles.json").write_text("{}", encoding="utf-8")
+
+    def fake_rasterize(units_fgb, frame, land_tif, out_tif, log, workdir):
+        out_tif.touch()
+        return {1: 100}
+
+    monkeypatch.setattr(poles_mod, "rasterize_units", fake_rasterize)
+    monkeypatch.setattr(poles_mod, "_unit_windows", lambda tif: {1: (0, 0, 2, 2)})
+    return ws, out
+
+
+def test_prepare_clears_the_result_cache_when_it_rebuilds_the_units(tmp_path, cfg, log, monkeypatch):
+    ws, out = _prepare_workspace(tmp_path, monkeypatch)
+    results = out / "results"
+    results.mkdir()
+    (results / "aa-A.json").write_text(json.dumps(_result("aa", "A", 5000)), encoding="utf-8")
+    poles_mod.prepare(cfg, ws, log)
+    assert not results.exists()                   # units rebuilt, so every job cached against the old ones is stale
+    results.mkdir()
+    (results / "aa-A.json").write_text(json.dumps(_result("aa", "A", 5000)), encoding="utf-8")
+    poles_mod.prepare(cfg, ws, log)
+    assert (results / "aa-A.json").is_file()      # units.tif done: the cache belongs to these units and stays
+
 
 
 # ---------- windows and the resume path ----------
