@@ -1,8 +1,9 @@
 import pytest
 from shapely.geometry import LineString, Point, box
 
-from poles.boundaries import (Relation, assemble, assemble_area, load_admin_areas, read_relations, seed_points,
-                              way_geometries)
+from poles.boundaries import (Relation, _osmium_tolerant, assemble, assemble_area, load_admin_areas,
+                              read_relations, seed_points, way_geometries)
+from poles.shell import ToolError
 
 EDGE = box(0, 0, 10, 10)
 CODES = {2: "ISO3166-1", 4: "ISO3166-2"}
@@ -67,3 +68,18 @@ def test_assemble_area_flags_only_a_ring_the_edge_actually_closed():
     area = assemble_area(rel, ways, {}, EDGE, "ISO3166-1")
     assert area.geometry.area == pytest.approx(4) and area.complete is False and area.closed_by_edge is False
     assert assemble_area(rel, {}, {}, EDGE, "ISO3166-1") is None  # no member present at all
+
+
+@pytest.mark.parametrize("case", ["prints an error and exits 1", "exits 2"])
+def test_osmium_tolerant_reraises_a_real_failure_and_drops_the_stale_output(admin_pbf, tmp_path, log, case):
+    """Only a silent exit 1 is a missing id. A hard failure exits 1 too and still creates an empty output,
+    so tolerating it would let seed_points read last run's file, or an empty one, as this run's answer."""
+    out = tmp_path / "seeds.opl"
+    out.write_text("n50 v0 dV c0 t i0 u T x8 y7.5\n", encoding="utf-8")  # left over from an earlier run
+    src = admin_pbf if case == "exits 2" else tmp_path / "absent.osm.pbf"
+    args = ["getid", "--overwrite", "-f", "opl", "-o", out, src, "n50"]
+    if case == "exits 2":
+        args.insert(1, "--no-such-flag")
+    with pytest.raises(ToolError):
+        _osmium_tolerant(args, out, log, tmp_path / "tools.log")
+    assert not out.exists() or out.read_text(encoding="utf-8") == ""  # the stale content is gone either way

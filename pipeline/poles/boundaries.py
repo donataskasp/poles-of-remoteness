@@ -49,12 +49,26 @@ class AdminArea:
     closed_by_edge: bool
 
 
-def _osmium_tolerant(args: list, log: logging.Logger, stderr_path: Path) -> None:
-    """getid exits 1 when an id is missing but still writes what it found; both codes are fine here."""
+def _osmium_tolerant(args: list, out: Path, log: logging.Logger, stderr_path: Path) -> None:
+    """Run osmium, tolerating only the exit 1 that `getid` returns when a requested id is missing.
+
+    Measured on osmium 1.19.1: a missing id exits 1, prints nothing and still writes everything it
+    found, while a hard failure such as an unreadable input also exits 1, prints one error line and
+    leaves an empty output file behind. Neither the exit code nor the output's existence separates the
+    two, so what this invocation appended to the tool log decides: anything osmium printed re-raises.
+    `out` is removed first, because work dirs persist across runs and a stale file from an earlier run
+    must never be read back as this run's result.
+    """
+    out.unlink(missing_ok=True)
+    before = stderr_path.stat().st_size if stderr_path.exists() else 0
     try:
         osmium(args, log, stderr_path=stderr_path)
     except ToolError as e:
-        if "command failed with exit 1:" not in str(e):
+        with open(stderr_path, "rb") as f:  # run_cmd echoes "$ <command>" before the command's own output
+            f.seek(before)
+            printed = [ln for ln in f.read().decode("utf-8", "replace").splitlines()
+                       if ln.strip() and not ln.startswith("$ ")]
+        if "command failed with exit 1:" not in str(e) or printed or not out.exists():
             raise
 
 
@@ -89,6 +103,8 @@ def read_relations(pbf: Path, levels: set[int], work: Path, log: logging.Logger)
 
 def way_geometries(pbf: Path, way_ids: set[int], work: Path, log: logging.Logger) -> dict[int, LineString]:
     """Linestrings for the requested way ids that exist in the file (untagged ways included)."""
+    if not way_ids:
+        return {}
     work.mkdir(parents=True, exist_ok=True)
     cfg = work / "export-ways.json"
     cfg.write_text(json.dumps({"attributes": {"type": "@type", "id": "@id"}, "linear_tags": True, "area_tags": False}),
@@ -103,7 +119,10 @@ def way_geometries(pbf: Path, way_ids: set[int], work: Path, log: logging.Logger
             if not line:
                 continue
             feature = json.loads(line)
-            wid = int(feature["properties"]["@id"])
+            props = feature["properties"]
+            if props["@type"] != "way":  # ids are only unique per type, so never trust the flag alone
+                continue
+            wid = int(props["@id"])
             if wid in way_ids:
                 ways[wid] = shapely.from_geojson(json.dumps(feature["geometry"]))
     seq.unlink(missing_ok=True)
@@ -117,7 +136,7 @@ def seed_points(pbf: Path, node_ids: set[int], work: Path, log: logging.Logger) 
     work.mkdir(parents=True, exist_ok=True)
     out = work / "seeds.opl"
     _osmium_tolerant(["getid", "--overwrite", "-f", "opl", "-o", out, pbf, *(f"n{n}" for n in sorted(node_ids))],
-                     log, work / "tools.log")
+                     out, log, work / "tools.log")
     seeds: dict[int, Point] = {}
     for line in out.read_text(encoding="utf-8").splitlines():
         if not line.startswith("n"):
@@ -174,7 +193,7 @@ def _assemble(rel: Relation, ways: dict[int, LineString], seeds: dict[int, Point
     elif geom.geom_type == "GeometryCollection":
         geom = MultiPolygon([g for g in geom.geoms if g.geom_type == "Polygon"] +
                             [p for g in geom.geoms if g.geom_type == "MultiPolygon" for p in g.geoms])
-    if geom.is_empty:
+    if geom.is_empty or geom.geom_type != "MultiPolygon":
         return None, False
     return geom, closed_by_edge
 
@@ -190,6 +209,7 @@ def assemble_area(rel: Relation, ways: dict[int, LineString], seeds: dict[int, P
     geom, closed_by_edge = _assemble(rel, ways, seeds, edge)
     if geom is None:
         return None
+    # Way members only: a missing sub-relation or seed node says nothing about the outline's completeness.
     complete = all(ref in ways for kind, ref, _ in rel.members if kind == "w")
     return AdminArea(rel.id, int(rel.tags["admin_level"]), rel.tags.get(code_tag) or None, rel.tags.get("name"),
                      rel.tags.get("name:en") or rel.tags.get("name"), geom, complete, closed_by_edge)
@@ -205,6 +225,7 @@ def load_admin_areas(pbf: Path, levels: set[int], edge: BaseGeometry | None, wor
     log.info("boundaries: %d relations, %d of %d member ways present, %d seed nodes", len(rels), len(ways), len(way_ids), len(seeds))
     areas = []
     for rel in rels:
+        # A level the caller did not map falls back to the country code tag, as the stage spec asks.
         area = assemble_area(rel, ways, seeds, edge, code_tags.get(int(rel.tags["admin_level"]), "ISO3166-1"))
         if area is None:
             log.warning("boundaries: relation %d (%s) yields no polygon from the present members", rel.id, rel.tags.get("name"))
