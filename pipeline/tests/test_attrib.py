@@ -42,3 +42,10 @@ def test_pole_record_shape():
                    "nearest_way": {"id": 1385319417, "highway": "track", "name": None, "ref": None, "country": "lt"},
                    "nearest_place": {"name": "Kumečiai", "type": "village", "dist_m": 3700.0, "lat": 54.47, "lon": 23.53},
                    "detail": None, "warnings": []}
+
+
+def test_places_nearest_reports_missing_name_and_place_as_null_never_as_the_string_none(tmp_path):
+    fgb = write_fgb(tmp_path / "places.fgb", "places", [Point(23.50, 54.38)],
+                    {"osm_id": [1], "name": [None], "name:en": [None], "place": [None], "population": [None]})
+    near = Places(fgb, layer="places").nearest(23.50, 54.38)
+    assert near["name"] is None and near["type"] is None

@@ -5,12 +5,14 @@ import numpy as np
 import pytest
 import rasterio
 from pyogrio.raw import read
+from pyproj import Transformer
 from shapely.geometry import MultiPolygon, box
 
 from poles import poles as poles_mod
 from poles.errors import PolesError
 from poles.grid import Frame, create_raster
-from poles.poles import Prepared, _allowed_factory, _unit_windows, top_n_dedup, validate_poles_json, write_water_big
+from poles.poles import (Prepared, _allowed_factory, _bbox_window, _unit_meta, _unit_windows, top_n_dedup,
+                         validate_poles_json, write_water_big)
 from poles.units import Unit
 from poles.workspace import Workspace
 from tests.helpers import write_fgb
@@ -173,3 +175,34 @@ def test_a_poles_error_from_a_worker_is_not_rewritten(tmp_path, cfg, log, monkey
     monkeypatch.setattr(poles_mod, "search_unit", boom)
     with pytest.raises(PolesError, match="saturation cap"):
         poles_mod.run(cfg, ws, log)
+
+
+# ---------- windows and the resume path ----------
+
+def test_bbox_window_floors_and_ceils_flips_y_and_clamps_to_the_frame():
+    """The fallback window for a unit that units.json has no window for."""
+    frame = Frame("EPSG:4326", 1.0, 0.0, 10.0, 10, 10)          # x 0..10, y 0..10, row 0 at the top
+    same = Transformer.from_crs("EPSG:4326", "EPSG:4326", always_xy=True)
+    unit = Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([box(2.3, 3.4, 4.6, 5.7)]), False, 1)
+    win = _bbox_window(unit, frame, same)
+    # x 2.3..4.6 with a one-cell pad -> cols 1..6 exclusive; y 3.4..5.7 -> rows from the top: 10-5.7-1=3.3 -> 3, to 10-3.4+1=7.6 -> 8
+    assert (win.col_off, win.width) == (1, 5) and (win.row_off, win.height) == (3, 5)
+    edge = Unit("bb", "Bb", "Bb", 2, "bb", MultiPolygon([box(-3.0, -3.0, 1.0, 1.0)]), False, 2)
+    win = _bbox_window(edge, frame, same)                        # clamped, never negative and never past the frame
+    assert (win.col_off, win.row_off) == (0, 8) and (win.width, win.height) == (2, 2)
+
+
+def test_unit_meta_raises_poles_error_naming_the_file(tmp_path):
+    units = [Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([box(0, 0, 1, 1)]), False, 1)]
+    missing = tmp_path / "units.json"
+    with pytest.raises(PolesError, match="units.json"):
+        _unit_meta(missing, units)
+    missing.write_text(json.dumps({"units": [{"code": "bb", "cells": 1, "area_km2": 1.0, "window": [0, 0, 1, 1]}]}), encoding="utf-8")
+    with pytest.raises(PolesError, match="aa"):
+        _unit_meta(missing, units)
+    missing.write_text(json.dumps({"units": [{"code": "aa", "cells": 1, "area_km2": 1.0}]}), encoding="utf-8")
+    with pytest.raises(PolesError, match="window"):
+        _unit_meta(missing, units)
+    missing.write_text(json.dumps({"units": [{"code": "aa", "cells": 7, "area_km2": 0.4, "window": [1, 2, 3, 4]}]}), encoding="utf-8")
+    windows = _unit_meta(missing, units)
+    assert windows == {"aa": (1, 2, 3, 4)} and (units[0].cells, units[0].area_km2) == (7, 0.4)

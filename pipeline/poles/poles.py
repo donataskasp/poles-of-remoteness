@@ -33,7 +33,6 @@ from pyogrio.raw import read, write as ogr_write
 from pyproj import Geod, Transformer
 from rasterio.windows import Window
 from shapely.ops import unary_union
-from shapely.prepared import prep
 from shapely.strtree import STRtree
 
 from .attrib import Countries, Places, clean_text, nearest_way, pole_record
@@ -135,6 +134,29 @@ def write_water_big(src: Path, dst: Path, min_m2: float, log: logging.Logger, to
              "-lco", "SPATIAL_INDEX=YES"], log, stderr_path=tools_log)
 
 
+def _unit_meta(units_json: Path, units: list[Unit]) -> dict[str, tuple[int, int, int, int]]:
+    """Fill cells and area_km2 from units.json and return each unit's recorded window.
+
+    A resume reads this file rather than recounting the raster, so every way it can disagree with the unit
+    list has to name the file: an older run of different code is the normal cause."""
+    try:
+        entries = json.loads(units_json.read_text(encoding="utf-8"))["units"]
+    except (OSError, ValueError, KeyError) as exc:
+        raise PolesError(f"{units_json}: unreadable ({exc}); delete it and units.tif.ok to rebuild the units") from exc
+    meta = {m["code"]: m for m in entries}
+    windows = {}
+    for u in units:
+        m = meta.get(u.code)
+        if m is None:
+            raise PolesError(f"{units_json} has no entry for unit {u.code}; delete it and units.tif.ok to rebuild")
+        if "window" not in m:
+            raise PolesError(f"{units_json}: unit {u.code} has no window; delete it and units.tif.ok to rebuild")
+        u.cells, u.area_km2 = m["cells"], m["area_km2"]
+        if m["window"] is not None:
+            windows[u.code] = tuple(m["window"])
+    return windows
+
+
 def prepare(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> Prepared:
     require_tools(["osmium", "ogr2ogr", "gdal_rasterize"])
     fetch_dir, extract_dir, grid_dir, out = ws.dir("fetch"), ws.dir("extract"), ws.dir("grid"), ws.dir(STAGE)
@@ -173,10 +195,7 @@ def prepare(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> Prepared:
             "bbox": list(u.geometry.bounds), "window": list(windows_by_index[u.index]) if u.index in windows_by_index else None}
             for u in units]}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         _mark(units_tif)
-    meta = {u["code"]: u for u in json.loads(units_json.read_text(encoding="utf-8"))["units"]}
-    for u in units:
-        u.cells, u.area_km2 = meta[u.code]["cells"], meta[u.code]["area_km2"]
-    windows = {code: tuple(m["window"]) for code, m in meta.items() if m["window"] is not None}
+    windows = _unit_meta(units_json, units)
 
     roads_dir = out / "roads"
     if not (roads_dir / "tiles.json").exists():
@@ -264,11 +283,12 @@ def _allowed_factory(unit: Unit, land_idx: Path, water_big: Path):
     _, _, wwkb, _ = read(str(water_big), layer="water", bbox=(w - pad, s - pad, e + pad, n + pad))
     land_tree = STRtree(shapely.from_wkb(lwkb)) if len(lwkb) else None
     water_tree = STRtree(shapely.from_wkb(wwkb)) if len(wwkb) else None
-    unit_prep = prep(unit.geometry)
+    geom = unit.geometry
+    shapely.prepare(geom)                      # one prepared geometry, then one vectorised call per batch
 
     def allowed(lons, lats):
         pts = shapely.points(lons, lats)
-        ok = np.fromiter((unit_prep.contains(p) for p in pts), dtype=bool, count=len(pts))
+        ok = shapely.contains_xy(geom, lons, lats)
         if land_tree is None:
             return np.zeros(len(pts), bool)
         on_land = np.zeros(len(pts), bool)
@@ -300,9 +320,7 @@ def search_unit(job: UnitJob) -> dict:
             rows, cols = unit_cells(prep_.units_tif, unit, frame, log, prep_.units_tif.parent, window=window)
             rows, cols = rows - int(window.row_off), cols - int(window.col_off)
         dist = dist_ds.read(1, window=window)
-    coarse = dist[rows, cols].astype(float)
-    if len(coarse) == 0:
-        raise PolesError(f"unit {unit.code}: no cells")
+    coarse = dist[rows, cols].astype(float)   # unit_cells raises UnitsError before this can be empty
     top_coarse = float(coarse.max())
     if top_coarse >= cfg.max_distance_m:
         raise PolesError(f"unit {unit.code} scenario {scenario}: top coarse value {top_coarse} m is the "
@@ -337,6 +355,8 @@ def search_unit(job: UnitJob) -> dict:
         return Refined(float(fx), float(fy), r.dist_m, (r, roads))
 
     search = Search(xs, ys, coarse, pads, frame.res, job.top_n, refiner, DEDUP_M, log=log)
+    # `refiner` reads these by name, so they must be bound before search.run(): Search sorts the cells by
+    # coarse value and the refiner is called with indices into that sorted order, not into the raw arrays.
     coarse_sorted, x_sorted, y_sorted = search.coarse, search.xs, search.ys
     lon_sorted, lat_sorted = np.asarray(lons)[search.order], np.asarray(lats)[search.order]
     result = search.run()
@@ -348,7 +368,8 @@ def search_unit(job: UnitJob) -> dict:
         poles.append(pole_record(rank, refined, nearest_way(roads, refined, countries), places.nearest(refined.lon, refined.lat)))
     reason = None
     if result.exhausted:
-        reason = (f"only {len(poles)} pole(s): every land cell of the unit lies within {DEDUP_M / 1000:.0f} km of them"
+        reason = (f"only {len(poles)} pole(s): no further point of the unit is both at least "
+                  f"{DEDUP_M / 1000:.0f} km from the accepted poles and on allowed ground"
                   if poles else "no pole: no candidate of the unit refined to an allowed point")
     return {"unit": unit.code, "scenario": scenario, "poles": poles, "reason": reason, "refinements": result.refinements,
             "warnings": result.warnings, "duration_s": round(time.monotonic() - t0, 1), "top_coarse_m": top_coarse}

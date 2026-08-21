@@ -48,7 +48,7 @@ class Places:
         idx = np.argpartition(planar, min(k, len(planar) - 1))[:k]
         _, _, dist = GEOD.inv(np.full(len(idx), lon), np.full(len(idx), lat), self.lon[idx], self.lat[idx])
         j = idx[int(np.argmin(dist))]
-        return {"name": self.name[j], "type": str(self.kind[j]), "dist_m": round(float(dist.min()), 1),
+        return {"name": clean_text(self.name[j]), "type": clean_text(self.kind[j]), "dist_m": round(float(dist.min()), 1),
                 "lat": round(float(self.lat[j]), 6), "lon": round(float(self.lon[j]), 6)}
 
 

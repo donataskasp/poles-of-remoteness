@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+import os
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -174,10 +175,11 @@ def unit_cells(units_tif: Path, unit: Unit, frame: Frame, log: logging.Logger, w
     log.warning("unit %s has no cell centre on the %g m grid; using all-touched cells", unit.code, frame.res)
     sub = frame if window is None else Frame(frame.crs, frame.res, frame.x0 + col_off * frame.res,
                                              frame.y1 - row_off * frame.res, int(window.width), int(window.height))
-    tmp_fgb = Path(workdir) / f"unit-{unit.code}.fgb"
+    # The pid is in the names because two workers can hit the fallback for different units at the same time.
+    tmp_fgb = Path(workdir) / f"unit-{unit.code}-{os.getpid()}.fgb"
     tmp_fgb.unlink(missing_ok=True)
     write_units([unit], tmp_fgb)
-    tmp_tif = Path(workdir) / f"unit-{unit.code}.tif"
+    tmp_tif = Path(workdir) / f"unit-{unit.code}-{os.getpid()}.tif"
     create_raster(sub, tmp_tif)
     rasterize(tmp_fgb, "units", tmp_tif, log, Path(workdir) / "tools.log", burn=1, all_touched=True)
     with rasterio.open(tmp_tif) as ds:
