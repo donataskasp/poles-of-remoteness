@@ -8,8 +8,9 @@ from poles.config import RegionConfig, load_region
 from poles.grid import Frame, create_raster
 from poles.roads import RoadSet
 from poles.units import Unit
-from poles.validate.checks import (CheckResult, edge_bound, grid_shift_compare, holes, invariants, load_refs,
-                                   membership, recheck, references)
+from poles.validate.checks import (CheckResult, ChecksError, _coord_batches, _geodesic_min, edge_bound,
+                                   grid_shift_compare, holes, invariants, load_refs, membership, recheck,
+                                   references)
 from tests.helpers import write_fgb
 
 GEOD = Geod(ellps="WGS84")
@@ -75,6 +76,19 @@ def test_recheck_fails_when_no_way_of_the_scenario_is_in_range():
     assert results[0].details["geodesic_m"] is None and results[0].details["ways"] == 0
 
 
+def test_geodesic_min_splits_a_batch_over_the_vertex_budget():
+    """The budget bounds the coordinate array handed to one Geod.inv call, even for a single way whose own
+    densified length exceeds it."""
+    geoms = np.array([LineString([(20.0, 55.0), (21.0, 55.0)]),
+                      LineString([(20.0, 54.0), (21.0, 54.0)])], dtype=object)
+    whole, n_whole = _geodesic_min(20.5, 55.0, geoms, 100.0, budget=10_000_000)
+    split, n_split = _geodesic_min(20.5, 55.0, geoms, 100.0, budget=500)
+    assert split == pytest.approx(whole) and n_split == n_whole
+    batches = list(_coord_batches(geoms, 100.0, 500))
+    assert len(batches) > 1 and all(len(b) <= 500 for b in batches)
+    assert sum(len(b) for b in batches) == n_whole
+
+
 # ---------- check 2: membership ----------
 
 def test_membership_needs_the_unit_and_land_and_no_big_water(tmp_path):
@@ -91,6 +105,18 @@ def test_membership_needs_the_unit_and_land_and_no_big_water(tmp_path):
     assert all(r.blocking and r.check == "membership" for r in results)
     assert results[1].details == {"rank": 2, "in_unit": True, "on_land": True, "in_water": True}
     assert results[2].details["on_land"] is False and results[3].details["in_unit"] is False
+
+
+def test_membership_rejects_a_pole_exactly_on_the_unit_boundary(tmp_path):
+    """`contains` is strict, so a pole on the boundary fails. That mirrors the search, whose allowed mask
+    is built from the same polygon, so a pole it could publish is never rejected here."""
+    unit = Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([box(0, 0, 2, 2)]), False, 1)
+    land = write_fgb(tmp_path / "land.fgb", "land", [box(-1, -1, 3, 3)], {"osm_id": [1]})
+    water = write_fgb(tmp_path / "water.fgb", "water", [box(9, 9, 9.1, 9.1)], {"osm_id": [1]})
+    poles = {"A": [{"unit": "aa", "poles": [_pole(2.0, 1.0, 100, rank=1)], "reason": None}]}
+    result = membership(poles, [unit], land, water)[0]
+    assert not result.passed and result.details["in_unit"] is False
+    assert result.details["on_land"] is True and result.details["in_water"] is False
 
 
 # ---------- check 3: data-edge bound ----------
@@ -155,6 +181,24 @@ def test_hole_detector_flags_doughnut_and_passes_uniform(tmp_path):
     assert flagged[0].details["inner_density"] == 0 and flagged[0].details["outer_density"] > flagged[0].details["unit_median_outer"]
 
 
+def test_holes_rejects_a_unit_it_was_not_given(tmp_path):
+    unit, poles = _centre_unit_and_poles()
+    frame, road_tif, units_tif = _frame_and_rasters(tmp_path, doughnut=False)
+    stranger = {"A": [{"unit": "zz", "poles": poles["A"][0]["poles"], "reason": None}]}
+    with pytest.raises(ChecksError, match="zz"):
+        holes(stranger, {"A": road_tif}, units_tif, frame, [unit])
+
+
+def test_holes_rejects_a_pole_outside_the_frame(tmp_path):
+    """Off the raster the window comes back empty, which would read as an empty inner ring and flag a hole
+    that is really a bad coordinate."""
+    unit, _ = _centre_unit_and_poles()
+    frame, road_tif, units_tif = _frame_and_rasters(tmp_path, doughnut=False)
+    far = {"A": [{"unit": "uu", "poles": [_pole(0.0, 0.0, 12_000)], "reason": None}]}
+    with pytest.raises(ChecksError, match="outside"):
+        holes(far, {"A": road_tif}, units_tif, frame, [unit])
+
+
 # ---------- check 6: reference values ----------
 
 def test_references_block_only_when_marked():
@@ -191,6 +235,8 @@ def test_shipped_refs_hold_the_published_lithuania_poles():
     for entry in refs["external"]:
         assert set(entry) >= {"unit", "scenario", "name", "lat", "lon", "dist_m", "source", "note", "checked"}
         assert entry["scenario"] in ("A", "B") and entry["source"].startswith("https://")
+        # An unquoted `no` is False in YAML 1.1, which would silently miss Norway's poles.
+        assert isinstance(entry["unit"], str) and isinstance(entry["name"], str)
 
 
 # ---------- check 7: invariants ----------

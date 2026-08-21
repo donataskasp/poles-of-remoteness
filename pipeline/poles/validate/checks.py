@@ -22,6 +22,7 @@ from shapely.prepared import prep
 
 from ..classify import SET_A, SET_B
 from ..config import RegionConfig
+from ..errors import PolesError
 from ..grid import Frame
 from ..poles import DEDUP_M, validate_poles_json
 from ..units import Unit
@@ -34,6 +35,10 @@ SETS = {"A": SET_A, "B": SET_B}
 # else's definition of the same question, so it is only asked to land in the same place.
 REF_MOVE_M, REF_REL = 500.0, 0.01
 EXTERNAL_MOVE_M, EXTERNAL_REL = 5000.0, 0.2
+
+
+class ChecksError(PolesError):
+    """A check cannot answer its question: the inputs disagree with the poles it was handed."""
 
 
 @dataclass
@@ -76,12 +81,35 @@ def _densify(geoms: np.ndarray, segment_m: float) -> np.ndarray:
     return shapely.get_coordinates(shapely.segmentize(geoms, segment_m * DEG_PER_M))
 
 
-def _geodesic_min(lon: float, lat: float, geoms, segment_m: float, chunk: int = 2000) -> tuple[float, int]:
-    """(distance, vertices measured). Chunked because one continent-scale bbox of roads densified at 1 m is
-    tens of millions of points, and the coordinate array of a chunk is all that needs to be resident."""
+def _coord_batches(geoms, segment_m: float, budget: int):
+    """Densified coordinates of `geoms` in arrays of at most `budget` points.
+
+    The budget is on vertices, not on geometries: one continent-scale bbox of roads densified at 1 m is tens
+    of millions of points, and a single motorway can carry more of them than a thousand field tracks. Geodesic
+    length in degrees over the step in degrees estimates a geometry's densified size, which groups the small
+    ones; a geometry that busts the budget on its own is then sliced after densifying, so the array handed to
+    one Geod.inv call is bounded whatever the ways look like."""
+    if not len(geoms):
+        return
+    step = segment_m * DEG_PER_M
+    sizes = shapely.length(geoms) / step + shapely.get_num_coordinates(geoms)
+    start = 0
+    while start < len(geoms):
+        end, total = start + 1, sizes[start]
+        while end < len(geoms) and total + sizes[end] <= budget:
+            total += sizes[end]
+            end += 1
+        coords = _densify(geoms[start:end], segment_m)
+        for at in range(0, max(len(coords), 1), budget):
+            if len(coords):
+                yield coords[at:at + budget]
+        start = end
+
+
+def _geodesic_min(lon: float, lat: float, geoms, segment_m: float, budget: int = 2_000_000) -> tuple[float, int]:
+    """(distance, vertices measured), never holding more than `budget` densified points at once."""
     best, vertices = np.inf, 0
-    for start in range(0, len(geoms), chunk):
-        coords = _densify(geoms[start:start + chunk], segment_m)
+    for coords in _coord_batches(geoms, segment_m, budget):
         vertices += len(coords)
         best = min(best, _nearest(lon, lat, coords))
     return best, vertices
@@ -187,6 +215,8 @@ def holes(poles, road_masks: dict[str, Path], units_tif: Path, frame: Frame, uni
             unit = entry["unit"]
             if not entry["poles"]:
                 continue
+            if unit not in by_code:
+                raise ChecksError(f"unit {unit!r} has poles in scenario {scenario} but is not in the units list")
             if unit not in medians:
                 rows, cols = np.nonzero(unit_raster == by_code[unit].index)
                 pick = rng.choice(len(rows), size=min(200, len(rows)), replace=False) if len(rows) else []
@@ -195,6 +225,10 @@ def holes(poles, road_masks: dict[str, Path], units_tif: Path, frame: Frame, uni
             for p in entry["poles"][:top]:
                 x, y = to_frame.transform(p["lon"], p["lat"])
                 row, col = int((frame.y1 - y) // frame.res), int((x - frame.x0) // frame.res)
+                if not (0 <= row < mask.shape[0] and 0 <= col < mask.shape[1]):
+                    raise ChecksError(f"{unit} {scenario} #{p['rank']} at {p['lat']}, {p['lon']} falls outside "
+                                      f"the grid frame at row {row}, col {col}; an empty window would read as "
+                                      f"an empty inner ring and flag a hole that is really a bad coordinate")
                 inner_d = _ring_density(mask, row, col, -1, inner)
                 outer_d = _ring_density(mask, row, col, inner, outer)
                 flagged = inner_d == 0 and outer_d > medians[unit]

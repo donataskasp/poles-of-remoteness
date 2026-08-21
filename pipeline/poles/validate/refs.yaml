@@ -28,12 +28,12 @@ external:
     checked: "2026-08-21"
   - unit: fi
     scenario: B
-    name: "Suomen eramaisin paikka, Vardoaivi, Kasivarsi"
+    name: "Suomen eramaisin paikka, Vardoaivi fell, Kilpisjarvi wilderness area"
     lat: 69.221217
     lon: 21.713050
     dist_m: 23000
     source: "https://suomenluonto.fi/artikkelit/suomen-aaripisteet-eramaisin-paikka/"
-    note: "23.0 km, computed for Suomen Luonto by Susanne Suvanto with Maanmittauslaitos and Esri over the Finnish and Norwegian road networks plus tractor, ATV and snowmobile routes. That set is broader than either scenario, so their distance is shorter than ours at the same place; our nearest public-road pole sits about 6 km away, just outside the 5 km tolerance, and is not this unit's winner"
+    note: "23.0 km, computed for Suomen Luonto by Susanne Suvanto over the Finnish and Norwegian road networks (Suvanto syotti ohjelmaan seka Suomen etta Norjan tieverkon). She repeated the run with tractor, ATV and snowmobile routes added, which shortened the distances but left the ranking unchanged, so the 23.0 km figure here is the road-network one. Paired with B because a road network without off-road routes is B's definition, not A's. Our nearest B pole is 6.1 km away at 29.9 km, just outside the tolerance and not this unit's winner; the likely cause is that the Finnish national road data carries minor and forest roads that OSM tags as track, so they sit in A and not in B"
     checked: "2026-08-21"
   - unit: gb
     scenario: B
