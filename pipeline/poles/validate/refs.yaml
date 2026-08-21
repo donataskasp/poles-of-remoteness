@@ -33,7 +33,7 @@ external:
     lon: 21.713050
     dist_m: 23000
     source: "https://suomenluonto.fi/artikkelit/suomen-aaripisteet-eramaisin-paikka/"
-    note: "23.0 km, computed for Suomen Luonto by Susanne Suvanto over the Finnish and Norwegian road networks (Suvanto syotti ohjelmaan seka Suomen etta Norjan tieverkon). She repeated the run with tractor, ATV and snowmobile routes added, which shortened the distances but left the ranking unchanged, so the 23.0 km figure here is the road-network one. Paired with B because a road network without off-road routes is B's definition, not A's. Our nearest B pole is 6.1 km away at 29.9 km, just outside the tolerance and not this unit's winner; the likely cause is that the Finnish national road data carries minor and forest roads that OSM tags as track, so they sit in A and not in B"
+    note: "23.0 km, computed for Suomen Luonto by Susanne Suvanto over the Finnish and Norwegian road networks (Suvanto syotti ohjelmaan seka Suomen etta Norjan tieverkon). She repeated the run with tractor, ATV and snowmobile routes added, which shortened the distances but left the ranking unchanged, so the 23.0 km figure here is the road-network one. Their road set falls between our two scenarios: broader than B, since Finnish national road data carries minor and forest roads that OSM tags as track, and narrower than A, which counts every drivable track; B is the closer of two imperfect matches. Our nearest B pole is 6.1 km away at 29.9 km, just outside the tolerance and not this unit's winner, and the longer distance is consistent with their broader road set"
     checked: "2026-08-21"
   - unit: gb
     scenario: B
