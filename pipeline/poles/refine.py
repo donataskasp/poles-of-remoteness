@@ -1,11 +1,19 @@
-"""Exact refinement of a coarse candidate: the farthest point from any road on a 25 m then 5 m grid in the
-candidate's UTM zone (spec 2.4, same method as the Lithuania demo).
+"""Exact refinement of a coarse candidate: the farthest point from any road on a 5 m grid in the
+candidate's UTM zone (spec 2.4).
 
 The distance is a true vector distance from a grid point to the nearest road geometry, not a raster
-sample, so the published number no longer carries the coarse grid's quantisation. Both passes stay
-inside the cell the caller names (centre plus half_m): the coarse pass sweeps it at 25 m, the fine pass
-re-centres on the coarse winner at 5 m and is clipped back to the same window, because a point outside
-the cell belongs to a neighbouring cell that the branch-and-bound in candidates.py bounds separately.
+sample, so the published number no longer carries the coarse grid's quantisation. The window is swept
+once, at the search step the spec names, and the result is by construction the maximum of that sweep.
+One sweep is affordable: a 500 m window at 5 m is 10,201 points, answered in one vectorised nearest
+query in about 15 ms. A cheaper coarse-then-local search was tried first and dropped, because it lands
+below the maximum of the window whenever a second ridge competes with the one it walked up.
+
+The window is the one the caller names: centred on the point given, reaching half_m each way, axis
+aligned to the UTM grid. Callers pass the half-diagonal of their coarse cell, so the window covers the
+whole frame cell whatever the rotation between the frame grid and the UTM grid, and therefore laps a
+little into the neighbours. That overlap is harmless for the branch-and-bound in candidates.py: a point
+above the bound of the cell it came from only becomes final sooner, the cell that actually holds the
+maximum still finds it, and a point found twice from two cells is rejected by the dedup rule.
 
 A cell near a zone seam is refined wholly in the zone its centre falls in; UTM stays well behaved a few
 hundred metres past its seam (a few parts per million of scale error over a 500 m window), so no cell
@@ -22,7 +30,13 @@ import shapely
 from pyproj import Transformer
 from shapely.strtree import STRtree
 
+from .errors import PolesError
 from .roads import RoadSet
+
+# Grid points are handed to `allowed` in descending distance order, this many at a time. The winner is
+# usually allowed, so the first batch normally answers the whole refinement and the mask never sees the
+# other 10,000 points; the batch is still large enough that a mask backed by an index is called in bulk.
+MASK_BATCH = 256
 
 
 def utm_epsg(lon: float, lat: float) -> int:
@@ -34,6 +48,10 @@ def utm_epsg(lon: float, lat: float) -> int:
 
 @dataclass
 class RefinedPole:
+    """One refined pole. `x` and `y` are metres in `utm_epsg`, never in the caller's `src_crs`; `lat` and
+    `lon` are the same point in EPSG:4326. `way_id` is the OSM id of the nearest way and `way_index` its
+    row in the RoadSet the search ran against, so the index only means anything next to that RoadSet."""
+
     lat: float
     lon: float
     dist_m: float
@@ -57,49 +75,59 @@ class UtmRoads:
         self.to_lonlat = Transformer.from_crs(f"EPSG:{epsg}", "EPSG:4326", always_xy=True)
 
 
-def _axis(centre: float, half: float, step: float, lo: float, hi: float) -> np.ndarray:
-    """Grid axis of `step` around `centre`, clipped to [lo, hi]. The count is taken from the clipped span
-    rather than filtering an arange, so no float overshoot can put a sample past `hi`."""
-    start = max(centre - half, lo)
-    stop = min(centre + half, hi)
-    n = int(math.floor((stop - start) / step + 1e-9)) + 1
-    return start + step * np.arange(n)
+def _axis(centre: float, half: float, step: float) -> np.ndarray:
+    """Lattice of `step` anchored on `centre` and reaching no farther than `half` either way.
+
+    Anchoring on the centre keeps the centre itself a sample and keeps every sample inside the window,
+    whatever ratio of half to step the caller picks."""
+    n = int(math.floor(half / step + 1e-9))
+    return centre + step * np.arange(-n, n + 1)
 
 
-def _best_on_grid(cx: float, cy: float, half: float, step: float, window: tuple[float, float, float, float],
-                  roads: UtmRoads, allowed) -> tuple[float, float, float, int] | None:
-    """Farthest allowed point from any road on the grid of `step` around (cx, cy), inside `window`.
+def _best_on_grid(cx: float, cy: float, half: float, step: float, roads: UtmRoads,
+                  allowed) -> tuple[float, float, float, int] | None:
+    """Farthest allowed point from any road on the lattice of `step` filling the window, or None when the
+    mask allows no point of it.
 
-    Returns (x, y, distance, road index), or None when the mask allows no point. Ties are broken by the
-    first sample in row-major order, and a point equidistant from two roads takes whichever the tree
-    reaches first; both are reproducible for the same road set, which is what a rerun needs.
+    Returns (x, y, distance, road index). Every point is measured, the points are then ranked by distance
+    and the mask is applied down that ranking until it accepts one, so the answer is the same as masking
+    the whole lattice first. Ties are broken by the first sample in row-major order, and a point exactly
+    equidistant from two roads takes whichever the tree reaches first; both are reproducible for the same
+    road set, which is what a rerun needs.
     """
-    ax = _axis(cx, half, step, window[0], window[2])
-    ay = _axis(cy, half, step, window[1], window[3])
-    gx, gy = np.meshgrid(ax, ay)
+    gx, gy = np.meshgrid(_axis(cx, half, step), _axis(cy, half, step))
     px, py = gx.ravel(), gy.ravel()
-    if allowed is not None:
-        lons, lats = roads.to_lonlat.transform(px, py)
-        keep = np.asarray(allowed(np.asarray(lons), np.asarray(lats)), dtype=bool)
-        px, py = px[keep], py[keep]
-        if len(px) == 0:
-            return None
     pts = shapely.points(px, py)
     idx, dist = roads.tree.query_nearest(pts, return_distance=True, all_matches=False)
     d = np.full(len(pts), -np.inf)
     d[idx[0]] = dist
     nearest = np.full(len(pts), -1)
     nearest[idx[0]] = idx[1]
-    k = int(np.argmax(d))
-    return float(px[k]), float(py[k]), float(d[k]), int(nearest[k])
+
+    def result(k: int) -> tuple[float, float, float, int]:
+        if nearest[k] < 0:  # the tree answered nothing for this point; reporting road -1 would be silent nonsense
+            raise PolesError(f"refine: no nearest road for the winning point at {px[k]}, {py[k]}")
+        return float(px[k]), float(py[k]), float(d[k]), int(nearest[k])
+
+    order = np.argsort(-d, kind="stable")
+    if allowed is None:
+        return result(int(order[0]))
+    for start in range(0, len(order), MASK_BATCH):
+        batch = order[start:start + MASK_BATCH]
+        lons, lats = roads.to_lonlat.transform(px[batch], py[batch])
+        keep = np.asarray(allowed(np.asarray(lons), np.asarray(lats)), dtype=bool)
+        if keep.any():
+            return result(int(batch[int(np.argmax(keep))]))
+    return None
 
 
-def refine(x: float, y: float, src_crs: str, roads: UtmRoads, half_m: float = 250.0, steps: tuple[float, float] = (25.0, 5.0),
+def refine(x: float, y: float, src_crs: str, roads: UtmRoads, half_m: float = 250.0, step: float = 5.0,
            allowed: Callable[[np.ndarray, np.ndarray], np.ndarray] | None = None) -> RefinedPole | None:
-    """The exact pole of the cell centred on (x, y) in `src_crs`, or None when nothing there qualifies.
+    """The exact pole of the window centred on (x, y) in `src_crs`, or None when nothing there qualifies.
 
-    `allowed(lons, lats)` is the caller's mask (in the unit, on land, clear of large water); the search
-    only ever reports a point it accepts. None also comes back for an empty road set.
+    One sweep of the window at `step`, in the zone of `roads`. `allowed(lons, lats)` is the caller's mask
+    (in the unit, on land, clear of large water); the search only ever reports a point it accepts. None
+    also comes back for an empty road set.
     """
     if roads.tree is None:
         return None
@@ -107,19 +135,12 @@ def refine(x: float, y: float, src_crs: str, roads: UtmRoads, half_m: float = 25
         cx, cy = Transformer.from_crs(src_crs, f"EPSG:{roads.epsg}", always_xy=True).transform(x, y)
     else:
         cx, cy = x, y
-    coarse_step, fine_step = steps
-    window = (cx - half_m, cy - half_m, cx + half_m, cy + half_m)
-    best = _best_on_grid(cx, cy, half_m, coarse_step, window, roads, allowed)
+    best = _best_on_grid(cx, cy, half_m, step, roads, allowed)
     if best is None:
         return None
-    bx, by, _, _ = best
-    # The fine pass reaches one coarse step around the winner, so it covers every point the coarse grid
-    # skipped, and the window keeps it inside the cell. It always resamples the winner itself, so the
-    # fallback below only ever fires if the mask is not stable between calls.
-    fine = _best_on_grid(bx, by, coarse_step, fine_step, window, roads, allowed) or best
-    fx, fy, fd, fi = fine
-    lon, lat = roads.to_lonlat.transform(fx, fy)
-    return RefinedPole(float(lat), float(lon), fd, int(roads.roads.attrs["osm_id"][fi]), fx, fy, roads.epsg, fi)
+    bx, by, dist, i = best
+    lon, lat = roads.to_lonlat.transform(bx, by)
+    return RefinedPole(float(lat), float(lon), dist, int(roads.roads.attrs["osm_id"][i]), bx, by, roads.epsg, i)
 
 
 class RoadCache:

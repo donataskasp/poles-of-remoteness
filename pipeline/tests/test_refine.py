@@ -1,5 +1,6 @@
 import numpy as np
 import pytest
+import shapely
 from pyproj import Transformer
 from shapely.geometry import LineString
 
@@ -23,6 +24,29 @@ def _roadset(lines_utm, epsg, ids=None):
                                                    "name": np.array([None] * n, dtype=object), "ref": np.array([None] * n, dtype=object)})
 
 
+def _brute_force(roadset, epsg, cx, cy, allowed=None, half=250.0, step=5.0):
+    """The answer refine() must give, computed independently: plain shapely distance from every lattice
+    point of the window to every road, no STRtree and nothing from poles.refine."""
+    to_utm = Transformer.from_crs("EPSG:4326", f"EPSG:{epsg}", always_xy=True)
+    to_ll = Transformer.from_crs(f"EPSG:{epsg}", "EPSG:4326", always_xy=True)
+    geoms = []
+    for g in roadset.geoms:
+        coords = np.asarray(g.coords)
+        xs, ys = to_utm.transform(coords[:, 0], coords[:, 1])
+        geoms.append(LineString(list(zip(xs, ys))))
+    offsets = np.arange(-half, half + step / 2, step)
+    gx, gy = np.meshgrid(cx + offsets, cy + offsets)
+    px, py = gx.ravel(), gy.ravel()
+    if allowed is not None:
+        lons, lats = to_ll.transform(px, py)
+        keep = np.asarray(allowed(np.asarray(lons), np.asarray(lats)), dtype=bool)
+        px, py = px[keep], py[keep]
+    pts = shapely.points(px, py)
+    d = np.min(np.stack([shapely.distance(pts, g) for g in geoms]), axis=0)
+    k = int(np.argmax(d))
+    return float(d[k]), float(px[k]), float(py[k])
+
+
 def test_utm_zone_selection_including_norway_exception_not_applied():
     assert utm_epsg(23.5, 54.4) == 32634          # zone 34N runs 18E to 24E
     assert utm_epsg(25.3, 54.7) == 32635          # just east of the 24E seam: zone 35N
@@ -37,7 +61,7 @@ def test_single_straight_road_known_offset():
     road = [(500_000 - 5000, 6_000_000), (500_000 + 5000, 6_000_000)]   # along y = 6,000,000 in zone 35N
     roads = UtmRoads(_roadset([road], epsg), epsg)
     # window centred 1000 m north of the road: the maximum is at the far (north) edge, 1250 m away
-    pole = refine(500_000, 6_001_000, f"EPSG:{epsg}", roads, half_m=250.0, steps=(25.0, 5.0))
+    pole = refine(500_000, 6_001_000, f"EPSG:{epsg}", roads, half_m=250.0, step=5.0)
     assert pole.dist_m == pytest.approx(1250.0, abs=2.5)
     assert pole.utm_epsg == epsg and pole.way_id == 1
     assert pole.y == pytest.approx(6_001_250, abs=5) and 499_700 <= pole.x <= 500_300
@@ -59,6 +83,29 @@ def test_result_nearest_way_id_matches_closest_geometry():
     roads = UtmRoads(_roadset([a, b], epsg, ids=[77, 88]), epsg)
     pole = refine(500_000, 6_002_600, f"EPSG:{epsg}", roads, half_m=100.0)
     assert pole.way_id == 88 and pole.way_index == 1
+
+
+@pytest.mark.parametrize("seed", range(6))
+def test_matches_a_brute_force_five_metre_sweep(seed):
+    """The published number is the maximum of a 5 m sweep of the window (spec 2.4), masked or not."""
+    epsg, cx, cy = 32635, 500_000.0, 6_001_000.0
+    rng = np.random.default_rng(seed)
+    lines = []
+    for _ in range(int(rng.integers(2, 8))):
+        x0, y0 = cx + rng.uniform(-1200, 1200), cy + rng.uniform(-1200, 1200)
+        lines.append([(x0 + rng.uniform(-600, 600), y0 + rng.uniform(-600, 600)) for _ in range(3)])
+    roadset = _roadset(lines, epsg)
+    roads = UtmRoads(roadset, epsg)
+    to_ll = Transformer.from_crs(f"EPSG:{epsg}", "EPSG:4326", always_xy=True)
+    _, lat_cut = to_ll.transform(cx, cy)
+    south_half = lambda lons, lats: np.asarray(lats) < lat_cut
+
+    pole = refine(cx, cy, f"EPSG:{epsg}", roads)
+    assert pole.dist_m == pytest.approx(_brute_force(roadset, epsg, cx, cy)[0], abs=1e-6)
+
+    masked = refine(cx, cy, f"EPSG:{epsg}", roads, allowed=south_half)
+    assert masked.dist_m == pytest.approx(_brute_force(roadset, epsg, cx, cy, south_half)[0], abs=1e-6)
+    assert masked.lat < lat_cut and masked.dist_m <= pole.dist_m
 
 
 def test_allowed_mask_restricts_grid_and_none_when_empty():
@@ -86,6 +133,11 @@ def test_src_crs_is_transformed_to_utm():
     x, y = to_laea.transform(500_000, 6_001_000)
     pole = refine(x, y, "EPSG:3035", roads)
     assert pole.dist_m == pytest.approx(1250.0, abs=3.0)
+    # x and y come back in the UTM zone, not in the frame the caller asked in: the same point is about
+    # (5.29 M, 3.53 M) in EPSG:3035, so these bounds fail loudly if the frame coordinates leak through.
+    assert pole.utm_epsg == epsg
+    assert 499_700 <= pole.x <= 500_300 and pole.y == pytest.approx(6_001_250, abs=5)
+    assert abs(pole.x - x) > 1000 and abs(pole.y - y) > 1000
 
 
 class _FakeTiles:
@@ -102,5 +154,7 @@ def test_road_cache_reuses_covering_bbox():
     r1 = cache.get(23.0, 54.0, 23.1, 54.1, 32635)
     r2 = cache.get(23.02, 54.02, 23.08, 54.08, 32635)
     assert r1 is r2 and len(tiles.calls) == 1 and tiles.calls[0][4] == "highway IN ('track')"
-    cache.get(30.0, 60.0, 30.1, 60.1, 32636)
+    cache.get(25.0, 54.0, 25.1, 54.1, 32635)          # same zone, bbox outside the cached one: a fresh query
     assert len(tiles.calls) == 2
+    cache.get(25.02, 54.02, 25.08, 54.08, 32636)      # inside the cached bbox but another zone: a fresh query
+    assert len(tiles.calls) == 3
