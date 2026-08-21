@@ -122,6 +122,17 @@ def _unit_windows(units_tif: Path) -> dict[int, tuple[int, int, int, int]]:
     return {i: (b[0], b[1], b[2] - b[0] + 1, b[3] - b[1] + 1) for i, b in bounds.items()}
 
 
+def write_water_big(src: Path, dst: Path, min_m2: float, log: logging.Logger, tools_log: Path) -> None:
+    """Copy the water polygons of at least `min_m2` to `dst` in lon/lat, for the big-water exclusion."""
+    dst.unlink(missing_ok=True)
+    # OGR2OGR_USE_ARROW_API NO: GDAL's Arrow copy path silently drops filters on special fields such as
+    # OGR_GEOM_AREA and writes an empty layer with no error (seen on 3.13.3, FlatGeobuf to FlatGeobuf).
+    run_cmd(["ogr2ogr", "--config", "OGR2OGR_USE_ARROW_API", "NO",
+             "-f", "FlatGeobuf", dst, src, "-t_srs", "EPSG:4326", "-nln", "water",
+             "-sql", f"SELECT * FROM water WHERE OGR_GEOM_AREA >= {min_m2}",
+             "-lco", "SPATIAL_INDEX=YES"], log, stderr_path=tools_log)
+
+
 def prepare(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> Prepared:
     require_tools(["osmium", "ogr2ogr", "gdal_rasterize"])
     fetch_dir, extract_dir, grid_dir, out = ws.dir("fetch"), ws.dir("extract"), ws.dir("grid"), ws.dir(STAGE)
@@ -177,10 +188,7 @@ def prepare(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> Prepared:
         _mark(land_idx)
     water_big = out / "water_big.fgb"
     if not _done(water_big):
-        water_big.unlink(missing_ok=True)
-        run_cmd(["ogr2ogr", "-f", "FlatGeobuf", water_big, grid_dir / "water_proj.fgb", "-t_srs", "EPSG:4326",
-                 "-nln", "water", "-sql", f"SELECT * FROM water WHERE OGR_GEOM_AREA >= {MIN_WATER_M2}",
-                 "-lco", "SPATIAL_INDEX=YES"], log, stderr_path=tools_log)
+        write_water_big(grid_dir / "water_proj.fgb", water_big, MIN_WATER_M2, log, tools_log)
         _mark(water_big)
     return Prepared(frame, units, countries_fgb, roads_dir, units_tif, land_idx, water_big,
                     extract_dir / "places.vrt", windows)

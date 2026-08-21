@@ -1,10 +1,11 @@
 import numpy as np
 import pytest
 import rasterio
+from pyogrio.raw import read
 from shapely.geometry import MultiPolygon, box
 
 from poles.grid import Frame, create_raster
-from poles.poles import _allowed_factory, _unit_windows, top_n_dedup, validate_poles_json
+from poles.poles import _allowed_factory, _unit_windows, top_n_dedup, validate_poles_json, write_water_big
 from poles.units import Unit
 from tests.helpers import write_fgb
 
@@ -52,3 +53,16 @@ def test_allowed_needs_the_unit_and_land_and_no_big_water(tmp_path):
     lons = np.array([1.0, 0.3, 1.8, 2.5])          # in the unit on land; in the lake; off the land polygon; outside the unit
     lats = np.array([1.0, 0.3, 1.0, 1.0])
     assert allowed(lons, lats).tolist() == [True, False, False, False]
+
+
+def test_write_water_big_keeps_only_the_large_polygon(tmp_path, log):
+    """Real ogr2ogr: the area filter must survive whatever copy path GDAL picks."""
+    src = write_fgb(tmp_path / "water_proj.fgb", "water",
+                    [box(4_300_000, 3_220_000, 4_302_000, 3_222_000),      # 2 km x 2 km, 4 km2
+                     box(4_310_000, 3_220_000, 4_310_100, 3_220_100)],     # 100 m x 100 m, 0.01 km2
+                    {"osm_id": [1, 2]}, crs="EPSG:3035")
+    dst = tmp_path / "water_big.fgb"
+    write_water_big(src, dst, 1_000_000.0, log, tmp_path / "tools.log")
+    meta, _, wkb, fields = read(str(dst), layer="water")
+    assert len(wkb) == 1 and dict(zip(meta["fields"], fields))["osm_id"].tolist() == [1]
+    assert "4326" in meta["crs"]
