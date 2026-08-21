@@ -1,0 +1,46 @@
+# Reference poles for check 6 (spec 6.6). Top-level unit codes hold blocking regression entries
+# (the published Lithuania demo values); `external` entries inform and never block.
+#
+# Every external entry was opened and read on the date in `checked`; the page states both the
+# position and the distance recorded here. `note` says how that publication's question differs
+# from ours, because almost every one of them counts a different set of roads.
+lt:
+  A: {lat: 54.441473, lon: 23.537020, dist_m: 3425.6, source: "site/data/spots.json (LT demo, OSM 2026-08-17, EPSG:3346, 5 m grid)", blocking: true}
+  B: {lat: 53.995818, lon: 24.462993, dist_m: 6674.6, source: "site/data/spots.json (LT demo, OSM 2026-08-17, EPSG:3346, 5 m grid)", blocking: true}
+external:
+  - unit: se
+    scenario: B
+    name: "Sveriges otillganglighetspol, Oarjep Rissavarre, Padjelanta"
+    lat: 67.304170
+    lon: 17.152333
+    dist_m: 46100
+    source: "https://sv.wikipedia.org/wiki/Otillg%C3%A4nglighetspol"
+    note: "46.1 km to the three nearest roads of the public road network (allmanna vagnatet), computed by Fowelin, Nydahl and Andersson after Claes Grundsten's 1980s work; a public-road definition, so scenario B"
+    checked: "2026-08-21"
+  - unit: "no"
+    scenario: B
+    name: "Norges utilgjengelighetspol, Civttasmaroaivi, Anarjohka nasjonalpark"
+    lat: 68.916667
+    lon: 24.519444
+    dist_m: 43000
+    source: "https://no.wikipedia.org/wiki/Utilgjengelighetspol"
+    note: "43 km from any road, Svalbard excluded; the page does not say which road set, and the figure lands on our public-road scenario rather than the one that counts tracks"
+    checked: "2026-08-21"
+  - unit: fi
+    scenario: B
+    name: "Suomen eramaisin paikka, Vardoaivi, Kasivarsi"
+    lat: 69.221217
+    lon: 21.713050
+    dist_m: 23000
+    source: "https://suomenluonto.fi/artikkelit/suomen-aaripisteet-eramaisin-paikka/"
+    note: "23.0 km, computed for Suomen Luonto by Susanne Suvanto with Maanmittauslaitos and Esri over the Finnish and Norwegian road networks plus tractor, ATV and snowmobile routes. That set is broader than either scenario, so their distance is shorter than ours at the same place; our nearest public-road pole sits about 6 km away, just outside the 5 km tolerance, and is not this unit's winner"
+    checked: "2026-08-21"
+  - unit: gb
+    scenario: B
+    name: "Britain's most remote point, Tarf Water, Cairngorms (OS grid NN 88764 82124)"
+    lat: 56.917032
+    lon: -3.828738
+    dist_m: 14484
+    source: "https://www.livefortheoutdoors.com/outdoor-features/discover/find-the-most-remote-spot-in-britain-with-os-maps/"
+    note: "9.0 miles to the nearest public tarmac near Blair Atholl, grid reference from Ordnance Survey; mainland only, while our unit includes the offshore islands and wins on North Rona. Ordnance Survey has named other mainland points elsewhere (Ruadh Stac Beag, Loch Beinn Dearg), so read this as one of several published answers"
+    checked: "2026-08-21"

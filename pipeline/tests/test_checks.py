@@ -1,0 +1,262 @@
+import numpy as np
+import pytest
+import rasterio
+from pyproj import Geod
+from shapely.geometry import LineString, MultiPolygon, box
+
+from poles.config import RegionConfig, load_region
+from poles.grid import Frame, create_raster
+from poles.roads import RoadSet
+from poles.units import Unit
+from poles.validate.checks import (CheckResult, edge_bound, grid_shift_compare, holes, invariants, load_refs,
+                                   membership, recheck, references)
+from tests.helpers import write_fgb
+
+GEOD = Geod(ellps="WGS84")
+
+
+def _pole(lat, lon, d, rank=1, way=1):
+    return {"rank": rank, "lat": lat, "lon": lon, "dist_m": d,
+            "nearest_way": {"id": way, "highway": "track", "name": None, "ref": None, "country": "lt"},
+            "nearest_place": None, "detail": None, "warnings": []}
+
+
+class _Tiles:
+    def __init__(self, lines, highway="track"):
+        self.lines, self.highway = lines, highway
+
+    def query(self, west, south, east, north, where=None):
+        n = len(self.lines)
+        return RoadSet(np.array(self.lines, dtype=object),
+                       {"osm_id": np.arange(1, n + 1).astype(object),
+                        "highway": np.array([self.highway] * n, dtype=object),
+                        "name": np.array([None] * n, dtype=object), "ref": np.array([None] * n, dtype=object)})
+
+
+# ---------- check 1: independent geodesic recheck ----------
+
+def test_recheck_agrees_within_tolerance_on_synthetic():
+    road = LineString([(23.5, 54.40), (23.6, 54.40)])          # along a parallel; the pole sits 2 km north of it
+    lat = 54.40 + 2000 / 111_320 * 1.0
+    true = GEOD.inv(23.55, lat, 23.55, 54.40)[2]
+    results = recheck({"A": [{"unit": "lt", "poles": [_pole(lat, 23.55, true)], "reason": None}]}, _Tiles([road]))
+    assert len(results) == 1 and results[0].passed and results[0].blocking and results[0].check == "recheck"
+    assert results[0].details["geodesic_m"] == pytest.approx(true, abs=1.0)
+
+
+def test_recheck_catches_planted_error():
+    road = LineString([(23.5, 54.40), (23.6, 54.40)])
+    lat = 54.40 + 2000 / 111_320
+    true = GEOD.inv(23.55, lat, 23.55, 54.40)[2]
+    results = recheck({"A": [{"unit": "lt", "poles": [_pole(lat, 23.55, true * 1.02)], "reason": None}]}, _Tiles([road]))
+    assert not results[0].passed
+
+
+def test_recheck_ignores_ways_outside_the_scenario():
+    footway = LineString([(23.5, 54.41), (23.6, 54.41)])      # closer, but not drivable
+    road = LineString([(23.5, 54.40), (23.6, 54.40)])
+    lat = 54.40 + 2000 / 111_320
+    true = GEOD.inv(23.55, lat, 23.55, 54.40)[2]
+
+    class Mixed(_Tiles):
+        def query(self, *a, **k):
+            rs = super().query(*a, **k)
+            rs.attrs["highway"] = np.array(["footway", "track"], dtype=object)
+            return rs
+
+    results = recheck({"A": [{"unit": "lt", "poles": [_pole(lat, 23.55, true)], "reason": None}]}, Mixed([footway, road]))
+    assert results[0].passed
+
+
+def test_recheck_fails_when_no_way_of_the_scenario_is_in_range():
+    """A pole on a road-free island, or one whose coarse value saturated, has nothing to measure against."""
+    results = recheck({"A": [{"unit": "lt", "poles": [_pole(54.4, 23.5, 20_000)], "reason": None}]}, _Tiles([]))
+    assert not results[0].passed
+    assert results[0].details["geodesic_m"] is None and results[0].details["ways"] == 0
+
+
+# ---------- check 2: membership ----------
+
+def test_membership_needs_the_unit_and_land_and_no_big_water(tmp_path):
+    unit = Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([box(0, 0, 2, 2)]), False, 1)
+    land = write_fgb(tmp_path / "land.fgb", "land", [box(-1, -1, 1.5, 3)], {"osm_id": [1]})
+    water = write_fgb(tmp_path / "water.fgb", "water", [box(0.2, 0.2, 0.4, 0.4)], {"osm_id": [1]})
+    poles = {"A": [{"unit": "aa", "poles": [_pole(1.0, 1.0, 100, rank=1),      # in the unit, on land, dry
+                                            _pole(0.3, 0.3, 100, rank=2),      # in the lake
+                                            _pole(1.0, 1.8, 100, rank=3),      # off the land polygon
+                                            _pole(1.0, 2.5, 100, rank=4)],     # outside the unit
+                    "reason": None}]}
+    results = membership(poles, [unit], land, water)
+    assert [r.passed for r in results] == [True, False, False, False]
+    assert all(r.blocking and r.check == "membership" for r in results)
+    assert results[1].details == {"rank": 2, "in_unit": True, "on_land": True, "in_water": True}
+    assert results[2].details["on_land"] is False and results[3].details["in_unit"] is False
+
+
+# ---------- check 3: data-edge bound ----------
+
+def test_edge_bound_fails_when_edge_closer_than_distance():
+    edge = box(20.0, 50.0, 30.0, 60.0)
+    near_edge = _pole(55.0, 29.9, 20_000)                      # about 6.4 km from lon 30
+    inside = _pole(55.0, 25.0, 20_000)
+    results = edge_bound({"A": [{"unit": "lt", "poles": [near_edge, inside], "reason": None}]}, edge)
+    assert [r.passed for r in results] == [False, True] and all(r.blocking for r in results)
+    assert results[0].details["edge_m"] == pytest.approx(6400, rel=0.05)
+
+
+# ---------- check 4: grid-shift sensitivity ----------
+
+def test_grid_shift_compare():
+    orig = _pole(54.0, 24.0, 5000)
+    ok = grid_shift_compare("lt", "A", orig, _pole(54.001, 24.0, 5030))     # 111 m, 0.6%
+    moved = grid_shift_compare("lt", "A", orig, _pole(54.006, 24.0, 5000))  # 667 m
+    changed = grid_shift_compare("lt", "A", orig, _pole(54.0, 24.0, 5100))  # 2%
+    lost = grid_shift_compare("lt", "A", orig, None)
+    assert ok.passed and not moved.passed and not changed.passed and not lost.passed and ok.blocking
+
+
+# ---------- check 5: hole detection ----------
+
+def _frame_and_rasters(tmp_path, doughnut: bool):
+    frame = Frame("EPSG:3035", 250.0, 5_000_000.0, 3_600_000.0, 400, 400)  # 100 km square
+    rng = np.random.default_rng(0)
+    roads = (rng.uniform(size=(400, 400)) < 0.02).astype("uint8")
+    if doughnut:
+        rr, cc = np.mgrid[0:400, 0:400]
+        d = np.hypot(rr - 200, cc - 200) * 250.0
+        roads[d <= 10_000] = 0
+        roads[(d > 10_000) & (d <= 30_000)] = (rng.uniform(size=roads.shape) < 0.1)[(d > 10_000) & (d <= 30_000)]
+    road_tif = tmp_path / "roads_A.tif"
+    create_raster(frame, road_tif)
+    with rasterio.open(road_tif, "r+") as ds:
+        ds.write(roads, 1)
+    units_tif = tmp_path / "units.tif"
+    create_raster(frame, units_tif, dtype="int16")
+    with rasterio.open(units_tif, "r+") as ds:
+        ds.write(np.ones((400, 400), dtype="int16"), 1)
+    return frame, road_tif, units_tif
+
+
+def _centre_unit_and_poles(dist_m=12_000):
+    from pyproj import Transformer
+    to_ll = Transformer.from_crs("EPSG:3035", "EPSG:4326", always_xy=True)
+    lon, lat = to_ll.transform(5_000_000 + 200 * 250, 3_600_000 - 200 * 250)
+    unit = Unit("uu", "U", "U", 1, "uu", MultiPolygon([box(lon - 1, lat - 1, lon + 1, lat + 1)]), False, 1)
+    return unit, {"A": [{"unit": "uu", "poles": [_pole(lat, lon, dist_m)], "reason": None}]}
+
+
+def test_hole_detector_flags_doughnut_and_passes_uniform(tmp_path):
+    unit, poles = _centre_unit_and_poles()
+    frame, road_tif, units_tif = _frame_and_rasters(tmp_path, doughnut=False)
+    uniform = holes(poles, {"A": road_tif}, units_tif, frame, [unit])
+    frame, road_tif, units_tif = _frame_and_rasters(tmp_path, doughnut=True)
+    flagged = holes(poles, {"A": road_tif}, units_tif, frame, [unit])
+    assert uniform[0].passed and not flagged[0].passed and not flagged[0].blocking
+    assert flagged[0].details["inner_density"] == 0 and flagged[0].details["outer_density"] > flagged[0].details["unit_median_outer"]
+
+
+# ---------- check 6: reference values ----------
+
+def test_references_block_only_when_marked():
+    refs = {"lt": {"A": {"lat": 54.441473, "lon": 23.537020, "dist_m": 3425.6, "source": "demo", "blocking": True}},
+            "external": [{"unit": "lt", "scenario": "A", "name": "Some article", "lat": 54.44, "lon": 23.54,
+                          "dist_m": 3000, "source": "https://example.org", "note": "counts paths too"}]}
+    good = {"A": [{"unit": "lt", "poles": [_pole(54.4416, 23.5372, 3430.0)], "reason": None}]}
+    results = references(good, refs)
+    assert [(r.passed, r.blocking) for r in results] == [(True, True), (True, False)]
+    bad = {"A": [{"unit": "lt", "poles": [_pole(54.50, 23.5372, 3430.0)], "reason": None}]}   # 6.5 km away
+    assert [r.passed for r in references(bad, refs)][0] is False
+
+
+def test_references_report_a_unit_with_no_pole():
+    refs = {"lt": {"A": {"lat": 54.441473, "lon": 23.537020, "dist_m": 3425.6, "source": "demo", "blocking": True}},
+            "external": [{"unit": "lt", "scenario": "A", "name": "Some article", "lat": 54.44, "lon": 23.54,
+                          "dist_m": 3000, "source": "https://example.org"}]}
+    results = references({"A": [{"unit": "lt", "poles": [], "reason": "no pole"}]}, refs)
+    assert [(r.passed, r.blocking) for r in results] == [(False, True), (False, False)]
+    assert all(r.details["reason"] == "no pole" for r in results)
+
+
+def test_shipped_refs_hold_the_published_lithuania_poles():
+    from pathlib import Path
+
+    import poles.validate
+
+    refs = load_refs(Path(poles.validate.__file__).with_name("refs.yaml"))
+    assert refs["lt"]["A"]["dist_m"] == 3425.6 and refs["lt"]["A"]["blocking"] is True
+    assert (refs["lt"]["A"]["lat"], refs["lt"]["A"]["lon"]) == (54.441473, 23.537020)
+    assert refs["lt"]["B"]["dist_m"] == 6674.6 and refs["lt"]["B"]["blocking"] is True
+    assert (refs["lt"]["B"]["lat"], refs["lt"]["B"]["lon"]) == (53.995818, 24.462993)
+    assert 3 <= len(refs["external"]) <= 5
+    for entry in refs["external"]:
+        assert set(entry) >= {"unit", "scenario", "name", "lat", "lon", "dist_m", "source", "note", "checked"}
+        assert entry["scenario"] in ("A", "B") and entry["source"].startswith("https://")
+
+
+# ---------- check 7: invariants ----------
+
+def _cfg(regions_dir, **over) -> RegionConfig:
+    return RegionConfig(**(load_region(regions_dir / "europe.yaml").__dict__ | over))
+
+
+def test_a_le_b_invariant_detects_violation(regions_dir):
+    cfg = _cfg(regions_dir, expected_units=1, top_n=1)
+    unit = Unit("lt", "LT", "Lithuania", 1, "lt", MultiPolygon([box(20, 53, 27, 57)]), False, 1)
+    poles = {"A": [{"unit": "lt", "poles": [_pole(54.0, 24.0, 5000)], "reason": None}],
+             "B": [{"unit": "lt", "poles": [_pole(54.2, 24.0, 4000)], "reason": None}]}
+    results = {r.details.get("name"): r for r in invariants(poles, [unit], cfg, {"a_le_b_violations": 0})}
+    assert not results["a_le_b_poles"].passed and results["a_le_b_grid"].passed and results["unit_count"].passed
+    assert results["top_n_or_reason"].passed and results["separation"].passed and all(r.blocking for r in results.values())
+
+
+def test_invariants_accept_a_microstate_with_one_pole_and_a_reason(regions_dir):
+    """A unit too small to hold ten poles 10 km apart is fine as long as it says so."""
+    cfg = _cfg(regions_dir, expected_units=1, top_n=10)
+    unit = Unit("mc", "MC", "Monaco", 1, "mc", MultiPolygon([box(7.4, 43.7, 7.5, 43.8)]), False, 1)
+    entry = {"unit": "mc", "poles": [_pole(43.75, 7.42, 900)], "reason": "only 1 pole(s)"}
+    ok = {r.details["name"]: r for r in invariants({"A": [entry], "B": [entry]}, [unit], cfg, {"a_le_b_violations": 0})}
+    assert ok["top_n_or_reason"].passed and ok["structure"].passed and ok["separation"].passed
+    silent = {"unit": "mc", "poles": [_pole(43.75, 7.42, 900)], "reason": None}
+    bad = [r for r in invariants({"A": [silent], "B": [silent]}, [unit], cfg, {"a_le_b_violations": 0})
+           if r.details["name"] in ("top_n_or_reason", "structure")]
+    assert not any(r.passed for r in bad)
+
+
+def test_invariants_flag_poles_closer_than_the_dedup_distance(regions_dir):
+    cfg = _cfg(regions_dir, expected_units=1, top_n=2)
+    unit = Unit("lt", "LT", "Lithuania", 1, "lt", MultiPolygon([box(20, 53, 27, 57)]), False, 1)
+    close = {"unit": "lt", "poles": [_pole(54.0, 24.0, 5000, rank=1), _pole(54.03, 24.0, 4900, rank=2)], "reason": None}
+    results = [r for r in invariants({"A": [close], "B": [close]}, [unit], cfg, {"a_le_b_violations": 0})
+               if r.details["name"] == "separation"]
+    assert not any(r.passed for r in results)
+    assert results[0].details["min_m"] == pytest.approx(3336, rel=0.02)
+
+
+def test_invariants_flag_a_grid_violation_a_missing_unit_and_a_wrong_unit_count(regions_dir):
+    cfg = _cfg(regions_dir, expected_units=2, top_n=1)
+    unit = Unit("lt", "LT", "Lithuania", 1, "lt", MultiPolygon([box(20, 53, 27, 57)]), False, 1)
+    results = {(r.details.get("name"), r.scenario): r
+               for r in invariants({"A": [], "B": []}, [unit], cfg, {"a_le_b_violations": 17})}
+    assert not results[("a_le_b_grid", "*")].passed and results[("a_le_b_grid", "*")].details["violations"] == 17
+    assert not results[("unit_count", "*")].passed and results[("unit_count", "*")].details == {"name": "unit_count", "expected": 2, "found": 1}
+    assert not results[("top_n_or_reason", "A")].passed and results[("top_n_or_reason", "A")].details["count"] == 0
+    assert results[("a_le_b_poles", "*")].passed        # nothing published for either scenario, so nothing to compare
+
+
+# ---------- shared shape ----------
+
+def test_results_mark_blocking_correctly():
+    r = CheckResult("holes", "lt", "A", False, False, {})
+    assert r.to_dict() == {"check": "holes", "unit": "lt", "scenario": "A", "passed": False, "blocking": False, "details": {}}
+
+
+def test_every_pole_check_is_empty_for_a_unit_with_no_poles(tmp_path):
+    unit, _ = _centre_unit_and_poles()
+    empty = {"A": [{"unit": "uu", "poles": [], "reason": "no pole"}]}
+    land = write_fgb(tmp_path / "land.fgb", "land", [box(-1, -1, 1, 1)], {"osm_id": [1]})
+    water = write_fgb(tmp_path / "water.fgb", "water", [box(0.2, 0.2, 0.4, 0.4)], {"osm_id": [1]})
+    frame, road_tif, units_tif = _frame_and_rasters(tmp_path, doughnut=False)
+    assert recheck(empty, _Tiles([])) == []
+    assert membership(empty, [unit], land, water) == []
+    assert edge_bound(empty, box(-10, -10, 10, 10)) == []
+    assert holes(empty, {"A": road_tif}, units_tif, frame, [unit]) == []
