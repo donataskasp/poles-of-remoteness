@@ -43,7 +43,7 @@ def test_load_europe_config_matches_spec_table():
     # DECISIONS 2026-08-20: raised from the spec table's 150 km so saturation lands in class 253
     assert cfg.max_distance_m == 250_000
     assert cfg.top_n == 10
-    assert cfg.expected_units is None
+    assert cfg.expected_units == 52          # counted on the 2026-08-19 snapshot in stage 2
     assert cfg.transcontinental == ["tr", "ge"]
     assert (cfg.detail_res_m, cfg.detail_window_m) == (50, 20_000)
     assert cfg.class_table is None
