@@ -22,7 +22,7 @@ unit_exclude: [ru]            # ... except Russia (roads count, no unit)
 unit_code_tag: ISO3166-1
 # Main territory only. Generous lon/lat boxes [west, south, east, north]; stage 2 applies them.
 territory_mask:
-  - {name: Svalbard, bbox: [10.0, 76.0, 36.0, 81.0]}
+  - {name: Svalbard, bbox: [10.0, 74.0, 36.0, 81.0]}   # south edge 74.0 so Bjornoya (74.4 N) is in
   - {name: Jan Mayen, bbox: [-9.5, 70.7, -7.5, 71.3]}
   - {name: Franz Josef Land, bbox: [44.0, 79.5, 66.0, 82.0]}
   - {name: Novaya Zemlya, bbox: [50.0, 70.3, 70.0, 77.5]}
