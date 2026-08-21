@@ -32,7 +32,11 @@ from .shell import require_tools, run_cmd
 
 # 5 degrees keeps the densest tile near 10 M features, a quarter of the measured index ceiling.
 TILE_DEG = 5.0
+# The ceiling from the measurement in the module docstring, rounded down to a round number. A tile
+# above it writes without complaint and then reads back empty, so build_tiles refuses to ship one.
+INDEX_LIMIT = 40_000_000
 MARKER = ".ok"
+EMPTY_MARKER = ".empty"
 
 
 @dataclass(frozen=True)
@@ -92,6 +96,40 @@ def _bounds(src: Path, layer: str, info: dict) -> tuple[float, float, float, flo
     return tuple(float(v) for v in total)
 
 
+def _source_count(src: Path, layer: str, info: dict) -> int:
+    """Feature count of the source layer. A missing count, or the -1 GDAL reports when it does not know,
+    would make the coverage check at the end of build_tiles vacuous, so refuse it the way _bounds does."""
+    n = info["features"]
+    if n is None or int(n) < 0:
+        raise PolesError(f"roads: layer {layer} in {src} reports no feature count; cannot check coverage")
+    return int(n)
+
+
+def _within_index_limit(tile: Tile, n: int, tile_deg: float) -> int:
+    """A FlatGeobuf past INDEX_LIMIT still writes, still reports its header count, and then answers every
+    spatial query with nothing. _count reads that header, which knows nothing about the packed R-tree, so
+    an oversized tile would pass the coverage check and go silently blind. Stop the build instead."""
+    if n > INDEX_LIMIT:
+        raise PolesError(f"roads: tile {tile.name} holds {n} features, past the {INDEX_LIMIT} feature index "
+                         f"limit, so its spatial index would read back empty; use a smaller tile_deg "
+                         f"than {tile_deg}")
+    return n
+
+
+def _worker_count(workers: int | None) -> int:
+    """An explicit argument wins, then $POLES_WORKERS (0 means auto, as in the grid stage), then the machine.
+
+    A pass is a full scan at about 50 MB RSS, so cores and page cache set the limit, not memory: measured
+    2026-08-21 on 12 cores, ten parallel passes finished 31 percent more tiles per minute than six, and the
+    six-way cap the memory-bound extract stage needs does not apply here.
+    """
+    if workers is None:
+        workers = int(os.environ.get("POLES_WORKERS", "0")) or max(1, (os.cpu_count() or 4) - 2)
+    if workers < 1:
+        raise ValueError(f"roads: workers must be at least 1, got {workers}")
+    return workers
+
+
 def build_tiles(src: Path, layer: str, out_dir: Path, log: logging.Logger, *, tile_deg: float = TILE_DEG,
                 workers: int | None = None) -> dict:
     """One `ogr2ogr -spat` pass per tile over the unindexed source; every non-empty tile becomes an indexed
@@ -100,22 +138,20 @@ def build_tiles(src: Path, layer: str, out_dir: Path, log: logging.Logger, *, ti
     out_dir.mkdir(parents=True, exist_ok=True)
     info = read_info(str(src), layer=layer, force_feature_count=True)
     bounds = _bounds(src, layer, info)
+    source_features = _source_count(src, layer, info)
     grid = tile_grid(bounds, tile_deg)
-    # A pass is a full scan at about 50 MB RSS, so cores and page cache set the limit, not memory:
-    # measured 2026-08-21 on 12 cores, ten parallel passes finished 31 percent more tiles per minute
-    # than six, and the six-way cap the memory-bound extract stage needs does not apply here.
-    workers = workers or max(1, (os.cpu_count() or 4) - 2)
+    workers = _worker_count(workers)
     log.info("roads: %d tiles of %s deg over %s with %d workers", len(grid), tile_deg, bounds, workers)
     tools_log = out_dir / "tools.log"
 
     def one(tile: Tile) -> tuple[Tile, int]:
         fgb = out_dir / f"{tile.name}.fgb"
         marker = fgb.with_name(fgb.name + MARKER)
-        empty = fgb.with_name(fgb.name + ".empty")
+        empty = fgb.with_name(fgb.name + EMPTY_MARKER)
         if empty.exists():
             return tile, 0
         if fgb.exists() and marker.exists():
-            return tile, _count(fgb)
+            return tile, _within_index_limit(tile, _count(fgb), tile_deg)
         marker.unlink(missing_ok=True)
         fgb.unlink(missing_ok=True)
         run_cmd(["ogr2ogr", "-f", "FlatGeobuf", fgb, src, "-nln", layer, "-spat", tile.west, tile.south, tile.east,
@@ -126,6 +162,7 @@ def build_tiles(src: Path, layer: str, out_dir: Path, log: logging.Logger, *, ti
             fgb.unlink(missing_ok=True)
             empty.touch()
             return tile, 0
+        _within_index_limit(tile, n, tile_deg)  # raises before the marker, so a rerun redoes the tile
         marker.touch()
         return tile, n
 
@@ -133,7 +170,7 @@ def build_tiles(src: Path, layer: str, out_dir: Path, log: logging.Logger, *, ti
         results = list(pool.map(one, grid))
     tiles = [{"name": t.name, "west": t.west, "south": t.south, "east": t.east, "north": t.north, "features": n}
              for t, n in results if n > 0]
-    meta = {"tile_deg": tile_deg, "layer": layer, "source_features": int(info["features"]), "tiles": tiles}
+    meta = {"tile_deg": tile_deg, "layer": layer, "source_features": source_features, "tiles": tiles}
     total = sum(t["features"] for t in tiles)
     if total < meta["source_features"]:
         raise PolesError(f"roads: tiles hold {total} features but the source has {meta['source_features']}")
@@ -153,8 +190,12 @@ class RoadTiles:
 
     def query(self, west: float, south: float, east: float, north: float, where: str | None = None,
               columns=("osm_id", "highway", "name", "ref")) -> RoadSet:
-        """Roads intersecting the bbox, in lon/lat, deduplicated by osm_id across the tile seams."""
-        columns = tuple(columns)
+        """Roads intersecting the bbox, in lon/lat, deduplicated by osm_id across the tile seams.
+
+        osm_id is what the dedup keys on, so it is always read; it comes back in attrs only if asked for.
+        """
+        wanted = tuple(columns)
+        columns = wanted if "osm_id" in wanted else ("osm_id",) + wanted
         geoms: list[np.ndarray] = []
         attrs: dict[str, list[np.ndarray]] = {c: [] for c in columns}
         for tile in self.tiles:
@@ -169,9 +210,9 @@ class RoadTiles:
             for c in columns:
                 attrs[c].append(np.asarray(by_name[c], dtype=object))
         if not geoms:
-            return RoadSet.empty(columns)
+            return RoadSet.empty(wanted)
         all_geoms = np.concatenate(geoms)
         all_attrs = {c: np.concatenate(attrs[c]) for c in columns}
         _, first = np.unique(all_attrs["osm_id"].astype(np.int64), return_index=True)
         first.sort()
-        return RoadSet(all_geoms[first], {c: all_attrs[c][first] for c in columns})
+        return RoadSet(all_geoms[first], {c: all_attrs[c][first] for c in wanted})

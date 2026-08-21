@@ -2,10 +2,12 @@ import json
 from pathlib import Path
 
 import numpy as np
+import pytest
 import shapely
 from shapely.geometry import LineString
 
-from poles.roads import RoadTiles, Tile, build_tiles, tile_grid
+from poles.errors import PolesError
+from poles.roads import RoadTiles, build_tiles, tile_grid
 from tests.helpers import write_fgb
 
 
@@ -54,7 +56,12 @@ def test_query_dedups_seam_way_and_applies_where(tmp_path, log):
     assert len(everything) == 401
     tracks = tiles.query(0, 40, 20, 60, where="highway IN ('track')")
     assert len(tracks) == len([i for i in range(1, 402) if i % 3 == 0])
-    assert len(tiles.query(30, 40, 31, 41)) == 0
+    # osm_id drives the dedup, so it is read even when the caller does not want it back
+    lean = tiles.query(9.95, 44.95, 10.05, 45.05, columns=("highway",))
+    assert len(lean) == 1 and set(lean.attrs) == {"highway"}
+    nothing = tiles.query(30, 40, 31, 41)
+    assert len(nothing) == 0
+    assert set(nothing.attrs) == {"osm_id", "highway", "name", "ref"}
 
 
 def test_build_tiles_resumes_from_markers(tmp_path, log):
@@ -65,3 +72,12 @@ def test_build_tiles_resumes_from_markers(tmp_path, log):
     before = (out / "t_0_40.fgb").stat().st_mtime_ns
     build_tiles(src, "highways", out, log, tile_deg=10.0, workers=1)
     assert marker.exists() and (out / "t_0_40.fgb").stat().st_mtime_ns == before
+
+
+def test_build_tiles_refuses_a_tile_past_the_index_limit(tmp_path, log, monkeypatch):
+    src = _roads(tmp_path)
+    out = tmp_path / "roads"
+    monkeypatch.setattr("poles.roads.INDEX_LIMIT", 3)
+    with pytest.raises(PolesError, match="t_0_40"):
+        build_tiles(src, "highways", out, log, tile_deg=10.0, workers=1)
+    assert not (out / "tiles.json").exists()
