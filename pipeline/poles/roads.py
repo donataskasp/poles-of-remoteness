@@ -5,9 +5,12 @@ file: 42.6 M indexed features still read their first feature and answer a spatia
 expected count, 63.9 M returned no features at all, so the ceiling is about 40 M per indexed
 FlatGeobuf), so the 101 M highways stay as unindexed chunks behind `highways.vrt` in stage 1 and this
 module re-tiles them into indexed FlatGeobufs of TILE_DEG degrees, each a few million features, built
-by one `ogr2ogr -spat` pass per tile (about 39 s per pass, six in parallel). A query opens the tiles
-that intersect the bbox, reads each through its index, and deduplicates by osm_id because a way
-crossing a seam is stored in every tile it touches.
+by one `ogr2ogr -spat` pass per tile. Every pass rescans the whole source, so the build costs the tile
+count times one scan: measured on a continent-sized source of 101 M ways, 220 tiles at ten parallel
+passes took 49 minutes and produced 116 non-empty tiles, the largest 8.7 M features. A query opens
+the tiles that intersect the bbox, reads each through its index, and deduplicates by osm_id because a
+way crossing a seam is stored in every tile it touches (63,646 duplicates over that same 101 M, so
+the tiles hold 0.06 percent more rows than the source).
 """
 from __future__ import annotations
 
@@ -15,7 +18,6 @@ import json
 import logging
 import math
 import os
-import re
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
@@ -31,8 +33,6 @@ from .shell import require_tools, run_cmd
 # 5 degrees keeps the densest tile near 10 M features, a quarter of the measured index ceiling.
 TILE_DEG = 5.0
 MARKER = ".ok"
-
-_EXTENT = re.compile(r"Extent:\s*\(([-\d.eE+]+),\s*([-\d.eE+]+)\)\s*-\s*\(([-\d.eE+]+),\s*([-\d.eE+]+)\)")
 
 
 @dataclass(frozen=True)
@@ -83,20 +83,13 @@ def _count(path: Path) -> int:
     return int(read_info(str(path), force_feature_count=True)["features"])
 
 
-def _bounds(src: Path, layer: str, info: dict, out_dir: Path, log: logging.Logger) -> tuple[float, float, float, float]:
-    """Extent of the source layer. A union VRT reports total_bounds as None, so fall back to
-    `ogrinfo -so`, which reports the union extent from the chunk headers."""
-    total = info.get("total_bounds")
-    if total is not None and all(math.isfinite(float(v)) for v in total):
-        return tuple(float(v) for v in total)
-    require_tools(["ogrinfo"])
-    text = out_dir / "extent.txt"
-    run_cmd(["ogrinfo", "-so", src, layer], log, stdout_path=text, stderr_path=out_dir / "tools.log")
-    match = _EXTENT.search(text.read_text(encoding="utf-8", errors="replace"))
-    if match is None:
-        raise PolesError(f"roads: no extent for layer {layer} in {src}; cannot lay out tiles")
-    west, south, east, north = (float(g) for g in match.groups())
-    return west, south, east, north
+def _bounds(src: Path, layer: str, info: dict) -> tuple[float, float, float, float]:
+    """Extent of the source layer. A union VRT answers this from the chunk headers, in well under a
+    second even over the 141 chunks of the 101 M highways, so there is no cheaper path to take."""
+    total = info["total_bounds"]
+    if total is None or not all(math.isfinite(float(v)) for v in total):
+        raise PolesError(f"roads: layer {layer} in {src} reports no extent; cannot lay out tiles")
+    return tuple(float(v) for v in total)
 
 
 def build_tiles(src: Path, layer: str, out_dir: Path, log: logging.Logger, *, tile_deg: float = TILE_DEG,
@@ -106,9 +99,12 @@ def build_tiles(src: Path, layer: str, out_dir: Path, log: logging.Logger, *, ti
     require_tools(["ogr2ogr"])
     out_dir.mkdir(parents=True, exist_ok=True)
     info = read_info(str(src), layer=layer, force_feature_count=True)
-    bounds = _bounds(src, layer, info, out_dir, log)
+    bounds = _bounds(src, layer, info)
     grid = tile_grid(bounds, tile_deg)
-    workers = workers or min(6, max(1, (os.cpu_count() or 3) - 2))
+    # A pass is a full scan at about 50 MB RSS, so cores and page cache set the limit, not memory:
+    # measured 2026-08-21 on 12 cores, ten parallel passes finished 31 percent more tiles per minute
+    # than six, and the six-way cap the memory-bound extract stage needs does not apply here.
+    workers = workers or max(1, (os.cpu_count() or 4) - 2)
     log.info("roads: %d tiles of %s deg over %s with %d workers", len(grid), tile_deg, bounds, workers)
     tools_log = out_dir / "tools.log"
 
