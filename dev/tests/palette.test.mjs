@@ -21,6 +21,13 @@ test('palette: bands by lower edge, transparent below the first stop', () => {
   assert.deepEqual(rgba(table.toClass(1000)), [17, 17, 17, 128]);
   assert.deepEqual(rgba(table.toClass(2499)), [17, 17, 17, 128]);
   assert.deepEqual(rgba(table.toClass(2500)), [34, 34, 34, 128]);
+  assert.deepEqual(rgba(table.toClass(4999)), [34, 34, 34, 128]);
+  assert.deepEqual(rgba(table.toClass(5000)), [51, 51, 51, 128]);
+  assert.deepEqual(rgba(table.toClass(9999)), [51, 51, 51, 128]);
+  assert.deepEqual(rgba(table.toClass(10000)), [68, 68, 68, 128]);
+  assert.deepEqual(rgba(table.toClass(19999)), [68, 68, 68, 128]);
+  assert.deepEqual(rgba(table.toClass(20000)), [85, 85, 85, 128]);
+  assert.deepEqual(rgba(table.toClass(49999)), [85, 85, 85, 128]);
   assert.deepEqual(rgba(table.toClass(50000)), [102, 102, 102, 128]);
   assert.deepEqual(rgba(253), [102, 102, 102, 128]);
   assert.deepEqual(rgba(EDGE), [122, 127, 134, 89]);

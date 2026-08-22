@@ -27,4 +27,5 @@ test('readout: wording', () => {
   assert.equal(formatSample(describe(253, table)), `over ${table.lower(253) / 1000} km`);
   setLang('lt');
   assert.match(formatSample(describe(table.toClass(1200), table)), /^apie /);
+  setLang('en'); // the language is module state, so leave it as found and keep the file order-independent
 });

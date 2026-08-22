@@ -9,7 +9,7 @@ import { createMap } from './map.js';
 import { createExploreLayer } from './explore.js';
 
 const LANG_KEY = 'poles.lang';
-const state = { region: null, unit: null, s: 'A', b: 'sat', l: 'en' };
+const state = { region: null, unit: null, s: 'A', b: 'sat', l: 'en', sample: null };
 const ui = {};
 
 function markReady() { document.documentElement.dataset.ready = '1'; }
@@ -35,6 +35,9 @@ function applyLanguage(lang) {
   applyDom();
   renderLegend();
   if (ui.refreshAttribution) ui.refreshAttribution();
+  if (ui.refreshZoomTitles) ui.refreshZoomTitles();
+  // The readout holds a sample, not a string, so it can be said again in the new language.
+  if (ui.readout && state.sample) ui.readout.show(formatSample(state.sample));
 }
 
 const middle = (bounds) => [(bounds[0][0] + bounds[1][0]) / 2, (bounds[0][1] + bounds[1][1]) / 2];
@@ -60,10 +63,10 @@ async function main() {
 
   const bounds = unit ? bboxToBounds(unit.bbox) : null;
   const fromHash = parsed.z != null && parsed.lat != null && parsed.lon != null;
-  const { map, setBasemap, refreshAttribution } = createMap(document.getElementById('map'), {
+  const { map, setBasemap, refreshAttribution, refreshZoomTitles } = createMap(document.getElementById('map'), {
     center: bounds ? middle(bounds) : [0, 0], zoom: 6, basemap: state.b,
   });
-  ui.map = map; ui.refreshAttribution = refreshAttribution;
+  ui.map = map; ui.refreshAttribution = refreshAttribution; ui.refreshZoomTitles = refreshZoomTitles;
   ui.legend = document.getElementById('legend');
   ui.readout = mountReadout(document.getElementById('readout'));
   renderLegend();
@@ -74,7 +77,7 @@ async function main() {
   const readyFallback = setTimeout(markReady, 8000);
   const explore = {};
   for (const s of ['A', 'B']) {
-    explore[s] = await createExploreLayer({ url: archiveUrl(region, s), table, palette, onReady: () => { clearTimeout(readyFallback); markReady(); } });
+    explore[s] = await createExploreLayer({ url: archiveUrl(region, s), palette, onReady: () => { clearTimeout(readyFallback); markReady(); } });
   }
   if (!fromHash && !bounds) map.fitBounds(headerBounds(explore.A.header), { padding: [24, 24] });
   map.setMinZoom(Math.max(2, explore.A.options.minZoom));
@@ -82,7 +85,8 @@ async function main() {
 
   function showSample(latlng) {
     const cls = explore[state.s].classAt(latlng);
-    ui.readout.show(cls === undefined ? t('readoutLoading') : formatSample(describe(cls, table)));
+    state.sample = cls === undefined ? null : describe(cls, table);
+    ui.readout.show(state.sample ? formatSample(state.sample) : t('readoutLoading'));
   }
   map.on('click', (e) => showSample(e.latlng));
   map.on('moveend zoomend', () => syncUrl(true));

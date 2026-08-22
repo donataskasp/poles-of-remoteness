@@ -16,7 +16,7 @@ function decodeClasses(bitmap, scratch) {
   return classes;
 }
 
-export async function createExploreLayer({ url, table, palette, onReady }) {
+export async function createExploreLayer({ url, palette, onReady }) {
   const archive = new pmtiles.PMTiles(url);
   const header = await archive.getHeader();
   const scratch = document.createElement('canvas');

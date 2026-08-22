@@ -17,7 +17,9 @@ export function createMap(el, { center, zoom, minZoom = 2, basemap = 'sat' }) {
     center, zoom, minZoom, maxZoom: 19, zoomControl: false, attributionControl: false,
     worldCopyJump: false, zoomSnap: 0.5, preferCanvas: true,
   });
-  L.control.zoom({ position: 'bottomright' }).addTo(map);
+  const zoomCtl = L.control.zoom({
+    position: 'bottomright', zoomInTitle: t('zoomIn'), zoomOutTitle: t('zoomOut'),
+  }).addTo(map);
   const attribution = L.control.attribution({ position: 'bottomright', prefix: false }).addTo(map);
   const layers = Object.fromEntries(Object.entries(BASEMAPS).map(([k, b]) => [k, L.tileLayer(b.url, { ...b.options, className: 'basemap' })]));
   let current = null;
@@ -31,11 +33,24 @@ export function createMap(el, { center, zoom, minZoom = 2, basemap = 'sat' }) {
     refreshAttribution();
     return current;
   }
+  // Leaflet has no clear(), so we track what we put in and take it out again by value before re-adding.
+  let shown = [];
   function refreshAttribution() {
-    attribution._attributions = {};
-    attribution.addAttribution(t('attribution'));
-    if (current === 'sat') attribution.addAttribution(t('attributionSat'));
+    shown.forEach((s) => attribution.removeAttribution(s));
+    shown = [t('attribution')];
+    if (current === 'sat') shown.push(t('attributionSat'));
+    shown.forEach((s) => attribution.addAttribution(s));
+  }
+  // The zoom buttons are Leaflet's own, so their tooltips need re-setting when the language changes.
+  function refreshZoomTitles() {
+    const titles = [['.leaflet-control-zoom-in', t('zoomIn')], ['.leaflet-control-zoom-out', t('zoomOut')]];
+    titles.forEach(([sel, text]) => {
+      const el = zoomCtl.getContainer().querySelector(sel);
+      if (!el) return;
+      el.title = text;
+      el.setAttribute('aria-label', text);
+    });
   }
   setBasemap(basemap);
-  return { map, setBasemap, getBasemap: () => current, refreshAttribution };
+  return { map, setBasemap, getBasemap: () => current, refreshAttribution, refreshZoomTitles };
 }

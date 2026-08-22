@@ -1,6 +1,6 @@
 // Class byte to colour. The colours come from the CSS tokens so dark mode recolours the data layer too;
 // the stops are fixed distances so the legend means the same thing in every region.
-import { EDGE, NODATA } from './classes.js';
+import { EDGE } from './classes.js';
 
 export const STOPS_M = [1000, 2500, 5000, 10000, 20000, 50000];
 const EDGE_ALPHA = 0.35;
@@ -53,5 +53,3 @@ export function paint(classes, palette, width, height) {
 export function legendRows(tokens) {
   return STOPS_M.map((m, i) => ({ color: tokens.bands[i], label_m: m }));
 }
-
-export { NODATA };
