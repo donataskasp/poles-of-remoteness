@@ -21,6 +21,6 @@ R2 is configured by environment. The secrets are file contents, never values in 
 - `POLES_R2_SECRET_FILE`: file holding the S3 secret.
 - `POLES_R2_BASE` (optional): the public base URL; when set it must equal the bucket's managed `r2.dev` domain, which the stage otherwise discovers.
 
-Two flags belong to this stage: `--site-dir DIR` (default the repository's `site/data`, or `$POLES_SITE_DIR`) names the directory that receives the site documents, and `--no-write-site` keeps them under the work directory only.
+Two flags belong to this stage: `--site-dir DIR` (default `$POLES_SITE_DIR` when set, otherwise the repository's `site/data`) names the directory that receives the site documents, and `--no-write-site` keeps them under the work directory only.
 
 The local part runs before the R2 configuration is read, so a machine without the credentials still builds every artefact: without the variables the stage stops with a `PublishError` naming them, writes no `done.json`, and a rerun with them set resumes at the upload from the per-artefact markers. The site documents are written only after the verification, so `site/data` can never name an object that did not answer. Every document is validated against the JSON schemas in `poles/schemas/` before it is written; those schemas are the contract with the site, they carry `additionalProperties: false`, and changing one is a `docs/DECISIONS.md` entry.

@@ -37,7 +37,7 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument("--work", default=os.environ.get("POLES_WORK", "work"), help="work directory (default: ./work or $POLES_WORK)")
     r.add_argument("--regions-dir", help="directory of region YAML files (default: pipeline/regions or $POLES_REGIONS)")
     r.add_argument("--site-dir", default=os.environ.get("POLES_SITE_DIR") or str(Path(__file__).resolve().parents[2] / "site" / "data"),
-                   help="directory that receives the site JSON (default: the repository's site/data or $POLES_SITE_DIR)")
+                   help="directory that receives the site JSON (default: $POLES_SITE_DIR when set, otherwise the repository's site/data)")
     r.add_argument("--no-write-site", action="store_true", help="keep the site JSON under the work directory only")
     r.add_argument("--force", action="store_true", help="rerun stages even if their done.json exists")
     return p
