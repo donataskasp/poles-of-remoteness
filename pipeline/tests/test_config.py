@@ -36,12 +36,15 @@ def test_load_europe_config_matches_spec_table():
     assert cfg.unit_exclude == ["ru"]
     assert cfg.unit_code_tag == "ISO3166-1"
     assert [m["name"] for m in cfg.territory_mask] == [
-        "Svalbard", "Jan Mayen", "Franz Josef Land", "Novaya Zemlya", "Azores", "Madeira",
+        "Svalbard", "Jan Mayen", "Franz Josef Land", "Novaya Zemlya", "Azores", "Madeira", "Rockall",
     ]
     assert all(len(m["bbox"]) == 4 for m in cfg.territory_mask)
     # Bjornoya (Bear Island, 74.4 N 19.0 E) belongs to Svalbard; the first Europe run saturated on it
     svalbard = next(m["bbox"] for m in cfg.territory_mask if m["name"] == "Svalbard")
     assert svalbard[0] <= 19.0 <= svalbard[2] and svalbard[1] <= 74.4 <= svalbard[3]
+    # Rockall (57.6 N 13.7 W) is one unit cell with no land centre; the second stage-2 run saturated on it
+    rockall = next(m["bbox"] for m in cfg.territory_mask if m["name"] == "Rockall")
+    assert rockall[0] <= -13.69 <= rockall[2] and rockall[1] <= 57.6 <= rockall[3]
     assert cfg.edge_mask_m == 50_000
     # DECISIONS 2026-08-20: raised from the spec table's 150 km so saturation lands in class 253
     assert cfg.max_distance_m == 250_000
