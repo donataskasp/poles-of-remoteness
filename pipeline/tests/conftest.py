@@ -70,7 +70,10 @@ class _RangeHandler(BaseHTTPRequestHandler):
         status = 200
         rng = self.headers.get("Range")
         if rng and rng.startswith("bytes="):
-            start = int(rng[6:].split("-")[0])
+            first, _, last = rng[6:].partition("-")
+            start = int(first)
+            if last:                                        # an explicit end, clamped to the file as a server does
+                end = min(int(last), end)
             status = 206
         self.send_response(status)
         self.send_header("Content-Length", str(end - start + 1))
@@ -80,7 +83,7 @@ class _RangeHandler(BaseHTTPRequestHandler):
             self.send_header("Content-Range", f"bytes {start}-{end}/{len(data)}")
         self.end_headers()
         if send_body:
-            self.wfile.write(data[start:])
+            self.wfile.write(data[start:end + 1])
 
     def do_GET(self):
         self._serve(True)

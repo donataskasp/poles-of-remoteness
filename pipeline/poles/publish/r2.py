@@ -1,0 +1,208 @@
+"""R2: bucket setup through Cloudflare's REST API (admin token), uploads through the S3 API (access key pair),
+verification through the public URL. Configuration comes from the environment, secrets from files it names;
+nothing here is region-specific and nothing is ever written into the repository."""
+from __future__ import annotations
+
+import json
+import logging
+import mimetypes
+import urllib.error
+import urllib.request
+from concurrent.futures import ThreadPoolExecutor
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Mapping
+
+import boto3
+from boto3.exceptions import S3UploadFailedError
+from botocore.config import Config
+from botocore.exceptions import BotoCoreError, ClientError
+
+from ..errors import PolesError
+
+API_BASE = "https://api.cloudflare.com/client/v4"
+CACHE_CONTROL = "public, max-age=31536000, immutable"
+ENV_NAMES = {"account_id": "POLES_R2_ACCOUNT_ID", "bucket": "POLES_R2_BUCKET", "token_file": "POLES_R2_TOKEN_FILE",
+             "key_id_file": "POLES_R2_ACCESS_KEY_ID_FILE", "secret_file": "POLES_R2_SECRET_FILE"}
+ENV_BASE = "POLES_R2_BASE"
+CONTENT_TYPES = {".pmtiles": "application/octet-stream", ".png": "image/png", ".json": "application/json",
+                 ".html": "text/html; charset=utf-8"}
+RANGE_BYTES = 16384
+MISSING_KEY_CODES = ("404", "NoSuchKey", "NotFound")
+BUCKET_EXISTS_CODE = 10004
+
+
+class PublishError(PolesError):
+    pass
+
+
+@dataclass(frozen=True)
+class R2Config:
+    account_id: str
+    bucket: str
+    base: str | None
+    token_file: Path
+    key_id_file: Path
+    secret_file: Path
+
+    @classmethod
+    def from_env(cls, env: Mapping[str, str]) -> "R2Config":
+        missing = [name for name in ENV_NAMES.values() if not env.get(name)]
+        if missing:
+            raise PublishError("R2 is not configured; set " + ", ".join(missing)
+                               + " (the *_FILE variables name files holding the secrets; see pipeline/README.md)")
+        base = env.get(ENV_BASE) or None
+        return cls(env[ENV_NAMES["account_id"]], env[ENV_NAMES["bucket"]], base.rstrip("/") if base else None,
+                   Path(env[ENV_NAMES["token_file"]]), Path(env[ENV_NAMES["key_id_file"]]), Path(env[ENV_NAMES["secret_file"]]))
+
+
+def read_secret(path: Path) -> str:
+    """The one line in a secret file, stripped. The value itself is never logged or put into an error message."""
+    try:
+        value = path.read_text(encoding="utf-8").strip()
+    except OSError as exc:
+        raise PublishError(f"secret file {path} is unreadable ({exc.strerror})") from exc
+    if not value:
+        raise PublishError(f"secret file {path} is empty")
+    return value
+
+
+def _api(method: str, url: str, token: str, body: dict | None) -> dict:
+    data = json.dumps(body).encode() if body is not None else None
+    req = urllib.request.Request(url, data=data, method=method,
+                                 headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            payload = json.loads(resp.read() or b"{}")
+    except urllib.error.HTTPError as exc:
+        payload = json.loads(exc.read() or b"{}") if exc.headers.get("Content-Type", "").startswith("application/json") else {}
+        codes = [e.get("code") for e in payload.get("errors", [])]
+        if method == "POST" and url.endswith("/r2/buckets") and BUCKET_EXISTS_CODE in codes:
+            return payload                         # bucket already exists
+        raise PublishError(f"{method} {url}: HTTP {exc.code} {payload.get('errors') or exc.reason}") from exc
+    except urllib.error.URLError as exc:
+        raise PublishError(f"{method} {url}: unreachable ({exc.reason})") from exc
+    if not payload.get("success", True):
+        raise PublishError(f"{method} {url}: {payload.get('errors')}")
+    return payload
+
+
+def ensure_bucket(cfg: R2Config, log: logging.Logger, api_base: str = API_BASE) -> str:
+    """Create the bucket if it is new, publish it on its managed r2.dev domain, allow ranged cross-origin reads.
+    Returns the public base URL the site will fetch from."""
+    token = read_secret(cfg.token_file)
+    buckets = f"{api_base}/accounts/{cfg.account_id}/r2/buckets"
+    _api("POST", buckets, token, {"name": cfg.bucket})
+    domain = _api("PUT", f"{buckets}/{cfg.bucket}/domains/managed", token, {"enabled": True})
+    managed = (domain.get("result") or {}).get("domain")
+    if not managed:
+        raise PublishError(f"managed domain response without a domain: {domain}")
+    _api("PUT", f"{buckets}/{cfg.bucket}/cors", token, {"rules": [{
+        "allowed": {"origins": ["*"], "methods": ["GET", "HEAD"], "headers": ["*"]},
+        "exposeHeaders": ["Content-Length", "Content-Range", "ETag", "Accept-Ranges"], "maxAgeSeconds": 86400}]})
+    base = f"https://{managed}"
+    if cfg.base and cfg.base != base:
+        raise PublishError(f"{ENV_BASE} is {cfg.base} but the bucket's managed domain is {base}")
+    log.info("publish: bucket %s ready at %s", cfg.bucket, base)
+    return base
+
+
+def s3_client(cfg: R2Config, endpoint_url: str | None = None):
+    return boto3.client("s3", endpoint_url=endpoint_url or f"https://{cfg.account_id}.r2.cloudflarestorage.com",
+                        aws_access_key_id=read_secret(cfg.key_id_file), aws_secret_access_key=read_secret(cfg.secret_file),
+                        region_name="auto", config=Config(signature_version="s3v4", retries={"max_attempts": 5, "mode": "standard"}))
+
+
+def content_type(path: Path) -> str:
+    return CONTENT_TYPES.get(path.suffix.lower()) or mimetypes.guess_type(path.name)[0] or "application/octet-stream"
+
+
+def _upload_one(client, bucket: str, path: Path, key: str) -> tuple[bool, int]:
+    """(uploaded, bytes sent). An object that is already there at the same size is left alone."""
+    try:
+        size = path.stat().st_size
+    except OSError as exc:
+        raise PublishError(f"upload of {key} failed: {path} is unreadable ({exc.strerror})") from exc
+    try:
+        head = client.head_object(Bucket=bucket, Key=key)
+        if head["ContentLength"] == size:
+            return False, 0
+    except ClientError as exc:
+        if exc.response.get("Error", {}).get("Code") not in MISSING_KEY_CODES:
+            raise PublishError(f"looking up {key} before its upload failed: {exc}") from exc
+    try:
+        client.upload_file(str(path), bucket, key, ExtraArgs={"ContentType": content_type(path), "CacheControl": CACHE_CONTROL})
+    except (ClientError, S3UploadFailedError, BotoCoreError, OSError) as exc:
+        raise PublishError(f"upload of {key} failed: {exc}") from exc
+    return True, size
+
+
+def upload_tree(client, bucket: str, items: list[tuple[Path, str]], log: logging.Logger, workers: int = 8) -> dict:
+    stats = {"uploaded": 0, "skipped": 0, "bytes": 0}
+    with ThreadPoolExecutor(max_workers=max(1, min(workers, len(items)))) as pool:
+        for done, size in pool.map(lambda it: _upload_one(client, bucket, it[0], it[1]), items):
+            stats["uploaded" if done else "skipped"] += 1
+            stats["bytes"] += size
+    log.info("publish: upload to %s: %s", bucket, stats)
+    return stats
+
+
+def _head(url: str) -> tuple[int, str]:
+    """(status, detail); status 0 when the request never reached a server."""
+    req = urllib.request.Request(url, method="HEAD")
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            return resp.status, str(resp.status)
+    except urllib.error.HTTPError as exc:
+        exc.close()
+        return exc.code, f"{exc.code} {exc.reason}"
+    except urllib.error.URLError as exc:
+        return 0, f"unreachable ({exc.reason})"
+
+
+def _total_size(content_range: str | None) -> int:
+    """The object's full size out of a Content-Range header ("bytes 0-16383/40000"), or 0 when it does not say."""
+    if content_range and "/" in content_range:
+        total = content_range.rsplit("/", 1)[1].strip()
+        if total.isdigit():
+            return int(total)
+    return 0
+
+
+def _range(url: str) -> tuple[int, str]:
+    """(status, detail) for a 16 KiB range request; status 0 when the body came back the wrong length."""
+    req = urllib.request.Request(url, headers={"Range": f"bytes=0-{RANGE_BYTES - 1}"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            got = len(resp.read())
+            if resp.status != 206:
+                return resp.status, f"{resp.status}, the range was ignored"
+            total = _total_size(resp.headers.get("Content-Range"))
+            want = min(RANGE_BYTES, total) if total else RANGE_BYTES
+            return (206, "206") if got == want else (0, f"206 with {got} bytes, expected {want}")
+    except urllib.error.HTTPError as exc:
+        exc.close()
+        return exc.code, f"{exc.code} {exc.reason}"
+    except urllib.error.URLError as exc:
+        return 0, f"unreachable ({exc.reason})"
+
+
+def verify_head(base: str, keys: list[str], range_keys: list[str], log: logging.Logger, workers: int = 8) -> dict:
+    """Spec check 7: every published key answers HEAD 200; the archives answer a 16 KiB range with 206."""
+    failures = []
+    range_ok = 0
+    with ThreadPoolExecutor(max_workers=max(1, min(workers, len(keys) + len(range_keys)))) as pool:
+        for key, (status, detail) in zip(keys, pool.map(lambda k: _head(f"{base}/{k}"), keys)):
+            if status != 200:
+                failures.append(f"HEAD {key}: {detail}")
+        for key, (status, detail) in zip(range_keys, pool.map(lambda k: _range(f"{base}/{k}"), range_keys)):
+            if status == 206:
+                range_ok += 1
+            else:
+                failures.append(f"RANGE {key}: {detail}")
+    if failures:
+        raise PublishError(f"{len(failures)} of {len(keys) + len(range_keys)} checks failed: " + "; ".join(failures[:10]))
+    out = {"at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "keys": len(keys), "range_ok": range_ok}
+    log.info("publish: verified %d keys and %d ranges at %s", len(keys), range_ok, base)
+    return out
