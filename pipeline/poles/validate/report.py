@@ -61,6 +61,16 @@ def _plural(n: int, word: str) -> str:
     return f"{n} {word}" + ("" if n == 1 else "s")
 
 
+def _verdict(r: CheckResult) -> str:
+    """What the Result column says. A grid-shift tie is neither a pass nor a plain warning: two places hold
+    the same maximum, so the reader is told that rather than left to read it out of the details."""
+    if r.passed:
+        return "pass"
+    if r.details.get("tie"):
+        return "tie: equal maximum elsewhere"
+    return "FAIL" if r.blocking else "warning"
+
+
 def _details(details: dict) -> str:
     return html.escape(json.dumps(details, ensure_ascii=False, default=str))
 
@@ -89,7 +99,7 @@ def write_report_html(results: list[CheckResult], units: list[Unit], path: Path,
     for r in sorted(results, key=lambda r: (r.unit, r.scenario, r.check)):
         cls = "ok" if r.passed else ("fail" if r.blocking else "warn")
         rows.append(f'<tr class="{cls}"><td>{html.escape(names.get(r.unit, r.unit))}</td><td>{r.scenario}</td><td>{r.check}</td>'
-                    f'<td>{"pass" if r.passed else ("FAIL" if r.blocking else "warning")}</td><td><code>{_details(r.details)}</code></td></tr>')
+                    f'<td>{_verdict(r)}</td><td><code>{_details(r.details)}</code></td></tr>')
     page = (f"<!doctype html><meta charset='utf-8'><title>{html.escape(title)}</title><style>{CSS}</style><h1>{html.escape(title)}</h1>"
             f"<p>{_plural(len(blocking), 'blocking failure')}, {_plural(len(warnings), 'warning')}, {len(results)} results over {len(units)} units.</p>"
             f"{_excluded_table(excluded, names) if excluded else ''}"

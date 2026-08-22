@@ -36,6 +36,14 @@ def test_report_json_has_every_check_for_every_unit(tmp_path):
     assert "Alpha" in html and "Beta" in html and "1 blocking failure" in html and EM_DASH not in html
 
 
+def test_report_html_names_a_grid_shift_tie_instead_of_calling_it_a_warning(tmp_path):
+    results = [CheckResult("grid_shift", "aa", "A", False, False, {"rank": 1, "moved_m": 667.0, "tie": True}),
+               CheckResult("holes", "bb", "A", False, False, {"rank": 1})]
+    write_report_html(results, _units(), tmp_path / "report.html", "test")
+    html = (tmp_path / "report.html").read_text()
+    assert "tie: equal maximum elsewhere" in html and "warning" in html and "0 blocking failures" in html
+
+
 def test_report_html_lists_the_excluded_poles(tmp_path):
     excluded = [{"unit": "bb", "scenario": "A", "rank": 1, "lat": 0.5, "lon": 2.5, "dist_m": 1234.0,
                  "details": {"claimed_m": 1234.0, "edge_m": 900.0}}]

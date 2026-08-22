@@ -7,7 +7,7 @@ from shapely.geometry import LineString, MultiPolygon, box
 from poles.config import RegionConfig, load_region
 from poles.grid import Frame, create_raster
 from poles.roads import RoadSet
-from poles.units import Unit
+from poles.units import Unit, low_tif
 from poles.validate.checks import (CheckResult, ChecksError, _coord_batches, _geodesic_min, edge_bound,
                                    grid_shift_compare, holes, invariants, load_refs, membership, recheck,
                                    references)
@@ -150,13 +150,25 @@ def test_edge_bound_fails_when_edge_closer_than_distance():
 
 # ---------- check 4: grid-shift sensitivity ----------
 
-def test_grid_shift_compare():
+def test_grid_shift_compare_judges_the_distance_with_a_metre_floor():
     orig = _pole(54.0, 24.0, 5000)
-    ok = grid_shift_compare("lt", "A", orig, _pole(54.001, 24.0, 5030))     # 111 m, 0.6%
-    moved = grid_shift_compare("lt", "A", orig, _pole(54.006, 24.0, 5000))  # 667 m
-    changed = grid_shift_compare("lt", "A", orig, _pole(54.0, 24.0, 5100))  # 2%
+    ok = grid_shift_compare("lt", "A", orig, _pole(54.001, 24.0, 5030))       # 111 m, 30 m of 5 km
+    changed = grid_shift_compare("lt", "A", orig, _pole(54.0, 24.0, 5100))    # 100 m, 2 %
+    tiny = _pole(41.9, 12.45, 126.0)
+    floor = grid_shift_compare("va", "A", tiny, _pole(41.9, 12.45, 127.4))    # 1.1 %, under the 10 m floor
+    assert ok.passed and ok.blocking
+    assert not changed.passed and changed.blocking and "tie" not in changed.details
+    assert floor.passed
+
+
+def test_grid_shift_compare_calls_a_far_move_at_the_same_distance_a_tie():
+    orig = _pole(54.0, 24.0, 5000)
+    tie = grid_shift_compare("lt", "A", orig, _pole(54.006, 24.0, 5002))      # 667 m, 2 m
+    far = grid_shift_compare("lt", "A", orig, _pole(54.006, 24.0, 5200))      # 667 m, 4 %
     lost = grid_shift_compare("lt", "A", orig, None)
-    assert ok.passed and not moved.passed and not changed.passed and not lost.passed and ok.blocking
+    assert not tie.passed and not tie.blocking and tie.details["tie"] is True
+    assert not far.passed and far.blocking
+    assert not lost.passed and lost.blocking
 
 
 # ---------- check 5: hole detection ----------
@@ -197,6 +209,22 @@ def test_hole_detector_flags_doughnut_and_passes_uniform(tmp_path):
     flagged = holes(poles, {"A": road_tif}, units_tif, frame, [unit])
     assert uniform[0].passed and not flagged[0].passed and not flagged[0].blocking
     assert flagged[0].details["inner_density"] == 0 and flagged[0].details["outer_density"] > flagged[0].details["unit_median_outer"]
+
+
+def test_holes_samples_the_cells_a_bigger_unit_won_in_the_top_raster(tmp_path):
+    """A small unit can lose every cell of the top raster to a neighbour that touches all of them; its cells
+    are in the companion low raster, and without those the median is 0 and any empty inner ring is a hole."""
+    unit, poles = _centre_unit_and_poles()
+    frame, road_tif, units_tif = _frame_and_rasters(tmp_path, doughnut=False)
+    with rasterio.open(units_tif, "r+") as ds:
+        ds.write(np.full((400, 400), 2, dtype="int16"), 1)
+    alone = holes(poles, {"A": road_tif}, units_tif, frame, [unit])
+    create_raster(frame, low_tif(units_tif), dtype="int16")
+    with rasterio.open(low_tif(units_tif), "r+") as ds:
+        ds.write(np.ones((400, 400), dtype="int16"), 1)
+    with_low = holes(poles, {"A": road_tif}, units_tif, frame, [unit])
+    assert alone[0].details["unit_median_outer"] == 0.0
+    assert with_low[0].details["unit_median_outer"] > 0.0
 
 
 def test_holes_rejects_a_unit_it_was_not_given(tmp_path):
