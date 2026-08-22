@@ -358,7 +358,7 @@ def test_quantise_applies_table_and_masks(tmp_path, log):
     assert cls[5, 5] == 1 and cls[0, 5] == 253 and cls[1, 5] == 50
     assert (cls[:, 0] == NODATA).all() and (cls[:, 39] == NODATA).all()
     assert cls[31, 5] == EDGE and cls[31, 0] == NODATA          # nodata wins over the band
-    assert stats == {"cells": 32 * 40, "nodata": 32 + 31, "edge": 38, "classed": 32 * 40 - 63 - 38}
+    assert stats == {"cells": 32 * 40, "nodata": 64, "edge": 38, "classed": 32 * 40 - 64 - 38}
 
 
 def test_edge_masks_band_hugs_the_boundary(tmp_path, log):
@@ -375,11 +375,11 @@ def test_edge_masks_band_hugs_the_boundary(tmp_path, log):
     assert inside[16, 20] == 1 and inside[0, 0] == 0 and inside[31, 39] == 0
     assert band[16, 20] == 0                     # frame centre is 4 km from the boundary
     assert band[8, 20] == 1 and band[6, 20] == 1  # rows 7..8 straddle the northern boundary (y = y1 - 2 km)
-    assert band[12, 20] == 0
+    assert band[13, 20] == 0 and band[16, 20] == 0
     assert (tmp_path / "edgeband_4326.wkb").exists()
     assert (tmp_path / "inside.tif.ok").exists() and (tmp_path / "edgeband.tif.ok").exists()
     ring = shapely.from_wkb((tmp_path / "edgeband_4326.wkb").read_bytes())
-    assert ring.contains(shapely.Point(to_ll.transform(FRAME.x0 + 2_000, FRAME.y0 + 16_000 / 2)))
+    assert ring.contains(shapely.Point(to_ll.transform(FRAME.x0 + 2_000, FRAME.y0 + 4_000)))
 
 
 def test_edge_polygon_unions_every_source(tmp_path):
@@ -2052,6 +2052,7 @@ git commit -m "publish: R2 configuration from the environment, bucket setup over
 `pipeline/tests/test_publish_stage.py` builds a tiny but complete workspace. Use the real frame of `test_publish_raster.py` (40 by 32 cells at 250 m in EPSG:3035 near 24E 55N), one unit `lt` whose polygon covers the middle of the frame, one road, two poles per scenario, one exclusion, a road tile set built with `poles.roads.build_tiles`:
 
 ```python
+import dataclasses
 import json
 import logging
 import os
@@ -2084,7 +2085,7 @@ def _pole(rank, lat, lon, dist):
 
 @pytest.fixture
 def workspace(tmp_path, regions_dir):
-    cfg = load_config(regions_dir / "europe.yaml")
+    cfg = dataclasses.replace(load_config(regions_dir / "europe.yaml"), edge_mask_m=1_000)   # the 10 km test frame must not be all edge band
     ws = Workspace(tmp_path / "work", cfg.id, "2026-01-01")
     to_ll = Transformer.from_crs("EPSG:3035", "EPSG:4326", always_xy=True)
     # fetch: one source polygon covering the frame minus a 1 km rim
@@ -2276,7 +2277,7 @@ def _pipeline_commit() -> str | None:
     try:
         out = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True, timeout=10,
                              cwd=Path(__file__).resolve().parent)
-        return out.stdout.strip() or None if out.returncode == 0 else None
+        return (out.stdout.strip() or None) if out.returncode == 0 else None
     except (OSError, subprocess.SubprocessError):
         return None
 
