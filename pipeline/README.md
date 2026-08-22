@@ -4,4 +4,6 @@ One command per region: `poles run europe`. Stages `fetch, extract, classify, gr
 
 Local setup: `uv venv .venv --python 3.12 && uv pip install --python .venv/bin/python -r requirements.txt -e .`; tools on PATH: osmium, ogr2ogr, ogrinfo, gdal_rasterize, gdalwarp, gdal_translate, gdaladdo, pmtiles. Tests: `.venv/bin/python -m pytest -q`. Container: `docker build -t poles pipeline/` then `docker run --rm -v "$PWD/work:/work" poles run europe --work /work`.
 
+`poles` searches every unit and scenario for the points farthest from a road, from the coarse grid down to an exact 5 m sweep in the local UTM zone, and writes `A.json` and `B.json` with the nearest road and settlement; `validate` re-derives every one of those numbers by an independent geodesic path, runs the membership, data-edge, grid-shift, hole, reference and invariant checks, writes `report.json`, `report.html` and `contact-sheet.html`, and exits non-zero on a blocking failure.
+
 Regions live in `regions/<region>.yaml`; nothing in code names a region. Spec and plan: `docs/EUROPE_SPEC.md`, `docs/EUROPE_PLAN.md`.
