@@ -25,4 +25,6 @@ def registry() -> dict[str, StageFn | None]:
     reg["grid"] = grid.run
     from . import poles as poles_stage
     reg["poles"] = poles_stage.run
+    from . import validate
+    reg["validate"] = validate.run
     return reg
