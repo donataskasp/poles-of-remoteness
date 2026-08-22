@@ -18,6 +18,8 @@ class Workspace:
         self.base = self.root / region / snapshot
         self.shared = self.root / "shared"
         self.forced = False  # set by run_pipeline: a stage with its own sub-caches clears them when forced
+        # Set by the CLI: where publish copies the site JSON. None keeps it under the work directory only.
+        self.site_dir: Path | None = None
 
     def dir(self, stage: str) -> Path:
         d = self.base / stage

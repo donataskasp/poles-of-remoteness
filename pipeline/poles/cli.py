@@ -1,4 +1,5 @@
-"""poles run <region> [--stage X] [--snapshot YYYY-MM-DD] [--work DIR] [--regions-dir DIR] [--force]"""
+"""poles run <region> [--stage X] [--snapshot YYYY-MM-DD] [--work DIR] [--regions-dir DIR] [--site-dir DIR]
+[--no-write-site] [--force]"""
 from __future__ import annotations
 
 import argparse
@@ -35,6 +36,9 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument("--snapshot", help="YYYY-MM-DD; default: Last-Modified date of the primary source")
     r.add_argument("--work", default=os.environ.get("POLES_WORK", "work"), help="work directory (default: ./work or $POLES_WORK)")
     r.add_argument("--regions-dir", help="directory of region YAML files (default: pipeline/regions or $POLES_REGIONS)")
+    r.add_argument("--site-dir", default=os.environ.get("POLES_SITE_DIR") or str(Path(__file__).resolve().parents[2] / "site" / "data"),
+                   help="directory that receives the site JSON (default: the repository's site/data or $POLES_SITE_DIR)")
+    r.add_argument("--no-write-site", action="store_true", help="keep the site JSON under the work directory only")
     r.add_argument("--force", action="store_true", help="rerun stages even if their done.json exists")
     return p
 
@@ -52,6 +56,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"poles: {e}", file=sys.stderr)
         return 2
     ws = Workspace(args.work, cfg.id, snapshot)
+    ws.site_dir = None if args.no_write_site else Path(args.site_dir)
     log = get_logger(ws)
     log.info("poles run %s snapshot %s work %s%s", cfg.id, snapshot, ws.base, " (forced)" if args.force else "")
     if not args.snapshot:
