@@ -52,7 +52,7 @@ def test_edge_masks_band_hugs_the_boundary(tmp_path, log):
     to_ll = Transformer.from_crs("EPSG:3035", "EPSG:4326", always_xy=True)
     poly_3035 = box(FRAME.x0 + 2_000, FRAME.y0 + 2_000, FRAME.x1 - 2_000, FRAME.y1 - 2_000)
     edge_4326 = shapely.transform(poly_3035, lambda c: np.column_stack(to_ll.transform(c[:, 0], c[:, 1])))
-    inside_tif, band_tif = raster.edge_masks(edge_4326, FRAME, 1_000, tmp_path, log, tmp_path / "tools.log")
+    inside_tif, band_tif, _ = raster.edge_masks(edge_4326, FRAME, 1_000, tmp_path, log, tmp_path / "tools.log")
     with rasterio.open(inside_tif) as ds:
         inside = ds.read(1)
     with rasterio.open(band_tif) as ds:
@@ -157,7 +157,7 @@ def test_edge_masks_and_warp_skip_finished_outputs(tmp_path, log):
     to_ll = Transformer.from_crs("EPSG:3035", "EPSG:4326", always_xy=True)
     poly_3035 = box(FRAME.x0 + 2_000, FRAME.y0 + 2_000, FRAME.x1 - 2_000, FRAME.y1 - 2_000)
     edge_4326 = shapely.transform(poly_3035, lambda c: np.column_stack(to_ll.transform(c[:, 0], c[:, 1])))
-    inside_tif, band_tif = raster.edge_masks(edge_4326, FRAME, 1_000, tmp_path, log, tmp_path / "tools.log")
+    inside_tif, band_tif, _ = raster.edge_masks(edge_4326, FRAME, 1_000, tmp_path, log, tmp_path / "tools.log")
     stamp = inside_tif.stat().st_mtime_ns
     raster.edge_masks(edge_4326, FRAME, 1_000, tmp_path, log, tmp_path / "tools.log")
     assert inside_tif.stat().st_mtime_ns == stamp
@@ -209,7 +209,7 @@ def _edge_polygon_over_the_frame() -> shapely.Geometry:
 def test_edge_masks_drop_the_marker_before_rewriting(tmp_path, log, monkeypatch):
     """A crash while rewriting must not leave a done marker beside a truncated raster."""
     edge_4326 = _edge_polygon_over_the_frame()
-    inside_tif, band_tif = raster.edge_masks(edge_4326, FRAME, 1_000, tmp_path, log, tmp_path / "tools.log")
+    inside_tif, band_tif, _ = raster.edge_masks(edge_4326, FRAME, 1_000, tmp_path, log, tmp_path / "tools.log")
     band_tif.with_name(band_tif.name + raster.MARKER).unlink()  # as a crash after inside.tif would leave it
 
     def explode(*args, **kwargs):

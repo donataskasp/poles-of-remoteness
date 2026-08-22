@@ -29,6 +29,11 @@ pytestmark = pytest.mark.filterwarnings("ignore::rasterio.errors.NotGeoreference
 FRAME = Frame(crs="EPSG:3035", res=250, x0=5_300_000, y1=3_660_000, width=40, height=32)
 
 
+def _table(cfg):
+    """The table the stage builds for this region, so the tests class distances exactly as it does."""
+    return ClassTable(cfg.class_table) if cfg.class_table else ClassTable()
+
+
 def _pole(rank, lat, lon, dist):
     return {"rank": rank, "lat": lat, "lon": lon, "dist_m": dist,
             "nearest_way": {"id": 1, "highway": "unclassified", "name": None, "ref": None, "country": "lt"},
@@ -154,7 +159,7 @@ def test_resume_after_a_partial_local_run_keeps_the_artefacts(workspace, log, mo
     assert {p.name: p.stat().st_mtime_ns for p in (out / "explore_A.tif", out / "A.pmtiles",
                                                    out / "detail" / "lt" / "A-1.png")} == before
     assert meta["detail"]["skipped"] == 3 and meta["site_dir"] is None
-    assert meta["manifest"]["snapshot"] == "2026-01-01"
+    assert json.loads((out / "site" / "manifest.json").read_text())["regions"][cfg.id]["snapshot"] == "2026-01-01"
     assert (out / "site" / "regions.json").exists()
     assert not (tmp_path / "site_data").exists()
 
@@ -176,6 +181,37 @@ def test_force_clears_the_markers_and_rebuilds(workspace, log, monkeypatch, tmp_
     meta = publish.run(cfg, ws, log)
     assert [p.stat().st_mtime_ns for p in watched] != before
     assert meta["detail"]["skipped"] == 0 and meta["detail"]["count"] == 3
+
+
+def test_detail_rebuilds_when_the_published_set_changes(workspace, log, monkeypatch):
+    """A detail raster is named by its post-exclusion rank, so a different exclusion list renames the pictures.
+    Without the stamp the rerun would keep the old image under the new rank's name and say nothing."""
+    cfg, ws = workspace
+    for name in r2mod.ENV_NAMES.values():
+        monkeypatch.delenv(name, raising=False)
+    monkeypatch.setenv("POLES_WORKERS", "2")
+    with pytest.raises(r2mod.PublishError):
+        publish.run(cfg, ws, log)
+    b1 = ws.dir("publish") / "detail" / "lt" / "B-1.png"
+    with rasterio.open(b1) as ds:
+        before = ds.read(1)
+    before_mtime = b1.stat().st_mtime_ns
+    # validate now withholds rank 2 instead of rank 1, so B-1 must become the picture of the other pole
+    kept = json.loads((ws.dir("poles") / "B.json").read_text())[0]["poles"][0]
+    dropped = json.loads((ws.dir("poles") / "B.json").read_text())[0]["poles"][1]
+    report = json.loads((ws.dir("validate") / "report.json").read_text())
+    report["excluded"][0].update(rank=2, lat=dropped["lat"], lon=dropped["lon"], dist_m=dropped["dist_m"])
+    (ws.dir("validate") / "report.json").write_text(json.dumps(report))
+    with pytest.raises(r2mod.PublishError):
+        publish.run(cfg, ws, log)
+    assert b1.stat().st_mtime_ns != before_mtime
+    with rasterio.open(b1) as ds:
+        after = ds.read(1)
+    assert not np.array_equal(after, before)
+    n = int(cfg.detail_window_m // cfg.detail_res_m) // 2
+    assert abs(int(after[n, n]) - int(_table(cfg).to_class(kept["dist_m"]))) <= 1
+    stamp = json.loads((ws.dir("publish") / "detail" / "published.json").read_text())
+    assert ["B", "lt", 1, kept["lat"], kept["lon"]] in stamp and len(stamp) == 3
 
 
 def test_full_run_with_r2_mocked_writes_site_and_done(workspace, log, monkeypatch, tmp_path):
@@ -207,7 +243,8 @@ def test_full_run_with_r2_mocked_writes_site_and_done(workspace, log, monkeypatc
     with rasterio.open(ws.dir("publish") / "detail" / "lt" / "A-1.png") as ds:
         arr = ds.read(1)
     d1 = json.loads((ws.dir("poles") / "A.json").read_text())[0]["poles"][0]["dist_m"]
-    assert abs(int(arr[200, 200]) - int(ClassTable().to_class(d1))) <= 1
+    n = int(cfg.detail_window_m // cfg.detail_res_m) // 2
+    assert abs(int(arr[n, n]) - int(_table(cfg).to_class(d1))) <= 1
 
 
 def test_upload_set_covers_the_archives_details_and_validation(workspace):
@@ -216,6 +253,7 @@ def test_upload_set_covers_the_archives_details_and_validation(workspace):
     (out / "detail" / "lt").mkdir(parents=True)
     for name in ("A-1.png", "A-1.json", "A-1.png.aux.xml"):
         (out / "detail" / "lt" / name).write_text("x")
+    (out / "detail" / "published.json").write_text("[]")     # bookkeeping, not an object of the site
     items = publish.upload_set(ws, cfg.id, ws.snapshot)
     keys = [k for _, k in items]
     assert keys == [f"{cfg.id}/2026-01-01/A.pmtiles", f"{cfg.id}/2026-01-01/B.pmtiles",

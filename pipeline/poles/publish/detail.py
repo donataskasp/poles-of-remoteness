@@ -265,13 +265,15 @@ def render(job: DetailJob) -> dict:
             "warnings": warned, "seconds": time.monotonic() - t0}
 
 
+def _published_set(jobs: list[DetailJob]) -> list[list]:
+    """What a complete render covers, as sorted plain data: the fingerprint of the detail directory."""
+    return sorted([job.scenario, job.code, rank, lat, lon] for job in jobs for rank, lat, lon, _ in job.poles)
+
+
 def run_detail(cfg: RegionConfig, ws: Workspace, published: dict[str, list[dict]], table: ClassTable,
                edge_band_4326: BaseGeometry | None, log: logging.Logger) -> dict:
     """A detail raster for every published pole, over a process pool."""
     poles_dir, out_dir = ws.dir("poles"), ws.dir("publish") / "detail"
-    if ws.forced and out_dir.exists():
-        shutil.rmtree(out_dir)
-    out_dir.mkdir(parents=True, exist_ok=True)
     edge_wkb = shapely.to_wkb(edge_band_4326) if edge_band_4326 is not None else b""
     jobs = []
     for scenario in SCENARIOS:
@@ -282,6 +284,21 @@ def run_detail(cfg: RegionConfig, ws: Workspace, published: dict[str, list[dict]
                                   str(poles_dir / "water_big.fgb"), str(out_dir), unit["unit"], scenario,
                                   tuple((p["rank"], p["lat"], p["lon"], p["dist_m"]) for p in unit["poles"]),
                                   cfg.detail_res_m, cfg.detail_window_m, edge_wkb, tuple(table.edges)))
+    # A raster is named by its rank and kept when the file is already there, so a rerun after validate excluded a
+    # different set would leave the old rank 1 image under the new rank 1's name: the right file name over the
+    # wrong place, and nothing to raise. The stamp records the set the directory was built for; when it does not
+    # match what is about to be rendered, the whole directory goes. It is written after the rmtree and before the
+    # render, not after: the files present are always a subset of the stamped set, which a resume completes, while
+    # a stamp written only on success would leave a crashed run unstamped and its stale files invisible to the
+    # next run with a different set.
+    stamp, wanted = out_dir / "published.json", _published_set(jobs)
+    stale = stamp.exists() and json.loads(stamp.read_text(encoding="utf-8")) != wanted
+    if (ws.forced or stale) and out_dir.exists():
+        if stale:
+            log.info("publish: the published pole set changed since the last detail run, rebuilding detail/")
+        shutil.rmtree(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    stamp.write_text(json.dumps(wanted) + "\n", encoding="utf-8")
     workers = int(os.environ.get("POLES_WORKERS", "0")) or 4
     log.info("publish: %d detail jobs on %d workers", len(jobs), workers)
     t0 = time.monotonic()

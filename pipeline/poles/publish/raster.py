@@ -67,13 +67,14 @@ def _polygon_fgb(geom: BaseGeometry, path: Path, crs: str) -> Path:
 
 
 def edge_masks(edge_4326: BaseGeometry, frame: Frame, edge_mask_m: float, out_dir: Path, log: logging.Logger,
-               tools_log: Path) -> tuple[Path, Path]:
+               tools_log: Path) -> tuple[Path, Path, Path]:
     """inside.tif: 1 where the cell lies inside the region's data. edgeband.tif: 1 within edge_mask_m of the data
-    edge, where a distance is only a lower bound. The band is also kept in EPSG:4326 for the detail rasters."""
+    edge, where a distance is only a lower bound. The band is also kept in EPSG:4326 for the detail rasters, and
+    its path is returned so no caller has to know the file name."""
     inside_tif, band_tif = out_dir / "inside.tif", out_dir / "edgeband.tif"
     band_wkb = out_dir / "edgeband_4326.wkb"
     if _done(inside_tif) and _done(band_tif) and _done(band_wkb):
-        return inside_tif, band_tif
+        return inside_tif, band_tif, band_wkb
     edge_proj = _project(edge_4326, "EPSG:4326", frame.crs, SEGMENT_DEG)
     band_proj = edge_proj.boundary.buffer(edge_mask_m)
     _unmark(band_wkb)
@@ -86,7 +87,7 @@ def edge_masks(edge_4326: BaseGeometry, frame: Frame, edge_mask_m: float, out_di
         rasterize(fgb, "mask", tif, log, tools_log, burn=1, all_touched=True)
         _mark(tif)
         log.info("publish: %s written", tif.name)
-    return inside_tif, band_tif
+    return inside_tif, band_tif, band_wkb
 
 
 def _same_frame(ref: rasterio.DatasetReader, other: rasterio.DatasetReader) -> bool:
