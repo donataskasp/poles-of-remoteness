@@ -96,6 +96,26 @@ class _ForbiddenApi(_Api):
         self._fail(403, [{"code": 10000, "message": "Authentication error"}])
 
 
+class _HtmlApi(_Api):
+    """An edge maintenance page or a proxy answering 200 with HTML where the API's JSON belongs."""
+
+    def do_POST(self):
+        self._record("POST")
+        body = b"<html><body>under maintenance</body></html>"
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+
+def _closed_port() -> int:
+    """A port nothing listens on: bind one, release it, hand back the number."""
+    with socket.socket() as sock:
+        sock.bind(("127.0.0.1", 0))
+        return sock.getsockname()[1]
+
+
 @contextmanager
 def _serving(handler):
     server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
@@ -154,6 +174,25 @@ def test_ensure_bucket_raises_without_leaking_the_token(tmp_path, log):
             r2.ensure_bucket(R2Config.from_env(_files(tmp_path)), log, api_base=base_url)
     assert "403" in str(exc.value) and "Authentication error" in str(exc.value)
     assert "tok-123" not in str(exc.value)
+
+
+def test_ensure_bucket_refuses_a_response_that_is_not_json(tmp_path, log):
+    _Api.calls = []
+    with _serving(_HtmlApi) as base_url:
+        with pytest.raises(PublishError) as exc:
+            r2.ensure_bucket(R2Config.from_env(_files(tmp_path)), log, api_base=base_url)
+    assert "under maintenance" in str(exc.value) and "/r2/buckets" in str(exc.value)
+    assert "tok-123" not in str(exc.value)
+
+
+def test_ensure_bucket_reports_an_api_it_cannot_reach(tmp_path, log):
+    with pytest.raises(PublishError, match="unreachable"):
+        r2.ensure_bucket(R2Config.from_env(_files(tmp_path)), log, api_base=f"http://127.0.0.1:{_closed_port()}")
+
+
+def test_uploads_cap_the_parts_in_flight():
+    assert r2.TRANSFER.max_concurrency == 2
+    assert r2.TRANSFER.multipart_threshold == 8 * 1024 * 1024     # boto3's default, deliberately left alone
 
 
 @mock_aws
@@ -282,8 +321,74 @@ def test_verify_head_fails_when_the_server_ignores_the_range(log):
 
 
 def test_verify_head_reports_an_unreachable_base(log):
-    with socket.socket() as sock:                    # bind and release a port so nothing answers on it
-        sock.bind(("127.0.0.1", 0))
-        port = sock.getsockname()[1]
     with pytest.raises(PublishError, match="r/A.pmtiles"):
-        r2.verify_head(f"http://127.0.0.1:{port}", ["r/A.pmtiles"], [], log)
+        r2.verify_head(f"http://127.0.0.1:{_closed_port()}", ["r/A.pmtiles"], [], log)
+
+
+class _NoLength(BaseHTTPRequestHandler):
+    """A HEAD 200 that does not say how big the object is, so the key count would attest nothing."""
+
+    def do_HEAD(self):
+        self.send_response(200)
+        self.end_headers()
+
+    def log_message(self, *a):
+        pass
+
+
+def test_verify_head_requires_a_content_length(log):
+    with _serving(_NoLength) as base:
+        with pytest.raises(PublishError, match="without Content-Length"):
+            r2.verify_head(base, ["r/A.pmtiles"], [], log)
+
+
+class _Flaky(BaseHTTPRequestHandler):
+    """Answers the first `fail_times` requests for each method and path with 429, then serves the object."""
+    hits: dict = {}
+    fail_times = 1
+    body = b"\x03" * 40_000
+
+    def _serve(self, send_body):
+        seen = self.hits[(self.command, self.path)] = self.hits.get((self.command, self.path), 0) + 1
+        if seen <= self.fail_times:
+            self.send_response(429)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
+        ranged = self.headers.get("Range") is not None
+        data = self.body[:r2.RANGE_BYTES] if ranged else self.body
+        self.send_response(206 if ranged else 200)
+        self.send_header("Content-Length", str(len(data)))
+        if ranged:
+            self.send_header("Content-Range", f"bytes 0-{len(data) - 1}/{len(self.body)}")
+        self.end_headers()
+        if send_body:
+            self.wfile.write(data)
+
+    def do_GET(self):
+        self._serve(True)
+
+    def do_HEAD(self):
+        self._serve(False)
+
+    def log_message(self, *a):
+        pass
+
+
+def test_verify_head_retries_a_rate_limited_key(monkeypatch, log):
+    assert r2.RETRY_PAUSES == (1.0, 2.0, 4.0) and 429 in r2.RETRY_STATUSES and 503 in r2.RETRY_STATUSES
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))     # the wait itself is not what is under test
+    flaky = type("Flaky", (_Flaky,), {"hits": {}})
+    with _serving(flaky) as base:
+        out = r2.verify_head(base, ["r/A.pmtiles"], ["r/A.pmtiles"], log)
+    assert out["keys"] == 1 and out["range_ok"] == 1
+    assert flaky.hits[("HEAD", "/r/A.pmtiles")] == 2 and flaky.hits[("GET", "/r/A.pmtiles")] == 2
+
+
+def test_verify_head_gives_up_when_the_rate_limit_holds(monkeypatch, log):
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))
+    always = type("Always", (_Flaky,), {"hits": {}, "fail_times": 99})
+    with _serving(always) as base:
+        with pytest.raises(PublishError, match="429"):
+            r2.verify_head(base, ["r/A.pmtiles"], [], log)
+    assert always.hits[("HEAD", "/r/A.pmtiles")] == 4            # the first attempt plus three retries

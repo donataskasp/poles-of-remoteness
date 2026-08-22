@@ -6,16 +6,18 @@ from __future__ import annotations
 import json
 import logging
 import mimetypes
+import time
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Mapping
+from typing import Callable, Mapping
 
 import boto3
 from boto3.exceptions import S3UploadFailedError
+from boto3.s3.transfer import TransferConfig
 from botocore.config import Config
 from botocore.exceptions import BotoCoreError, ClientError
 
@@ -31,6 +33,11 @@ CONTENT_TYPES = {".pmtiles": "application/octet-stream", ".png": "image/png", ".
 RANGE_BYTES = 16384
 MISSING_KEY_CODES = ("404", "NoSuchKey", "NotFound")
 BUCKET_EXISTS_CODE = 10004
+RETRY_STATUSES = (429, 500, 502, 503, 504)
+RETRY_PAUSES = (1.0, 2.0, 4.0)     # seconds before each retry of a rate-limited or failing verification request
+# The managed domain is verified from many threads and the upload runs on a machine the grid stage already fills,
+# so cap the parts in flight per file instead of taking boto3's default of ten.
+TRANSFER = TransferConfig(max_concurrency=2)
 
 
 class PublishError(PolesError):
@@ -68,21 +75,51 @@ def read_secret(path: Path) -> str:
     return value
 
 
+def _error_payload(exc: urllib.error.HTTPError) -> dict:
+    """The API's JSON error body, or an empty dict when it did not send one that parses."""
+    try:
+        raw = exc.read()
+    except OSError:
+        return {}
+    if not exc.headers.get("Content-Type", "").startswith("application/json"):
+        return {}
+    try:
+        payload = json.loads(raw or b"{}")
+    except ValueError:
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
+def _decode(raw: bytes, method: str, url: str) -> dict:
+    """The API's JSON body. An edge maintenance page or a proxy answering 200 with HTML must stop the stage
+    with the body in the message, not with a JSONDecodeError."""
+    try:
+        payload = json.loads(raw or b"{}")
+    except ValueError as exc:
+        raise PublishError(f"{method} {url}: expected JSON, got {raw[:200].decode('utf-8', 'replace')}") from exc
+    if not isinstance(payload, dict):
+        raise PublishError(f"{method} {url}: expected a JSON object, got {raw[:200].decode('utf-8', 'replace')}")
+    return payload
+
+
 def _api(method: str, url: str, token: str, body: dict | None) -> dict:
     data = json.dumps(body).encode() if body is not None else None
     req = urllib.request.Request(url, data=data, method=method,
                                  headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
-            payload = json.loads(resp.read() or b"{}")
+            raw = resp.read()
     except urllib.error.HTTPError as exc:
-        payload = json.loads(exc.read() or b"{}") if exc.headers.get("Content-Type", "").startswith("application/json") else {}
+        payload = _error_payload(exc)
         codes = [e.get("code") for e in payload.get("errors", [])]
         if method == "POST" and url.endswith("/r2/buckets") and BUCKET_EXISTS_CODE in codes:
             return payload                         # bucket already exists
         raise PublishError(f"{method} {url}: HTTP {exc.code} {payload.get('errors') or exc.reason}") from exc
     except urllib.error.URLError as exc:
         raise PublishError(f"{method} {url}: unreachable ({exc.reason})") from exc
+    except OSError as exc:                         # a read that dies mid-body, a timeout waiting for it
+        raise PublishError(f"{method} {url}: the response could not be read ({exc})") from exc
+    payload = _decode(raw, method, url)
     if not payload.get("success", True):
         raise PublishError(f"{method} {url}: {payload.get('errors')}")
     return payload
@@ -132,7 +169,8 @@ def _upload_one(client, bucket: str, path: Path, key: str) -> tuple[bool, int]:
         if exc.response.get("Error", {}).get("Code") not in MISSING_KEY_CODES:
             raise PublishError(f"looking up {key} before its upload failed: {exc}") from exc
     try:
-        client.upload_file(str(path), bucket, key, ExtraArgs={"ContentType": content_type(path), "CacheControl": CACHE_CONTROL})
+        client.upload_file(str(path), bucket, key, Config=TRANSFER,
+                           ExtraArgs={"ContentType": content_type(path), "CacheControl": CACHE_CONTROL})
     except (ClientError, S3UploadFailedError, BotoCoreError, OSError) as exc:
         raise PublishError(f"upload of {key} failed: {exc}") from exc
     return True, size
@@ -148,17 +186,37 @@ def upload_tree(client, bucket: str, items: list[tuple[Path, str]], log: logging
     return stats
 
 
-def _head(url: str) -> tuple[int, str]:
-    """(status, detail); status 0 when the request never reached a server."""
+def _retrying(probe: Callable[[str], tuple[int, str]], url: str) -> tuple[int, str]:
+    """Reads off the managed domain are rate limited, so give a 429 or a 5xx up to three backed-off retries.
+    Whatever the last attempt says is what the caller lists."""
+    status, detail = probe(url)
+    for pause in RETRY_PAUSES:
+        if status not in RETRY_STATUSES:
+            break
+        time.sleep(pause)
+        status, detail = probe(url)
+    return status, detail
+
+
+def _head_once(url: str) -> tuple[int, str]:
+    """(status, detail); status 0 when the request never reached a server or the object came back without a size."""
     req = urllib.request.Request(url, method="HEAD")
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
+            if resp.status == 200 and resp.headers.get("Content-Length") is None:
+                return 0, "200 without Content-Length"
             return resp.status, str(resp.status)
     except urllib.error.HTTPError as exc:
         exc.close()
         return exc.code, f"{exc.code} {exc.reason}"
     except urllib.error.URLError as exc:
         return 0, f"unreachable ({exc.reason})"
+    except OSError as exc:
+        return 0, f"unreachable ({exc})"
+
+
+def _head(url: str) -> tuple[int, str]:
+    return _retrying(_head_once, url)
 
 
 def _total_size(content_range: str | None) -> int:
@@ -170,7 +228,7 @@ def _total_size(content_range: str | None) -> int:
     return 0
 
 
-def _range(url: str) -> tuple[int, str]:
+def _range_once(url: str) -> tuple[int, str]:
     """(status, detail) for a 16 KiB range request; status 0 when the body came back the wrong length."""
     req = urllib.request.Request(url, headers={"Range": f"bytes=0-{RANGE_BYTES - 1}"})
     try:
@@ -186,6 +244,12 @@ def _range(url: str) -> tuple[int, str]:
         return exc.code, f"{exc.code} {exc.reason}"
     except urllib.error.URLError as exc:
         return 0, f"unreachable ({exc.reason})"
+    except OSError as exc:                         # the body died between the headers and the last byte
+        return 0, f"unreachable ({exc})"
+
+
+def _range(url: str) -> tuple[int, str]:
+    return _retrying(_range_once, url)
 
 
 def verify_head(base: str, keys: list[str], range_keys: list[str], log: logging.Logger, workers: int = 8) -> dict:
