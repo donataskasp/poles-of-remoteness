@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { pickLang, setLang, getLang, t, regionName, unitName, flag, fmtDist, fmtKmExact, highwayLabel } from '../../site/js/i18n.js';
+import { pickLang, setLang, getLang, t, regionName, unitName, flag, fmtDist, fmtKmExact, fmtInt, highwayLabel, placeLabel } from '../../site/js/i18n.js';
 
 test('i18n: pickLang order is hash, stored, browser, default en', () => {
   assert.equal(pickLang({ hash: 'lt', stored: 'en', navigator: { languages: ['en-GB'] } }), 'lt');
@@ -37,11 +37,27 @@ test('i18n: distances', () => {
   assert.equal(fmtDist(1240), '1.2 km');
   assert.equal(fmtDist(9960), '10 km');
   assert.equal(fmtDist(23500), '24 km');
+  assert.equal(fmtDist(999), '1.0 km');
+  assert.equal(fmtDist(1000), '1.0 km');
+  assert.equal(fmtDist(9949), '9.9 km');
+  assert.equal(fmtDist(10000), '10 km');
   assert.equal(fmtKmExact(3406.4), '3.41 km');
+  assert.equal(fmtInt(1234567), '1,234,567');
   setLang('lt');
   assert.equal(fmtDist(1240), '1,2 km');
+  assert.equal(fmtDist(1000), '1,0 km');
+  assert.equal(fmtInt(1234567), '1\u00A0234\u00A0567');
+  assert.equal(placeLabel('village'), 'kaimas');
   assert.equal(highwayLabel('track'), 'miško ar lauko keliukas');
   setLang('en');
   assert.equal(highwayLabel('track'), 'track');
   assert.equal(highwayLabel('bus_guideway'), 'bus_guideway');
+  assert.equal(placeLabel('nowhere'), 'nowhere');
+});
+
+test('i18n: language values are case-normalised', () => {
+  assert.equal(pickLang({ hash: 'LT' }), 'lt');
+  assert.equal(pickLang(), 'en');
+  assert.equal(setLang('LT'), 'lt');
+  assert.equal(setLang(42), 'en');
 });

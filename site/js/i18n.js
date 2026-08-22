@@ -127,14 +127,19 @@ let current = 'en';
 
 export function getLang() { return current; }
 
+function norm(lang) {
+  const l = typeof lang === 'string' ? lang.toLowerCase() : '';
+  return LANGS.includes(l) ? l : null;
+}
+
 export function setLang(lang) {
-  current = LANGS.includes(lang) ? lang : 'en';
+  current = norm(lang) || 'en';
   return current;
 }
 
-export function pickLang({ hash, stored, navigator: nav }) {
-  if (LANGS.includes(hash)) return hash;
-  if (LANGS.includes(stored)) return stored;
+export function pickLang({ hash, stored, navigator: nav } = {}) {
+  if (norm(hash)) return norm(hash);
+  if (norm(stored)) return norm(stored);
   const langs = (nav && nav.languages) || [];
   for (const l of langs) {
     const base = String(l).toLowerCase().split('-')[0];
@@ -159,8 +164,9 @@ export function applyDom(root = document) {
 const names = new Map();
 export function regionName(code, lang = current) {
   if (!/^[a-z]{2}$/i.test(code || '')) return null;
-  if (!names.has(lang)) names.set(lang, new Intl.DisplayNames([lang], { type: 'region' }));
   try {
+    // Construction sits inside the try too: an engine without Intl.DisplayNames degrades to the data names.
+    if (!names.has(lang)) names.set(lang, new Intl.DisplayNames([lang], { type: 'region' }));
     const n = names.get(lang).of(code.toUpperCase());
     return n && n !== code.toUpperCase() ? n : null;
   } catch {
@@ -182,7 +188,8 @@ function nf(lang, opts) { return new Intl.NumberFormat(lang === 'lt' ? 'lt-LT' :
 export function fmtInt(n, lang = current) { return nf(lang, { maximumFractionDigits: 0 }).format(n); }
 
 export function fmtDist(m, lang = current) {
-  if (m < 1000) return `${nf(lang, { maximumFractionDigits: 0 }).format(Math.round(m / 10) * 10)} m`;
+  const tens = Math.round(m / 10) * 10;
+  if (tens < 1000) return `${nf(lang, { maximumFractionDigits: 0 }).format(tens)} m`;
   const km = m / 1000;
   const digits = km < 9.95 ? 1 : 0;
   return `${nf(lang, { minimumFractionDigits: digits, maximumFractionDigits: digits }).format(km)} km`;
@@ -192,12 +199,11 @@ export function fmtKmExact(m, lang = current) {
   return `${nf(lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(m / 1000)} km`;
 }
 
-export function highwayLabel(tag) {
-  const key = `hw_${tag}`;
-  return DICT[current][key] ?? DICT.en[key] ?? tag;
+function labelFor(prefix, tag) {
+  const key = `${prefix}_${tag}`;
+  return (DICT[current] && DICT[current][key]) ?? DICT.en[key] ?? tag;
 }
 
-export function placeLabel(tag) {
-  const key = `pl_${tag}`;
-  return DICT[current][key] ?? DICT.en[key] ?? tag;
-}
+export function highwayLabel(tag) { return labelFor('hw', tag); }
+
+export function placeLabel(tag) { return labelFor('pl', tag); }
