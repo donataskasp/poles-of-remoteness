@@ -8,6 +8,7 @@ import shapely
 from shapely.geometry import box
 
 from poles.classes import EDGE, NODATA, ClassTable
+from poles.shell import ToolError
 from poles.grid import Frame, create_raster, write_float_tif
 from poles.publish import raster
 
@@ -134,7 +135,7 @@ def test_quantise_windows_a_grid_wider_than_one_block(tmp_path, log):
         assert len(list(ds.block_windows(1))) == 4
     with rasterio.open(out) as ds:
         cls = ds.read(1)
-    expected = table.to_class(np.minimum(dist, table.edges[-1]))
+    expected = table.to_class(dist)  # the table saturates at class 253 on its own, no clamp needed
     expected[land == 0] = NODATA
     assert (cls == expected).all()
     assert stats == {"cells": 600 * 520, "nodata": 600 * 8, "edge": 0, "classed": 600 * 512}
@@ -160,12 +161,85 @@ def test_edge_masks_and_warp_skip_finished_outputs(tmp_path, log):
     stamp = inside_tif.stat().st_mtime_ns
     raster.edge_masks(edge_4326, FRAME, 1_000, tmp_path, log, tmp_path / "tools.log")
     assert inside_tif.stat().st_mtime_ns == stamp
+    assert (tmp_path / "edgeband_4326.wkb.ok").exists()
     (tmp_path / "edgeband_4326.wkb").unlink()  # the wkb is an output too, so a resume without it rebuilds
     raster.edge_masks(edge_4326, FRAME, 1_000, tmp_path, log, tmp_path / "tools.log")
-    assert (tmp_path / "edgeband_4326.wkb").exists()
+    assert raster._done(tmp_path / "edgeband_4326.wkb")
 
     _write(tmp_path / "explore.tif", np.zeros((32, 40), dtype=np.uint8), "uint8", nodata=NODATA)
     out = raster.warp_to_mercator(tmp_path / "explore.tif", tmp_path / "explore_3857.tif", log, tmp_path / "tools.log")
     warped = out.stat().st_mtime_ns
     raster.warp_to_mercator(tmp_path / "explore.tif", tmp_path / "explore_3857.tif", log, tmp_path / "tools.log")
     assert out.stat().st_mtime_ns == warped
+
+
+def test_project_densifies_before_it_reprojects():
+    """A side straight in lon/lat is a curve in the frame CRS: without densifying, a continental outline lands
+    tens of kilometres from the real one, and the masks with it."""
+    from pyproj import Transformer
+    to_frame = Transformer.from_crs("EPSG:4326", "EPSG:3035", always_xy=True)
+    to_ll = Transformer.from_crs("EPSG:3035", "EPSG:4326", always_xy=True)
+
+    def vertices_only(geom, tr):
+        return shapely.transform(geom, lambda c: np.column_stack(tr.transform(c[:, 0], c[:, 1])))
+
+    def max_offset(truth, line):
+        """Farthest any point of the true curve sits from the polyline under test."""
+        return float(shapely.distance(shapely.points(shapely.get_coordinates(truth)), line).max())
+
+    outline = box(20.0, 45.0, 45.0, 75.0)  # the eastern side is 30 degrees of the 45E meridian
+    truth = vertices_only(shapely.segmentize(outline, 0.02), to_frame).boundary
+    projected = raster._project(outline, "EPSG:4326", "EPSG:3035", raster.SEGMENT_DEG)
+    assert max_offset(truth, projected.boundary) < FRAME.res  # within one coarse cell
+    assert max_offset(truth, vertices_only(outline, to_frame).boundary) > 10_000  # what vertices alone would do
+
+    back = raster._project(projected, "EPSG:3035", "EPSG:4326", raster.SEGMENT_M)  # and the way back, for the wkb
+    probes = shapely.get_coordinates(shapely.segmentize(projected.boundary, 5_000.0))
+    truth_ll = shapely.points(np.column_stack(to_ll.transform(probes[:, 0], probes[:, 1])))
+    assert float(shapely.distance(truth_ll, back.boundary).max()) < 1e-5  # about a metre
+
+
+def _edge_polygon_over_the_frame() -> shapely.Geometry:
+    from pyproj import Transformer
+    to_ll = Transformer.from_crs("EPSG:3035", "EPSG:4326", always_xy=True)
+    poly_3035 = box(FRAME.x0 + 2_000, FRAME.y0 + 2_000, FRAME.x1 - 2_000, FRAME.y1 - 2_000)
+    return shapely.transform(poly_3035, lambda c: np.column_stack(to_ll.transform(c[:, 0], c[:, 1])))
+
+
+def test_edge_masks_drop_the_marker_before_rewriting(tmp_path, log, monkeypatch):
+    """A crash while rewriting must not leave a done marker beside a truncated raster."""
+    edge_4326 = _edge_polygon_over_the_frame()
+    inside_tif, band_tif = raster.edge_masks(edge_4326, FRAME, 1_000, tmp_path, log, tmp_path / "tools.log")
+    band_tif.with_name(band_tif.name + raster.MARKER).unlink()  # as a crash after inside.tif would leave it
+
+    def explode(*args, **kwargs):
+        raise ToolError("gdal_rasterize died")
+
+    monkeypatch.setattr(raster, "rasterize", explode)
+    with pytest.raises(ToolError):
+        raster.edge_masks(edge_4326, FRAME, 1_000, tmp_path, log, tmp_path / "tools.log")
+    assert inside_tif.exists() and not raster._done(inside_tif)  # truncated by create_raster, and no longer "done"
+    monkeypatch.undo()
+
+    raster.edge_masks(edge_4326, FRAME, 1_000, tmp_path, log, tmp_path / "tools.log")
+    with rasterio.open(inside_tif) as ds:
+        assert ds.read(1).any()  # rebuilt, not trusted
+
+
+def test_warp_drops_the_marker_before_rewriting(tmp_path, log, monkeypatch):
+    cls = np.zeros((32, 40), dtype=np.uint8)
+    _write(tmp_path / "explore.tif", cls, "uint8", nodata=NODATA)
+    out = tmp_path / "explore_3857.tif"
+    out.with_name(out.name + raster.MARKER).touch()  # a marker left over from a run whose output is gone
+
+    def explode(*args, **kwargs):
+        raise ToolError("gdalwarp died")
+
+    monkeypatch.setattr(raster, "run_cmd", explode)
+    with pytest.raises(ToolError):
+        raster.warp_to_mercator(tmp_path / "explore.tif", out, log, tmp_path / "tools.log")
+    assert not out.with_name(out.name + raster.MARKER).exists()
+    monkeypatch.undo()
+
+    raster.warp_to_mercator(tmp_path / "explore.tif", out, log, tmp_path / "tools.log")
+    assert raster._done(out)

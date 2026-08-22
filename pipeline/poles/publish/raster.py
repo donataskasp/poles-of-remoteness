@@ -15,13 +15,15 @@ from shapely.geometry.base import BaseGeometry
 from shapely.ops import unary_union
 
 from ..classes import EDGE, NODATA, ClassTable
+from ..extract import MARKER
 from ..grid import GTIFF_OPTS, Frame, create_raster, rasterize
 from ..poly import parse_poly
 from ..shell import run_cmd
 
 Z9_RES = 40075016.68557849 / (256 * 512)
 MERC_MAX = 20037508.342789244
-MARKER = ".ok"
+SEGMENT_DEG = 0.1     # densify a lon/lat outline every 0.1 degrees before projecting it, as grid.py does
+SEGMENT_M = 1_000.0   # and every kilometre on the way back to lon/lat
 
 
 def _done(path: Path) -> bool:
@@ -30,6 +32,11 @@ def _done(path: Path) -> bool:
 
 def _mark(path: Path) -> None:
     path.with_name(path.name + MARKER).touch()
+
+
+def _unmark(path: Path) -> None:
+    """Drop the done marker before rewriting the artefact, so a crash mid-rewrite cannot look finished."""
+    path.with_name(path.name + MARKER).unlink(missing_ok=True)
 
 
 def edge_polygon(fetch_dir: Path) -> BaseGeometry:
@@ -41,9 +48,14 @@ def edge_polygon(fetch_dir: Path) -> BaseGeometry:
     return unary_union(polys)
 
 
-def _project(geom: BaseGeometry, src: str, dst: str) -> BaseGeometry:
+def _project(geom: BaseGeometry, src: str, dst: str, segment: float) -> BaseGeometry:
+    """Reproject, densified first: a side that is straight in the source CRS is a curve in the target one, and
+    on a continental outline the two run tens of kilometres apart (a 30 degree meridian edge lands 85 km off
+    without this). grid.frame_from_polygons and validate's edge check densify before the same transform.
+    `segment` is in the source CRS's units: degrees out of EPSG:4326, metres out of the frame CRS."""
     tr = Transformer.from_crs(src, dst, always_xy=True)
-    return shapely.transform(geom, lambda c: np.column_stack(tr.transform(c[:, 0], c[:, 1])))
+    dense = shapely.segmentize(geom, segment)
+    return shapely.transform(dense, lambda c: np.column_stack(tr.transform(c[:, 0], c[:, 1])))
 
 
 def _polygon_fgb(geom: BaseGeometry, path: Path, crs: str) -> Path:
@@ -60,13 +72,16 @@ def edge_masks(edge_4326: BaseGeometry, frame: Frame, edge_mask_m: float, out_di
     edge, where a distance is only a lower bound. The band is also kept in EPSG:4326 for the detail rasters."""
     inside_tif, band_tif = out_dir / "inside.tif", out_dir / "edgeband.tif"
     band_wkb = out_dir / "edgeband_4326.wkb"
-    if _done(inside_tif) and _done(band_tif) and band_wkb.exists():
+    if _done(inside_tif) and _done(band_tif) and _done(band_wkb):
         return inside_tif, band_tif
-    edge_proj = _project(edge_4326, "EPSG:4326", frame.crs)
+    edge_proj = _project(edge_4326, "EPSG:4326", frame.crs, SEGMENT_DEG)
     band_proj = edge_proj.boundary.buffer(edge_mask_m)
-    band_wkb.write_bytes(shapely.to_wkb(_project(band_proj, frame.crs, "EPSG:4326")))
+    _unmark(band_wkb)
+    band_wkb.write_bytes(shapely.to_wkb(_project(band_proj, frame.crs, "EPSG:4326", SEGMENT_M)))
+    _mark(band_wkb)
     for geom, tif in ((edge_proj, inside_tif), (band_proj, band_tif)):
         fgb = _polygon_fgb(geom, out_dir / (tif.stem + ".fgb"), frame.crs)
+        _unmark(tif)
         create_raster(frame, tif, "uint8", nodata=None)
         rasterize(fgb, "mask", tif, log, tools_log, burn=1, all_touched=True)
         _mark(tif)
@@ -85,7 +100,6 @@ def quantise(dist_tif: Path, land_tif: Path, inside_tif: Path, band_tif: Path, o
     A distance that is not a usable number (the grid's own nodata, NaN, infinity) is NODATA as well: it never
     reaches the class table."""
     counts = {"cells": 0, "nodata": 0, "edge": 0, "classed": 0}
-    ceiling = float(table.edges[-1])
     with rasterio.open(dist_tif) as dist, rasterio.open(land_tif) as land, rasterio.open(inside_tif) as inside, \
             rasterio.open(band_tif) as band:
         for path, ds in ((land_tif, land), (inside_tif, inside), (band_tif, band)):
@@ -98,7 +112,7 @@ def quantise(dist_tif: Path, land_tif: Path, inside_tif: Path, band_tif: Path, o
                 unusable = ~np.isfinite(d)
                 if dist.nodata is not None and np.isfinite(dist.nodata):
                     unusable |= d == d.dtype.type(dist.nodata)
-                cls = table.to_class(np.minimum(np.where(unusable, d.dtype.type(0), d), ceiling))
+                cls = table.to_class(np.where(unusable, d.dtype.type(0), d))
                 on_band = band.read(1, window=win) == 1
                 off = (land.read(1, window=win) == 0) | (inside.read(1, window=win) == 0) | unusable
                 cls[on_band] = EDGE
@@ -138,6 +152,7 @@ def warp_to_mercator(src_tif: Path, out_tif: Path, log: logging.Logger, tools_lo
            "-multi", "-wo", "NUM_THREADS=ALL_CPUS", "--config", "GDAL_CACHEMAX", "2048",
            "-co", "TILED=YES", "-co", "BLOCKXSIZE=512", "-co", "BLOCKYSIZE=512", "-co", "COMPRESS=DEFLATE", "-co", "BIGTIFF=IF_SAFER",
            src_tif, out_tif]
+    _unmark(out_tif)
     res = run_cmd(cmd, log, stderr_path=tools_log)
     _mark(out_tif)
     log.info("publish: %s warped in %.0f s", out_tif.name, res.duration_s)
