@@ -11,7 +11,7 @@ from shapely.geometry import MultiPolygon, box
 from poles import poles as poles_mod
 from poles.errors import PolesError
 from poles.grid import Frame, create_raster, write_float_tif
-from poles.poles import (Prepared, UnitJob, _allowed_factory, _bbox_window, _unit_meta, _unit_windows, top_n_dedup,
+from poles.poles import (Prepared, UnitJob, _allowed_factory, _bbox_window, _unit_meta, _unit_windows,
                          validate_poles_json, write_water_big)
 from poles.extract import MARKER
 from poles.units import Unit, low_tif, write_units
@@ -22,12 +22,6 @@ from tests.helpers import write_fgb
 def _p(lat, lon, d):
     return {"rank": 0, "lat": lat, "lon": lon, "dist_m": d, "nearest_way": {"id": 1, "highway": "track", "name": None, "ref": None, "country": "lt"},
             "nearest_place": None, "detail": None, "warnings": []}
-
-
-def test_top_n_dedup_10km():
-    poles = [_p(54.0, 24.0, 5000), _p(54.05, 24.0, 4900), _p(54.5, 24.0, 4800), _p(55.0, 24.0, 4700)]  # 2nd is 5.6 km from 1st
-    kept = top_n_dedup(poles, top_n=3, dedup_m=10_000)
-    assert [p["dist_m"] for p in kept] == [5000, 4800, 4700] and [p["rank"] for p in kept] == [1, 2, 3]
 
 
 def test_stage_output_schema():

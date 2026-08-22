@@ -30,7 +30,7 @@ import numpy as np
 import rasterio
 import shapely
 from pyogrio.raw import read, write as ogr_write
-from pyproj import Geod, Transformer
+from pyproj import Transformer
 from rasterio.windows import Window
 from shapely.ops import unary_union
 from shapely.strtree import STRtree
@@ -55,7 +55,6 @@ STAGE = "poles"
 SCENARIOS = ("A", "B")
 DEDUP_M = 10_000.0
 MIN_WATER_M2 = 1_000_000.0
-GEOD = Geod(ellps="WGS84")
 
 
 def _done(path: Path) -> bool:
@@ -388,17 +387,6 @@ def search_unit(job: UnitJob) -> dict:
                   if poles else "no pole: no candidate of the unit refined to an allowed point")
     return {"unit": unit.code, "scenario": scenario, "poles": poles, "reason": reason, "refinements": result.refinements,
             "warnings": result.warnings, "duration_s": round(time.monotonic() - t0, 1), "top_coarse_m": top_coarse}
-
-
-def top_n_dedup(poles: list[dict], top_n: int, dedup_m: float = DEDUP_M) -> list[dict]:
-    """Greedy top-n with geodesic dedup over already-refined poles (used by validation's re-runs and tests)."""
-    kept: list[dict] = []
-    for p in sorted(poles, key=lambda p: -p["dist_m"]):
-        if all(GEOD.inv(p["lon"], p["lat"], q["lon"], q["lat"])[2] >= dedup_m for q in kept):
-            kept.append(dict(p, rank=len(kept) + 1))
-        if len(kept) == top_n:
-            break
-    return kept
 
 
 def validate_poles_json(data: list[dict], top_n: int) -> None:

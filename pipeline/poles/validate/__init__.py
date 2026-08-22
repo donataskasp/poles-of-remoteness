@@ -245,6 +245,16 @@ def shifted_poles(cfg: RegionConfig, ws: Workspace, prepared: Prepared, log: log
     return result
 
 
+def reference_results(cfg: RegionConfig, poles) -> list[checks.CheckResult]:
+    """Check 6, over the reference file the region config names. Reference poles are per region, so a
+    region may ship none: that is recorded as a passing, non-blocking result rather than a failure, and
+    the report still lists the check."""
+    if cfg.references is None:
+        return [checks.CheckResult("reference", "*", "*", True, False,
+                                   {"reason": "the region config names no reference file"})]
+    return checks.references(poles, checks.load_refs(cfg.references))
+
+
 def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
     out, poles_dir, grid_dir, fetch_dir = ws.dir(STAGE), ws.dir("poles"), ws.dir("grid"), ws.dir("fetch")
     if ws.forced:
@@ -275,7 +285,7 @@ def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
     results += shift_results(poles, shifted, excluded)
     results += step("check 5: hole detection", lambda: checks.holes(
         poles, {s: grid_dir / f"roads_{s}.tif" for s in SCENARIOS}, prepared.units_tif, prepared.frame, prepared.units))
-    results += step("check 6: references", lambda: checks.references(poles, checks.load_refs(Path(__file__).with_name("refs.yaml"))))
+    results += step("check 6: references", lambda: reference_results(cfg, poles))
     results += step("check 7: invariants", lambda: checks.invariants(poles, prepared.units, cfg, ws.meta("grid")))
 
     title = f"{cfg.name} validation, snapshot {ws.snapshot}"

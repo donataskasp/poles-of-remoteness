@@ -1,3 +1,4 @@
+import shutil
 from pathlib import Path
 
 import pytest
@@ -17,6 +18,9 @@ def _variant(tmp_path: Path, **overrides) -> Path:
     raw.update(overrides)
     path = tmp_path / "variant.yaml"
     path.write_text(yaml.safe_dump(raw), encoding="utf-8")
+    ref = raw.get("references")
+    if isinstance(ref, str) and (REGIONS / ref).is_file():
+        shutil.copy(REGIONS / ref, tmp_path / ref)          # the key is relative to its config, so it must exist beside it
     return path
 
 
@@ -53,6 +57,19 @@ def test_load_europe_config_matches_spec_table():
     assert cfg.transcontinental == ["tr", "ge"]
     assert (cfg.detail_res_m, cfg.detail_window_m) == (50, 20_000)
     assert cfg.class_table is None
+
+
+def test_references_resolves_beside_the_region_config():
+    cfg = load_region(REGIONS / "europe.yaml")
+    assert cfg.references == (REGIONS / "europe-refs.yaml").resolve()
+    assert cfg.references.is_file()
+
+
+def test_references_is_optional_and_a_missing_file_names_the_key(tmp_path):
+    # A region need not ship reference poles; check 6 then has nothing to compare and says so.
+    assert load_region(_variant(tmp_path, drop=["references"])).references is None
+    with pytest.raises(ConfigError, match="references"):
+        load_region(_variant(tmp_path, references="nowhere-refs.yaml"))
 
 
 def test_missing_required_key_raises_config_error_naming_key(tmp_path):

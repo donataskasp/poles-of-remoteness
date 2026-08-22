@@ -33,6 +33,7 @@ class RegionConfig:
     class_table: list[int] | None
     expected_units: int | None
     transcontinental: list[str]
+    references: Path | None
 
     @property
     def all_sources(self) -> list[str]:
@@ -52,11 +53,11 @@ _TYPES: dict[str, tuple[type, ...]] = {
     "unit_countries": (list, _NONE), "unit_exclude": (list,), "unit_code_tag": (str,),
     "territory_mask": (list,), "edge_mask_m": (int,), "max_distance_m": (int,), "top_n": (int,),
     "detail_res_m": (int,), "detail_window_m": (int,), "class_table": (list, _NONE),
-    "expected_units": (int, _NONE), "transcontinental": (list,),
+    "expected_units": (int, _NONE), "transcontinental": (list,), "references": (str, _NONE),
 }
 _DEFAULTS: dict[str, Any] = {
     "supplement_sources": [], "unit_countries": None, "unit_exclude": [], "territory_mask": [],
-    "class_table": None, "expected_units": None, "transcontinental": [],
+    "class_table": None, "expected_units": None, "transcontinental": [], "references": None,
 }
 _REQUIRED = tuple(k for k in _TYPES if k not in _DEFAULTS)
 _STRING_LISTS = ("sources", "supplement_sources", "unit_exclude", "transcontinental")
@@ -94,6 +95,12 @@ def load_region(path: str | Path) -> RegionConfig:
             raise ConfigError(f"{path}: key 'territory_mask' entries need a 'name' and a 4-number 'bbox' [west, south, east, north]")
     if values["class_table"] is not None and not all(isinstance(v, int) for v in values["class_table"]):
         raise ConfigError(f"{path}: key 'class_table' must be a list of integers or null")
+    if values["references"] is not None:
+        refs = (path.parent / values["references"]).resolve()
+        if not refs.is_file():
+            raise ConfigError(f"{path}: key 'references' names '{values['references']}', which is not a file "
+                              f"next to this config ({refs})")
+        values["references"] = refs
     return RegionConfig(**values)
 
 

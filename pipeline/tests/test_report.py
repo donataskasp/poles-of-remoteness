@@ -284,3 +284,18 @@ def test_run_reaches_the_verdict_when_the_contact_sheet_throws(tmp_path, monkeyp
     out = ws.dir("validate")
     assert (out / "report.json").is_file() and (out / "report.html").is_file()
     assert not (out / "contact-sheet.html").exists()
+
+
+def test_check_6_is_informative_when_the_region_names_no_reference_file(cfg):
+    """A region without reference poles must not fail check 6; the report still lists the check."""
+    from dataclasses import replace
+
+    from poles import validate
+
+    results = validate.reference_results(replace(cfg, references=None), {"A": [], "B": []})
+    assert len(results) == 1
+    assert (results[0].check, results[0].passed, results[0].blocking) == ("reference", True, False)
+    assert "no reference file" in results[0].details["reason"]
+    # With the key set, the same call reads the file the region config names.
+    named = validate.reference_results(cfg, {"A": [], "B": []})
+    assert len(named) > 1 and {r.check for r in named} == {"reference"}

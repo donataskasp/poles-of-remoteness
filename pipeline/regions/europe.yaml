@@ -41,3 +41,7 @@ detail_window_m: 20000
 class_table: null             # null = the default table in spec 3.4
 expected_units: 52            # counted on the 2026-08-19 snapshot in stage 2
 transcontinental: [tr, ge]
+
+# Reference poles for check 6, a path relative to this file. Optional: without it check 6 has nothing
+# to compare against and reports that instead of failing.
+references: europe-refs.yaml

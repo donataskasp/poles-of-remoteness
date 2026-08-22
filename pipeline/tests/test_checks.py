@@ -278,12 +278,10 @@ def test_references_report_a_unit_with_no_pole():
     assert all(r.details["reason"] == "no pole" for r in results)
 
 
-def test_shipped_refs_hold_the_published_lithuania_poles():
-    from pathlib import Path
+def test_shipped_refs_hold_the_published_lithuania_poles(regions_dir):
+    from poles.config import load_region
 
-    import poles.validate
-
-    refs = load_refs(Path(poles.validate.__file__).with_name("refs.yaml"))
+    refs = load_refs(load_region(regions_dir / "europe.yaml").references)
     assert refs["lt"]["A"]["dist_m"] == 3425.6 and refs["lt"]["A"]["blocking"] is True
     assert (refs["lt"]["A"]["lat"], refs["lt"]["A"]["lon"]) == (54.441473, 23.537020)
     assert refs["lt"]["B"]["dist_m"] == 6674.6 and refs["lt"]["B"]["blocking"] is True

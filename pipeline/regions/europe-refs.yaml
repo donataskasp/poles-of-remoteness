@@ -1,5 +1,6 @@
-# Reference poles for check 6 (spec 6.6). Top-level unit codes hold blocking regression entries
-# (the published Lithuania demo values); `external` entries inform and never block.
+# Europe reference poles for check 6 (spec 6.6), named by `references:` in europe.yaml.
+# Top-level unit codes hold blocking regression entries (the published Lithuania demo values);
+# `external` entries inform and never block.
 #
 # Every external entry was opened and read on the date in `checked`; the page states both the
 # position and the distance recorded here. `note` says how that publication's question differs
