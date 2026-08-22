@@ -248,7 +248,8 @@ def holes(poles, road_masks: dict[str, Path], units_tif: Path, frame: Frame, uni
 
     The unit median comes from `samples` cells of the unit drawn with a fixed seed, so a rerun over the same
     rasters flags the same candidates. Every raster read here is a window of the 30 km radius the rings need
-    (or one block of the unit raster while sampling): at the Europe frame a full read would be 675 M cells."""
+    (or one block of the unit raster while sampling): at a continent-sized frame a full read would be
+    hundreds of millions of cells."""
     to_frame = Transformer.from_crs("EPSG:4326", frame.crs, always_xy=True)
     inner, outer = INNER_KM * 1000 / frame.res, OUTER_KM * 1000 / frame.res
     radius = int(np.ceil(outer)) + 1
@@ -296,7 +297,8 @@ def load_refs(path: Path) -> dict:
 
 
 def references(poles, refs: dict) -> list[CheckResult]:
-    """Check 6: regression against the published Lithuania poles (blocking) and cited national poles (informative)."""
+    """Check 6: regression against poles this pipeline published before (blocking) and against outside
+    claims about the same question (informative)."""
     out = []
     winners = {(s, e["unit"]): e["poles"] for s, entries in poles.items() for e in entries}
     for unit, per_scenario in refs.items():
