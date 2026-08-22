@@ -16,7 +16,7 @@ const PAGE_PATHS = new Set(['/']);
 /* Coarse user agent buckets. Order matters: a specific token has to be tested
    before the generic one it embeds. Edge, Opera and Samsung Internet all carry
    "Chrome", Chrome and Firefox on iOS carry "Safari", Android carries "Linux". */
-function browserFamily(ua) {
+export function browserFamily(ua) {
   if (!ua) return 'Other';
   if (/bot|crawl|spider|slurp|headlesschrome|facebookexternalhit|curl|wget|monitoring/i.test(ua)) return 'Bot';
   if (/edg(e|a|ios)?\//i.test(ua)) return 'Edge';
@@ -28,7 +28,7 @@ function browserFamily(ua) {
   return 'Other';
 }
 
-function osFamily(ua) {
+export function osFamily(ua) {
   if (!ua) return 'Other';
   if (/android/i.test(ua)) return 'Android';
   if (/iphone|ipad|ipod|ios\//i.test(ua)) return 'iOS';
@@ -41,7 +41,7 @@ function osFamily(ua) {
 /* Host of the referring page, or '' when there is no referrer, it does not
    parse, or the visit came from our own site. Only the host is kept, never the
    full referrer URL, which can carry query strings and personal data. */
-function referrerHost(request, url) {
+export function referrerHost(request, url) {
   const ref = request.headers.get('Referer');
   if (!ref) return '';
   try {

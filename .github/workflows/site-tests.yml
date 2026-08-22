@@ -1,0 +1,24 @@
+name: Site tests
+
+on:
+  push:
+    paths:
+      - 'site/js/**'
+      - 'worker.js'
+      - 'dev/**'
+      - '.github/workflows/site-tests.yml'
+  pull_request:
+    paths:
+      - 'site/js/**'
+      - 'worker.js'
+      - 'dev/**'
+
+jobs:
+  node-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test 'dev/tests/*.test.mjs'

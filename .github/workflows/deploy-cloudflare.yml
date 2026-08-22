@@ -1,73 +1,73 @@
-# Deploys the Worker (worker.js + site/ static assets) to Cloudflare on push,
-# then verifies the live URL actually serves the site.
-# Requires two repo secrets: CLOUDFLARE_API_TOKEN (Workers Scripts:Edit) and
-# CLOUDFLARE_ACCOUNT_ID. Manual fallback stays available: npx --yes wrangler deploy.
-name: Deploy to Cloudflare Workers
-on:
-  # Manual trigger: validate the pipeline without an empty commit.
-  workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - "site/**"
-      - "worker.js"
-      - "wrangler.jsonc"
-      - ".github/workflows/deploy-cloudflare.yml"
+name: Deploy to Cloudflare
 
-# One deploy at a time. A newer push replaces the queued run; the running deploy
-# is never killed mid-flight (cancel-in-progress: false), only queued ones are.
+on:
+  push:
+    branches: [main, europe]
+    paths:
+      - 'site/**'
+      - 'worker.js'
+      - 'wrangler.jsonc'
+      - '.github/workflows/deploy-cloudflare.yml'
+  workflow_dispatch:
+
 concurrency:
-  group: cloudflare-deploy
+  group: cloudflare-deploy-${{ github.ref_name }}
   cancel-in-progress: false
+
+env:
+  # main deploys production, europe deploys the preview worker (wrangler env "preview")
+  PREVIEW: ${{ github.ref_name == 'europe' }}
+  LIVE_URL: ${{ github.ref_name == 'europe' && 'https://atokiausia-lietuva-preview.donatas-kasparavicius.workers.dev' || 'https://atokiausia-lietuva.donatas-kasparavicius.workers.dev' }}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
-
-      - name: Check deploy credentials
-        env:
-          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - name: Check credentials are present
         run: |
-          missing=""
-          [ -z "$CF_TOKEN" ] && missing="CLOUDFLARE_API_TOKEN"
-          [ -z "$CF_ACCOUNT" ] && missing="${missing:+$missing, }CLOUDFLARE_ACCOUNT_ID"
-          if [ -n "$missing" ]; then
-            echo "::error::Missing repo secret(s): $missing. Add with: gh secret set <NAME>"
-            exit 1
+          if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ] || [ -z "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ]; then
+            echo "CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID must be set as repository secrets"; exit 1
           fi
-
-      - name: Deploy with wrangler
+      - name: Write version.json
+        run: |
+          printf '{"commit": "%s", "built_at": "%s"}\n' "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > site/version.json
+          cat site/version.json
+      - name: Deploy
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # Pin wrangler for reproducible deploys (and wrangler.jsonc needs v4;
-          # the action's old v3 default, wrangler 3.90.0, could not read it).
-          wranglerVersion: "4.124.0"
+          wranglerVersion: '4.124.0'
+          command: deploy ${{ github.ref_name == 'europe' && '--env preview' || '' }}
 
   verify:
     needs: deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 6
     steps:
-      # Content-presence check only: the site carries no version stamp yet, so
-      # this proves the Worker serves the site, not that THIS commit is live.
-      # A /version route stamped at deploy is a decision for the Europe planning
-      # session (see docs/OVERVIEW.md).
-      - name: Verify live site
+      - uses: actions/checkout@v7
+      - name: Wait for the new version
         run: |
-          url="https://atokiausia-lietuva.donatas-kasparavicius.workers.dev/?ci=${GITHUB_SHA}"
           for i in $(seq 1 18); do
-            if curl -fsSL "$url" | grep -q "Atokiausia Lietuva"; then
-              echo "Live site serving expected content (attempt $i)."
-              exit 0
+            if [ "$PREVIEW" = "true" ]; then
+              got=$(curl -fsS "$LIVE_URL/version.json?ci=$GITHUB_SHA" | python3 -c 'import json,sys; print(json.load(sys.stdin)["commit"])' || true)
+              if [ "$got" = "$GITHUB_SHA" ]; then echo "version.json carries $GITHUB_SHA"; exit 0; fi
+            else
+              if curl -fsS "$LIVE_URL/?ci=$GITHUB_SHA" | grep -q "Atokiausia Lietuva"; then echo "live page answers"; exit 0; fi
             fi
-            echo "Attempt $i: not yet, retrying in 10s."
-            sleep 10
+            echo "attempt $i: not yet"; sleep 10
           done
-          echo "::error::Cloudflare URL did not serve expected content within 3 minutes."
-          exit 1
+          echo "the deployed site did not show the new version"; exit 1
+      - name: First-screen budget (preview only)
+        if: env.PREVIEW == 'true'
+        run: |
+          # Everything the first screen fetches before it is interactive, compressed bytes as the browser gets them.
+          # Keep this list in step with index.html; the data files are the region list and the opening region's units.
+          FIRST_SCREEN="/europe/lt /css/app.css /vendor/leaflet/leaflet.css /vendor/leaflet/leaflet.js /vendor/pmtiles/pmtiles.js /js/app.js /js/i18n.js /js/router.js /js/data.js /js/palette.js /js/readout.js /js/map.js /js/explore.js /js/detail.js /js/markers.js /js/card.js /js/ranking.js /js/classes.js /data/regions.json /data/europe/units.json /data/europe/units/lt.json"
+          total=0
+          for p in $FIRST_SCREEN; do
+            n=$(curl -sS --compressed -o /dev/null -w '%{size_download}' -H 'Accept-Encoding: gzip, br' "$LIVE_URL$p?ci=$GITHUB_SHA")
+            echo "$n $p"; total=$((total + n))
+          done
+          echo "first screen: $total compressed bytes (budget 256000)"
+          [ "$total" -le 256000 ]
