@@ -1,5 +1,6 @@
 import json
 import math
+from concurrent.futures.process import BrokenProcessPool
 from dataclasses import replace
 from pathlib import Path
 
@@ -22,6 +23,22 @@ from tests.helpers import write_fgb
 pytestmark = pytest.mark.filterwarnings("ignore::rasterio.errors.NotGeoreferencedWarning")
 
 LAT, LON = 55.0, 24.0
+
+
+class _DyingPool:
+    """Runs the first job in this process, then dies the way a worker killed by the OOM killer does."""
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        return False
+
+    def map(self, fn, jobs, chunksize=1):
+        def gen():
+            yield fn(list(jobs)[0])
+            raise BrokenProcessPool("A process in the process pool was terminated abruptly")
+        return gen()
 
 
 def _roads_through(lat, lon, epsg):
@@ -260,3 +277,78 @@ def test_run_detail_classes_with_the_region_table(tmp_path, cfg, log, monkeypatc
     # The pixel is 977 m from the track (1002 m south of the pole, 25 m of that inside the pixel): class 9 of
     # a table in 100 m steps, where the default table in 50 m steps would say 19.
     assert _class_at(ws.dir("publish") / "detail" / "aa" / "A-1.png", 20, 20) in (9, 10)
+
+
+def test_render_refuses_a_pole_the_land_index_does_not_know(tmp_path, cfg, log):
+    """Stage 2 searched the pole on land, so a land index that disagrees is the wrong file or a bbox handed
+    over in the wrong order; either way it would silently blank every raster of the run."""
+    ws = _workspace(tmp_path, log)
+    poles_dir = ws.dir("poles")
+    write_fgb(poles_dir / "land_idx.fgb", "land", [box(10.0, 40.0, 10.1, 40.1)], {"id": [1]})   # another country
+    args = (str(poles_dir / "roads"), str(poles_dir / "land_idx.fgb"), str(poles_dir / "water_big.fgb"),
+            str(ws.dir("publish") / "detail"), "aa", "A")
+    job = detail.DetailJob(*args, ((1, 55.0, 24.0, 1000.0),), 50, 2_000, b"", tuple(default_edges()))
+    with pytest.raises(PolesError, match="aa A rank 1"):
+        detail.render(job)
+    assert not (ws.dir("publish") / "detail" / "aa").exists()
+    # A window with a sliver of land in it is a result, not a failure: the threshold is the pole, not an area.
+    write_fgb(poles_dir / "land_idx.fgb", "land", [box(23.9995, 54.9997, 24.0005, 55.0003)], {"id": [1]})
+    out = detail.render(job)
+    assert out["rendered"] == [1] and out["warnings"] == []
+    with rasterio.open(ws.dir("publish") / "detail" / "aa" / "A-1.png") as ds:
+        arr = ds.read(1)
+    assert (arr != NODATA).sum() == 4                    # the four pixel centres inside that sliver
+
+
+def test_render_publishes_a_sub_pixel_islet_and_warns(tmp_path, cfg, log):
+    """A pole can stand on a rock narrower than one pixel (Bell Rock, 14 m across, is a real top-ten pole), so
+    an all-nodata window is honest output plus a warning, not a run-stopping error."""
+    ws = _workspace(tmp_path, log)
+    poles_dir = ws.dir("poles")
+    write_fgb(poles_dir / "land_idx.fgb", "land", [box(23.99993, 54.99996, 24.00007, 55.00004)], {"id": [1]})
+    job = detail.DetailJob(str(poles_dir / "roads"), str(poles_dir / "land_idx.fgb"),
+                           str(poles_dir / "water_big.fgb"), str(ws.dir("publish") / "detail"), "aa", "A",
+                           ((1, 55.0, 24.0, 1000.0),), 50, 2_000, b"", tuple(default_edges()))
+    out = detail.render(job)
+    assert out["rendered"] == [1] and len(out["warnings"]) == 1 and "islet" in out["warnings"][0]
+    with rasterio.open(ws.dir("publish") / "detail" / "aa" / "A-1.png") as ds:
+        assert (ds.read(1) == NODATA).all()
+
+
+def test_render_refuses_a_blank_window_whose_land_is_far_from_the_pole(tmp_path, cfg, log):
+    """Land in the file but hundreds of metres from the pole is not an islet under the pole: the pole is over
+    water, so the window is blank for a reason worth stopping on."""
+    ws = _workspace(tmp_path, log)
+    poles_dir = ws.dir("poles")
+    g = detail.georef(LAT, LON, 50, 2_000)
+    # On a pixel edge, and a tenth of a pixel wide, so no pixel centre can fall on it; 470 m off the pole.
+    lon0, lat0 = g.west + g.dlon * 12, g.north - g.dlat * 15
+    write_fgb(poles_dir / "land_idx.fgb", "land", [box(lon0 - 3e-5, lat0 - 1.5e-5, lon0 + 3e-5, lat0 + 1.5e-5)],
+              {"id": [1]})
+    job = detail.DetailJob(str(poles_dir / "roads"), str(poles_dir / "land_idx.fgb"),
+                           str(poles_dir / "water_big.fgb"), str(ws.dir("publish") / "detail"), "aa", "A",
+                           ((1, 55.0, 24.0, 1000.0),), 50, 2_000, b"", tuple(default_edges()))
+    with pytest.raises(PolesError, match="nearest land"):
+        detail.render(job)
+
+
+def test_run_detail_names_the_job_in_flight_when_a_worker_dies(tmp_path, cfg, log, monkeypatch):
+    """An OOM-killed worker must name the unit and scenario it was on and point at POLES_WORKERS, the same
+    way the poles stage does; a bare BrokenProcessPool traceback tells the operator nothing."""
+    monkeypatch.setenv("POLES_WORKERS", "3")
+    ws = _workspace(tmp_path, log)
+    monkeypatch.setattr(detail, "ProcessPoolExecutor", lambda max_workers: _DyingPool())
+    with pytest.raises(PolesError, match="POLES_WORKERS") as exc:
+        detail.run_detail(replace(cfg, detail_window_m=2_000), ws, _published(), ClassTable(), None, log)
+    assert "aa" in str(exc.value) and " B" in str(exc.value) and "3" in str(exc.value)
+
+
+def test_run_detail_accepts_a_scenario_with_nothing_published(tmp_path, cfg, log, monkeypatch):
+    """A region may publish nothing in one scenario; a missing key is an empty job list, not a KeyError."""
+    monkeypatch.setenv("POLES_WORKERS", "1")
+    ws = _workspace(tmp_path, log)
+    only_a = {"A": [{"unit": "aa", "poles": [{"rank": 1, "lat": 55.0, "lon": 24.0, "dist_m": 1000.0}],
+                     "reason": None}]}
+    stats = detail.run_detail(replace(cfg, detail_window_m=2_000), ws, only_a, ClassTable(), None, log)
+    assert stats["count"] == 1 and (ws.dir("publish") / "detail" / "aa" / "A-1.png").exists()
+    assert detail.run_detail(replace(cfg, detail_window_m=2_000), ws, {}, ClassTable(), None, log)["count"] == 0

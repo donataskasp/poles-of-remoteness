@@ -20,6 +20,7 @@ import os
 import shutil
 import time
 from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures.process import BrokenProcessPool
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
@@ -47,6 +48,11 @@ M_PER_DEG = 111_320.0
 QUERY_SLACK_M = 1_000.0
 # The land test only has to cover the window itself; a kilometre of margin keeps it clear of rounding.
 LAND_SLACK_M = 1_000.0
+# How far the nearest land may be from a pole whose window came out empty. A published coordinate is stored
+# to six decimals, which can put a pole a few centimetres off the islet it stands on, so the test cannot be
+# "on land"; a hundred metres is three orders of magnitude above that rounding and still nowhere near the
+# kilometres of open water that a wrong land index would show.
+BLANK_LAND_TOL_M = 100.0
 
 
 @dataclass(frozen=True)
@@ -187,9 +193,30 @@ def _tiles(path: str) -> RoadTiles:
 
 
 def _pad_bbox(g: Georef, lat: float, pad_m: float) -> tuple[float, float, float, float]:
+    """The window grown by pad_m on all four sides, in degrees.
+
+    The longitude pad uses the cosine of the pole's latitude, so a corner of the box is a little short of
+    pad_m once the meridians converge across the window; QUERY_SLACK_M (1 km) covers that corner error for
+    windows up to 78 N with poles out to 100 km (measured against a geodesic: 966 m of margin left at 71 N,
+    406 m at 78 N with a 100 km pole, negative only past 80 N with a 150 km one). A region reaching into the
+    high Arctic needs a geodesic pad here, which is tracked as its own issue."""
     dlat = pad_m / M_PER_DEG
     dlon = dlat / math.cos(math.radians(lat))
     return g.west - dlon, g.north - g.dlat * g.height - dlat, g.west + g.dlon * g.width + dlon, g.north + dlat
+
+
+def _nearest_land_m(land_idx: Path, bbox: tuple[float, float, float, float], lon: float, lat: float) -> float:
+    """Distance from the pole to the nearest land polygon of the window's own read, inf when it returns none.
+
+    Degrees are scaled by the metres of one degree of latitude, which overstates any longitude component and
+    so is an upper bound on the true distance; the caller's tolerance is far above the rounding it forgives.
+    Read again rather than kept from land_test, because this runs only on a window that came out empty."""
+    _, _, wkb, _ = read(str(land_idx), layer="land", bbox=bbox)
+    if not len(wkb):
+        return math.inf
+    geoms = shapely.from_wkb(wkb)
+    pt = shapely.points([lon], [lat])
+    return float(shapely.distance(pt, geoms[STRtree(geoms).nearest(pt)])[0]) * M_PER_DEG
 
 
 def render(job: DetailJob) -> dict:
@@ -199,7 +226,7 @@ def render(job: DetailJob) -> dict:
     edge_band = shapely.from_wkb(job.edge_wkb) if job.edge_wkb else None
     cache = RoadCache(_tiles(job.roads_dir), where_clause(job.scenario), pad_deg=0.0)
     out_dir = Path(job.out_dir)
-    done, total_bytes, skipped = [], 0, 0
+    done, warned, total_bytes, skipped = [], [], 0, 0
     for rank, lat, lon, dist_m in job.poles:
         png = out_dir / job.code / f"{job.scenario}-{rank}.png"
         js = out_dir / job.code / f"{job.scenario}-{rank}.json"
@@ -215,13 +242,27 @@ def render(job: DetailJob) -> dict:
                              f"{dist_m + half_diag + QUERY_SLACK_M:.0f} m of the pole at lon {lon:.4f}, lat "
                              f"{lat:.4f}, but its own nearest way is {dist_m:.0f} m away and must be in there; "
                              f"the road tiles or the published pole are out of step")
-        land_ok = land_test(Path(job.land_idx), Path(job.water_big), _pad_bbox(g, lat, LAND_SLACK_M))
+        land_bbox = _pad_bbox(g, lat, LAND_SLACK_M)
+        land_ok = land_test(Path(job.land_idx), Path(job.water_big), land_bbox)
         arr = classify_window(g, roads, land_ok, edge_band, table)
+        if not (arr != NODATA).any():
+            # A window with no land pixel at all is either an islet narrower than one pixel, which is a real
+            # top-ten pole in a sea region (Bell Rock is 14 m across), or a land index that does not cover this
+            # place, which would blank every raster of the run. The distance from the pole to the nearest land
+            # tells the two apart at once, before a thousand empty PNGs are published.
+            near_m = _nearest_land_m(Path(job.land_idx), land_bbox, lon, lat)
+            if near_m > BLANK_LAND_TOL_M:
+                raise PolesError(f"detail {job.code} {job.scenario} rank {rank}: no land pixel in the window "
+                                 f"around the pole at lon {lon:.4f}, lat {lat:.4f}, and the nearest land in the "
+                                 f"index is {near_m:.0f} m away, though the pole was searched on land; the land "
+                                 f"index or the water file is the wrong one, or its bbox went in the wrong order")
+            warned.append(f"{job.code} {job.scenario} rank {rank}: no land pixel in the window, the pole at lon "
+                            f"{lon:.4f}, lat {lat:.4f} sits on an islet narrower than one pixel")
         png, _ = write_detail(out_dir, job.code, job.scenario, rank, arr, g)
         total_bytes += png.stat().st_size
         done.append(rank)
     return {"code": job.code, "scenario": job.scenario, "rendered": done, "skipped": skipped, "bytes": total_bytes,
-            "seconds": time.monotonic() - t0}
+            "warnings": warned, "seconds": time.monotonic() - t0}
 
 
 def run_detail(cfg: RegionConfig, ws: Workspace, published: dict[str, list[dict]], table: ClassTable,
@@ -234,7 +275,7 @@ def run_detail(cfg: RegionConfig, ws: Workspace, published: dict[str, list[dict]
     edge_wkb = shapely.to_wkb(edge_band_4326) if edge_band_4326 is not None else b""
     jobs = []
     for scenario in SCENARIOS:
-        for unit in published[scenario]:
+        for unit in published.get(scenario, []):
             if not unit["poles"]:
                 continue
             jobs.append(DetailJob(str(poles_dir / "roads"), str(poles_dir / "land_idx.fgb"),
@@ -244,13 +285,26 @@ def run_detail(cfg: RegionConfig, ws: Workspace, published: dict[str, list[dict]
     workers = int(os.environ.get("POLES_WORKERS", "0")) or 4
     log.info("publish: %d detail jobs on %d workers", len(jobs), workers)
     t0 = time.monotonic()
-    count = skipped = total_bytes = 0
+    count = skipped = total_bytes = blank = 0
     if jobs:
-        with ProcessPoolExecutor(max_workers=workers) as pool:
-            for r in pool.map(render, jobs, chunksize=1):
-                count += len(r["rendered"]) + r["skipped"]
-                skipped += r["skipped"]
-                total_bytes += r["bytes"]
-                log.info("publish: detail %s %s: %d rendered, %d kept, %.0f s", r["code"], r["scenario"],
-                         len(r["rendered"]), r["skipped"], r["seconds"])
+        finished = 0
+        try:
+            with ProcessPoolExecutor(max_workers=workers) as pool:
+                for r in pool.map(render, jobs, chunksize=1):
+                    count += len(r["rendered"]) + r["skipped"]
+                    skipped += r["skipped"]
+                    total_bytes += r["bytes"]
+                    finished += 1
+                    for w in r["warnings"]:
+                        blank += 1
+                        log.warning("publish: detail %s", w)
+                    log.info("publish: detail %s %s: %d rendered, %d kept, %.0f s", r["code"], r["scenario"],
+                             len(r["rendered"]), r["skipped"], r["seconds"])
+        except BrokenProcessPool as exc:
+            stalled = jobs[min(finished, len(jobs) - 1)]
+            raise PolesError(f"a worker process died with unit {stalled.code} scenario {stalled.scenario} in "
+                             f"flight; {finished} of {len(jobs)} detail jobs are written and a rerun resumes "
+                             f"there. Lower POLES_WORKERS (now {workers}) if the machine ran out of memory") from exc
+    if blank:
+        log.warning("publish: %d detail rasters are all nodata, their poles sit on sub-pixel islets", blank)
     return {"count": count, "bytes": total_bytes, "seconds": round(time.monotonic() - t0, 1), "skipped": skipped}
