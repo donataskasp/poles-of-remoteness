@@ -28,6 +28,9 @@ export function makeClassTable(edges = CLASS_EDGES) {
   if (e.length !== N_CLASSES) {
     throw new RangeError(`class table needs ${N_CLASSES} lower edges, got ${e.length}`);
   }
+  if (e.some((v) => !Number.isInteger(v))) {
+    throw new RangeError('class edges must be whole metres');
+  }
   if (e[0] !== 0 || e.some((v, i) => i > 0 && !(v > e[i - 1]))) {
     throw new RangeError('class edges must start at 0 and increase strictly');
   }

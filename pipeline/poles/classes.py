@@ -27,7 +27,10 @@ def default_edges() -> list[int]:
 
 class ClassTable:
     def __init__(self, edges: list[int] | None = None):
-        e = [int(v) for v in (edges if edges is not None else default_edges())]
+        raw = list(edges if edges is not None else default_edges())
+        if any(int(v) != v for v in raw):
+            raise ValueError("class edges must be whole metres")
+        e = [int(v) for v in raw]
         if len(e) != N_CLASSES:
             raise ValueError(f"class table needs {N_CLASSES} lower edges, got {len(e)}")
         if e[0] != 0 or any(b <= a for a, b in zip(e, e[1:])):

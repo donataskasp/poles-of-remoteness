@@ -96,6 +96,11 @@ def test_rejects_bad_inputs():
         ClassTable(list(range(10)))
 
 
+def test_rejects_fractional_edges():
+    with pytest.raises(ValueError, match="whole metres"):
+        ClassTable([0, 1.5] + default_edges()[2:])
+
+
 def test_rejects_edges_not_starting_at_zero():
     with pytest.raises(ValueError):
         ClassTable([1] + default_edges()[1:])

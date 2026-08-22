@@ -24,8 +24,11 @@
     + ` bounds [${doubled.lower(50)}, ${doubled.upper(50)})`);
   let rejected = false;
   try { makeClassTable([1, ...CLASS_EDGES.slice(1)]); } catch (err) { rejected = err instanceof RangeError; }
-  if (!rejected) ok = false;
+  let fractional = false;
+  try { makeClassTable([0, 1.5, ...CLASS_EDGES.slice(2)]); } catch (err) { fractional = err instanceof RangeError; }
+  if (!rejected || !fractional) ok = false;
   lines.push(`edges not starting at 0 rejected: ${rejected}`);
+  lines.push(`fractional edges rejected: ${fractional}`);
   lines.unshift(ok ? 'PASS' : 'FAIL');
   document.getElementById('out').textContent = lines.join('\n');
 </script>
