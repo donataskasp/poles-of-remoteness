@@ -34,8 +34,10 @@ export function createCard(el, { onScenario, onRanking, onLocate, onPole }) {
   function poleBlock(v) {
     const block = v.doc && v.doc[v.scenario];
     const poles = (block && block.poles) || [];
+    const withheld = block && block.withheld ? `<p class="card__note">${esc(t('withheldNote', { n: block.withheld }))}</p>` : '';
     const pole = poles.find((p) => p.rank === v.rank) || poles[0];
-    if (!pole) return '';
+    // Every pole of a unit can be withheld: there are no facts to show, but the count still has to be said.
+    if (!pole) return withheld ? `<div class="card__poles">${withheld}</div>` : '';
     const way = pole.nearest_way || {};
     const roadName = way.name || way.ref || t('unnamed');
     const place = pole.nearest_place;
@@ -43,7 +45,6 @@ export function createCard(el, { onScenario, onRanking, onLocate, onPole }) {
       ? `${esc(place.name || placeLabel(place.type))} (${esc(placeLabel(place.type))}, ${esc(fmtDist(place.dist_m))})`
       : esc(t('noPlace'));
     const chips = poles.map((p) => `<button type="button" class="chip${p.rank === pole.rank ? ' chip--on' : ''}" data-rank="${p.rank}" aria-pressed="${p.rank === pole.rank}">${p.rank}</button>`).join('');
-    const withheld = block.withheld ? `<p class="card__note">${esc(t('withheldNote', { n: block.withheld }))}</p>` : '';
     const lat = pole.lat.toFixed(5);
     const lon = pole.lon.toFixed(5);
     return `<div class="card__poles">

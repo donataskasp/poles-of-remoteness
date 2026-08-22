@@ -31,7 +31,8 @@ export function mountReadout(el) {
   }
   return {
     show,
-    // Say the same thing again, in another language: only while the pill is up, and as sticky as it was.
+    // Say the same thing again, in another language: only while the pill is up, as sticky as it was, and
+    // with its six seconds starting again (the reader has just been given something new to read).
     restate(text) { if (!el.hidden) show(text, last); },
     visible() { return !el.hidden; },
     hide() { clearTimeout(timer); el.hidden = true; },

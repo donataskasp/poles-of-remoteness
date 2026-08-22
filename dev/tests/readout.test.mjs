@@ -38,10 +38,13 @@ test('readout: the pill restates only while it is up, and keeps its stickiness',
 
   r.show('about 3 km');
   assert.equal(r.visible(), true);
+  t.mock.timers.tick(3000);
   r.restate('apie 3 km');
   assert.equal(el.textContent, 'apie 3 km');
-  t.mock.timers.tick(6000);
-  assert.equal(r.visible(), false, 'restating a passing pill must not make it stay');
+  t.mock.timers.tick(3000);
+  assert.equal(r.visible(), true, 'restating says it again, and its six seconds start again with it');
+  t.mock.timers.tick(3000);
+  assert.equal(r.visible(), false, 'a restated pill still goes away on its own');
 
   r.restate('never said');
   assert.equal(el.textContent, 'apie 3 km', 'a pill that already hid stays hidden and silent');

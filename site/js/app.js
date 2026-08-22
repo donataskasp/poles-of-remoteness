@@ -20,7 +20,12 @@ function markReady() { document.documentElement.dataset.ready = '1'; }
 function storedLang() { try { return localStorage.getItem(LANG_KEY); } catch { return null; } }
 function storeLang(l) { try { localStorage.setItem(LANG_KEY, l); } catch { /* private mode */ } }
 
+// Set while back or forward is being applied: restoring a history entry must never write to history, and
+// the map moves it makes fire moveend like any other.
+let restoring = false;
+
 function syncUrl(replace = false) {
+  if (restoring) return;
   const c = ui.map.getCenter();
   write({ ...state, z: ui.map.getZoom(), lat: c.lat, lon: c.lng }, { replace });
 }
@@ -37,6 +42,7 @@ function readoutText(sample) {
   if (!sample) return '';
   if (sample.kind === 'hint') return t('readoutHint');
   if (sample.kind === 'loading') return t('readoutLoading');
+  if (sample.kind === 'error') return t('loadError');
   return formatSample(sample);
 }
 
@@ -136,14 +142,25 @@ async function main() {
   async function openUnit(code, { push = true, view = 'unit' } = {}) {
     const next = units.find((u) => u.code === code);
     if (!next) return;
-    const doc = await loadUnit(region.id, code);
+    let doc;
+    try {
+      doc = await loadUnit(region.id, code);
+    } catch (e) {
+      // A place that will not load changes nothing: the unit on screen, its card, its markers and the URL
+      // all stay as they were, and the reader is told in their own language.
+      console.warn('unit', code, e.message);
+      say({ kind: 'error' });
+      return;
+    }
     current = { unit: next, doc, rank: 1 };
     state.unit = code;
     renderUnit();
+    // The URL is written before the map moves: moveend would otherwise write the new view first and this
+    // push would find the URL already correct and add no history entry at all.
+    syncUrl(!push);
     const pole1 = polesOf()[0];
     if (view === 'pole' && pole1) map.flyTo([pole1.lat, pole1.lon], 10, { duration: 0.8 });
     else if (view !== 'keep') map.fitBounds(bboxToBounds(next.bbox), { padding: [24, 24] });
-    syncUrl(!push);
     if (ui.ranking) ui.ranking.setCurrent(code);
   }
 
@@ -194,11 +211,20 @@ async function main() {
     renderLegend();
   });
 
-  window.addEventListener('popstate', () => {
+  // Back and forward restore the entry the reader asked for; nothing here may write to history, so the view
+  // is set without animation to keep its moveend inside the guarded window and the unit is awaited inside it.
+  window.addEventListener('popstate', async () => {
     const p = parse();
-    if (p.s && p.s !== state.s) setScenario(p.s);
-    if (p.unit && p.unit !== state.unit) openUnit(p.unit, { push: false, view: p.z != null ? 'keep' : 'unit' });
-    if (p.z != null && p.lat != null && p.lon != null) map.setView([p.lat, p.lon], p.z);
+    restoring = true;
+    try {
+      if (p.s && p.s !== state.s) setScenario(p.s);
+      if (p.z != null && p.lat != null && p.lon != null) map.setView([p.lat, p.lon], p.z, { animate: false });
+      if (p.unit && p.unit !== state.unit) await openUnit(p.unit, { push: false, view: p.z != null ? 'keep' : 'unit' });
+    } catch (e) {
+      console.warn('popstate', e);
+    } finally {
+      restoring = false;
+    }
   });
 
   say({ kind: 'hint' });

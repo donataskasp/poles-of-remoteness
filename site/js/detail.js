@@ -7,6 +7,29 @@ import { detailUrl } from './data.js';
 
 export const DETAIL_MIN_ZOOM = 12;
 
+// The sidecar gives the north-west corner and the pixel size in degrees, so placing a raster and hit-testing
+// it are both plain arithmetic. Pure and exported so they can be tested without a map or a browser.
+export function rasterEdges(meta) {
+  return {
+    north: meta.north,
+    west: meta.west,
+    south: meta.north - meta.dlat * meta.height,
+    east: meta.west + meta.dlon * meta.width,
+  };
+}
+
+// Which cell a point falls in, or null when it falls outside. The north and west edges belong to the raster,
+// the south and east edges belong to the next one along.
+export function cellAt(meta, lat, lon) {
+  // Tested against the same edges the overlay is placed by, so hit-testing and painting agree to the bit.
+  const e = rasterEdges(meta);
+  if (lon < e.west || lon >= e.east || lat > e.north || lat <= e.south) return null;
+  const col = Math.floor((lon - meta.west) / meta.dlon);
+  const row = Math.floor((meta.north - lat) / meta.dlat);
+  if (col < 0 || row < 0 || col >= meta.width || row >= meta.height) return null;
+  return { col, row };
+}
+
 async function fetchJson(url) {
   const r = await fetch(url);
   if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
@@ -31,9 +54,8 @@ async function fetchDetail(region, pole) {
   const { data } = ctx.getImageData(0, 0, meta.width, meta.height);
   const classes = new Uint8Array(meta.width * meta.height);
   for (let i = 0; i < classes.length; i += 1) classes[i] = data[i * 4];
-  const south = meta.north - meta.dlat * meta.height;
-  const east = meta.west + meta.dlon * meta.width;
-  return { meta, classes, canvas, bounds: L.latLngBounds([[south, meta.west], [meta.north, east]]) };
+  const e = rasterEdges(meta);
+  return { meta, classes, canvas, bounds: L.latLngBounds([[e.south, e.west], [e.north, e.east]]) };
 }
 
 export function createDetailOverlays(map, { region, palette }) {
@@ -97,11 +119,10 @@ export function createDetailOverlays(map, { region, palette }) {
     if (map.getZoom() < DETAIL_MIN_ZOOM) return undefined;
     for (const entry of entries.values()) {
       const d = entry.data;
-      if (!d || !d.bounds.contains(latlng)) continue;
-      const col = Math.floor((latlng.lng - d.meta.west) / d.meta.dlon);
-      const row = Math.floor((d.meta.north - latlng.lat) / d.meta.dlat);
-      if (col < 0 || row < 0 || col >= d.meta.width || row >= d.meta.height) continue;
-      const cls = d.classes[row * d.meta.width + col];
+      if (!d) continue;
+      const cell = cellAt(d.meta, latlng.lat, latlng.lng);
+      if (!cell) continue;
+      const cls = d.classes[cell.row * d.meta.width + cell.col];
       if (cls !== NODATA) return cls;
     }
     return undefined;
