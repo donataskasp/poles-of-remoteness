@@ -3,7 +3,7 @@
 <title>classes.js check</title>
 <pre id="out"></pre>
 <script type="module">
-  import { CLASS_EDGES, EDGE, NODATA, toClass, classUpper } from './classes.js';
+  import { CLASS_EDGES, EDGE, NODATA, toClass, classUpper, makeClassTable } from './classes.js';
   const cases = [[0, 0], [49, 0], [50, 1], [2499, 49], [2500, 50], [9999, 124], [10000, 125], [29999, 204],
     [30000, 205], [59999, 234], [60000, 235], [239999, 252], [240000, 253], [250000, 253]];
   const lines = [];
@@ -15,6 +15,17 @@
     if (got !== c) ok = false;
     lines.push(`${d} m -> class ${got} (expected ${c})`);
   }
+  // A per-region table, the way regions.json will supply one: the default edges doubled.
+  const doubled = makeClassTable(CLASS_EDGES.map((e) => 2 * e));
+  const doubledClass = doubled.toClass(5000);
+  if (doubledClass !== 50 || doubled.lower(50) !== 5000 || doubled.upper(50) !== 5200
+    || doubled.upper(253) !== Infinity) ok = false;
+  lines.push(`doubled table: 5000 m -> class ${doubledClass} (expected 50),`
+    + ` bounds [${doubled.lower(50)}, ${doubled.upper(50)})`);
+  let rejected = false;
+  try { makeClassTable([1, ...CLASS_EDGES.slice(1)]); } catch (err) { rejected = err instanceof RangeError; }
+  if (!rejected) ok = false;
+  lines.push(`edges not starting at 0 rejected: ${rejected}`);
   lines.unshift(ok ? 'PASS' : 'FAIL');
   document.getElementById('out').textContent = lines.join('\n');
 </script>

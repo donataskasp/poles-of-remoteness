@@ -36,16 +36,28 @@ class ClassTable:
         self._arr = np.asarray(e, dtype=np.float64)
 
     def to_class(self, dist_m) -> np.ndarray:
-        d = np.asarray(dist_m, dtype=np.float64)
-        if np.any(np.isnan(d)) or np.any(d < 0):
+        """Class of each distance in metres, as uint8.
+
+        Feed a block or a window, not a whole continental grid: this allocates arrays the size of its input,
+        and the publish stage windows its rasters for exactly that reason."""
+        d = np.asarray(dist_m)
+        if d.dtype.kind != "f":  # already floating point stays as it is; ints and bools need a float view
+            d = d.astype(np.float64)
+        if not np.all(np.isfinite(d)) or np.any(d < 0):
             raise ValueError("distances must be finite and non-negative")
         return (np.searchsorted(self._arr, d, side="right") - 1).astype(np.uint8)
 
+    def _check(self, c: int) -> int:
+        if not 0 <= c < len(self.edges):
+            raise ValueError(f"class {c} is outside 0..{len(self.edges) - 1}")
+        return c
+
     def lower(self, c: int) -> int:
-        return self.edges[c]
+        return self.edges[self._check(c)]
 
     def upper(self, c: int) -> float:
-        return float(self.edges[c + 1]) if c + 1 < N_CLASSES else math.inf
+        c = self._check(c)
+        return float(self.edges[c + 1]) if c + 1 < len(self.edges) else math.inf
 
     def mid(self, c: int) -> float:
         hi = self.upper(c)
