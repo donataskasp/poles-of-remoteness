@@ -33,3 +33,7 @@ Third session of the day, the first in the dedicated `claude-poles` session with
 ## 2026-08-21: Stage 1 of Europe done, first continental grids computed
 
 Pipeline foundation built on branch `europe` in one long session (spec to code to real data): the `poles` package with config, resumable CLI, fetch, extract, classify, grid, container and CI, 97 tests. Europe (snapshot 2026-08-19) computed through the grid stage on the Mac in about 1.5 hours, not the 4-5 planned. Two tool limits found on the real data and designed around (GDAL's GeoJSONSeq reader memory, a FlatGeobuf index limit near 100 M features); two stage-2 issues filed (#15, #16). Stages now proceed without waiting for owner review between them.
+
+## 2026-08-22: Stage 3 of Europe, local part done
+
+Stage 2 (poles and validation) closed earlier the same day; stage 3 built everything the site will read and stopped at the one human step. The Europe snapshot now has its explore layer as two PMTiles archives (`A.pmtiles` 114.2 MB, `B.pmtiles` 128.3 MB, z0 to z9, one class byte per pixel) and 909 detail rasters at 50 m with their georeference sidecars (13.6 MB), which is 268.6 MB per snapshot in R2 once the three validation artefacts are counted. Nothing has been uploaded: R2 is not enabled on the Cloudflare account, so the run stopped as designed with the five environment variables named, and the upload, the HEAD verification and the `site/data` commit follow the owner's R2 enablement as a rerun of the same command.
