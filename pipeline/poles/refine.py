@@ -4,16 +4,19 @@ candidate's UTM zone (spec 2.4).
 The distance is a true vector distance from a grid point to the nearest road geometry, not a raster
 sample, so the published number no longer carries the coarse grid's quantisation. The window is swept
 once, at the search step the spec names, and the result is by construction the maximum of that sweep.
-One sweep is affordable: a 500 m window at 5 m is 10,201 points, answered in one vectorised nearest
-query in about 15 ms. A cheaper coarse-then-local search was tried first and dropped, because it lands
-below the maximum of the window whenever a second ridge competes with the one it walked up.
+One sweep is affordable: the window of a 250 m coarse cell is 5,041 points at 5 m, answered in one
+vectorised nearest query in a few milliseconds. A cheaper coarse-then-local search was tried first and
+dropped, because it lands below the maximum of the window whenever a second ridge competes with the one
+it walked up.
 
-The window is the one the caller names: centred on the point given, reaching half_m each way, axis
-aligned to the UTM grid. Callers pass the half-diagonal of their coarse cell, so the window covers the
-whole frame cell whatever the rotation between the frame grid and the UTM grid, and therefore laps a
-little into the neighbours. That overlap is harmless for the branch-and-bound in candidates.py: a point
-above the bound of the cell it came from only becomes final sooner, the cell that actually holds the
-maximum still finds it, and a point found twice from two cells is rejected by the dedup rule.
+The window is the one the caller names: centred on the point given, reaching floor(half_m / step) steps
+each way, axis aligned to the UTM grid. Callers pass the half-diagonal of their coarse cell, so the sweep
+covers the frame cell to within half a lattice step whatever the rotation between the frame grid and the
+UTM grid (a 250 m cell is swept to 175 m of its 176.78 m half-diagonal, and the 1.8 m left over is inside
+the lattice's own 2.5 m half-step), and therefore laps a little into the neighbours. That overlap is
+harmless for the branch-and-bound in candidates.py: a point above the bound of the cell it came from only
+becomes final sooner, the cell that actually holds the maximum still finds it, and a point found twice
+from two cells is rejected by the dedup rule.
 
 A cell near a zone seam is refined wholly in the zone its centre falls in; UTM stays well behaved a few
 hundred metres past its seam (a few parts per million of scale error over a 500 m window), so no cell
