@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 import rasterio
-from pyproj import Geod
+from pyproj import Geod, Transformer
 from shapely.geometry import LineString, MultiPolygon, box
 
 from poles.config import RegionConfig, load_region
@@ -306,3 +306,49 @@ def test_every_pole_check_is_empty_for_a_unit_with_no_poles(tmp_path):
     assert membership(empty, [unit], land, water) == []
     assert edge_bound(empty, box(-10, -10, 10, 10)) == []
     assert holes(empty, {"A": road_tif}, units_tif, frame, [unit]) == []
+
+
+def test_holes_reads_windows_and_never_a_whole_raster(tmp_path, monkeypatch):
+    """At the Europe frame the unit raster is 675 M cells (1.35 GB) and each road mask is another 675 M.
+    The detector has to reach them through windows, so no read here may exceed one 512 x 512 block."""
+    frame = Frame("EPSG:3035", 250.0, 5_000_000.0, 3_600_000.0, 2000, 2000)   # 500 km square, 4 M cells
+    rng = np.random.default_rng(0)
+    road_tif, units_tif = tmp_path / "roads_A.tif", tmp_path / "units.tif"
+    create_raster(frame, road_tif)
+    with rasterio.open(road_tif, "r+") as ds:
+        ds.write((rng.uniform(size=(2000, 2000)) < 0.02).astype("uint8"), 1)
+    create_raster(frame, units_tif, dtype="int16")
+    with rasterio.open(units_tif, "r+") as ds:
+        ds.write(np.ones((2000, 2000), dtype="int16"), 1)
+    to_ll = Transformer.from_crs("EPSG:3035", "EPSG:4326", always_xy=True)
+    lon, lat = to_ll.transform(5_000_000 + 1900 * 250, 3_600_000 - 1900 * 250)   # far from the raster origin
+    unit = Unit("uu", "U", "U", 1, "uu", MultiPolygon([box(lon - 5, lat - 5, lon + 5, lat + 5)]), False, 1)
+    poles = {"A": [{"unit": "uu", "poles": [_pole(lat, lon, 12_000)], "reason": None}]}
+
+    reads: list[tuple] = []
+    real_open = rasterio.open
+
+    class Spy:
+        def __init__(self, ds):
+            self._ds = ds
+
+        def __enter__(self):
+            self._ds.__enter__()
+            return self
+
+        def __exit__(self, *exc):
+            return self._ds.__exit__(*exc)
+
+        def __getattr__(self, name):
+            return getattr(self._ds, name)
+
+        def read(self, *args, **kwargs):
+            data = self._ds.read(*args, **kwargs)
+            reads.append((kwargs.get("window"), data.size))
+            return data
+
+    monkeypatch.setattr(rasterio, "open", lambda *a, **k: Spy(real_open(*a, **k)))
+    results = holes(poles, {"A": road_tif}, units_tif, frame, [unit])
+    assert len(results) == 1 and results[0].passed
+    assert reads and all(window is not None for window, _ in reads)
+    assert max(size for _, size in reads) <= 512 * 512

@@ -17,6 +17,7 @@ import shapely
 import yaml
 from pyogrio.raw import read
 from pyproj import Geod, Transformer
+from rasterio.windows import Window
 from shapely.geometry.base import BaseGeometry
 from shapely.prepared import prep
 
@@ -194,47 +195,92 @@ def _ring_density(mask: np.ndarray, row: int, col: int, r_in_cells: float, r_out
     return float(mask[r0:r1, c0:c1][ring].sum()) / n if n else 0.0
 
 
+def _ring_window(ds, row: int, col: int, radius: int) -> tuple[np.ndarray, int, int]:
+    """The (2 * radius + 1) box of `ds` around row/col as a bool array, plus row/col inside that box.
+
+    Clipped to the raster, which is what `_ring_density` would do to a full array anyway, so the densities
+    come out identical to reading the whole thing. Hand the three straight to `_ring_density`."""
+    r0, r1 = max(0, row - radius), min(ds.height, row + radius + 1)
+    c0, c1 = max(0, col - radius), min(ds.width, col + radius + 1)
+    if r1 <= r0 or c1 <= c0:
+        return np.zeros((0, 0), dtype=bool), 0, 0
+    return ds.read(1, window=Window(c0, r0, c1 - c0, r1 - r0)).astype(bool), row - r0, col - c0
+
+
+def _sample_unit_cells(units_tif: Path, indices: set[int], n: int,
+                       rng: np.random.Generator) -> dict[int, tuple[np.ndarray, np.ndarray]]:
+    """Up to n cells of each wanted unit index, block by block, in whole-raster coordinates.
+
+    The unit raster is 1.35 GB at a continent-sized frame and the median only needs a sample of each unit,
+    so the raster is never held whole: every cell gets a random key and the n smallest keys survive, which
+    is a uniform sample without replacement whatever order the blocks arrive in."""
+    keep = {i: (np.empty(0), np.empty(0, np.int64), np.empty(0, np.int64)) for i in indices}
+    if not indices:
+        return {}
+    with rasterio.open(units_tif) as ds:
+        wanted = np.array(sorted(indices), dtype=np.int64)
+        for _, win in ds.block_windows(1):
+            block = ds.read(1, window=win)
+            present = np.intersect1d(np.unique(block[block > 0]).astype(np.int64), wanted)
+            for idx in present.tolist():
+                rows, cols = np.nonzero(block == idx)
+                keys, r, c = keep[idx]
+                keys = np.concatenate([keys, rng.random(len(rows))])
+                r = np.concatenate([r, rows.astype(np.int64) + int(win.row_off)])
+                c = np.concatenate([c, cols.astype(np.int64) + int(win.col_off)])
+                if len(keys) > n:
+                    pick = np.argpartition(keys, n)[:n]
+                    keys, r, c = keys[pick], r[pick], c[pick]
+                keep[idx] = (keys, r, c)
+    return {i: (r, c) for i, (_, r, c) in keep.items()}
+
+
 def holes(poles, road_masks: dict[str, Path], units_tif: Path, frame: Frame, units: list[Unit],
-          top: int = 3, seed: int = 0) -> list[CheckResult]:
+          top: int = 3, seed: int = 0, samples: int = 200) -> list[CheckResult]:
     """Check 5: an empty 0-10 km ring with a 10-30 km ring denser than the unit's median is a probable import gap.
 
-    The unit median comes from 200 cells of the unit drawn with a fixed seed, so a rerun over the same
-    rasters flags the same candidates."""
+    The unit median comes from `samples` cells of the unit drawn with a fixed seed, so a rerun over the same
+    rasters flags the same candidates. Every raster read here is a window of the 30 km radius the rings need
+    (or one block of the unit raster while sampling): at the Europe frame a full read would be 675 M cells."""
     to_frame = Transformer.from_crs("EPSG:4326", frame.crs, always_xy=True)
     inner, outer = INNER_KM * 1000 / frame.res, OUTER_KM * 1000 / frame.res
+    radius = int(np.ceil(outer)) + 1
     by_code = {u.code: u for u in units}
-    rng = np.random.default_rng(seed)
-    with rasterio.open(units_tif) as uds:
-        unit_raster = uds.read(1)
+    wanted: dict[str, int] = {}
+    for scenario, entries in poles.items():
+        for entry in entries:
+            if not entry["poles"]:
+                continue
+            if entry["unit"] not in by_code:
+                raise ChecksError(f"unit {entry['unit']!r} has poles in scenario {scenario} but is not in the units list")
+            wanted[entry["unit"]] = by_code[entry["unit"]].index
+    # One pass over the unit raster for every unit at once, and the same sample in both scenarios.
+    sampled = _sample_unit_cells(units_tif, set(wanted.values()), samples, np.random.default_rng(seed))
     out = []
     for scenario, mask_path in road_masks.items():
         with rasterio.open(mask_path) as ds:
-            mask = ds.read(1).astype(bool)
-        medians: dict[str, float] = {}
-        for entry in poles.get(scenario, []):
-            unit = entry["unit"]
-            if not entry["poles"]:
-                continue
-            if unit not in by_code:
-                raise ChecksError(f"unit {unit!r} has poles in scenario {scenario} but is not in the units list")
-            if unit not in medians:
-                rows, cols = np.nonzero(unit_raster == by_code[unit].index)
-                pick = rng.choice(len(rows), size=min(200, len(rows)), replace=False) if len(rows) else []
-                medians[unit] = float(np.median([_ring_density(mask, rows[i], cols[i], inner, outer)
-                                                 for i in pick])) if len(pick) else 0.0
-            for p in entry["poles"][:top]:
-                x, y = to_frame.transform(p["lon"], p["lat"])
-                row, col = int((frame.y1 - y) // frame.res), int((x - frame.x0) // frame.res)
-                if not (0 <= row < mask.shape[0] and 0 <= col < mask.shape[1]):
-                    raise ChecksError(f"{unit} {scenario} #{p['rank']} at {p['lat']}, {p['lon']} falls outside "
-                                      f"the grid frame at row {row}, col {col}; an empty window would read as "
-                                      f"an empty inner ring and flag a hole that is really a bad coordinate")
-                inner_d = _ring_density(mask, row, col, -1, inner)
-                outer_d = _ring_density(mask, row, col, inner, outer)
-                flagged = inner_d == 0 and outer_d > medians[unit]
-                out.append(CheckResult("holes", unit, scenario, not flagged, False,
-                                       {"rank": p["rank"], "inner_density": inner_d, "outer_density": outer_d,
-                                        "unit_median_outer": medians[unit]}))
+            medians: dict[str, float] = {}
+            for unit, index in wanted.items():
+                rows, cols = sampled.get(index, (np.empty(0, np.int64), np.empty(0, np.int64)))
+                densities = [_ring_density(*_ring_window(ds, int(r), int(c), radius), inner, outer)
+                             for r, c in zip(rows, cols)]
+                medians[unit] = float(np.median(densities)) if densities else 0.0
+            for entry in poles.get(scenario, []):
+                unit = entry["unit"]
+                for p in entry["poles"][:top]:
+                    x, y = to_frame.transform(p["lon"], p["lat"])
+                    row, col = int((frame.y1 - y) // frame.res), int((x - frame.x0) // frame.res)
+                    if not (0 <= row < ds.height and 0 <= col < ds.width):
+                        raise ChecksError(f"{unit} {scenario} #{p['rank']} at {p['lat']}, {p['lon']} falls outside "
+                                          f"the grid frame at row {row}, col {col}; an empty window would read as "
+                                          f"an empty inner ring and flag a hole that is really a bad coordinate")
+                    win = _ring_window(ds, row, col, radius)
+                    inner_d = _ring_density(*win, -1, inner)
+                    outer_d = _ring_density(*win, inner, outer)
+                    flagged = inner_d == 0 and outer_d > medians[unit]
+                    out.append(CheckResult("holes", unit, scenario, not flagged, False,
+                                           {"rank": p["rank"], "inner_density": inner_d, "outer_density": outer_d,
+                                            "unit_median_outer": medians[unit]}))
     return out
 
 
