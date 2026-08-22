@@ -14,7 +14,7 @@ from poles.grid import Frame, create_raster
 from poles.poles import (Prepared, _allowed_factory, _bbox_window, _unit_meta, _unit_windows, top_n_dedup,
                          validate_poles_json, write_water_big)
 from poles.extract import MARKER
-from poles.units import Unit, write_units
+from poles.units import Unit, low_tif, write_units
 from poles.workspace import Workspace
 from tests.helpers import write_fgb
 
@@ -52,6 +52,23 @@ def test_unit_windows_are_the_tight_row_col_box_of_each_index(tmp_path):
         a[5, 0] = 2
         ds.write(a, 1)
     assert _unit_windows(tif) == {1: (1, 2, 3, 3), 2: (5, 0, 1, 1)}
+
+
+def test_unit_windows_cover_every_raster_a_unit_has_cells_in(tmp_path):
+    """A cell two units touch is in the top raster under one index and in the companion under the other, so
+    a window taken from one raster alone would cut off the cells the other holds."""
+    frame = Frame("EPSG:4326", 1.0, 0.0, 6.0, 6, 6)
+    hi = create_raster(frame, tmp_path / "units.tif", dtype="int16")
+    lo = create_raster(frame, low_tif(tmp_path / "units.tif"), dtype="int16")
+    with rasterio.open(hi, "r+") as ds:
+        a = np.zeros((6, 6), dtype="int16")
+        a[1, 2] = 1
+        ds.write(a, 1)
+    with rasterio.open(lo, "r+") as ds:
+        a = np.zeros((6, 6), dtype="int16")
+        a[4, 5] = 1
+        ds.write(a, 1)
+    assert _unit_windows(hi, lo) == {1: (1, 2, 4, 4)}
 
 
 def test_allowed_needs_the_unit_and_land_and_no_big_water(tmp_path):
@@ -208,12 +225,12 @@ def _prepare_workspace(tmp_path, monkeypatch):
     (out / "roads").mkdir(exist_ok=True)
     (out / "roads" / "tiles.json").write_text("{}", encoding="utf-8")
 
-    def fake_rasterize(units_fgb, frame, land_tif, out_tif, log, workdir):
+    def fake_rasterize(units_fgb, frame, land_src, water_src, out_tif, log, workdir):
         out_tif.touch()
         return {1: 100}
 
     monkeypatch.setattr(poles_mod, "rasterize_units", fake_rasterize)
-    monkeypatch.setattr(poles_mod, "_unit_windows", lambda tif: {1: (0, 0, 2, 2)})
+    monkeypatch.setattr(poles_mod, "_unit_windows", lambda *tifs: {1: (0, 0, 2, 2)})
     return ws, out
 
 

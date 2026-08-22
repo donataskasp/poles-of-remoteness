@@ -8,10 +8,11 @@ from shapely.geometry import MultiPolygon, Point, box
 
 from poles.boundaries import AdminArea
 from poles.config import RegionConfig, load_region
-from poles.grid import Frame, create_raster
+from poles.grid import Frame
 from poles.poles import _units_from_fgb
-from poles.units import (Unit, UnitsError, apply_territory_mask, country_of, inside_fraction, rasterize_units,
-                         select_units, unit_cells, write_units)
+from poles.units import (Unit, UnitsError, apply_territory_mask, country_of, inside_fraction, low_tif,
+                         rasterize_units, select_units, unit_cells, write_units)
+from tests.helpers import write_fgb
 
 
 def _area(osm_id, code, geom, level=2, name=None):
@@ -90,61 +91,93 @@ def test_incomplete_unit_is_warned_about(regions_dir, caplog):
     assert "bb" in caplog.records[0].getMessage() and "closed along the data edge" in caplog.records[0].getMessage()
 
 
-def test_unit_raster_assigns_each_cell_to_one_unit(tmp_path, log, regions_dir):
-    aa = _area(1, "AA", box(0, 0, 2, 2))
-    bb = _area(2, "BB", box(2, 0, 4, 2))
-    cfg = _cfg(regions_dir, unit_exclude=[], territory_mask=[], expected_units=2, transcontinental=[])
-    units = select_units([aa, bb], cfg, box(-1, -1, 10, 10))
+# ---------- the candidate-cell raster ----------
+
+def _unit(code: str, geom, index: int) -> Unit:
+    return Unit(code, code.upper(), code.upper(), index, code, MultiPolygon([geom]), False, index)
+
+
+def _mini(tmp_path, units, land, water=None):
+    """A 6 x 6 degree frame of 1 degree cells, with the vector inputs the candidate rule reads.
+
+    Cell (row, col) covers lon col..col+1 and lat 5-row..6-row, so its centre is at (col + 0.5, 5.5 - row)."""
+    frame = Frame("EPSG:4326", 1.0, 0.0, 6.0, 6, 6)
     fgb = write_units(units, tmp_path / "units.fgb")
-    frame = Frame("EPSG:4326", 0.5, -1.0, 3.0, 10, 8)        # lon -1..4, lat -1..3 at 0.5 degree cells
-    land = create_raster(frame, tmp_path / "land.tif")
-    with rasterio.open(land, "r+") as ds:
-        arr = ds.read(1)
-        arr[:, :] = 1
-        arr[:, 9] = 0                                        # the easternmost column is sea
-        ds.write(arr, 1)
-    counts = rasterize_units(fgb, frame, land, tmp_path / "units.tif", log, tmp_path)
-    with rasterio.open(tmp_path / "units.tif") as ds:
-        u = ds.read(1)
-    assert u.dtype == np.int16 and set(np.unique(u)) == {0, 1, 2}
-    assert counts == {1: 16, 2: 12}                         # 4 x 4 cells each, minus bb's sea column
-    assert u[2:6, 2:6].min() == 1 and u[2:6, 6:9].min() == 2 and u[:, 9].max() == 0 and u[0].max() == 0
+    land_fgb = write_fgb(tmp_path / "land.fgb", "land", land, {"fid": list(range(1, len(land) + 1))})
+    water = water or [box(50, 50, 51, 51)]        # far outside the frame: the layer has to exist, not to matter
+    water_fgb = write_fgb(tmp_path / "water.fgb", "water", water, {"fid": list(range(1, len(water) + 1))})
+    return frame, fgb, land_fgb, water_fgb
 
 
-def test_unit_cells_falls_back_to_all_touched_for_a_microstate(tmp_path, log, regions_dir):
-    tiny = _area(1, "TT", box(1.1, 1.1, 1.2, 1.2))        # smaller than a cell, contains no cell centre
-    cfg = _cfg(regions_dir, unit_exclude=[], territory_mask=[], expected_units=1, transcontinental=[])
-    units = select_units([tiny], cfg, box(0, 0, 10, 10))
-    fgb = write_units(units, tmp_path / "units.fgb")
-    frame = Frame("EPSG:4326", 0.5, 0.0, 3.0, 6, 6)
-    land = create_raster(frame, tmp_path / "land.tif")
-    with rasterio.open(land, "r+") as ds:
-        ds.write(np.ones((6, 6), dtype="uint8"), 1)
-    counts = rasterize_units(fgb, frame, land, tmp_path / "units.tif", log, tmp_path)
-    assert counts == {1: 0}
-    rows, cols = unit_cells(tmp_path / "units.tif", units[0], frame, log, tmp_path)
-    assert list(zip(rows.tolist(), cols.tolist())) == [(3, 2)]   # lat 1.1..1.2 is row 3, lon 1.1..1.2 is col 2
+def _raster(path):
+    with rasterio.open(path) as ds:
+        return ds.read(1)
 
 
-def test_unit_cells_window_reads_a_box_and_still_reports_absolute_rows(tmp_path, log, regions_dir):
-    """A window covering the unit answers the same as the whole raster, for a unit that holds a cell centre
-    and for a microstate that has to fall back to all-touched."""
-    big = _area(1, "BB", box(0.55, 0.55, 0.95, 0.95))     # holds exactly the centre of the cell at row 4, col 1
-    tiny = _area(2, "TT", box(1.1, 1.1, 1.2, 1.2))        # smaller than a cell, contains no cell centre
-    cfg = _cfg(regions_dir, unit_exclude=[], territory_mask=[], expected_units=2, transcontinental=[])
-    units = select_units([big, tiny], cfg, box(0, 0, 10, 10))
-    fgb = write_units(units, tmp_path / "units.fgb")
-    frame = Frame("EPSG:4326", 0.5, 0.0, 3.0, 6, 6)
-    land = create_raster(frame, tmp_path / "land.tif")
-    with rasterio.open(land, "r+") as ds:
-        ds.write(np.ones((6, 6), dtype="uint8"), 1)
-    assert rasterize_units(fgb, frame, land, tmp_path / "units.tif", log, tmp_path) == {1: 1, 2: 0}
-    bb, tt = units                                                # sorted by code: bb then tt
-    window = Window(col_off=1, row_off=2, width=3, height=4)      # rows 2 to 5, cols 1 to 3
-    rows, cols = unit_cells(tmp_path / "units.tif", bb, frame, log, tmp_path, window=window)
+def test_unit_raster_takes_an_islet_smaller_than_a_cell(tmp_path, log):
+    """A candidate cell is any cell the unit's land touches, so a rock that holds no cell centre is one."""
+    islet = box(1.1, 1.1, 1.2, 1.2)
+    frame, fgb, land, water = _mini(tmp_path, [_unit("aa", islet, 1)], [box(1.05, 1.05, 1.25, 1.25)])
+    counts = rasterize_units(fgb, frame, land, water, tmp_path / "units.tif", log, tmp_path)
+    assert counts == {1: 1} and _raster(tmp_path / "units.tif")[4, 1] == 1
+
+
+def test_unit_raster_takes_a_coastal_cell_whose_centre_is_at_sea(tmp_path, log):
+    """The land part of a coastal cell is unit ground, whatever the cell centre happens to sit on."""
+    coast = box(0, 0, 1.3, 1.3)
+    frame, fgb, land, water = _mini(tmp_path, [_unit("aa", coast, 1)], [coast])
+    counts = rasterize_units(fgb, frame, land, water, tmp_path / "units.tif", log, tmp_path)
+    arr = _raster(tmp_path / "units.tif")
+    assert counts == {1: 4}                       # the cell it fills and the three it only touches
+    assert arr[5, 0] == 1 and arr[4, 0] == 1 and arr[5, 1] == 1 and arr[4, 1] == 1
+
+
+def test_unit_raster_drops_only_the_cells_fully_inside_big_water(tmp_path, log):
+    whole, lake = box(0, 0, 6, 6), box(1.2, 1.2, 3.8, 3.8)
+    frame, fgb, land, water = _mini(tmp_path, [_unit("aa", whole, 1)], [whole], [lake])
+    counts = rasterize_units(fgb, frame, land, water, tmp_path / "units.tif", log, tmp_path)
+    arr = _raster(tmp_path / "units.tif")
+    assert counts == {1: 35} and arr[3, 2] == 0   # lon 2..3, lat 2..3 is the only cell the lake covers whole
+    assert arr[4, 1] == 1                         # centre in the lake, shore in the cell: still a candidate
+
+
+def test_unit_raster_leaves_out_a_cell_no_land_touches(tmp_path, log):
+    frame, fgb, land, water = _mini(tmp_path, [_unit("aa", box(0, 0, 3.9, 3.9), 1)], [box(0, 0, 2.5, 3.9)])
+    counts = rasterize_units(fgb, frame, land, water, tmp_path / "units.tif", log, tmp_path)
+    arr = _raster(tmp_path / "units.tif")
+    assert counts == {1: 12} and arr[5, 3] == 0 and arr[5, 2] == 1
+
+
+def test_unit_cells_gives_a_border_cell_to_both_units(tmp_path, log):
+    """An int16 raster names one owner per cell, so the two rasters are burnt in opposite index order and
+    a unit's cells are read as the union: no unit loses a cell to a neighbour that touches it too."""
+    aa, bb = box(0, 0, 1.4, 6), box(1.4, 0, 6, 6)
+    units = [_unit("aa", aa, 1), _unit("bb", bb, 2)]
+    frame, fgb, land, water = _mini(tmp_path, units, [box(0, 0, 6, 6)])
+    counts = rasterize_units(fgb, frame, land, water, tmp_path / "units.tif", log, tmp_path)
+    assert counts == {1: 12, 2: 30}               # column 1 is a candidate cell of both units
+    assert _raster(tmp_path / "units.tif")[0, 1] == 2 and _raster(low_tif(tmp_path / "units.tif"))[0, 1] == 1
+    for unit in units:
+        rows, cols = unit_cells(tmp_path / "units.tif", unit)
+        assert 1 in cols.tolist()
+
+
+def test_unit_cells_window_reads_a_box_and_still_reports_absolute_rows(tmp_path, log):
+    """A window covering the unit answers what the whole raster would, in whole-raster coordinates."""
+    unit = _unit("aa", box(1.1, 1.1, 1.2, 1.2), 1)
+    frame, fgb, land, water = _mini(tmp_path, [unit], [box(1.05, 1.05, 1.25, 1.25)])
+    rasterize_units(fgb, frame, land, water, tmp_path / "units.tif", log, tmp_path)
+    window = Window(col_off=1, row_off=2, width=3, height=4)          # rows 2 to 5, cols 1 to 3
+    rows, cols = unit_cells(tmp_path / "units.tif", unit, window=window)
     assert list(zip(rows.tolist(), cols.tolist())) == [(4, 1)]
-    rows, cols = unit_cells(tmp_path / "units.tif", tt, frame, log, tmp_path, window=window)
-    assert list(zip(rows.tolist(), cols.tolist())) == [(3, 2)]    # lat 1.1..1.2 is row 3, lon 1.1..1.2 is col 2
+
+
+def test_unit_cells_fails_when_the_unit_has_no_candidate_cell(tmp_path, log):
+    unit = _unit("aa", box(1.1, 1.1, 1.2, 1.2), 1)
+    frame, fgb, land, water = _mini(tmp_path, [unit], [box(5.1, 5.1, 5.2, 5.2)])   # land nowhere near the unit
+    assert rasterize_units(fgb, frame, land, water, tmp_path / "units.tif", log, tmp_path) == {1: 0}
+    with pytest.raises(UnitsError, match="no candidate cell"):
+        unit_cells(tmp_path / "units.tif", unit)
 
 
 def test_units_round_trip_through_the_fgb_keeps_every_persisted_field(tmp_path):

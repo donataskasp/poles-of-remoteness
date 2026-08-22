@@ -28,8 +28,8 @@ from shapely.ops import unary_union
 from ..config import RegionConfig
 from ..errors import PolesError
 from ..extract import MARKER
-from ..grid import TILE, Frame, build_land_mask, create_raster, rasterize, tiled_edt, write_float_tif
-from ..poles import MIN_WATER_M2, SCENARIOS, Prepared, UnitJob, prepare, search_unit, validate_poles_json
+from ..grid import TILE, Frame, create_raster, rasterize, tiled_edt, write_float_tif
+from ..poles import SCENARIOS, Prepared, UnitJob, prepare, search_unit, validate_poles_json
 from ..poly import parse_poly
 from ..roads import RoadTiles
 from ..units import rasterize_units
@@ -38,10 +38,6 @@ from . import checks
 from .report import cached_tile_fetcher, write_atomic, write_contact_sheet, write_report_html, write_report_json
 
 STAGE = "validate"
-# Check 4 compares the pole that will be published, which is not always rank 1, and the shifted grid can
-# order its candidates differently, so the rerun keeps a few of each: enough to find the counterpart of
-# whichever pole is compared, far cheaper than repeating a full top_n search.
-SHIFT_TOP_N = 3
 # The fields check 4 reads off a shifted pole. A stored file without them is from an older version of this
 # stage and is recomputed rather than read, the way the poles stage checks its cached results.
 SHIFT_KEYS = ("rank", "lat", "lon", "dist_m")
@@ -216,20 +212,20 @@ def shifted_poles(cfg: RegionConfig, ws: Workspace, prepared: Prepared, log: log
         del dist
         _mark(dist_tif)
         log.info("shifted grid: scenario %s distance raster in %.0fs", s, time.monotonic() - t0)
-    land_tif, units_tif = out / "land_shift.tif", out / "units_shift.tif"
+    units_tif = out / "units_shift.tif"
     if not _done(units_tif):
         t0 = time.monotonic()
-        build_land_mask(ws.shared_dir() / "land.vrt", ws.dir("extract") / "water.vrt", shifted, land_tif,
-                        MIN_WATER_M2, log, out)
-        rasterize_units(ws.dir("poles") / "units.fgb", shifted, land_tif, units_tif, log, out)
+        # The same vector inputs the poles stage used, on the shifted frame: the land and water masks the
+        # candidate rule needs are frame-specific, so this frame builds its own beside units_shift.tif.
+        rasterize_units(ws.dir("poles") / "units.fgb", shifted, ws.shared_dir() / "land.vrt",
+                        ws.dir("poles") / "water_big.fgb", units_tif, log, out)
         _mark(units_tif)
-        # build_land_mask reprojects the water polygons into the stage directory (gigabytes at a
-        # continent-sized extract) and rebuilds them whenever it runs again, so nothing needs them after this.
-        (out / "water_proj.fgb").unlink(missing_ok=True)
-        log.info("shifted grid: land and unit rasters in %.0fs", time.monotonic() - t0)
+        log.info("shifted grid: unit rasters in %.0fs", time.monotonic() - t0)
     prep_shift = replace(prepared, units=[], frame=shifted, units_tif=units_tif,
                          windows=_shift_windows(prepared.windows, shifted))
-    jobs = [UnitJob(cfg, prep_shift, u, s, out / f"dist_{s}_shift.tif", SHIFT_TOP_N, ws.base / "log.txt")
+    # The full top_n, not a few: check 4 compares the pole that will be published, and with enough excluded
+    # poles above it that can be any rank up to top_n, which a shorter shifted list would not reach.
+    jobs = [UnitJob(cfg, prep_shift, u, s, out / f"dist_{s}_shift.tif", cfg.top_n, ws.base / "log.txt")
             for s in SCENARIOS for u in sorted(prepared.units, key=lambda u: -u.cells)]
     pool_workers = int(os.environ.get("POLES_WORKERS", "0")) or 4
     log.info("shifted grid: %d searches on %d workers", len(jobs), pool_workers)

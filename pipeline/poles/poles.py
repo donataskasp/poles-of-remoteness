@@ -48,7 +48,7 @@ from .poly import parse_poly
 from .refine import RoadCache, refine, utm_epsg
 from .roads import RoadTiles, build_tiles
 from .shell import require_tools, run_cmd
-from .units import Unit, rasterize_units, select_units, unit_cells, write_units
+from .units import Unit, low_tif, rasterize_units, select_units, unit_cells, write_units
 from .workspace import Workspace
 
 STAGE = "poles"
@@ -96,30 +96,32 @@ class Prepared:
     windows: dict[str, tuple[int, int, int, int]]
 
 
-def _unit_windows(units_tif: Path) -> dict[int, tuple[int, int, int, int]]:
-    """One block-wise pass over the unit raster: the tight (row_off, col_off, height, width) of every index.
+def _unit_windows(*units_tifs: Path) -> dict[int, tuple[int, int, int, int]]:
+    """One block-wise pass over the unit rasters: the tight (row_off, col_off, height, width) of every index.
 
-    Read once in `prepare` so that a worker never opens the whole raster: at a continent-sized frame the
-    unit raster is 1.35 GB and the distance rasters are 2.7 GB each, while a single unit's window is a
-    few hundred megabytes at worst.
+    Every raster a unit's cells are read from has to be scanned, or a window can miss a cell the other
+    raster holds. Read once in `prepare` so that a worker never opens a whole raster: at a continent-sized
+    frame the unit raster is 1.35 GB and the distance rasters are 2.7 GB each, while a single unit's window
+    is a few hundred megabytes at worst.
     """
     bounds: dict[int, list[int]] = {}
-    with rasterio.open(units_tif) as ds:
-        for _, win in ds.block_windows(1):
-            block = ds.read(1, window=win)
-            present = np.unique(block[block > 0])
-            if not present.size:
-                continue
-            r0, c0 = int(win.row_off), int(win.col_off)
-            for idx in present.tolist():
-                rows, cols = np.nonzero(block == idx)
-                box = [r0 + int(rows.min()), c0 + int(cols.min()), r0 + int(rows.max()), c0 + int(cols.max())]
-                have = bounds.get(idx)
-                if have is None:
-                    bounds[idx] = box
-                else:
-                    have[0], have[1] = min(have[0], box[0]), min(have[1], box[1])
-                    have[2], have[3] = max(have[2], box[2]), max(have[3], box[3])
+    for units_tif in units_tifs:
+        with rasterio.open(units_tif) as ds:
+            for _, win in ds.block_windows(1):
+                block = ds.read(1, window=win)
+                present = np.unique(block[block > 0])
+                if not present.size:
+                    continue
+                r0, c0 = int(win.row_off), int(win.col_off)
+                for idx in present.tolist():
+                    rows, cols = np.nonzero(block == idx)
+                    box = [r0 + int(rows.min()), c0 + int(cols.min()), r0 + int(rows.max()), c0 + int(cols.max())]
+                    have = bounds.get(idx)
+                    if have is None:
+                        bounds[idx] = box
+                    else:
+                        have[0], have[1] = min(have[0], box[0]), min(have[1], box[1])
+                        have[2], have[3] = max(have[2], box[2]), max(have[3], box[3])
     return {i: (b[0], b[1], b[2] - b[0] + 1, b[3] - b[1] + 1) for i, b in bounds.items()}
 
 
@@ -181,13 +183,20 @@ def prepare(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> Prepared:
     else:
         units = _units_from_fgb(units_fgb)
 
+    # water_big is an input to the candidate cells now, so it is built before them, not after.
+    water_big = out / "water_big.fgb"
+    if not _done(water_big):
+        write_water_big(grid_dir / "water_proj.fgb", water_big, MIN_WATER_M2, log, tools_log)
+        _mark(water_big)
+
     units_tif = out / "units.tif"
     if not _done(units_tif):
-        counts = rasterize_units(units_fgb, frame, grid_dir / "land.tif", units_tif, log, out)
-        windows_by_index = _unit_windows(units_tif)
+        counts = rasterize_units(units_fgb, frame, ws.shared_dir() / "land.vrt", water_big, units_tif, log, out)
+        windows_by_index = _unit_windows(units_tif, low_tif(units_tif))
         cell_km2 = (frame.res / 1000.0) ** 2
         for u in units:
             u.cells = counts.get(u.index, 0)
+            # candidate cells are all-touched, so this runs a hair over the true area at the border
             u.area_km2 = round(u.cells * cell_km2, 1)
         units_json.write_text(json.dumps({"units": [{
             "code": u.code, "name": u.name, "name_en": u.name_en, "osm_id": u.osm_id, "country": u.country, "index": u.index,
@@ -212,10 +221,6 @@ def prepare(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> Prepared:
         run_cmd(["ogr2ogr", "-f", "FlatGeobuf", land_idx, ws.shared_dir() / "land.vrt", "-nln", "land",
                  "-lco", "SPATIAL_INDEX=YES"], log, stderr_path=tools_log)
         _mark(land_idx)
-    water_big = out / "water_big.fgb"
-    if not _done(water_big):
-        write_water_big(grid_dir / "water_proj.fgb", water_big, MIN_WATER_M2, log, tools_log)
-        _mark(water_big)
     return Prepared(frame, units, countries_fgb, roads_dir, units_tif, land_idx, water_big,
                     extract_dir / "places.vrt", windows)
 
@@ -318,12 +323,9 @@ def search_unit(job: UnitJob) -> dict:
     recorded = prep_.windows.get(unit.code)
     window = (Window(col_off=recorded[1], row_off=recorded[0], width=recorded[3], height=recorded[2])
               if recorded is not None else _bbox_window(unit, frame, to_frame))
-    with rasterio.open(prep_.units_tif) as units_ds, rasterio.open(job.dist_tif) as dist_ds:
-        u = units_ds.read(1, window=window)
-        rows, cols = np.nonzero(u == unit.index)
-        if len(rows) == 0:
-            rows, cols = unit_cells(prep_.units_tif, unit, frame, log, prep_.units_tif.parent, window=window)
-            rows, cols = rows - int(window.row_off), cols - int(window.col_off)
+    rows, cols = unit_cells(prep_.units_tif, unit, window=window)
+    rows, cols = rows - int(window.row_off), cols - int(window.col_off)
+    with rasterio.open(job.dist_tif) as dist_ds:
         dist = dist_ds.read(1, window=window)
     coarse = dist[rows, cols].astype(float)   # unit_cells raises UnitsError before this can be empty
     top_coarse = float(coarse.max())
