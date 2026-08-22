@@ -9,10 +9,10 @@
       "properties": {
         "rank": {"type": "integer", "minimum": 1}, "lat": {"type": "number"}, "lon": {"type": "number"},
         "dist_m": {"type": "number"},
-        "nearest_way": {"type": "object", "required": ["id", "highway"], "properties": {
+        "nearest_way": {"type": "object", "additionalProperties": false, "required": ["id", "highway"], "properties": {
           "id": {"type": "integer"}, "highway": {"type": "string"}, "name": {"type": ["string", "null"]},
           "ref": {"type": ["string", "null"]}, "country": {"type": ["string", "null"]}}},
-        "nearest_place": {"type": ["object", "null"], "required": ["name", "type", "dist_m", "lat", "lon"], "properties": {
+        "nearest_place": {"type": ["object", "null"], "additionalProperties": false, "required": ["name", "type", "dist_m", "lat", "lon"], "properties": {
           "name": {"type": ["string", "null"]}, "type": {"type": "string"}, "dist_m": {"type": "number"},
           "lat": {"type": "number"}, "lon": {"type": "number"}}},
         "detail": {"type": "string", "pattern": "^detail/[a-z0-9-]+/[AB]-[0-9]+$"},
@@ -35,7 +35,7 @@
   "required": ["region", "snapshot", "code", "name", "name_en", "country", "area_km2", "bbox", "transcontinental",
                "closed_by_edge", "A", "B"],
   "properties": {
-    "region": {"type": "string"}, "snapshot": {"type": "string"}, "code": {"type": "string"},
+    "region": {"type": "string"}, "snapshot": {"type": "string"}, "code": {"type": "string", "pattern": "^[a-z0-9-]+$"},
     "name": {"type": "string"}, "name_en": {"type": "string"}, "country": {"type": ["string", "null"]},
     "area_km2": {"type": "number"},
     "bbox": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number"}},

@@ -1,5 +1,5 @@
-"""The site's JSON contract (spec 4.2): exclusions applied, ranks renumbered, geodesic unit areas, four documents
-validated against the frozen schemas in poles/schemas and merged per region with what the site already holds."""
+"""The site's JSON contract (spec 4.2): exclusions applied, ranks renumbered, four documents validated against
+the frozen schemas in poles/schemas and merged per region with what the site already holds."""
 from __future__ import annotations
 
 import copy
@@ -7,11 +7,7 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
-import shapely
 from jsonschema import Draft202012Validator
-from pyogrio.raw import read
-from pyproj import Geod
-from shapely.geometry.base import BaseGeometry
 
 from ..classes import ClassTable
 from ..errors import PolesError
@@ -19,7 +15,6 @@ from ..poles import SCENARIOS
 
 SCHEMA_VERSION = 1
 SCHEMAS = Path(__file__).resolve().parent.parent / "schemas"
-GEOD = Geod(ellps="WGS84")
 
 
 @dataclass(frozen=True)
@@ -53,17 +48,6 @@ def apply_exclusions(poles: dict[str, list[dict]], excluded: list[dict]) -> dict
     return out
 
 
-def unit_area_km2(geom: BaseGeometry) -> float:
-    area, _ = GEOD.geometry_area_perimeter(geom)
-    return round(abs(area) / 1e6, 1)
-
-
-def unit_geometries(units_fgb: Path) -> dict[str, BaseGeometry]:
-    meta, _, wkb, fields = read(str(units_fgb), layer="units", columns=["code"])
-    codes = dict(zip(meta["fields"], fields))["code"]
-    return {code: shapely.from_wkb(g) for code, g in zip(codes, wkb)}
-
-
 def regional_ranks(published_scenario: list[dict]) -> dict[str, int]:
     """Dense rank of each unit's best pole across the region, farthest first; equal distances share a rank."""
     best = [(u["poles"][0]["dist_m"], u["unit"]) for u in published_scenario if u["poles"]]
@@ -84,17 +68,25 @@ def _unit_summary(unit: dict, rank: int | None) -> dict | None:
     return {"dist_m": top["dist_m"], "lat": top["lat"], "lon": top["lon"], "rank": rank, "withheld": unit["withheld"]}
 
 
-def build(region: dict, units_meta: list[dict], geoms: dict[str, BaseGeometry], published: dict[str, list[dict]],
-          table: ClassTable, archives: dict, detail_meta: dict, verify_meta: dict, sources: list[dict],
-          generated_at: str, pipeline_commit: str | None) -> SiteData:
+def build(region: dict, units_meta: list[dict], published: dict[str, list[dict]], table: ClassTable, archives: dict,
+          detail_meta: dict, verify_meta: dict, sources: list[dict], generated_at: str,
+          pipeline_commit: str | None) -> SiteData:
     rid, snapshot = region["id"], region["snapshot"]
     by_unit = {s: {u["unit"]: u for u in published.get(s, [])} for s in SCENARIOS}
+    # A pole for a unit the unit list does not know would be dropped silently and would still have shifted
+    # every other unit's regional rank on its way out, so it stops the publish instead.
+    stray = sorted(set().union(*by_unit.values()) - {m["code"] for m in units_meta})
+    if stray:
+        raise PolesError(f"poles/<scenario>.json holds units that poles/units.json does not: {stray}; "
+                         "the work directory mixes two unit lists, rerun the poles stage")
     ranks = {s: regional_ranks(published.get(s, [])) for s in SCENARIOS}
     units_rows, unit_docs = [], {}
     for m in units_meta:
         code = m["code"]
-        base = {"code": code, "name": m["name"], "name_en": m["name_en"], "country": m["country"],
-                "area_km2": unit_area_km2(geoms[code]), "bbox": m["bbox"],
+        # Both names are str | None upstream (an admin relation can carry neither), and the site renders
+        # both, so each falls back to the other and then to the code rather than reaching the site as null.
+        base = {"code": code, "name": m["name"] or m["name_en"] or code, "name_en": m["name_en"] or m["name"] or code,
+                "country": m["country"], "area_km2": m["area_km2"], "bbox": m["bbox"],
                 "transcontinental": bool(m["transcontinental"]), "closed_by_edge": bool(m["closed_by_edge"])}
         row = dict(base)
         doc = {"region": rid, "snapshot": snapshot, **base}
@@ -122,8 +114,16 @@ def build(region: dict, units_meta: list[dict], geoms: dict[str, BaseGeometry], 
 
 
 def merge_regions(existing: dict | None, entry: dict) -> dict:
-    regions = [r for r in (existing or {}).get("regions", []) if r.get("id") != entry["id"]]
-    return {"schema_version": SCHEMA_VERSION, "regions": regions + [entry]}
+    """A republished region keeps its place in the array; regions.json is committed, so a rebuild that
+    reorders it would show up as a diff of the whole file."""
+    regions = list((existing or {}).get("regions", []))
+    for i, r in enumerate(regions):
+        if r.get("id") == entry["id"]:
+            regions[i] = entry
+            break
+    else:
+        regions.append(entry)
+    return {"schema_version": SCHEMA_VERSION, "regions": regions}
 
 
 def merge_manifest(existing: dict | None, region_id: str, entry: dict, generated_at: str) -> dict:
@@ -149,16 +149,21 @@ def validate_doc(name: str, doc: dict) -> None:
     err = next(iter(sorted(_validators[name].iter_errors(doc), key=_path_key)), None)
     if err is not None:
         where = "/".join(str(p) for p in err.path) or "<root>"
-        raise PolesError(f"{name}.schema.json: {where}: {err.message}")
+        rule = "/".join(str(p) for p in err.schema_path)
+        raise PolesError(f"{name}.schema.json: {where}: {err.message} (schema {rule})")
 
 
 def _read_json(path: Path) -> dict | None:
     if not path.exists():
         return None
+    hint = "fix or remove it before publishing"
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        doc = json.loads(path.read_text(encoding="utf-8"))
     except ValueError as exc:
-        raise PolesError(f"{path}: not JSON ({exc}); fix or remove it before publishing") from exc
+        raise PolesError(f"{path}: not JSON ({exc}); {hint}") from exc
+    if not isinstance(doc, dict):
+        raise PolesError(f"{path}: not a JSON object but a {type(doc).__name__}; {hint}")
+    return doc
 
 
 def _dump(path: Path, doc: dict) -> Path:
@@ -168,7 +173,11 @@ def _dump(path: Path, doc: dict) -> Path:
 
 
 def write_site(site: SiteData, out_dir: Path, region_id: str, generated_at: str) -> list[Path]:
-    """Every document is validated before any of them is written, so a refused publish leaves the site as it was."""
+    """Every document is validated before any of them is written, so a refused publish leaves the site as it was.
+
+    The writing then runs inwards out, unit documents first and regions.json last: the site reads regions.json
+    to learn a region exists, so a crash between two writes leaves the region unannounced rather than
+    half published."""
     regions = merge_regions(_read_json(out_dir / "regions.json"), site.regions_entry)
     manifest = merge_manifest(_read_json(out_dir / "manifest.json"), region_id, site.manifest_entry, generated_at)
     validate_doc("regions", regions)
@@ -176,8 +185,14 @@ def write_site(site: SiteData, out_dir: Path, region_id: str, generated_at: str)
     validate_doc("units", site.units_doc)
     for doc in site.unit_docs.values():
         validate_doc("unit", doc)
-    written = [_dump(out_dir / "regions.json", regions), _dump(out_dir / "manifest.json", manifest),
-               _dump(out_dir / region_id / "units.json", site.units_doc)]
-    for code, doc in site.unit_docs.items():
-        written.append(_dump(out_dir / region_id / "units" / f"{code}.json", doc))
+    units_dir = out_dir / region_id / "units"
+    written = [_dump(units_dir / f"{code}.json", doc) for code, doc in site.unit_docs.items()]
+    # A unit that disappears between two publishes would otherwise sit in git as a document units.json
+    # no longer lists.
+    for stale in sorted(units_dir.glob("*.json")):
+        if stale not in written:
+            stale.unlink()
+    written.append(_dump(out_dir / region_id / "units.json", site.units_doc))
+    written.append(_dump(out_dir / "manifest.json", manifest))
+    written.append(_dump(out_dir / "regions.json", regions))
     return written
