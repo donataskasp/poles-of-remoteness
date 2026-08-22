@@ -1,4 +1,7 @@
-from poles.workspace import Workspace
+import pytest
+
+from poles import workspace as ws_mod
+from poles.workspace import Workspace, write_text_atomic
 
 
 def test_workspace_done_marker_roundtrip(tmp_path):
@@ -24,3 +27,20 @@ def test_workspace_dirs_are_per_region_snapshot_stage(tmp_path):
     assert other.dir("grid") != grid
     assert ws.shared_dir() == other.shared_dir() == tmp_path / "shared"
     assert ws.shared_dir().is_dir()
+
+
+def test_write_text_atomic_never_leaves_a_half_written_target(tmp_path, monkeypatch):
+    """A stamp or a sidecar is read as "this is finished", so an interrupted write must leave the previous
+    text or nothing at all, never a short file the next run would trust."""
+    target = tmp_path / "stamp.json"
+    write_text_atomic(target, "one\n")
+    assert target.read_text(encoding="utf-8") == "one\n"
+    assert [p.name for p in tmp_path.iterdir()] == ["stamp.json"]     # the temp file is gone
+
+    def die(src, dst):
+        raise OSError(28, "No space left on device")
+
+    monkeypatch.setattr(ws_mod.os, "replace", die)
+    with pytest.raises(OSError):
+        write_text_atomic(target, "two\n")
+    assert target.read_text(encoding="utf-8") == "one\n"

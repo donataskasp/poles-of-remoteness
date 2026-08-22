@@ -2,10 +2,21 @@
 from __future__ import annotations
 
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
 DONE = "done.json"
+
+
+def write_text_atomic(path: Path, text: str) -> None:
+    """Write through a temp file beside the target and rename it over: the target is either the old text or
+    the new one, never a short file. Every marker, stamp and sidecar the pipeline reads back as "this is
+    finished" goes this way, because a write interrupted part way (a full disk raises after leaving a few
+    bytes) would otherwise look complete to the next run."""
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(text, encoding="utf-8")
+    os.replace(tmp, path)
 
 
 class Workspace:
@@ -41,10 +52,7 @@ class Workspace:
             "finished_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             **meta,
         }
-        target = self.dir(stage) / DONE
-        tmp = target.with_suffix(".json.tmp")
-        tmp.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-        tmp.replace(target)
+        write_text_atomic(self.dir(stage) / DONE, json.dumps(payload, indent=2, sort_keys=True) + "\n")
 
     def meta(self, stage: str) -> dict:
         return json.loads((self.base / stage / DONE).read_text(encoding="utf-8"))

@@ -12,6 +12,7 @@ from jsonschema import Draft202012Validator
 from ..classes import ClassTable
 from ..errors import PolesError
 from ..poles import SCENARIOS
+from ..workspace import write_text_atomic
 
 SCHEMA_VERSION = 1
 SCHEMAS = Path(__file__).resolve().parent.parent / "schemas"
@@ -168,7 +169,7 @@ def _read_json(path: Path) -> dict | None:
 
 def _dump(path: Path, doc: dict) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    write_text_atomic(path, json.dumps(doc, ensure_ascii=False, indent=1) + "\n")
     return path
 
 
@@ -186,13 +187,14 @@ def write_site(site: SiteData, out_dir: Path, region_id: str, generated_at: str)
     for doc in site.unit_docs.values():
         validate_doc("unit", doc)
     units_dir = out_dir / region_id / "units"
-    written = [_dump(units_dir / f"{code}.json", doc) for code, doc in site.unit_docs.items()]
-    # A unit that disappears between two publishes would otherwise sit in git as a document units.json
-    # no longer lists.
+    unit_files = [_dump(units_dir / f"{code}.json", doc) for code, doc in site.unit_docs.items()]
+    written = [*unit_files, _dump(out_dir / region_id / "units.json", site.units_doc),
+               _dump(out_dir / "manifest.json", manifest), _dump(out_dir / "regions.json", regions)]
+    # A unit that disappears between two publishes would otherwise sit in git as a document units.json no
+    # longer lists. Pruned last, after everything is written, so the same inwards-out rule holds for it: a
+    # crash in the gap leaves a document nothing points at, never a units.json pointing at a document that
+    # has just been deleted.
     for stale in sorted(units_dir.glob("*.json")):
-        if stale not in written:
+        if stale not in unit_files:
             stale.unlink()
-    written.append(_dump(out_dir / region_id / "units.json", site.units_doc))
-    written.append(_dump(out_dir / "manifest.json", manifest))
-    written.append(_dump(out_dir / "regions.json", regions))
     return written
