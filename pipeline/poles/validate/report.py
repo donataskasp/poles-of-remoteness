@@ -22,6 +22,9 @@ from .checks import CheckResult
 ESRI_URL = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
 ESRI_ATTRIBUTION = "Imagery: Esri, Maxar, Earthstar Geographics, and the GIS User Community"
 USER_AGENT = "poles-pipeline contact sheet (validation review page)"
+TILE_TRIES = 3
+# Tiles that failed in a row before the sheet gives up on imagery for the rest of the page.
+TILE_FAILURE_BUDGET = 5
 # 1x1 transparent PNG, drawn where a tile would not download.
 BLANK_PNG = base64.b64decode("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==")
 CSS = """body{font:14px/1.4 system-ui,sans-serif;margin:24px;color:#222;background:#fafafa}h1{font-size:20px}table{border-collapse:collapse}
@@ -29,7 +32,16 @@ td,th{border:1px solid #ccc;padding:4px 8px;text-align:left}.fail{background:#fd
 .card{display:inline-block;vertical-align:top;margin:8px;padding:8px;border:1px solid #ccc;background:#fff;width:784px}
 .mosaic{position:relative;width:768px;height:768px;display:grid;grid-template-columns:repeat(3,256px)}.mosaic img{display:block;width:256px;height:256px}
 .cross{position:absolute;width:24px;height:24px;margin:-12px 0 0 -12px;border:2px solid #ff0;border-radius:50%;box-shadow:0 0 0 2px #000}
+.void{width:256px;height:256px;background:#eee}
 .meta{margin-top:6px}.warning{color:#a60;font-weight:600}footer{margin-top:24px;color:#666}"""
+
+
+def write_atomic(path: Path, text: str) -> None:
+    """Written to a neighbour and renamed, so a crash or a full disk cannot leave half a report behind
+    (the pattern of `Workspace.done` and the poles stage's result cache)."""
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(text, encoding="utf-8")
+    tmp.replace(path)
 
 
 def write_report_json(results: list[CheckResult], path: Path, extra: dict | None = None) -> dict:
@@ -41,7 +53,7 @@ def write_report_json(results: list[CheckResult], path: Path, extra: dict | None
                "warnings": sum(1 for r in results if not r.blocking and not r.passed), "per_check": per_check}
     payload = {**(extra or {}), "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "summary": summary,
                "results": [r.to_dict() for r in results]}
-    path.write_text(json.dumps(payload, indent=1, ensure_ascii=False, default=str) + "\n", encoding="utf-8")
+    write_atomic(path, json.dumps(payload, indent=1, ensure_ascii=False, default=str) + "\n")
     return summary
 
 
@@ -62,8 +74,8 @@ def _excluded_table(excluded: list[dict], names: dict[str, str]) -> str:
                     f'<td><code>{_details(e["details"])}</code></td></tr>')
     return (f"<h2>{_plural(len(excluded), 'excluded pole')}</h2>"
             "<p>Closer to the edge of the data than to the nearest road, so the road that would beat it may "
-            "simply be outside the extract. These stay in the poles stage output; every stage after this one "
-            "skips them.</p>"
+            "simply be outside the extract. They stay in the poles stage output, and publication must skip "
+            "them.</p>"
             "<table><tr><th>Unit</th><th>Scenario</th><th>Rank</th><th>Position</th><th>Distance</th>"
             f"<th>Details</th></tr>{''.join(rows)}</table>")
 
@@ -82,7 +94,7 @@ def write_report_html(results: list[CheckResult], units: list[Unit], path: Path,
             f"<p>{_plural(len(blocking), 'blocking failure')}, {_plural(len(warnings), 'warning')}, {len(results)} results over {len(units)} units.</p>"
             f"{_excluded_table(excluded, names) if excluded else ''}"
             f"<h2>Checks</h2><table><tr><th>Unit</th><th>Scenario</th><th>Check</th><th>Result</th><th>Details</th></tr>{''.join(rows)}</table>")
-    path.write_text(page, encoding="utf-8")
+    write_atomic(path, page)
 
 
 def tile_xy(lon: float, lat: float, z: int) -> tuple[float, float]:
@@ -96,14 +108,49 @@ def tile_xy(lon: float, lat: float, z: int) -> tuple[float, float]:
 def fetch_esri_tile(z: int, x: int, y: int) -> bytes:
     req = urllib.request.Request(ESRI_URL.format(z=z, x=x, y=y), headers={"User-Agent": USER_AGENT})
     last: Exception | None = None
-    for attempt in range(3):
+    for attempt in range(TILE_TRIES):
         try:
             with urllib.request.urlopen(req, timeout=20) as resp:
                 return resp.read()
         except Exception as e:  # noqa: BLE001
             last = e
-            time.sleep(1 + attempt)
-    raise RuntimeError(f"tile {z}/{x}/{y} failed three times: {last}")
+            if attempt < TILE_TRIES - 1:       # nothing to wait for after the last attempt
+                time.sleep(1 + attempt)
+    raise RuntimeError(f"tile {z}/{x}/{y} failed {TILE_TRIES} times: {last}")
+
+
+def cached_tile_fetcher(cache_dir: Path, fetch=fetch_esri_tile):
+    """`fetch` behind a tile cache at `cache_dir`/z/x/y.jpg, so a rerun of the stage hits Esri for nothing
+    it has already seen. The extension is nominal: Esri serves JPEG and PNG, and `_mime` reads the bytes."""
+    def get(z: int, x: int, y: int) -> bytes:
+        path = cache_dir / str(z) / str(x) / f"{y}.jpg"
+        if path.is_file():
+            return path.read_bytes()
+        data = fetch(z, x, y)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_name(path.name + ".tmp")
+        tmp.write_bytes(data)
+        tmp.replace(path)
+        return data
+
+    return get
+
+
+class TileBudget:
+    """How many tiles in a row have failed. A tile server that has stopped answering costs `TILE_TRIES`
+    timeouts per tile, which at a continent's worth of cards is hours spent after the reports are already
+    written, so once `limit` fail in a row the sheet stops asking and renders the rest without imagery."""
+
+    def __init__(self, limit: int):
+        self.limit, self.consecutive, self.failed = limit, 0, 0
+
+    @property
+    def spent(self) -> bool:
+        return self.consecutive >= self.limit
+
+    def record(self, ok: bool) -> None:
+        self.consecutive = 0 if ok else self.consecutive + 1
+        self.failed += 0 if ok else 1
 
 
 def _mime(data: bytes) -> str:
@@ -116,23 +163,35 @@ def _km(d_m: float) -> str:
     return f"{d_m / 1000:.2f} km"
 
 
-def _mosaic(lon: float, lat: float, zoom: int, fetch_tile) -> tuple[str, int]:
+def _mosaic(lon: float, lat: float, zoom: int, fetch_tile, budget: TileBudget) -> tuple[str, int]:
     """The 3x3 tile mosaic around lon/lat with a crosshair, and how many tiles would not download.
 
     A tile server that drops one request must not cost the whole report, so a failed tile becomes a blank
-    and the count travels back to the card.
+    and the count travels back to the card. Once the budget is spent the mosaic is dropped entirely and
+    the empty string comes back, which the card reports as imagery unavailable.
     """
     fx, fy = tile_xy(lon, lat, zoom)
     cx, cy = int(fx), int(fy)
+    n = 2 ** zoom
     imgs, failed = [], 0
     for dy in (-1, 0, 1):
         for dx in (-1, 0, 1):
+            ty = cy + dy
+            if not 0 <= ty < n:                # past a pole: there is no tile to ask for
+                imgs.append('<div class="void"></div>')
+                continue
+            if budget.spent:
+                return "", failed
             try:
-                tile = fetch_tile(zoom, cx + dx, cy + dy)
+                tile = fetch_tile(zoom, (cx + dx) % n, ty)     # the x axis wraps at the date line
+                budget.record(True)
             except Exception:  # noqa: BLE001
                 tile, failed = BLANK_PNG, failed + 1
+                budget.record(False)
             data = base64.b64encode(tile).decode("ascii")
             imgs.append(f'<img src="data:{_mime(tile)};base64,{data}" alt="">')
+    if budget.spent:
+        return "", failed
     px = (fx - cx + 1) * 256
     py = (fy - cy + 1) * 256
     return f'<div class="mosaic">{"".join(imgs)}<div class="cross" style="left:{px:.0f}px;top:{py:.0f}px"></div></div>', failed
@@ -141,12 +200,14 @@ def _mosaic(lon: float, lat: float, zoom: int, fetch_tile) -> tuple[str, int]:
 def _place_line(place: dict) -> str:
     if not place or place.get("name") is None:
         return "nearest place: none in the place layer"
-    return f"nearest place: {html.escape(str(place['name']))} ({place.get('type')}, {_km(place['dist_m'])})"
+    return (f"nearest place: {html.escape(str(place['name']))} "
+            f"({html.escape(str(place.get('type')))}, {_km(place['dist_m'])})")
 
 
 def write_contact_sheet(poles: dict[str, list[dict]], units: list[Unit], results: list[CheckResult], path: Path,
                         fetch_tile=fetch_esri_tile, zoom: int = 13, title: str = "",
-                        excluded: list[dict] | None = None) -> None:
+                        excluded: list[dict] | None = None, failure_budget: int = TILE_FAILURE_BUDGET) -> None:
+    budget = TileBudget(failure_budget)
     entries = {(s, e["unit"]): e for s, es in poles.items() for e in es}
     dropped = {(e["scenario"], e["unit"], e["rank"]) for e in excluded or []}
     flagged: dict[tuple[str, str], list[str]] = {}
@@ -160,7 +221,7 @@ def write_contact_sheet(poles: dict[str, list[dict]], units: list[Unit], results
     for u in units:
         for s in sorted(poles):
             e = entries.get((s, u.code))
-            head = f"<h2>{html.escape(u.name_en or u.code)} ({u.code}) scenario {s}</h2>"
+            head = f"<h2>{html.escape(u.name_en or u.code)} ({html.escape(u.code)}) scenario {s}</h2>"
             out = [p for p in (e or {}).get("poles", []) if (s, u.code, p["rank"]) not in dropped]
             gone = len((e or {}).get("poles", [])) - len(out)
             note = f'<p class="warning">{_plural(gone, "pole")} excluded beyond the data edge</p>' if gone else ""
@@ -171,15 +232,18 @@ def write_contact_sheet(poles: dict[str, list[dict]], units: list[Unit], results
             p = out[0]
             way, place = p["nearest_way"], p["nearest_place"] or {}
             way_txt = " ".join(str(v) for v in (way.get("highway"), way.get("name") or way.get("ref")) if v)
-            mosaic, failed = _mosaic(p["lon"], p["lat"], zoom, fetch_tile)
+            mosaic, failed = _mosaic(p["lon"], p["lat"], zoom, fetch_tile, budget)
             lines = [f"rank {p['rank']}: <b>{_km(p['dist_m'])}</b> from the nearest drivable way at {p['lat']:.5f}, {p['lon']:.5f}",
-                     f"nearest way: {html.escape(way_txt)} (osm way {way['id']}, {way.get('country')})",
+                     f"nearest way: {html.escape(way_txt)} (osm way {way['id']}, {html.escape(str(way.get('country')))})",
                      _place_line(place)]
             for w in flagged.get((s, u.code), []):
                 lines.append(f'<span class="warning">{html.escape(w)}</span>')
-            if failed:
+            if not mosaic:
+                lines.append('<span class="warning">satellite imagery unavailable, the tile server stopped '
+                             f'answering after {_plural(budget.failed, "failed tile")}</span>')
+            elif failed:
                 lines.append(f'<span class="warning">{_plural(failed, "satellite tile")} did not download</span>')
             cards.append(f'<div class="card">{head}{note}{mosaic}<div class="meta">{"<br>".join(lines)}</div></div>')
     page = (f"<!doctype html><meta charset='utf-8'><title>{html.escape(title)}</title><style>{CSS}</style><h1>{html.escape(title)}</h1>"
             f"{''.join(cards)}<footer>{ESRI_ATTRIBUTION}. Map data: OpenStreetMap contributors, ODbL.</footer>")
-    path.write_text(page, encoding="utf-8")
+    write_atomic(path, page)

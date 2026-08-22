@@ -5,10 +5,10 @@ decides what blocks, and writes the three files an owner reads: `report.json`, `
 `contact-sheet.html`.
 
 One class of failure is a fact about the data rather than a bug: a pole whose nearest road may simply be
-outside the extract (an island in the Alboran Sea, with Morocco beyond the data edge). Check 3 finds those,
-and the stage excludes them instead of stopping: they are listed in `report.json` under `excluded`, marked
-on the contact sheet, and skipped by every stage after this one. Everything else that blocks still stops
-the run, after the three files are written.
+outside the extract, because the country that road belongs to was never downloaded. Check 3 finds those,
+and the stage excludes them instead of stopping: they are listed in `report.json` under `excluded` and
+marked on the contact sheet, for publication to skip. Everything else that blocks still stops the run,
+after the three files are written.
 """
 from __future__ import annotations
 
@@ -35,12 +35,16 @@ from ..roads import RoadTiles
 from ..units import rasterize_units
 from ..workspace import Workspace
 from . import checks
-from .report import write_contact_sheet, write_report_html, write_report_json
+from .report import cached_tile_fetcher, write_atomic, write_contact_sheet, write_report_html, write_report_json
 
 STAGE = "validate"
-# Check 4 only compares the winner, but the shifted grid can promote a different candidate, so the rerun
-# keeps a few: enough to see what moved, far cheaper than repeating a full top_n search.
+# Check 4 compares the pole that will be published, which is not always rank 1, and the shifted grid can
+# order its candidates differently, so the rerun keeps a few of each: enough to find the counterpart of
+# whichever pole is compared, far cheaper than repeating a full top_n search.
 SHIFT_TOP_N = 3
+# The fields check 4 reads off a shifted pole. A stored file without them is from an older version of this
+# stage and is recomputed rather than read, the way the poles stage checks its cached results.
+SHIFT_KEYS = ("rank", "lat", "lon", "dist_m")
 
 
 class ValidationFailed(PolesError):
@@ -105,23 +109,58 @@ def edge_exclusions(results: list[checks.CheckResult], poles: dict[str, list[dic
     return kept, excluded
 
 
-def shift_results(poles: dict[str, list[dict]], shifted: dict[tuple[str, str], dict | None],
-                  excluded: list[dict]) -> list[checks.CheckResult]:
-    """Check 4 read off the shifted winners, one result per unit and scenario.
+def load_shifted_winners(path: Path) -> dict[tuple[str, str], list[dict]] | None:
+    """The stored shifted poles, or None when the file cannot be read as the current shape.
 
-    A unit whose winner was excluded is compared but does not block: the shifted grid re-runs the same
-    search over the same incomplete road data, so its winner is the same near-the-edge point, and asking
-    the two to agree says nothing about the poles we are actually going to publish."""
+    The first version of this file kept one pole (or null) per key; reading that as a list would fail deep
+    inside check 4, so anything that does not match is recomputed instead."""
+    try:
+        stored = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
+    if not isinstance(stored, dict):
+        return None
+    out: dict[tuple[str, str], list[dict]] = {}
+    for key, poles in stored.items():
+        if not isinstance(poles, list) or "/" not in str(key):
+            return None
+        if any(not isinstance(p, dict) or any(f not in p for f in SHIFT_KEYS) for p in poles):
+            return None
+        scenario, unit = str(key).split("/", 1)
+        out[(scenario, unit)] = poles
+    return out
+
+
+def _nearest_shifted(pole: dict, candidates: list[dict]) -> dict | None:
+    """The shifted candidate closest to `pole` on the ground.
+
+    Rank is no way to pair them up: half a cell of shift can reorder candidates that are metres apart in
+    distance, so the counterpart of the pole under test is the nearest one, not the one of the same rank."""
+    if not candidates:
+        return None
+    return min(candidates, key=lambda c: checks.GEOD.inv(pole["lon"], pole["lat"], c["lon"], c["lat"])[2])
+
+
+def shift_results(poles: dict[str, list[dict]], shifted: dict[tuple[str, str], list[dict]],
+                  excluded: list[dict]) -> list[checks.CheckResult]:
+    """Check 4 read off the shifted poles, one result per unit and scenario.
+
+    The pole compared is the first one that was not excluded, because that is the pole publication will
+    use. When every pole of the unit and scenario was excluded there is nothing left to publish, so the
+    comparison is kept for the record but does not block: the shifted grid re-runs the same search over the
+    same incomplete road data, and asking the two to agree says nothing about what we ship."""
     dropped = {(e["scenario"], e["unit"], e["rank"]) for e in excluded}
     out = []
-    for scenario in SCENARIOS:
+    for scenario in sorted(poles):
         for entry in poles[scenario]:
             if not entry["poles"]:
                 continue
-            top = entry["poles"][0]
-            r = checks.grid_shift_compare(entry["unit"], scenario, top, shifted.get((scenario, entry["unit"])))
-            if (scenario, entry["unit"], top["rank"]) in dropped:
-                r = replace(r, blocking=False, details={**r.details, "excluded_winner": True})
+            kept = [p for p in entry["poles"] if (scenario, entry["unit"], p["rank"]) not in dropped]
+            original = kept[0] if kept else entry["poles"][0]
+            candidates = shifted.get((scenario, entry["unit"])) or []
+            r = checks.grid_shift_compare(entry["unit"], scenario, original, _nearest_shifted(original, candidates))
+            if not kept:
+                r = replace(r, blocking=False, details={**r.details, "all_poles_excluded": True})
             out.append(r)
     return out
 
@@ -141,7 +180,7 @@ def _shift_windows(windows: dict[str, tuple[int, int, int, int]], frame: Frame,
     return out
 
 
-def shifted_poles(cfg: RegionConfig, ws: Workspace, prepared: Prepared, log: logging.Logger) -> dict[tuple[str, str], dict | None]:
+def shifted_poles(cfg: RegionConfig, ws: Workspace, prepared: Prepared, log: logging.Logger) -> dict[tuple[str, str], list[dict]]:
     """Check 4: recompute the grid half a cell off in both axes and re-run the search for each unit.
 
     Everything here is stage-1 sized (a full-frame rasterize, a full-frame distance transform, a land mask
@@ -151,12 +190,14 @@ def shifted_poles(cfg: RegionConfig, ws: Workspace, prepared: Prepared, log: log
     tools_log = out / "tools.log"
     winners_json = out / "shifted_winners.json"
     if _done(winners_json):
-        log.info("shifted grid: reusing %s", winners_json.name)
-        stored = json.loads(winners_json.read_text(encoding="utf-8"))
-        return {(k.split("/", 1)[0], k.split("/", 1)[1]): v for k, v in stored.items()}
+        stored = load_shifted_winners(winners_json)
+        if stored is not None:
+            log.info("shifted grid: reusing %s", winners_json.name)
+            return stored
+        log.info("shifted grid: %s is not the shape this version reads, searching again", winners_json.name)
     f = prepared.frame
     shifted = Frame(f.crs, f.res, f.x0 + f.res / 2, f.y1 + f.res / 2, f.width, f.height)
-    (out / "frame_shift.json").write_text(json.dumps(shifted.to_dict(), indent=2) + "\n", encoding="utf-8")
+    write_atomic(out / "frame_shift.json", json.dumps(shifted.to_dict(), indent=2) + "\n")
     overlap = math.ceil(cfg.max_distance_m / cfg.coarse_res_m)
     workers = int(os.environ.get("POLES_WORKERS", "0")) or None
     for s in SCENARIOS:
@@ -182,8 +223,8 @@ def shifted_poles(cfg: RegionConfig, ws: Workspace, prepared: Prepared, log: log
                         MIN_WATER_M2, log, out)
         rasterize_units(ws.dir("poles") / "units.fgb", shifted, land_tif, units_tif, log, out)
         _mark(units_tif)
-        # build_land_mask reprojects the water polygons into the stage directory (3.8 GB at the Europe
-        # extract) and rebuilds them whenever it runs again, so nothing needs them after this.
+        # build_land_mask reprojects the water polygons into the stage directory (gigabytes at a
+        # continent-sized extract) and rebuilds them whenever it runs again, so nothing needs them after this.
         (out / "water_proj.fgb").unlink(missing_ok=True)
         log.info("shifted grid: land and unit rasters in %.0fs", time.monotonic() - t0)
     prep_shift = replace(prepared, units=[], frame=shifted, units_tif=units_tif,
@@ -192,18 +233,18 @@ def shifted_poles(cfg: RegionConfig, ws: Workspace, prepared: Prepared, log: log
             for s in SCENARIOS for u in sorted(prepared.units, key=lambda u: -u.cells)]
     pool_workers = int(os.environ.get("POLES_WORKERS", "0")) or 4
     log.info("shifted grid: %d searches on %d workers", len(jobs), pool_workers)
-    result: dict[tuple[str, str], dict | None] = {}
+    result: dict[tuple[str, str], list[dict]] = {}
     try:
         with ProcessPoolExecutor(max_workers=pool_workers) as pool:
             for r in pool.map(search_unit, jobs):
-                result[(r["scenario"], r["unit"])] = r["poles"][0] if r["poles"] else None
+                result[(r["scenario"], r["unit"])] = r["poles"]
                 log.info("shifted %s %s: %s", r["unit"], r["scenario"],
                          f"{r['poles'][0]['dist_m']:.0f} m" if r["poles"] else "no pole")
     except BrokenProcessPool as exc:
         raise PolesError(f"a worker process died during the shifted search after {len(result)} of {len(jobs)} "
                          f"jobs; lower POLES_WORKERS (now {pool_workers}) if the machine ran out of memory") from exc
-    winners_json.write_text(json.dumps({f"{s}/{u}": p for (s, u), p in result.items()}, indent=1, ensure_ascii=False) + "\n",
-                            encoding="utf-8")
+    write_atomic(winners_json, json.dumps({f"{s}/{u}": p for (s, u), p in result.items()}, indent=1,
+                                          ensure_ascii=False) + "\n")
     _mark(winners_json)
     return result
 
@@ -245,12 +286,21 @@ def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
     summary = write_report_json(results, out / "report.json",
                                 {"region": cfg.id, "snapshot": ws.snapshot, "excluded": excluded})
     write_report_html(results, prepared.units, out / "report.html", title, excluded=excluded)
-    step("contact sheet: fetching satellite tiles", lambda: write_contact_sheet(
-        poles, prepared.units, results, out / "contact-sheet.html", excluded=excluded,
-        title=f"{cfg.name} contact sheet, snapshot {ws.snapshot}"))
+    sheet_error = None
+    try:
+        step("contact sheet: fetching satellite tiles", lambda: write_contact_sheet(
+            poles, prepared.units, results, out / "contact-sheet.html", excluded=excluded,
+            fetch_tile=cached_tile_fetcher(out / "tiles"),
+            title=f"{cfg.name} contact sheet, snapshot {ws.snapshot}"))
+    except Exception as exc:  # noqa: BLE001
+        # The sheet is a review aid built from a third-party tile server; the verdict below is the stage's
+        # actual job and must be reached whatever the imagery does.
+        sheet_error = f"{type(exc).__name__}: {exc}"
+        log.error("contact sheet failed (%s); the report files and the verdict still stand", sheet_error)
     log.info("validation: %d blocking failures, %d warnings, %d excluded poles, %d results",
              summary["blocking_failures"], summary["warnings"], len(excluded), len(results))
-    meta = {"summary": summary, "results": len(results), "excluded": excluded, "check_seconds": timings}
+    meta = {"summary": summary, "results": len(results), "excluded": excluded, "check_seconds": timings,
+            "contact_sheet_error": sheet_error}
     if summary["blocking_failures"]:
         failed = [r for r in results if r.blocking and not r.passed]
         raise ValidationFailed(f"{len(failed)} blocking validation failure(s); see {out / 'report.html'}. First: "
