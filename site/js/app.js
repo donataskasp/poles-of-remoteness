@@ -10,6 +10,7 @@ import { createExploreLayer } from './explore.js';
 import { createDetailOverlays } from './detail.js';
 import { createMarkers } from './markers.js';
 import { createCard } from './card.js';
+import { createRanking } from './ranking.js';
 
 const LANG_KEY = 'poles.lang';
 const state = { region: null, unit: null, s: 'A', b: 'sat', l: 'en', sample: null };
@@ -58,6 +59,7 @@ function applyLanguage(lang) {
   applyDom();
   renderLegend();
   if (ui.card) ui.card.refresh();
+  if (ui.ranking) ui.ranking.refresh();
   if (ui.refreshAttribution) ui.refreshAttribution();
   if (ui.refreshZoomTitles) ui.refreshZoomTitles();
   if (ui.readout) ui.readout.restate(readoutText(state.sample));
@@ -115,6 +117,14 @@ async function main() {
     onPole: (rank) => selectPole(rank, { pan: true }),
   });
   ui.card = card;
+  // On a phone the sheet is the whole screen, so picking a row closes it behind the reader.
+  ui.ranking = createRanking(document.getElementById('panel'), {
+    onPick: (code) => {
+      openUnit(code, { view: 'pole' });
+      if (matchMedia('(max-width: 720px)').matches) ui.ranking.toggle();
+    },
+  });
+  ui.ranking.setRows(region, units, state.s, unit && unit.code);
 
   let current = { unit, doc: null, rank: 1 };
 
