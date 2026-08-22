@@ -339,7 +339,7 @@ Issue: #9 "Stage 3: class table, tiles, PMTiles, detail rasters, R2 upload, site
 
 ### Stage 3 acceptance (issue checklist)
 
-- [x] `pytest` green (360 tests, 2026-08-22)
+- [x] `pytest` green (372 tests, 2026-08-22)
 - [ ] `poles run europe --stage publish` produces archives, detail rasters, site JSON, manifest, and uploads in one command (archives and 909 detail rasters produced by the local run of 2026-08-22 in 16 minutes; site JSON, manifest and upload follow the R2 enablement)
 - [ ] every manifest reference answers HEAD with ranges on the dev hostname
 - [x] archive sizes and total R2 usage recorded in spec 4.1 (2026-08-22: 114.2 MB plus 128.3 MB archives, 268.6 MB per snapshot)
