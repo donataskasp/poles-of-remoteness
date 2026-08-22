@@ -137,11 +137,13 @@ def _mercator_extent(src_tif: Path) -> tuple[float, float, float, float]:
     """Bounding box of the source footprint in EPSG:3857, sampled along its edge and clamped to the world.
 
     The 200 points a side are a sample of a curve, so the true extreme sits between two of them and the box
-    misses it by a little. One z9 pixel of margin on each side covers that gap by more than the sampling error
-    of any frame this pipeline builds (the curvature over a 1/200 step of a continental side is far under a
-    z9 pixel), and it costs at most one pixel row of nodata: -tap snaps the box out to the z9 grid afterwards,
-    so a margin under one pixel often disappears entirely. Without it the warp can clip the outermost row or
-    column of classed cells."""
+    misses it by a little. The margin adds one z9 pixel on each side and -tap, which snaps the box out to the
+    z9 grid afterwards, adds up to one more; the two together are what covers the sampling error. The error is
+    not negligible: on the Europe frame of record the north edge sampled at n = 200 fell 572 m (1.87 z9
+    pixels) short of the dense answer, and the margin plus the tap cleared it by 20 m. A region whose frame
+    curves more than that needs a larger n or a larger margin; check it with a dense sample before trusting
+    this box. The cost is at most two pixel rows of nodata. Without the margin the warp can clip the outermost
+    row or column of classed cells."""
     with rasterio.open(src_tif) as ds:
         b, crs = ds.bounds, ds.crs.to_string()
     tr = Transformer.from_crs(crs, "EPSG:3857", always_xy=True)
