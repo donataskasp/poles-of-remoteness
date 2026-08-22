@@ -1,5 +1,5 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
   // Production (branch main, deployed by CI). The name changes at stage 6 with the domain; until then
   // main keeps serving the LT site and this file on branch europe describes the site to come.
   "name": "atokiausia-lietuva",

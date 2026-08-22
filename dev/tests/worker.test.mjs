@@ -7,6 +7,9 @@ test('worker: browser and OS families are coarse', () => {
   assert.equal(browserFamily(ua), 'Chrome');
   assert.equal(osFamily(ua), 'Android');
   assert.equal(browserFamily('curl/8.4.0'), 'Bot');
+  // A client that sends no User-Agent buckets as Other, never as a bot.
+  assert.equal(browserFamily(''), 'Other');
+  assert.equal(osFamily(''), 'Other');
 });
 
 test('worker: referrer host strips www and hides own host', () => {
@@ -15,4 +18,6 @@ test('worker: referrer host strips www and hides own host', () => {
   assert.equal(referrerHost(req('https://www.linkedin.com/feed/'), url), 'linkedin.com');
   assert.equal(referrerHost(req('https://example.workers.dev/'), url), '');
   assert.equal(referrerHost(req(null), url), '');
+  // A referrer that does not parse is dropped, it never reaches Analytics Engine raw.
+  assert.equal(referrerHost(req('not a url'), url), '');
 });
