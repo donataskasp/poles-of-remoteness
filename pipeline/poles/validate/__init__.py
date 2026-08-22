@@ -179,8 +179,8 @@ def _shift_windows(windows: dict[str, tuple[int, int, int, int]], frame: Frame,
 def shifted_poles(cfg: RegionConfig, ws: Workspace, prepared: Prepared, log: logging.Logger) -> dict[tuple[str, str], list[dict]]:
     """Check 4: recompute the grid half a cell off in both axes and re-run the search for each unit.
 
-    Everything here is stage-1 sized (a full-frame rasterize, a full-frame distance transform, a land mask
-    and a unit raster), so every piece is guarded by an `.ok` marker and a crash resumes at the first one
+    Everything here is stage-1 sized (a full-frame rasterize, a full-frame distance transform, and the
+    candidate rasters), so every piece is guarded by an `.ok` marker and a crash resumes at the first one
     missing. The finished winners are a marker of their own: a rerun that already has them skips the lot."""
     out, classify_dir = ws.dir(STAGE), ws.dir("classify")
     tools_log = out / "tools.log"

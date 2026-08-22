@@ -244,7 +244,9 @@ def _sample_unit_cells(units_tif: Path, indices: set[int], n: int,
     wanted = np.array(sorted(indices), dtype=np.int64)
     for path in (units_tif, low_tif(units_tif)):
         if not path.exists():
-            continue
+            raise ChecksError(f"the unit raster {path} is missing; both rasters carry a unit's cells and a "
+                              "sample drawn from one of them alone would skew the medians this check "
+                              "compares against")
         with rasterio.open(path) as ds:
             for _, win in ds.block_windows(1):
                 block = ds.read(1, window=win)

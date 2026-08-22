@@ -10,8 +10,8 @@ from shapely.geometry import MultiPolygon, box
 
 from poles import poles as poles_mod
 from poles.errors import PolesError
-from poles.grid import Frame, create_raster
-from poles.poles import (Prepared, _allowed_factory, _bbox_window, _unit_meta, _unit_windows, top_n_dedup,
+from poles.grid import Frame, create_raster, write_float_tif
+from poles.poles import (Prepared, UnitJob, _allowed_factory, _bbox_window, _unit_meta, _unit_windows, top_n_dedup,
                          validate_poles_json, write_water_big)
 from poles.extract import MARKER
 from poles.units import Unit, low_tif, write_units
@@ -181,6 +181,30 @@ def test_a_dead_worker_becomes_a_poles_error_naming_the_job_and_the_finished_res
     with pytest.raises(PolesError, match="bb.*POLES_WORKERS|POLES_WORKERS.*bb"):
         poles_mod.run(cfg, ws, log)
     assert (ws.dir("poles") / "results" / "aa-A.json").is_file()
+
+
+def test_a_saturated_candidate_cell_is_a_poles_error_naming_the_unit_and_the_cell(tmp_path, cfg):
+    """A cell at the cap is a real "at least max_distance_m" answer the search cannot rank, so it aborts.
+    The message has to say which cell it was, or finding it means rerunning the continent."""
+    frame = Frame("EPSG:3035", 250.0, 5_000_000.0, 3_600_000.0, 4, 4)
+    unit = Unit("aa", "aa", "aa", 1, "aa", MultiPolygon([box(0, 0, 1, 1)]), False, 1, cells=16)
+    units_tif = create_raster(frame, tmp_path / "units.tif", dtype="int16")
+    with rasterio.open(units_tif, "r+") as ds:
+        ds.write(np.ones((4, 4), dtype="int16"), 1)
+    create_raster(frame, low_tif(units_tif), dtype="int16")
+    dist = np.full((4, 4), 1000.0, dtype="float32")
+    dist[2, 3] = float(cfg.max_distance_m)
+    write_float_tif(tmp_path / "dist_A.tif", dist, frame)
+    prepared = Prepared(frame, [unit], tmp_path / "countries.fgb", tmp_path / "roads", units_tif,
+                        tmp_path / "land_idx.fgb", tmp_path / "water_big.fgb", tmp_path / "places.vrt",
+                        {"aa": (0, 0, 4, 4)})
+    lon, lat = Transformer.from_crs(frame.crs, "EPSG:4326", always_xy=True).transform(
+        5_000_000.0 + 3.5 * 250.0, 3_600_000.0 - 2.5 * 250.0)
+    with pytest.raises(PolesError) as exc:
+        poles_mod.search_unit(UnitJob(cfg, prepared, unit, "A", tmp_path / "dist_A.tif", 3, tmp_path / "log.txt"))
+    message = str(exc.value)
+    assert "aa" in message and "A" in message and f"{lon:.4f}" in message and f"{lat:.4f}" in message
+    assert "1 " in message and "territory_mask" in message
 
 
 def test_a_poles_error_from_a_worker_is_not_rewritten(tmp_path, cfg, log, monkeypatch):

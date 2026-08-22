@@ -328,15 +328,23 @@ def search_unit(job: UnitJob) -> dict:
     with rasterio.open(job.dist_tif) as dist_ds:
         dist = dist_ds.read(1, window=window)
     coarse = dist[rows, cols].astype(float)   # unit_cells raises UnitsError before this can be empty
-    top_coarse = float(coarse.max())
-    if top_coarse >= cfg.max_distance_m:
-        raise PolesError(f"unit {unit.code} scenario {scenario}: top coarse value {top_coarse} m is the "
-                         "saturation cap; raise max_distance_m")
     abs_rows, abs_cols = rows + int(window.row_off), cols + int(window.col_off)
     xs = frame.x0 + (abs_cols + 0.5) * frame.res
     ys = frame.y1 - (abs_rows + 0.5) * frame.res
     to_ll = Transformer.from_crs(frame.crs, "EPSG:4326", always_xy=True)
     lons, lats = to_ll.transform(xs, ys)
+    top_coarse = float(coarse.max())
+    if top_coarse >= cfg.max_distance_m:
+        # A cell at the cap is a real "at least max_distance_m" answer that the search cannot rank against
+        # the others, so it aborts rather than publish a number it did not measure. The message carries the
+        # cell, because the alternative to naming it is rerunning the region to find it.
+        k = int(np.argmax(coarse))
+        raise PolesError(f"unit {unit.code} scenario {scenario}: top coarse value {top_coarse} m is the "
+                         f"saturation cap ({cfg.max_distance_m} m), reached by "
+                         f"{int((coarse >= cfg.max_distance_m).sum())} of {len(coarse)} candidate cells; the "
+                         f"farthest is the cell centred at {lons[k]:.4f}, {lats[k]:.4f}. Usually the cell is "
+                         f"a rock or an islet that should carry no pole, and the answer is a territory_mask "
+                         f"entry covering it in the region config; raising max_distance_m is the other way.")
     pads = pad_fn_for(frame.crs)(np.asarray(lons), np.asarray(lats))
 
     tiles = RoadTiles(prep_.roads_dir)

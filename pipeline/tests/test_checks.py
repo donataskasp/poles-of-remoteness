@@ -187,9 +187,10 @@ def _frame_and_rasters(tmp_path, doughnut: bool):
     with rasterio.open(road_tif, "r+") as ds:
         ds.write(roads, 1)
     units_tif = tmp_path / "units.tif"
-    create_raster(frame, units_tif, dtype="int16")
-    with rasterio.open(units_tif, "r+") as ds:
-        ds.write(np.ones((400, 400), dtype="int16"), 1)
+    for path in (units_tif, low_tif(units_tif)):     # an uncontested unit holds the same cells in both
+        create_raster(frame, path, dtype="int16")
+        with rasterio.open(path, "r+") as ds:
+            ds.write(np.ones((400, 400), dtype="int16"), 1)
     return frame, road_tif, units_tif
 
 
@@ -218,13 +219,23 @@ def test_holes_samples_the_cells_a_bigger_unit_won_in_the_top_raster(tmp_path):
     frame, road_tif, units_tif = _frame_and_rasters(tmp_path, doughnut=False)
     with rasterio.open(units_tif, "r+") as ds:
         ds.write(np.full((400, 400), 2, dtype="int16"), 1)
-    alone = holes(poles, {"A": road_tif}, units_tif, frame, [unit])
     create_raster(frame, low_tif(units_tif), dtype="int16")
+    alone = holes(poles, {"A": road_tif}, units_tif, frame, [unit])
     with rasterio.open(low_tif(units_tif), "r+") as ds:
         ds.write(np.ones((400, 400), dtype="int16"), 1)
     with_low = holes(poles, {"A": road_tif}, units_tif, frame, [unit])
     assert alone[0].details["unit_median_outer"] == 0.0
     assert with_low[0].details["unit_median_outer"] > 0.0
+
+
+def test_holes_rejects_a_missing_low_raster(tmp_path):
+    """Half the cells of every shared unit live in the companion raster; sampling without it would quietly
+    halve the sample and skew the medians, so the missing file is an error, not a fallback."""
+    unit, poles = _centre_unit_and_poles()
+    frame, road_tif, units_tif = _frame_and_rasters(tmp_path, doughnut=False)
+    low_tif(units_tif).unlink()
+    with pytest.raises(ChecksError, match="units_low.tif"):
+        holes(poles, {"A": road_tif}, units_tif, frame, [unit])
 
 
 def test_holes_rejects_a_unit_it_was_not_given(tmp_path):
@@ -363,9 +374,10 @@ def test_holes_reads_windows_and_never_a_whole_raster(tmp_path, monkeypatch):
     create_raster(frame, road_tif)
     with rasterio.open(road_tif, "r+") as ds:
         ds.write((rng.uniform(size=(2000, 2000)) < 0.02).astype("uint8"), 1)
-    create_raster(frame, units_tif, dtype="int16")
-    with rasterio.open(units_tif, "r+") as ds:
-        ds.write(np.ones((2000, 2000), dtype="int16"), 1)
+    for path in (units_tif, low_tif(units_tif)):
+        create_raster(frame, path, dtype="int16")
+        with rasterio.open(path, "r+") as ds:
+            ds.write(np.ones((2000, 2000), dtype="int16"), 1)
     to_ll = Transformer.from_crs("EPSG:3035", "EPSG:4326", always_xy=True)
     lon, lat = to_ll.transform(5_000_000 + 1900 * 250, 3_600_000 - 1900 * 250)   # far from the raster origin
     unit = Unit("uu", "U", "U", 1, "uu", MultiPolygon([box(lon - 5, lat - 5, lon + 5, lat + 5)]), False, 1)
