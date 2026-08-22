@@ -54,7 +54,7 @@ jobs:
   verify:
     needs: deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 10
     steps:
       - name: Wait for the new version
         # Both targets stamp site/version.json at deploy, so both are verified the same way:
@@ -84,9 +84,13 @@ jobs:
             # A static asset answered as HTML is the SPA fallback, which means the file is absent:
             # it would weigh nothing here and break the page at runtime. The /europe/lt entry is the
             # page itself and is HTML by design, so only the extensions below are content checked.
-            out=$(curl -sS --compressed --max-time 20 -o /dev/null -w '%{size_download} %{content_type}' "$LIVE_URL$p?ci=$GITHUB_SHA")
-            n=${out%% *}
-            ct=${out#* }
+            out=$(curl -sS --compressed --max-time 20 -o /dev/null -w '%{http_code} %{size_download} %{content_type}' "$LIVE_URL$p?ci=$GITHUB_SHA") \
+              || { echo "::error::first-screen fetch failed: $p"; exit 1; }
+            code=${out%% *}
+            rest=${out#* }
+            n=${rest%% *}
+            ct=${rest#* }
+            if [ "$code" != 200 ]; then echo "MISSING (HTTP $code): $p"; missing=1; continue; fi
             case "$p:$ct" in
               *.js:text/html*|*.css:text/html*)
                 echo "MISSING (SPA fallback): $p"; missing=1; continue ;;
