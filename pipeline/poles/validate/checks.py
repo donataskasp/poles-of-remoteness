@@ -19,7 +19,6 @@ from pyogrio.raw import read
 from pyproj import Geod, Transformer
 from rasterio.windows import Window
 from shapely.geometry.base import BaseGeometry
-from shapely.prepared import prep
 
 from ..classify import SET_A, SET_B
 from ..config import RegionConfig
@@ -31,6 +30,10 @@ from ..units import Unit
 GEOD = Geod(ellps="WGS84")
 DEG_PER_M = 1.0 / 111_320.0
 INNER_KM, OUTER_KM = 10.0, 30.0
+# attrib.pole_record publishes lat/lon rounded to 6 decimals, about 11 cm, so a pole the search
+# refined onto a shoreline or a national border can be published a few centimetres outside the
+# polygon it came from. Check 2 therefore asks "inside to within the publication rounding".
+COORD_ROUND_DEG = 1e-6
 SETS = {"A": SET_A, "B": SET_B}
 # Check 6 tolerances: a regression entry is the same pole recomputed, an external entry is somebody
 # else's definition of the same question, so it is only asked to land in the same place.
@@ -139,16 +142,20 @@ def recheck(poles, tiles, tolerance: float = 0.005, log: logging.Logger | None =
 
 
 def membership(poles, units: list[Unit], land_idx: Path, water_big: Path) -> list[CheckResult]:
-    """Check 2: inside the unit polygon, on a land polygon, in no water polygon of 1 km2 or more."""
-    by_code = {u.code: prep(u.geometry) for u in units}
+    """Check 2: inside the unit polygon, on a land polygon, in no water polygon of 1 km2 or more.
+
+    Inside is measured to within COORD_ROUND_DEG, the quantum the poles stage rounds its output to."""
+    by_code = {u.code: u.geometry for u in units}
+    pad = 10 * COORD_ROUND_DEG                 # read wider than the tolerance, or the filter hides the polygon
     out = []
     for scenario, unit, p in _iter(poles):
         pt = shapely.Point(p["lon"], p["lat"])
-        tiny = (p["lon"] - 1e-6, p["lat"] - 1e-6, p["lon"] + 1e-6, p["lat"] + 1e-6)
+        tiny = (p["lon"] - pad, p["lat"] - pad, p["lon"] + pad, p["lat"] + pad)
         _, _, lwkb, _ = read(str(land_idx), layer="land", bbox=tiny)
         _, _, wwkb, _ = read(str(water_big), layer="water", bbox=tiny)
-        in_unit = bool(by_code[unit].contains(pt))
-        on_land = bool(np.any(shapely.contains(shapely.from_wkb(lwkb), pt))) if len(lwkb) else False
+        in_unit = bool(shapely.dwithin(by_code[unit], pt, COORD_ROUND_DEG))
+        on_land = bool(np.any(shapely.dwithin(shapely.from_wkb(lwkb), pt, COORD_ROUND_DEG))) if len(lwkb) else False
+        # water is the disqualifying side, so it stays strict: rounding must not put a pole in a lake
         in_water = bool(np.any(shapely.contains(shapely.from_wkb(wwkb), pt))) if len(wwkb) else False
         out.append(CheckResult("membership", unit, scenario, in_unit and on_land and not in_water, True,
                                {"rank": p["rank"], "in_unit": in_unit, "on_land": on_land, "in_water": in_water}))

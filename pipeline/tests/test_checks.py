@@ -107,16 +107,34 @@ def test_membership_needs_the_unit_and_land_and_no_big_water(tmp_path):
     assert results[2].details["on_land"] is False and results[3].details["in_unit"] is False
 
 
-def test_membership_rejects_a_pole_exactly_on_the_unit_boundary(tmp_path):
-    """`contains` is strict, so a pole on the boundary fails. That mirrors the search, whose allowed mask
-    is built from the same polygon, so a pole it could publish is never rejected here."""
+def test_membership_takes_the_unit_boundary_within_the_publication_rounding(tmp_path):
+    """Published coordinates are rounded to 6 decimals, so a pole the search put on the boundary of its
+    unit can be published a hair outside it. Inside means inside to within that rounding; a pole two
+    metres out is still a failure."""
     unit = Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([box(0, 0, 2, 2)]), False, 1)
     land = write_fgb(tmp_path / "land.fgb", "land", [box(-1, -1, 3, 3)], {"osm_id": [1]})
     water = write_fgb(tmp_path / "water.fgb", "water", [box(9, 9, 9.1, 9.1)], {"osm_id": [1]})
-    poles = {"A": [{"unit": "aa", "poles": [_pole(2.0, 1.0, 100, rank=1)], "reason": None}]}
-    result = membership(poles, [unit], land, water)[0]
-    assert not result.passed and result.details["in_unit"] is False
-    assert result.details["on_land"] is True and result.details["in_water"] is False
+    poles = {"A": [{"unit": "aa", "poles": [_pole(2.0, 1.0, 100, rank=1),         # exactly on the boundary
+                                            _pole(2.00002, 1.0, 100, rank=2)],    # about 2 m outside it
+                    "reason": None}]}
+    results = membership(poles, [unit], land, water)
+    assert [r.passed for r in results] == [True, False]
+    assert results[0].details == {"rank": 1, "in_unit": True, "on_land": True, "in_water": False}
+    assert results[1].details["in_unit"] is False
+
+
+def test_membership_takes_a_shoreline_pole_the_rounding_moved_off_the_land(tmp_path):
+    """The real case this exists for: a coastal pole whose 6-decimal coordinates land a few centimetres
+    off the land polygon it was refined on. Centimetres are rounding; metres are a pole in the sea."""
+    unit = Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([box(0, 0, 2, 2)]), False, 1)
+    land = write_fgb(tmp_path / "land.fgb", "land", [box(0, 0, 1.0, 2)], {"osm_id": [1]})
+    water = write_fgb(tmp_path / "water.fgb", "water", [box(9, 9, 9.1, 9.1)], {"osm_id": [1]})
+    poles = {"A": [{"unit": "aa", "poles": [_pole(1.0, 1.0000004, 100, rank=1),   # 4 cm past the shore
+                                            _pole(1.0, 1.00002, 100, rank=2)],    # about 2 m past it
+                    "reason": None}]}
+    results = membership(poles, [unit], land, water)
+    assert [r.passed for r in results] == [True, False]
+    assert results[0].details["on_land"] is True and results[1].details["on_land"] is False
 
 
 # ---------- check 3: data-edge bound ----------
