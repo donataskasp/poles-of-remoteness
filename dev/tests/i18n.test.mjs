@@ -1,0 +1,47 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { pickLang, setLang, getLang, t, regionName, unitName, flag, fmtDist, fmtKmExact, highwayLabel } from '../../site/js/i18n.js';
+
+test('i18n: pickLang order is hash, stored, browser, default en', () => {
+  assert.equal(pickLang({ hash: 'lt', stored: 'en', navigator: { languages: ['en-GB'] } }), 'lt');
+  assert.equal(pickLang({ hash: null, stored: 'lt', navigator: { languages: ['en-GB'] } }), 'lt');
+  assert.equal(pickLang({ hash: null, stored: null, navigator: { languages: ['lt-LT', 'en'] } }), 'lt');
+  assert.equal(pickLang({ hash: null, stored: null, navigator: { languages: ['de'] } }), 'en');
+  assert.equal(pickLang({ hash: 'xx', stored: 'yy', navigator: { languages: [] } }), 'en');
+});
+
+test('i18n: t substitutes and falls back', () => {
+  setLang('lt');
+  assert.equal(getLang(), 'lt');
+  assert.equal(t('rankOf', { rank: 3, count: 52, region: 'Europa' }), '3 vieta iš 52 (Europa)');
+  assert.equal(t('no-such-key'), 'no-such-key');
+  setLang('en');
+  assert.equal(t('rankOf', { rank: 3, count: 52, region: 'Europe' }), '#3 of 52 in Europe');
+  assert.equal(setLang('xx'), 'en');
+});
+
+test('i18n: names and flags', () => {
+  setLang('en');
+  assert.equal(regionName('lt'), 'Lithuania');
+  assert.equal(regionName('lt', 'lt'), 'Lietuva');
+  assert.equal(regionName('us-ak'), null);
+  assert.equal(unitName({ code: 'us-ak', name: 'Alaska', name_en: 'Alaska' }), 'Alaska');
+  assert.equal(unitName({ code: 'lt', name: 'Lietuva', name_en: 'Lithuania' }, 'lt'), 'Lietuva');
+  assert.equal(flag('lt'), '\u{1F1F1}\u{1F1F9}');
+  assert.equal(flag('us-ak'), '');
+});
+
+test('i18n: distances', () => {
+  setLang('en');
+  assert.equal(fmtDist(437), '440 m');
+  assert.equal(fmtDist(1240), '1.2 km');
+  assert.equal(fmtDist(9960), '10 km');
+  assert.equal(fmtDist(23500), '24 km');
+  assert.equal(fmtKmExact(3406.4), '3.41 km');
+  setLang('lt');
+  assert.equal(fmtDist(1240), '1,2 km');
+  assert.equal(highwayLabel('track'), 'miško ar lauko keliukas');
+  setLang('en');
+  assert.equal(highwayLabel('track'), 'track');
+  assert.equal(highwayLabel('bus_guideway'), 'bus_guideway');
+});
