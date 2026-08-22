@@ -58,7 +58,7 @@ def lonlat_bounds(src_3857: Path) -> tuple[float, float, float, float]:
 
 
 @contextmanager
-def _ungeoreferenced():
+def ungeoreferenced():
     """A tile carries no georeference: its z/x/y path is the georeference, so rasterio's warning about it is noise."""
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", NotGeoreferencedWarning)
@@ -67,7 +67,7 @@ def _ungeoreferenced():
 
 def _grey_png(cls: np.ndarray) -> bytes:
     """Re-encode one tile as a single band grey PNG, the form the site decodes and the spec's size budget assumes."""
-    with _ungeoreferenced(), MemoryFile(filename="tile.png") as mem:
+    with ungeoreferenced(), MemoryFile(filename="tile.png") as mem:
         with mem.open(driver="PNG", width=cls.shape[1], height=cls.shape[0], count=1, dtype="uint8", ZLEVEL=9) as ds:
             ds.write(cls, 1)
         return mem.read()
@@ -83,7 +83,7 @@ def _read_tile(png: Path) -> np.ndarray:
         trailer = fh.read()
     if trailer != PNG_END:
         raise RuntimeError(f"{png}: truncated tile, the PNG end marker is missing; delete it and rerun")
-    with _ungeoreferenced(), rasterio.open(png) as ds:
+    with ungeoreferenced(), rasterio.open(png) as ds:
         bands = ds.read()
     if bands.shape[0] not in (1, 2):
         raise RuntimeError(f"{png}: {bands.shape[0]} bands, expected grey or grey plus alpha")
@@ -177,7 +177,7 @@ def _put(con: sqlite3.Connection, z: int, x: int, y: int, cls: np.ndarray) -> No
 def _tile_array(con: sqlite3.Connection, z: int, x: int, y: int) -> np.ndarray:
     blob = con.execute("SELECT tile_data FROM tiles WHERE zoom_level=? AND tile_column=? AND tile_row=?",
                        (z, x, (1 << z) - 1 - y)).fetchone()[0]
-    with _ungeoreferenced(), MemoryFile(blob) as mem, mem.open() as ds:
+    with ungeoreferenced(), MemoryFile(blob) as mem, mem.open() as ds:
         return ds.read(1)
 
 

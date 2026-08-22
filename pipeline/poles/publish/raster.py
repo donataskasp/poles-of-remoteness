@@ -39,13 +39,19 @@ def _unmark(path: Path) -> None:
     path.with_name(path.name + MARKER).unlink(missing_ok=True)
 
 
+def edge_poly_paths(fetch_dir: Path) -> list[Path]:
+    """The source `.poly` files the data edge is cut from, in snapshot order. The stage stamps them as inputs
+    of the explore chain, so the list is worth having apart from the geometry."""
+    snapshot = json.loads((fetch_dir / "snapshot.json").read_text(encoding="utf-8"))
+    paths = [fetch_dir / s["poly"] for s in snapshot["sources"]]
+    if not paths:
+        raise ValueError(f"{fetch_dir / 'snapshot.json'}: no sources")
+    return paths
+
+
 def edge_polygon(fetch_dir: Path) -> BaseGeometry:
     """Union of every source extract polygon: the same data edge validation's check 3 measures against."""
-    snapshot = json.loads((fetch_dir / "snapshot.json").read_text(encoding="utf-8"))
-    polys = [parse_poly(fetch_dir / s["poly"]) for s in snapshot["sources"]]
-    if not polys:
-        raise ValueError(f"{fetch_dir / 'snapshot.json'}: no sources")
-    return unary_union(polys)
+    return unary_union([parse_poly(p) for p in edge_poly_paths(fetch_dir)])
 
 
 def _project(geom: BaseGeometry, src: str, dst: str, segment: float) -> BaseGeometry:
@@ -128,7 +134,14 @@ def quantise(dist_tif: Path, land_tif: Path, inside_tif: Path, band_tif: Path, o
 
 
 def _mercator_extent(src_tif: Path) -> tuple[float, float, float, float]:
-    """Bounding box of the source footprint in EPSG:3857, sampled along its edge and clamped to the world."""
+    """Bounding box of the source footprint in EPSG:3857, sampled along its edge and clamped to the world.
+
+    The 200 points a side are a sample of a curve, so the true extreme sits between two of them and the box
+    misses it by a little. One z9 pixel of margin on each side covers that gap by more than the sampling error
+    of any frame this pipeline builds (the curvature over a 1/200 step of a continental side is far under a
+    z9 pixel), and it costs at most one pixel row of nodata: -tap snaps the box out to the z9 grid afterwards,
+    so a margin under one pixel often disappears entirely. Without it the warp can clip the outermost row or
+    column of classed cells."""
     with rasterio.open(src_tif) as ds:
         b, crs = ds.bounds, ds.crs.to_string()
     tr = Transformer.from_crs(crs, "EPSG:3857", always_xy=True)
@@ -138,8 +151,10 @@ def _mercator_extent(src_tif: Path) -> tuple[float, float, float, float]:
     mx, my = tr.transform(xs, ys)
     mx, my = np.asarray(mx), np.asarray(my)
     ok = np.isfinite(mx) & np.isfinite(my)
-    mx, my = np.clip(mx[ok], -MERC_MAX, MERC_MAX), np.clip(my[ok], -MERC_MAX, MERC_MAX)
-    return float(mx.min()), float(my.min()), float(mx.max()), float(my.max())
+    mx, my = mx[ok], my[ok]
+    west, south = np.clip([mx.min() - Z9_RES, my.min() - Z9_RES], -MERC_MAX, MERC_MAX)
+    east, north = np.clip([mx.max() + Z9_RES, my.max() + Z9_RES], -MERC_MAX, MERC_MAX)
+    return float(west), float(south), float(east), float(north)
 
 
 def warp_to_mercator(src_tif: Path, out_tif: Path, log: logging.Logger, tools_log: Path) -> Path:

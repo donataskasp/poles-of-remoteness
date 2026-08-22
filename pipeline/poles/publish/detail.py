@@ -39,8 +39,8 @@ from ..errors import PolesError
 from ..poles import SCENARIOS
 from ..refine import RoadCache, UtmRoads, utm_epsg
 from ..roads import RoadTiles
-from ..workspace import Workspace
-from .tiles import _ungeoreferenced
+from ..workspace import Workspace, write_text_atomic
+from .tiles import ungeoreferenced
 
 M_PER_DEG = 111_320.0
 # Roads are queried for the window grown by the pole's own distance, the window's half diagonal and a
@@ -153,13 +153,13 @@ def write_detail(out_dir: Path, code: str, scenario: str, rank: int, arr: np.nda
     d.mkdir(parents=True, exist_ok=True)
     png, js = d / f"{scenario}-{rank}.png", d / f"{scenario}-{rank}.json"
     js.unlink(missing_ok=True)
-    with _ungeoreferenced(), rasterio.open(png, "w", driver="PNG", width=g.width, height=g.height, count=1,
-                                           dtype="uint8", ZLEVEL=9) as ds:
+    with ungeoreferenced(), rasterio.open(png, "w", driver="PNG", width=g.width, height=g.height, count=1,
+                                          dtype="uint8", ZLEVEL=9) as ds:
         ds.write(arr.astype(np.uint8), 1)
     aux = Path(str(png) + ".aux.xml")
     if aux.exists():
         aux.unlink()
-    js.write_text(json.dumps(g.to_dict()) + "\n", encoding="utf-8")
+    write_text_atomic(js, json.dumps(g.to_dict()) + "\n")
     return png, js
 
 
@@ -265,9 +265,12 @@ def render(job: DetailJob) -> dict:
             "warnings": warned, "seconds": time.monotonic() - t0}
 
 
-def _published_set(jobs: list[DetailJob]) -> list[list]:
-    """What a complete render covers, as sorted plain data: the fingerprint of the detail directory."""
-    return sorted([job.scenario, job.code, rank, lat, lon] for job in jobs for rank, lat, lon, _ in job.poles)
+def _published_set(jobs: list[DetailJob], table: ClassTable) -> dict:
+    """What a complete render covers, as sorted plain data: the fingerprint of the detail directory. The class
+    edges belong in it because every pixel of every raster is classed with them, so a region that changes its
+    table changes the pictures without changing the pole set."""
+    return {"poles": sorted([job.scenario, job.code, rank, lat, lon] for job in jobs for rank, lat, lon, _ in job.poles),
+            "class_edges": list(table.edges)}
 
 
 def run_detail(cfg: RegionConfig, ws: Workspace, published: dict[str, list[dict]], table: ClassTable,
@@ -286,19 +289,25 @@ def run_detail(cfg: RegionConfig, ws: Workspace, published: dict[str, list[dict]
                                   cfg.detail_res_m, cfg.detail_window_m, edge_wkb, tuple(table.edges)))
     # A raster is named by its rank and kept when the file is already there, so a rerun after validate excluded a
     # different set would leave the old rank 1 image under the new rank 1's name: the right file name over the
-    # wrong place, and nothing to raise. The stamp records the set the directory was built for; when it does not
-    # match what is about to be rendered, the whole directory goes. It is written after the rmtree and before the
-    # render, not after: the files present are always a subset of the stamped set, which a resume completes, while
-    # a stamp written only on success would leave a crashed run unstamped and its stale files invisible to the
-    # next run with a different set.
-    stamp, wanted = out_dir / "published.json", _published_set(jobs)
-    stale = stamp.exists() and json.loads(stamp.read_text(encoding="utf-8")) != wanted
+    # wrong place, and nothing to raise. The stamp records the inputs the directory was built for; when they do
+    # not match what is about to be rendered, the whole directory goes. It is written after the rmtree and before
+    # the render, not after: the files present are always a subset of the stamped set, which a resume completes,
+    # while a stamp written only on success would leave a crashed run unstamped and its stale files invisible to
+    # the next run with a different set. A stamp that does not parse is a stamp from a crashed write: stale.
+    stamp, wanted = out_dir / "published.json", _published_set(jobs, table)
+    stale = False
+    if stamp.exists():
+        try:
+            stale = json.loads(stamp.read_text(encoding="utf-8")) != wanted
+        except ValueError:
+            stale = True
     if (ws.forced or stale) and out_dir.exists():
         if stale:
-            log.info("publish: the published pole set changed since the last detail run, rebuilding detail/")
+            log.info("publish: the published poles or the class table changed since the last detail run, "
+                     "rebuilding detail/")
         shutil.rmtree(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    stamp.write_text(json.dumps(wanted) + "\n", encoding="utf-8")
+    write_text_atomic(stamp, json.dumps(wanted, sort_keys=True) + "\n")
     workers = int(os.environ.get("POLES_WORKERS", "0")) or 4
     log.info("publish: %d detail jobs on %d workers", len(jobs), workers)
     t0 = time.monotonic()

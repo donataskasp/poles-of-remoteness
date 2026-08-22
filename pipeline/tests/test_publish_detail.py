@@ -11,6 +11,7 @@ import shapely
 from pyproj import Transformer
 from shapely.geometry import LineString, box
 
+from poles import workspace as ws_mod
 from poles.classes import EDGE, NODATA, ClassTable, default_edges
 from poles.errors import PolesError
 from poles.publish import detail
@@ -163,6 +164,21 @@ def test_write_detail_leaves_no_aux_file(tmp_path):
     png, js = detail.write_detail(tmp_path, "lt", "B", 1, np.zeros((40, 40), np.uint8), g)
     assert sorted(p.name for p in (tmp_path / "lt").iterdir()) == ["B-1.json", "B-1.png"]
     assert json.loads(js.read_text())["width"] == 40
+
+
+def test_the_sidecar_is_written_atomically(tmp_path, monkeypatch):
+    """The sidecar is the completion marker of the pair, so a write that dies part way (a full disk raises
+    after leaving a short file) must leave no sidecar at all rather than six numbers the site cannot parse."""
+    g = detail.georef(LAT, LON, 50, 2_000)
+
+    def die(src, dst):
+        raise OSError(28, "No space left on device")
+
+    monkeypatch.setattr(ws_mod.os, "replace", die)
+    with pytest.raises(OSError):
+        detail.write_detail(tmp_path, "lt", "B", 1, np.zeros((40, 40), np.uint8), g)
+    assert (tmp_path / "lt" / "B-1.png").exists()
+    assert not (tmp_path / "lt" / "B-1.json").exists()
 
 
 def _tiles_dir(tmp_path: Path, log) -> Path:

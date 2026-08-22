@@ -22,6 +22,21 @@ def _write(path: Path, data: np.ndarray, dtype: str, nodata=None, frame: Frame =
         ds.write(data.astype(dtype), 1)
 
 
+def _sampled_bounds(frame: Frame, n: int) -> tuple[float, float, float, float]:
+    """The frame's outline in EPSG:3857, sampled with n points a side: the same estimate the module makes,
+    at whatever density the test asks for."""
+    from pyproj import Transformer
+    tr = Transformer.from_crs(frame.crs, "EPSG:3857", always_xy=True)
+    left, right, bottom, top = frame.x0, frame.x1, frame.y0, frame.y1
+    xs = np.concatenate([np.linspace(left, right, n), np.full(n, right), np.linspace(right, left, n), np.full(n, left)])
+    ys = np.concatenate([np.full(n, bottom), np.linspace(bottom, top, n), np.full(n, top), np.linspace(top, bottom, n)])
+    mx, my = tr.transform(xs, ys)
+    mx, my = np.asarray(mx), np.asarray(my)
+    ok = np.isfinite(mx) & np.isfinite(my)
+    mx, my = mx[ok], my[ok]
+    return float(mx.min()), float(my.min()), float(mx.max()), float(my.max())
+
+
 def test_quantise_applies_table_and_masks(tmp_path, log):
     dist = np.full((32, 40), 75.0, dtype=np.float32)       # class 1
     dist[0, :] = 250_000.0                                 # saturated: class 253
@@ -90,6 +105,19 @@ def test_warp_to_mercator_is_tile_aligned(tmp_path, log):
         data = ds.read(1)
     assert set(np.unique(data)).issubset(set(np.unique(cls)) | {NODATA})
     assert (data != NODATA).sum() > 0
+
+
+def test_mercator_extent_covers_what_the_sampled_corners_miss(tmp_path):
+    """A side that is straight in the source CRS is a curve in Mercator, so the extreme sits between two of the
+    200 sampled points and the estimate comes out small: on this 5000 km frame the northern side runs about
+    115 m past it. The margin has to swallow that, or the warp clips the outermost row of classed cells."""
+    wide = Frame(crs="EPSG:3035", res=50_000, x0=2_600_000, y1=5_500_000, width=100, height=80)
+    _write(tmp_path / "explore.tif", np.zeros((wide.height, wide.width), dtype=np.uint8), "uint8", frame=wide)
+    got = raster._mercator_extent(tmp_path / "explore.tif")
+    coarse, dense = _sampled_bounds(wide, 200), _sampled_bounds(wide, 20_000)
+    assert dense[3] - coarse[3] > 100                     # the estimate really does miss the northern bound
+    assert got[0] <= dense[0] and got[1] <= dense[1] and got[2] >= dense[2] and got[3] >= dense[3]
+    assert got[0] == pytest.approx(coarse[0] - raster.Z9_RES) and got[3] == pytest.approx(coarse[3] + raster.Z9_RES)
 
 
 # ---------- beyond the plan's four: the cases the production grids hit ----------

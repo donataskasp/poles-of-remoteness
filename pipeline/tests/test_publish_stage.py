@@ -4,20 +4,24 @@ import dataclasses
 import json
 import logging
 import os
+import sqlite3
+from types import SimpleNamespace
 
 import numpy as np
 import pytest
 import rasterio
 import shapely
 from pyproj import Transformer
+from rasterio.io import MemoryFile
 from shapely.geometry import LineString, box
 
 from poles import publish
-from poles.classes import ClassTable
+from poles.classes import ClassTable, default_edges
 from poles.config import load_region
 from poles.errors import PolesError
 from poles.grid import Frame, create_raster
 from poles.publish import r2 as r2mod
+from poles.publish import tiles as tilesmod
 from poles.roads import build_tiles
 from poles.workspace import Workspace
 from tests.helpers import write_fgb
@@ -32,6 +36,45 @@ FRAME = Frame(crs="EPSG:3035", res=250, x0=5_300_000, y1=3_660_000, width=40, he
 def _table(cfg):
     """The table the stage builds for this region, so the tests class distances exactly as it does."""
     return ClassTable(cfg.class_table) if cfg.class_table else ClassTable()
+
+
+# A class no distance on this frame produces (the grid tops out around class 103), so a pixel carrying it
+# came from somewhere other than the source raster.
+POISON = 200
+
+
+def _local_run(cfg, ws, log, monkeypatch):
+    """The stage as far as R2: every local artefact is built, then the missing configuration stops it."""
+    for name in r2mod.ENV_NAMES.values():
+        monkeypatch.delenv(name, raising=False)
+    monkeypatch.setenv("POLES_WORKERS", "2")
+    with pytest.raises(r2mod.PublishError):
+        publish.run(cfg, ws, log)
+
+
+def _z9_pngs(out, scenario="A"):
+    return sorted((out / f"tiles_{scenario}" / "9").rglob("*.png"))
+
+
+def _png_bands(png):
+    with rasterio.open(png) as ds:
+        return ds.read()
+
+
+def _mbtile(mbtiles, z, x, y):
+    """One tile out of the packed archive, by XYZ coordinates (the archive stores TMS rows)."""
+    con = sqlite3.connect(mbtiles)
+    try:
+        blob = con.execute("SELECT tile_data FROM tiles WHERE zoom_level=? AND tile_column=? AND tile_row=?",
+                           (z, x, (1 << z) - 1 - y)).fetchone()[0]
+    finally:
+        con.close()
+    with MemoryFile(blob) as mem, mem.open() as ds:
+        return ds.read(1)
+
+
+def _mtimes(*paths):
+    return {p.name: p.stat().st_mtime_ns for p in paths}
 
 
 def _pole(rank, lat, lon, dist):
@@ -120,6 +163,40 @@ def test_refuses_without_validate(tmp_path, regions_dir, log):
         publish.run(cfg, ws, log)
 
 
+def test_refuses_a_validate_report_without_an_excluded_list(workspace, log):
+    """An older report has no exclusion list, and reading one as an empty list would publish poles validation
+    refused. The stage stops before it builds anything."""
+    cfg, ws = workspace
+    report = json.loads((ws.dir("validate") / "report.json").read_text())
+    report.pop("excluded")
+    (ws.dir("validate") / "report.json").write_text(json.dumps(report))
+    with pytest.raises(PolesError, match="excluded"):
+        publish.run(cfg, ws, log)
+    assert not (ws.dir("publish") / "explore_A.tif").exists()
+
+
+def test_a_dirty_tree_publishes_without_a_pipeline_commit(log, monkeypatch, caplog):
+    """The manifest names the commit that produced the publish. A hash that does not describe the code that ran
+    is worse than no hash, so a dirty tree, and a machine without git at all, record none."""
+    answers = {"rev-parse": "abc123\n", "status": ""}
+
+    def git(cmd, **kwargs):
+        return SimpleNamespace(returncode=0, stdout=answers[cmd[1]])
+
+    monkeypatch.setattr(publish.subprocess, "run", git)
+    assert publish._pipeline_commit(log) == "abc123"
+    answers["status"] = " M pipeline/poles/publish/__init__.py\n"
+    with caplog.at_level(logging.WARNING, logger="poles.test"):
+        assert publish._pipeline_commit(log) is None
+    assert "dirty" in caplog.text
+
+    def no_git(cmd, **kwargs):
+        raise OSError("git is not installed")
+
+    monkeypatch.setattr(publish.subprocess, "run", no_git)
+    assert publish._pipeline_commit(log) is None
+
+
 def test_builds_local_artefacts_then_names_the_missing_r2_config(workspace, log, monkeypatch):
     cfg, ws = workspace
     for name in r2mod.ENV_NAMES.values():
@@ -152,7 +229,7 @@ def test_resume_after_a_partial_local_run_keeps_the_artefacts(workspace, log, mo
     _r2_env(monkeypatch, tmp_path)
     monkeypatch.setattr(r2mod, "ensure_bucket", lambda cfg_, log_, api_base=None: "https://pub-test.r2.dev")
     monkeypatch.setattr(r2mod, "s3_client", lambda cfg_, endpoint_url=None: object())
-    monkeypatch.setattr(r2mod, "upload_tree", lambda client, bucket, items, log_, workers=8: {"uploaded": len(items), "skipped": 0, "bytes": 1})
+    monkeypatch.setattr(r2mod, "upload_tree", lambda client, bucket, items, log_, workers=8, forced=False: {"uploaded": len(items), "skipped": 0, "bytes": 1})
     monkeypatch.setattr(r2mod, "verify_head", lambda base, keys, range_keys, log_, workers=8: {"at": "2026-01-02T00:00:00+00:00", "keys": len(keys), "range_ok": len(range_keys)})
     ws.site_dir = None                                   # --no-write-site
     meta = publish.run(cfg, ws, log)
@@ -170,7 +247,7 @@ def test_force_clears_the_markers_and_rebuilds(workspace, log, monkeypatch, tmp_
     monkeypatch.setenv("POLES_WORKERS", "2")
     monkeypatch.setattr(r2mod, "ensure_bucket", lambda cfg_, log_, api_base=None: "https://pub-test.r2.dev")
     monkeypatch.setattr(r2mod, "s3_client", lambda cfg_, endpoint_url=None: object())
-    monkeypatch.setattr(r2mod, "upload_tree", lambda client, bucket, items, log_, workers=8: {"uploaded": len(items), "skipped": 0, "bytes": 1})
+    monkeypatch.setattr(r2mod, "upload_tree", lambda client, bucket, items, log_, workers=8, forced=False: {"uploaded": len(items), "skipped": 0, "bytes": 1})
     monkeypatch.setattr(r2mod, "verify_head", lambda base, keys, range_keys, log_, workers=8: {"at": "x", "keys": len(keys), "range_ok": len(range_keys)})
     ws.site_dir = None
     publish.run(cfg, ws, log)
@@ -181,6 +258,71 @@ def test_force_clears_the_markers_and_rebuilds(workspace, log, monkeypatch, tmp_
     meta = publish.run(cfg, ws, log)
     assert [p.stat().st_mtime_ns for p in watched] != before
     assert meta["detail"]["skipped"] == 0 and meta["detail"]["count"] == 3
+
+
+def test_force_recuts_the_z9_tiles_it_would_otherwise_resume_over(workspace, log, monkeypatch):
+    """`gdal raster tile --resume` regenerates only missing files, so a forced rerun that kept the tile
+    directory would pack the previous run's pixels into a fresh archive and publish new counts over them."""
+    cfg, ws = workspace
+    _local_run(cfg, ws, log, monkeypatch)
+    out = ws.dir("publish")
+    png = _z9_pngs(out)[0]
+    good = _png_bands(png)
+    x, y = int(png.parent.name), int(png.stem)
+    png.write_bytes(tilesmod._grey_png(np.full((tilesmod.TILE_PX, tilesmod.TILE_PX), POISON, np.uint8)))
+    ws.forced = True
+    _local_run(cfg, ws, log, monkeypatch)
+    assert np.array_equal(_png_bands(png), good)
+    assert POISON not in np.unique(_mbtile(out / "A.mbtiles", 9, x, y))
+
+
+def test_a_changed_class_table_rebuilds_the_explore_chain_without_force(workspace, log, monkeypatch):
+    """No marker records what an artefact was built from, so without the input stamp a table change would
+    publish new class edges in regions.json over pixels classed with the old ones."""
+    cfg, ws = workspace
+    _local_run(cfg, ws, log, monkeypatch)
+    out = ws.dir("publish")
+    watched = (out / "explore_A.tif", out / "explore_A_3857.tif", out / "A.pmtiles")
+    before = _mtimes(*watched)
+    png = _z9_pngs(out)[0]
+    before_tile = _png_bands(png)
+    with rasterio.open(out / "explore_A.tif") as ds:
+        before_cls = ds.read(1)
+    wider = dataclasses.replace(cfg, class_table=[0, *(v * 2 for v in default_edges()[1:])])
+    _local_run(wider, ws, log, monkeypatch)
+    assert _mtimes(*watched) != before
+    with rasterio.open(out / "explore_A.tif") as ds:
+        assert not np.array_equal(ds.read(1), before_cls)
+    assert not np.array_equal(_png_bands(png), before_tile)   # the tiles the site draws, not only the raster
+    assert json.loads((out / "inputs.json").read_text())["class_edges"] == wider.class_table
+
+
+def test_a_rebuilt_grid_raster_rebuilds_the_explore_chain(workspace, log, monkeypatch):
+    """The same family as issue #18: a rerun of an earlier stage must not leave the publish artefacts behind."""
+    cfg, ws = workspace
+    _local_run(cfg, ws, log, monkeypatch)
+    out = ws.dir("publish")
+    with rasterio.open(out / "explore_A.tif") as ds:
+        before = ds.read(1)
+    with rasterio.open(ws.dir("grid") / "dist_A.tif", "r+") as ds:   # as a rerun of the grid stage leaves it
+        ds.write(np.full((FRAME.height, FRAME.width), 30_000.0, np.float32), 1)
+    _local_run(cfg, ws, log, monkeypatch)
+    with rasterio.open(out / "explore_A.tif") as ds:
+        assert not np.array_equal(ds.read(1), before)
+
+
+def test_a_missing_input_stamp_adopts_the_artefacts_on_disk(workspace, log, monkeypatch):
+    """The stamp arrives after the artefacts do. Adopting them is what keeps a finished run from throwing
+    away a day of tiles to learn that nothing changed."""
+    cfg, ws = workspace
+    _local_run(cfg, ws, log, monkeypatch)
+    out = ws.dir("publish")
+    before = _mtimes(out / "explore_A.tif", out / "A.pmtiles", out / "explore_B.tif")
+    (out / "inputs.json").unlink()
+    _local_run(cfg, ws, log, monkeypatch)
+    assert _mtimes(out / "explore_A.tif", out / "A.pmtiles", out / "explore_B.tif") == before
+    stamp = json.loads((out / "inputs.json").read_text())
+    assert stamp["class_edges"] == ClassTable().edges and stamp["edge_mask_m"] == cfg.edge_mask_m
 
 
 def test_detail_rebuilds_when_the_published_set_changes(workspace, log, monkeypatch):
@@ -211,7 +353,8 @@ def test_detail_rebuilds_when_the_published_set_changes(workspace, log, monkeypa
     n = int(cfg.detail_window_m // cfg.detail_res_m) // 2
     assert abs(int(after[n, n]) - int(_table(cfg).to_class(kept["dist_m"]))) <= 1
     stamp = json.loads((ws.dir("publish") / "detail" / "published.json").read_text())
-    assert ["B", "lt", 1, kept["lat"], kept["lon"]] in stamp and len(stamp) == 3
+    assert ["B", "lt", 1, kept["lat"], kept["lon"]] in stamp["poles"] and len(stamp["poles"]) == 3
+    assert stamp["class_edges"] == _table(cfg).edges
 
 
 def test_full_run_with_r2_mocked_writes_site_and_done(workspace, log, monkeypatch, tmp_path):
@@ -221,7 +364,7 @@ def test_full_run_with_r2_mocked_writes_site_and_done(workspace, log, monkeypatc
     uploaded, verified = [], {}
     monkeypatch.setattr(r2mod, "ensure_bucket", lambda cfg_, log_, api_base=None: "https://pub-test.r2.dev")
     monkeypatch.setattr(r2mod, "s3_client", lambda cfg_, endpoint_url=None: object())
-    monkeypatch.setattr(r2mod, "upload_tree", lambda client, bucket, items, log_, workers=8: (uploaded.extend(items), {"uploaded": len(items), "skipped": 0, "bytes": 1})[1])
+    monkeypatch.setattr(r2mod, "upload_tree", lambda client, bucket, items, log_, workers=8, forced=False: (uploaded.extend(items), {"uploaded": len(items), "skipped": 0, "bytes": 1})[1])
     monkeypatch.setattr(r2mod, "verify_head", lambda base, keys, range_keys, log_, workers=8: verified.update(base=base, keys=keys, range_keys=range_keys) or {"at": "2026-01-02T00:00:00+00:00", "keys": len(keys), "range_ok": len(range_keys)})
     ws.site_dir = tmp_path / "site_data"
     meta = publish.run(cfg, ws, log)
