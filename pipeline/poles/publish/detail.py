@@ -13,6 +13,7 @@ is half a raster and is redone.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import math
@@ -265,12 +266,13 @@ def render(job: DetailJob) -> dict:
             "warnings": warned, "seconds": time.monotonic() - t0}
 
 
-def _published_set(jobs: list[DetailJob], table: ClassTable) -> dict:
+def _published_set(jobs: list[DetailJob], table: ClassTable, edge_wkb: bytes) -> dict:
     """What a complete render covers, as sorted plain data: the fingerprint of the detail directory. The class
     edges belong in it because every pixel of every raster is classed with them, so a region that changes its
-    table changes the pictures without changing the pole set."""
+    table changes the pictures without changing the pole set; the edge band likewise, since the pixels inside it
+    are burnt to EDGE, and a changed edge_mask_m or .poly moves the band without moving a pole."""
     return {"poles": sorted([job.scenario, job.code, rank, lat, lon] for job in jobs for rank, lat, lon, _ in job.poles),
-            "class_edges": list(table.edges)}
+            "class_edges": list(table.edges), "edge_band_sha256": hashlib.sha256(edge_wkb).hexdigest()}
 
 
 def run_detail(cfg: RegionConfig, ws: Workspace, published: dict[str, list[dict]], table: ClassTable,
@@ -294,7 +296,7 @@ def run_detail(cfg: RegionConfig, ws: Workspace, published: dict[str, list[dict]
     # the render, not after: the files present are always a subset of the stamped set, which a resume completes,
     # while a stamp written only on success would leave a crashed run unstamped and its stale files invisible to
     # the next run with a different set. A stamp that does not parse is a stamp from a crashed write: stale.
-    stamp, wanted = out_dir / "published.json", _published_set(jobs, table)
+    stamp, wanted = out_dir / "published.json", _published_set(jobs, table, edge_wkb)
     stale = False
     if stamp.exists():
         try:
@@ -303,7 +305,7 @@ def run_detail(cfg: RegionConfig, ws: Workspace, published: dict[str, list[dict]
             stale = True
     if (ws.forced or stale) and out_dir.exists():
         if stale:
-            log.info("publish: the published poles or the class table changed since the last detail run, "
+            log.info("publish: the published poles, the class table or the edge band changed since the last detail run, "
                      "rebuilding detail/")
         shutil.rmtree(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)

@@ -368,3 +368,20 @@ def test_run_detail_accepts_a_scenario_with_nothing_published(tmp_path, cfg, log
     stats = detail.run_detail(replace(cfg, detail_window_m=2_000), ws, only_a, ClassTable(), None, log)
     assert stats["count"] == 1 and (ws.dir("publish") / "detail" / "aa" / "A-1.png").exists()
     assert detail.run_detail(replace(cfg, detail_window_m=2_000), ws, {}, ClassTable(), None, log)["count"] == 0
+
+
+def test_published_set_fingerprints_the_edge_band():
+    """The detail rasters burn EDGE from the band, so a band that moved (a changed edge_mask_m or a new
+    .poly) must read as a different detail directory even when the poles and the table are unchanged."""
+    import hashlib
+    from poles.classes import ClassTable, default_edges
+    from poles.publish.detail import DetailJob, _published_set
+    table = ClassTable(default_edges())
+    job = DetailJob("roads", "land.fgb", "water.fgb", "out", "lt", "A", ((1, 55.0, 24.0, 3400.0),),
+                    50.0, 20000.0, b"", tuple(table.edges))
+    none = _published_set([job], table, b"")
+    band = _published_set([job], table, b"\x01\x03")
+    assert none["poles"] == band["poles"] == [["A", "lt", 1, 55.0, 24.0]]
+    assert none["edge_band_sha256"] == hashlib.sha256(b"").hexdigest()
+    assert band["edge_band_sha256"] == hashlib.sha256(b"\x01\x03").hexdigest()
+    assert none != band and _published_set([job], table, b"\x01\x03") == band

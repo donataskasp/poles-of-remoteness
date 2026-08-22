@@ -355,6 +355,7 @@ def test_detail_rebuilds_when_the_published_set_changes(workspace, log, monkeypa
     stamp = json.loads((ws.dir("publish") / "detail" / "published.json").read_text())
     assert ["B", "lt", 1, kept["lat"], kept["lon"]] in stamp["poles"] and len(stamp["poles"]) == 3
     assert stamp["class_edges"] == _table(cfg).edges
+    assert len(stamp["edge_band_sha256"]) == 64
 
 
 def test_full_run_with_r2_mocked_writes_site_and_done(workspace, log, monkeypatch, tmp_path):
