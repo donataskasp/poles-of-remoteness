@@ -2,11 +2,14 @@
 import { makeClassTable } from './classes.js';
 import { pickLang, setLang, getLang, applyDom, t, fmtDist } from './i18n.js';
 import { parse, write, visitor } from './router.js';
-import { loadRegions, loadUnits, archiveUrl, pickStart, bboxToBounds } from './data.js';
+import { loadRegions, loadUnits, loadUnit, archiveUrl, pickStart, bboxToBounds } from './data.js';
 import { readTokens, makePalette, legendRows } from './palette.js';
 import { describe, formatSample, mountReadout } from './readout.js';
 import { createMap } from './map.js';
 import { createExploreLayer } from './explore.js';
+import { createDetailOverlays } from './detail.js';
+import { createMarkers } from './markers.js';
+import { createCard } from './card.js';
 
 const LANG_KEY = 'poles.lang';
 const state = { region: null, unit: null, s: 'A', b: 'sat', l: 'en', sample: null };
@@ -28,16 +31,30 @@ function renderLegend() {
   ui.legend.innerHTML = rows.map((r) => `<li class="legend__item"><span class="legend__swatch" style="background:${r.color}"></span>${fmtDist(r.label_m)}</li>`).join('');
 }
 
+// The readout holds a sample, not a string, so it can be said again in another language. The hint and the
+// wait for a tile are samples of their own kind for exactly that reason.
+function readoutText(sample) {
+  if (!sample) return '';
+  if (sample.kind === 'hint') return t('readoutHint');
+  if (sample.kind === 'loading') return t('readoutLoading');
+  return formatSample(sample);
+}
+
+function say(sample, options) {
+  state.sample = sample;
+  ui.readout.show(readoutText(sample), options);
+}
+
 function applyLanguage(lang) {
   setLang(lang);
   state.l = getLang();
   document.querySelectorAll('#lang-seg .seg__btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === state.l)));
   applyDom();
   renderLegend();
+  if (ui.card) ui.card.refresh();
   if (ui.refreshAttribution) ui.refreshAttribution();
   if (ui.refreshZoomTitles) ui.refreshZoomTitles();
-  // The readout holds a sample, not a string, so it can be said again in the new language.
-  if (ui.readout && state.sample) ui.readout.show(formatSample(state.sample));
+  if (ui.readout) ui.readout.restate(readoutText(state.sample));
 }
 
 const middle = (bounds) => [(bounds[0][0] + bounds[1][0]) / 2, (bounds[0][1] + bounds[1][1]) / 2];
@@ -83,12 +100,78 @@ async function main() {
   map.setMinZoom(Math.max(2, explore.A.options.minZoom));
   explore[state.s].addTo(map);
 
+  const detail = createDetailOverlays(map, { region, palette });
+  const markers = createMarkers(map, { onSelect: (pole) => selectPole(pole.rank, { pan: false }) });
+  const card = createCard(document.getElementById('card'), {
+    onScenario: (s) => setScenario(s),
+    onRanking: () => ui.ranking && ui.ranking.open(),
+    onLocate: () => ui.locate && ui.locate(),
+    onPole: (rank) => selectPole(rank, { pan: true }),
+  });
+  ui.card = card;
+
+  let current = { unit, doc: null, rank: 1 };
+
+  function polesOf() {
+    const block = current.doc && current.doc[state.s];
+    return (block && block.poles) || [];
+  }
+
+  function renderUnit() {
+    if (!current.unit) return; // a region with no units has no card, no markers and no detail rasters
+    card.show({ region, unit: current.unit, units, doc: current.doc, scenario: state.s, rank: current.rank });
+    markers.setPoles(polesOf(), current.rank);
+    detail.setPoles(polesOf());
+  }
+
+  function selectPole(rank, { pan }) {
+    current.rank = rank;
+    card.setPole(rank);
+    markers.select(rank);
+    const pole = polesOf().find((p) => p.rank === rank);
+    if (pan && pole) map.flyTo([pole.lat, pole.lon], Math.max(map.getZoom(), 11), { duration: 0.6 });
+  }
+
+  // view: 'unit' fits the unit's bbox, 'pole' flies to pole 1 of the active scenario, 'keep' leaves the map.
+  async function openUnit(code, { push = true, view = 'unit' } = {}) {
+    const next = units.find((u) => u.code === code);
+    if (!next) return;
+    const doc = await loadUnit(region.id, code);
+    current = { unit: next, doc, rank: 1 };
+    state.unit = code;
+    renderUnit();
+    const pole1 = polesOf()[0];
+    if (view === 'pole' && pole1) map.flyTo([pole1.lat, pole1.lon], 10, { duration: 0.8 });
+    else if (view !== 'keep') map.fitBounds(bboxToBounds(next.bbox), { padding: [24, 24] });
+    syncUrl(!push);
+    if (ui.ranking) ui.ranking.setCurrent(code);
+  }
+
+  function setScenario(s) {
+    if (s === state.s) return;
+    map.removeLayer(explore[state.s]);
+    state.s = s;
+    explore[s].addTo(map);
+    current.rank = 1;
+    renderUnit();
+    if (ui.ranking) ui.ranking.setScenario(s);
+    syncUrl(true);
+  }
+
   function showSample(latlng) {
-    const cls = explore[state.s].classAt(latlng);
-    state.sample = cls === undefined ? null : describe(cls, table);
-    ui.readout.show(state.sample ? formatSample(state.sample) : t('readoutLoading'));
+    const cls = detail.classAt(latlng) ?? explore[state.s].classAt(latlng);
+    say(cls === undefined ? { kind: 'loading' } : describe(cls, table));
   }
   map.on('click', (e) => showSample(e.latlng));
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let last = 0;
+    map.on('mousemove', (e) => {
+      const now = performance.now();
+      if (now - last < 120) return;
+      last = now;
+      showSample(e.latlng);
+    });
+  }
   map.on('moveend zoomend', () => syncUrl(true));
 
   document.querySelectorAll('#basemap-seg .seg__btn').forEach((b) => b.addEventListener('click', () => {
@@ -107,10 +190,19 @@ async function main() {
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
     palette = makePalette(table, readTokens());
     Object.values(explore).forEach((l) => l.setPalette(palette));
+    detail.setPalette(palette);
     renderLegend();
   });
 
-  ui.readout.show(t('readoutHint'));
+  window.addEventListener('popstate', () => {
+    const p = parse();
+    if (p.s && p.s !== state.s) setScenario(p.s);
+    if (p.unit && p.unit !== state.unit) openUnit(p.unit, { push: false, view: p.z != null ? 'keep' : 'unit' });
+    if (p.z != null && p.lat != null && p.lon != null) map.setView([p.lat, p.lon], p.z);
+  });
+
+  say({ kind: 'hint' });
+  if (unit) await openUnit(unit.code, { push: false, view: fromHash ? 'keep' : 'unit' });
   syncUrl(true);
 }
 

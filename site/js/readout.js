@@ -20,14 +20,20 @@ export function formatSample(sample) {
 
 export function mountReadout(el) {
   let timer = null;
+  let last = {};
+  function show(text, options = {}) {
+    last = options;
+    clearTimeout(timer);
+    if (!text) { el.hidden = true; return; }
+    el.textContent = text;
+    el.hidden = false;
+    if (!options.sticky) timer = setTimeout(() => { el.hidden = true; }, 6000);
+  }
   return {
-    show(text, { sticky = false } = {}) {
-      clearTimeout(timer);
-      if (!text) { el.hidden = true; return; }
-      el.textContent = text;
-      el.hidden = false;
-      if (!sticky) timer = setTimeout(() => { el.hidden = true; }, 6000);
-    },
+    show,
+    // Say the same thing again, in another language: only while the pill is up, and as sticky as it was.
+    restate(text) { if (!el.hidden) show(text, last); },
+    visible() { return !el.hidden; },
     hide() { clearTimeout(timer); el.hidden = true; },
   };
 }

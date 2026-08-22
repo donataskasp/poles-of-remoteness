@@ -136,6 +136,35 @@ button { font: inherit; color: inherit; }
    switch to and leaves only the one already active. */
 html[lang="en"] .about__body [data-lang="lt"], html[lang="lt"] .about__body [data-lang="en"] { display: none; }
 
+/* Card internals */
+.card__headline { margin: 0 0 4px; font: 600 17px/1.3 var(--serif); }
+.card__rank { margin: 0 0 10px; color: var(--ink-2); font-size: 13px; }
+.card__seg { display: flex; width: 100%; }
+.card__seg .seg__btn { flex: 1; }
+.card__hint { margin: 4px 0 10px; font-size: 12px; color: var(--ink-2); }
+.card__actions { display: flex; gap: 8px; margin-bottom: 12px; }
+.btn { border: 1px solid var(--accent); background: var(--accent); color: #fff; border-radius: var(--r-md); padding: 7px 12px; cursor: pointer; font-weight: 600; }
+.btn--ghost { background: transparent; color: var(--accent-ink); }
+.card__poles { border-top: 1px solid var(--hair); padding-top: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+.chip { border: 1px solid var(--hair-strong); background: transparent; border-radius: 999px; min-width: 26px; height: 26px; padding: 0 8px; cursor: pointer; font-size: 12px; }
+.chip--on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.card__pole-title { margin: 4px 0 6px; font: 600 15px/1.3 var(--serif); }
+.card__of { font-weight: 400; color: var(--ink-2); font-size: 12px; }
+.card__facts { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; margin: 0; font-size: 13px; }
+.card__facts dt { color: var(--ink-2); }
+.card__facts dd { margin: 0; }
+.card__maps { display: block; color: var(--accent-ink); }
+.card__note { margin: 8px 0 0; font-size: 12px; color: var(--ink-2); }
+.mono { font-family: var(--mono); font-size: 12px; }
+
+/* Pole markers. Leaflet writes the marker's size, margins and transform inline (that is how it positions
+   them), so the active state is said in colour and a ring, never in transform or width. */
+.pole-marker { display: flex; align-items: center; justify-content: center; border-radius: 50%;
+  background: var(--panel); border: 2px solid var(--accent); color: var(--accent-ink); font: 600 12px/1 var(--sans);
+  box-shadow: var(--shadow); }
+.pole-marker--active { background: var(--accent); color: #fff; box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow); }
+
 /* Phone: ranking becomes a bottom sheet, the map fills the screen. Phone rules only in here. */
 @media (max-width: 720px) {
   .map { right: 0; }
