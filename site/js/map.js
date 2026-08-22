@@ -18,7 +18,7 @@ export function createMap(el, { center, zoom, minZoom = 2, basemap = 'sat' }) {
     worldCopyJump: false, zoomSnap: 0.5, preferCanvas: true,
   });
   const zoomCtl = L.control.zoom({
-    position: 'bottomright', zoomInTitle: t('zoomIn'), zoomOutTitle: t('zoomOut'),
+    position: 'topright', zoomInTitle: t('zoomIn'), zoomOutTitle: t('zoomOut'),
   }).addTo(map);
   const attribution = L.control.attribution({ position: 'bottomright', prefix: false }).addTo(map);
   const layers = Object.fromEntries(Object.entries(BASEMAPS).map(([k, b]) => [k, L.tileLayer(b.url, { ...b.options, className: 'basemap' })]));
