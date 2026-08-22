@@ -3,6 +3,7 @@ verification through the public URL. Configuration comes from the environment, s
 nothing here is region-specific and nothing is ever written into the repository."""
 from __future__ import annotations
 
+import http.client
 import json
 import logging
 import mimetypes
@@ -117,7 +118,7 @@ def _api(method: str, url: str, token: str, body: dict | None) -> dict:
         raise PublishError(f"{method} {url}: HTTP {exc.code} {payload.get('errors') or exc.reason}") from exc
     except urllib.error.URLError as exc:
         raise PublishError(f"{method} {url}: unreachable ({exc.reason})") from exc
-    except OSError as exc:                         # a read that dies mid-body, a timeout waiting for it
+    except (OSError, http.client.HTTPException) as exc:   # a read that dies mid-body, a timeout waiting for it
         raise PublishError(f"{method} {url}: the response could not be read ({exc})") from exc
     payload = _decode(raw, method, url)
     if not payload.get("success", True):
@@ -155,15 +156,16 @@ def content_type(path: Path) -> str:
     return CONTENT_TYPES.get(path.suffix.lower()) or mimetypes.guess_type(path.name)[0] or "application/octet-stream"
 
 
-def _upload_one(client, bucket: str, path: Path, key: str) -> tuple[bool, int]:
-    """(uploaded, bytes sent). An object that is already there at the same size is left alone."""
+def _upload_one(client, bucket: str, path: Path, key: str, forced: bool = False) -> tuple[bool, int]:
+    """(uploaded, bytes sent). An object that is already there at the same size is left alone, unless the run is
+    forced: keys are immutable per snapshot, so a rebuilt archive of the same size would otherwise keep the old
+    bytes in the bucket for good, and --force is exactly the run that rebuilds it."""
     try:
         size = path.stat().st_size
     except OSError as exc:
         raise PublishError(f"upload of {key} failed: {path} is unreadable ({exc.strerror})") from exc
     try:
-        head = client.head_object(Bucket=bucket, Key=key)
-        if head["ContentLength"] == size:
+        if not forced and client.head_object(Bucket=bucket, Key=key)["ContentLength"] == size:
             return False, 0
     except ClientError as exc:
         if exc.response.get("Error", {}).get("Code") not in MISSING_KEY_CODES:
@@ -176,10 +178,11 @@ def _upload_one(client, bucket: str, path: Path, key: str) -> tuple[bool, int]:
     return True, size
 
 
-def upload_tree(client, bucket: str, items: list[tuple[Path, str]], log: logging.Logger, workers: int = 8) -> dict:
+def upload_tree(client, bucket: str, items: list[tuple[Path, str]], log: logging.Logger, workers: int = 8,
+                forced: bool = False) -> dict:
     stats = {"uploaded": 0, "skipped": 0, "bytes": 0}
     with ThreadPoolExecutor(max_workers=max(1, min(workers, len(items)))) as pool:
-        for done, size in pool.map(lambda it: _upload_one(client, bucket, it[0], it[1]), items):
+        for done, size in pool.map(lambda it: _upload_one(client, bucket, it[0], it[1], forced), items):
             stats["uploaded" if done else "skipped"] += 1
             stats["bytes"] += size
     log.info("publish: upload to %s: %s", bucket, stats)
@@ -211,7 +214,7 @@ def _head_once(url: str) -> tuple[int, str]:
         return exc.code, f"{exc.code} {exc.reason}"
     except urllib.error.URLError as exc:
         return 0, f"unreachable ({exc.reason})"
-    except OSError as exc:
+    except (OSError, http.client.HTTPException) as exc:
         return 0, f"unreachable ({exc})"
 
 
@@ -244,7 +247,7 @@ def _range_once(url: str) -> tuple[int, str]:
         return exc.code, f"{exc.code} {exc.reason}"
     except urllib.error.URLError as exc:
         return 0, f"unreachable ({exc.reason})"
-    except OSError as exc:                         # the body died between the headers and the last byte
+    except (OSError, http.client.HTTPException) as exc:   # the body died between the headers and the last byte
         return 0, f"unreachable ({exc})"
 
 

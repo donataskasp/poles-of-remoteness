@@ -15,6 +15,11 @@ poles = "poles.cli:main"
 [tool.setuptools.packages.find]
 include = ["poles*"]
 
+# The site JSON schemas are validated against at publish time, so they ship with the package: a wheel built
+# for the container would otherwise install poles/schemas as an empty directory and fail the stage.
+[tool.setuptools.package-data]
+poles = ["schemas/*.json"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra"

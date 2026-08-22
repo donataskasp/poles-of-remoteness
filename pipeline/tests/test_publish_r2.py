@@ -216,6 +216,22 @@ def test_upload_tree_skips_same_size_and_sets_headers(tmp_path, log):
 
 
 @mock_aws
+def test_a_forced_upload_replaces_a_key_of_the_same_size(tmp_path, log):
+    """Keys are immutable per snapshot, so a rebuilt archive that happens to come out the same size would leave
+    the previous run's bytes in the bucket for good. --force is the run that rebuilt it, so it sends every key."""
+    client = boto3.client("s3", region_name="us-east-1")
+    client.create_bucket(Bucket=BUCKET)
+    a = tmp_path / "A.pmtiles"
+    a.write_bytes(b"\x00" * 1000)
+    items = [(a, "r/s/A.pmtiles")]
+    assert r2.upload_tree(client, BUCKET, items, log) == {"uploaded": 1, "skipped": 0, "bytes": 1000}
+    a.write_bytes(b"\x01" * 1000)
+    assert r2.upload_tree(client, BUCKET, items, log) == {"uploaded": 0, "skipped": 1, "bytes": 0}
+    assert r2.upload_tree(client, BUCKET, items, log, forced=True) == {"uploaded": 1, "skipped": 0, "bytes": 1000}
+    assert client.get_object(Bucket=BUCKET, Key="r/s/A.pmtiles")["Body"].read() == b"\x01" * 1000
+
+
+@mock_aws
 def test_upload_tree_handles_empty_files_and_spare_workers(tmp_path, log):
     client = boto3.client("s3", region_name="us-east-1")
     client.create_bucket(Bucket=BUCKET)
@@ -318,6 +334,27 @@ def test_verify_head_fails_when_the_server_ignores_the_range(log):
         with pytest.raises(PublishError) as exc:
             r2.verify_head(base, ["r/A.pmtiles"], ["r/A.pmtiles"], log)
     assert "r/A.pmtiles" in str(exc.value) and "200" in str(exc.value)
+
+
+class _ShortBody(BaseHTTPRequestHandler):
+    """Promises a body it never finishes sending. The read then raises http.client.IncompleteRead, which is not
+    an OSError: it has to come back as a failed check, not as a traceback out of the stage."""
+
+    def do_GET(self):
+        self.send_response(206)
+        self.send_header("Content-Length", str(r2.RANGE_BYTES))
+        self.send_header("Content-Range", f"bytes 0-{r2.RANGE_BYTES - 1}/40000")
+        self.end_headers()
+        self.wfile.write(b"\x04" * 100)
+
+    def log_message(self, *a):
+        pass
+
+
+def test_verify_head_reports_a_body_that_stops_early(log):
+    with _serving(_ShortBody) as base:
+        with pytest.raises(PublishError, match="IncompleteRead"):
+            r2.verify_head(base, [], ["r/A.pmtiles"], log)
 
 
 def test_verify_head_reports_an_unreachable_base(log):
