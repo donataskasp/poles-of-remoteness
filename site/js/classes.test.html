@@ -1,0 +1,20 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>classes.js check</title>
+<pre id="out"></pre>
+<script type="module">
+  import { CLASS_EDGES, EDGE, NODATA, toClass, classUpper } from './classes.js';
+  const cases = [[0, 0], [49, 0], [50, 1], [2499, 49], [2500, 50], [9999, 124], [10000, 125], [29999, 204],
+    [30000, 205], [59999, 234], [60000, 235], [239999, 252], [240000, 253], [250000, 253]];
+  const lines = [];
+  let ok = CLASS_EDGES.length === 254 && CLASS_EDGES[0] === 0 && CLASS_EDGES[253] === 240000
+    && EDGE === 254 && NODATA === 255 && classUpper(253) === Infinity;
+  lines.push(`edges ${CLASS_EDGES.length}, first ${CLASS_EDGES[0]}, last ${CLASS_EDGES[253]}`);
+  for (const [d, c] of cases) {
+    const got = toClass(d);
+    if (got !== c) ok = false;
+    lines.push(`${d} m -> class ${got} (expected ${c})`);
+  }
+  lines.unshift(ok ? 'PASS' : 'FAIL');
+  document.getElementById('out').textContent = lines.join('\n');
+</script>
