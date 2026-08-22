@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "regions.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "regions"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "regions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "snapshot", "unit_level", "units_count", "r2_base", "class_edges", "max_distance_m",
+                     "edge_mask_m", "detail_res_m", "detail_window_m"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+          "name": {"type": "string"},
+          "snapshot": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+          "unit_level": {"type": "integer"},
+          "units_count": {"type": "integer"},
+          "r2_base": {"type": "string", "pattern": "^https://"},
+          "class_edges": {"type": "array", "minItems": 254, "maxItems": 254, "items": {"type": "integer"}},
+          "max_distance_m": {"type": "number"},
+          "edge_mask_m": {"type": "number"},
+          "detail_res_m": {"type": "number"},
+          "detail_window_m": {"type": "number"}
+        }
+      }
+    }
+  }
+}

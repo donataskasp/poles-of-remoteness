@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "<region>/units/<code>.json",
+  "$defs": {
+    "pole": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rank", "lat", "lon", "dist_m", "nearest_way", "nearest_place", "detail", "warnings"],
+      "properties": {
+        "rank": {"type": "integer", "minimum": 1}, "lat": {"type": "number"}, "lon": {"type": "number"},
+        "dist_m": {"type": "number"},
+        "nearest_way": {"type": "object", "required": ["id", "highway"], "properties": {
+          "id": {"type": "integer"}, "highway": {"type": "string"}, "name": {"type": ["string", "null"]},
+          "ref": {"type": ["string", "null"]}, "country": {"type": ["string", "null"]}}},
+        "nearest_place": {"type": ["object", "null"], "required": ["name", "type", "dist_m", "lat", "lon"], "properties": {
+          "name": {"type": ["string", "null"]}, "type": {"type": "string"}, "dist_m": {"type": "number"},
+          "lat": {"type": "number"}, "lon": {"type": "number"}}},
+        "detail": {"type": "string", "pattern": "^detail/[a-z0-9-]+/[AB]-[0-9]+$"},
+        "warnings": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "scenario": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["poles", "withheld", "reason"],
+      "properties": {
+        "poles": {"type": "array", "items": {"$ref": "#/$defs/pole"}},
+        "withheld": {"type": "integer", "minimum": 0},
+        "reason": {"type": ["string", "null"]}
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["region", "snapshot", "code", "name", "name_en", "country", "area_km2", "bbox", "transcontinental",
+               "closed_by_edge", "A", "B"],
+  "properties": {
+    "region": {"type": "string"}, "snapshot": {"type": "string"}, "code": {"type": "string"},
+    "name": {"type": "string"}, "name_en": {"type": "string"}, "country": {"type": ["string", "null"]},
+    "area_km2": {"type": "number"},
+    "bbox": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number"}},
+    "transcontinental": {"type": "boolean"}, "closed_by_edge": {"type": "boolean"},
+    "A": {"$ref": "#/$defs/scenario"}, "B": {"$ref": "#/$defs/scenario"}
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "manifest.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "regions"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "generated_at": {"type": "string"},
+    "regions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["snapshot", "published_at", "r2_base", "pipeline_commit", "sources", "archives", "detail", "validation", "verified"],
+        "properties": {
+          "snapshot": {"type": "string"},
+          "published_at": {"type": "string"},
+          "r2_base": {"type": "string"},
+          "pipeline_commit": {"type": ["string", "null"]},
+          "sources": {"type": "array", "items": {"type": "object", "required": ["url", "role", "file", "size", "md5", "sha256", "last_modified"]}},
+          "archives": {"type": "object", "additionalProperties": {"type": "object", "required": ["key", "bytes", "tiles", "min_zoom", "max_zoom"]}},
+          "detail": {"type": "object", "required": ["count", "bytes"]},
+          "validation": {"type": "object", "required": ["report", "report_html", "contact_sheet"]},
+          "verified": {"type": "object", "required": ["at", "keys", "range_ok"]}
+        }
+      }
+    }
+  }
+}
