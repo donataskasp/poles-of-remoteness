@@ -342,7 +342,7 @@ def search_unit(job: UnitJob) -> dict:
         raise PolesError(f"unit {unit.code} scenario {scenario}: top coarse value {top_coarse} m is the "
                          f"saturation cap ({cfg.max_distance_m} m), reached by "
                          f"{int((coarse >= cfg.max_distance_m).sum())} of {len(coarse)} candidate cells; the "
-                         f"farthest is the cell centred at {lons[k]:.4f}, {lats[k]:.4f}. Usually the cell is "
+                         f"farthest is the cell centred at lon {lons[k]:.4f}, lat {lats[k]:.4f}. Usually the cell is "
                          f"a rock or an islet that should carry no pole, and the answer is a territory_mask "
                          f"entry covering it in the region config; raising max_distance_m is the other way.")
     pads = pad_fn_for(frame.crs)(np.asarray(lons), np.asarray(lats))

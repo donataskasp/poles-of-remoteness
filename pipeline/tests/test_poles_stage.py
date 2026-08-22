@@ -203,8 +203,8 @@ def test_a_saturated_candidate_cell_is_a_poles_error_naming_the_unit_and_the_cel
     with pytest.raises(PolesError) as exc:
         poles_mod.search_unit(UnitJob(cfg, prepared, unit, "A", tmp_path / "dist_A.tif", 3, tmp_path / "log.txt"))
     message = str(exc.value)
-    assert "aa" in message and "A" in message and f"{lon:.4f}" in message and f"{lat:.4f}" in message
-    assert "1 " in message and "territory_mask" in message
+    assert "unit aa scenario A" in message and f"lon {lon:.4f}, lat {lat:.4f}" in message
+    assert "1 of 16 candidate cells" in message and "territory_mask" in message
 
 
 def test_a_poles_error_from_a_worker_is_not_rewritten(tmp_path, cfg, log, monkeypatch):
