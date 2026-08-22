@@ -24,11 +24,20 @@ export function r2Url(region, key) {
   return `${region.r2_base.replace(/\/+$/, '')}/${region.id}/${region.snapshot}/${key}`;
 }
 export const archiveUrl = (region, s) => r2Url(region, `${s}.pmtiles`);
-export const detailUrl = (region, pole, ext) => r2Url(region, `${pole.detail}.${ext}`);
+export function detailUrl(region, pole, ext) {
+  if (!pole || !pole.detail) throw new Error('pole has no detail');
+  return r2Url(region, `${pole.detail}.${ext}`);
+}
 
 export function bboxToBounds([west, south, east, north]) {
   return [[south, west], [north, east]];
 }
+
+// A region with no units yields no winner, so every caller below reads the code through this guard.
+const winnerCode = (units) => {
+  const w = winner(units);
+  return w ? w.code : null;
+};
 
 export function winner(units, s = 'A') {
   if (!units.length) return null;
@@ -43,7 +52,7 @@ export async function pickStart(parsed, vis, regions, load = loadUnits) {
   if (parsed.region && byId.has(parsed.region)) {
     const units = await load(parsed.region);
     if (parsed.unit && units.some((u) => u.code === parsed.unit)) return { region: parsed.region, unit: parsed.unit };
-    return { region: parsed.region, unit: winner(units).code };
+    return { region: parsed.region, unit: winnerCode(units) };
   }
   if (vis && vis.country) {
     const country = vis.country.toLowerCase();
@@ -52,10 +61,10 @@ export async function pickStart(parsed, vis, regions, load = loadUnits) {
       const units = await load(r.id);
       const own = codes.map((c) => units.find((u) => u.code === c)).find(Boolean);
       if (own) return { region: r.id, unit: own.code };
-      if (units.some((u) => (u.country || '').toLowerCase() === country)) return { region: r.id, unit: winner(units).code };
+      if (units.some((u) => (u.country || '').toLowerCase() === country)) return { region: r.id, unit: winnerCode(units) };
     }
   }
   const first = regions[0];
   const units = await load(first.id);
-  return { region: first.id, unit: winner(units).code };
+  return { region: first.id, unit: winnerCode(units) };
 }

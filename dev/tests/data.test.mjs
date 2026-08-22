@@ -18,6 +18,7 @@ test('data: urls', () => {
   assert.equal(archiveUrl(na, 'B'), 'https://pub-x.r2.dev/north-america/2026-08-19/B.pmtiles');
   assert.equal(detailUrl(region, { detail: 'detail/lt/A-1' }, 'png'), 'https://pub-x.r2.dev/europe/2026-08-19/detail/lt/A-1.png');
   assert.deepEqual(bboxToBounds([20.9, 53.8, 26.8, 56.4]), [[53.8, 20.9], [56.4, 26.8]]);
+  assert.throws(() => detailUrl(region, { rank: 1 }, 'png'), /pole has no detail/);
 });
 
 test('data: winner and ranks', () => {
@@ -37,6 +38,7 @@ test('data: pickStart follows the fallback order', async () => {
   assert.deepEqual(await pickStart({ region: null, unit: null }, { country: 'ca', region: null }, regions, load), { region: 'north-america', unit: 'us-ak' });
   assert.deepEqual(await pickStart({ region: null, unit: null }, { country: 'jp', region: null }, regions, load), { region: 'europe', unit: 'no' });
   assert.deepEqual(await pickStart({ region: null, unit: null }, none, regions, load), { region: 'europe', unit: 'no' });
+  assert.deepEqual(await pickStart({ region: 'europe', unit: 'lt' }, none, regions, async () => []), { region: 'europe', unit: null });
 });
 
 test('data: getJSON caches successes and evicts failures', async () => {
