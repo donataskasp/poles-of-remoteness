@@ -1,6 +1,6 @@
-"""Explore tile pyramid: gdal raster tile cuts the warped class raster into z0..z9 PNGs, a packer writes them
-into MBTiles, pmtiles converts the archive. Class values are categories, so z9 is nearest and the overviews
-are the mode of their four children."""
+"""Explore tile pyramid: gdal raster tile cuts the warped class raster into z9 PNGs, a packer writes them into
+MBTiles and builds z8 down to z0 itself, pmtiles converts the archive. Class values are categories, so z9 is
+nearest and every overview pixel is the mode of its four children."""
 from __future__ import annotations
 
 import json
@@ -22,17 +22,26 @@ from ..shell import run_cmd
 from .raster import _done, _mark, _unmark
 
 MAX_ZOOM = 9
+TILE_PX = 256
 LAT_MAX = 85.0511287798066
+PNG_END = b"IEND\xaeB`\x82"
 
 
 def tile_dir(src_3857: Path, out_dir: Path, log: logging.Logger, tools_log: Path) -> Path:
-    """Cut the pyramid into <z>/<x>/<y>.png. The tiler marks what the raster does not cover with an alpha
+    """Cut the deepest zoom into <z>/<x>/<y>.png. The tiler marks what the raster does not cover with an alpha
     band and never with a class value: asking for --no-alpha instead makes it fill empty space with 0, which
     is a real class (0 to 50 m), so water would publish as "next to a road". The alpha is folded back into
-    NODATA by the packer, and the archive still carries single band grey tiles."""
+    NODATA by the packer, and the archive still carries single band grey tiles.
+
+    Only z9 is cut here. The tiler's own overviews take the mode of the class band with that same 0 sitting
+    under the transparent pixels, and it votes: a block of {class, other class, nothing, nothing} comes out as
+    class 0 at alpha 255, which no fold can undo, and a stipple of roadside pixels follows every coastline and
+    every lake shore down the pyramid. --nodata-values-pct-threshold is refused for mode. The packer builds
+    z8 and below itself instead."""
     out_dir.mkdir(parents=True, exist_ok=True)
-    cmd = ["gdal", "raster", "tile", "--tiling-scheme", "WebMercatorQuad", "--min-zoom", "0", "--max-zoom", str(MAX_ZOOM),
-           "--resampling", "nearest", "--overview-resampling", "mode", "--skip-blank",
+    cmd = ["gdal", "raster", "tile", "--tiling-scheme", "WebMercatorQuad",
+           "--min-zoom", str(MAX_ZOOM), "--max-zoom", str(MAX_ZOOM),
+           "--resampling", "nearest", "--skip-blank",
            "--convention", "xyz", "--output-format", "PNG", "--webviewer", "none", "--resume", src_3857, out_dir]
     res = run_cmd(cmd, log, stderr_path=tools_log)
     log.info("publish: tiles of %s cut into %s in %.0f s", src_3857.name, out_dir.name, res.duration_s)
@@ -59,26 +68,54 @@ def _ungeoreferenced():
 def _grey_png(cls: np.ndarray) -> bytes:
     """Re-encode one tile as a single band grey PNG, the form the site decodes and the spec's size budget assumes."""
     with _ungeoreferenced(), MemoryFile(filename="tile.png") as mem:
-        with mem.open(driver="PNG", width=cls.shape[1], height=cls.shape[0], count=1, dtype="uint8") as ds:
+        with mem.open(driver="PNG", width=cls.shape[1], height=cls.shape[0], count=1, dtype="uint8", ZLEVEL=9) as ds:
             ds.write(cls, 1)
         return mem.read()
 
 
-def _read_tile(png: Path) -> tuple[np.ndarray, bytes | None]:
-    """Class band of one tile, with the tiler's alpha folded into NODATA. The second item is the file's own
-    bytes when the tile is already single band and needs no rewrite."""
+def _read_tile(png: Path) -> np.ndarray:
+    """Class band of one tile, with the tiler's alpha folded into NODATA. A tile a killed run left half written
+    is rejected here rather than published: --resume regenerates only missing files, so nothing else in the
+    chain would notice it, and a truncated PNG decodes happily with its missing rows filled in as zeros."""
+    size = png.stat().st_size
+    with png.open("rb") as fh:
+        fh.seek(max(0, size - len(PNG_END)))
+        trailer = fh.read()
+    if trailer != PNG_END:
+        raise RuntimeError(f"{png}: truncated tile, the PNG end marker is missing; delete it and rerun")
     with _ungeoreferenced(), rasterio.open(png) as ds:
         bands = ds.read()
-    if bands.shape[0] == 1:
-        return bands[0], png.read_bytes()
+    if bands.shape[0] not in (1, 2):
+        raise RuntimeError(f"{png}: {bands.shape[0]} bands, expected grey or grey plus alpha")
+    if bands.shape[1:] != (TILE_PX, TILE_PX):
+        raise RuntimeError(f"{png}: {bands.shape[2]}x{bands.shape[1]} pixels, expected {TILE_PX} square; delete it and rerun")
     cls = bands[0].copy()
-    cls[bands[-1] == 0] = NODATA
-    return cls, None
+    if bands.shape[0] == 2:
+        cls[bands[1] == 0] = NODATA
+    return cls
+
+
+def _mode_half(tile: np.ndarray) -> np.ndarray:
+    """Halve a tile by taking the mode of every 2x2 block. NODATA votes as an ordinary class, so a block that
+    is mostly nothing stays nothing; on a tie a data class beats NODATA, and between data classes the lowest
+    class index wins (the nearer road, and the deterministic answer)."""
+    h, w = tile.shape[0] // 2, tile.shape[1] // 2
+    block = tile.reshape(h, 2, w, 2).transpose(0, 2, 1, 3).reshape(-1, 4).astype(np.int32)
+    votes = (block[:, :, None] == block[:, None, :]).sum(axis=2)               # how often each pixel's value repeats
+    rank = np.where(block != NODATA, votes * 256 + (NODATA - block), -1)       # most votes first, then lowest class
+    rows = np.arange(block.shape[0])
+    best = rank.argmax(axis=1)
+    wins = (rank[rows, best] >= 0) & (votes[rows, best] >= (block == NODATA).sum(axis=1))
+    return np.where(wins, block[rows, best], NODATA).astype(np.uint8).reshape(h, w)
 
 
 def pack_mbtiles(tiles_dir: Path, mbtiles: Path, name: str, bounds_lonlat: tuple[float, float, float, float]) -> dict:
-    """Directory pyramid to MBTiles (TMS rows). Tiles that are entirely NODATA are dropped here whatever the
-    tiler did, so the archive never carries an empty tile."""
+    """Directory of deepest zoom tiles to a whole MBTiles pyramid (TMS rows). Every tile is decoded and
+    re-encoded, so a half written one is caught instead of published. The shallower levels are built here, one
+    level at a time from the level just written: a parent is its four children each halved by the mode of every
+    2x2 block, a missing child counts as all NODATA, and a tile that comes out entirely NODATA is dropped."""
+    if not tiles_dir.is_dir():
+        raise RuntimeError(f"{tiles_dir}: no tile directory to pack")
     mbtiles.unlink(missing_ok=True)
     con = sqlite3.connect(mbtiles)
     con.executescript("CREATE TABLE metadata (name TEXT, value TEXT);"
@@ -87,14 +124,38 @@ def pack_mbtiles(tiles_dir: Path, mbtiles: Path, name: str, bounds_lonlat: tuple
     per_zoom: dict[int, int] = {}
     blank = 0
     try:
-        for png, z, x, y in _walk(tiles_dir):
-            cls, raw = _read_tile(png)
+        keys: set[tuple[int, int]] = set()
+        for png, x, y in _walk(tiles_dir, MAX_ZOOM):
+            cls = _read_tile(png)
             if (cls == NODATA).all():
                 blank += 1
                 continue
-            con.execute("INSERT INTO tiles VALUES (?, ?, ?, ?)",
-                        (z, x, (1 << z) - 1 - y, raw if raw is not None else _grey_png(cls)))
-            per_zoom[z] = per_zoom.get(z, 0) + 1
+            _put(con, MAX_ZOOM, x, y, cls)
+            keys.add((x, y))
+        con.commit()
+        for z in range(MAX_ZOOM, -1, -1):
+            if not keys:
+                break
+            per_zoom[z] = len(keys)
+            if z == 0:
+                break
+            written: set[tuple[int, int]] = set()
+            half = TILE_PX // 2
+            for px, py in sorted({(x // 2, y // 2) for x, y in keys}):
+                parent = np.full((TILE_PX, TILE_PX), NODATA, np.uint8)
+                for dy in (0, 1):
+                    for dx in (0, 1):
+                        child = (px * 2 + dx, py * 2 + dy)
+                        if child in keys:
+                            quarter = _mode_half(_tile_array(con, z, *child))
+                            parent[dy * half:(dy + 1) * half, dx * half:(dx + 1) * half] = quarter
+                if (parent == NODATA).all():
+                    blank += 1
+                    continue
+                _put(con, z - 1, px, py, parent)
+                written.add((px, py))
+            con.commit()
+            keys = written
         if not per_zoom:
             raise RuntimeError(f"{tiles_dir}: no non-blank tiles")
         zooms = sorted(per_zoom)
@@ -109,13 +170,26 @@ def pack_mbtiles(tiles_dir: Path, mbtiles: Path, name: str, bounds_lonlat: tuple
     return {"tiles": sum(per_zoom.values()), "per_zoom": per_zoom, "blank_skipped": blank}
 
 
-def _walk(tiles_dir: Path):
-    """Every <z>/<x>/<y>.png under the pyramid, in zoom order. Anything that is not a numbered directory is
-    not a tile and is ignored."""
-    for z_dir in sorted((p for p in tiles_dir.iterdir() if p.is_dir() and p.name.isdigit()), key=lambda p: int(p.name)):
-        for x_dir in sorted((p for p in z_dir.iterdir() if p.is_dir() and p.name.isdigit()), key=lambda p: int(p.name)):
-            for png in sorted((p for p in x_dir.glob("*.png") if p.stem.isdigit()), key=lambda p: int(p.stem)):
-                yield png, int(z_dir.name), int(x_dir.name), int(png.stem)
+def _put(con: sqlite3.Connection, z: int, x: int, y: int, cls: np.ndarray) -> None:
+    con.execute("INSERT INTO tiles VALUES (?, ?, ?, ?)", (z, x, (1 << z) - 1 - y, _grey_png(cls)))
+
+
+def _tile_array(con: sqlite3.Connection, z: int, x: int, y: int) -> np.ndarray:
+    blob = con.execute("SELECT tile_data FROM tiles WHERE zoom_level=? AND tile_column=? AND tile_row=?",
+                       (z, x, (1 << z) - 1 - y)).fetchone()[0]
+    with _ungeoreferenced(), MemoryFile(blob) as mem, mem.open() as ds:
+        return ds.read(1)
+
+
+def _walk(tiles_dir: Path, z: int):
+    """Every <x>/<y>.png of one zoom level, in tile order. Anything that is not a numbered directory is not a
+    tile and is ignored, and so is any level an older run of the tiler left behind."""
+    z_dir = tiles_dir / str(z)
+    if not z_dir.is_dir():
+        return
+    for x_dir in sorted((p for p in z_dir.iterdir() if p.is_dir() and p.name.isdigit()), key=lambda p: int(p.name)):
+        for png in sorted((p for p in x_dir.glob("*.png") if p.stem.isdigit()), key=lambda p: int(p.stem)):
+            yield png, int(x_dir.name), int(png.stem)
 
 
 def convert_pmtiles(mbtiles: Path, pmtiles: Path, log: logging.Logger, tools_log: Path) -> Path:

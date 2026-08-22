@@ -4,6 +4,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 import rasterio
+from rasterio.io import MemoryFile
 from rasterio.transform import from_origin
 
 from poles.classes import NODATA
@@ -53,14 +54,14 @@ def test_tile_dir_cuts_z9_without_resampling(tmp_path, log):
     with rasterio.open(png) as ds:
         assert ds.count == 1 and ds.dtypes == ("uint8",)
         assert np.array_equal(ds.read(1), data[:256, :256])
-    assert (out / "0").is_dir() and (out / "8").is_dir()
+    assert sorted(p.name for p in out.iterdir() if p.is_dir()) == ["9"]   # the packer builds z8 and below
 
 
 def test_pack_skips_blank_and_flips_rows(tmp_path, log):
     data = _source(tmp_path / "src.tif")
     out = tiles.tile_dir(tmp_path / "src.tif", tmp_path / "tiles", log, tmp_path / "tools.log")
     stats = tiles.pack_mbtiles(out, tmp_path / "A.mbtiles", "A", tiles.lonlat_bounds(tmp_path / "src.tif"))
-    assert stats["per_zoom"][9] == 7 and stats["blank_skipped"] >= 1 or stats["per_zoom"][9] == 7
+    assert stats["per_zoom"][9] == 7
     assert _mbtile(tmp_path / "A.mbtiles", 9, TX + 1, TY) is None
     assert np.array_equal(_mbtile(tmp_path / "A.mbtiles", 9, TX, TY + 1), data[256:, :256])
     con = sqlite3.connect(tmp_path / "A.mbtiles")
@@ -73,17 +74,14 @@ def test_pack_skips_blank_and_flips_rows(tmp_path, log):
 def test_overviews_use_mode_not_average(tmp_path, log):
     _source(tmp_path / "src.tif")
     out = tiles.tile_dir(tmp_path / "src.tif", tmp_path / "tiles", log, tmp_path / "tools.log")
-    z8 = out / "8" / str(TX // 2) / f"{(TY + 1) // 2}.png"
-    with rasterio.open(z8) as ds:
-        a = ds.read(1)
-        alpha = ds.read(ds.count) if ds.count > 1 else None
+    tiles.pack_mbtiles(out, tmp_path / "A.mbtiles", "A", tiles.lonlat_bounds(tmp_path / "src.tif"))
+    a = _mbtile(tmp_path / "A.mbtiles", 8, TX // 2, (TY + 1) // 2)
     # z9 tile (270, 171) maps to the bottom-left quarter of z8 tile (135, 85); its first 2x2 block is 5,5,5,7 -> 5.
     assert a[128, 0] == 5
-    assert a[129, 1] == 7                           # a block of plain 7s stays 7
+    assert a[129, 1] == 7                            # a block of plain 7s stays 7
     vals = set(np.unique(a[128:, :128]).tolist())    # that whole quarter is 5s and 7s
     assert vals == {5, 7}                            # averaging would invent a 6, cubic worse
-    assert alpha is not None and (alpha[:128, 128:] == 0).all()   # the blank child stays transparent
-    assert set(np.unique(a[alpha == 255]).tolist()).issubset(set(range(254)))  # no class invented above 253
+    assert (a[:128, 128:] == NODATA).all()           # the child that was never cut stays nodata, never class 0
 
 
 def test_build_chain_and_pmtiles_info(tmp_path, log):
@@ -161,16 +159,15 @@ def test_tiles_on_the_antimeridian_column(tmp_path, log):
 
 
 def test_a_half_cut_tile_directory_resumes(tmp_path, log):
-    """A run killed mid-pyramid leaves a directory without its marker: the next build fills the gaps."""
+    """A run killed mid-cut leaves a directory without its marker: the next build fills the gaps."""
     _source(tmp_path / "src.tif")
     out = tiles.tile_dir(tmp_path / "src.tif", tmp_path / "tiles", log, tmp_path / "tools.log")
     keep = (out / "9" / str(TX) / f"{TY}.png").read_bytes()
-    for z in ("9", "8", "0"):
-        for png in (out / z).rglob("*.png"):
-            png.unlink()
+    for png in (out / "9" / str(TX + 2)).rglob("*.png"):
+        png.unlink()
     tiles.tile_dir(tmp_path / "src.tif", out, log, tmp_path / "tools.log")
     assert (out / "9" / str(TX) / f"{TY}.png").read_bytes() == keep
-    assert (out / "0" / "0" / "0.png").exists()
+    assert (out / "9" / str(TX + 2) / f"{TY}.png").exists()
 
 
 def test_build_recuts_when_the_marker_is_missing(tmp_path, log):
@@ -197,3 +194,53 @@ def test_parse_show_reads_the_real_pmtiles_output():
 def test_parse_show_refuses_output_it_does_not_recognise():
     with pytest.raises(ValueError, match="max zoom"):
         tiles.parse_show("tile type: png\nmin zoom: 0\naddressed tiles count: 3\n")
+
+
+def test_overviews_never_invent_a_class_at_a_nodata_boundary(tmp_path, log):
+    """GDAL's own overviews take the mode of the class band with 0 sitting under the transparent pixels, and
+    that 0 votes: a coastal block of {class, other class, nothing, nothing} comes out as class 0, "within 50 m
+    of a road", at alpha 255, so the fold never sees it. The packer builds the overviews itself: nodata votes
+    as itself, a data class wins a tie against it, and the lowest class index wins a tie between data classes."""
+    r, c = np.meshgrid(np.arange(256), np.arange(256), indexing="ij")
+    data = np.where((r + c) % 2 == 0, 100, 150).astype(np.uint8)
+    data[:, 129:] = NODATA                    # a coast one column past the block edge: every block on it is 2 land, 2 sea
+    _write(tmp_path / "src.tif", data, TX, TY)
+    meta = tiles.build(tmp_path / "src.tif", tmp_path, "C", log, tmp_path / "tools.log")
+    con = sqlite3.connect(tmp_path / "C.mbtiles")
+    rows = con.execute("SELECT zoom_level, tile_column, tile_row FROM tiles").fetchall()
+    con.close()
+    seen: set[int] = set()
+    for z, x, row in rows:
+        seen |= set(np.unique(_mbtile(tmp_path / "C.mbtiles", z, x, (1 << z) - 1 - row)).tolist())
+    assert seen == {100, 150, NODATA}         # a stray 0 would be the sea published as roadside
+    assert np.array_equal(_mbtile(tmp_path / "C.mbtiles", 9, TX, TY), data)   # nodata exactly where the source had none
+    expect = np.full((256, 256), NODATA, np.uint8)
+    expect[:128, :64] = 100                   # 100 and 150 tie in every land block, the lower class index wins
+    assert np.array_equal(_mbtile(tmp_path / "C.mbtiles", 8, TX // 2, TY // 2), expect)
+    assert meta["min_zoom"] == 1              # the last land pixel is outvoted three to one in the z0 block
+
+
+def test_a_truncated_tile_is_rejected(tmp_path, log):
+    """--resume regenerates only missing files, so a run killed mid-tile leaves a half written PNG behind."""
+    _source(tmp_path / "src.tif")
+    out = tiles.tile_dir(tmp_path / "src.tif", tmp_path / "tiles", log, tmp_path / "tools.log")
+    png = out / "9" / str(TX) / f"{TY + 1}.png"
+    png.write_bytes(png.read_bytes()[: png.stat().st_size // 2])
+    with pytest.raises(RuntimeError, match=f"{TY + 1}[.]png"):
+        tiles.pack_mbtiles(out, tmp_path / "A.mbtiles", "A", tiles.lonlat_bounds(tmp_path / "src.tif"))
+
+
+def test_a_tile_that_is_not_grey_is_rejected(tmp_path, log):
+    _source(tmp_path / "src.tif")
+    out = tiles.tile_dir(tmp_path / "src.tif", tmp_path / "tiles", log, tmp_path / "tools.log")
+    with MemoryFile(filename="rgb.png") as mem:
+        with mem.open(driver="PNG", width=256, height=256, count=3, dtype="uint8") as ds:
+            ds.write(np.zeros((3, 256, 256), np.uint8))
+        (out / "9" / str(TX) / f"{TY}.png").write_bytes(mem.read())
+    with pytest.raises(RuntimeError, match="bands"):
+        tiles.pack_mbtiles(out, tmp_path / "A.mbtiles", "A", tiles.lonlat_bounds(tmp_path / "src.tif"))
+
+
+def test_pack_names_a_tile_directory_that_is_not_there(tmp_path):
+    with pytest.raises(RuntimeError, match="no tile directory"):
+        tiles.pack_mbtiles(tmp_path / "gone", tmp_path / "A.mbtiles", "A", (0.0, 0.0, 1.0, 1.0))
