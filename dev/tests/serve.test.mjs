@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, writeFileSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { startServer } from '../serve.mjs';
+import { startServer, inside } from '../serve.mjs';
 
 function fixture() {
   const root = mkdtempSync(join(tmpdir(), 'poles-serve-'));
@@ -15,6 +15,7 @@ function fixture() {
   mkdirSync(r2, { recursive: true });
   writeFileSync(join(site, 'index.html'), '<!doctype html><title>x</title>');
   writeFileSync(join(site, 'data', 'regions.json'), '{"from":"site"}');
+  writeFileSync(join(site, 'data', 'site-only.json'), '{"from":"site"}');
   writeFileSync(join(data, 'regions.json'), '{"from":"dev"}');
   writeFileSync(join(r2, 'A.pmtiles'), Buffer.from('0123456789abcdef'));
   return { site, data, r2 };
@@ -49,7 +50,23 @@ test('serve: SPA fallback, dev data first, range on r2', async () => {
 
     const outside = await fetch(`${base}/r2/europe/2026-08-19/../../etc/passwd`);
     assert.equal(outside.status, 404);
+
+    const siteOnly = await fetch(`${base}/data/site-only.json`);
+    assert.equal((await siteOnly.json()).from, 'site');
+
+    const malformed = await fetch(`${base}/%`);
+    assert.equal(malformed.status, 500);
+    const still = await fetch(`${base}/data/regions.json`);
+    assert.equal(still.status, 200);
   } finally {
     server.close();
   }
+});
+
+test('inside: resolves under the root and refuses escapes', () => {
+  const root = join(tmpdir(), 'poles-root');
+  assert.equal(inside(root, '/a/b.json'), join(root, 'a', 'b.json'));
+  assert.equal(inside(root, '/'), root);
+  assert.equal(inside(root, '/../secret.txt'), null);
+  assert.equal(inside(root, '/a/../../secret.txt'), null);
 });

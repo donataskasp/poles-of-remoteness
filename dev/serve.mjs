@@ -17,7 +17,7 @@ const TYPES = {
   '.png': 'image/png', '.pmtiles': 'application/octet-stream', '.txt': 'text/plain; charset=utf-8',
 };
 
-function inside(root, rel) {
+export function inside(root, rel) {
   const p = resolve(root, '.' + rel);
   return p === root || p.startsWith(root + sep) ? p : null;
 }
@@ -56,7 +56,7 @@ export function startServer({ site, data, r2, r2Prefix, port = 8000 }) {
   const dataRoot = data ? resolve(data) : null;
   const r2Root = r2 ? resolve(r2) : null;
   const r2Head = '/r2/' + (r2Prefix || '').replace(/^\/|\/$/g, '') + '/';
-  const server = http.createServer((req, res) => {
+  const handle = (req, res) => {
     if (req.method === 'OPTIONS') {
       res.writeHead(204, { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Range, If-Match',
         'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS' });
@@ -85,9 +85,14 @@ export function startServer({ site, data, r2, r2Prefix, port = 8000 }) {
     if (st) return send(req, res, p, st);
     if (!extname(pathname)) {
       const index = join(siteRoot, 'index.html');
-      return send(req, res, index, fileInfo(index));
+      const ist = fileInfo(index);
+      if (ist) return send(req, res, index, ist);
     }
     res.writeHead(404); res.end('not found');
+  };
+  // One bad request (a malformed escape, a vanished file) must not take the whole dev server down.
+  const server = http.createServer((req, res) => {
+    try { handle(req, res); } catch (err) { res.writeHead(500); res.end(`error: ${err.message}`); }
   });
   return new Promise((ok) => server.listen(port, '127.0.0.1', () => ok(server)));
 }
