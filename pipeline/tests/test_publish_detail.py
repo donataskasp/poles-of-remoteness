@@ -168,6 +168,47 @@ def test_classify_window_saturates_without_roads():
     assert (arr[:, 3:] == 253).all() and (arr[:, :3] == NODATA).all()
 
 
+def _line_window(tmp_path, land, window_m, lat=55.0, lon=179.99):
+    """A window centred just west of 180 with its land file and the land test render builds, so the test
+    drives georef, _pad_bbox and centres exactly as the stage does rather than hand feeding coordinates."""
+    write_fgb(tmp_path / "land_idx.fgb", "land", land, {"id": list(range(1, len(land) + 1))})
+    write_fgb(tmp_path / "water_big.fgb", "water", [box(0.0, 0.0, 0.1, 0.1)], {"id": [1]})   # nowhere near
+    g = detail.georef(lat, lon, 50, window_m)
+    land_ok = detail.land_test(tmp_path / "land_idx.fgb", tmp_path / "water_big.fgb",
+                               detail._pad_bbox(g, lat, detail.LAND_SLACK_M))
+    return g, land_ok, UtmRoads(RoadSet.empty(("osm_id", "highway")), utm_epsg(lon, lat))
+
+
+def test_classify_window_classes_the_far_side_of_a_window_that_runs_past_the_line(tmp_path):
+    """The pixel centres of a straddling window come out past 180, and every geometry they are tested against
+    is stored inside [-180, 180], so unwrapped the far columns match no land and blank silently (issue #22)."""
+    g, land_ok, roads = _line_window(tmp_path, [box(179.9, 54.9, 180.0, 55.1), box(-180.0, 54.9, -179.9, 55.1)],
+                                     2_000)
+    assert int((detail.centres(g)[0] > 180.0).sum()) == 7        # the far side: 7 of the 40 columns
+    arr = detail.classify_window(g, roads, land_ok, None, ClassTable())
+    assert arr.shape == (40, 40)
+    assert int((arr == NODATA).sum()) == 0 and int((arr == 253).sum()) == 1_600
+
+
+def test_classify_window_finds_an_islet_stored_wholly_past_the_line(tmp_path):
+    """A pole on an islet the index stores on the far side of the line: its pixels must class as land, so the
+    window is not blank and render's blank window guard never has to speak (issue #22)."""
+    g, land_ok, roads = _line_window(tmp_path, [box(-179.992, 54.998, -179.988, 55.002)], 4_000)
+    assert g.west < 180.01 < g.west + g.dlon * g.width           # the islet is inside the window
+    arr = detail.classify_window(g, roads, land_ok, None, ClassTable())
+    assert arr.shape == (80, 80) and int((arr != NODATA).sum()) == 40    # the islet, 5 columns by 8 rows
+
+
+def test_classify_window_burns_the_edge_band_on_the_far_side_of_the_line(tmp_path):
+    """The band is stored inside [-180, 180] like the land, so the same unwrapped centres would miss it and the
+    far columns of a window on the region's rim would publish a class instead of EDGE (issue #22)."""
+    g, _, roads = _line_window(tmp_path, [box(179.9, 54.9, 180.0, 55.1)], 2_000)
+    band = box(-180.0, g.north - g.dlat * g.height - 1, -179.99, g.north + 1)     # the far side, whole height
+    arr = detail.classify_window(g, roads, lambda lo, la: np.ones(len(np.asarray(lo)), bool), band, ClassTable())
+    far = detail.centres(g)[0] > 180.0
+    assert (arr[:, far] == EDGE).all() and (arr[:, ~far] == 253).all()
+
+
 def test_write_detail_leaves_no_aux_file(tmp_path):
     g = detail.georef(LAT, LON, 50, 2_000)
     png, js = detail.write_detail(tmp_path, "lt", "B", 1, np.zeros((40, 40), np.uint8), g)

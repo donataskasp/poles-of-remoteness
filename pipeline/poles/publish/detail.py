@@ -130,6 +130,10 @@ def classify_window(g: Georef, roads: UtmRoads, land_ok, edge_band: BaseGeometry
     lons, lats = centres(g)
     glon, glat = np.meshgrid(lons, lats)
     flat_lon, flat_lat = glon.ravel(), glat.ravel()
+    # The centres of a window past 180 come out beyond it, and every geometry they are tested against here
+    # (the land and water polygons, the edge band) is stored inside [-180, 180]; wrapping once covers the
+    # land test, the band test and the UTM transform together (issue #22).
+    flat_lon = (flat_lon + 180.0) % 360.0 - 180.0
     if roads.tree is None:
         cls = table.to_class(np.full(flat_lon.size, float(table.edges[-1])))
     else:
