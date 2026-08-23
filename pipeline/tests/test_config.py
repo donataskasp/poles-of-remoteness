@@ -68,7 +68,8 @@ def test_load_north_america_config_matches_spec_table(regions_dir):
     assert cfg.coarse_res_m == 250
     assert cfg.unit_admin_level == 4 and cfg.unit_code_tag == "ISO3166-2"
     assert cfg.unit_countries == ["us", "ca"] and cfg.unit_exclude == []
-    assert cfg.territory_mask == [] and cfg.transcontinental == []
+    assert cfg.territory_mask == [{"name": "Northwestern Hawaiian Islands", "bbox": [-179.0, 22.5, -161.0, 29.0]}]
+    assert cfg.transcontinental == []
     assert cfg.edge_mask_m == 50_000 and cfg.max_distance_m == 500_000
     assert cfg.top_n == 10 and cfg.detail_res_m == 50 and cfg.detail_window_m == 20_000
     assert cfg.expected_units == 64 and cfg.class_table is None

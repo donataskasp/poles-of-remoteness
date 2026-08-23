@@ -19,8 +19,12 @@ unit_admin_level: 4           # states, provinces and territories
 unit_countries: [us, ca]      # Mexico is a config change, not a code change
 unit_exclude: []
 unit_code_tag: ISO3166-2
-# None. The unit list is explicit here, so there is nothing for a mask to remove.
-territory_mask: []
+# Main territory only (spec 2.2). The unit list is explicit, so a mask removes part of a unit, not a unit:
+# Hawaii's Northwestern Hawaiian Islands (Nihoa to Kure, a roadless refuge chain) saturated the 500 km cap on
+# Laysan (lon -171.74, lat 25.78, about 1,100 km from the nearest road on Kauai) on 2026-08-23, see DECISIONS.
+# The east edge at -161.0 keeps Niihau and Kaula (lon -160.5) in and takes Nihoa (lon -161.9) out.
+territory_mask:
+  - {name: Northwestern Hawaiian Islands, bbox: [-179.0, 22.5, -161.0, 29.0]}
 
 edge_mask_m: 50000
 # 500 km: the uncapped maximum is 439 km, on northern Victoria Island in Nunavut (scenario B, 429 km in A);
