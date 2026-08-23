@@ -64,14 +64,14 @@ def test_load_north_america_config_matches_spec_table(regions_dir):
     assert cfg.id == "north-america" and cfg.name == "North America"
     assert cfg.sources == ["https://download.geofabrik.de/north-america-latest.osm.pbf"]
     assert cfg.supplement_sources == []
-    assert cfg.coarse_crs.startswith("+proj=laea") and "+lon_0=-100" in cfg.coarse_crs
+    assert cfg.coarse_crs == "+proj=laea +lat_0=50 +lon_0=-100 +datum=WGS84 +units=m"
     assert cfg.coarse_res_m == 250
     assert cfg.unit_admin_level == 4 and cfg.unit_code_tag == "ISO3166-2"
     assert cfg.unit_countries == ["us", "ca"] and cfg.unit_exclude == []
     assert cfg.territory_mask == [] and cfg.transcontinental == []
     assert cfg.edge_mask_m == 50_000 and cfg.max_distance_m == 400_000
     assert cfg.top_n == 10 and cfg.detail_res_m == 50 and cfg.detail_window_m == 20_000
-    assert cfg.expected_units == 64
+    assert cfg.expected_units == 64 and cfg.class_table is None
     assert cfg.references == (regions_dir / "north-america-refs.yaml").resolve()
     assert cfg.is_unit_country("us") and cfg.is_unit_country("ca") and not cfg.is_unit_country("mx")
     assert poly_url(cfg.sources[0]).endswith("/north-america.poly")
