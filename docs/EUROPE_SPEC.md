@@ -193,7 +193,7 @@ A bottom sheet on mobile, a side panel on desktop: every unit of the current reg
 
 ### 5.6 Languages
 
-English default, Lithuanian when the browser prefers it; hash and localStorage override as today. Country and region names come from `Intl.DisplayNames` in the active language; only UI strings live in the I18N dictionary. Adding a language later is one dictionary.
+English default, Lithuanian when the browser prefers it; hash and localStorage override as today. Country names come from `Intl.DisplayNames` in the active language; region names come from the region config's `names` map, because browsers do not localise UN M49 codes (DECISIONS, 2026-08-23); only UI strings live in the I18N dictionary. Adding a language later is one dictionary.
 
 ### 5.7 About, version, analytics
 
