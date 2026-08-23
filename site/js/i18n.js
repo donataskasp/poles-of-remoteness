@@ -1,4 +1,5 @@
-// UI strings and locale formatting. Country and region names never live here (Intl.DisplayNames gives them).
+// UI strings and locale formatting. Country and region names never live here: Intl.DisplayNames gives the
+// countries, regions.json carries the region names by language (see regionLabel).
 // Add a key to both languages at once; t() falls back to en and then to the key so a miss is visible, not fatal.
 export const LANGS = ['en', 'lt'];
 
