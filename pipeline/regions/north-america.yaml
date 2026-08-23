@@ -23,7 +23,9 @@ unit_code_tag: ISO3166-2
 territory_mask: []
 
 edge_mask_m: 50000
-max_distance_m: 400000
+# 500 km: the uncapped maximum is 439 km, on northern Victoria Island in Nunavut (scenario B, 429 km in A);
+# 400 km saturated there on 2026-08-23 and the poles stage aborted, see DECISIONS.
+max_distance_m: 500000
 top_n: 10
 detail_res_m: 50
 detail_window_m: 20000

@@ -31,7 +31,7 @@ A **region** is a config file, not a code path. Nothing in the pipeline or the s
 | `unit_code` | ISO 3166-1 alpha-2, lowercase | ISO 3166-2, lowercase (`us-ak`) |
 | `territory_mask` | Svalbard, Jan Mayen, Franz Josef Land, Novaya Zemlya, Azores, Madeira, Rockall | none (the unit list is explicit) |
 | `edge_mask_m` | 50,000 | 50,000 |
-| `max_distance_m` | 250,000 (was 150,000; raised 2026-08-20 so saturation stays inside class 253, see DECISIONS) | 400,000 |
+| `max_distance_m` | 250,000 (was 150,000; raised 2026-08-20 so saturation stays inside class 253, see DECISIONS) | 500,000 (was 400,000; raised 2026-08-23 after Nunavut saturated at 400 km, the true maximum is 439 km, see DECISIONS) |
 | `top_n` | 10 | 10 |
 | `expected_units` | 52 (counted on the 2026-08-19 snapshot in stage 2) | 64 (51 US incl. DC, 13 CA) |
 | `transcontinental` | `tr`, `ge` | none |

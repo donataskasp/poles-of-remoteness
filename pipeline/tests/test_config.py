@@ -69,7 +69,7 @@ def test_load_north_america_config_matches_spec_table(regions_dir):
     assert cfg.unit_admin_level == 4 and cfg.unit_code_tag == "ISO3166-2"
     assert cfg.unit_countries == ["us", "ca"] and cfg.unit_exclude == []
     assert cfg.territory_mask == [] and cfg.transcontinental == []
-    assert cfg.edge_mask_m == 50_000 and cfg.max_distance_m == 400_000
+    assert cfg.edge_mask_m == 50_000 and cfg.max_distance_m == 500_000
     assert cfg.top_n == 10 and cfg.detail_res_m == 50 and cfg.detail_window_m == 20_000
     assert cfg.expected_units == 64 and cfg.class_table is None
     assert cfg.references == (regions_dir / "north-america-refs.yaml").resolve()
