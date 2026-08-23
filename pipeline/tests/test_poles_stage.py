@@ -139,6 +139,7 @@ def test_write_water_big_splits_a_polygon_on_the_line_into_two_valid_parts(tmp_p
         assert -180.0 <= part.bounds[0] and part.bounds[2] <= 180.0
         assert part.bounds[2] - part.bounds[0] < 1.0                       # each part hugs its own side
     assert sorted(round(b) for part in on_line.geoms for b in (part.bounds[0], part.bounds[2])) == [-180, -180, 179, 180]
+    assert sum(len(part.interiors) for part in on_line.geoms) == 1                 # the hole survives the cut
     assert east.geom_type == "MultiPolygon" and len(east.geoms) == 1 and round(east.bounds[0], 1) == -150.0
 
 
