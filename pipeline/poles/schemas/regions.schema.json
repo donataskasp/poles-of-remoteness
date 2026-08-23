@@ -11,11 +11,12 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "name", "snapshot", "unit_level", "units_count", "r2_base", "class_edges", "max_distance_m",
-                     "edge_mask_m", "detail_res_m", "detail_window_m"],
+        "required": ["id", "name", "code", "snapshot", "unit_level", "units_count", "r2_base", "class_edges",
+                     "max_distance_m", "edge_mask_m", "detail_res_m", "detail_window_m"],
         "properties": {
           "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]{0,31}$"},
           "name": {"type": "string"},
+          "code": {"type": "string", "pattern": "^([A-Z]{2}|[0-9]{3})$"},
           "snapshot": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
           "unit_level": {"type": "integer"},
           "units_count": {"type": "integer"},

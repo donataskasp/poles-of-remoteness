@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { pickLang, setLang, getLang, t, regionName, unitName, flag, fmtDist, fmtKmExact, fmtInt, highwayLabel, placeLabel, esc } from '../../site/js/i18n.js';
+import { pickLang, setLang, getLang, t, regionName, regionLabel, unitName, flag, fmtDist, fmtKmExact, fmtInt, highwayLabel, placeLabel, esc } from '../../site/js/i18n.js';
 
 test('i18n: pickLang order is hash, stored, browser, default en', () => {
   assert.equal(pickLang({ hash: 'lt', stored: 'en', navigator: { languages: ['en-GB'] } }), 'lt');
@@ -29,6 +29,17 @@ test('i18n: names and flags', () => {
   assert.equal(unitName({ code: 'lt', name: 'Lietuva', name_en: 'Lithuania' }, 'lt'), 'Lietuva');
   assert.equal(flag('lt'), '\u{1F1F1}\u{1F1F9}');
   assert.equal(flag('us-ak'), '');
+});
+
+test('i18n: regionName takes a UN M49 area code and regionLabel falls back to the data name', () => {
+  setLang('en');
+  assert.equal(regionName('150'), 'Europe');
+  assert.equal(regionName('150', 'lt'), 'Europa');
+  assert.equal(regionName('003', 'lt'), 'Šiaurės Amerika');
+  assert.equal(regionName('999'), null);
+  assert.equal(regionLabel({ code: '003', name: 'North America' }, 'lt'), 'Šiaurės Amerika');
+  assert.equal(regionLabel({ name: 'North America' }, 'lt'), 'North America');
+  assert.equal(regionLabel({ id: 'north-america' }, 'lt'), 'north-america');
 });
 
 test('i18n: distances', () => {

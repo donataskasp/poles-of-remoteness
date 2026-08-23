@@ -16,6 +16,7 @@ class ConfigError(ValueError):
 class RegionConfig:
     id: str
     name: str
+    code: str
     sources: list[str]
     supplement_sources: list[str]
     coarse_crs: str
@@ -48,7 +49,7 @@ class RegionConfig:
 
 _NONE = type(None)
 _TYPES: dict[str, tuple[type, ...]] = {
-    "id": (str,), "name": (str,), "sources": (list,), "supplement_sources": (list,),
+    "id": (str,), "name": (str,), "code": (str,), "sources": (list,), "supplement_sources": (list,),
     "coarse_crs": (str,), "coarse_res_m": (int,), "unit_admin_level": (int,),
     "unit_countries": (list, _NONE), "unit_exclude": (list,), "unit_code_tag": (str,),
     "territory_mask": (list,), "edge_mask_m": (int,), "max_distance_m": (int,), "top_n": (int,),

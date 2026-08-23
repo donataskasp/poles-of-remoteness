@@ -87,7 +87,7 @@ export function unitAt(units, { lat, lng }, country = null) {
 // switch because the page binds its region and its layers once at start, so another region is a page load.
 export function regionLinks(regions, currentId) {
   if (!regions || regions.length < 2) return [];
-  return regions.map((r) => ({ id: r.id, name: r.name || r.id, href: `/${r.id}`, current: r.id === currentId }));
+  return regions.map((r) => ({ id: r.id, code: r.code, name: r.name || r.id, href: `/${r.id}`, current: r.id === currentId }));
 }
 
 // Opening unit (spec 5.3): the path; the visitor's own unit (country-region, then country); the winner of

@@ -204,8 +204,9 @@ def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
     generated_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
     snapshot = json.loads((ws.dir("fetch") / "snapshot.json").read_text(encoding="utf-8"))
     units_meta = json.loads((ws.dir("poles") / "units.json").read_text(encoding="utf-8"))["units"]
-    region = {"id": cfg.id, "name": cfg.name, "snapshot": ws.snapshot, "unit_level": cfg.unit_admin_level, "r2_base": base,
-              "max_distance_m": cfg.max_distance_m, "edge_mask_m": cfg.edge_mask_m, "detail_res_m": cfg.detail_res_m,
+    region = {"id": cfg.id, "name": cfg.name, "code": cfg.code, "snapshot": ws.snapshot,
+              "unit_level": cfg.unit_admin_level, "r2_base": base, "max_distance_m": cfg.max_distance_m,
+              "edge_mask_m": cfg.edge_mask_m, "detail_res_m": cfg.detail_res_m,
               "detail_window_m": cfg.detail_window_m}
     site = sitedata.build(region, units_meta, published, table, meta["archives"], meta["detail"], meta["verify"],
                           snapshot["sources"], generated_at, _pipeline_commit(log))

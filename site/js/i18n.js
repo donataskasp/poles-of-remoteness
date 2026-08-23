@@ -183,7 +183,8 @@ export function applyDom(root = document) {
 
 const names = new Map();
 export function regionName(code, lang = current) {
-  if (!/^[a-z]{2}$/i.test(code || '')) return null;
+  // ISO 3166-1 alpha-2 for a country, UN M49 for a region the size of a continent (150 Europe, 003 North America).
+  if (!/^([a-z]{2}|\d{3})$/i.test(code || '')) return null;
   try {
     // Construction sits inside the try too: an engine without Intl.DisplayNames degrades to the data names.
     if (!names.has(lang)) names.set(lang, new Intl.DisplayNames([lang], { type: 'region' }));
@@ -192,6 +193,11 @@ export function regionName(code, lang = current) {
   } catch {
     return null;
   }
+}
+
+// A region's name for the control and the rank line: the localised name from its code, else the data name.
+export function regionLabel(region, lang = current) {
+  return regionName(region.code, lang) || region.name || region.id;
 }
 
 export function unitName(unit, lang = current) {

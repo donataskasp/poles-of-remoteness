@@ -1,5 +1,5 @@
 // The card: the headline sentence for the unit, the scenario toggle, the two actions, and the selected pole.
-import { t, unitName, flag, fmtDist, fmtKmExact, highwayLabel, placeLabel, esc } from './i18n.js';
+import { t, unitName, regionLabel, flag, fmtDist, fmtKmExact, highwayLabel, placeLabel, esc } from './i18n.js';
 
 export function createCard(el, { onScenario, onRanking, onLocate, onPole }) {
   let view = null; // { region, unit, units, doc, scenario, rank }
@@ -28,7 +28,7 @@ export function createCard(el, { onScenario, onRanking, onLocate, onPole }) {
     const what = t(v.scenario === 'A' ? 'headlineA' : 'headlineB');
     const count = v.units.filter((u) => u[v.scenario]).length;
     return `<p class="card__headline">${lead}${esc(t('headline', { name, km: fmtKmExact(sum.dist_m), what }))}</p>
-      <p class="card__rank">${esc(t('rankOf', { rank: sum.rank, count, region: v.region.name }))}</p>`;
+      <p class="card__rank">${esc(t('rankOf', { rank: sum.rank, count, region: regionLabel(v.region) }))}</p>`;
   }
 
   function poleBlock(v) {

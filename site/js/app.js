@@ -1,6 +1,6 @@
 // Bootstrap and wiring. Everything with behaviour lives in the modules.
 import { makeClassTable } from './classes.js';
-import { pickLang, setLang, getLang, applyDom, t, fmtDist } from './i18n.js';
+import { pickLang, setLang, getLang, applyDom, t, fmtDist, regionLabel } from './i18n.js';
 import { parse, write, visitor, changedState } from './router.js';
 import { loadRegions, loadUnits, loadUnit, archiveUrl, pickStart, bboxToBounds, unitAt, regionLinks } from './data.js';
 import { readTokens, makePalette, legendRows } from './palette.js';
@@ -13,7 +13,7 @@ import { createCard } from './card.js';
 import { createRanking } from './ranking.js';
 
 const LANG_KEY = 'poles.lang';
-const state = { region: null, unit: null, s: 'A', b: 'sat', l: 'en', sample: null };
+const state = { region: null, regions: null, unit: null, s: 'A', b: 'sat', l: 'en', sample: null };
 const ui = {};
 
 function markReady() { document.documentElement.dataset.ready = '1'; }
@@ -42,15 +42,16 @@ function renderLegend() {
 
 // The header's region control. Built as elements, not as an HTML string: the name comes from a data file
 // and textContent cannot become markup. The class on the header is what the phone rules key off, so a
-// one-region site keeps its header untouched.
-function renderRegions(regions, currentId) {
+// one-region site keeps its header untouched. It reads the regions off state so a language switch can draw
+// it again with the names said in the new language.
+function renderRegions() {
   const nav = document.getElementById('regions');
-  const links = regionLinks(regions, currentId);
+  const links = regionLinks(state.regions || [], state.region);
   nav.replaceChildren(...links.map((l) => {
     const a = document.createElement('a');
     a.className = 'seg__btn';
     a.href = l.href;
-    a.textContent = l.name;
+    a.textContent = regionLabel(l);
     if (l.current) a.setAttribute('aria-current', 'page');
     return a;
   }));
@@ -83,6 +84,7 @@ function applyLanguage(lang) {
   document.querySelectorAll('#lang-seg .seg__btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === state.l)));
   applyDom();
   renderLegend();
+  if (state.regions) renderRegions();   // the first call runs before the regions are loaded
   if (ui.card) ui.card.refresh();
   if (ui.ranking) ui.ranking.refresh();
   if (ui.refreshAttribution) ui.refreshAttribution();
@@ -103,11 +105,12 @@ async function main() {
   const regions = await loadRegions();
   const start = await pickStart(parsed, visitor(), regions);
   const region = regions.find((r) => r.id === start.region);
-  renderRegions(regions, region.id);
+  state.regions = regions;
+  state.region = region.id;
+  renderRegions();
   const units = await loadUnits(region.id);
   // A region with no units at all opens without one; the archive still covers the whole region.
   const unit = units.find((u) => u.code === start.unit) || null;
-  state.region = region.id;
   state.unit = unit && unit.code;
 
   const table = makeClassTable(region.class_edges);

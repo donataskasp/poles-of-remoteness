@@ -30,6 +30,7 @@ Every top-level key of `regions/<region>.yaml`, in the order the file uses. The 
 |---|---|---|
 | `id` | string | the region id: every path, R2 key and URL segment is built from it (`europe`, `north-america`) |
 | `name` | string | the region's display name, published in `regions.json` |
+| `code` | string | the UN M49 area code (or an ISO 3166-1 alpha-2 code) the site localises the region's name from through `Intl.DisplayNames`: `"150"` Europe, `"003"` North America; quoted so YAML keeps the leading zero; `name` is the English fallback |
 | `sources` | list of strings | the Geofabrik `-latest.osm.pbf` URLs that define the region; the `.poly` beside each is the data edge. At least one is required |
 | `supplement_sources` | list of strings | extracts whose roads count but whose countries never become units. Default `[]` |
 | `coarse_crs` | string | the equal-area CRS of the coarse grid, an EPSG code or a PROJ string |
