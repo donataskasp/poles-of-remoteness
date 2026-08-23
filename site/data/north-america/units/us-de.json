@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-de",
+ "name": "Delaware",
+ "name_en": "Delaware",
+ "country": "us",
+ "area_km2": 5224.2,
+ "bbox": [
+  -75.7890215,
+  38.4511785,
+  -74.9849355,
+  39.8395147
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 39.240275,
+    "lon": -75.404947,
+    "dist_m": 5103.91,
+    "nearest_way": {
+     "id": 1178707171,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Donas Landing",
+     "type": "hamlet",
+     "dist_m": 3808.5,
+     "lat": 39.212613,
+     "lon": -75.431031
+    },
+    "detail": "detail/us-de/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 39.501578,
+    "lon": -75.53985,
+    "dist_m": 3373.59,
+    "nearest_way": {
+     "id": 1137834012,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Port Penn",
+     "type": "hamlet",
+     "dist_m": 3582.4,
+     "lat": 39.516779,
+     "lon": -75.576593
+    },
+    "detail": "detail/us-de/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 38.971603,
+    "lon": -75.313621,
+    "dist_m": 2655.62,
+    "nearest_way": {
+     "id": 885724085,
+     "highway": "tertiary",
+     "name": "Stratham Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mispillion Light",
+     "type": "hamlet",
+     "dist_m": 2696.5,
+     "lat": 38.947335,
+     "lon": -75.314914
+    },
+    "detail": "detail/us-de/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 38.787564,
+    "lon": -75.190395,
+    "dist_m": 1817.57,
+    "nearest_way": {
+     "id": 17240368,
+     "highway": "unclassified",
+     "name": "Oyster Rocks Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Black Hog Landing",
+     "type": "hamlet",
+     "dist_m": 1505.6,
+     "lat": 38.774001,
+     "lon": -75.190463
+    },
+    "detail": "detail/us-de/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 39.621595,
+    "lon": -75.571176,
+    "dist_m": 1770.07,
+    "nearest_way": {
+     "id": 11758209,
+     "highway": "residential",
+     "name": "Lehigh Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fort Mott",
+     "type": "hamlet",
+     "dist_m": 2589.8,
+     "lat": 39.604835,
+     "lon": -75.550202
+    },
+    "detail": "detail/us-de/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 38.459823,
+    "lon": -75.302292,
+    "dist_m": 1625.15,
+    "nearest_way": {
+     "id": 17241789,
+     "highway": "tertiary",
+     "name": "Hudson Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Careytown",
+     "type": "hamlet",
+     "dist_m": 3508.4,
+     "lat": 38.434004,
+     "lon": -75.32547
+    },
+    "detail": "detail/us-de/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 39.340069,
+    "lon": -75.505805,
+    "dist_m": 1545.24,
+    "nearest_way": {
+     "id": 186243400,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Taylors Gut Landing",
+     "type": "hamlet",
+     "dist_m": 1590.9,
+     "lat": 39.327612,
+     "lon": -75.514924
+    },
+    "detail": "detail/us-de/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 39.120352,
+    "lon": -75.413708,
+    "dist_m": 1454.47,
+    "nearest_way": {
+     "id": 17209437,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pickering Beach",
+     "type": "hamlet",
+     "dist_m": 1899.5,
+     "lat": 39.137144,
+     "lon": -75.409496
+    },
+    "detail": "detail/us-de/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 38.559508,
+    "lon": -75.68647,
+    "dist_m": 1307.85,
+    "nearest_way": {
+     "id": 17241437,
+     "highway": "tertiary",
+     "name": "Old Sharptown Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Galestown",
+     "type": "hamlet",
+     "dist_m": 2590.3,
+     "lat": 38.566226,
+     "lon": -75.714931
+    },
+    "detail": "detail/us-de/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 38.86537,
+    "lon": -75.276836,
+    "dist_m": 1285.23,
+    "nearest_way": {
+     "id": 17241720,
+     "highway": "unclassified",
+     "name": "Cods Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Primehook Beach",
+     "type": "hamlet",
+     "dist_m": 3153.6,
+     "lat": 38.855668,
+     "lon": -75.242688
+    },
+    "detail": "detail/us-de/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 39.240275,
+    "lon": -75.404947,
+    "dist_m": 5103.91,
+    "nearest_way": {
+     "id": 1178707171,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Donas Landing",
+     "type": "hamlet",
+     "dist_m": 3808.5,
+     "lat": 39.212613,
+     "lon": -75.431031
+    },
+    "detail": "detail/us-de/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 39.501578,
+    "lon": -75.53985,
+    "dist_m": 3373.59,
+    "nearest_way": {
+     "id": 1137834012,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Port Penn",
+     "type": "hamlet",
+     "dist_m": 3582.4,
+     "lat": 39.516779,
+     "lon": -75.576593
+    },
+    "detail": "detail/us-de/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 39.353917,
+    "lon": -75.493126,
+    "dist_m": 2716.97,
+    "nearest_way": {
+     "id": 17211569,
+     "highway": "residential",
+     "name": "North Avenue",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Woodland Beach",
+     "type": "hamlet",
+     "dist_m": 2775.6,
+     "lat": 39.333446,
+     "lon": -75.474644
+    },
+    "detail": "detail/us-de/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 38.971603,
+    "lon": -75.313621,
+    "dist_m": 2655.62,
+    "nearest_way": {
+     "id": 885724085,
+     "highway": "tertiary",
+     "name": "Stratham Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mispillion Light",
+     "type": "hamlet",
+     "dist_m": 2696.5,
+     "lat": 38.947335,
+     "lon": -75.314914
+    },
+    "detail": "detail/us-de/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 38.493898,
+    "lon": -75.281891,
+    "dist_m": 2379.93,
+    "nearest_way": {
+     "id": 17243458,
+     "highway": "secondary",
+     "name": "Cypress Road",
+     "ref": "DE 54",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lazy Lagoon Mobile Home Park",
+     "type": "hamlet",
+     "dist_m": 4329.0,
+     "lat": 38.502614,
+     "lon": -75.233522
+    },
+    "detail": "detail/us-de/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 38.787282,
+    "lon": -75.190477,
+    "dist_m": 1834.03,
+    "nearest_way": {
+     "id": 17232013,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Black Hog Landing",
+     "type": "hamlet",
+     "dist_m": 1474.3,
+     "lat": 38.774001,
+     "lon": -75.190463
+    },
+    "detail": "detail/us-de/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 39.621595,
+    "lon": -75.571176,
+    "dist_m": 1770.07,
+    "nearest_way": {
+     "id": 11758209,
+     "highway": "residential",
+     "name": "Lehigh Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fort Mott",
+     "type": "hamlet",
+     "dist_m": 2589.8,
+     "lat": 39.604835,
+     "lon": -75.550202
+    },
+    "detail": "detail/us-de/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 39.072917,
+    "lon": -75.442131,
+    "dist_m": 1530.97,
+    "nearest_way": {
+     "id": 882557939,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Magnolia",
+     "type": "village",
+     "dist_m": 2926.0,
+     "lat": 39.071398,
+     "lon": -75.475886
+    },
+    "detail": "detail/us-de/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 39.418098,
+    "lon": -75.602155,
+    "dist_m": 1444.17,
+    "nearest_way": {
+     "id": 17228465,
+     "highway": "secondary",
+     "name": "Taylors Bridge Road",
+     "ref": "DE 9",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stave Landing",
+     "type": "hamlet",
+     "dist_m": 1491.1,
+     "lat": 39.431501,
+     "lon": -75.601038
+    },
+    "detail": "detail/us-de/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 38.574763,
+    "lon": -75.419811,
+    "dist_m": 1424.09,
+    "nearest_way": {
+     "id": 17245414,
+     "highway": "tertiary",
+     "name": "Shiloh Church Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pusey Crossroads",
+     "type": "hamlet",
+     "dist_m": 2054.8,
+     "lat": 38.55817,
+     "lon": -75.409363
+    },
+    "detail": "detail/us-de/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

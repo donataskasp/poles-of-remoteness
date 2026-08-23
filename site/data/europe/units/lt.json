@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "lt",
+ "name": "Lietuva",
+ "name_en": "Lithuania",
+ "country": "lt",
+ "area_km2": 64833.2,
+ "bbox": [
+  20.6557167,
+  53.8967893,
+  26.8355198,
+  56.4504213
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 54.441478,
+    "lon": 23.537029,
+    "dist_m": 3426.0,
+    "nearest_way": {
+     "id": 1385319417,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Kumečiai",
+     "type": "village",
+     "dist_m": 3688.6,
+     "lat": 54.472361,
+     "lon": 23.516414
+    },
+    "detail": "detail/lt/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 54.010639,
+    "lon": 24.529369,
+    "dist_m": 3406.88,
+    "nearest_way": {
+     "id": 259109636,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Katra",
+     "type": "village",
+     "dist_m": 4390.4,
+     "lat": 53.99291,
+     "lon": 24.58918
+    },
+    "detail": "detail/lt/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 56.282599,
+    "lon": 22.641875,
+    "dist_m": 2561.87,
+    "nearest_way": {
+     "id": 821393760,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Ašvėnai",
+     "type": "village",
+     "dist_m": 4063.6,
+     "lat": 56.273865,
+     "lon": 22.578179
+    },
+    "detail": "detail/lt/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 55.248552,
+    "lon": 21.262059,
+    "dist_m": 2147.79,
+    "nearest_way": {
+     "id": 1242509661,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ru"
+    },
+    "nearest_place": {
+     "name": "Мысовка",
+     "type": "town",
+     "dist_m": 6376.0,
+     "lat": 55.191493,
+     "lon": 21.270691
+    },
+    "detail": "detail/lt/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 56.215814,
+    "lon": 23.228859,
+    "dist_m": 2131.59,
+    "nearest_way": {
+     "id": 971467229,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Juodeikiai",
+     "type": "village",
+     "dist_m": 2830.3,
+     "lat": 56.240646,
+     "lon": 23.219101
+    },
+    "detail": "detail/lt/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 55.781048,
+    "lon": 25.01457,
+    "dist_m": 2081.81,
+    "nearest_way": {
+     "id": 1359673105,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Šalnakandžiai",
+     "type": "village",
+     "dist_m": 2185.0,
+     "lat": 55.785641,
+     "lon": 24.980711
+    },
+    "detail": "detail/lt/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 54.931449,
+    "lon": 25.908169,
+    "dist_m": 2078.56,
+    "nearest_way": {
+     "id": 801400210,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Juozapavas",
+     "type": "hamlet",
+     "dist_m": 2994.5,
+     "lat": 54.956086,
+     "lon": 25.88941
+    },
+    "detail": "detail/lt/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 55.854864,
+    "lon": 23.283978,
+    "dist_m": 1956.66,
+    "nearest_way": {
+     "id": 435682789,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Vaikšnėgala",
+     "type": "village",
+     "dist_m": 2860.5,
+     "lat": 55.832054,
+     "lon": 23.262967
+    },
+    "detail": "detail/lt/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 55.512872,
+    "lon": 23.453296,
+    "dist_m": 1907.88,
+    "nearest_way": {
+     "id": 1459335438,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Liaubarai",
+     "type": "village",
+     "dist_m": 1964.5,
+     "lat": 55.49815,
+     "lon": 23.470434
+    },
+    "detail": "detail/lt/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 55.723794,
+    "lon": 23.405312,
+    "dist_m": 1853.56,
+    "nearest_way": {
+     "id": 400174545,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Birietiškiai",
+     "type": "village",
+     "dist_m": 2398.2,
+     "lat": 55.71814,
+     "lon": 23.368487
+    },
+    "detail": "detail/lt/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 53.995841,
+    "lon": 24.463029,
+    "dist_m": 6675.91,
+    "nearest_way": {
+     "id": 477277100,
+     "highway": "residential",
+     "name": "Čepkelių g.",
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Grybaulia",
+     "type": "village",
+     "dist_m": 6635.2,
+     "lat": 53.999876,
+     "lon": 24.362082
+    },
+    "detail": "detail/lt/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 53.910158,
+    "lon": 24.40707,
+    "dist_m": 4941.18,
+    "nearest_way": {
+     "id": 258480241,
+     "highway": "residential",
+     "name": "Gandrų g.",
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Зубрава",
+     "type": "hamlet",
+     "dist_m": 5047.7,
+     "lat": 53.927173,
+     "lon": 24.478283
+    },
+    "detail": "detail/lt/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 55.128047,
+    "lon": 22.4353,
+    "dist_m": 4829.66,
+    "nearest_way": {
+     "id": 397437293,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Leipgiriai",
+     "type": "village",
+     "dist_m": 2816.5,
+     "lat": 55.105548,
+     "lon": 22.455487
+    },
+    "detail": "detail/lt/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 54.355505,
+    "lon": 25.032999,
+    "dist_m": 4688.35,
+    "nearest_way": {
+     "id": 1498216824,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Visinčia",
+     "type": "village",
+     "dist_m": 4310.6,
+     "lat": 54.330604,
+     "lon": 25.083761
+    },
+    "detail": "detail/lt/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 55.205421,
+    "lon": 22.571984,
+    "dist_m": 3894.05,
+    "nearest_way": {
+     "id": 447977712,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Globiai",
+     "type": "village",
+     "dist_m": 2900.8,
+     "lat": 55.193555,
+     "lon": 22.61254
+    },
+    "detail": "detail/lt/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 54.138315,
+    "lon": 24.543308,
+    "dist_m": 3886.23,
+    "nearest_way": {
+     "id": 1295978209,
+     "highway": "secondary",
+     "name": null,
+     "ref": "5014",
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Zervynos",
+     "type": "village",
+     "dist_m": 4312.5,
+     "lat": 54.110305,
+     "lon": 24.497734
+    },
+    "detail": "detail/lt/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 55.09677,
+    "lon": 25.822451,
+    "dist_m": 3694.91,
+    "nearest_way": {
+     "id": 151851249,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Argirdiškė",
+     "type": "village",
+     "dist_m": 3725.6,
+     "lat": 55.12879,
+     "lon": 25.839427
+    },
+    "detail": "detail/lt/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 56.24967,
+    "lon": 24.983172,
+    "dist_m": 3693.13,
+    "nearest_way": {
+     "id": 1442811636,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Garjoniai",
+     "type": "village",
+     "dist_m": 3577.2,
+     "lat": 56.27326,
+     "lon": 25.02236
+    },
+    "detail": "detail/lt/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 54.439818,
+    "lon": 23.533801,
+    "dist_m": 3595.62,
+    "nearest_way": {
+     "id": 116167346,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Kumečiai",
+     "type": "village",
+     "dist_m": 3794.0,
+     "lat": 54.472361,
+     "lon": 23.516414
+    },
+    "detail": "detail/lt/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 53.930043,
+    "lon": 23.626556,
+    "dist_m": 3541.38,
+    "nearest_way": {
+     "id": 39549433,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "2504",
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Pertakas",
+     "type": "village",
+     "dist_m": 2318.4,
+     "lat": 53.950843,
+     "lon": 23.628427
+    },
+    "detail": "detail/lt/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-in",
+ "name": "Indiana",
+ "name_en": "Indiana",
+ "country": "us",
+ "area_km2": 93823.3,
+ "bbox": [
+  -88.0972043,
+  37.7716793,
+  -84.784609,
+  41.761368
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.725987,
+    "lon": -87.493318,
+    "dist_m": 2622.91,
+    "nearest_way": {
+     "id": 232209112,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Whiting",
+     "type": "town",
+     "dist_m": 5135.2,
+     "lat": 41.67976,
+     "lon": -87.494465
+    },
+    "detail": "detail/us-in/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 38.179877,
+    "lon": -87.222031,
+    "dist_m": 2285.81,
+    "nearest_way": {
+     "id": 17573819,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dickeyville",
+     "type": "hamlet",
+     "dist_m": 2640.4,
+     "lat": 38.15616,
+     "lon": -87.219727
+    },
+    "detail": "detail/us-in/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 37.820963,
+    "lon": -88.052856,
+    "dist_m": 2271.76,
+    "nearest_way": {
+     "id": 21760961,
+     "highway": "track",
+     "name": "Calico Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oak Grove",
+     "type": "hamlet",
+     "dist_m": 3219.9,
+     "lat": 37.836156,
+     "lon": -88.021698
+    },
+    "detail": "detail/us-in/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 38.758538,
+    "lon": -85.967808,
+    "dist_m": 2264.67,
+    "nearest_way": {
+     "id": 17379348,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tampico",
+     "type": "hamlet",
+     "dist_m": 4720.1,
+     "lat": 38.800055,
+     "lon": -85.956087
+    },
+    "detail": "detail/us-in/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 38.427274,
+    "lon": -86.631598,
+    "dist_m": 2133.41,
+    "nearest_way": {
+     "id": 17485248,
+     "highway": "residential",
+     "name": "County Road 825 West",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Newton Stewart",
+     "type": "hamlet",
+     "dist_m": 5825.0,
+     "lat": 38.375057,
+     "lon": -86.624989
+    },
+    "detail": "detail/us-in/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 39.117904,
+    "lon": -86.268305,
+    "dist_m": 2016.16,
+    "nearest_way": {
+     "id": 498382122,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Elkinsville",
+     "type": "hamlet",
+     "dist_m": 4671.3,
+     "lat": 39.076041,
+     "lon": -86.26286
+    },
+    "detail": "detail/us-in/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 41.672868,
+    "lon": -87.034837,
+    "dist_m": 1920.67,
+    "nearest_way": {
+     "id": 433978042,
+     "highway": "primary",
+     "name": "Dunes Highway",
+     "ref": "US 12",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Furnessville",
+     "type": "hamlet",
+     "dist_m": 3270.6,
+     "lat": 41.651705,
+     "lon": -87.007532
+    },
+    "detail": "detail/us-in/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.930405,
+    "lon": -86.67862,
+    "dist_m": 1899.8,
+    "nearest_way": {
+     "id": 1357117542,
+     "highway": "primary",
+     "name": null,
+     "ref": "SR 58",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Owensburg",
+     "type": "hamlet",
+     "dist_m": 4520.1,
+     "lat": 38.923226,
+     "lon": -86.729929
+    },
+    "detail": "detail/us-in/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 39.064115,
+    "lon": -86.377591,
+    "dist_m": 1874.3,
+    "nearest_way": {
+     "id": 153452862,
+     "highway": "track",
+     "name": "Grubb Ridge Trail",
+     "ref": "TR 405.10;FS 4731.050",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Yellowstone",
+     "type": "isolated_dwelling",
+     "dist_m": 7867.7,
+     "lat": 38.998463,
+     "lon": -86.343371
+    },
+    "detail": "detail/us-in/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 38.474164,
+    "lon": -85.892868,
+    "dist_m": 1873.78,
+    "nearest_way": {
+     "id": 1426218898,
+     "highway": "residential",
+     "name": "Top of the Rock Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Broom Hill",
+     "type": "hamlet",
+     "dist_m": 3104.7,
+     "lat": 38.448952,
+     "lon": -85.877469
+    },
+    "detail": "detail/us-in/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 37.806164,
+    "lon": -88.058046,
+    "dist_m": 3220.82,
+    "nearest_way": {
+     "id": 21760843,
+     "highway": "unclassified",
+     "name": "Round Pond Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oak Grove",
+     "type": "hamlet",
+     "dist_m": 4617.7,
+     "lat": 37.836156,
+     "lon": -88.021698
+    },
+    "detail": "detail/us-in/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 39.071305,
+    "lon": -86.306362,
+    "dist_m": 2922.96,
+    "nearest_way": {
+     "id": 17264673,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Elkinsville",
+     "type": "hamlet",
+     "dist_m": 3801.1,
+     "lat": 39.076041,
+     "lon": -86.26286
+    },
+    "detail": "detail/us-in/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 41.725987,
+    "lon": -87.493318,
+    "dist_m": 2622.91,
+    "nearest_way": {
+     "id": 232209112,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Whiting",
+     "type": "town",
+     "dist_m": 5135.2,
+     "lat": 41.67976,
+     "lon": -87.494465
+    },
+    "detail": "detail/us-in/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 38.963311,
+    "lon": -85.391209,
+    "dist_m": 2310.27,
+    "nearest_way": {
+     "id": 260137928,
+     "highway": "unclassified",
+     "name": "Jefferson Proving Ground H Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Saint Magdalen",
+     "type": "isolated_dwelling",
+     "dist_m": 646.6,
+     "lat": 38.957508,
+     "lon": -85.391845
+    },
+    "detail": "detail/us-in/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 38.179877,
+    "lon": -87.222031,
+    "dist_m": 2285.81,
+    "nearest_way": {
+     "id": 17573819,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dickeyville",
+     "type": "hamlet",
+     "dist_m": 2640.4,
+     "lat": 38.15616,
+     "lon": -87.219727
+    },
+    "detail": "detail/us-in/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 38.758538,
+    "lon": -85.967808,
+    "dist_m": 2264.67,
+    "nearest_way": {
+     "id": 17379348,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tampico",
+     "type": "hamlet",
+     "dist_m": 4720.1,
+     "lat": 38.800055,
+     "lon": -85.956087
+    },
+    "detail": "detail/us-in/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 38.427274,
+    "lon": -86.631598,
+    "dist_m": 2133.41,
+    "nearest_way": {
+     "id": 17485248,
+     "highway": "residential",
+     "name": "County Road 825 West",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Newton Stewart",
+     "type": "hamlet",
+     "dist_m": 5825.0,
+     "lat": 38.375057,
+     "lon": -86.624989
+    },
+    "detail": "detail/us-in/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.931825,
+    "lon": -86.680427,
+    "dist_m": 1943.13,
+    "nearest_way": {
+     "id": 17353312,
+     "highway": "primary",
+     "name": null,
+     "ref": "SR 58",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Owensburg",
+     "type": "hamlet",
+     "dist_m": 4397.5,
+     "lat": 38.923226,
+     "lon": -86.729929
+    },
+    "detail": "detail/us-in/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 38.038374,
+    "lon": -88.020872,
+    "dist_m": 1931.31,
+    "nearest_way": {
+     "id": 22063486,
+     "highway": "residential",
+     "name": "County Road 1830 East",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Maunie",
+     "type": "village",
+     "dist_m": 2191.5,
+     "lat": 38.035601,
+     "lon": -88.045588
+    },
+    "detail": "detail/us-in/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.672868,
+    "lon": -87.034837,
+    "dist_m": 1920.67,
+    "nearest_way": {
+     "id": 433978042,
+     "highway": "primary",
+     "name": "Dunes Highway",
+     "ref": "US 12",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Furnessville",
+     "type": "hamlet",
+     "dist_m": 3270.6,
+     "lat": 41.651705,
+     "lon": -87.007532
+    },
+    "detail": "detail/us-in/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

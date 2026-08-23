@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "hr",
+ "name": "Hrvatska",
+ "name_en": "Croatia",
+ "country": "hr",
+ "area_km2": 57719.2,
+ "bbox": [
+  13.2125413,
+  42.1765993,
+  19.4472713,
+  46.5550254
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 43.091719,
+    "lon": 15.458659,
+    "dist_m": 45675.96,
+    "nearest_way": {
+     "id": 167242969,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Svetac",
+     "type": "hamlet",
+     "dist_m": 25571.1,
+     "lat": 43.022835,
+     "lon": 15.758163
+    },
+    "detail": "detail/hr/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 43.019339,
+    "lon": 15.709014,
+    "dist_m": 24084.07,
+    "nearest_way": {
+     "id": 167242957,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Svetac",
+     "type": "hamlet",
+     "dist_m": 4025.1,
+     "lat": 43.022835,
+     "lon": 15.758163
+    },
+    "detail": "detail/hr/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 42.764927,
+    "lon": 17.13463,
+    "dist_m": 15474.07,
+    "nearest_way": {
+     "id": 68256933,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Barje",
+     "type": "isolated_dwelling",
+     "dist_m": 16168.6,
+     "lat": 42.761589,
+     "lon": 16.937151
+    },
+    "detail": "detail/hr/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 42.758597,
+    "lon": 16.678321,
+    "dist_m": 10622.69,
+    "nearest_way": {
+     "id": 359842304,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Pasadur",
+     "type": "village",
+     "dist_m": 11842.7,
+     "lat": 42.766503,
+     "lon": 16.822603
+    },
+    "detail": "detail/hr/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 44.729364,
+    "lon": 14.175644,
+    "dist_m": 9346.46,
+    "nearest_way": {
+     "id": 1546264500,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Unije",
+     "type": "village",
+     "dist_m": 11831.8,
+     "lat": 44.636521,
+     "lon": 14.248699
+    },
+    "detail": "detail/hr/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 44.541199,
+    "lon": 14.618915,
+    "dist_m": 8392.91,
+    "nearest_way": {
+     "id": 837345491,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Rovenska",
+     "type": "hamlet",
+     "dist_m": 9281.1,
+     "lat": 44.519239,
+     "lon": 14.506263
+    },
+    "detail": "detail/hr/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 44.394881,
+    "lon": 14.894228,
+    "dist_m": 7452.68,
+    "nearest_way": {
+     "id": 567075523,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Olib",
+     "type": "village",
+     "dist_m": 9267.9,
+     "lat": 44.376542,
+     "lon": 14.780767
+    },
+    "detail": "detail/hr/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 42.8159,
+    "lon": 16.993602,
+    "dist_m": 7449.71,
+    "nearest_way": {
+     "id": 258317954,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Barje",
+     "type": "isolated_dwelling",
+     "dist_m": 7598.3,
+     "lat": 42.761589,
+     "lon": 16.937151
+    },
+    "detail": "detail/hr/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 43.747792,
+    "lon": 15.365092,
+    "dist_m": 7152.56,
+    "nearest_way": {
+     "id": 163394293,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Lavsa",
+     "type": "hamlet",
+     "dist_m": 521.1,
+     "lat": 43.75229,
+     "lon": 15.366929
+    },
+    "detail": "detail/hr/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.032095,
+    "lon": 16.815858,
+    "dist_m": 7143.57,
+    "nearest_way": {
+     "id": 59549746,
+     "highway": "tertiary",
+     "name": "Prigradica",
+     "ref": "69018",
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Prigradica",
+     "type": "village",
+     "dist_m": 7428.4,
+     "lat": 42.965501,
+     "lon": 16.807629
+    },
+    "detail": "detail/hr/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 42.378177,
+    "lon": 16.339236,
+    "dist_m": 53039.04,
+    "nearest_way": {
+     "id": 362827552,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Palagruža",
+     "type": "isolated_dwelling",
+     "dist_m": 6753.4,
+     "lat": 42.392377,
+     "lon": 16.259495
+    },
+    "detail": "detail/hr/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 43.091719,
+    "lon": 15.458659,
+    "dist_m": 46810.94,
+    "nearest_way": {
+     "id": 167242978,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Svetac",
+     "type": "hamlet",
+     "dist_m": 25571.1,
+     "lat": 43.022835,
+     "lon": 15.758163
+    },
+    "detail": "detail/hr/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 43.019339,
+    "lon": 15.709014,
+    "dist_m": 25084.11,
+    "nearest_way": {
+     "id": 167242978,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Svetac",
+     "type": "hamlet",
+     "dist_m": 4025.1,
+     "lat": 43.022835,
+     "lon": 15.758163
+    },
+    "detail": "detail/hr/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 42.748979,
+    "lon": 16.48775,
+    "dist_m": 24680.92,
+    "nearest_way": {
+     "id": 123303432,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Sušac",
+     "type": "isolated_dwelling",
+     "dist_m": 241.2,
+     "lat": 42.750417,
+     "lon": 16.489957
+    },
+    "detail": "detail/hr/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 43.720487,
+    "lon": 15.410061,
+    "dist_m": 16522.23,
+    "nearest_way": {
+     "id": 1088162233,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Koromasinija",
+     "type": "hamlet",
+     "dist_m": 3611.0,
+     "lat": 43.744351,
+     "lon": 15.440487
+    },
+    "detail": "detail/hr/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 42.765271,
+    "lon": 17.135497,
+    "dist_m": 16224.56,
+    "nearest_way": {
+     "id": 75531542,
+     "highway": "unclassified",
+     "name": null,
+     "ref": "69065",
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Barje",
+     "type": "isolated_dwelling",
+     "dist_m": 16240.4,
+     "lat": 42.761589,
+     "lon": 16.937151
+    },
+    "detail": "detail/hr/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 44.729364,
+    "lon": 14.175644,
+    "dist_m": 10759.79,
+    "nearest_way": {
+     "id": 691306646,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Unije",
+     "type": "village",
+     "dist_m": 11831.8,
+     "lat": 44.636521,
+     "lon": 14.248699
+    },
+    "detail": "detail/hr/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 42.758597,
+    "lon": 16.678321,
+    "dist_m": 10658.21,
+    "nearest_way": {
+     "id": 1151369625,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Pasadur",
+     "type": "village",
+     "dist_m": 11842.7,
+     "lat": 42.766503,
+     "lon": 16.822603
+    },
+    "detail": "detail/hr/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 43.808491,
+    "lon": 15.368885,
+    "dist_m": 9536.79,
+    "nearest_way": {
+     "id": 433257319,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Stiniva",
+     "type": "hamlet",
+     "dist_m": 2338.1,
+     "lat": 43.807477,
+     "lon": 15.339861
+    },
+    "detail": "detail/hr/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.16874,
+    "lon": 16.309922,
+    "dist_m": 9331.61,
+    "nearest_way": {
+     "id": 163556985,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Vlaka",
+     "type": "hamlet",
+     "dist_m": 4451.8,
+     "lat": 43.165077,
+     "lon": 16.364437
+    },
+    "detail": "detail/hr/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

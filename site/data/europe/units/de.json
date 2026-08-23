@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "de",
+ "name": "Deutschland",
+ "name_en": "Germany",
+ "country": "de",
+ "area_km2": 357295.0,
+ "bbox": [
+  5.8663153,
+  47.2701114,
+  15.0419309,
+  55.099161
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 53.827827,
+    "lon": 8.342982,
+    "dist_m": 13533.64,
+    "nearest_way": {
+     "id": 22633149,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Cappel-Neufeld",
+     "type": "village",
+     "dist_m": 14844.4,
+     "lat": 53.762263,
+     "lon": 8.53915
+    },
+    "detail": "detail/de/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 54.058598,
+    "lon": 8.680611,
+    "dist_m": 10805.94,
+    "nearest_way": {
+     "id": 24904782,
+     "highway": "service",
+     "name": "Strandweg",
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Friedrichskoog-Spitze",
+     "type": "village",
+     "dist_m": 11027.6,
+     "lat": 54.031618,
+     "lon": 8.842596
+    },
+    "detail": "detail/de/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 53.723896,
+    "lon": 8.179525,
+    "dist_m": 10126.07,
+    "nearest_way": {
+     "id": 105647372,
+     "highway": "service",
+     "name": "Uferpromenade",
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Naturschutzstation Mellum",
+     "type": "isolated_dwelling",
+     "dist_m": 2462.0,
+     "lat": 53.714246,
+     "lon": 8.145967
+    },
+    "detail": "detail/de/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 54.508813,
+    "lon": 8.457649,
+    "dist_m": 7386.78,
+    "nearest_way": {
+     "id": 343913747,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Lorenzwarft",
+     "type": "hamlet",
+     "dist_m": 8166.5,
+     "lat": 54.570119,
+     "lon": 8.526954
+    },
+    "detail": "detail/de/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 54.419975,
+    "lon": 8.48988,
+    "dist_m": 5923.57,
+    "nearest_way": {
+     "id": 342733991,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Leikenhusen",
+     "type": "hamlet",
+     "dist_m": 11460.4,
+     "lat": 54.379162,
+     "lon": 8.651884
+    },
+    "detail": "detail/de/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 53.588843,
+    "lon": 6.869917,
+    "dist_m": 5557.31,
+    "nearest_way": {
+     "id": 136775571,
+     "highway": "track",
+     "name": "Heidenweg",
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Vogelwärterhaus Memmert",
+     "type": "isolated_dwelling",
+     "dist_m": 5550.7,
+     "lat": 53.638714,
+     "lon": 6.87045
+    },
+    "detail": "detail/de/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 53.958743,
+    "lon": 8.425045,
+    "dist_m": 5480.84,
+    "nearest_way": {
+     "id": 35417460,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Cuxhaven",
+     "type": "town",
+     "dist_m": 20558.4,
+     "lat": 53.86878,
+     "lon": 8.698286
+    },
+    "detail": "detail/de/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 53.530635,
+    "lon": 6.648262,
+    "dist_m": 5114.18,
+    "nearest_way": {
+     "id": 973570996,
+     "highway": "track",
+     "name": "Krischan-Wolters-Pfad",
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Borkum",
+     "type": "town",
+     "dist_m": 6770.3,
+     "lat": 53.590295,
+     "lon": 6.668217
+    },
+    "detail": "detail/de/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 54.169267,
+    "lon": 8.732164,
+    "dist_m": 4978.35,
+    "nearest_way": {
+     "id": 42696883,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Westerkoog",
+     "type": "hamlet",
+     "dist_m": 5763.1,
+     "lat": 54.179776,
+     "lon": 8.81858
+    },
+    "detail": "detail/de/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 54.658822,
+    "lon": 8.249811,
+    "dist_m": 4966.61,
+    "nearest_way": {
+     "id": 1098512725,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Norddorf auf Amrum",
+     "type": "village",
+     "dist_m": 5906.4,
+     "lat": 54.67957,
+     "lon": 8.334066
+    },
+    "detail": "detail/de/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 53.827827,
+    "lon": 8.342982,
+    "dist_m": 13533.64,
+    "nearest_way": {
+     "id": 22633149,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Cappel-Neufeld",
+     "type": "village",
+     "dist_m": 14844.4,
+     "lat": 53.762263,
+     "lon": 8.53915
+    },
+    "detail": "detail/de/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 54.250484,
+    "lon": 13.924213,
+    "dist_m": 13521.19,
+    "nearest_way": {
+     "id": 177797419,
+     "highway": "unclassified",
+     "name": "Flughafenring",
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Thiessow",
+     "type": "village",
+     "dist_m": 13943.0,
+     "lat": 54.275994,
+     "lon": 13.714722
+    },
+    "detail": "detail/de/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 54.433087,
+    "lon": 8.458894,
+    "dist_m": 12100.32,
+    "nearest_way": {
+     "id": 721579092,
+     "highway": "unclassified",
+     "name": "Tammwarft",
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Westerschütting",
+     "type": "hamlet",
+     "dist_m": 12580.1,
+     "lat": 54.503664,
+     "lon": 8.610434
+    },
+    "detail": "detail/de/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 54.058598,
+    "lon": 8.680611,
+    "dist_m": 10805.94,
+    "nearest_way": {
+     "id": 24904782,
+     "highway": "service",
+     "name": "Strandweg",
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Friedrichskoog-Spitze",
+     "type": "village",
+     "dist_m": 11027.6,
+     "lat": 54.031618,
+     "lon": 8.842596
+    },
+    "detail": "detail/de/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 53.723896,
+    "lon": 8.179525,
+    "dist_m": 10126.07,
+    "nearest_way": {
+     "id": 105647372,
+     "highway": "service",
+     "name": "Uferpromenade",
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Naturschutzstation Mellum",
+     "type": "isolated_dwelling",
+     "dist_m": 2462.0,
+     "lat": 53.714246,
+     "lon": 8.145967
+    },
+    "detail": "detail/de/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 47.5023,
+    "lon": 12.965119,
+    "dist_m": 9490.62,
+    "nearest_way": {
+     "id": 92703167,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "St. Bartholomä",
+     "type": "hamlet",
+     "dist_m": 4711.4,
+     "lat": 47.544417,
+     "lon": 12.972017
+    },
+    "detail": "detail/de/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 53.590666,
+    "lon": 6.871336,
+    "dist_m": 8060.76,
+    "nearest_way": {
+     "id": 1040611072,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Vogelwärterhaus Memmert",
+     "type": "isolated_dwelling",
+     "dist_m": 5348.0,
+     "lat": 53.638714,
+     "lon": 6.87045
+    },
+    "detail": "detail/de/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 47.44919,
+    "lon": 11.376951,
+    "dist_m": 7121.84,
+    "nearest_way": {
+     "id": 110434851,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Vereiner Alm",
+     "type": "isolated_dwelling",
+     "dist_m": 2597.0,
+     "lat": 47.467517,
+     "lon": 11.355599
+    },
+    "detail": "detail/de/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 54.524277,
+    "lon": 8.46944,
+    "dist_m": 6250.71,
+    "nearest_way": {
+     "id": 184351617,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Lorenzwarft",
+     "type": "hamlet",
+     "dist_m": 6316.0,
+     "lat": 54.570119,
+     "lon": 8.526954
+    },
+    "detail": "detail/de/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 47.584803,
+    "lon": 11.813717,
+    "dist_m": 6139.93,
+    "nearest_way": {
+     "id": 117887397,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Ludernalm",
+     "type": "isolated_dwelling",
+     "dist_m": 1707.1,
+     "lat": 47.576976,
+     "lon": 11.794194
+    },
+    "detail": "detail/de/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

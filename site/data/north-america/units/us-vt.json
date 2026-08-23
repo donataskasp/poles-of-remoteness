@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-vt",
+ "name": "Vermont",
+ "name_en": "Vermont",
+ "country": "us",
+ "area_km2": 24321.2,
+ "bbox": [
+  -73.43774,
+  42.72696,
+  -71.465386,
+  45.016665
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 44.034987,
+    "lon": -72.906182,
+    "dist_m": 3715.05,
+    "nearest_way": {
+     "id": 19682215,
+     "highway": "track",
+     "name": "Barrows Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "South Lincoln",
+     "type": "hamlet",
+     "dist_m": 6689.9,
+     "lat": 44.071449,
+     "lon": -72.972616
+    },
+    "detail": "detail/us-vt/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 43.105338,
+    "lon": -73.038187,
+    "dist_m": 3503.33,
+    "nearest_way": {
+     "id": 1173790727,
+     "highway": "trunk",
+     "name": "U.S. Route 7",
+     "ref": "US 7",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sunderland",
+     "type": "village",
+     "dist_m": 5410.4,
+     "lat": 43.113515,
+     "lon": -73.103714
+    },
+    "detail": "detail/us-vt/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 43.313062,
+    "lon": -72.942716,
+    "dist_m": 3480.01,
+    "nearest_way": {
+     "id": 19685161,
+     "highway": "residential",
+     "name": "North Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "South End",
+     "type": "hamlet",
+     "dist_m": 4074.3,
+     "lat": 43.317296,
+     "lon": -72.992604
+    },
+    "detail": "detail/us-vt/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 45.008542,
+    "lon": -73.134745,
+    "dist_m": 3468.37,
+    "nearest_way": {
+     "id": 19693530,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Highgate Springs",
+     "type": "hamlet",
+     "dist_m": 3992.2,
+     "lat": 44.979319,
+     "lon": -73.105302
+    },
+    "detail": "detail/us-vt/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 44.825071,
+    "lon": -73.230877,
+    "dist_m": 3275.25,
+    "nearest_way": {
+     "id": 19697544,
+     "highway": "residential",
+     "name": "Samson Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Hero",
+     "type": "village",
+     "dist_m": 4766.3,
+     "lat": 44.817105,
+     "lon": -73.290091
+    },
+    "detail": "detail/us-vt/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 44.452212,
+    "lon": -72.842058,
+    "dist_m": 3105.06,
+    "nearest_way": {
+     "id": 906901276,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "West Bolton",
+     "type": "hamlet",
+     "dist_m": 4505.2,
+     "lat": 44.445608,
+     "lon": -72.897901
+    },
+    "detail": "detail/us-vt/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 42.814311,
+    "lon": -73.08458,
+    "dist_m": 3063.35,
+    "nearest_way": {
+     "id": 1235089647,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Village of Alpenwald",
+     "type": "hamlet",
+     "dist_m": 5222.3,
+     "lat": 42.818233,
+     "lon": -73.020947
+    },
+    "detail": "detail/us-vt/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.224698,
+    "lon": -72.342311,
+    "dist_m": 3051.22,
+    "nearest_way": {
+     "id": 949043463,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Perkinsville",
+     "type": "hamlet",
+     "dist_m": 4482.4,
+     "lat": 44.220894,
+     "lon": -72.398157
+    },
+    "detail": "detail/us-vt/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.411749,
+    "lon": -72.63605,
+    "dist_m": 3014.72,
+    "nearest_way": {
+     "id": 231406667,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lower Village",
+     "type": "hamlet",
+     "dist_m": 6964.0,
+     "lat": 44.458963,
+     "lon": -72.693568
+    },
+    "detail": "detail/us-vt/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 44.622393,
+    "lon": -72.757508,
+    "dist_m": 2814.6,
+    "nearest_way": {
+     "id": 19698990,
+     "highway": "service",
+     "name": "West Settlement Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "West Settlement",
+     "type": "hamlet",
+     "dist_m": 2890.7,
+     "lat": 44.620051,
+     "lon": -72.721233
+    },
+    "detail": "detail/us-vt/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 42.996321,
+    "lon": -73.067735,
+    "dist_m": 5203.73,
+    "nearest_way": {
+     "id": 940618775,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "MacIntyre",
+     "type": "hamlet",
+     "dist_m": 3084.3,
+     "lat": 43.023967,
+     "lon": -73.071216
+    },
+    "detail": "detail/us-vt/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 43.109802,
+    "lon": -72.983097,
+    "dist_m": 4553.73,
+    "nearest_way": {
+     "id": 171925280,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stratton Mountain",
+     "type": "hamlet",
+     "dist_m": 6282.7,
+     "lat": 43.116744,
+     "lon": -72.906489
+    },
+    "detail": "detail/us-vt/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 44.036337,
+    "lon": -72.898519,
+    "dist_m": 4409.02,
+    "nearest_way": {
+     "id": 1106470250,
+     "highway": "primary",
+     "name": "Vermont Route 100",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Alpine Village",
+     "type": "hamlet",
+     "dist_m": 6277.8,
+     "lat": 44.068673,
+     "lon": -72.834279
+    },
+    "detail": "detail/us-vt/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 44.426814,
+    "lon": -72.796059,
+    "dist_m": 4128.36,
+    "nearest_way": {
+     "id": 559159536,
+     "highway": "residential",
+     "name": "Falls Brook Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Moscow",
+     "type": "hamlet",
+     "dist_m": 6624.9,
+     "lat": 44.441443,
+     "lon": -72.715396
+    },
+    "detail": "detail/us-vt/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 44.796414,
+    "lon": -72.673763,
+    "dist_m": 3871.31,
+    "nearest_way": {
+     "id": 19694429,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Belvidere Center",
+     "type": "hamlet",
+     "dist_m": 5334.9,
+     "lat": 44.750049,
+     "lon": -72.691234
+    },
+    "detail": "detail/us-vt/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 42.814655,
+    "lon": -73.117133,
+    "dist_m": 3708.93,
+    "nearest_way": {
+     "id": 1342721798,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Village of Alpenwald",
+     "type": "hamlet",
+     "dist_m": 7876.5,
+     "lat": 42.818233,
+     "lon": -73.020947
+    },
+    "detail": "detail/us-vt/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 43.313098,
+    "lon": -72.942775,
+    "dist_m": 3482.36,
+    "nearest_way": {
+     "id": 1122535041,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "South End",
+     "type": "hamlet",
+     "dist_m": 4069.1,
+     "lat": 43.317296,
+     "lon": -72.992604
+    },
+    "detail": "detail/us-vt/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 45.008542,
+    "lon": -73.134745,
+    "dist_m": 3468.37,
+    "nearest_way": {
+     "id": 19693530,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Highgate Springs",
+     "type": "hamlet",
+     "dist_m": 3992.2,
+     "lat": 44.979319,
+     "lon": -73.105302
+    },
+    "detail": "detail/us-vt/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.500775,
+    "lon": -71.786324,
+    "dist_m": 3454.79,
+    "nearest_way": {
+     "id": 19692189,
+     "highway": "tertiary",
+     "name": "River Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Damon Crossing",
+     "type": "hamlet",
+     "dist_m": 3838.9,
+     "lat": 44.527761,
+     "lon": -71.816468
+    },
+    "detail": "detail/us-vt/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 44.981335,
+    "lon": -71.876425,
+    "dist_m": 3409.16,
+    "nearest_way": {
+     "id": 617288811,
+     "highway": "service",
+     "name": "Chemin des Érables du Petit Lac - PRIVATE",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Baldwin Mills",
+     "type": "hamlet",
+     "dist_m": 6649.3,
+     "lat": 45.036335,
+     "lon": -71.90963
+    },
+    "detail": "detail/us-vt/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

@@ -1,0 +1,1862 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "units": [
+  {
+   "code": "ca-ab",
+   "name": "Alberta",
+   "name_en": "Alberta",
+   "country": "ca",
+   "area_km2": 651433.9,
+   "bbox": [
+    -120.0013835,
+    48.996665,
+    -110.0047639,
+    60.0004699
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 101193.97,
+    "lat": 59.586837,
+    "lon": -115.221194,
+    "rank": 11,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 105626.93,
+    "lat": 59.540533,
+    "lon": -115.230763,
+    "rank": 12,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ca-bc",
+   "name": "British Columbia",
+   "name_en": "British Columbia",
+   "country": "ca",
+   "area_km2": 941307.4,
+   "bbox": [
+    -139.0613278,
+    48.2245556,
+    -114.0541379,
+    60.0020692
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 115926.86,
+    "lat": 58.505058,
+    "lon": -127.707831,
+    "rank": 8,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 139580.25,
+    "lat": 51.905296,
+    "lon": -130.971164,
+    "rank": 10,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ca-mb",
+   "name": "Manitoba",
+   "name_en": "Manitoba",
+   "country": "ca",
+   "area_km2": 591661.0,
+   "bbox": [
+    -102.0075806,
+    48.9988611,
+    -88.9865273,
+    59.9995106
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 137600.69,
+    "lat": 57.809372,
+    "lon": -95.987378,
+    "rank": 7,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 160504.92,
+    "lat": 57.265601,
+    "lon": -90.886832,
+    "rank": 9,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ca-nb",
+   "name": "New Brunswick / Nouveau-Brunswick",
+   "name_en": "New Brunswick",
+   "country": "ca",
+   "area_km2": 72911.0,
+   "bbox": [
+    -69.0534663,
+    44.2836704,
+    -63.328871,
+    48.2206848
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 18027.14,
+    "lat": 44.499745,
+    "lon": -67.100304,
+    "rank": 26,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 18027.14,
+    "lat": 44.499745,
+    "lon": -67.100304,
+    "rank": 31,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ca-nl",
+   "name": "Newfoundland and Labrador",
+   "name_en": "Newfoundland and Labrador",
+   "country": "ca",
+   "area_km2": 397259.1,
+   "bbox": [
+    -67.8216853,
+    46.4101865,
+    -52.3237664,
+    60.4770255
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 145982.03,
+    "lat": 57.27335,
+    "lon": -63.882667,
+    "rank": 6,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 202706.05,
+    "lat": 58.350539,
+    "lon": -62.414637,
+    "rank": 6,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ca-ns",
+   "name": "Nova Scotia",
+   "name_en": "Nova Scotia",
+   "country": "ca",
+   "area_km2": 56316.4,
+   "bbox": [
+    -66.680717,
+    43.1881572,
+    -59.2887119,
+    47.7610742
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 29185.82,
+    "lat": 47.227668,
+    "lon": -60.139911,
+    "rank": 18,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 177126.51,
+    "lat": 43.956138,
+    "lon": -59.781305,
+    "rank": 8,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ca-nt",
+   "name": "Northwest Territories",
+   "name_en": "Northwest Territories",
+   "country": "ca",
+   "area_km2": 1256633.9,
+   "bbox": [
+    -136.588001,
+    59.9982603,
+    -102.0006191,
+    79.1299817
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 364699.81,
+    "lat": 72.981327,
+    "lon": -110.002069,
+    "rank": 3,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 365660.27,
+    "lat": 72.981327,
+    "lon": -110.002069,
+    "rank": 3,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ca-nu",
+   "name": "ᓄᓇᕗᑦ Nunavut",
+   "name_en": "Nunavut",
+   "country": "ca",
+   "area_km2": 2046537.2,
+   "bbox": [
+    -120.6828104,
+    51.1607309,
+    -59.6136767,
+    83.3362128
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 425214.73,
+    "lat": 72.945831,
+    "lon": -107.704992,
+    "rank": 1,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 431856.47,
+    "lat": 73.197324,
+    "lon": -108.01685,
+    "rank": 1,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ca-on",
+   "name": "Ontario",
+   "name_en": "Ontario",
+   "country": "ca",
+   "area_km2": 961566.7,
+   "bbox": [
+    -95.1560176,
+    41.6765597,
+    -74.3201062,
+    56.8613501
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 147324.81,
+    "lat": 51.487883,
+    "lon": -83.609251,
+    "rank": 5,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 190658.18,
+    "lat": 54.752204,
+    "lon": -82.209547,
+    "rank": 7,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ca-pe",
+   "name": "Prince Edward Island",
+   "name_en": "Prince Edward Island",
+   "country": "ca",
+   "area_km2": 6007.9,
+   "bbox": [
+    -64.5519125,
+    45.8494597,
+    -61.3993669,
+    47.6024791
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 6118.09,
+    "lat": 46.602976,
+    "lon": -63.759439,
+    "rank": 47,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 6118.09,
+    "lat": 46.602976,
+    "lon": -63.759439,
+    "rank": 50,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ca-qc",
+   "name": "Québec",
+   "name_en": "Quebec",
+   "country": "ca",
+   "area_km2": 1458958.4,
+   "bbox": [
+    -79.7628726,
+    44.9913861,
+    -57.1074889,
+    62.5824657
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 235322.78,
+    "lat": 58.222101,
+    "lon": -74.028287,
+    "rank": 4,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 248332.54,
+    "lat": 56.840997,
+    "lon": -72.414042,
+    "rank": 4,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ca-sk",
+   "name": "Saskatchewan",
+   "name_en": "Saskatchewan",
+   "country": "ca",
+   "area_km2": 621009.4,
+   "bbox": [
+    -110.006368,
+    48.9988056,
+    -101.3619076,
+    60.0000252
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 106528.78,
+    "lat": 59.999887,
+    "lon": -104.342328,
+    "rank": 10,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 112037.3,
+    "lat": 59.999889,
+    "lon": -104.445506,
+    "rank": 11,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ca-yt",
+   "name": "Yukon",
+   "name_en": "Yukon",
+   "country": "ca",
+   "area_km2": 480865.8,
+   "bbox": [
+    -141.00275,
+    59.9985416,
+    -123.8102524,
+    69.84588
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 110121.89,
+    "lat": 64.580934,
+    "lon": -131.910255,
+    "rank": 9,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 202866.68,
+    "lat": 65.489029,
+    "lon": -132.69619,
+    "rank": 5,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ak",
+   "name": "Alaska",
+   "name_en": "Alaska",
+   "country": "us",
+   "area_km2": 1497707.8,
+   "bbox": [
+    172.0983403,
+    51.0070029,
+    230.0258327,
+    71.5889534
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 366179.54,
+    "lat": 60.472035,
+    "lon": -172.927004,
+    "rank": 2,
+    "withheld": 2
+   },
+   "B": {
+    "dist_m": 366529.27,
+    "lat": 60.468589,
+    "lon": -172.923661,
+    "rank": 2,
+    "withheld": 2
+   }
+  },
+  {
+   "code": "us-al",
+   "name": "Alabama",
+   "name_en": "Alabama",
+   "country": "us",
+   "area_km2": 133404.2,
+   "bbox": [
+    -88.4731014,
+    30.143376,
+    -84.8882885,
+    35.0081121
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 14290.79,
+    "lat": 30.232022,
+    "lon": -88.3401,
+    "rank": 30,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 14290.79,
+    "lat": 30.232022,
+    "lon": -88.3401,
+    "rank": 33,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ar",
+   "name": "Arkansas",
+   "name_en": "Arkansas",
+   "country": "us",
+   "area_km2": 137066.1,
+   "bbox": [
+    -94.6178753,
+    33.0042455,
+    -89.6425425,
+    36.4996
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 4386.52,
+    "lat": 36.113592,
+    "lon": -92.462768,
+    "rank": 55,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 5792.57,
+    "lat": 34.065349,
+    "lon": -91.118212,
+    "rank": 53,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-az",
+   "name": "Arizona",
+   "name_en": "Arizona",
+   "country": "us",
+   "area_km2": 295179.3,
+   "bbox": [
+    -114.8183584,
+    31.3322135,
+    -109.0448744,
+    37.0038722
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 16052.43,
+    "lat": 36.955733,
+    "lon": -111.121864,
+    "rank": 29,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 25838.82,
+    "lat": 32.354456,
+    "lon": -113.308566,
+    "rank": 25,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ca",
+   "name": "California",
+   "name_en": "California",
+   "country": "us",
+   "area_km2": 406446.9,
+   "bbox": [
+    -124.482003,
+    32.5295236,
+    -114.1307816,
+    42.009499
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 42619.64,
+    "lat": 33.479337,
+    "lon": -119.050823,
+    "rank": 13,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 47509.47,
+    "lat": 33.488387,
+    "lon": -119.027858,
+    "rank": 14,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-co",
+   "name": "Colorado",
+   "name_en": "Colorado",
+   "country": "us",
+   "area_km2": 269534.8,
+   "bbox": [
+    -109.0601879,
+    36.9925245,
+    -102.041585,
+    41.0034002
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 13762.47,
+    "lat": 37.624876,
+    "lon": -107.402847,
+    "rank": 32,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 15667.74,
+    "lat": 37.642251,
+    "lon": -107.561631,
+    "rank": 32,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ct",
+   "name": "Connecticut",
+   "name_en": "Connecticut",
+   "country": "us",
+   "area_km2": 12979.2,
+   "bbox": [
+    -73.727811,
+    40.950983,
+    -71.787239,
+    42.0505827
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 5135.53,
+    "lat": 41.210739,
+    "lon": -72.654188,
+    "rank": 49,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 5135.53,
+    "lat": 41.210739,
+    "lon": -72.654188,
+    "rank": 55,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-dc",
+   "name": "District of Columbia",
+   "name_en": "District of Columbia",
+   "country": "us",
+   "area_km2": 180.8,
+   "bbox": [
+    -77.1197949,
+    38.7916303,
+    -76.909366,
+    38.995968
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 500.18,
+    "lat": 38.975188,
+    "lon": -77.047017,
+    "rank": 64,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 566.36,
+    "lat": 38.913352,
+    "lon": -76.947398,
+    "rank": 64,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-de",
+   "name": "Delaware",
+   "name_en": "Delaware",
+   "country": "us",
+   "area_km2": 5224.2,
+   "bbox": [
+    -75.7890215,
+    38.4511785,
+    -74.9849355,
+    39.8395147
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 5103.91,
+    "lat": 39.240275,
+    "lon": -75.404947,
+    "rank": 51,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 5103.91,
+    "lat": 39.240275,
+    "lon": -75.404947,
+    "rank": 56,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-fl",
+   "name": "Florida",
+   "name_en": "Florida",
+   "country": "us",
+   "area_km2": 145244.3,
+   "bbox": [
+    -87.634896,
+    24.396308,
+    -79.974306,
+    31.000762
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 34007.36,
+    "lat": 25.428069,
+    "lon": -81.154393,
+    "rank": 16,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 35905.43,
+    "lat": 25.448125,
+    "lon": -81.164616,
+    "rank": 18,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ga",
+   "name": "Georgia",
+   "name_en": "Georgia",
+   "country": "us",
+   "area_km2": 152172.2,
+   "bbox": [
+    -85.605165,
+    30.3556558,
+    -80.751429,
+    35.0006769
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 12660.82,
+    "lat": 30.909751,
+    "lon": -82.267027,
+    "rank": 35,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 12900.17,
+    "lat": 30.910075,
+    "lon": -82.263879,
+    "rank": 39,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-hi",
+   "name": "Hawaii",
+   "name_en": "Hawaii",
+   "country": "us",
+   "area_km2": 16930.8,
+   "bbox": [
+    -160.600875,
+    18.86546,
+    -154.755792,
+    22.290473
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 35777.79,
+    "lat": 21.65146,
+    "lon": -160.544472,
+    "rank": 14,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 41980.46,
+    "lat": 21.650658,
+    "lon": -160.543841,
+    "rank": 16,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ia",
+   "name": "Iowa",
+   "name_en": "Iowa",
+   "country": "us",
+   "area_km2": 145633.3,
+   "bbox": [
+    -96.6397162,
+    40.3756007,
+    -90.140061,
+    43.5011589
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 2387.37,
+    "lat": 43.417409,
+    "lon": -91.2301,
+    "rank": 63,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 2387.37,
+    "lat": 43.417409,
+    "lon": -91.2301,
+    "rank": 63,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-id",
+   "name": "Idaho",
+   "name_en": "Idaho",
+   "country": "us",
+   "area_km2": 215614.0,
+   "bbox": [
+    -117.2430324,
+    41.9888339,
+    -111.043564,
+    49.0008447
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 24256.58,
+    "lat": 46.242182,
+    "lon": -114.949901,
+    "rank": 21,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 28732.86,
+    "lat": 45.34146,
+    "lon": -115.052273,
+    "rank": 22,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-il",
+   "name": "Illinois",
+   "name_en": "Illinois",
+   "country": "us",
+   "area_km2": 145504.5,
+   "bbox": [
+    -91.5130518,
+    36.9701313,
+    -87.0199244,
+    42.5083736
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 4917.21,
+    "lat": 41.872744,
+    "lon": -87.545363,
+    "rank": 53,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 4917.21,
+    "lat": 41.872744,
+    "lon": -87.545363,
+    "rank": 57,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-in",
+   "name": "Indiana",
+   "name_en": "Indiana",
+   "country": "us",
+   "area_km2": 93823.3,
+   "bbox": [
+    -88.0972043,
+    37.7716793,
+    -84.784609,
+    41.761368
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 2622.91,
+    "lat": 41.725987,
+    "lon": -87.493318,
+    "rank": 62,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 3220.82,
+    "lat": 37.806164,
+    "lon": -88.058046,
+    "rank": 61,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ks",
+   "name": "Kansas",
+   "name_en": "Kansas",
+   "country": "us",
+   "area_km2": 212900.6,
+   "bbox": [
+    -102.0517919,
+    36.9930715,
+    -94.5882049,
+    40.0032291
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 4131.44,
+    "lat": 37.318721,
+    "lon": -98.868287,
+    "rank": 56,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 5800.96,
+    "lat": 37.250261,
+    "lon": -99.933673,
+    "rank": 52,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ky",
+   "name": "Kentucky",
+   "name_en": "Kentucky",
+   "country": "us",
+   "area_km2": 104205.6,
+   "bbox": [
+    -89.571509,
+    36.497118,
+    -81.9645413,
+    39.1477997
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 3036.94,
+    "lat": 37.199809,
+    "lon": -86.179036,
+    "rank": 60,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 4175.21,
+    "lat": 37.911844,
+    "lon": -85.810316,
+    "rank": 60,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-la",
+   "name": "Louisiana",
+   "name_en": "Louisiana",
+   "country": "us",
+   "area_km2": 115807.2,
+   "bbox": [
+    -94.0431869,
+    28.8542892,
+    -88.7583311,
+    33.0195943
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 58337.2,
+    "lat": 29.680029,
+    "lon": -88.948087,
+    "rank": 12,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 66031.4,
+    "lat": 29.764186,
+    "lon": -88.888301,
+    "rank": 13,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ma",
+   "name": "Massachusetts",
+   "name_en": "Massachusetts",
+   "country": "us",
+   "area_km2": 21243.6,
+   "bbox": [
+    -73.5082102,
+    41.1888589,
+    -69.8601042,
+    42.8867783
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 13378.06,
+    "lat": 41.539431,
+    "lon": -70.009766,
+    "rank": 33,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 13378.06,
+    "lat": 41.539431,
+    "lon": -70.009766,
+    "rank": 35,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-md",
+   "name": "Maryland",
+   "name_en": "Maryland",
+   "country": "us",
+   "area_km2": 26488.2,
+   "bbox": [
+    -79.4873055,
+    37.8865288,
+    -74.9852049,
+    39.7230286
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 11756.12,
+    "lat": 38.115664,
+    "lon": -76.089834,
+    "rank": 39,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 11756.12,
+    "lat": 38.115664,
+    "lon": -76.089834,
+    "rank": 41,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-me",
+   "name": "Maine",
+   "name_en": "Maine",
+   "country": "us",
+   "area_km2": 83232.8,
+   "bbox": [
+    -71.0841694,
+    42.9222206,
+    -66.8854174,
+    47.4598397
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 12511.43,
+    "lat": 43.893462,
+    "lon": -68.731918,
+    "rank": 37,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 12511.43,
+    "lat": 43.893462,
+    "lon": -68.731918,
+    "rank": 40,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-mi",
+   "name": "Michigan",
+   "name_en": "Michigan",
+   "country": "us",
+   "area_km2": 150384.2,
+   "bbox": [
+    -90.4185348,
+    41.6961278,
+    -82.1228056,
+    48.306063
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 26525.09,
+    "lat": 47.936297,
+    "lon": -88.79383,
+    "rank": 20,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 42062.39,
+    "lat": 47.891725,
+    "lon": -88.911092,
+    "rank": 15,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-mn",
+   "name": "Minnesota",
+   "name_en": "Minnesota",
+   "country": "us",
+   "area_km2": 212535.3,
+   "bbox": [
+    -97.2392619,
+    43.4994288,
+    -89.4833363,
+    49.3844722
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 22873.92,
+    "lat": 48.111687,
+    "lon": -91.199053,
+    "rank": 23,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 22873.92,
+    "lat": 48.111687,
+    "lon": -91.199053,
+    "rank": 27,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-mo",
+   "name": "Missouri",
+   "name_en": "Missouri",
+   "country": "us",
+   "area_km2": 180164.6,
+   "bbox": [
+    -95.7741441,
+    35.9957227,
+    -89.098843,
+    40.6136347
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 3537.15,
+    "lat": 36.693824,
+    "lon": -92.921564,
+    "rank": 58,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 4253.62,
+    "lat": 37.300704,
+    "lon": -91.548906,
+    "rank": 59,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ms",
+   "name": "Mississippi",
+   "name_en": "Mississippi",
+   "country": "us",
+   "area_km2": 123047.6,
+   "bbox": [
+    -91.655009,
+    30.1436769,
+    -88.0977945,
+    34.9960168
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 17736.59,
+    "lat": 30.231456,
+    "lon": -88.895305,
+    "rank": 27,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 19957.41,
+    "lat": 30.207747,
+    "lon": -88.963701,
+    "rank": 29,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-mt",
+   "name": "Montana",
+   "name_en": "Montana",
+   "country": "us",
+   "area_km2": 379368.4,
+   "bbox": [
+    -116.0492317,
+    44.357915,
+    -104.039563,
+    49.0011094
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 29228.63,
+    "lat": 47.590275,
+    "lon": -113.255329,
+    "rank": 17,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 29253.29,
+    "lat": 47.589844,
+    "lon": -113.255898,
+    "rank": 21,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-nc",
+   "name": "North Carolina",
+   "name_en": "North Carolina",
+   "country": "us",
+   "area_km2": 128296.6,
+   "bbox": [
+    -84.3218293,
+    33.752878,
+    -75.400119,
+    36.588157
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 10906.85,
+    "lat": 35.523292,
+    "lon": -83.638122,
+    "rank": 40,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 13128.66,
+    "lat": 35.069138,
+    "lon": -76.453741,
+    "rank": 37,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-nd",
+   "name": "North Dakota",
+   "name_en": "North Dakota",
+   "country": "us",
+   "area_km2": 181091.5,
+   "bbox": [
+    -104.048949,
+    45.934999,
+    -96.5543975,
+    49.0005765
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 3469.09,
+    "lat": 47.537699,
+    "lon": -102.452266,
+    "rank": 59,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 6469.3,
+    "lat": 46.129555,
+    "lon": -100.817098,
+    "rank": 48,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ne",
+   "name": "Nebraska",
+   "name_en": "Nebraska",
+   "country": "us",
+   "area_km2": 200270.5,
+   "bbox": [
+    -104.0533724,
+    39.999932,
+    -95.3080545,
+    43.0014799
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 10150.92,
+    "lat": 42.585668,
+    "lon": -101.499668,
+    "rank": 42,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 10150.92,
+    "lat": 42.585668,
+    "lon": -101.499668,
+    "rank": 44,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-nh",
+   "name": "New Hampshire",
+   "name_en": "New Hampshire",
+   "country": "us",
+   "area_km2": 23891.3,
+   "bbox": [
+    -72.5572359,
+    42.6972286,
+    -70.5613593,
+    45.3057789
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 7007.36,
+    "lat": 44.133333,
+    "lon": -71.490081,
+    "rank": 46,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 10164.92,
+    "lat": 44.135882,
+    "lon": -71.509481,
+    "rank": 43,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-nj",
+   "name": "New Jersey",
+   "name_en": "New Jersey",
+   "country": "us",
+   "area_km2": 19820.5,
+   "bbox": [
+    -75.563386,
+    38.7911303,
+    -73.893628,
+    41.3576501
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 5108.5,
+    "lat": 39.463136,
+    "lon": -74.322371,
+    "rank": 50,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 5979.95,
+    "lat": 39.716555,
+    "lon": -74.638695,
+    "rank": 51,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-nm",
+   "name": "New Mexico",
+   "name_en": "New Mexico",
+   "country": "us",
+   "area_km2": 314978.2,
+   "bbox": [
+    -109.0502229,
+    31.3322006,
+    -103.0022266,
+    37.0001788
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 18542.34,
+    "lat": 33.244457,
+    "lon": -108.463575,
+    "rank": 25,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 18600.37,
+    "lat": 33.245659,
+    "lon": -108.464034,
+    "rank": 30,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-nv",
+   "name": "Nevada",
+   "name_en": "Nevada",
+   "country": "us",
+   "area_km2": 285241.8,
+   "bbox": [
+    -120.0065184,
+    35.0018894,
+    -114.0402955,
+    42.000255
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 12577.86,
+    "lat": 39.804154,
+    "lon": -118.491747,
+    "rank": 36,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 31334.49,
+    "lat": 41.74237,
+    "lon": -116.849575,
+    "rank": 20,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ny",
+   "name": "New York",
+   "name_en": "New York",
+   "country": "us",
+   "area_km2": 124789.1,
+   "bbox": [
+    -79.7619758,
+    40.476578,
+    -71.790972,
+    45.0158611
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 8868.38,
+    "lat": 43.568579,
+    "lon": -74.652841,
+    "rank": 44,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 12988.16,
+    "lat": 43.890667,
+    "lon": -76.445445,
+    "rank": 38,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-oh",
+   "name": "Ohio",
+   "name_en": "Ohio",
+   "country": "us",
+   "area_km2": 106922.0,
+   "bbox": [
+    -84.8203361,
+    38.4031419,
+    -80.5189601,
+    42.3246919
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 14198.1,
+    "lat": 41.742771,
+    "lon": -83.104421,
+    "rank": 31,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 14198.1,
+    "lat": 41.742771,
+    "lon": -83.104421,
+    "rank": 34,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ok",
+   "name": "Oklahoma",
+   "name_en": "Oklahoma",
+   "country": "us",
+   "area_km2": 179998.7,
+   "bbox": [
+    -103.0024413,
+    33.6191533,
+    -94.4312145,
+    37.0022994
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 4928.52,
+    "lat": 36.757676,
+    "lon": -98.230443,
+    "rank": 52,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 6281.83,
+    "lat": 34.513707,
+    "lon": -95.602718,
+    "rank": 49,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-or",
+   "name": "Oregon",
+   "name_en": "Oregon",
+   "country": "us",
+   "area_km2": 249992.9,
+   "bbox": [
+    -124.703541,
+    41.9926032,
+    -116.4631465,
+    46.2923965
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 12425.36,
+    "lat": 45.164067,
+    "lon": -117.274602,
+    "rank": 38,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 27288.95,
+    "lat": 43.106217,
+    "lon": -119.5516,
+    "rank": 24,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-pa",
+   "name": "Pennsylvania",
+   "name_en": "Pennsylvania",
+   "country": "us",
+   "area_km2": 117331.6,
+   "bbox": [
+    -80.5210906,
+    39.7197662,
+    -74.689672,
+    42.5161334
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 4410.67,
+    "lat": 41.517433,
+    "lon": -77.866951,
+    "rank": 54,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 4673.7,
+    "lat": 41.510282,
+    "lon": -77.875226,
+    "rank": 58,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ri",
+   "name": "Rhode Island",
+   "name_en": "Rhode Island",
+   "country": "us",
+   "area_km2": 2911.7,
+   "bbox": [
+    -71.907431,
+    41.095834,
+    -71.088571,
+    42.0189359
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 2988.13,
+    "lat": 41.603254,
+    "lon": -71.370139,
+    "rank": 61,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 2988.13,
+    "lat": 41.603254,
+    "lon": -71.370139,
+    "rank": 62,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-sc",
+   "name": "South Carolina",
+   "name_en": "South Carolina",
+   "country": "us",
+   "area_km2": 79727.9,
+   "bbox": [
+    -83.3539979,
+    32.033454,
+    -78.5413536,
+    35.2154852
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 10116.2,
+    "lat": 33.011856,
+    "lon": -79.366932,
+    "rank": 43,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 10116.2,
+    "lat": 33.011856,
+    "lon": -79.366932,
+    "rank": 45,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-sd",
+   "name": "South Dakota",
+   "name_en": "South Dakota",
+   "country": "us",
+   "area_km2": 197866.3,
+   "bbox": [
+    -104.0577568,
+    42.4798925,
+    -96.4363403,
+    45.945335
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 10349.76,
+    "lat": 45.191953,
+    "lon": -104.040098,
+    "rank": 41,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 10929.05,
+    "lat": 44.650124,
+    "lon": -103.02174,
+    "rank": 42,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-tn",
+   "name": "Tennessee",
+   "name_en": "Tennessee",
+   "country": "us",
+   "area_km2": 108535.2,
+   "bbox": [
+    -90.310298,
+    34.9831554,
+    -81.6472191,
+    36.678118
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 8802.41,
+    "lat": 35.571008,
+    "lon": -83.591595,
+    "rank": 45,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 8802.41,
+    "lat": 35.571008,
+    "lon": -83.591595,
+    "rank": 46,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-tx",
+   "name": "Texas",
+   "name_en": "Texas",
+   "country": "us",
+   "area_km2": 683712.4,
+   "bbox": [
+    -106.6458459,
+    25.83706,
+    -93.5078217,
+    36.5004529
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 17185.22,
+    "lat": 26.417034,
+    "lon": -97.226678,
+    "rank": 28,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 37527.62,
+    "lat": 29.749735,
+    "lon": -102.593544,
+    "rank": 17,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-ut",
+   "name": "Utah",
+   "name_en": "Utah",
+   "country": "us",
+   "area_km2": 215967.1,
+   "bbox": [
+    -114.0528506,
+    36.9978085,
+    -109.0415767,
+    42.0019504
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 22925.35,
+    "lat": 40.505657,
+    "lon": -113.745262,
+    "rank": 22,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 23646.71,
+    "lat": 41.032863,
+    "lon": -113.685647,
+    "rank": 26,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-va",
+   "name": "Virginia",
+   "name_en": "Virginia",
+   "country": "us",
+   "area_km2": 104379.6,
+   "bbox": [
+    -83.6753671,
+    36.5407896,
+    -75.166435,
+    39.466012
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 13229.16,
+    "lat": 37.310405,
+    "lon": -75.761198,
+    "rank": 34,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 13306.23,
+    "lat": 37.378428,
+    "lon": -75.712339,
+    "rank": 36,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-vt",
+   "name": "Vermont",
+   "name_en": "Vermont",
+   "country": "us",
+   "area_km2": 24321.2,
+   "bbox": [
+    -73.43774,
+    42.72696,
+    -71.465386,
+    45.016665
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 3715.05,
+    "lat": 44.034987,
+    "lon": -72.906182,
+    "rank": 57,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 5203.73,
+    "lat": 42.996321,
+    "lon": -73.067735,
+    "rank": 54,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-wa",
+   "name": "Washington",
+   "name_en": "Washington",
+   "country": "us",
+   "area_km2": 174415.9,
+   "bbox": [
+    -124.8360916,
+    45.5437331,
+    -116.9159938,
+    49.0024392
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 21934.32,
+    "lat": 47.771082,
+    "lon": -123.605372,
+    "rank": 24,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 22587.29,
+    "lat": 47.777943,
+    "lon": -123.616443,
+    "rank": 28,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-wi",
+   "name": "Wisconsin",
+   "name_en": "Wisconsin",
+   "country": "us",
+   "area_km2": 143869.6,
+   "bbox": [
+    -92.8893149,
+    42.4919515,
+    -86.249548,
+    47.3097224
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 27753.18,
+    "lat": 47.077063,
+    "lon": -90.394775,
+    "rank": 19,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 27753.18,
+    "lat": 47.077063,
+    "lon": -90.394775,
+    "rank": 23,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-wv",
+   "name": "West Virginia",
+   "name_en": "West Virginia",
+   "country": "us",
+   "area_km2": 63033.7,
+   "bbox": [
+    -82.644739,
+    37.2014139,
+    -77.719029,
+    40.638801
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 5176.64,
+    "lat": 38.304641,
+    "lon": -80.308382,
+    "rank": 48,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 7864.47,
+    "lat": 38.339688,
+    "lon": -80.333312,
+    "rank": 47,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "us-wy",
+   "name": "Wyoming",
+   "name_en": "Wyoming",
+   "country": "us",
+   "area_km2": 252614.5,
+   "bbox": [
+    -111.0552665,
+    40.9948223,
+    -104.0522528,
+    45.0058281
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 34854.43,
+    "lat": 44.146777,
+    "lon": -110.073257,
+    "rank": 15,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 34854.43,
+    "lat": 44.146777,
+    "lon": -110.073257,
+    "rank": 19,
+    "withheld": 0
+   }
+  }
+ ]
+}

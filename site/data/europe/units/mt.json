@@ -1,0 +1,337 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "mt",
+ "name": "Malta",
+ "name_en": "Malta",
+ "country": "mt",
+ "area_km2": 347.2,
+ "bbox": [
+  13.9360446,
+  35.5853691,
+  14.822786,
+  36.2825455
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 35.786359,
+    "lon": 14.406833,
+    "dist_m": 4760.9,
+    "nearest_way": {
+     "id": 1360758220,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Għar Lapsi",
+     "type": "hamlet",
+     "dist_m": 4755.6,
+     "lat": 35.827096,
+     "lon": 14.423186
+    },
+    "detail": "detail/mt/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 35.966768,
+    "lon": 14.407674,
+    "dist_m": 1049.39,
+    "nearest_way": {
+     "id": 123727816,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Qawra",
+     "type": "village",
+     "dist_m": 1779.0,
+     "lat": 35.954129,
+     "lon": 14.419808
+    },
+    "detail": "detail/mt/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 36.058218,
+    "lon": 14.311113,
+    "dist_m": 534.63,
+    "nearest_way": {
+     "id": 136640811,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Daħlet Qorrot",
+     "type": "hamlet",
+     "dist_m": 1159.0,
+     "lat": 36.048784,
+     "lon": 14.316634
+    },
+    "detail": "detail/mt/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 36.046912,
+    "lon": 14.188155,
+    "dist_m": 418.91,
+    "nearest_way": {
+     "id": 968605955,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Saint Lawrence",
+     "type": "village",
+     "dist_m": 1700.6,
+     "lat": 36.055301,
+     "lon": 14.20395
+    },
+    "detail": "detail/mt/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 35.900417,
+    "lon": 14.330501,
+    "dist_m": 339.08,
+    "nearest_way": {
+     "id": 1422132631,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Baħrija",
+     "type": "village",
+     "dist_m": 1718.2,
+     "lat": 35.894711,
+     "lon": 14.348194
+    },
+    "detail": "detail/mt/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 35.849632,
+    "lon": 14.572185,
+    "dist_m": 314.56,
+    "nearest_way": {
+     "id": 152024843,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Marsascala",
+     "type": "town",
+     "dist_m": 1884.3,
+     "lat": 35.862916,
+     "lon": 14.559188
+    },
+    "detail": "detail/mt/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 35.878236,
+    "lon": 14.444772,
+    "dist_m": 151.95,
+    "nearest_way": {
+     "id": 1328350072,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Ħaż-Żebbuġ",
+     "type": "town",
+     "dist_m": 767.1,
+     "lat": 35.872596,
+     "lon": 14.439859
+    },
+    "detail": "detail/mt/A-7",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 7 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 35.786359,
+    "lon": 14.406833,
+    "dist_m": 4760.9,
+    "nearest_way": {
+     "id": 1360758220,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Għar Lapsi",
+     "type": "hamlet",
+     "dist_m": 4755.6,
+     "lat": 35.827096,
+     "lon": 14.423186
+    },
+    "detail": "detail/mt/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 35.967414,
+    "lon": 14.407492,
+    "dist_m": 1477.36,
+    "nearest_way": {
+     "id": 25378945,
+     "highway": "tertiary",
+     "name": "Triq il-Mistra",
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Qawra",
+     "type": "village",
+     "dist_m": 1845.9,
+     "lat": 35.954129,
+     "lon": 14.419808
+    },
+    "detail": "detail/mt/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 36.074139,
+    "lon": 14.184748,
+    "dist_m": 927.38,
+    "nearest_way": {
+     "id": 15937641,
+     "highway": "unclassified",
+     "name": "Triq Neigu",
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Għarb",
+     "type": "village",
+     "dist_m": 2707.5,
+     "lat": 36.059818,
+     "lon": 14.209081
+    },
+    "detail": "detail/mt/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 35.897643,
+    "lon": 14.32904,
+    "dist_m": 766.12,
+    "nearest_way": {
+     "id": 441709215,
+     "highway": "secondary",
+     "name": "Fomm ir-Riħ, Limiti tar-Rabat",
+     "ref": "125",
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Baħrija",
+     "type": "village",
+     "dist_m": 1759.6,
+     "lat": 35.894711,
+     "lon": 14.348194
+    },
+    "detail": "detail/mt/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 36.046499,
+    "lon": 14.323827,
+    "dist_m": 671.62,
+    "nearest_way": {
+     "id": 222088167,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Daħlet Qorrot",
+     "type": "hamlet",
+     "dist_m": 696.0,
+     "lat": 36.048784,
+     "lon": 14.316634
+    },
+    "detail": "detail/mt/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 35.849729,
+    "lon": 14.572197,
+    "dist_m": 660.94,
+    "nearest_way": {
+     "id": 32854581,
+     "highway": "unclassified",
+     "name": "Xatt il-Batterija ta' Riħama",
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Marsascala",
+     "type": "town",
+     "dist_m": 1876.6,
+     "lat": 35.862916,
+     "lon": 14.559188
+    },
+    "detail": "detail/mt/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 35.875981,
+    "lon": 14.455308,
+    "dist_m": 179.71,
+    "nearest_way": {
+     "id": 595190872,
+     "highway": "unclassified",
+     "name": "Triq Tal-Ħlas",
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Ħaż-Żebbuġ",
+     "type": "town",
+     "dist_m": 1444.8,
+     "lat": 35.872596,
+     "lon": 14.439859
+    },
+    "detail": "detail/mt/B-7",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 7 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ }
+}

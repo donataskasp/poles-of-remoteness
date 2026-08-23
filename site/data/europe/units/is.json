@@ -1,0 +1,447 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "is",
+ "name": "Ísland",
+ "name_en": "Iceland",
+ "country": "is",
+ "area_km2": 102765.0,
+ "bbox": [
+  -25.0135069,
+  63.0859177,
+  -12.8046162,
+  67.353
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 67.15042,
+    "lon": -18.683029,
+    "dist_m": 71375.38,
+    "nearest_way": {
+     "id": 103478056,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Grímsey",
+     "type": "hamlet",
+     "dist_m": 74155.3,
+     "lat": 66.539604,
+     "lon": -18.015328
+    },
+    "detail": "detail/is/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 64.400468,
+    "lon": -17.113665,
+    "dist_m": 42370.41,
+    "nearest_way": {
+     "id": 289693129,
+     "highway": "service",
+     "name": "Hæðir",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 58473.9,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 64.377138,
+    "lon": -16.905697,
+    "dist_m": 39598.08,
+    "nearest_way": {
+     "id": 289693129,
+     "highway": "service",
+     "name": "Hæðir",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 53309.0,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 64.348026,
+    "lon": -17.285199,
+    "dist_m": 38802.6,
+    "nearest_way": {
+     "id": 289693129,
+     "highway": "service",
+     "name": "Hæðir",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 56669.1,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 64.376191,
+    "lon": -16.69078,
+    "dist_m": 36084.65,
+    "nearest_way": {
+     "id": 309150310,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 52325.8,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 64.595463,
+    "lon": -13.273488,
+    "dist_m": 35652.53,
+    "nearest_way": {
+     "id": 48325001,
+     "highway": "service",
+     "name": "Heyklif",
+     "ref": "9599",
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Stöðvarfjörður",
+     "type": "village",
+     "dist_m": 39052.3,
+     "lat": 64.833803,
+     "lon": -13.873733
+    },
+    "detail": "detail/is/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 64.439032,
+    "lon": -17.319925,
+    "dist_m": 35464.86,
+    "nearest_way": {
+     "id": 556458824,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 66388.3,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 64.291197,
+    "lon": -17.449025,
+    "dist_m": 33843.4,
+    "nearest_way": {
+     "id": 1227242972,
+     "highway": "track",
+     "name": "Hamarsskryki",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 56071.9,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 64.395071,
+    "lon": -16.482881,
+    "dist_m": 33066.77,
+    "nearest_way": {
+     "id": 231869200,
+     "highway": "tertiary",
+     "name": "Jökulvegur",
+     "ref": "F985",
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 55507.9,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 64.489426,
+    "lon": -17.070809,
+    "dist_m": 32999.15,
+    "nearest_way": {
+     "id": 556458828,
+     "highway": "track",
+     "name": "Dyngjujokull",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 67303.9,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 67.15042,
+    "lon": -18.683029,
+    "dist_m": 73176.62,
+    "nearest_way": {
+     "id": 103478049,
+     "highway": "secondary",
+     "name": "Grímseyjarvegur",
+     "ref": "8005",
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Grímsey",
+     "type": "hamlet",
+     "dist_m": 74155.3,
+     "lat": 66.539604,
+     "lon": -18.015328
+    },
+    "detail": "detail/is/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 64.417533,
+    "lon": -17.308698,
+    "dist_m": 46458.69,
+    "nearest_way": {
+     "id": 108189946,
+     "highway": "tertiary",
+     "name": "Kverkfjallaleið",
+     "ref": "F902",
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 64009.4,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 64.399068,
+    "lon": -17.097511,
+    "dist_m": 42114.73,
+    "nearest_way": {
+     "id": 289693129,
+     "highway": "service",
+     "name": "Hæðir",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 58065.3,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 64.336812,
+    "lon": -17.407918,
+    "dist_m": 40269.61,
+    "nearest_way": {
+     "id": 289693129,
+     "highway": "service",
+     "name": "Hæðir",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 58845.3,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 66.465657,
+    "lon": -22.46595,
+    "dist_m": 40078.33,
+    "nearest_way": {
+     "id": 217191647,
+     "highway": "service",
+     "name": "Unaðsdalur",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Bolungarvík",
+     "type": "isolated_dwelling",
+     "dist_m": 21253.3,
+     "lat": 66.302236,
+     "lon": -22.221402
+    },
+    "detail": "detail/is/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 64.380175,
+    "lon": -16.886676,
+    "dist_m": 40043.78,
+    "nearest_way": {
+     "id": 289693129,
+     "highway": "service",
+     "name": "Hæðir",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 53482.8,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 64.466691,
+    "lon": -17.493602,
+    "dist_m": 39941.96,
+    "nearest_way": {
+     "id": 319955779,
+     "highway": "secondary",
+     "name": "Sprengisandsleið",
+     "ref": "F26",
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 73184.2,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 64.509046,
+    "lon": -17.300808,
+    "dist_m": 39043.81,
+    "nearest_way": {
+     "id": 391112727,
+     "highway": "unclassified",
+     "name": "Austurleið",
+     "ref": "F910",
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 73060.2,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 64.389002,
+    "lon": -16.670395,
+    "dist_m": 37475.29,
+    "nearest_way": {
+     "id": 1490500379,
+     "highway": "unclassified",
+     "name": "Breiðalónsvegur",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hof",
+     "type": "hamlet",
+     "dist_m": 53777.7,
+     "lat": 63.90687,
+     "lon": -16.707139
+    },
+    "detail": "detail/is/B-9",
+    "warnings": []
+   }
+  ],
+  "withheld": 1,
+  "reason": null
+ }
+}

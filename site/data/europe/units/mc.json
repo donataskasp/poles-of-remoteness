@@ -1,0 +1,73 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "mc",
+ "name": "Monaco",
+ "name_en": "Monaco",
+ "country": "mc",
+ "area_km2": 3.9,
+ "bbox": [
+  7.4090279,
+  43.5165358,
+  7.5329917,
+  43.7519173
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 43.742605,
+    "lon": 7.433766,
+    "dist_m": 242.96,
+    "nearest_way": {
+     "id": 182699444,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "mc"
+    },
+    "nearest_place": {
+     "name": "Beausoleil",
+     "type": "town",
+     "dist_m": 647.7,
+     "lat": 43.743772,
+     "lon": 7.425888
+    },
+    "detail": "detail/mc/A-1",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 1 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 43.742605,
+    "lon": 7.433766,
+    "dist_m": 242.96,
+    "nearest_way": {
+     "id": 182699444,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "mc"
+    },
+    "nearest_place": {
+     "name": "Beausoleil",
+     "type": "town",
+     "dist_m": 647.7,
+     "lat": 43.743772,
+     "lon": 7.425888
+    },
+    "detail": "detail/mc/B-1",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 1 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ }
+}

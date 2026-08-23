@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-ks",
+ "name": "Kansas",
+ "name_en": "Kansas",
+ "country": "us",
+ "area_km2": 212900.6,
+ "bbox": [
+  -102.0517919,
+  36.9930715,
+  -94.5882049,
+  40.0032291
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 37.318721,
+    "lon": -98.868287,
+    "dist_m": 4131.44,
+    "nearest_way": {
+     "id": 12985200,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lake City",
+     "type": "hamlet",
+     "dist_m": 5691.2,
+     "lat": 37.353356,
+     "lon": -98.820928
+    },
+    "detail": "detail/us-ks/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 38.265322,
+    "lon": -96.445203,
+    "dist_m": 4040.48,
+    "nearest_way": {
+     "id": 1504237709,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bazaar",
+     "type": "hamlet",
+     "dist_m": 7917.5,
+     "lat": 38.27196,
+     "lon": -96.535285
+    },
+    "detail": "detail/us-ks/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 38.85391,
+    "lon": -101.488312,
+    "dist_m": 3754.94,
+    "nearest_way": {
+     "id": 13376155,
+     "highway": "track",
+     "name": "Road Wa E-I",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wallace",
+     "type": "hamlet",
+     "dist_m": 11264.7,
+     "lat": 38.914419,
+     "lon": -101.59253
+    },
+    "detail": "detail/us-ks/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 38.450488,
+    "lon": -96.599695,
+    "dist_m": 3685.15,
+    "nearest_way": {
+     "id": 1056639768,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rockland",
+     "type": "hamlet",
+     "dist_m": 4558.9,
+     "lat": 38.428625,
+     "lon": -96.643898
+    },
+    "detail": "detail/us-ks/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 38.83857,
+    "lon": -96.245932,
+    "dist_m": 3478.97,
+    "nearest_way": {
+     "id": 13376813,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hessdale",
+     "type": "hamlet",
+     "dist_m": 8825.9,
+     "lat": 38.912779,
+     "lon": -96.209439
+    },
+    "detail": "detail/us-ks/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 38.408529,
+    "lon": -100.105156,
+    "dist_m": 3478.66,
+    "nearest_way": {
+     "id": 13188341,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Laird",
+     "type": "hamlet",
+     "dist_m": 6183.7,
+     "lat": 38.447516,
+     "lon": -100.054574
+    },
+    "detail": "detail/us-ks/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 38.934386,
+    "lon": -96.314195,
+    "dist_m": 3357.35,
+    "nearest_way": {
+     "id": 13383359,
+     "highway": "residential",
+     "name": "Ridge Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Allendorph",
+     "type": "hamlet",
+     "dist_m": 7481.1,
+     "lat": 38.992777,
+     "lon": -96.271106
+    },
+    "detail": "detail/us-ks/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.566463,
+    "lon": -96.447575,
+    "dist_m": 3357.28,
+    "nearest_way": {
+     "id": 13182695,
+     "highway": "unclassified",
+     "name": "Dd Avenue",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dunlap",
+     "type": "hamlet",
+     "dist_m": 7208.3,
+     "lat": 38.576399,
+     "lon": -96.365834
+    },
+    "detail": "detail/us-ks/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 37.969281,
+    "lon": -96.471802,
+    "dist_m": 3339.2,
+    "nearest_way": {
+     "id": 13091802,
+     "highway": "residential",
+     "name": "Township Road 57",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lapland",
+     "type": "hamlet",
+     "dist_m": 7104.0,
+     "lat": 37.984744,
+     "lon": -96.393341
+    },
+    "detail": "detail/us-ks/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 37.202859,
+    "lon": -98.876165,
+    "dist_m": 3327.56,
+    "nearest_way": {
+     "id": 344828035,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Deerhead",
+     "type": "hamlet",
+     "dist_m": 5050.3,
+     "lat": 37.238358,
+     "lon": -98.911766
+    },
+    "detail": "detail/us-ks/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 37.250261,
+    "lon": -99.933673,
+    "dist_m": 5800.96,
+    "nearest_way": {
+     "id": 49161527,
+     "highway": "primary",
+     "name": null,
+     "ref": "US 160;US 283",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ashland",
+     "type": "town",
+     "dist_m": 16403.6,
+     "lat": 37.188638,
+     "lon": -99.765683
+    },
+    "detail": "detail/us-ks/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 38.315452,
+    "lon": -101.06243,
+    "dist_m": 5632.77,
+    "nearest_way": {
+     "id": 13241426,
+     "highway": "residential",
+     "name": "West Road 70",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chevron",
+     "type": "hamlet",
+     "dist_m": 13321.4,
+     "lat": 38.312521,
+     "lon": -100.910155
+    },
+    "detail": "detail/us-ks/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 38.339495,
+    "lon": -101.449546,
+    "dist_m": 5209.36,
+    "nearest_way": {
+     "id": 13390090,
+     "highway": "residential",
+     "name": "County Road CC",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lydia",
+     "type": "hamlet",
+     "dist_m": 15395.3,
+     "lat": 38.278354,
+     "lon": -101.291551
+    },
+    "detail": "detail/us-ks/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 38.365491,
+    "lon": -101.29171,
+    "dist_m": 4857.59,
+    "nearest_way": {
+     "id": 1054552432,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lydia",
+     "type": "hamlet",
+     "dist_m": 9672.4,
+     "lat": 38.278354,
+     "lon": -101.291551
+    },
+    "detail": "detail/us-ks/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 38.278887,
+    "lon": -101.622731,
+    "dist_m": 4840.4,
+    "nearest_way": {
+     "id": 13389756,
+     "highway": "unclassified",
+     "name": "County Road 26",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Whitelaw",
+     "type": "hamlet",
+     "dist_m": 20167.0,
+     "lat": 38.455016,
+     "lon": -101.679337
+    },
+    "detail": "detail/us-ks/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 37.707219,
+    "lon": -99.524331,
+    "dist_m": 4819.01,
+    "nearest_way": {
+     "id": 13121024,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Windhorst",
+     "type": "hamlet",
+     "dist_m": 13519.4,
+     "lat": 37.785297,
+     "lon": -99.642068
+    },
+    "detail": "detail/us-ks/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 37.289778,
+    "lon": -96.543957,
+    "dist_m": 4715.43,
+    "nearest_way": {
+     "id": 12993879,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cloverdale",
+     "type": "hamlet",
+     "dist_m": 8496.4,
+     "lat": 37.226978,
+     "lon": -96.489178
+    },
+    "detail": "detail/us-ks/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 37.001368,
+    "lon": -100.416289,
+    "dist_m": 4541.29,
+    "nearest_way": {
+     "id": 14662293,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mocane",
+     "type": "hamlet",
+     "dist_m": 12571.6,
+     "lat": 36.893639,
+     "lon": -100.372646
+    },
+    "detail": "detail/us-ks/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 38.739755,
+    "lon": -100.697999,
+    "dist_m": 4473.96,
+    "nearest_way": {
+     "id": 886075952,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Elkader",
+     "type": "hamlet",
+     "dist_m": 15185.5,
+     "lat": 38.793346,
+     "lon": -100.858757
+    },
+    "detail": "detail/us-ks/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 37.096909,
+    "lon": -100.293037,
+    "dist_m": 4447.5,
+    "nearest_way": {
+     "id": 13167189,
+     "highway": "residential",
+     "name": "Bb Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Meade",
+     "type": "town",
+     "dist_m": 21352.5,
+     "lat": 37.28558,
+     "lon": -100.340145
+    },
+    "detail": "detail/us-ks/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

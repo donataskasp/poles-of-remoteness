@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "sk",
+ "name": "Slovensko",
+ "name_en": "Slovakia",
+ "country": "sk",
+ "area_km2": 49159.2,
+ "bbox": [
+  16.8331891,
+  47.7311798,
+  22.5657103,
+  49.6138162
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 49.191399,
+    "lon": 20.172912,
+    "dist_m": 4080.4,
+    "nearest_way": {
+     "id": 1247821178,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Vysoké Tatry",
+     "type": "town",
+     "dist_m": 6990.5,
+     "lat": 49.135479,
+     "lon": 20.216683
+    },
+    "detail": "detail/sk/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 49.194053,
+    "lon": 19.856678,
+    "dist_m": 3888.23,
+    "nearest_way": {
+     "id": 1307419094,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Ornak",
+     "type": "isolated_dwelling",
+     "dist_m": 3921.3,
+     "lat": 49.229292,
+     "lon": 19.858511
+    },
+    "detail": "detail/sk/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 49.172177,
+    "lon": 20.037362,
+    "dist_m": 3165.25,
+    "nearest_way": {
+     "id": 995907257,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Štrbské Pleso",
+     "type": "hamlet",
+     "dist_m": 6400.6,
+     "lat": 49.120666,
+     "lon": 20.076495
+    },
+    "detail": "detail/sk/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 48.937021,
+    "lon": 19.641378,
+    "dist_m": 2474.96,
+    "nearest_way": {
+     "id": 57395206,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Záhradky",
+     "type": "hamlet",
+     "dist_m": 4906.1,
+     "lat": 48.971358,
+     "lon": 19.59932
+    },
+    "detail": "detail/sk/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 49.201126,
+    "lon": 19.707872,
+    "dist_m": 2380.89,
+    "nearest_way": {
+     "id": 1310363921,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Žiar",
+     "type": "village",
+     "dist_m": 8803.2,
+     "lat": 49.128747,
+     "lon": 19.659002
+    },
+    "detail": "detail/sk/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 49.198019,
+    "lon": 19.008853,
+    "dist_m": 2147.08,
+    "nearest_way": {
+     "id": 137154256,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Vrátna",
+     "type": "hamlet",
+     "dist_m": 2719.6,
+     "lat": 49.208794,
+     "lon": 19.042354
+    },
+    "detail": "detail/sk/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 49.08608,
+    "lon": 22.552122,
+    "dist_m": 2004.18,
+    "nearest_way": {
+     "id": 1422716184,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Moczarne",
+     "type": "isolated_dwelling",
+     "dist_m": 3587.2,
+     "lat": 49.111097,
+     "lon": 22.521115
+    },
+    "detail": "detail/sk/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 49.57301,
+    "lon": 19.5293,
+    "dist_m": 1721.14,
+    "nearest_way": {
+     "id": 1116380678,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Cyrchel",
+     "type": "isolated_dwelling",
+     "dist_m": 3220.8,
+     "lat": 49.601534,
+     "lon": 19.536986
+    },
+    "detail": "detail/sk/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 49.401728,
+    "lon": 19.744749,
+    "dist_m": 1649.75,
+    "nearest_way": {
+     "id": 926386627,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Hladovka",
+     "type": "village",
+     "dist_m": 3633.7,
+     "lat": 49.370589,
+     "lon": 19.759901
+    },
+    "detail": "detail/sk/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 49.523606,
+    "lon": 19.311499,
+    "dist_m": 1609.03,
+    "nearest_way": {
+     "id": 172656058,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Hala Szczawina",
+     "type": "isolated_dwelling",
+     "dist_m": 2731.5,
+     "lat": 49.545266,
+     "lon": 19.329286
+    },
+    "detail": "detail/sk/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 48.946241,
+    "lon": 19.066164,
+    "dist_m": 7599.01,
+    "nearest_way": {
+     "id": 1244301804,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Rakytová",
+     "type": "isolated_dwelling",
+     "dist_m": 6633.3,
+     "lat": 48.982748,
+     "lon": 19.137803
+    },
+    "detail": "detail/sk/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 48.914885,
+    "lon": 20.152566,
+    "dist_m": 6873.09,
+    "nearest_way": {
+     "id": 970336669,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Pusté Pole",
+     "type": "hamlet",
+     "dist_m": 6961.1,
+     "lat": 48.883576,
+     "lon": 20.234777
+    },
+    "detail": "detail/sk/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 49.209896,
+    "lon": 20.183175,
+    "dist_m": 6265.08,
+    "nearest_way": {
+     "id": 293896829,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Tatranská Javorina",
+     "type": "village",
+     "dist_m": 7050.0,
+     "lat": 49.267628,
+     "lon": 20.143191
+    },
+    "detail": "detail/sk/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 49.15497,
+    "lon": 20.639616,
+    "dist_m": 6250.31,
+    "nearest_way": {
+     "id": 934935523,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Torysky",
+     "type": "village",
+     "dist_m": 7165.6,
+     "lat": 49.09559,
+     "lon": 20.677724
+    },
+    "detail": "detail/sk/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 49.185616,
+    "lon": 19.814602,
+    "dist_m": 5789.95,
+    "nearest_way": {
+     "id": 1272107646,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Ornak",
+     "type": "isolated_dwelling",
+     "dist_m": 5816.4,
+     "lat": 49.229292,
+     "lon": 19.858511
+    },
+    "detail": "detail/sk/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 48.921343,
+    "lon": 19.507796,
+    "dist_m": 5676.03,
+    "nearest_way": {
+     "id": 311848935,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Krpacovo",
+     "type": "hamlet",
+     "dist_m": 5885.0,
+     "lat": 48.875476,
+     "lon": 19.547827
+    },
+    "detail": "detail/sk/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 48.925224,
+    "lon": 19.836805,
+    "dist_m": 5497.63,
+    "nearest_way": {
+     "id": 37703306,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Nižná Boca",
+     "type": "village",
+     "dist_m": 5553.9,
+     "lat": 48.948999,
+     "lon": 19.770139
+    },
+    "detail": "detail/sk/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 48.95629,
+    "lon": 19.67018,
+    "dist_m": 5440.92,
+    "nearest_way": {
+     "id": 380854849,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Záhradky",
+     "type": "hamlet",
+     "dist_m": 5452.6,
+     "lat": 48.971358,
+     "lon": 19.59932
+    },
+    "detail": "detail/sk/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 48.725237,
+    "lon": 18.020033,
+    "dist_m": 5307.26,
+    "nearest_way": {
+     "id": 1338316427,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Selec",
+     "type": "village",
+     "dist_m": 7061.7,
+     "lat": 48.78559,
+     "lon": 17.990167
+    },
+    "detail": "detail/sk/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 49.095769,
+    "lon": 22.473298,
+    "dist_m": 5280.86,
+    "nearest_way": {
+     "id": 846702739,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "sk"
+    },
+    "nearest_place": {
+     "name": "Moczarne",
+     "type": "isolated_dwelling",
+     "dist_m": 3885.5,
+     "lat": 49.111097,
+     "lon": 22.521115
+    },
+    "detail": "detail/sk/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

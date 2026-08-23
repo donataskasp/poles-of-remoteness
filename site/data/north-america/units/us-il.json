@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-il",
+ "name": "Illinois",
+ "name_en": "Illinois",
+ "country": "us",
+ "area_km2": 145504.5,
+ "bbox": [
+  -91.5130518,
+  36.9701313,
+  -87.0199244,
+  42.5083736
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.872744,
+    "lon": -87.545363,
+    "dist_m": 4917.21,
+    "nearest_way": {
+     "id": 1467696857,
+     "highway": "living_street",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chicago",
+     "type": "city",
+     "dist_m": 6570.4,
+     "lat": 41.875562,
+     "lon": -87.624421
+    },
+    "detail": "detail/us-il/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 41.966059,
+    "lon": -87.591117,
+    "dist_m": 3651.49,
+    "nearest_way": {
+     "id": 404335293,
+     "highway": "service",
+     "name": "West Montrose Harbor Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chicago",
+     "type": "city",
+     "dist_m": 10424.5,
+     "lat": 41.875562,
+     "lon": -87.624421
+    },
+    "detail": "detail/us-il/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 38.733906,
+    "lon": -89.243982,
+    "dist_m": 2522.84,
+    "nearest_way": {
+     "id": 441864938,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Keyesport",
+     "type": "hamlet",
+     "dist_m": 2734.0,
+     "lat": 38.741992,
+     "lon": -89.273684
+    },
+    "detail": "detail/us-il/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 41.962543,
+    "lon": -90.152921,
+    "dist_m": 2392.26,
+    "nearest_way": {
+     "id": 15863264,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Elk River Junction",
+     "type": "hamlet",
+     "dist_m": 2590.3,
+     "lat": 41.979749,
+     "lon": -90.174017
+    },
+    "detail": "detail/us-il/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 37.362304,
+    "lon": -88.952327,
+    "dist_m": 2319.04,
+    "nearest_way": {
+     "id": 926413268,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Belknap",
+     "type": "village",
+     "dist_m": 4300.8,
+     "lat": 37.325052,
+     "lon": -88.938956
+    },
+    "detail": "detail/us-il/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 37.566366,
+    "lon": -89.388507,
+    "dist_m": 2290.53,
+    "nearest_way": {
+     "id": 22032502,
+     "highway": "residential",
+     "name": "Baltzell Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "La Rue",
+     "type": "isolated_dwelling",
+     "dist_m": 6204.6,
+     "lat": 37.545605,
+     "lon": -89.453706
+    },
+    "detail": "detail/us-il/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 40.907973,
+    "lon": -90.982118,
+    "dist_m": 2232.75,
+    "nearest_way": {
+     "id": 15879595,
+     "highway": "residential",
+     "name": "170th Street",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oquawka",
+     "type": "town",
+     "dist_m": 3977.1,
+     "lat": 40.931982,
+     "lon": -90.947086
+    },
+    "detail": "detail/us-il/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.066247,
+    "lon": -89.531261,
+    "dist_m": 2205.09,
+    "nearest_way": {
+     "id": 913733327,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Jamestown",
+     "type": "hamlet",
+     "dist_m": 1837.0,
+     "lat": 38.049773,
+     "lon": -89.529261
+    },
+    "detail": "detail/us-il/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 40.093702,
+    "lon": -90.363782,
+    "dist_m": 2173.81,
+    "nearest_way": {
+     "id": 21709510,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Browning",
+     "type": "village",
+     "dist_m": 3975.5,
+     "lat": 40.128935,
+     "lon": -90.372068
+    },
+    "detail": "detail/us-il/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 37.821968,
+    "lon": -88.050356,
+    "dist_m": 2157.22,
+    "nearest_way": {
+     "id": 21759867,
+     "highway": "service",
+     "name": "Loop Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oak Grove",
+     "type": "hamlet",
+     "dist_m": 2974.1,
+     "lat": 37.836156,
+     "lon": -88.021698
+    },
+    "detail": "detail/us-il/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.872744,
+    "lon": -87.545363,
+    "dist_m": 4917.21,
+    "nearest_way": {
+     "id": 1467696857,
+     "highway": "living_street",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chicago",
+     "type": "city",
+     "dist_m": 6570.4,
+     "lat": 41.875562,
+     "lon": -87.624421
+    },
+    "detail": "detail/us-il/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 41.966059,
+    "lon": -87.591117,
+    "dist_m": 3651.49,
+    "nearest_way": {
+     "id": 404335293,
+     "highway": "service",
+     "name": "West Montrose Harbor Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chicago",
+     "type": "city",
+     "dist_m": 10424.5,
+     "lat": 41.875562,
+     "lon": -87.624421
+    },
+    "detail": "detail/us-il/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 37.065279,
+    "lon": -89.279799,
+    "dist_m": 3242.7,
+    "nearest_way": {
+     "id": 21691327,
+     "highway": "tertiary",
+     "name": "Miller City Road",
+     "ref": "CR 2",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cache",
+     "type": "hamlet",
+     "dist_m": 4189.1,
+     "lat": 37.10005,
+     "lon": -89.261466
+    },
+    "detail": "detail/us-il/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 41.219435,
+    "lon": -89.359325,
+    "dist_m": 3201.05,
+    "nearest_way": {
+     "id": 21986122,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Undercliff",
+     "type": "hamlet",
+     "dist_m": 3558.8,
+     "lat": 41.187814,
+     "lon": -89.3662
+    },
+    "detail": "detail/us-il/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 40.058333,
+    "lon": -90.381032,
+    "dist_m": 3093.13,
+    "nearest_way": {
+     "id": 21710087,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Frederick",
+     "type": "village",
+     "dist_m": 4295.2,
+     "lat": 40.070048,
+     "lon": -90.429014
+    },
+    "detail": "detail/us-il/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 37.801931,
+    "lon": -88.057635,
+    "dist_m": 3001.51,
+    "nearest_way": {
+     "id": 21761047,
+     "highway": "residential",
+     "name": "Bicketts Ditch Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oak Grove",
+     "type": "hamlet",
+     "dist_m": 4943.9,
+     "lat": 37.836156,
+     "lon": -88.021698
+    },
+    "detail": "detail/us-il/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 37.97993,
+    "lon": -90.003313,
+    "dist_m": 2687.63,
+    "nearest_way": {
+     "id": 221496136,
+     "highway": "residential",
+     "name": "Marina Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sainte Genevieve",
+     "type": "town",
+     "dist_m": 3383.6,
+     "lat": 37.981442,
+     "lon": -90.041779
+    },
+    "detail": "detail/us-il/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.733906,
+    "lon": -89.243982,
+    "dist_m": 2522.84,
+    "nearest_way": {
+     "id": 441864938,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Keyesport",
+     "type": "hamlet",
+     "dist_m": 2734.0,
+     "lat": 38.741992,
+     "lon": -89.273684
+    },
+    "detail": "detail/us-il/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 37.558749,
+    "lon": -89.386708,
+    "dist_m": 2509.15,
+    "nearest_way": {
+     "id": 22033830,
+     "highway": "unclassified",
+     "name": "Bald Knob Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "La Rue",
+     "type": "isolated_dwelling",
+     "dist_m": 6097.3,
+     "lat": 37.545605,
+     "lon": -89.453706
+    },
+    "detail": "detail/us-il/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.962543,
+    "lon": -90.152921,
+    "dist_m": 2392.26,
+    "nearest_way": {
+     "id": 15863264,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Elk River Junction",
+     "type": "hamlet",
+     "dist_m": 2590.3,
+     "lat": 41.979749,
+     "lon": -90.174017
+    },
+    "detail": "detail/us-il/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

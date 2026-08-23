@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "md",
+ "name": "Moldova",
+ "name_en": "Moldova",
+ "country": "md",
+ "area_km2": 34069.4,
+ "bbox": [
+  26.6164054,
+  45.4671885,
+  30.1637143,
+  48.4920527
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 47.942551,
+    "lon": 27.782582,
+    "dist_m": 3571.83,
+    "nearest_way": {
+     "id": 725653745,
+     "highway": "living_street",
+     "name": "Stradela 1 Birarovca",
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Birarovca",
+     "type": "hamlet",
+     "dist_m": 3827.2,
+     "lat": 47.974751,
+     "lon": 27.800691
+    },
+    "detail": "detail/md/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 48.023391,
+    "lon": 28.464677,
+    "dist_m": 3150.05,
+    "nearest_way": {
+     "id": 51199931,
+     "highway": "secondary",
+     "name": "Slobozia-Cremene-Vărăncău",
+     "ref": "G37",
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Slobozia-Cremene",
+     "type": "village",
+     "dist_m": 3529.3,
+     "lat": 48.038118,
+     "lon": 28.422757
+    },
+    "detail": "detail/md/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 46.555216,
+    "lon": 29.202038,
+    "dist_m": 3144.75,
+    "nearest_way": {
+     "id": 51433376,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Sălcuța",
+     "type": "village",
+     "dist_m": 5189.9,
+     "lat": 46.592422,
+     "lon": 29.242936
+    },
+    "detail": "detail/md/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 46.955158,
+    "lon": 29.639605,
+    "dist_m": 3089.95,
+    "nearest_way": {
+     "id": 125872245,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Slovianoserbka",
+     "type": "village",
+     "dist_m": 4449.2,
+     "lat": 46.958874,
+     "lon": 29.697804
+    },
+    "detail": "detail/md/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 46.774415,
+    "lon": 28.452519,
+    "dist_m": 3030.1,
+    "nearest_way": {
+     "id": 978539354,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Brătianovca",
+     "type": "village",
+     "dist_m": 3784.5,
+     "lat": 46.741099,
+     "lon": 28.46271
+    },
+    "detail": "detail/md/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 45.898,
+    "lon": 28.30958,
+    "dist_m": 2976.33,
+    "nearest_way": {
+     "id": 1321881082,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Hutulu",
+     "type": "village",
+     "dist_m": 4264.6,
+     "lat": 45.860416,
+     "lon": 28.298531
+    },
+    "detail": "detail/md/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.250423,
+    "lon": 28.556985,
+    "dist_m": 2937.65,
+    "nearest_way": {
+     "id": 292293425,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Sadîc",
+     "type": "village",
+     "dist_m": 3590.3,
+     "lat": 46.270796,
+     "lon": 28.52085
+    },
+    "detail": "detail/md/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 47.504997,
+    "lon": 27.498375,
+    "dist_m": 2931.04,
+    "nearest_way": {
+     "id": 220278694,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Soloneț",
+     "type": "village",
+     "dist_m": 3054.3,
+     "lat": 47.497803,
+     "lon": 27.459251
+    },
+    "detail": "detail/md/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.459281,
+    "lon": 28.570027,
+    "dist_m": 2906.69,
+    "nearest_way": {
+     "id": 702542753,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Dezghingea",
+     "type": "village",
+     "dist_m": 5034.0,
+     "lat": 46.426998,
+     "lon": 28.615969
+    },
+    "detail": "detail/md/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 47.467968,
+    "lon": 28.837757,
+    "dist_m": 2766.27,
+    "nearest_way": {
+     "id": 976495324,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Budăi",
+     "type": "village",
+     "dist_m": 4365.0,
+     "lat": 47.430402,
+     "lon": 28.820932
+    },
+    "detail": "detail/md/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 45.762662,
+    "lon": 28.266625,
+    "dist_m": 6392.47,
+    "nearest_way": {
+     "id": 107076468,
+     "highway": "secondary",
+     "name": "Vulcănești-Colibași",
+     "ref": "G141",
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Vadul lui Isac",
+     "type": "village",
+     "dist_m": 7579.5,
+     "lat": 45.764137,
+     "lon": 28.169216
+    },
+    "detail": "detail/md/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 46.247949,
+    "lon": 28.5794,
+    "dist_m": 4634.19,
+    "nearest_way": {
+     "id": 178003749,
+     "highway": "residential",
+     "name": "Strada Sfîntul Gheorghe",
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Sadîc",
+     "type": "village",
+     "dist_m": 5179.6,
+     "lat": 46.270796,
+     "lon": 28.52085
+    },
+    "detail": "detail/md/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 46.191952,
+    "lon": 29.034923,
+    "dist_m": 4579.66,
+    "nearest_way": {
+     "id": 178710608,
+     "highway": "residential",
+     "name": "Strada Vasili Ceapaev",
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Yaroslavove",
+     "type": "village",
+     "dist_m": 5493.8,
+     "lat": 46.156705,
+     "lon": 29.084798
+    },
+    "detail": "detail/md/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 46.545327,
+    "lon": 28.685017,
+    "dist_m": 4549.58,
+    "nearest_way": {
+     "id": 1023967430,
+     "highway": "secondary",
+     "name": "Cimișlia-Iargara",
+     "ref": "G125",
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Javgur",
+     "type": "village",
+     "dist_m": 5236.2,
+     "lat": 46.534712,
+     "lon": 28.61851
+    },
+    "detail": "detail/md/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 46.74028,
+    "lon": 29.863052,
+    "dist_m": 4509.63,
+    "nearest_way": {
+     "id": 290056506,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Pervomaisk",
+     "type": "town",
+     "dist_m": 7053.0,
+     "lat": 46.731629,
+     "lon": 29.954471
+    },
+    "detail": "detail/md/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 45.862965,
+    "lon": 28.764819,
+    "dist_m": 4474.49,
+    "nearest_way": {
+     "id": 1011523511,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Copceac",
+     "type": "village",
+     "dist_m": 5632.0,
+     "lat": 45.854547,
+     "lon": 28.693306
+    },
+    "detail": "detail/md/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 45.843349,
+    "lon": 28.384861,
+    "dist_m": 4411.46,
+    "nearest_way": {
+     "id": 388088847,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Dermengi",
+     "type": "village",
+     "dist_m": 4559.0,
+     "lat": 45.879606,
+     "lon": 28.412312
+    },
+    "detail": "detail/md/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.147725,
+    "lon": 28.708761,
+    "dist_m": 4406.01,
+    "nearest_way": {
+     "id": 1312721550,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Beșalma",
+     "type": "village",
+     "dist_m": 5442.4,
+     "lat": 46.173064,
+     "lon": 28.648468
+    },
+    "detail": "detail/md/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.309879,
+    "lon": 28.905486,
+    "dist_m": 4333.63,
+    "nearest_way": {
+     "id": 705686795,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Basarabeasca",
+     "type": "town",
+     "dist_m": 5990.6,
+     "lat": 46.332491,
+     "lon": 28.976094
+    },
+    "detail": "detail/md/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.651764,
+    "lon": 29.251934,
+    "dist_m": 4107.94,
+    "nearest_way": {
+     "id": 119290711,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "md"
+    },
+    "nearest_place": {
+     "name": "Marianca de Sus",
+     "type": "village",
+     "dist_m": 4824.2,
+     "lat": 46.645766,
+     "lon": 29.314346
+    },
+    "detail": "detail/md/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

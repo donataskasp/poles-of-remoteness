@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-ct",
+ "name": "Connecticut",
+ "name_en": "Connecticut",
+ "country": "us",
+ "area_km2": 12979.2,
+ "bbox": [
+  -73.727811,
+  40.950983,
+  -71.787239,
+  42.0505827
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.210739,
+    "lon": -72.654188,
+    "dist_m": 5135.53,
+    "nearest_way": {
+     "id": 17222182,
+     "highway": "residential",
+     "name": "Sachems Avenue",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sachem Head",
+     "type": "hamlet",
+     "dist_m": 5702.0,
+     "lat": 41.245931,
+     "lon": -72.703707
+    },
+    "detail": "detail/us-ct/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 41.068754,
+    "lon": -73.37265,
+    "dist_m": 2417.55,
+    "nearest_way": {
+     "id": 288582737,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Round Beach",
+     "type": "hamlet",
+     "dist_m": 2264.1,
+     "lat": 41.078986,
+     "lon": -73.395952
+    },
+    "detail": "detail/us-ct/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 40.980769,
+    "lon": -73.629027,
+    "dist_m": 2359.92,
+    "nearest_way": {
+     "id": 793837773,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Belle Haven",
+     "type": "hamlet",
+     "dist_m": 3140.6,
+     "lat": 41.008986,
+     "lon": -73.631515
+    },
+    "detail": "detail/us-ct/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 41.990088,
+    "lon": -73.295893,
+    "dist_m": 2224.85,
+    "nearest_way": {
+     "id": 1013386554,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "East Canaan",
+     "type": "village",
+     "dist_m": 2784.7,
+     "lat": 42.013544,
+     "lon": -73.284029
+    },
+    "detail": "detail/us-ct/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 41.117055,
+    "lon": -73.221917,
+    "dist_m": 2159.34,
+    "nearest_way": {
+     "id": 10166529,
+     "highway": "residential",
+     "name": "College Place",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Little Danbury",
+     "type": "hamlet",
+     "dist_m": 2241.6,
+     "lat": 41.128986,
+     "lon": -73.243447
+    },
+    "detail": "detail/us-ct/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 41.766732,
+    "lon": -73.317993,
+    "dist_m": 1618.33,
+    "nearest_way": {
+     "id": 17195709,
+     "highway": "residential",
+     "name": "Blue Swamp Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Warren",
+     "type": "village",
+     "dist_m": 3682.0,
+     "lat": 41.742873,
+     "lon": -73.34873
+    },
+    "detail": "detail/us-ct/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 41.255637,
+    "lon": -72.474572,
+    "dist_m": 1590.23,
+    "nearest_way": {
+     "id": 17202235,
+     "highway": "residential",
+     "name": "Old Mail Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hawks Nest",
+     "type": "hamlet",
+     "dist_m": 1679.9,
+     "lat": 41.270099,
+     "lon": -72.468699
+    },
+    "detail": "detail/us-ct/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 42.040497,
+    "lon": -73.449773,
+    "dist_m": 1489.42,
+    "nearest_way": {
+     "id": 1018348622,
+     "highway": "track",
+     "name": "Appalachian Trail",
+     "ref": "AT",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Joyceville",
+     "type": "hamlet",
+     "dist_m": 2193.5,
+     "lat": 42.048703,
+     "lon": -73.425675
+    },
+    "detail": "detail/us-ct/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.935165,
+    "lon": -72.866438,
+    "dist_m": 1462.51,
+    "nearest_way": {
+     "id": 1224883889,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "West Granby",
+     "type": "village",
+     "dist_m": 3075.3,
+     "lat": 41.956373,
+     "lon": -72.842596
+    },
+    "detail": "detail/us-ct/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.899555,
+    "lon": -73.194696,
+    "dist_m": 1448.01,
+    "nearest_way": {
+     "id": 286444419,
+     "highway": "secondary",
+     "name": "Hall Meadow Road",
+     "ref": "CT 272",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Goshen",
+     "type": "hamlet",
+     "dist_m": 1466.8,
+     "lat": 41.898706,
+     "lon": -73.212336
+    },
+    "detail": "detail/us-ct/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.210739,
+    "lon": -72.654188,
+    "dist_m": 5135.53,
+    "nearest_way": {
+     "id": 17222182,
+     "highway": "residential",
+     "name": "Sachems Avenue",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sachem Head",
+     "type": "hamlet",
+     "dist_m": 5702.0,
+     "lat": 41.245931,
+     "lon": -72.703707
+    },
+    "detail": "detail/us-ct/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 41.068754,
+    "lon": -73.37265,
+    "dist_m": 2417.55,
+    "nearest_way": {
+     "id": 288582737,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Round Beach",
+     "type": "hamlet",
+     "dist_m": 2264.1,
+     "lat": 41.078986,
+     "lon": -73.395952
+    },
+    "detail": "detail/us-ct/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 40.980769,
+    "lon": -73.629027,
+    "dist_m": 2359.92,
+    "nearest_way": {
+     "id": 793837773,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Belle Haven",
+     "type": "hamlet",
+     "dist_m": 3140.6,
+     "lat": 41.008986,
+     "lon": -73.631515
+    },
+    "detail": "detail/us-ct/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 41.969811,
+    "lon": -72.951768,
+    "dist_m": 2349.33,
+    "nearest_way": {
+     "id": 17197185,
+     "highway": "secondary",
+     "name": "Center Hill Road",
+     "ref": "CT 181",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hartland",
+     "type": "village",
+     "dist_m": 3727.7,
+     "lat": 41.996206,
+     "lon": -72.979549
+    },
+    "detail": "detail/us-ct/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 41.930349,
+    "lon": -73.248658,
+    "dist_m": 2247.55,
+    "nearest_way": {
+     "id": 969675755,
+     "highway": "residential",
+     "name": "Estey Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lower City",
+     "type": "isolated_dwelling",
+     "dist_m": 2354.0,
+     "lat": 41.924317,
+     "lon": -73.275864
+    },
+    "detail": "detail/us-ct/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 41.117055,
+    "lon": -73.221917,
+    "dist_m": 2159.34,
+    "nearest_way": {
+     "id": 10166529,
+     "highway": "residential",
+     "name": "College Place",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Little Danbury",
+     "type": "hamlet",
+     "dist_m": 2241.6,
+     "lat": 41.128986,
+     "lon": -73.243447
+    },
+    "detail": "detail/us-ct/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 42.028406,
+    "lon": -72.09988,
+    "dist_m": 2064.19,
+    "nearest_way": {
+     "id": 1198738117,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mashapaug",
+     "type": "hamlet",
+     "dist_m": 3170.1,
+     "lat": 42.027318,
+     "lon": -72.138132
+    },
+    "detail": "detail/us-ct/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 41.618867,
+    "lon": -72.546051,
+    "dist_m": 1985.11,
+    "nearest_way": {
+     "id": 1082177628,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lake Pocotopaug",
+     "type": "hamlet",
+     "dist_m": 3741.6,
+     "lat": 41.598433,
+     "lon": -72.510365
+    },
+    "detail": "detail/us-ct/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.715078,
+    "lon": -73.511514,
+    "dist_m": 1768.32,
+    "nearest_way": {
+     "id": 791592867,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kent",
+     "type": "town",
+     "dist_m": 3070.2,
+     "lat": 41.724689,
+     "lon": -73.476921
+    },
+    "detail": "detail/us-ct/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.733236,
+    "lon": -72.483964,
+    "dist_m": 1683.55,
+    "nearest_way": {
+     "id": 17193474,
+     "highway": "residential",
+     "name": "Mountain Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Buckingham",
+     "type": "hamlet",
+     "dist_m": 4247.5,
+     "lat": 41.712178,
+     "lon": -72.526573
+    },
+    "detail": "detail/us-ct/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

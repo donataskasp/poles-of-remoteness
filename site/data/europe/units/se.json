@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "se",
+ "name": "Sverige",
+ "name_en": "Sweden",
+ "country": "se",
+ "area_km2": 435255.8,
+ "bbox": [
+  10.5935025,
+  55.1370957,
+  24.177685,
+  69.0599735
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 67.275662,
+    "lon": 17.093097,
+    "dist_m": 42167.15,
+    "nearest_way": {
+     "id": 292599750,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 17733.6,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 67.337258,
+    "lon": 16.919278,
+    "dist_m": 38702.01,
+    "nearest_way": {
+     "id": 292599750,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 9767.3,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 66.870222,
+    "lon": 16.859841,
+    "dist_m": 38567.91,
+    "nearest_way": {
+     "id": 997276395,
+     "highway": "primary",
+     "name": null,
+     "ref": "95",
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Västerfjäll",
+     "type": "hamlet",
+     "dist_m": 29323.0,
+     "lat": 66.710526,
+     "lon": 17.389343
+    },
+    "detail": "detail/se/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 67.294355,
+    "lon": 17.32689,
+    "dist_m": 38456.32,
+    "nearest_way": {
+     "id": 292599750,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 27260.9,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 67.184911,
+    "lon": 17.037855,
+    "dist_m": 36845.7,
+    "nearest_way": {
+     "id": 217691417,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 20984.8,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 67.412543,
+    "lon": 16.778902,
+    "dist_m": 35598.57,
+    "nearest_way": {
+     "id": 522870364,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "no"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 10991.9,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 67.293968,
+    "lon": 17.56397,
+    "dist_m": 35223.32,
+    "nearest_way": {
+     "id": 217691417,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 37436.8,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 66.961686,
+    "lon": 16.91394,
+    "dist_m": 34657.53,
+    "nearest_way": {
+     "id": 781022691,
+     "highway": "service",
+     "name": "Lomiveien",
+     "ref": null,
+     "country": "no"
+    },
+    "nearest_place": {
+     "name": "Korsvikhytta",
+     "type": "isolated_dwelling",
+     "dist_m": 33022.2,
+     "lat": 67.110474,
+     "lon": 16.258433
+    },
+    "detail": "detail/se/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 67.093839,
+    "lon": 16.986352,
+    "dist_m": 33776.12,
+    "nearest_way": {
+     "id": 217691418,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 28067.2,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 67.362918,
+    "lon": 17.16786,
+    "dist_m": 31930.81,
+    "nearest_way": {
+     "id": 292599750,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 20822.4,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 67.30385,
+    "lon": 17.157436,
+    "dist_m": 45984.79,
+    "nearest_way": {
+     "id": 340337849,
+     "highway": "secondary",
+     "name": null,
+     "ref": "BD 805",
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 19891.4,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 58.399685,
+    "lon": 19.176853,
+    "dist_m": 44968.26,
+    "nearest_way": {
+     "id": 35897133,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Fyrplatsen",
+     "type": "isolated_dwelling",
+     "dist_m": 1233.1,
+     "lat": 58.392549,
+     "lon": 19.192977
+    },
+    "detail": "detail/se/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 67.37005,
+    "lon": 16.992417,
+    "dist_m": 43326.39,
+    "nearest_way": {
+     "id": 129544763,
+     "highway": "unclassified",
+     "name": "Tverrfjellveien",
+     "ref": null,
+     "country": "no"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 13906.3,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 67.297285,
+    "lon": 17.391215,
+    "dist_m": 40794.83,
+    "nearest_way": {
+     "id": 220076850,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 29988.2,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 67.21471,
+    "lon": 17.091582,
+    "dist_m": 39870.86,
+    "nearest_way": {
+     "id": 320455690,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 20618.8,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 66.870219,
+    "lon": 16.860069,
+    "dist_m": 38572.73,
+    "nearest_way": {
+     "id": 163714446,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Västerfjäll",
+     "type": "hamlet",
+     "dist_m": 29314.8,
+     "lat": 66.710526,
+     "lon": 17.389343
+    },
+    "detail": "detail/se/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 67.459126,
+    "lon": 16.92666,
+    "dist_m": 36967.46,
+    "nearest_way": {
+     "id": 1103095047,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 18458.6,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 67.392512,
+    "lon": 17.222997,
+    "dist_m": 36086.92,
+    "nearest_way": {
+     "id": 179127513,
+     "highway": "unclassified",
+     "name": "Ritsemvägen",
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 24035.0,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 67.280482,
+    "lon": 16.925907,
+    "dist_m": 35917.27,
+    "nearest_way": {
+     "id": 781024184,
+     "highway": "service",
+     "name": "Lomivatnet",
+     "ref": null,
+     "country": "no"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 10755.3,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 67.126035,
+    "lon": 17.029854,
+    "dist_m": 35633.47,
+    "nearest_way": {
+     "id": 320455690,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Stáloluokta",
+     "type": "hamlet",
+     "dist_m": 25894.7,
+     "lat": 67.319146,
+     "lon": 16.697202
+    },
+    "detail": "detail/se/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

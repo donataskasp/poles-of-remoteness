@@ -1,0 +1,73 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "gi",
+ "name": "Gibraltar",
+ "name_en": "Gibraltar",
+ "country": "gi",
+ "area_km2": 10.4,
+ "bbox": [
+  -5.3967893,
+  36.058755,
+  -5.2766611,
+  36.1550251
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 36.133049,
+    "lon": -5.363689,
+    "dist_m": 627.13,
+    "nearest_way": {
+     "id": 225605856,
+     "highway": "residential",
+     "name": "The Island Street",
+     "ref": null,
+     "country": "gi"
+    },
+    "nearest_place": {
+     "name": "Gibraltar",
+     "type": "city",
+     "dist_m": 1217.1,
+     "lat": 36.140807,
+     "lon": -5.354129
+    },
+    "detail": "detail/gi/A-1",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 1 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 36.133049,
+    "lon": -5.363689,
+    "dist_m": 627.13,
+    "nearest_way": {
+     "id": 225605856,
+     "highway": "residential",
+     "name": "The Island Street",
+     "ref": null,
+     "country": "gi"
+    },
+    "nearest_place": {
+     "name": "Gibraltar",
+     "type": "city",
+     "dist_m": 1217.1,
+     "lat": 36.140807,
+     "lon": -5.354129
+    },
+    "detail": "detail/gi/B-1",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 1 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ }
+}

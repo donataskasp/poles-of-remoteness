@@ -1,0 +1,271 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "ad",
+ "name": "Andorra",
+ "name_en": "Andorra",
+ "country": "ad",
+ "area_km2": 487.9,
+ "bbox": [
+  1.4077997,
+  42.4288238,
+  1.7868662,
+  42.6559357
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 42.48936,
+    "lon": 1.642551,
+    "dist_m": 4963.65,
+    "nearest_way": {
+     "id": 324990517,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ad"
+    },
+    "nearest_place": {
+     "name": "Bordes de Rigoder",
+     "type": "isolated_dwelling",
+     "dist_m": 5808.9,
+     "lat": 42.537897,
+     "lon": 1.616247
+    },
+    "detail": "detail/ad/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 42.617788,
+    "lon": 1.736044,
+    "dist_m": 3617.7,
+    "nearest_way": {
+     "id": 208567272,
+     "highway": "track",
+     "name": "Camí de la Font del Trabenc",
+     "ref": null,
+     "country": "ad"
+    },
+    "nearest_place": {
+     "name": "L'Hospitalet-près-l'Andorre",
+     "type": "village",
+     "dist_m": 6078.9,
+     "lat": 42.587865,
+     "lon": 1.798064
+    },
+    "detail": "detail/ad/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 42.606185,
+    "lon": 1.597698,
+    "dist_m": 3304.75,
+    "nearest_way": {
+     "id": 253349907,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ad"
+    },
+    "nearest_place": {
+     "name": "l’Aldosa de Canillo",
+     "type": "hamlet",
+     "dist_m": 3855.0,
+     "lat": 42.579555,
+     "lon": 1.627815
+    },
+    "detail": "detail/ad/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 42.589531,
+    "lon": 1.433185,
+    "dist_m": 2332.22,
+    "nearest_way": {
+     "id": 387138973,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ad"
+    },
+    "nearest_place": {
+     "name": "Tor",
+     "type": "hamlet",
+     "dist_m": 3568.9,
+     "lat": 42.570596,
+     "lon": 1.398065
+    },
+    "detail": "detail/ad/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 42.501749,
+    "lon": 1.475451,
+    "dist_m": 1777.74,
+    "nearest_way": {
+     "id": 1070665487,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ad"
+    },
+    "nearest_place": {
+     "name": "la Margineda",
+     "type": "village",
+     "dist_m": 2097.4,
+     "lat": 42.48701,
+     "lon": 1.491396
+    },
+    "detail": "detail/ad/A-5",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 5 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 42.48471,
+    "lon": 1.660912,
+    "dist_m": 5985.45,
+    "nearest_way": {
+     "id": 744476594,
+     "highway": "service",
+     "name": "Carretera del Cap de Rec",
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Cal Jan de la Llosa",
+     "type": "isolated_dwelling",
+     "dist_m": 5953.5,
+     "lat": 42.439595,
+     "lon": 1.69999
+    },
+    "detail": "detail/ad/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 42.617788,
+    "lon": 1.736044,
+    "dist_m": 4377.64,
+    "nearest_way": {
+     "id": 203263493,
+     "highway": "tertiary",
+     "name": "Carretera de la Vall d'Incles",
+     "ref": "CS-270",
+     "country": "ad"
+    },
+    "nearest_place": {
+     "name": "L'Hospitalet-près-l'Andorre",
+     "type": "village",
+     "dist_m": 6078.9,
+     "lat": 42.587865,
+     "lon": 1.798064
+    },
+    "detail": "detail/ad/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 42.628948,
+    "lon": 1.59786,
+    "dist_m": 3778.82,
+    "nearest_way": {
+     "id": 206379042,
+     "highway": "tertiary",
+     "name": "Carretera de Sorteny",
+     "ref": "CS-370",
+     "country": "ad"
+    },
+    "nearest_place": {
+     "name": "El Serrat",
+     "type": "village",
+     "dist_m": 4947.8,
+     "lat": 42.619578,
+     "lon": 1.538898
+    },
+    "detail": "detail/ad/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 42.601347,
+    "lon": 1.44288,
+    "dist_m": 3617.38,
+    "nearest_way": {
+     "id": 1529157074,
+     "highway": "service",
+     "name": "Túnel exploratori del port de Rat",
+     "ref": null,
+     "country": "ad"
+    },
+    "nearest_place": {
+     "name": "Arinsal",
+     "type": "village",
+     "dist_m": 4710.1,
+     "lat": 42.572082,
+     "lon": 1.484403
+    },
+    "detail": "detail/ad/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 42.489333,
+    "lon": 1.413066,
+    "dist_m": 2588.69,
+    "nearest_way": {
+     "id": 173178539,
+     "highway": "unclassified",
+     "name": "Carretera de Civís a Asnurri",
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Bordes de Servellà",
+     "type": "isolated_dwelling",
+     "dist_m": 1014.5,
+     "lat": 42.49459,
+     "lon": 1.423158
+    },
+    "detail": "detail/ad/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 42.477865,
+    "lon": 1.537835,
+    "dist_m": 2259.83,
+    "nearest_way": {
+     "id": 1056544808,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ad"
+    },
+    "nearest_place": {
+     "name": "Llumeneres",
+     "type": "village",
+     "dist_m": 2242.3,
+     "lat": 42.472155,
+     "lon": 1.511681
+    },
+    "detail": "detail/ad/B-6",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 6 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ }
+}

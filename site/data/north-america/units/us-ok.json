@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-ok",
+ "name": "Oklahoma",
+ "name_en": "Oklahoma",
+ "country": "us",
+ "area_km2": 179998.7,
+ "bbox": [
+  -103.0024413,
+  33.6191533,
+  -94.4312145,
+  37.0022994
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 36.757676,
+    "lon": -98.230443,
+    "dist_m": 4928.52,
+    "nearest_way": {
+     "id": 628177167,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Vining",
+     "type": "hamlet",
+     "dist_m": 6011.9,
+     "lat": 36.767529,
+     "lon": -98.164234
+    },
+    "detail": "detail/us-ok/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 36.914696,
+    "lon": -102.755098,
+    "dist_m": 3857.52,
+    "nearest_way": {
+     "id": 14718179,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Regnier",
+     "type": "hamlet",
+     "dist_m": 12644.6,
+     "lat": 36.993908,
+     "lon": -102.857148
+    },
+    "detail": "detail/us-ok/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 34.809015,
+    "lon": -98.769649,
+    "dist_m": 3774.01,
+    "nearest_way": {
+     "id": 223462708,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cooperton",
+     "type": "hamlet",
+     "dist_m": 11040.6,
+     "lat": 34.866816,
+     "lon": -98.867908
+    },
+    "detail": "detail/us-ok/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 36.890342,
+    "lon": -96.782958,
+    "dist_m": 3675.38,
+    "nearest_way": {
+     "id": 14804263,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lyman",
+     "type": "hamlet",
+     "dist_m": 6579.4,
+     "lat": 36.840313,
+     "lon": -96.743364
+    },
+    "detail": "detail/us-ok/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 34.365023,
+    "lon": -96.902496,
+    "dist_m": 3635.9,
+    "nearest_way": {
+     "id": 14802388,
+     "highway": "residential",
+     "name": "N3440 Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nebo",
+     "type": "hamlet",
+     "dist_m": 4643.3,
+     "lat": 34.361481,
+     "lon": -96.952791
+    },
+    "detail": "detail/us-ok/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 36.939063,
+    "lon": -102.87506,
+    "dist_m": 3609.62,
+    "nearest_way": {
+     "id": 14707031,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Regnier",
+     "type": "hamlet",
+     "dist_m": 6292.2,
+     "lat": 36.993908,
+     "lon": -102.857148
+    },
+    "detail": "detail/us-ok/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 34.709994,
+    "lon": -95.519793,
+    "dist_m": 3549.18,
+    "nearest_way": {
+     "id": 14935071,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Star",
+     "type": "hamlet",
+     "dist_m": 4643.8,
+     "lat": 34.671211,
+     "lon": -95.538866
+    },
+    "detail": "detail/us-ok/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 36.652793,
+    "lon": -99.017756,
+    "dist_m": 3542.43,
+    "nearest_way": {
+     "id": 15058830,
+     "highway": "residential",
+     "name": "E0240 Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fairvalley",
+     "type": "hamlet",
+     "dist_m": 9207.9,
+     "lat": 36.735587,
+     "lon": -99.024542
+    },
+    "detail": "detail/us-ok/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 34.28935,
+    "lon": -96.829785,
+    "dist_m": 3421.58,
+    "nearest_way": {
+     "id": 526828462,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Troy",
+     "type": "hamlet",
+     "dist_m": 6111.4,
+     "lat": 34.327315,
+     "lon": -96.781673
+    },
+    "detail": "detail/us-ok/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 36.912642,
+    "lon": -99.188646,
+    "dist_m": 3414.69,
+    "nearest_way": {
+     "id": 1114796259,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Plainview",
+     "type": "hamlet",
+     "dist_m": 9215.8,
+     "lat": 36.841142,
+     "lon": -99.241218
+    },
+    "detail": "detail/us-ok/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 34.513707,
+    "lon": -95.602718,
+    "dist_m": 6281.83,
+    "nearest_way": {
+     "id": 14935268,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dunbar",
+     "type": "hamlet",
+     "dist_m": 7227.5,
+     "lat": 34.458711,
+     "lon": -95.560529
+    },
+    "detail": "detail/us-ok/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 36.854068,
+    "lon": -96.351863,
+    "dist_m": 6141.66,
+    "nearest_way": {
+     "id": 14958846,
+     "highway": "service",
+     "name": null,
+     "ref": "CR 4851",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nanos",
+     "type": "hamlet",
+     "dist_m": 9744.1,
+     "lat": 36.796453,
+     "lon": -96.269444
+    },
+    "detail": "detail/us-ok/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 36.96015,
+    "lon": -102.748736,
+    "dist_m": 5754.53,
+    "nearest_way": {
+     "id": 630673734,
+     "highway": "unclassified",
+     "name": "Picture Canyon Road",
+     "ref": "FR 2361",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Regnier",
+     "type": "hamlet",
+     "dist_m": 10354.3,
+     "lat": 36.993908,
+     "lon": -102.857148
+    },
+    "detail": "detail/us-ok/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 34.595123,
+    "lon": -94.931895,
+    "dist_m": 5672.16,
+    "nearest_way": {
+     "id": 14937436,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Honobia",
+     "type": "hamlet",
+     "dist_m": 6247.8,
+     "lat": 34.53899,
+     "lon": -94.937453
+    },
+    "detail": "detail/us-ok/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 36.757676,
+    "lon": -98.230443,
+    "dist_m": 4928.52,
+    "nearest_way": {
+     "id": 628177167,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Vining",
+     "type": "hamlet",
+     "dist_m": 6011.9,
+     "lat": 36.767529,
+     "lon": -98.164234
+    },
+    "detail": "detail/us-ok/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 36.868109,
+    "lon": -102.737432,
+    "dist_m": 4841.33,
+    "nearest_way": {
+     "id": 14719526,
+     "highway": "unclassified",
+     "name": null,
+     "ref": "CR E0094",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Regnier",
+     "type": "hamlet",
+     "dist_m": 17568.7,
+     "lat": 36.993908,
+     "lon": -102.857148
+    },
+    "detail": "detail/us-ok/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 36.996121,
+    "lon": -100.396251,
+    "dist_m": 4804.24,
+    "nearest_way": {
+     "id": 13161767,
+     "highway": "unclassified",
+     "name": "Ee Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mocane",
+     "type": "hamlet",
+     "dist_m": 11565.9,
+     "lat": 36.893639,
+     "lon": -100.372646
+    },
+    "detail": "detail/us-ok/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 34.352963,
+    "lon": -95.304509,
+    "dist_m": 4605.83,
+    "nearest_way": {
+     "id": 1544970681,
+     "highway": "service",
+     "name": "Cloudy Nashoba Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cloudy",
+     "type": "hamlet",
+     "dist_m": 6045.9,
+     "lat": 34.302046,
+     "lon": -95.281072
+    },
+    "detail": "detail/us-ok/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 34.427655,
+    "lon": -95.160282,
+    "dist_m": 4443.32,
+    "nearest_way": {
+     "id": 14939545,
+     "highway": "residential",
+     "name": "Nolia Loop",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nolia",
+     "type": "hamlet",
+     "dist_m": 5475.4,
+     "lat": 34.47649,
+     "lon": -95.151627
+    },
+    "detail": "detail/us-ok/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 34.562147,
+    "lon": -95.509916,
+    "dist_m": 4131.67,
+    "nearest_way": {
+     "id": 1075931222,
+     "highway": "secondary",
+     "name": null,
+     "ref": "OK 2",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stanley",
+     "type": "hamlet",
+     "dist_m": 4428.3,
+     "lat": 34.5401,
+     "lon": -95.469695
+    },
+    "detail": "detail/us-ok/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

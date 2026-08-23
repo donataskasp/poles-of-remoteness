@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "ee",
+ "name": "Eesti",
+ "name_en": "Estonia",
+ "country": "ee",
+ "area_km2": 44087.0,
+ "bbox": [
+  21.3826069,
+  57.5093328,
+  28.2100175,
+  59.9383333
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 59.821992,
+    "lon": 26.358829,
+    "dist_m": 26802.86,
+    "nearest_way": {
+     "id": 690171982,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Vainupea",
+     "type": "hamlet",
+     "dist_m": 27534.6,
+     "lat": 59.578548,
+     "lon": 26.274425
+    },
+    "detail": "detail/ee/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 59.683008,
+    "lon": 26.509414,
+    "dist_m": 15537.54,
+    "nearest_way": {
+     "id": 231530654,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Letipea",
+     "type": "hamlet",
+     "dist_m": 16617.9,
+     "lat": 59.544437,
+     "lon": 26.618384
+    },
+    "detail": "detail/ee/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 58.151149,
+    "lon": 22.814378,
+    "dist_m": 8635.83,
+    "nearest_way": {
+     "id": 701390307,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Suure-Rootsi",
+     "type": "hamlet",
+     "dist_m": 10002.2,
+     "lat": 58.228171,
+     "lon": 22.726944
+    },
+    "detail": "detail/ee/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 58.750176,
+    "lon": 23.310754,
+    "dist_m": 8225.71,
+    "nearest_way": {
+     "id": 1136562236,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Puise",
+     "type": "hamlet",
+     "dist_m": 9446.6,
+     "lat": 58.783778,
+     "lon": 23.460649
+    },
+    "detail": "detail/ee/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 58.196763,
+    "lon": 23.871813,
+    "dist_m": 8127.29,
+    "nearest_way": {
+     "id": 248017288,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Linaküla",
+     "type": "hamlet",
+     "dist_m": 9033.7,
+     "lat": 58.135343,
+     "lon": 23.97205
+    },
+    "detail": "detail/ee/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 59.621783,
+    "lon": 25.322044,
+    "dist_m": 8081.41,
+    "nearest_way": {
+     "id": 432205360,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Rammu",
+     "type": "hamlet",
+     "dist_m": 8110.0,
+     "lat": 59.571495,
+     "lon": 25.218217
+    },
+    "detail": "detail/ee/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 58.744755,
+    "lon": 23.098145,
+    "dist_m": 7947.95,
+    "nearest_way": {
+     "id": 976777445,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Pallasmaa",
+     "type": "hamlet",
+     "dist_m": 9337.6,
+     "lat": 58.671024,
+     "lon": 23.174797
+    },
+    "detail": "detail/ee/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 58.845756,
+    "lon": 23.352601,
+    "dist_m": 7342.73,
+    "nearest_way": {
+     "id": 1396433361,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Põgari-Sassi",
+     "type": "hamlet",
+     "dist_m": 6958.1,
+     "lat": 58.819162,
+     "lon": 23.461614
+    },
+    "detail": "detail/ee/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 59.69963,
+    "lon": 25.021584,
+    "dist_m": 6500.03,
+    "nearest_way": {
+     "id": 61381302,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Kelnase",
+     "type": "hamlet",
+     "dist_m": 7030.1,
+     "lat": 59.637465,
+     "lon": 25.000149
+    },
+    "detail": "detail/ee/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 58.173128,
+    "lon": 24.197711,
+    "dist_m": 6209.24,
+    "nearest_way": {
+     "id": 995888749,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Manija",
+     "type": "hamlet",
+     "dist_m": 6339.3,
+     "lat": 58.213317,
+     "lon": 24.12139
+    },
+    "detail": "detail/ee/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 59.821992,
+    "lon": 26.358829,
+    "dist_m": 26802.86,
+    "nearest_way": {
+     "id": 690171982,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Vainupea",
+     "type": "hamlet",
+     "dist_m": 27534.6,
+     "lat": 59.578548,
+     "lon": 26.274425
+    },
+    "detail": "detail/ee/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 59.683008,
+    "lon": 26.509414,
+    "dist_m": 15677.08,
+    "nearest_way": {
+     "id": 304755779,
+     "highway": "unclassified",
+     "name": "Letipea ranna tee",
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Letipea",
+     "type": "hamlet",
+     "dist_m": 16617.9,
+     "lat": 59.544437,
+     "lon": 26.618384
+    },
+    "detail": "detail/ee/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 58.151149,
+    "lon": 22.814378,
+    "dist_m": 9210.6,
+    "nearest_way": {
+     "id": 1188999885,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Suure-Rootsi",
+     "type": "hamlet",
+     "dist_m": 10002.2,
+     "lat": 58.228171,
+     "lon": 22.726944
+    },
+    "detail": "detail/ee/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 58.749992,
+    "lon": 23.09855,
+    "dist_m": 9137.75,
+    "nearest_way": {
+     "id": 1188488725,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Pallasmaa",
+     "type": "hamlet",
+     "dist_m": 9843.9,
+     "lat": 58.671024,
+     "lon": 23.174797
+    },
+    "detail": "detail/ee/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 58.750176,
+    "lon": 23.310754,
+    "dist_m": 8346.82,
+    "nearest_way": {
+     "id": 1529987371,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Puise",
+     "type": "hamlet",
+     "dist_m": 9446.6,
+     "lat": 58.783778,
+     "lon": 23.460649
+    },
+    "detail": "detail/ee/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 59.350613,
+    "lon": 23.898615,
+    "dist_m": 8135.63,
+    "nearest_way": {
+     "id": 1088531679,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Vintse",
+     "type": "hamlet",
+     "dist_m": 9280.5,
+     "lat": 59.270586,
+     "lon": 23.853344
+    },
+    "detail": "detail/ee/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 58.196763,
+    "lon": 23.871813,
+    "dist_m": 8127.29,
+    "nearest_way": {
+     "id": 248017288,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Linaküla",
+     "type": "hamlet",
+     "dist_m": 9033.7,
+     "lat": 58.135343,
+     "lon": 23.97205
+    },
+    "detail": "detail/ee/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 59.621783,
+    "lon": 25.322044,
+    "dist_m": 8081.41,
+    "nearest_way": {
+     "id": 432205360,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Rammu",
+     "type": "hamlet",
+     "dist_m": 8110.0,
+     "lat": 59.571495,
+     "lon": 25.218217
+    },
+    "detail": "detail/ee/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 58.845756,
+    "lon": 23.352601,
+    "dist_m": 7344.94,
+    "nearest_way": {
+     "id": 145396835,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Põgari-Sassi",
+     "type": "hamlet",
+     "dist_m": 6958.1,
+     "lat": 58.819162,
+     "lon": 23.461614
+    },
+    "detail": "detail/ee/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 58.095458,
+    "lon": 22.562385,
+    "dist_m": 7249.79,
+    "nearest_way": {
+     "id": 38303665,
+     "highway": "residential",
+     "name": "Surnuaia tee",
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Ennu",
+     "type": "hamlet",
+     "dist_m": 16293.5,
+     "lat": 58.227272,
+     "lon": 22.68242
+    },
+    "detail": "detail/ee/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

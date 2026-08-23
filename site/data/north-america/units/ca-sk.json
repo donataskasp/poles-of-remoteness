@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "ca-sk",
+ "name": "Saskatchewan",
+ "name_en": "Saskatchewan",
+ "country": "ca",
+ "area_km2": 621009.4,
+ "bbox": [
+  -110.006368,
+  48.9988056,
+  -101.3619076,
+  60.0000252
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 59.999887,
+    "lon": -104.342328,
+    "dist_m": 106528.78,
+    "nearest_way": {
+     "id": 768084586,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Scott Lake Lodge",
+     "type": "hamlet",
+     "dist_m": 105626.0,
+     "lat": 59.991114,
+     "lon": -106.234993
+    },
+    "detail": "detail/ca-sk/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 59.34444,
+    "lon": -102.783401,
+    "dist_m": 105685.15,
+    "nearest_way": {
+     "id": 1456746471,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lac Brochet",
+     "type": "town",
+     "dist_m": 110041.6,
+     "lat": 58.617745,
+     "lon": -101.487098
+    },
+    "detail": "detail/ca-sk/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 59.464482,
+    "lon": -103.440886,
+    "dist_m": 105054.41,
+    "nearest_way": {
+     "id": 1456746471,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "isolated_dwelling",
+     "dist_m": 107140.1,
+     "lat": 59.099392,
+     "lon": -105.179774
+    },
+    "detail": "detail/ca-sk/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 59.375969,
+    "lon": -102.953877,
+    "dist_m": 104080.05,
+    "nearest_way": {
+     "id": 1300968013,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lac Brochet",
+     "type": "town",
+     "dist_m": 119335.7,
+     "lat": 58.617745,
+     "lon": -101.487098
+    },
+    "detail": "detail/ca-sk/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 59.43412,
+    "lon": -103.272383,
+    "dist_m": 103785.88,
+    "nearest_way": {
+     "id": 1456746471,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "isolated_dwelling",
+     "dist_m": 114987.5,
+     "lat": 59.099392,
+     "lon": -105.179774
+    },
+    "detail": "detail/ca-sk/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 59.929524,
+    "lon": -104.221922,
+    "dist_m": 103017.72,
+    "nearest_way": {
+     "id": 768084586,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "isolated_dwelling",
+     "dist_m": 107204.7,
+     "lat": 59.099392,
+     "lon": -105.179774
+    },
+    "detail": "detail/ca-sk/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 59.534068,
+    "lon": -103.557437,
+    "dist_m": 101974.85,
+    "nearest_way": {
+     "id": 1456746471,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "isolated_dwelling",
+     "dist_m": 104303.7,
+     "lat": 59.099392,
+     "lon": -105.179774
+    },
+    "detail": "detail/ca-sk/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 59.995039,
+    "lon": -104.52574,
+    "dist_m": 101834.55,
+    "nearest_way": {
+     "id": 768084586,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Scott Lake Lodge",
+     "type": "hamlet",
+     "dist_m": 95394.6,
+     "lat": 59.991114,
+     "lon": -106.234993
+    },
+    "detail": "detail/ca-sk/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 59.374715,
+    "lon": -102.613459,
+    "dist_m": 101351.16,
+    "nearest_way": {
+     "id": 504123897,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lac Brochet",
+     "type": "town",
+     "dist_m": 106308.7,
+     "lat": 58.617745,
+     "lon": -101.487098
+    },
+    "detail": "detail/ca-sk/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 59.858566,
+    "lon": -104.101472,
+    "dist_m": 100426.05,
+    "nearest_way": {
+     "id": 768084586,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "isolated_dwelling",
+     "dist_m": 104340.9,
+     "lat": 59.099392,
+     "lon": -105.179774
+    },
+    "detail": "detail/ca-sk/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 59.999889,
+    "lon": -104.445506,
+    "dist_m": 112037.3,
+    "nearest_way": {
+     "id": 281237641,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Scott Lake Lodge",
+     "type": "hamlet",
+     "dist_m": 99868.7,
+     "lat": 59.991114,
+     "lon": -106.234993
+    },
+    "detail": "detail/ca-sk/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 58.075895,
+    "lon": -107.016535,
+    "dist_m": 111524.88,
+    "nearest_way": {
+     "id": 764854675,
+     "highway": "service",
+     "name": "Cohen Rd",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Crystal Lodge",
+     "type": "hamlet",
+     "dist_m": 70148.5,
+     "lat": 57.462153,
+     "lon": -106.751673
+    },
+    "detail": "detail/ca-sk/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 59.921664,
+    "lon": -104.3474,
+    "dist_m": 109828.3,
+    "nearest_way": {
+     "id": 1456746471,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Woodcock Portage",
+     "type": "hamlet",
+     "dist_m": 102801.8,
+     "lat": 59.244193,
+     "lon": -105.582855
+    },
+    "detail": "detail/ca-sk/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 58.145956,
+    "lon": -107.129143,
+    "dist_m": 109393.78,
+    "nearest_way": {
+     "id": 151441737,
+     "highway": "secondary",
+     "name": null,
+     "ref": "905",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Crystal Lodge",
+     "type": "hamlet",
+     "dist_m": 79395.7,
+     "lat": 57.462153,
+     "lon": -106.751673
+    },
+    "detail": "detail/ca-sk/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 58.352473,
+    "lon": -107.465178,
+    "dist_m": 108632.52,
+    "nearest_way": {
+     "id": 424497537,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Crystal Lodge",
+     "type": "hamlet",
+     "dist_m": 107804.4,
+     "lat": 57.462153,
+     "lon": -106.751673
+    },
+    "detail": "detail/ca-sk/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 59.570534,
+    "lon": -103.830675,
+    "dist_m": 108425.75,
+    "nearest_way": {
+     "id": 1456746471,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "isolated_dwelling",
+     "dist_m": 93006.6,
+     "lat": 59.099392,
+     "lon": -105.179774
+    },
+    "detail": "detail/ca-sk/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 59.504816,
+    "lon": -103.66704,
+    "dist_m": 108226.41,
+    "nearest_way": {
+     "id": 1456746471,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "isolated_dwelling",
+     "dist_m": 97296.2,
+     "lat": 59.099392,
+     "lon": -105.179774
+    },
+    "detail": "detail/ca-sk/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 58.215253,
+    "lon": -107.241267,
+    "dist_m": 108202.49,
+    "nearest_way": {
+     "id": 151441737,
+     "highway": "secondary",
+     "name": null,
+     "ref": "905",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Crystal Lodge",
+     "type": "hamlet",
+     "dist_m": 88774.2,
+     "lat": 57.462153,
+     "lon": -106.751673
+    },
+    "detail": "detail/ca-sk/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 59.847821,
+    "lon": -104.23764,
+    "dist_m": 107718.77,
+    "nearest_way": {
+     "id": 151441987,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "isolated_dwelling",
+     "dist_m": 99011.9,
+     "lat": 59.099392,
+     "lon": -105.179774
+    },
+    "detail": "detail/ca-sk/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 59.643595,
+    "lon": -103.937117,
+    "dist_m": 106909.85,
+    "nearest_way": {
+     "id": 151441987,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "isolated_dwelling",
+     "dist_m": 93094.0,
+     "lat": 59.099392,
+     "lon": -105.179774
+    },
+    "detail": "detail/ca-sk/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

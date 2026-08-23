@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "nl",
+ "name": "Nederland",
+ "name_en": "Netherlands",
+ "country": "nl",
+ "area_km2": 35485.9,
+ "bbox": [
+  3.0807927,
+  50.7503658,
+  7.2274985,
+  53.748815
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 53.250061,
+    "lon": 5.258749,
+    "dist_m": 11913.89,
+    "nearest_way": {
+     "id": 54848898,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "West-Terschelling",
+     "type": "village",
+     "dist_m": 12703.4,
+     "lat": 53.361303,
+     "lon": 5.216042
+    },
+    "detail": "detail/nl/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 53.466453,
+    "lon": 6.029396,
+    "dist_m": 6994.12,
+    "nearest_way": {
+     "id": 322013201,
+     "highway": "track",
+     "name": "Locatiepad",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Wierum",
+     "type": "village",
+     "dist_m": 7308.6,
+     "lat": 53.401344,
+     "lon": 6.015071
+    },
+    "detail": "detail/nl/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 53.522105,
+    "lon": 6.603311,
+    "dist_m": 6571.48,
+    "nearest_way": {
+     "id": 87332657,
+     "highway": "track",
+     "name": "Jan Brandspad",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Borkum",
+     "type": "town",
+     "dist_m": 8723.5,
+     "lat": 53.590295,
+     "lon": 6.668217
+    },
+    "detail": "detail/nl/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 52.805472,
+    "lon": 5.221838,
+    "dist_m": 5721.63,
+    "nearest_way": {
+     "id": 395344759,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Broekoord",
+     "type": "hamlet",
+     "dist_m": 5771.6,
+     "lat": 52.753901,
+     "lon": 5.212763
+    },
+    "detail": "detail/nl/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 53.519086,
+    "lon": 6.40001,
+    "dist_m": 4949.39,
+    "nearest_way": {
+     "id": 1164607884,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Wierhuizen",
+     "type": "hamlet",
+     "dist_m": 13108.4,
+     "lat": 53.402321,
+     "lon": 6.425865
+    },
+    "detail": "detail/nl/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 52.978322,
+    "lon": 4.668604,
+    "dist_m": 4492.52,
+    "nearest_way": {
+     "id": 309477224,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Huisduinen",
+     "type": "hamlet",
+     "dist_m": 4716.6,
+     "lat": 52.95308,
+     "lon": 4.724993
+    },
+    "detail": "detail/nl/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 53.341028,
+    "lon": 5.128538,
+    "dist_m": 4212.07,
+    "nearest_way": {
+     "id": 390521777,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "West-Terschelling",
+     "type": "village",
+     "dist_m": 6248.6,
+     "lat": 53.361303,
+     "lon": 5.216042
+    },
+    "detail": "detail/nl/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 51.365515,
+    "lon": 4.155132,
+    "dist_m": 3318.5,
+    "nearest_way": {
+     "id": 7261682,
+     "highway": "unclassified",
+     "name": "Havenstraat",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Paal",
+     "type": "hamlet",
+     "dist_m": 3530.8,
+     "lat": 51.353325,
+     "lon": 4.10833
+    },
+    "detail": "detail/nl/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 53.418063,
+    "lon": 5.587018,
+    "dist_m": 3243.19,
+    "nearest_way": {
+     "id": 6540245,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Hollum",
+     "type": "village",
+     "dist_m": 4245.2,
+     "lat": 53.441217,
+     "lon": 5.637772
+    },
+    "detail": "detail/nl/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 52.5897,
+    "lon": 5.411198,
+    "dist_m": 2742.1,
+    "nearest_way": {
+     "id": 796478448,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Lelystad",
+     "type": "city",
+     "dist_m": 9422.2,
+     "lat": 52.515095,
+     "lon": 5.476891
+    },
+    "detail": "detail/nl/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 53.544073,
+    "lon": 6.467091,
+    "dist_m": 13464.35,
+    "nearest_way": {
+     "id": 721034013,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Borkum",
+     "type": "town",
+     "dist_m": 14283.9,
+     "lat": 53.590295,
+     "lon": 6.668217
+    },
+    "detail": "detail/nl/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 53.250061,
+    "lon": 5.258749,
+    "dist_m": 11913.89,
+    "nearest_way": {
+     "id": 54848898,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "West-Terschelling",
+     "type": "village",
+     "dist_m": 12703.4,
+     "lat": 53.361303,
+     "lon": 5.216042
+    },
+    "detail": "detail/nl/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 53.512452,
+    "lon": 6.325101,
+    "dist_m": 8518.02,
+    "nearest_way": {
+     "id": 654599462,
+     "highway": "unclassified",
+     "name": "Heereweg",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Schiermonnikoog",
+     "type": "village",
+     "dist_m": 11535.1,
+     "lat": 53.478284,
+     "lon": 6.161008
+    },
+    "detail": "detail/nl/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 53.443029,
+    "lon": 5.500348,
+    "dist_m": 7739.18,
+    "nearest_way": {
+     "id": 632186572,
+     "highway": "service",
+     "name": "Oranjeweg",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Oosterend",
+     "type": "village",
+     "dist_m": 9042.7,
+     "lat": 53.404387,
+     "lon": 5.380692
+    },
+    "detail": "detail/nl/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 53.470211,
+    "lon": 6.033528,
+    "dist_m": 7354.23,
+    "nearest_way": {
+     "id": 654599300,
+     "highway": "unclassified",
+     "name": "Westerburenweg",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Wierum",
+     "type": "village",
+     "dist_m": 7762.1,
+     "lat": 53.401344,
+     "lon": 6.015071
+    },
+    "detail": "detail/nl/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 52.584457,
+    "lon": 5.358958,
+    "dist_m": 6119.79,
+    "nearest_way": {
+     "id": 6551999,
+     "highway": "trunk",
+     "name": "Markerwaarddijk",
+     "ref": "N307",
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Lelystad",
+     "type": "city",
+     "dist_m": 11116.3,
+     "lat": 52.515095,
+     "lon": 5.476891
+    },
+    "detail": "detail/nl/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 52.805472,
+    "lon": 5.221838,
+    "dist_m": 5728.04,
+    "nearest_way": {
+     "id": 6574540,
+     "highway": "tertiary",
+     "name": "Dijkweg",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Broekoord",
+     "type": "hamlet",
+     "dist_m": 5771.6,
+     "lat": 52.753901,
+     "lon": 5.212763
+    },
+    "detail": "detail/nl/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 53.228951,
+    "lon": 4.870132,
+    "dist_m": 5323.71,
+    "nearest_way": {
+     "id": 154480314,
+     "highway": "unclassified",
+     "name": "Vliehors",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "De Cocksdorp",
+     "type": "village",
+     "dist_m": 8107.9,
+     "lat": 53.1561,
+     "lon": 4.871109
+    },
+    "detail": "detail/nl/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 53.34607,
+    "lon": 5.133974,
+    "dist_m": 5291.21,
+    "nearest_way": {
+     "id": 481919179,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "West-Terschelling",
+     "type": "village",
+     "dist_m": 5721.6,
+     "lat": 53.361303,
+     "lon": 5.216042
+    },
+    "detail": "detail/nl/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 53.530635,
+    "lon": 6.648262,
+    "dist_m": 5228.88,
+    "nearest_way": {
+     "id": 338039368,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Borkum",
+     "type": "town",
+     "dist_m": 6770.3,
+     "lat": 53.590295,
+     "lon": 6.668217
+    },
+    "detail": "detail/nl/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

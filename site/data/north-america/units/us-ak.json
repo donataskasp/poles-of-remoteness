@@ -1,0 +1,381 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-ak",
+ "name": "Alaska",
+ "name_en": "Alaska",
+ "country": "us",
+ "area_km2": 1497707.8,
+ "bbox": [
+  172.0983403,
+  51.0070029,
+  230.0258327,
+  71.5889534
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 60.472035,
+    "lon": -172.927004,
+    "dist_m": 366179.54,
+    "nearest_way": {
+     "id": 727177918,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nash Harbor",
+     "type": "hamlet",
+     "dist_m": 331960.2,
+     "lat": 60.203648,
+     "lon": -166.93883
+    },
+    "detail": "detail/us-ak/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 60.198047,
+    "lon": -172.790838,
+    "dist_m": 360635.12,
+    "nearest_way": {
+     "id": 727177918,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nash Harbor",
+     "type": "hamlet",
+     "dist_m": 324455.1,
+     "lat": 60.203648,
+     "lon": -166.93883
+    },
+    "detail": "detail/us-ak/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 60.544287,
+    "lon": -173.056275,
+    "dist_m": 359573.31,
+    "nearest_way": {
+     "id": 649505926,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Booshu Camp",
+     "type": "hamlet",
+     "dist_m": 332086.5,
+     "lat": 63.467794,
+     "lon": -171.828267
+    },
+    "detail": "detail/us-ak/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 60.401874,
+    "lon": -172.795873,
+    "dist_m": 359222.33,
+    "nearest_way": {
+     "id": 727177918,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nash Harbor",
+     "type": "hamlet",
+     "dist_m": 324476.7,
+     "lat": 60.203648,
+     "lon": -166.93883
+    },
+    "detail": "detail/us-ak/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 60.339681,
+    "lon": -172.645924,
+    "dist_m": 351324.19,
+    "nearest_way": {
+     "id": 727177918,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nash Harbor",
+     "type": "hamlet",
+     "dist_m": 316105.7,
+     "lat": 60.203648,
+     "lon": -166.93883
+    },
+    "detail": "detail/us-ak/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 60.640353,
+    "lon": -173.121129,
+    "dist_m": 349805.35,
+    "nearest_way": {
+     "id": 649505926,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Booshu Camp",
+     "type": "hamlet",
+     "dist_m": 322265.3,
+     "lat": 63.467794,
+     "lon": -171.828267
+    },
+    "detail": "detail/us-ak/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 60.382952,
+    "lon": -172.448539,
+    "dist_m": 340189.92,
+    "nearest_way": {
+     "id": 727177918,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nash Harbor",
+     "type": "hamlet",
+     "dist_m": 305280.9,
+     "lat": 60.203648,
+     "lon": -166.93883
+    },
+    "detail": "detail/us-ak/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 60.309757,
+    "lon": -172.31049,
+    "dist_m": 333054.36,
+    "nearest_way": {
+     "id": 727177918,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nash Harbor",
+     "type": "hamlet",
+     "dist_m": 297565.9,
+     "lat": 60.203648,
+     "lon": -166.93883
+    },
+    "detail": "detail/us-ak/A-8",
+    "warnings": []
+   }
+  ],
+  "withheld": 2,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 60.468589,
+    "lon": -172.923661,
+    "dist_m": 366529.27,
+    "nearest_way": {
+     "id": 649505926,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nash Harbor",
+     "type": "hamlet",
+     "dist_m": 331759.6,
+     "lat": 60.203648,
+     "lon": -166.93883
+    },
+    "detail": "detail/us-ak/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 60.198047,
+    "lon": -172.790838,
+    "dist_m": 361086.47,
+    "nearest_way": {
+     "id": 994015224,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nash Harbor",
+     "type": "hamlet",
+     "dist_m": 324455.1,
+     "lat": 60.203648,
+     "lon": -166.93883
+    },
+    "detail": "detail/us-ak/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 60.543174,
+    "lon": -173.048571,
+    "dist_m": 359613.16,
+    "nearest_way": {
+     "id": 649505926,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Booshu Camp",
+     "type": "hamlet",
+     "dist_m": 332130.6,
+     "lat": 63.467794,
+     "lon": -171.828267
+    },
+    "detail": "detail/us-ak/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 60.399927,
+    "lon": -172.787556,
+    "dist_m": 359282.31,
+    "nearest_way": {
+     "id": 994015224,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nash Harbor",
+     "type": "hamlet",
+     "dist_m": 324013.3,
+     "lat": 60.203648,
+     "lon": -166.93883
+    },
+    "detail": "detail/us-ak/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 60.337049,
+    "lon": -172.637603,
+    "dist_m": 351373.28,
+    "nearest_way": {
+     "id": 994015224,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nash Harbor",
+     "type": "hamlet",
+     "dist_m": 315644.9,
+     "lat": 60.203648,
+     "lon": -166.93883
+    },
+    "detail": "detail/us-ak/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 60.640353,
+    "lon": -173.121129,
+    "dist_m": 349805.35,
+    "nearest_way": {
+     "id": 649505926,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Booshu Camp",
+     "type": "hamlet",
+     "dist_m": 322265.3,
+     "lat": 63.467794,
+     "lon": -171.828267
+    },
+    "detail": "detail/us-ak/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 60.383961,
+    "lon": -172.442017,
+    "dist_m": 340327.25,
+    "nearest_way": {
+     "id": 994015224,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nash Harbor",
+     "type": "hamlet",
+     "dist_m": 304924.0,
+     "lat": 60.203648,
+     "lon": -166.93883
+    },
+    "detail": "detail/us-ak/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 60.309757,
+    "lon": -172.31049,
+    "dist_m": 333532.61,
+    "nearest_way": {
+     "id": 994015224,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nash Harbor",
+     "type": "hamlet",
+     "dist_m": 297565.9,
+     "lat": 60.203648,
+     "lon": -166.93883
+    },
+    "detail": "detail/us-ak/B-8",
+    "warnings": []
+   }
+  ],
+  "withheld": 2,
+  "reason": null
+ }
+}

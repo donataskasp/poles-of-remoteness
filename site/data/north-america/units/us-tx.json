@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-tx",
+ "name": "Texas",
+ "name_en": "Texas",
+ "country": "us",
+ "area_km2": 683712.4,
+ "bbox": [
+  -106.6458459,
+  25.83706,
+  -93.5078217,
+  36.5004529
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 26.417034,
+    "lon": -97.226678,
+    "dist_m": 17185.22,
+    "nearest_way": {
+     "id": 20756422,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Arroyo City Subdivision Colonia",
+     "type": "hamlet",
+     "dist_m": 20784.3,
+     "lat": 26.345349,
+     "lon": -97.419147
+    },
+    "detail": "detail/us-tx/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 26.467445,
+    "lon": -97.312281,
+    "dist_m": 11402.89,
+    "nearest_way": {
+     "id": 277113470,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Port Mansfield",
+     "type": "village",
+     "dist_m": 14827.4,
+     "lat": 26.554788,
+     "lon": -97.424981
+    },
+    "detail": "detail/us-tx/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 29.299497,
+    "lon": -102.915038,
+    "dist_m": 10892.45,
+    "nearest_way": {
+     "id": 15148821,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Boquillas del Carmen",
+     "type": "village",
+     "dist_m": 12423.6,
+     "lat": 29.188674,
+     "lon": -102.934174
+    },
+    "detail": "detail/us-tx/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 29.147193,
+    "lon": -103.30729,
+    "dist_m": 9738.0,
+    "nearest_way": {
+     "id": 15147453,
+     "highway": "tertiary",
+     "name": "Ross Maxwell Scenic Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Woodsons",
+     "type": "hamlet",
+     "dist_m": 15577.3,
+     "lat": 29.007181,
+     "lon": -103.2934
+    },
+    "detail": "detail/us-tx/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 26.320616,
+    "lon": -97.231367,
+    "dist_m": 9360.27,
+    "nearest_way": {
+     "id": 1231391905,
+     "highway": "unclassified",
+     "name": "Ocean Boulevard",
+     "ref": "PR 100",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Buena Vista",
+     "type": "hamlet",
+     "dist_m": 14439.3,
+     "lat": 26.244899,
+     "lon": -97.349037
+    },
+    "detail": "detail/us-tx/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 28.665405,
+    "lon": -95.8132,
+    "dist_m": 8243.38,
+    "nearest_way": {
+     "id": 21109949,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Gulf",
+     "type": "hamlet",
+     "dist_m": 9881.3,
+     "lat": 28.721375,
+     "lon": -95.891906
+    },
+    "detail": "detail/us-tx/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 29.571684,
+    "lon": -94.907376,
+    "dist_m": 8130.82,
+    "nearest_way": {
+     "id": 15361557,
+     "highway": "residential",
+     "name": "Park Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "El Jardin Del Mar",
+     "type": "hamlet",
+     "dist_m": 8358.6,
+     "lat": 29.598562,
+     "lon": -94.987983
+    },
+    "detail": "detail/us-tx/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 26.825625,
+    "lon": -97.433598,
+    "dist_m": 7597.47,
+    "nearest_way": {
+     "id": 1394196637,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Old Tajos Ranch",
+     "type": "hamlet",
+     "dist_m": 18188.4,
+     "lat": 26.882121,
+     "lon": -97.605431
+    },
+    "detail": "detail/us-tx/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 26.366174,
+    "lon": -97.32246,
+    "dist_m": 7039.97,
+    "nearest_way": {
+     "id": 20756422,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Arroyo City Subdivision Colonia",
+     "type": "hamlet",
+     "dist_m": 9922.8,
+     "lat": 26.345349,
+     "lon": -97.419147
+    },
+    "detail": "detail/us-tx/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 26.556922,
+    "lon": -97.347971,
+    "dist_m": 6916.42,
+    "nearest_way": {
+     "id": 277113470,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Port Mansfield",
+     "type": "village",
+     "dist_m": 7677.0,
+     "lat": 26.554788,
+     "lon": -97.424981
+    },
+    "detail": "detail/us-tx/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 29.749735,
+    "lon": -102.593544,
+    "dist_m": 37527.62,
+    "nearest_way": {
+     "id": 21265691,
+     "highway": "residential",
+     "name": "Bone Water Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Millers",
+     "type": "hamlet",
+     "dist_m": 18191.5,
+     "lat": 29.874358,
+     "lon": -102.715986
+    },
+    "detail": "detail/us-tx/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 29.816196,
+    "lon": -102.667063,
+    "dist_m": 36538.99,
+    "nearest_way": {
+     "id": 1254108974,
+     "highway": "trunk",
+     "name": null,
+     "ref": "US 90",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Millers",
+     "type": "hamlet",
+     "dist_m": 7994.9,
+     "lat": 29.874358,
+     "lon": -102.715986
+    },
+    "detail": "detail/us-tx/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 29.858088,
+    "lon": -102.760938,
+    "dist_m": 34979.53,
+    "nearest_way": {
+     "id": 21191078,
+     "highway": "trunk",
+     "name": null,
+     "ref": "US 90",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Millers",
+     "type": "hamlet",
+     "dist_m": 4702.6,
+     "lat": 29.874358,
+     "lon": -102.715986
+    },
+    "detail": "detail/us-tx/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 29.888454,
+    "lon": -102.860596,
+    "dist_m": 32355.72,
+    "nearest_way": {
+     "id": 1198394065,
+     "highway": "primary",
+     "name": "US Highway 385",
+     "ref": "US 385",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Millers",
+     "type": "hamlet",
+     "dist_m": 14056.6,
+     "lat": 29.874358,
+     "lon": -102.715986
+    },
+    "detail": "detail/us-tx/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 29.776001,
+    "lon": -102.480712,
+    "dist_m": 28737.66,
+    "nearest_way": {
+     "id": 21265691,
+     "highway": "residential",
+     "name": "Bone Water Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "San Francisco",
+     "type": "hamlet",
+     "dist_m": 14988.0,
+     "lat": 29.893526,
+     "lon": -102.404032
+    },
+    "detail": "detail/us-tx/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 29.841121,
+    "lon": -102.564425,
+    "dist_m": 28491.75,
+    "nearest_way": {
+     "id": 21265691,
+     "highway": "residential",
+     "name": "Bone Water Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stuart Place",
+     "type": "hamlet",
+     "dist_m": 11799.8,
+     "lat": 29.939635,
+     "lon": -102.610705
+    },
+    "detail": "detail/us-tx/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 29.942052,
+    "lon": -102.946532,
+    "dist_m": 28279.64,
+    "nearest_way": {
+     "id": 1198394065,
+     "highway": "primary",
+     "name": "US Highway 385",
+     "ref": "US 385",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "isolated_dwelling",
+     "dist_m": 9819.2,
+     "lat": 29.87083,
+     "lon": -103.006984
+    },
+    "detail": "detail/us-tx/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 29.723485,
+    "lon": -102.694672,
+    "dist_m": 27776.94,
+    "nearest_way": {
+     "id": 1187175929,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Millers",
+     "type": "hamlet",
+     "dist_m": 16850.7,
+     "lat": 29.874358,
+     "lon": -102.715986
+    },
+    "detail": "detail/us-tx/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 29.911239,
+    "lon": -102.673663,
+    "dist_m": 26576.01,
+    "nearest_way": {
+     "id": 1254108974,
+     "highway": "trunk",
+     "name": null,
+     "ref": "US 90",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Millers",
+     "type": "hamlet",
+     "dist_m": 5781.5,
+     "lat": 29.874358,
+     "lon": -102.715986
+    },
+    "detail": "detail/us-tx/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 29.79463,
+    "lon": -102.839579,
+    "dist_m": 25456.68,
+    "nearest_way": {
+     "id": 1187175929,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Millers",
+     "type": "hamlet",
+     "dist_m": 14858.8,
+     "lat": 29.874358,
+     "lon": -102.715986
+    },
+    "detail": "detail/us-tx/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

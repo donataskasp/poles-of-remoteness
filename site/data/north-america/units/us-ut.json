@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-ut",
+ "name": "Utah",
+ "name_en": "Utah",
+ "country": "us",
+ "area_km2": 215967.1,
+ "bbox": [
+  -114.0528506,
+  36.9978085,
+  -109.0415767,
+  42.0019504
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 40.505657,
+    "lon": -113.745262,
+    "dist_m": 22925.35,
+    "nearest_way": {
+     "id": 1282877763,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wendover",
+     "type": "town",
+     "dist_m": 35350.3,
+     "lat": 40.737597,
+     "lon": -114.03142
+    },
+    "detail": "detail/us-ut/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 40.561596,
+    "lon": -113.649704,
+    "dist_m": 18796.94,
+    "nearest_way": {
+     "id": 547137615,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wendover",
+     "type": "town",
+     "dist_m": 37740.1,
+     "lat": 40.737597,
+     "lon": -114.03142
+    },
+    "detail": "detail/us-ut/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 40.753816,
+    "lon": -110.287052,
+    "dist_m": 17642.25,
+    "nearest_way": {
+     "id": 1242974943,
+     "highway": "service",
+     "name": "Uinta Trail Head Road",
+     "ref": "NF 10457",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Moon Lake Resort",
+     "type": "hamlet",
+     "dist_m": 27539.1,
+     "lat": 40.561335,
+     "lon": -110.492384
+    },
+    "detail": "detail/us-ut/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 40.759856,
+    "lon": -110.407441,
+    "dist_m": 17328.28,
+    "nearest_way": {
+     "id": 10093748,
+     "highway": "unclassified",
+     "name": "Hells Canyon - Fish Creek Road",
+     "ref": "NF 10227",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Moon Lake Lodge",
+     "type": "hamlet",
+     "dist_m": 22776.6,
+     "lat": 40.569391,
+     "lon": -110.507384
+    },
+    "detail": "detail/us-ut/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 40.417071,
+    "lon": -113.716913,
+    "dist_m": 17290.99,
+    "nearest_way": {
+     "id": 1282877763,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Gold Hill",
+     "type": "hamlet",
+     "dist_m": 29472.0,
+     "lat": 40.166325,
+     "lon": -113.830554
+    },
+    "detail": "detail/us-ut/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 40.730862,
+    "lon": -110.584461,
+    "dist_m": 16758.7,
+    "nearest_way": {
+     "id": 1304854783,
+     "highway": "track",
+     "name": "Dry Ridge Road",
+     "ref": "NF 10225",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Moon Lake Lodge",
+     "type": "hamlet",
+     "dist_m": 19079.2,
+     "lat": 40.569391,
+     "lon": -110.507384
+    },
+    "detail": "detail/us-ut/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 40.552918,
+    "lon": -113.847333,
+    "dist_m": 16558.46,
+    "nearest_way": {
+     "id": 1232213438,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wendover",
+     "type": "town",
+     "dist_m": 25749.3,
+     "lat": 40.737597,
+     "lon": -114.03142
+    },
+    "detail": "detail/us-ut/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 40.586445,
+    "lon": -113.532239,
+    "dist_m": 15741.45,
+    "nearest_way": {
+     "id": 547137615,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wendover",
+     "type": "town",
+     "dist_m": 45427.1,
+     "lat": 40.737597,
+     "lon": -114.03142
+    },
+    "detail": "detail/us-ut/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.080779,
+    "lon": -112.617339,
+    "dist_m": 15715.48,
+    "nearest_way": {
+     "id": 689854601,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lakeside",
+     "type": "hamlet",
+     "dist_m": 26106.2,
+     "lat": 41.22243,
+     "lon": -112.865534
+    },
+    "detail": "detail/us-ut/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 37.098999,
+    "lon": -111.040054,
+    "dist_m": 15495.14,
+    "nearest_way": {
+     "id": 109197965,
+     "highway": "track",
+     "name": "Rec Road 262",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Navajo Mountain",
+     "type": "hamlet",
+     "dist_m": 23825.7,
+     "lat": 37.019441,
+     "lon": -110.791249
+    },
+    "detail": "detail/us-ut/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.032863,
+    "lon": -113.685647,
+    "dist_m": 23646.71,
+    "nearest_way": {
+     "id": 283037564,
+     "highway": "unclassified",
+     "name": "Silver Island Pass Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pilot Valley",
+     "type": "hamlet",
+     "dist_m": 38671.4,
+     "lat": 41.108806,
+     "lon": -114.134699
+    },
+    "detail": "detail/us-ut/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 40.50555,
+    "lon": -113.745408,
+    "dist_m": 22933.9,
+    "nearest_way": {
+     "id": 1281275499,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wendover",
+     "type": "town",
+     "dist_m": 35350.6,
+     "lat": 40.737597,
+     "lon": -114.03142
+    },
+    "detail": "detail/us-ut/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 40.934494,
+    "lon": -113.628603,
+    "dist_m": 22180.8,
+    "nearest_way": {
+     "id": 283037564,
+     "highway": "unclassified",
+     "name": "Silver Island Pass Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wendover",
+     "type": "town",
+     "dist_m": 40402.9,
+     "lat": 40.737597,
+     "lon": -114.03142
+    },
+    "detail": "detail/us-ut/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 37.002151,
+    "lon": -111.13421,
+    "dist_m": 21706.97,
+    "nearest_way": {
+     "id": 10119133,
+     "highway": "unclassified",
+     "name": "Smokey Mountain Road",
+     "ref": "230",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Page",
+     "type": "city",
+     "dist_m": 30361.8,
+     "lat": 36.914831,
+     "lon": -111.457294
+    },
+    "detail": "detail/us-ut/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 37.088642,
+    "lon": -111.094317,
+    "dist_m": 20743.42,
+    "nearest_way": {
+     "id": 45729391,
+     "highway": "unclassified",
+     "name": "Hole-in-the-Rock Road",
+     "ref": "BLM 200",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Navajo Mountain",
+     "type": "hamlet",
+     "dist_m": 28030.1,
+     "lat": 37.019441,
+     "lon": -110.791249
+    },
+    "detail": "detail/us-ut/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 37.62351,
+    "lon": -110.455872,
+    "dist_m": 20338.73,
+    "nearest_way": {
+     "id": 145097292,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ticaboo",
+     "type": "hamlet",
+     "dist_m": 21993.4,
+     "lat": 37.67499,
+     "lon": -110.696534
+    },
+    "detail": "detail/us-ut/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 37.545595,
+    "lon": -111.006444,
+    "dist_m": 19440.86,
+    "nearest_way": {
+     "id": 331087387,
+     "highway": "tertiary",
+     "name": "Burr Trail Road",
+     "ref": "CR 0598",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bullfrog",
+     "type": "hamlet",
+     "dist_m": 24692.7,
+     "lat": 37.515867,
+     "lon": -110.729587
+    },
+    "detail": "detail/us-ut/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.95206,
+    "lon": -113.040101,
+    "dist_m": 19127.15,
+    "nearest_way": {
+     "id": 1007381981,
+     "highway": "primary",
+     "name": null,
+     "ref": "US 6;US 50",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Iron Basin",
+     "type": "hamlet",
+     "dist_m": 7746.5,
+     "lat": 38.930237,
+     "lon": -112.955232
+    },
+    "detail": "detail/us-ut/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 38.08058,
+    "lon": -110.247467,
+    "dist_m": 18928.36,
+    "nearest_way": {
+     "id": 350684999,
+     "highway": "unclassified",
+     "name": "Sweet Alice Road",
+     "ref": "BLM B221",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Soldier Crossing",
+     "type": "hamlet",
+     "dist_m": 44289.3,
+     "lat": 37.682252,
+     "lon": -110.217742
+    },
+    "detail": "detail/us-ut/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 40.561596,
+    "lon": -113.649704,
+    "dist_m": 18796.94,
+    "nearest_way": {
+     "id": 547137615,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wendover",
+     "type": "town",
+     "dist_m": 37740.1,
+     "lat": 40.737597,
+     "lon": -114.03142
+    },
+    "detail": "detail/us-ut/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

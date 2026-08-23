@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "ca-yt",
+ "name": "Yukon",
+ "name_en": "Yukon",
+ "country": "ca",
+ "area_km2": 480865.8,
+ "bbox": [
+  -141.00275,
+  59.9985416,
+  -123.8102524,
+  69.84588
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 64.580934,
+    "lon": -131.910255,
+    "dist_m": 110121.89,
+    "nearest_way": {
+     "id": 667940435,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lansing Post",
+     "type": "hamlet",
+     "dist_m": 120419.6,
+     "lat": 63.740783,
+     "lon": -133.466249
+    },
+    "detail": "detail/ca-yt/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 60.855659,
+    "lon": -126.226205,
+    "dist_m": 108529.08,
+    "nearest_way": {
+     "id": 1257228691,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Iron Creek",
+     "type": "hamlet",
+     "dist_m": 133178.3,
+     "lat": 60.00305,
+     "lon": -127.921144
+    },
+    "detail": "detail/ca-yt/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 64.536658,
+    "lon": -131.71629,
+    "dist_m": 106213.63,
+    "nearest_way": {
+     "id": 662723223,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lansing Post",
+     "type": "hamlet",
+     "dist_m": 123002.1,
+     "lat": 63.740783,
+     "lon": -133.466249
+    },
+    "detail": "detail/ca-yt/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 60.811851,
+    "lon": -126.054845,
+    "dist_m": 105123.09,
+    "nearest_way": {
+     "id": 1257228691,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Iron Creek",
+     "type": "hamlet",
+     "dist_m": 136739.8,
+     "lat": 60.00305,
+     "lon": -127.921144
+    },
+    "detail": "detail/ca-yt/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 60.777896,
+    "lon": -125.874769,
+    "dist_m": 103913.13,
+    "nearest_way": {
+     "id": 1110408130,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nahanni Butte",
+     "type": "hamlet",
+     "dist_m": 138182.7,
+     "lat": 61.035173,
+     "lon": -123.383622
+    },
+    "detail": "detail/ca-yt/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 64.519351,
+    "lon": -132.066975,
+    "dist_m": 103061.28,
+    "nearest_way": {
+     "id": 662723223,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lansing Post",
+     "type": "hamlet",
+     "dist_m": 110347.4,
+     "lat": 63.740783,
+     "lon": -133.466249
+    },
+    "detail": "detail/ca-yt/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 60.737269,
+    "lon": -125.698399,
+    "dist_m": 103019.52,
+    "nearest_way": {
+     "id": 1257228691,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nahanni Butte",
+     "type": "hamlet",
+     "dist_m": 129996.0,
+     "lat": 61.035173,
+     "lon": -123.383622
+    },
+    "detail": "detail/ca-yt/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 60.842517,
+    "lon": -140.797352,
+    "dist_m": 103013.24,
+    "nearest_way": {
+     "id": 159366673,
+     "highway": "residential",
+     "name": "Quill Creek Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Dan Creek",
+     "type": "hamlet",
+     "dist_m": 112007.9,
+     "lat": 61.37532,
+     "lon": -142.558873
+    },
+    "detail": "detail/ca-yt/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 60.813236,
+    "lon": -126.527932,
+    "dist_m": 102688.63,
+    "nearest_way": {
+     "id": 1257228695,
+     "highway": "track",
+     "name": "West Lake Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Iron Creek",
+     "type": "hamlet",
+     "dist_m": 118502.8,
+     "lat": 60.00305,
+     "lon": -127.921144
+    },
+    "detail": "detail/ca-yt/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 64.460794,
+    "lon": -131.336999,
+    "dist_m": 102562.47,
+    "nearest_way": {
+     "id": 662723223,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lansing Post",
+     "type": "hamlet",
+     "dist_m": 131212.4,
+     "lat": 63.740783,
+     "lon": -133.466249
+    },
+    "detail": "detail/ca-yt/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 65.489029,
+    "lon": -132.69619,
+    "dist_m": 202866.68,
+    "nearest_way": {
+     "id": 659407137,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Martin House",
+     "type": "hamlet",
+     "dist_m": 113986.3,
+     "lat": 66.50007,
+     "lon": -133.066622
+    },
+    "detail": "detail/ca-yt/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 65.412148,
+    "lon": -132.565854,
+    "dist_m": 200420.81,
+    "nearest_way": {
+     "id": 659407137,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Martin House",
+     "type": "hamlet",
+     "dist_m": 123429.3,
+     "lat": 66.50007,
+     "lon": -133.066622
+    },
+    "detail": "detail/ca-yt/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 65.579978,
+    "lon": -132.67423,
+    "dist_m": 197652.14,
+    "nearest_way": {
+     "id": 259675056,
+     "highway": "primary",
+     "name": "Dempster Highway",
+     "ref": "YK 5",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Martin House",
+     "type": "hamlet",
+     "dist_m": 104127.8,
+     "lat": 66.50007,
+     "lon": -133.066622
+    },
+    "detail": "detail/ca-yt/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 65.478727,
+    "lon": -132.921142,
+    "dist_m": 195462.63,
+    "nearest_way": {
+     "id": 659407137,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Martin House",
+     "type": "hamlet",
+     "dist_m": 114078.7,
+     "lat": 66.50007,
+     "lon": -133.066622
+    },
+    "detail": "detail/ca-yt/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 65.496382,
+    "lon": -132.471942,
+    "dist_m": 193039.27,
+    "nearest_way": {
+     "id": 392462582,
+     "highway": "unclassified",
+     "name": "Wrigley-Fort Good Hope Winter Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Martin House",
+     "type": "hamlet",
+     "dist_m": 115128.8,
+     "lat": 66.50007,
+     "lon": -133.066622
+    },
+    "detail": "detail/ca-yt/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 65.671324,
+    "lon": -132.651515,
+    "dist_m": 192795.53,
+    "nearest_way": {
+     "id": 392423283,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Martin House",
+     "type": "hamlet",
+     "dist_m": 94301.7,
+     "lat": 66.50007,
+     "lon": -133.066622
+    },
+    "detail": "detail/ca-yt/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 65.312042,
+    "lon": -132.555658,
+    "dist_m": 192724.08,
+    "nearest_way": {
+     "id": 659407137,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Martin House",
+     "type": "hamlet",
+     "dist_m": 134502.1,
+     "lat": 66.50007,
+     "lon": -133.066622
+    },
+    "detail": "detail/ca-yt/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 65.400106,
+    "lon": -132.790504,
+    "dist_m": 192473.12,
+    "nearest_way": {
+     "id": 659407137,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Martin House",
+     "type": "hamlet",
+     "dist_m": 123294.6,
+     "lat": 66.50007,
+     "lon": -133.066622
+    },
+    "detail": "detail/ca-yt/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 65.5709,
+    "lon": -132.902897,
+    "dist_m": 189737.54,
+    "nearest_way": {
+     "id": 259675056,
+     "highway": "primary",
+     "name": "Dempster Highway",
+     "ref": "YK 5",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Martin House",
+     "type": "hamlet",
+     "dist_m": 103875.4,
+     "lat": 66.50007,
+     "lon": -133.066622
+    },
+    "detail": "detail/ca-yt/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 65.76353,
+    "lon": -132.629159,
+    "dist_m": 188361.07,
+    "nearest_way": {
+     "id": 259676100,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Martin House",
+     "type": "hamlet",
+     "dist_m": 84474.2,
+     "lat": 66.50007,
+     "lon": -133.066622
+    },
+    "detail": "detail/ca-yt/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-id",
+ "name": "Idaho",
+ "name_en": "Idaho",
+ "country": "us",
+ "area_km2": 215614.0,
+ "bbox": [
+  -117.2430324,
+  41.9888339,
+  -111.043564,
+  49.0008447
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 46.242182,
+    "lon": -114.949901,
+    "dist_m": 24256.58,
+    "nearest_way": {
+     "id": 13842662,
+     "highway": "unclassified",
+     "name": "Fog Mountain Road",
+     "ref": "FR 319",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Star Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 35220.5,
+     "lat": 45.936915,
+     "lon": -114.827814
+    },
+    "detail": "detail/us-id/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 45.16357,
+    "lon": -114.828898,
+    "dist_m": 22737.0,
+    "nearest_way": {
+     "id": 311801918,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Root Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 22896.1,
+     "lat": 45.315506,
+     "lon": -115.025836
+    },
+    "detail": "detail/us-id/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 45.122149,
+    "lon": -114.944268,
+    "dist_m": 22212.38,
+    "nearest_way": {
+     "id": 13973888,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Root Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 22423.7,
+     "lat": 45.315506,
+     "lon": -115.025836
+    },
+    "detail": "detail/us-id/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 46.190726,
+    "lon": -114.842285,
+    "dist_m": 20234.03,
+    "nearest_way": {
+     "id": 777205705,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Star Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 28233.9,
+     "lat": 45.936915,
+     "lon": -114.827814
+    },
+    "detail": "detail/us-id/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 45.487669,
+    "lon": -115.061361,
+    "dist_m": 19289.49,
+    "nearest_way": {
+     "id": 843299298,
+     "highway": "tertiary",
+     "name": "Magruder Road",
+     "ref": "FR 468",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stonebreaker Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 15233.3,
+     "lat": 45.389484,
+     "lon": -115.197208
+    },
+    "detail": "detail/us-id/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 45.943609,
+    "lon": -114.508978,
+    "dist_m": 19137.08,
+    "nearest_way": {
+     "id": 1306396143,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Star Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 24735.8,
+     "lat": 45.936915,
+     "lon": -114.827814
+    },
+    "detail": "detail/us-id/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 45.456244,
+    "lon": -114.893216,
+    "dist_m": 18692.36,
+    "nearest_way": {
+     "id": 841431610,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Root Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 18775.9,
+     "lat": 45.315506,
+     "lon": -115.025836
+    },
+    "detail": "detail/us-id/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.152196,
+    "lon": -114.968838,
+    "dist_m": 18661.38,
+    "nearest_way": {
+     "id": 777205705,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Star Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 26300.9,
+     "lat": 45.936915,
+     "lon": -114.827814
+    },
+    "detail": "detail/us-id/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 45.150187,
+    "lon": -115.068026,
+    "dist_m": 18420.18,
+    "nearest_way": {
+     "id": 841431608,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Root Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 18669.2,
+     "lat": 45.315506,
+     "lon": -115.025836
+    },
+    "detail": "detail/us-id/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.255628,
+    "lon": -115.081235,
+    "dist_m": 18385.5,
+    "nearest_way": {
+     "id": 731230852,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Star Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 40484.9,
+     "lat": 45.936915,
+     "lon": -114.827814
+    },
+    "detail": "detail/us-id/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 45.34146,
+    "lon": -115.052273,
+    "dist_m": 28732.86,
+    "nearest_way": {
+     "id": 843299294,
+     "highway": "unclassified",
+     "name": "Big Mallard Creek Road",
+     "ref": "NFSR 421",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Root Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 3551.9,
+     "lat": 45.315506,
+     "lon": -115.025836
+    },
+    "detail": "detail/us-id/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 45.179279,
+    "lon": -114.945375,
+    "dist_m": 28246.07,
+    "nearest_way": {
+     "id": 1313827134,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Root Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 16404.7,
+     "lat": 45.315506,
+     "lon": -115.025836
+    },
+    "detail": "detail/us-id/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 46.098434,
+    "lon": -114.851995,
+    "dist_m": 27268.63,
+    "nearest_way": {
+     "id": 13842662,
+     "highway": "unclassified",
+     "name": "Fog Mountain Road",
+     "ref": "FR 319",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Star Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 18050.4,
+     "lat": 45.936915,
+     "lon": -114.827814
+    },
+    "detail": "detail/us-id/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 45.102248,
+    "lon": -114.878111,
+    "dist_m": 25423.33,
+    "nearest_way": {
+     "id": 13937560,
+     "highway": "unclassified",
+     "name": "Thunder Mountain Road",
+     "ref": "NF 375",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Root Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 26389.3,
+     "lat": 45.315506,
+     "lon": -115.025836
+    },
+    "detail": "detail/us-id/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 45.26865,
+    "lon": -114.975774,
+    "dist_m": 25233.22,
+    "nearest_way": {
+     "id": 725203860,
+     "highway": "service",
+     "name": "Corn Creek Boat Ramp",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Root Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 6522.3,
+     "lat": 45.315506,
+     "lon": -115.025836
+    },
+    "detail": "detail/us-id/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 42.12014,
+    "lon": -116.859716,
+    "dist_m": 24752.02,
+    "nearest_way": {
+     "id": 5127250,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Calico Ranch",
+     "type": "hamlet",
+     "dist_m": 39183.2,
+     "lat": 41.882536,
+     "lon": -117.209296
+    },
+    "detail": "detail/us-id/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.182146,
+    "lon": -114.901514,
+    "dist_m": 24570.6,
+    "nearest_way": {
+     "id": 13842662,
+     "highway": "unclassified",
+     "name": "Fog Mountain Road",
+     "ref": "FR 319",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Star Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 27848.2,
+     "lat": 45.936915,
+     "lon": -114.827814
+    },
+    "detail": "detail/us-id/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 45.420534,
+    "lon": -114.987206,
+    "dist_m": 24095.58,
+    "nearest_way": {
+     "id": 13880060,
+     "highway": "unclassified",
+     "name": "Salmon River Road",
+     "ref": "NF 030",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Root Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 12058.6,
+     "lat": 45.315506,
+     "lon": -115.025836
+    },
+    "detail": "detail/us-id/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.943504,
+    "lon": -114.830914,
+    "dist_m": 23942.14,
+    "nearest_way": {
+     "id": 13937560,
+     "highway": "unclassified",
+     "name": "Thunder Mountain Road",
+     "ref": "NF 375",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "hamlet",
+     "dist_m": 30568.8,
+     "lat": 44.870333,
+     "lon": -114.457787
+    },
+    "detail": "detail/us-id/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.998829,
+    "lon": -116.893464,
+    "dist_m": 23798.87,
+    "nearest_way": {
+     "id": 817655945,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Calico Ranch",
+     "type": "hamlet",
+     "dist_m": 29203.2,
+     "lat": 41.882536,
+     "lon": -117.209296
+    },
+    "detail": "detail/us-id/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

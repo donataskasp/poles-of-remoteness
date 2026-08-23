@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-az",
+ "name": "Arizona",
+ "name_en": "Arizona",
+ "country": "us",
+ "area_km2": 295179.3,
+ "bbox": [
+  -114.8183584,
+  31.3322135,
+  -109.0448744,
+  37.0038722
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 36.955733,
+    "lon": -111.121864,
+    "dist_m": 16052.43,
+    "nearest_way": {
+     "id": 16823473,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Page",
+     "type": "city",
+     "dist_m": 30225.2,
+     "lat": 36.914831,
+     "lon": -111.457294
+    },
+    "detail": "detail/us-az/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 35.87762,
+    "lon": -113.636737,
+    "dist_m": 11915.96,
+    "nearest_way": {
+     "id": 16862792,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ray Place",
+     "type": "hamlet",
+     "dist_m": 33721.7,
+     "lat": 35.82249,
+     "lon": -114.003844
+    },
+    "detail": "detail/us-az/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 36.974662,
+    "lon": -111.233058,
+    "dist_m": 11586.17,
+    "nearest_way": {
+     "id": 109197965,
+     "highway": "track",
+     "name": "Rec Road 262",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Page",
+     "type": "city",
+     "dist_m": 21048.8,
+     "lat": 36.914831,
+     "lon": -111.457294
+    },
+    "detail": "detail/us-az/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 34.122285,
+    "lon": -111.567822,
+    "dist_m": 11245.64,
+    "nearest_way": {
+     "id": 899606990,
+     "highway": "track",
+     "name": "Dennis Spring",
+     "ref": "FR 3740",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "J S Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 11290.3,
+     "lat": 34.050895,
+     "lon": -111.655018
+    },
+    "detail": "detail/us-az/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 35.983107,
+    "lon": -113.333345,
+    "dist_m": 11060.32,
+    "nearest_way": {
+     "id": 187010577,
+     "highway": "track",
+     "name": "AZ-67",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Frazier Wells",
+     "type": "isolated_dwelling",
+     "dist_m": 32431.1,
+     "lat": 35.782488,
+     "lon": -113.072145
+    },
+    "detail": "detail/us-az/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 33.41719,
+    "lon": -109.216893,
+    "dist_m": 10761.15,
+    "nearest_way": {
+     "id": 16853442,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Downs Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 13348.8,
+     "lat": 33.537344,
+     "lon": -109.208629
+    },
+    "detail": "detail/us-az/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 36.26762,
+    "lon": -112.432304,
+    "dist_m": 10546.73,
+    "nearest_way": {
+     "id": 445486785,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Supai",
+     "type": "village",
+     "dist_m": 23373.2,
+     "lat": 36.236707,
+     "lon": -112.689549
+    },
+    "detail": "detail/us-az/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 36.240182,
+    "lon": -112.939294,
+    "dist_m": 10449.1,
+    "nearest_way": {
+     "id": 16818947,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Schmutz Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 17032.0,
+     "lat": 36.368222,
+     "lon": -113.043871
+    },
+    "detail": "detail/us-az/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 32.690785,
+    "lon": -113.412288,
+    "dist_m": 10201.83,
+    "nearest_way": {
+     "id": 16953474,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dateland",
+     "type": "village",
+     "dist_m": 16907.4,
+     "lat": 32.797289,
+     "lon": -113.541367
+    },
+    "detail": "detail/us-az/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 34.210243,
+    "lon": -111.626951,
+    "dist_m": 10192.5,
+    "nearest_way": {
+     "id": 344499923,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Doll Baby Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 14653.4,
+     "lat": 34.222164,
+     "lon": -111.468583
+    },
+    "detail": "detail/us-az/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 32.354456,
+    "lon": -113.308566,
+    "dist_m": 25838.82,
+    "nearest_way": {
+     "id": 1449499536,
+     "highway": "unclassified",
+     "name": "Mohawk Drag",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Explanada del Cerro Colorado (Cafe el alamo)",
+     "type": "hamlet",
+     "dist_m": 40067.3,
+     "lat": 31.993574,
+     "lon": -113.329598
+    },
+    "detail": "detail/us-az/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 33.142064,
+    "lon": -113.734602,
+    "dist_m": 23389.21,
+    "nearest_way": {
+     "id": 16955965,
+     "highway": "unclassified",
+     "name": "Wellton Kofa Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Engesser Junction",
+     "type": "hamlet",
+     "dist_m": 14429.3,
+     "lat": 33.201148,
+     "lon": -113.872431
+    },
+    "detail": "detail/us-az/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 32.343329,
+    "lon": -113.201955,
+    "dist_m": 23297.5,
+    "nearest_way": {
+     "id": 16890604,
+     "highway": "unclassified",
+     "name": "El Camino Del Diablo",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mexican Town",
+     "type": "hamlet",
+     "dist_m": 31902.1,
+     "lat": 32.368967,
+     "lon": -112.864373
+    },
+    "detail": "detail/us-az/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 35.972977,
+    "lon": -113.373772,
+    "dist_m": 22951.54,
+    "nearest_way": {
+     "id": 16847132,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Frazier Wells",
+     "type": "isolated_dwelling",
+     "dist_m": 34476.4,
+     "lat": 35.782488,
+     "lon": -113.072145
+    },
+    "detail": "detail/us-az/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 32.297695,
+    "lon": -113.395747,
+    "dist_m": 22553.37,
+    "nearest_way": {
+     "id": 1264836008,
+     "highway": "unclassified",
+     "name": "El Camino Del Diablo",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Explanada del Cerro Colorado (Cafe el alamo)",
+     "type": "hamlet",
+     "dist_m": 34296.4,
+     "lat": 31.993574,
+     "lon": -113.329598
+    },
+    "detail": "detail/us-az/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 37.000889,
+    "lon": -111.133927,
+    "dist_m": 21665.1,
+    "nearest_way": {
+     "id": 16814478,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Page",
+     "type": "city",
+     "dist_m": 30341.6,
+     "lat": 36.914831,
+     "lon": -111.457294
+    },
+    "detail": "detail/us-az/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 36.054071,
+    "lon": -113.31612,
+    "dist_m": 21237.48,
+    "nearest_way": {
+     "id": 186429911,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Arkansas Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 35389.7,
+     "lat": 36.340628,
+     "lon": -113.143376
+    },
+    "detail": "detail/us-az/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 35.958073,
+    "lon": -113.486872,
+    "dist_m": 20101.77,
+    "nearest_way": {
+     "id": 16862792,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Frazier Wells",
+     "type": "isolated_dwelling",
+     "dist_m": 42218.3,
+     "lat": 35.782488,
+     "lon": -113.072145
+    },
+    "detail": "detail/us-az/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 33.178453,
+    "lon": -113.633634,
+    "dist_m": 19493.91,
+    "nearest_way": {
+     "id": 912602588,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Engesser Junction",
+     "type": "hamlet",
+     "dist_m": 22410.2,
+     "lat": 33.201148,
+     "lon": -113.872431
+    },
+    "detail": "detail/us-az/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 34.421126,
+    "lon": -113.929881,
+    "dist_m": 19185.88,
+    "nearest_way": {
+     "id": 1306626501,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Planet",
+     "type": "hamlet",
+     "dist_m": 19268.3,
+     "lat": 34.248137,
+     "lon": -113.948816
+    },
+    "detail": "detail/us-az/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

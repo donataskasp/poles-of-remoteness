@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-md",
+ "name": "Maryland",
+ "name_en": "Maryland",
+ "country": "us",
+ "area_km2": 26488.2,
+ "bbox": [
+  -79.4873055,
+  37.8865288,
+  -74.9852049,
+  39.7230286
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 38.115664,
+    "lon": -76.089834,
+    "dist_m": 11756.12,
+    "nearest_way": {
+     "id": 17657803,
+     "highway": "residential",
+     "name": "Marina Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wenona",
+     "type": "hamlet",
+     "dist_m": 12513.5,
+     "lat": 38.139012,
+     "lon": -75.950211
+    },
+    "detail": "detail/us-md/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 37.912168,
+    "lon": -75.884635,
+    "dist_m": 6126.87,
+    "nearest_way": {
+     "id": 17669856,
+     "highway": "track",
+     "name": "Hammock Pointe",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Byrdtown",
+     "type": "hamlet",
+     "dist_m": 6566.9,
+     "lat": 37.959569,
+     "lon": -75.839932
+    },
+    "detail": "detail/us-md/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 38.234279,
+    "lon": -75.970089,
+    "dist_m": 5650.43,
+    "nearest_way": {
+     "id": 17697803,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nanticoke Acres",
+     "type": "hamlet",
+     "dist_m": 5888.7,
+     "lat": 38.258456,
+     "lon": -75.910211
+    },
+    "detail": "detail/us-md/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 38.038151,
+    "lon": -76.009234,
+    "dist_m": 5066.05,
+    "nearest_way": {
+     "id": 1339655763,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ewell",
+     "type": "village",
+     "dist_m": 5165.3,
+     "lat": 37.995678,
+     "lon": -76.033271
+    },
+    "detail": "detail/us-md/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 38.374517,
+    "lon": -76.004987,
+    "dist_m": 4631.01,
+    "nearest_way": {
+     "id": 279671536,
+     "highway": "track",
+     "name": "Willeys Neck Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bestpitch",
+     "type": "hamlet",
+     "dist_m": 4841.1,
+     "lat": 38.417272,
+     "lon": -75.994056
+    },
+    "detail": "detail/us-md/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 38.061352,
+    "lon": -75.315895,
+    "dist_m": 3939.36,
+    "nearest_way": {
+     "id": 1178257626,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hudson Landing",
+     "type": "hamlet",
+     "dist_m": 3939.8,
+     "lat": 38.083454,
+     "lon": -75.351028
+    },
+    "detail": "detail/us-md/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 38.233185,
+    "lon": -76.133213,
+    "dist_m": 3915.41,
+    "nearest_way": {
+     "id": 17628657,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hoopersville",
+     "type": "hamlet",
+     "dist_m": 5140.6,
+     "lat": 38.261234,
+     "lon": -76.179942
+    },
+    "detail": "detail/us-md/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 39.274288,
+    "lon": -76.27146,
+    "dist_m": 3160.87,
+    "nearest_way": {
+     "id": 565100401,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Great Oak Landing",
+     "type": "hamlet",
+     "dist_m": 6028.8,
+     "lat": 39.264553,
+     "lon": -76.202731
+    },
+    "detail": "detail/us-md/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 38.033626,
+    "lon": -75.871976,
+    "dist_m": 2947.33,
+    "nearest_way": {
+     "id": 1461918205,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hearts Ease",
+     "type": "hamlet",
+     "dist_m": 5254.2,
+     "lat": 38.016235,
+     "lon": -75.81632
+    },
+    "detail": "detail/us-md/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 39.382152,
+    "lon": -76.176355,
+    "dist_m": 2748.83,
+    "nearest_way": {
+     "id": 567572736,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Echo Hill",
+     "type": "hamlet",
+     "dist_m": 5717.9,
+     "lat": 39.363166,
+     "lon": -76.114672
+    },
+    "detail": "detail/us-md/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 38.115664,
+    "lon": -76.089834,
+    "dist_m": 11756.12,
+    "nearest_way": {
+     "id": 17657803,
+     "highway": "residential",
+     "name": "Marina Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wenona",
+     "type": "hamlet",
+     "dist_m": 12513.5,
+     "lat": 38.139012,
+     "lon": -75.950211
+    },
+    "detail": "detail/us-md/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 38.032384,
+    "lon": -75.238328,
+    "dist_m": 10007.35,
+    "nearest_way": {
+     "id": 17712482,
+     "highway": "unclassified",
+     "name": "Scotts Landing Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Duers Neck Landing",
+     "type": "hamlet",
+     "dist_m": 10003.1,
+     "lat": 38.098731,
+     "lon": -75.315471
+    },
+    "detail": "detail/us-md/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 38.114042,
+    "lon": -75.185062,
+    "dist_m": 8625.97,
+    "nearest_way": {
+     "id": 17684261,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Figgs Landing",
+     "type": "hamlet",
+     "dist_m": 9760.8,
+     "lat": 38.120953,
+     "lon": -75.296026
+    },
+    "detail": "detail/us-md/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 37.913258,
+    "lon": -75.886866,
+    "dist_m": 6285.68,
+    "nearest_way": {
+     "id": 17671480,
+     "highway": "residential",
+     "name": "Lloyd Webb Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Byrdtown",
+     "type": "hamlet",
+     "dist_m": 6591.3,
+     "lat": 37.959569,
+     "lon": -75.839932
+    },
+    "detail": "detail/us-md/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 38.234279,
+    "lon": -75.970089,
+    "dist_m": 5650.43,
+    "nearest_way": {
+     "id": 17697803,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nanticoke Acres",
+     "type": "hamlet",
+     "dist_m": 5888.7,
+     "lat": 38.258456,
+     "lon": -75.910211
+    },
+    "detail": "detail/us-md/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 38.369943,
+    "lon": -75.994412,
+    "dist_m": 5069.89,
+    "nearest_way": {
+     "id": 17626620,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bestpitch",
+     "type": "hamlet",
+     "dist_m": 5253.8,
+     "lat": 38.417272,
+     "lon": -75.994056
+    },
+    "detail": "detail/us-md/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 38.038151,
+    "lon": -76.009234,
+    "dist_m": 5066.05,
+    "nearest_way": {
+     "id": 1339655763,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ewell",
+     "type": "village",
+     "dist_m": 5165.3,
+     "lat": 37.995678,
+     "lon": -76.033271
+    },
+    "detail": "detail/us-md/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.766647,
+    "lon": -76.39066,
+    "dist_m": 4783.63,
+    "nearest_way": {
+     "id": 17680816,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sherwood",
+     "type": "hamlet",
+     "dist_m": 6268.3,
+     "lat": 38.761507,
+     "lon": -76.318839
+    },
+    "detail": "detail/us-md/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 38.232318,
+    "lon": -76.136186,
+    "dist_m": 4178.2,
+    "nearest_way": {
+     "id": 315334239,
+     "highway": "residential",
+     "name": "Hoopersville Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hoopersville",
+     "type": "hamlet",
+     "dist_m": 4997.3,
+     "lat": 38.261234,
+     "lon": -76.179942
+    },
+    "detail": "detail/us-md/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 39.274288,
+    "lon": -76.27146,
+    "dist_m": 3508.82,
+    "nearest_way": {
+     "id": 17636723,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Great Oak Landing",
+     "type": "hamlet",
+     "dist_m": 6028.8,
+     "lat": 39.264553,
+     "lon": -76.202731
+    },
+    "detail": "detail/us-md/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

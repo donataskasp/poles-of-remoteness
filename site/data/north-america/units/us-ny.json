@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-ny",
+ "name": "New York",
+ "name_en": "New York",
+ "country": "us",
+ "area_km2": 124789.1,
+ "bbox": [
+  -79.7619758,
+  40.476578,
+  -71.790972,
+  45.0158611
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 43.568579,
+    "lon": -74.652841,
+    "dist_m": 8868.38,
+    "nearest_way": {
+     "id": 20090626,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Herkimer Landing",
+     "type": "hamlet",
+     "dist_m": 14628.9,
+     "lat": 43.509512,
+     "lon": -74.814604
+    },
+    "detail": "detail/us-ny/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 44.159079,
+    "lon": -74.079871,
+    "dist_m": 8275.18,
+    "nearest_way": {
+     "id": 20082817,
+     "highway": "unclassified",
+     "name": "Upper Works Road",
+     "ref": "CR 25A",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Averyville",
+     "type": "hamlet",
+     "dist_m": 9697.3,
+     "lat": 44.243938,
+     "lon": -74.051541
+    },
+    "detail": "detail/us-ny/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 43.293973,
+    "lon": -74.434603,
+    "dist_m": 8074.61,
+    "nearest_way": {
+     "id": 516500341,
+     "highway": "track",
+     "name": "Godfrey Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Shaker Place",
+     "type": "hamlet",
+     "dist_m": 8017.3,
+     "lat": 43.324236,
+     "lon": -74.524313
+    },
+    "detail": "detail/us-ny/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 44.033736,
+    "lon": -74.974781,
+    "dist_m": 7481.35,
+    "nearest_way": {
+     "id": 697723055,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Janacks Landing Shelter",
+     "type": "hamlet",
+     "dist_m": 10933.0,
+     "lat": 44.111729,
+     "lon": -74.891575
+    },
+    "detail": "detail/us-ny/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 43.478313,
+    "lon": -74.631828,
+    "dist_m": 7319.12,
+    "nearest_way": {
+     "id": 967008841,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Piseco",
+     "type": "hamlet",
+     "dist_m": 9755.8,
+     "lat": 43.448402,
+     "lon": -74.518484
+    },
+    "detail": "detail/us-ny/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 44.10729,
+    "lon": -73.907334,
+    "dist_m": 6689.0,
+    "nearest_way": {
+     "id": 494298416,
+     "highway": "track",
+     "name": "Marcy Dam Truck Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Saint Huberts",
+     "type": "hamlet",
+     "dist_m": 12045.2,
+     "lat": 44.1593,
+     "lon": -73.775273
+    },
+    "detail": "detail/us-ny/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 44.07185,
+    "lon": -73.769164,
+    "dist_m": 6612.86,
+    "nearest_way": {
+     "id": 539135076,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Underwood",
+     "type": "hamlet",
+     "dist_m": 7651.7,
+     "lat": 44.087831,
+     "lon": -73.676243
+    },
+    "detail": "detail/us-ny/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.103362,
+    "lon": -74.181682,
+    "dist_m": 6306.03,
+    "nearest_way": {
+     "id": 496981356,
+     "highway": "track",
+     "name": "Calkins Brook Truck Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Newcomb",
+     "type": "hamlet",
+     "dist_m": 14924.2,
+     "lat": 43.969592,
+     "lon": -74.164925
+    },
+    "detail": "detail/us-ny/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.144399,
+    "lon": -74.790269,
+    "dist_m": 6063.73,
+    "nearest_way": {
+     "id": 44008344,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Janacks Landing Shelter",
+     "type": "hamlet",
+     "dist_m": 8883.5,
+     "lat": 44.111729,
+     "lon": -74.891575
+    },
+    "detail": "detail/us-ny/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.866993,
+    "lon": -74.755466,
+    "dist_m": 5914.07,
+    "nearest_way": {
+     "id": 1346414158,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hasbroucks",
+     "type": "hamlet",
+     "dist_m": 9749.4,
+     "lat": 43.871452,
+     "lon": -74.634335
+    },
+    "detail": "detail/us-ny/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 43.890667,
+    "lon": -76.445445,
+    "dist_m": 12988.16,
+    "nearest_way": {
+     "id": 1390476730,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Clark Point",
+     "type": "hamlet",
+     "dist_m": 15927.9,
+     "lat": 43.825342,
+     "lon": -76.269097
+    },
+    "detail": "detail/us-ny/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 44.002744,
+    "lon": -74.963112,
+    "dist_m": 10667.97,
+    "nearest_way": {
+     "id": 20102102,
+     "highway": "residential",
+     "name": "Grassy Point Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Little Rapids",
+     "type": "hamlet",
+     "dist_m": 10943.3,
+     "lat": 43.928675,
+     "lon": -74.873235
+    },
+    "detail": "detail/us-ny/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 43.562838,
+    "lon": -74.664652,
+    "dist_m": 9355.67,
+    "nearest_way": {
+     "id": 20089265,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Herkimer Landing",
+     "type": "hamlet",
+     "dist_m": 13490.9,
+     "lat": 43.509512,
+     "lon": -74.814604
+    },
+    "detail": "detail/us-ny/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 44.104094,
+    "lon": -74.19734,
+    "dist_m": 9029.4,
+    "nearest_way": {
+     "id": 20087607,
+     "highway": "unclassified",
+     "name": "Wolf Lake Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Newcomb",
+     "type": "hamlet",
+     "dist_m": 15169.1,
+     "lat": 43.969592,
+     "lon": -74.164925
+    },
+    "detail": "detail/us-ny/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 43.619964,
+    "lon": -74.566406,
+    "dist_m": 8693.66,
+    "nearest_way": {
+     "id": 20092455,
+     "highway": "unclassified",
+     "name": "Limekiln Lake-Cedar River Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sagamore",
+     "type": "hamlet",
+     "dist_m": 16815.3,
+     "lat": 43.764509,
+     "lon": -74.62822
+    },
+    "detail": "detail/us-ny/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 44.162352,
+    "lon": -74.079039,
+    "dist_m": 8614.06,
+    "nearest_way": {
+     "id": 404972913,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Averyville",
+     "type": "hamlet",
+     "dist_m": 9328.1,
+     "lat": 44.243938,
+     "lon": -74.051541
+    },
+    "detail": "detail/us-ny/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 43.613647,
+    "lon": -74.200734,
+    "dist_m": 8577.2,
+    "nearest_way": {
+     "id": 141517764,
+     "highway": "unclassified",
+     "name": "Robbs Creek Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oregon",
+     "type": "hamlet",
+     "dist_m": 8994.7,
+     "lat": 43.557566,
+     "lon": -74.120412
+    },
+    "detail": "detail/us-ny/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.111965,
+    "lon": -73.927566,
+    "dist_m": 8240.76,
+    "nearest_way": {
+     "id": 1547004455,
+     "highway": "residential",
+     "name": "Lake Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Saint Huberts",
+     "type": "hamlet",
+     "dist_m": 13273.5,
+     "lat": 44.1593,
+     "lon": -73.775273
+    },
+    "detail": "detail/us-ny/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 43.292918,
+    "lon": -74.432726,
+    "dist_m": 8140.64,
+    "nearest_way": {
+     "id": 20090177,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Shaker Place",
+     "type": "hamlet",
+     "dist_m": 8204.9,
+     "lat": 43.324236,
+     "lon": -74.524313
+    },
+    "detail": "detail/us-ny/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.955903,
+    "lon": -75.07183,
+    "dist_m": 7466.71,
+    "nearest_way": {
+     "id": 663040702,
+     "highway": "service",
+     "name": "Private Driveway",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stillwater",
+     "type": "hamlet",
+     "dist_m": 7852.2,
+     "lat": 43.890066,
+     "lon": -75.036294
+    },
+    "detail": "detail/us-ny/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

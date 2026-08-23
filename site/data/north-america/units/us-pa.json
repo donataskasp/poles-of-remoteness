@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-pa",
+ "name": "Pennsylvania",
+ "name_en": "Pennsylvania",
+ "country": "us",
+ "area_km2": 117331.6,
+ "bbox": [
+  -80.5210906,
+  39.7197662,
+  -74.689672,
+  42.5161334
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.517433,
+    "lon": -77.866951,
+    "dist_m": 4410.67,
+    "nearest_way": {
+     "id": 1425210972,
+     "highway": "track",
+     "name": "Road Hollow",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Gravel Lick",
+     "type": "hamlet",
+     "dist_m": 5544.6,
+     "lat": 41.5109,
+     "lon": -77.801102
+    },
+    "detail": "detail/us-pa/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 41.956486,
+    "lon": -78.925546,
+    "dist_m": 3235.51,
+    "nearest_way": {
+     "id": 12059073,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kinzua Heights",
+     "type": "hamlet",
+     "dist_m": 9787.3,
+     "lat": 41.868672,
+     "lon": -78.935316
+    },
+    "detail": "detail/us-pa/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 41.444667,
+    "lon": -77.455577,
+    "dist_m": 3099.75,
+    "nearest_way": {
+     "id": 1060879645,
+     "highway": "track",
+     "name": "Golden Eagle Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Okome",
+     "type": "hamlet",
+     "dist_m": 3648.6,
+     "lat": 41.437292,
+     "lon": -77.413034
+    },
+    "detail": "detail/us-pa/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 41.505688,
+    "lon": -76.178327,
+    "dist_m": 3090.3,
+    "nearest_way": {
+     "id": 1303125594,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lovelton",
+     "type": "hamlet",
+     "dist_m": 4115.0,
+     "lat": 41.540437,
+     "lon": -76.195433
+    },
+    "detail": "detail/us-pa/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 40.796786,
+    "lon": -78.284828,
+    "dist_m": 2962.68,
+    "nearest_way": {
+     "id": 11829311,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Penn Five",
+     "type": "hamlet",
+     "dist_m": 3623.4,
+     "lat": 40.827003,
+     "lon": -78.268626
+    },
+    "detail": "detail/us-pa/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 41.172595,
+    "lon": -75.487116,
+    "dist_m": 2859.63,
+    "nearest_way": {
+     "id": 670349420,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tobyhanna",
+     "type": "village",
+     "dist_m": 5823.8,
+     "lat": 41.177032,
+     "lon": -75.417962
+    },
+    "detail": "detail/us-pa/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 41.128796,
+    "lon": -75.685847,
+    "dist_m": 2773.35,
+    "nearest_way": {
+     "id": 140809778,
+     "highway": "tertiary",
+     "name": "White Haven Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Shades Glen",
+     "type": "hamlet",
+     "dist_m": 5327.7,
+     "lat": 41.17675,
+     "lon": -75.684079
+    },
+    "detail": "detail/us-pa/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 41.419216,
+    "lon": -79.490244,
+    "dist_m": 2590.31,
+    "nearest_way": {
+     "id": 19342529,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Auges Corners",
+     "type": "hamlet",
+     "dist_m": 3658.4,
+     "lat": 41.386363,
+     "lon": -79.493435
+    },
+    "detail": "detail/us-pa/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 40.3545,
+    "lon": -77.935994,
+    "dist_m": 2533.39,
+    "nearest_way": {
+     "id": 162296737,
+     "highway": "service",
+     "name": "Suchan Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mapleton",
+     "type": "village",
+     "dist_m": 4391.7,
+     "lat": 40.393846,
+     "lon": -77.941222
+    },
+    "detail": "detail/us-pa/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.416207,
+    "lon": -78.142685,
+    "dist_m": 2498.72,
+    "nearest_way": {
+     "id": 11821821,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sterling Run",
+     "type": "hamlet",
+     "dist_m": 4702.2,
+     "lat": 41.414785,
+     "lon": -78.198897
+    },
+    "detail": "detail/us-pa/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.510282,
+    "lon": -77.875226,
+    "dist_m": 4673.7,
+    "nearest_way": {
+     "id": 10713778,
+     "highway": "residential",
+     "name": "McConnell Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cross Fork",
+     "type": "hamlet",
+     "dist_m": 5887.8,
+     "lat": 41.483441,
+     "lon": -77.814419
+    },
+    "detail": "detail/us-pa/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 41.153396,
+    "lon": -77.994561,
+    "dist_m": 4143.12,
+    "nearest_way": {
+     "id": 1535658679,
+     "highway": "service",
+     "name": "Sand Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Spruce",
+     "type": "hamlet",
+     "dist_m": 891.5,
+     "lat": 41.147838,
+     "lon": -78.002225
+    },
+    "detail": "detail/us-pa/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 41.524503,
+    "lon": -78.432161,
+    "dist_m": 3727.17,
+    "nearest_way": {
+     "id": 823270275,
+     "highway": "unclassified",
+     "name": "Rich Valley Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rathbun",
+     "type": "hamlet",
+     "dist_m": 4410.8,
+     "lat": 41.485062,
+     "lon": -78.438351
+    },
+    "detail": "detail/us-pa/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 40.647544,
+    "lon": -78.445685,
+    "dist_m": 3575.45,
+    "nearest_way": {
+     "id": 12067546,
+     "highway": "secondary",
+     "name": "Glendale Valley Boulevard",
+     "ref": "PA 53",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bear Loop",
+     "type": "hamlet",
+     "dist_m": 2677.1,
+     "lat": 40.667286,
+     "lon": -78.427518
+    },
+    "detail": "detail/us-pa/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 41.896497,
+    "lon": -78.779874,
+    "dist_m": 3558.72,
+    "nearest_way": {
+     "id": 11971175,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Klondike",
+     "type": "hamlet",
+     "dist_m": 4359.6,
+     "lat": 41.86034,
+     "lon": -78.80031
+    },
+    "detail": "detail/us-pa/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 41.311939,
+    "lon": -76.497574,
+    "dist_m": 3521.61,
+    "nearest_way": {
+     "id": 11044780,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lungerville",
+     "type": "hamlet",
+     "dist_m": 3999.7,
+     "lat": 41.277582,
+     "lon": -76.511893
+    },
+    "detail": "detail/us-pa/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 40.342552,
+    "lon": -79.011542,
+    "dist_m": 3434.01,
+    "nearest_way": {
+     "id": 1227370025,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Baldwin Furnace",
+     "type": "hamlet",
+     "dist_m": 3390.1,
+     "lat": 40.348362,
+     "lon": -79.050715
+    },
+    "detail": "detail/us-pa/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 41.435444,
+    "lon": -78.402414,
+    "dist_m": 3388.77,
+    "nearest_way": {
+     "id": 11826541,
+     "highway": "residential",
+     "name": "Hicks Run Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Truman",
+     "type": "hamlet",
+     "dist_m": 5410.9,
+     "lat": 41.477007,
+     "lon": -78.368626
+    },
+    "detail": "detail/us-pa/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.515935,
+    "lon": -78.163157,
+    "dist_m": 3366.24,
+    "nearest_way": {
+     "id": 11821114,
+     "highway": "unclassified",
+     "name": "Hunts Run Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prospect Park",
+     "type": "hamlet",
+     "dist_m": 4376.3,
+     "lat": 41.517008,
+     "lon": -78.215564
+    },
+    "detail": "detail/us-pa/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.639118,
+    "lon": -79.191957,
+    "dist_m": 3357.92,
+    "nearest_way": {
+     "id": 12061656,
+     "highway": "unclassified",
+     "name": "Minister Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Porkey",
+     "type": "hamlet",
+     "dist_m": 3727.3,
+     "lat": 41.612006,
+     "lon": -79.165598
+    },
+    "detail": "detail/us-pa/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

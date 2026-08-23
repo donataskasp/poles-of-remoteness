@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-va",
+ "name": "Virginia",
+ "name_en": "Virginia",
+ "country": "us",
+ "area_km2": 104379.6,
+ "bbox": [
+  -83.6753671,
+  36.5407896,
+  -75.166435,
+  39.466012
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 37.310405,
+    "lon": -75.761198,
+    "dist_m": 13229.16,
+    "nearest_way": {
+     "id": 1039424371,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Broadwater",
+     "type": "hamlet",
+     "dist_m": 10277.6,
+     "lat": 37.392916,
+     "lon": -75.708535
+    },
+    "detail": "detail/us-va/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 37.389575,
+    "lon": -75.705226,
+    "dist_m": 12454.29,
+    "nearest_way": {
+     "id": 689064002,
+     "highway": "track",
+     "name": "Upshur Neck Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Broadwater",
+     "type": "hamlet",
+     "dist_m": 472.6,
+     "lat": 37.392916,
+     "lon": -75.708535
+    },
+    "detail": "detail/us-va/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 37.22582,
+    "lon": -75.803493,
+    "dist_m": 11857.1,
+    "nearest_way": {
+     "id": 745397849,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oyster",
+     "type": "hamlet",
+     "dist_m": 12611.6,
+     "lat": 37.286071,
+     "lon": -75.924028
+    },
+    "detail": "detail/us-va/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 37.490789,
+    "lon": -75.660481,
+    "dist_m": 8817.21,
+    "nearest_way": {
+     "id": 19757369,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Quinby",
+     "type": "village",
+     "dist_m": 9531.9,
+     "lat": 37.553749,
+     "lon": -75.733819
+    },
+    "detail": "detail/us-va/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 37.796124,
+    "lon": -75.891886,
+    "dist_m": 8570.21,
+    "nearest_way": {
+     "id": 689069615,
+     "highway": "track",
+     "name": "Port Isobel Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tangier",
+     "type": "village",
+     "dist_m": 9395.4,
+     "lat": 37.826237,
+     "lon": -75.991603
+    },
+    "detail": "detail/us-va/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 37.570807,
+    "lon": -75.599635,
+    "dist_m": 8539.7,
+    "nearest_way": {
+     "id": 225594195,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wachapreague",
+     "type": "village",
+     "dist_m": 8655.2,
+     "lat": 37.604374,
+     "lon": -75.688088
+    },
+    "detail": "detail/us-va/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 37.893642,
+    "lon": -75.900577,
+    "dist_m": 8518.55,
+    "nearest_way": {
+     "id": 17669856,
+     "highway": "track",
+     "name": "Hammock Pointe",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Byrdtown",
+     "type": "hamlet",
+     "dist_m": 9054.1,
+     "lat": 37.959569,
+     "lon": -75.839932
+    },
+    "detail": "detail/us-va/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 37.861416,
+    "lon": -75.729895,
+    "dist_m": 4844.94,
+    "nearest_way": {
+     "id": 19755329,
+     "highway": "residential",
+     "name": "Guards Shore Road",
+     "ref": "SR 684",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Saxis",
+     "type": "village",
+     "dist_m": 6983.8,
+     "lat": 37.924014,
+     "lon": -75.721874
+    },
+    "detail": "detail/us-va/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 37.165308,
+    "lon": -75.889302,
+    "dist_m": 4831.79,
+    "nearest_way": {
+     "id": 20374565,
+     "highway": "residential",
+     "name": "Magotha Road",
+     "ref": "SR 655",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Townsend",
+     "type": "hamlet",
+     "dist_m": 6519.3,
+     "lat": 37.184981,
+     "lon": -75.958473
+    },
+    "detail": "detail/us-va/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 37.922268,
+    "lon": -76.025967,
+    "dist_m": 4629.45,
+    "nearest_way": {
+     "id": 17664820,
+     "highway": "residential",
+     "name": "Tylerton Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tylerton",
+     "type": "village",
+     "dist_m": 5071.9,
+     "lat": 37.967902,
+     "lon": -76.022991
+    },
+    "detail": "detail/us-va/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 37.378428,
+    "lon": -75.712339,
+    "dist_m": 13306.23,
+    "nearest_way": {
+     "id": 19759753,
+     "highway": "residential",
+     "name": "Seagull Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Broadwater",
+     "type": "hamlet",
+     "dist_m": 1642.8,
+     "lat": 37.392916,
+     "lon": -75.708535
+    },
+    "detail": "detail/us-va/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 37.301837,
+    "lon": -75.772943,
+    "dist_m": 12588.8,
+    "nearest_way": {
+     "id": 20373910,
+     "highway": "tertiary",
+     "name": "Indiantown Road",
+     "ref": "SR 631",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Broadwater",
+     "type": "hamlet",
+     "dist_m": 11608.0,
+     "lat": 37.392916,
+     "lon": -75.708535
+    },
+    "detail": "detail/us-va/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 37.215415,
+    "lon": -75.808595,
+    "dist_m": 11551.04,
+    "nearest_way": {
+     "id": 745397849,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oyster",
+     "type": "hamlet",
+     "dist_m": 12898.5,
+     "lat": 37.286071,
+     "lon": -75.924028
+    },
+    "detail": "detail/us-va/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 37.458912,
+    "lon": -75.658608,
+    "dist_m": 10998.16,
+    "nearest_way": {
+     "id": 19759219,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Broadwater",
+     "type": "hamlet",
+     "dist_m": 8554.5,
+     "lat": 37.392916,
+     "lon": -75.708535
+    },
+    "detail": "detail/us-va/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 38.027437,
+    "lon": -75.24182,
+    "dist_m": 9390.98,
+    "nearest_way": {
+     "id": 19758469,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Duers Neck Landing",
+     "type": "hamlet",
+     "dist_m": 10217.6,
+     "lat": 38.098731,
+     "lon": -75.315471
+    },
+    "detail": "detail/us-va/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 37.796124,
+    "lon": -75.891886,
+    "dist_m": 8815.73,
+    "nearest_way": {
+     "id": 581390486,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tangier",
+     "type": "village",
+     "dist_m": 9395.4,
+     "lat": 37.826237,
+     "lon": -75.991603
+    },
+    "detail": "detail/us-va/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 37.893642,
+    "lon": -75.900577,
+    "dist_m": 8746.13,
+    "nearest_way": {
+     "id": 17671480,
+     "highway": "residential",
+     "name": "Lloyd Webb Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Byrdtown",
+     "type": "hamlet",
+     "dist_m": 9054.1,
+     "lat": 37.959569,
+     "lon": -75.839932
+    },
+    "detail": "detail/us-va/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 37.545296,
+    "lon": -75.620106,
+    "dist_m": 8684.26,
+    "nearest_way": {
+     "id": 19760336,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wachapreague",
+     "type": "village",
+     "dist_m": 8891.5,
+     "lat": 37.604374,
+     "lon": -75.688088
+    },
+    "detail": "detail/us-va/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 36.67466,
+    "lon": -76.455162,
+    "dist_m": 8077.92,
+    "nearest_way": {
+     "id": 637184450,
+     "highway": "unclassified",
+     "name": "Jericho Ditch Lane",
+     "ref": "101",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Suffolk",
+     "type": "city",
+     "dist_m": 12909.9,
+     "lat": 36.728134,
+     "lon": -76.583468
+    },
+    "detail": "detail/us-va/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 37.140822,
+    "lon": -75.873015,
+    "dist_m": 6288.52,
+    "nearest_way": {
+     "id": 20373524,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Townsend",
+     "type": "hamlet",
+     "dist_m": 9035.1,
+     "lat": 37.184981,
+     "lon": -75.958473
+    },
+    "detail": "detail/us-va/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

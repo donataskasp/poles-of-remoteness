@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-wv",
+ "name": "West Virginia",
+ "name_en": "West Virginia",
+ "country": "us",
+ "area_km2": 63033.7,
+ "bbox": [
+  -82.644739,
+  37.2014139,
+  -77.719029,
+  40.638801
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 38.304641,
+    "lon": -80.308382,
+    "dist_m": 5176.64,
+    "nearest_way": {
+     "id": 844430995,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dogway",
+     "type": "hamlet",
+     "dist_m": 9030.0,
+     "lat": 38.240949,
+     "lon": -80.372579
+    },
+    "detail": "detail/us-wv/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 38.777512,
+    "lon": -79.510308,
+    "dist_m": 3722.76,
+    "nearest_way": {
+     "id": 15639187,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Little Italy",
+     "type": "hamlet",
+     "dist_m": 3859.3,
+     "lat": 38.794278,
+     "lon": -79.549219
+    },
+    "detail": "detail/us-wv/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 39.012892,
+    "lon": -79.630517,
+    "dist_m": 3682.21,
+    "nearest_way": {
+     "id": 986461117,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rosendorf",
+     "type": "hamlet",
+     "dist_m": 6823.4,
+     "lat": 39.073996,
+     "lon": -79.622004
+    },
+    "detail": "detail/us-wv/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 38.067695,
+    "lon": -80.182743,
+    "dist_m": 3447.64,
+    "nearest_way": {
+     "id": 15626056,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Denmar",
+     "type": "hamlet",
+     "dist_m": 4064.5,
+     "lat": 38.086405,
+     "lon": -80.222563
+    },
+    "detail": "detail/us-wv/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 39.000917,
+    "lon": -79.367682,
+    "dist_m": 3412.96,
+    "nearest_way": {
+     "id": 641657825,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Laneville",
+     "type": "hamlet",
+     "dist_m": 5335.4,
+     "lat": 38.973986,
+     "lon": -79.418684
+    },
+    "detail": "detail/us-wv/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 39.09236,
+    "lon": -79.28587,
+    "dist_m": 3203.35,
+    "nearest_way": {
+     "id": 688169986,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Streby",
+     "type": "hamlet",
+     "dist_m": 4227.8,
+     "lat": 39.080386,
+     "lon": -79.239484
+    },
+    "detail": "detail/us-wv/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 38.854287,
+    "lon": -79.731745,
+    "dist_m": 3138.41,
+    "nearest_way": {
+     "id": 15638668,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Flint",
+     "type": "hamlet",
+     "dist_m": 159.1,
+     "lat": 38.853721,
+     "lon": -79.730061
+    },
+    "detail": "detail/us-wv/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.036463,
+    "lon": -79.982839,
+    "dist_m": 2925.05,
+    "nearest_way": {
+     "id": 771492265,
+     "highway": "unclassified",
+     "name": "National Forest Road 311",
+     "ref": "NF 311",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Trainer",
+     "type": "hamlet",
+     "dist_m": 4308.2,
+     "lat": 38.039845,
+     "lon": -80.031728
+    },
+    "detail": "detail/us-wv/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 37.514652,
+    "lon": -81.167498,
+    "dist_m": 2908.78,
+    "nearest_way": {
+     "id": 652067714,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Egeria",
+     "type": "hamlet",
+     "dist_m": 3972.1,
+     "lat": 37.539283,
+     "lon": -81.200098
+    },
+    "detail": "detail/us-wv/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 38.91524,
+    "lon": -78.978173,
+    "dist_m": 2787.67,
+    "nearest_way": {
+     "id": 479852666,
+     "highway": "residential",
+     "name": "See Town Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bass",
+     "type": "hamlet",
+     "dist_m": 4236.4,
+     "lat": 38.948444,
+     "lon": -79.002252
+    },
+    "detail": "detail/us-wv/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 38.339688,
+    "lon": -80.333312,
+    "dist_m": 7864.47,
+    "nearest_way": {
+     "id": 556467316,
+     "highway": "unclassified",
+     "name": "Public Road 76",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Jerryville",
+     "type": "hamlet",
+     "dist_m": 9737.8,
+     "lat": 38.425667,
+     "lon": -80.311188
+    },
+    "detail": "detail/us-wv/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 38.455845,
+    "lon": -80.162807,
+    "dist_m": 4539.21,
+    "nearest_way": {
+     "id": 15662816,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Brush Camp Low Place",
+     "type": "hamlet",
+     "dist_m": 719.8,
+     "lat": 38.449835,
+     "lon": -80.165905
+    },
+    "detail": "detail/us-wv/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 38.415769,
+    "lon": -80.864334,
+    "dist_m": 4513.26,
+    "nearest_way": {
+     "id": 751886849,
+     "highway": "unclassified",
+     "name": "Spruce Run Road",
+     "ref": "CR 19/26",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Widen",
+     "type": "hamlet",
+     "dist_m": 5633.0,
+     "lat": 38.466215,
+     "lon": -80.857323
+    },
+    "detail": "detail/us-wv/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 38.522291,
+    "lon": -79.217189,
+    "dist_m": 4482.3,
+    "nearest_way": {
+     "id": 15622423,
+     "highway": "unclassified",
+     "name": "Green Knob Camp Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sugar Grove",
+     "type": "hamlet",
+     "dist_m": 9172.0,
+     "lat": 38.511196,
+     "lon": -79.321406
+    },
+    "detail": "detail/us-wv/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 38.787537,
+    "lon": -79.495886,
+    "dist_m": 4381.59,
+    "nearest_way": {
+     "id": 1387351609,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Horton",
+     "type": "hamlet",
+     "dist_m": 4611.4,
+     "lat": 38.807334,
+     "lon": -79.542553
+    },
+    "detail": "detail/us-wv/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 37.847987,
+    "lon": -81.746356,
+    "dist_m": 4304.53,
+    "nearest_way": {
+     "id": 327482529,
+     "highway": "residential",
+     "name": "Wakmans Branch Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stowe",
+     "type": "hamlet",
+     "dist_m": 4762.2,
+     "lat": 37.806218,
+     "lon": -81.758727
+    },
+    "detail": "detail/us-wv/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 38.779666,
+    "lon": -79.788456,
+    "dist_m": 4177.09,
+    "nearest_way": {
+     "id": 765820566,
+     "highway": "unclassified",
+     "name": "Rich Mountain Road",
+     "ref": "CR 37/8",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Beulah",
+     "type": "hamlet",
+     "dist_m": 4129.3,
+     "lat": 38.751222,
+     "lon": -79.757838
+    },
+    "detail": "detail/us-wv/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 39.064001,
+    "lon": -79.498208,
+    "dist_m": 4154.84,
+    "nearest_way": {
+     "id": 400487357,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Elk",
+     "type": "hamlet",
+     "dist_m": 5808.9,
+     "lat": 39.021775,
+     "lon": -79.537833
+    },
+    "detail": "detail/us-wv/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 38.638769,
+    "lon": -79.159132,
+    "dist_m": 4149.85,
+    "nearest_way": {
+     "id": 20497942,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oak Flat",
+     "type": "hamlet",
+     "dist_m": 5212.2,
+     "lat": 38.659561,
+     "lon": -79.212815
+    },
+    "detail": "detail/us-wv/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 38.478791,
+    "lon": -79.95879,
+    "dist_m": 4074.42,
+    "nearest_way": {
+     "id": 775399563,
+     "highway": "residential",
+     "name": "Big Run",
+     "ref": "CR 219/13",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Spruce",
+     "type": "hamlet",
+     "dist_m": 2456.0,
+     "lat": 38.456783,
+     "lon": -79.955896
+    },
+    "detail": "detail/us-wv/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

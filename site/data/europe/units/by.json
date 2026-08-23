@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "by",
+ "name": "Беларусь",
+ "name_en": "Belarus",
+ "country": "by",
+ "area_km2": 207273.0,
+ "bbox": [
+  23.1786854,
+  51.2626864,
+  32.7627809,
+  56.1722446
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 51.767439,
+    "lon": 27.243773,
+    "dist_m": 10077.98,
+    "nearest_way": {
+     "id": 1239603880,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Drozdyn",
+     "type": "village",
+     "dist_m": 13239.4,
+     "lat": 51.648853,
+     "lon": 27.227942
+    },
+    "detail": "detail/by/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 52.693094,
+    "lon": 25.753709,
+    "dist_m": 7303.18,
+    "nearest_way": {
+     "id": 673924018,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Бабровічы",
+     "type": "hamlet",
+     "dist_m": 9439.5,
+     "lat": 52.608975,
+     "lon": 25.771688
+    },
+    "detail": "detail/by/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 51.873721,
+    "lon": 27.600709,
+    "dist_m": 6568.72,
+    "nearest_way": {
+     "id": 574177582,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Тонежская Рудня",
+     "type": "hamlet",
+     "dist_m": 8023.3,
+     "lat": 51.885124,
+     "lon": 27.715755
+    },
+    "detail": "detail/by/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 51.955963,
+    "lon": 28.002836,
+    "dist_m": 6541.18,
+    "nearest_way": {
+     "id": 217417778,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Сіманіцкі Млынок",
+     "type": "hamlet",
+     "dist_m": 6869.2,
+     "lat": 51.89624,
+     "lon": 27.977539
+    },
+    "detail": "detail/by/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 54.579675,
+    "lon": 28.380116,
+    "dist_m": 6148.35,
+    "nearest_way": {
+     "id": 1208849431,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Уборак",
+     "type": "hamlet",
+     "dist_m": 6471.6,
+     "lat": 54.560434,
+     "lon": 28.285695
+    },
+    "detail": "detail/by/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 51.937823,
+    "lon": 27.71153,
+    "dist_m": 5777.71,
+    "nearest_way": {
+     "id": 106229580,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Тонежская Рудня",
+     "type": "hamlet",
+     "dist_m": 5870.8,
+     "lat": 51.885124,
+     "lon": 27.715755
+    },
+    "detail": "detail/by/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 54.71203,
+    "lon": 28.431574,
+    "dist_m": 5461.21,
+    "nearest_way": {
+     "id": 125541828,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Стайск",
+     "type": "hamlet",
+     "dist_m": 6847.8,
+     "lat": 54.740418,
+     "lon": 28.525864
+    },
+    "detail": "detail/by/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 52.682334,
+    "lon": 26.038929,
+    "dist_m": 5175.56,
+    "nearest_way": {
+     "id": 777579499,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Свяціца",
+     "type": "village",
+     "dist_m": 8533.4,
+     "lat": 52.75901,
+     "lon": 26.0406
+    },
+    "detail": "detail/by/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 55.599679,
+    "lon": 27.913882,
+    "dist_m": 5065.71,
+    "nearest_way": {
+     "id": 1282304867,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Краснаўцы",
+     "type": "hamlet",
+     "dist_m": 5070.5,
+     "lat": 55.604428,
+     "lon": 27.993887
+    },
+    "detail": "detail/by/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 52.045136,
+    "lon": 24.924769,
+    "dist_m": 4758.19,
+    "nearest_way": {
+     "id": 543989125,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Галік",
+     "type": "hamlet",
+     "dist_m": 4866.3,
+     "lat": 52.087959,
+     "lon": 24.939183
+    },
+    "detail": "detail/by/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 51.77562,
+    "lon": 27.233481,
+    "dist_m": 11669.56,
+    "nearest_way": {
+     "id": 119553488,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Альманы",
+     "type": "village",
+     "dist_m": 12353.0,
+     "lat": 51.808846,
+     "lon": 27.062647
+    },
+    "detail": "detail/by/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 51.872104,
+    "lon": 27.22815,
+    "dist_m": 11239.9,
+    "nearest_way": {
+     "id": 119553488,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Старына",
+     "type": "hamlet",
+     "dist_m": 11437.9,
+     "lat": 51.974,
+     "lon": 27.20618
+    },
+    "detail": "detail/by/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 52.735922,
+    "lon": 25.837265,
+    "dist_m": 10434.51,
+    "nearest_way": {
+     "id": 1379122419,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Тухавічы",
+     "type": "village",
+     "dist_m": 11907.3,
+     "lat": 52.809101,
+     "lon": 25.965984
+    },
+    "detail": "detail/by/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 51.678558,
+    "lon": 30.085888,
+    "dist_m": 10311.99,
+    "nearest_way": {
+     "id": 1171291542,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Дуброўнае",
+     "type": "hamlet",
+     "dist_m": 13408.6,
+     "lat": 51.798164,
+     "lon": 30.109669
+    },
+    "detail": "detail/by/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 54.616774,
+    "lon": 28.41408,
+    "dist_m": 10129.44,
+    "nearest_way": {
+     "id": 177018014,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Уборак",
+     "type": "hamlet",
+     "dist_m": 10402.8,
+     "lat": 54.560434,
+     "lon": 28.285695
+    },
+    "detail": "detail/by/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 52.681702,
+    "lon": 25.677518,
+    "dist_m": 10079.8,
+    "nearest_way": {
+     "id": 420092513,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Бабровічы",
+     "type": "hamlet",
+     "dist_m": 10301.7,
+     "lat": 52.608975,
+     "lon": 25.771688
+    },
+    "detail": "detail/by/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 51.912798,
+    "lon": 27.585832,
+    "dist_m": 9181.45,
+    "nearest_way": {
+     "id": 942484527,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Тонежская Рудня",
+     "type": "hamlet",
+     "dist_m": 9458.2,
+     "lat": 51.885124,
+     "lon": 27.715755
+    },
+    "detail": "detail/by/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 51.544031,
+    "lon": 30.241464,
+    "dist_m": 8936.95,
+    "nearest_way": {
+     "id": 206224038,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ua"
+    },
+    "nearest_place": {
+     "name": "Савічы",
+     "type": "hamlet",
+     "dist_m": 9803.8,
+     "lat": 51.62201,
+     "lon": 30.30733
+    },
+    "detail": "detail/by/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 51.966583,
+    "lon": 28.02251,
+    "dist_m": 8230.28,
+    "nearest_way": {
+     "id": 461909375,
+     "highway": "residential",
+     "name": "Школьная вуліца",
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Сіманіцкі Млынок",
+     "type": "hamlet",
+     "dist_m": 8415.8,
+     "lat": 51.89624,
+     "lon": 27.977539
+    },
+    "detail": "detail/by/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 52.767705,
+    "lon": 31.037248,
+    "dist_m": 8182.51,
+    "nearest_way": {
+     "id": 404513277,
+     "highway": "residential",
+     "name": null,
+     "ref": "Н4679",
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Навілаўка",
+     "type": "hamlet",
+     "dist_m": 8569.9,
+     "lat": 52.829559,
+     "lon": 31.11294
+    },
+    "detail": "detail/by/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

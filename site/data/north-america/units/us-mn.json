@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-mn",
+ "name": "Minnesota",
+ "name_en": "Minnesota",
+ "country": "us",
+ "area_km2": 212535.3,
+ "bbox": [
+  -97.2392619,
+  43.4994288,
+  -89.4833363,
+  49.3844722
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 48.111687,
+    "lon": -91.199053,
+    "dist_m": 22873.92,
+    "nearest_way": {
+     "id": 831525360,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prairie Portage",
+     "type": "isolated_dwelling",
+     "dist_m": 19061.2,
+     "lat": 48.050402,
+     "lon": -91.437973
+    },
+    "detail": "detail/us-mn/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 48.031018,
+    "lon": -91.134869,
+    "dist_m": 21461.42,
+    "nearest_way": {
+     "id": 1335974388,
+     "highway": "track",
+     "name": "FH 5 Spur 1351 Spur B",
+     "ref": "1351B",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prairie Portage",
+     "type": "isolated_dwelling",
+     "dist_m": 22703.9,
+     "lat": 48.050402,
+     "lon": -91.437973
+    },
+    "detail": "detail/us-mn/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 49.125327,
+    "lon": -94.775865,
+    "dist_m": 21252.58,
+    "nearest_way": {
+     "id": 18132628,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Long Point",
+     "type": "hamlet",
+     "dist_m": 21269.1,
+     "lat": 48.977215,
+     "lon": -94.959949
+    },
+    "detail": "detail/us-mn/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 48.198344,
+    "lon": -91.715969,
+    "dist_m": 18266.76,
+    "nearest_way": {
+     "id": 18236204,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prairie Portage",
+     "type": "isolated_dwelling",
+     "dist_m": 26437.0,
+     "lat": 48.050402,
+     "lon": -91.437973
+    },
+    "detail": "detail/us-mn/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 48.253658,
+    "lon": -91.959028,
+    "dist_m": 17183.71,
+    "nearest_way": {
+     "id": 18236193,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lac La Croix",
+     "type": "village",
+     "dist_m": 20356.6,
+     "lat": 48.376157,
+     "lon": -92.162987
+    },
+    "detail": "detail/us-mn/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 47.988339,
+    "lon": -91.014087,
+    "dist_m": 16310.12,
+    "nearest_way": {
+     "id": 18052884,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Forest Center",
+     "type": "hamlet",
+     "dist_m": 30732.4,
+     "lat": 47.794901,
+     "lon": -91.307635
+    },
+    "detail": "detail/us-mn/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 47.958518,
+    "lon": -91.219879,
+    "dist_m": 15904.46,
+    "nearest_way": {
+     "id": 1471599967,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prairie Portage",
+     "type": "isolated_dwelling",
+     "dist_m": 19215.0,
+     "lat": 48.050402,
+     "lon": -91.437973
+    },
+    "detail": "detail/us-mn/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 48.17101,
+    "lon": -91.096966,
+    "dist_m": 14715.55,
+    "nearest_way": {
+     "id": 18051593,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prairie Portage",
+     "type": "isolated_dwelling",
+     "dist_m": 28716.9,
+     "lat": 48.050402,
+     "lon": -91.437973
+    },
+    "detail": "detail/us-mn/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 48.103235,
+    "lon": -91.613483,
+    "dist_m": 14283.37,
+    "nearest_way": {
+     "id": 1172289454,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prairie Portage",
+     "type": "isolated_dwelling",
+     "dist_m": 14337.0,
+     "lat": 48.050402,
+     "lon": -91.437973
+    },
+    "detail": "detail/us-mn/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 48.550017,
+    "lon": -92.90564,
+    "dist_m": 13388.59,
+    "nearest_way": {
+     "id": 18249821,
+     "highway": "residential",
+     "name": "Waltz Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kabetogama",
+     "type": "village",
+     "dist_m": 15393.5,
+     "lat": 48.437695,
+     "lon": -93.027374
+    },
+    "detail": "detail/us-mn/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 48.111687,
+    "lon": -91.199053,
+    "dist_m": 22873.92,
+    "nearest_way": {
+     "id": 831525360,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prairie Portage",
+     "type": "isolated_dwelling",
+     "dist_m": 19061.2,
+     "lat": 48.050402,
+     "lon": -91.437973
+    },
+    "detail": "detail/us-mn/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 48.034385,
+    "lon": -91.127754,
+    "dist_m": 21783.14,
+    "nearest_way": {
+     "id": 816216190,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prairie Portage",
+     "type": "isolated_dwelling",
+     "dist_m": 23199.6,
+     "lat": 48.050402,
+     "lon": -91.437973
+    },
+    "detail": "detail/us-mn/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 49.125776,
+    "lon": -94.775881,
+    "dist_m": 21290.7,
+    "nearest_way": {
+     "id": 18132628,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Long Point",
+     "type": "hamlet",
+     "dist_m": 21307.1,
+     "lat": 48.977215,
+     "lon": -94.959949
+    },
+    "detail": "detail/us-mn/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 48.19839,
+    "lon": -91.716102,
+    "dist_m": 19766.03,
+    "nearest_way": {
+     "id": 620770183,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prairie Portage",
+     "type": "isolated_dwelling",
+     "dist_m": 26448.0,
+     "lat": 48.050402,
+     "lon": -91.437973
+    },
+    "detail": "detail/us-mn/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 48.253658,
+    "lon": -91.959028,
+    "dist_m": 17356.37,
+    "nearest_way": {
+     "id": 1477330609,
+     "highway": "tertiary",
+     "name": "Echo Trail",
+     "ref": "CR 116",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lac La Croix",
+     "type": "village",
+     "dist_m": 20356.6,
+     "lat": 48.376157,
+     "lon": -92.162987
+    },
+    "detail": "detail/us-mn/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 49.186353,
+    "lon": -94.879082,
+    "dist_m": 16483.44,
+    "nearest_way": {
+     "id": 18132203,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Penasse",
+     "type": "hamlet",
+     "dist_m": 20991.1,
+     "lat": 49.367615,
+     "lon": -94.959495
+    },
+    "detail": "detail/us-mn/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 47.964841,
+    "lon": -91.214198,
+    "dist_m": 16274.17,
+    "nearest_way": {
+     "id": 1471599967,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prairie Portage",
+     "type": "isolated_dwelling",
+     "dist_m": 19216.9,
+     "lat": 48.050402,
+     "lon": -91.437973
+    },
+    "detail": "detail/us-mn/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 47.987982,
+    "lon": -91.01076,
+    "dist_m": 16133.53,
+    "nearest_way": {
+     "id": 18052884,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Forest Center",
+     "type": "hamlet",
+     "dist_m": 30883.1,
+     "lat": 47.794901,
+     "lon": -91.307635
+    },
+    "detail": "detail/us-mn/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 48.113979,
+    "lon": -91.651929,
+    "dist_m": 15654.9,
+    "nearest_way": {
+     "id": 620986059,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prairie Portage",
+     "type": "isolated_dwelling",
+     "dist_m": 17438.3,
+     "lat": 48.050402,
+     "lon": -91.437973
+    },
+    "detail": "detail/us-mn/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 48.226079,
+    "lon": -95.012272,
+    "dist_m": 14858.76,
+    "nearest_way": {
+     "id": 18011285,
+     "highway": "residential",
+     "name": "Rapid River Road Northwest",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Thorhult",
+     "type": "hamlet",
+     "dist_m": 17523.1,
+     "lat": 48.230243,
+     "lon": -95.248045
+    },
+    "detail": "detail/us-mn/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

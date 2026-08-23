@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "lu",
+ "name": "Lëtzebuerg",
+ "name_en": "Luxembourg",
+ "country": "lu",
+ "area_km2": 2655.6,
+ "bbox": [
+  5.7356988,
+  49.4478587,
+  6.5312481,
+  50.1827989
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 49.751631,
+    "lon": 5.873729,
+    "dist_m": 471.61,
+    "nearest_way": {
+     "id": 33891947,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Ell",
+     "type": "village",
+     "dist_m": 1889.7,
+     "lat": 49.762846,
+     "lon": 5.854027
+    },
+    "detail": "detail/lu/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 49.721266,
+    "lon": 6.194479,
+    "dist_m": 468.1,
+    "nearest_way": {
+     "id": 48213467,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Stuppicht",
+     "type": "hamlet",
+     "dist_m": 681.1,
+     "lat": 49.725477,
+     "lon": 6.187623
+    },
+    "detail": "detail/lu/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 49.843115,
+    "lon": 5.827904,
+    "dist_m": 453.77,
+    "nearest_way": {
+     "id": 130294541,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Koetschette",
+     "type": "village",
+     "dist_m": 965.9,
+     "lat": 49.838462,
+     "lon": 5.839242
+    },
+    "detail": "detail/lu/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 49.752044,
+    "lon": 6.049602,
+    "dist_m": 451.46,
+    "nearest_way": {
+     "id": 36884589,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Hosbich",
+     "type": "hamlet",
+     "dist_m": 431.1,
+     "lat": 49.754514,
+     "lon": 6.054211
+    },
+    "detail": "detail/lu/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 50.139894,
+    "lon": 5.961369,
+    "dist_m": 449.92,
+    "nearest_way": {
+     "id": 117534039,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Kierchermillen",
+     "type": "hamlet",
+     "dist_m": 752.0,
+     "lat": 50.13801,
+     "lon": 5.971472
+    },
+    "detail": "detail/lu/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 49.772343,
+    "lon": 6.465177,
+    "dist_m": 446.8,
+    "nearest_way": {
+     "id": 130052326,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Pafebierg",
+     "type": "hamlet",
+     "dist_m": 1129.0,
+     "lat": 49.766564,
+     "lon": 6.452293
+    },
+    "detail": "detail/lu/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 49.59426,
+    "lon": 5.925034,
+    "dist_m": 437.49,
+    "nearest_way": {
+     "id": 418256222,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Hivange",
+     "type": "village",
+     "dist_m": 1314.4,
+     "lat": 49.60564,
+     "lon": 5.929936
+    },
+    "detail": "detail/lu/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 49.842713,
+    "lon": 6.185574,
+    "dist_m": 436.89,
+    "nearest_way": {
+     "id": 225017608,
+     "highway": "secondary",
+     "name": "Rue de Broderbour",
+     "ref": "CR 356",
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Broderbour",
+     "type": "hamlet",
+     "dist_m": 1005.0,
+     "lat": 49.851748,
+     "lon": 6.185541
+    },
+    "detail": "detail/lu/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 50.036746,
+    "lon": 5.858128,
+    "dist_m": 426.8,
+    "nearest_way": {
+     "id": 323936683,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Allerborn",
+     "type": "village",
+     "dist_m": 870.1,
+     "lat": 50.035643,
+     "lon": 5.870152
+    },
+    "detail": "detail/lu/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 49.570079,
+    "lon": 6.119201,
+    "dist_m": 422.71,
+    "nearest_way": {
+     "id": 768560118,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Kockelscheuer",
+     "type": "hamlet",
+     "dist_m": 1904.3,
+     "lat": 49.555386,
+     "lon": 6.105688
+    },
+    "detail": "detail/lu/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 50.074745,
+    "lon": 6.109844,
+    "dist_m": 1801.3,
+    "nearest_way": {
+     "id": 25493467,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "K 148",
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Tintesmühle",
+     "type": "hamlet",
+     "dist_m": 2386.7,
+     "lat": 50.093517,
+     "lon": 6.125998
+    },
+    "detail": "detail/lu/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 49.486871,
+    "lon": 6.141932,
+    "dist_m": 1674.18,
+    "nearest_way": {
+     "id": 35571224,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "Hellange",
+     "type": "village",
+     "dist_m": 2527.6,
+     "lat": 49.509256,
+     "lon": 6.147957
+    },
+    "detail": "detail/lu/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 49.944127,
+    "lon": 5.831043,
+    "dist_m": 1637.14,
+    "nearest_way": {
+     "id": 143821082,
+     "highway": "primary",
+     "name": null,
+     "ref": "N 26A",
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Sollermillen",
+     "type": "isolated_dwelling",
+     "dist_m": 1966.9,
+     "lat": 49.961631,
+     "lon": 5.827157
+    },
+    "detail": "detail/lu/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 49.765598,
+    "lon": 6.4113,
+    "dist_m": 1573.18,
+    "nearest_way": {
+     "id": 134255806,
+     "highway": "secondary",
+     "name": null,
+     "ref": "CR 139",
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Frombuergerhaff",
+     "type": "isolated_dwelling",
+     "dist_m": 1655.4,
+     "lat": 49.780323,
+     "lon": 6.407961
+    },
+    "detail": "detail/lu/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 49.813715,
+    "lon": 6.063336,
+    "dist_m": 1384.16,
+    "nearest_way": {
+     "id": 106947689,
+     "highway": "secondary",
+     "name": null,
+     "ref": "CR 345",
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Berg",
+     "type": "village",
+     "dist_m": 1725.5,
+     "lat": 49.812769,
+     "lon": 6.087265
+    },
+    "detail": "detail/lu/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 49.797922,
+    "lon": 5.91307,
+    "dist_m": 1345.37,
+    "nearest_way": {
+     "id": 605660396,
+     "highway": "secondary",
+     "name": null,
+     "ref": "CR 116",
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Horas",
+     "type": "hamlet",
+     "dist_m": 1425.2,
+     "lat": 49.809998,
+     "lon": 5.919689
+    },
+    "detail": "detail/lu/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 49.578971,
+    "lon": 6.330048,
+    "dist_m": 1337.28,
+    "nearest_way": {
+     "id": 147034601,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Heesberhaff",
+     "type": "hamlet",
+     "dist_m": 1408.4,
+     "lat": 49.574308,
+     "lon": 6.311943
+    },
+    "detail": "detail/lu/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 49.601544,
+    "lon": 5.972461,
+    "dist_m": 1292.57,
+    "nearest_way": {
+     "id": 367293960,
+     "highway": "primary",
+     "name": "Rue des Trois Cantons",
+     "ref": "N 13",
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Dippach",
+     "type": "village",
+     "dist_m": 1691.9,
+     "lat": 49.587507,
+     "lon": 5.981479
+    },
+    "detail": "detail/lu/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 49.830408,
+    "lon": 6.259315,
+    "dist_m": 1261.66,
+    "nearest_way": {
+     "id": 28560705,
+     "highway": "unclassified",
+     "name": "Grevenhaff",
+     "ref": null,
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Pletschette",
+     "type": "hamlet",
+     "dist_m": 1361.2,
+     "lat": 49.818325,
+     "lon": 6.262316
+    },
+    "detail": "detail/lu/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 49.680779,
+    "lon": 6.197943,
+    "dist_m": 1230.63,
+    "nearest_way": {
+     "id": 94131658,
+     "highway": "secondary",
+     "name": null,
+     "ref": "CR 119",
+     "country": "lu"
+    },
+    "nearest_place": {
+     "name": "Eisenborn",
+     "type": "village",
+     "dist_m": 1512.1,
+     "lat": 49.691221,
+     "lon": 6.184524
+    },
+    "detail": "detail/lu/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

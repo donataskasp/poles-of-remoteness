@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "mk",
+ "name": "Северна Македонија",
+ "name_en": "North Macedonia",
+ "country": "mk",
+ "area_km2": 25112.8,
+ "bbox": [
+  20.4529023,
+  40.852478,
+  23.0341407,
+  42.3739044
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.283876,
+    "lon": 21.896498,
+    "dist_m": 4983.31,
+    "nearest_way": {
+     "id": 168768162,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Galishte",
+     "type": "village",
+     "dist_m": 4835.8,
+     "lat": 41.320142,
+     "lon": 21.864542
+    },
+    "detail": "detail/mk/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 41.732476,
+    "lon": 21.338207,
+    "dist_m": 4700.76,
+    "nearest_way": {
+     "id": 1495475866,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Belica",
+     "type": "village",
+     "dist_m": 6730.2,
+     "lat": 41.677089,
+     "lon": 21.305411
+    },
+    "detail": "detail/mk/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 41.677979,
+    "lon": 22.00919,
+    "dist_m": 4515.28,
+    "nearest_way": {
+     "id": 877790605,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Bekirlija",
+     "type": "hamlet",
+     "dist_m": 5712.6,
+     "lat": 41.680234,
+     "lon": 21.94065
+    },
+    "detail": "detail/mk/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 41.173593,
+    "lon": 22.135905,
+    "dist_m": 4444.99,
+    "nearest_way": {
+     "id": 314866867,
+     "highway": "track",
+     "name": ">Ψηλή",
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Aetochori",
+     "type": "village",
+     "dist_m": 9334.0,
+     "lat": 41.09501,
+     "lon": 22.175334
+    },
+    "detail": "detail/mk/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 41.618856,
+    "lon": 21.353265,
+    "dist_m": 4432.72,
+    "nearest_way": {
+     "id": 399605790,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Oreshe",
+     "type": "village",
+     "dist_m": 5430.4,
+     "lat": 41.619326,
+     "lon": 21.418419
+    },
+    "detail": "detail/mk/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 41.574331,
+    "lon": 22.733276,
+    "dist_m": 4339.09,
+    "nearest_way": {
+     "id": 711129494,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Visoka Maala",
+     "type": "village",
+     "dist_m": 4553.9,
+     "lat": 41.555413,
+     "lon": 22.68484
+    },
+    "detail": "detail/mk/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 41.60584,
+    "lon": 22.61362,
+    "dist_m": 4311.54,
+    "nearest_way": {
+     "id": 711097363,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Jargulica",
+     "type": "village",
+     "dist_m": 4726.6,
+     "lat": 41.587828,
+     "lon": 22.562255
+    },
+    "detail": "detail/mk/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 41.49249,
+    "lon": 21.59983,
+    "dist_m": 4261.86,
+    "nearest_way": {
+     "id": 150214421,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Stepanci",
+     "type": "village",
+     "dist_m": 4295.3,
+     "lat": 41.49493,
+     "lon": 21.651165
+    },
+    "detail": "detail/mk/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.593912,
+    "lon": 22.061724,
+    "dist_m": 4183.14,
+    "nearest_way": {
+     "id": 172369487,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Dzhidimirci",
+     "type": "village",
+     "dist_m": 4921.3,
+     "lat": 41.549655,
+     "lon": 22.05882
+    },
+    "detail": "detail/mk/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.796115,
+    "lon": 22.589768,
+    "dist_m": 4024.24,
+    "nearest_way": {
+     "id": 1361450913,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Blatec",
+     "type": "village",
+     "dist_m": 4610.2,
+     "lat": 41.836796,
+     "lon": 22.57875
+    },
+    "detail": "detail/mk/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.068841,
+    "lon": 21.884256,
+    "dist_m": 9760.59,
+    "nearest_way": {
+     "id": 257537098,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Polchishte",
+     "type": "village",
+     "dist_m": 10098.4,
+     "lat": 41.147723,
+     "lon": 21.82445
+    },
+    "detail": "detail/mk/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 41.638065,
+    "lon": 22.714859,
+    "dist_m": 8808.67,
+    "nearest_way": {
+     "id": 634373579,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Безгаштево",
+     "type": "hamlet",
+     "dist_m": 4480.8,
+     "lat": 41.611996,
+     "lon": 22.755894
+    },
+    "detail": "detail/mk/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 41.730219,
+    "lon": 22.606886,
+    "dist_m": 8646.8,
+    "nearest_way": {
+     "id": 187313438,
+     "highway": "secondary",
+     "name": null,
+     "ref": "R1310",
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Smilanci",
+     "type": "village",
+     "dist_m": 3738.2,
+     "lat": 41.696586,
+     "lon": 22.605181
+    },
+    "detail": "detail/mk/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 40.999571,
+    "lon": 21.804359,
+    "dist_m": 8316.44,
+    "nearest_way": {
+     "id": 229682162,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Budimirci",
+     "type": "village",
+     "dist_m": 8944.7,
+     "lat": 41.056239,
+     "lon": 21.728778
+    },
+    "detail": "detail/mk/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 41.878278,
+    "lon": 20.736738,
+    "dist_m": 8210.18,
+    "nearest_way": {
+     "id": 240941890,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Lomnica",
+     "type": "hamlet",
+     "dist_m": 8221.0,
+     "lat": 41.895859,
+     "lon": 20.832955
+    },
+    "detail": "detail/mk/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 41.306155,
+    "lon": 21.873048,
+    "dist_m": 7907.1,
+    "nearest_way": {
+     "id": 1396642981,
+     "highway": "living_street",
+     "name": "10.",
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Galishte",
+     "type": "village",
+     "dist_m": 1708.8,
+     "lat": 41.320142,
+     "lon": 21.864542
+    },
+    "detail": "detail/mk/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 41.989139,
+    "lon": 20.798035,
+    "dist_m": 7136.69,
+    "nearest_way": {
+     "id": 197653798,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Novo Selo",
+     "type": "village",
+     "dist_m": 7254.3,
+     "lat": 41.944411,
+     "lon": 20.861805
+    },
+    "detail": "detail/mk/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 41.134529,
+    "lon": 22.110775,
+    "dist_m": 6741.53,
+    "nearest_way": {
+     "id": 665268751,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Aetochori",
+     "type": "village",
+     "dist_m": 6975.9,
+     "lat": 41.09501,
+     "lon": 22.175334
+    },
+    "detail": "detail/mk/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.52634,
+    "lon": 22.912333,
+    "dist_m": 6522.89,
+    "nearest_way": {
+     "id": 711498479,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "isolated_dwelling",
+     "dist_m": 3818.3,
+     "lat": 41.49812,
+     "lon": 22.938457
+    },
+    "detail": "detail/mk/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.778302,
+    "lon": 20.550755,
+    "dist_m": 6490.72,
+    "nearest_way": {
+     "id": 356308825,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Nivishte",
+     "type": "village",
+     "dist_m": 6236.3,
+     "lat": 41.731026,
+     "lon": 20.59121
+    },
+    "detail": "detail/mk/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}
