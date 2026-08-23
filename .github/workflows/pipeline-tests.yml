@@ -8,10 +8,16 @@ on:
   push:
     paths:
       - "pipeline/**"
+      - "docs/**"
+      - "CLAUDE.md"
+      - "README.md"
       - ".github/workflows/pipeline-tests.yml"
   pull_request:
     paths:
       - "pipeline/**"
+      - "docs/**"
+      - "CLAUDE.md"
+      - "README.md"
       - ".github/workflows/pipeline-tests.yml"
 
 jobs:
