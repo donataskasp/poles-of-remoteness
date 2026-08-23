@@ -140,6 +140,26 @@ def test_fail_at_raises_rather_than_capping_silently():
         s.run()
 
 
+def test_progress_line_every_5000_refinements(caplog):
+    """A long plateau has to say something while it works: one INFO line every 5,000 refinements."""
+    n = 5001
+    xs = np.arange(n) * 250.0; ys = np.zeros(n)
+    coarse = np.full(n, 10_000.0); pads = np.zeros(n)
+    # Nothing can be finalised before the end: every refined value stays under (10,000 + 2 * hd) * 1.0.
+    # The values rise with i so each one enters the pending list at its front; equal values would walk
+    # the whole list on every insert and make this test quadratic for no gain.
+    refiner = lambda i: Refined(xs[i], ys[i], 10_000.0 + i * 0.05, None)
+    log = logging.getLogger("poles.candidates.progress")
+    with caplog.at_level(logging.INFO, logger=log.name):
+        r = Search(xs, ys, coarse, pads, 250.0, top_n=1, refiner=refiner, dedup_m=0.0, log=log).run()
+    assert r.refinements == n
+    progress = [rec.getMessage() for rec in caplog.records if rec.levelno == logging.INFO]
+    assert len(progress) == 1 and progress[0].startswith("5000 refinements;")
+    assert "accepted 0 of 1" in progress[0] and " m," in progress[0]
+    assert [rec.getMessage() for rec in caplog.records if rec.levelno == logging.WARNING] == r.warnings
+    assert len(r.warnings) == 1 and r.warnings[0].startswith("500 refinements")
+
+
 def test_pad_window_pair_is_rejected_because_the_ground_distance_is_not_sure():
     """A pair whose map separation sits inside the pad window is not accepted (map 1000 m, pad 0.01,
     so the ground distance is only sure to be 1000 / 1.01 = 990.1 m)."""
@@ -159,6 +179,38 @@ def test_order_maps_back_to_the_callers_index_and_upper_bounds_one_cell():
     assert list(s.order) == [1, 2, 0]
     assert list(s.coarse) == [300.0, 200.0, 100.0] and list(s.xs) == [10.0, 20.0, 0.0]
     assert s.upper(0) == pytest.approx((300.0 + 2 * half_diag(100.0)) * 1.02)
+
+
+def test_cells_sort_by_their_own_upper_bound_not_by_coarse_value():
+    """A far cell with a small pad can bound lower than a nearer cell with a large one."""
+    xs = np.array([0.0, 100_000.0]); ys = np.zeros(2)
+    coarse = np.array([100_000.0, 99_000.0]); pads = np.array([0.01, 0.05])
+    s = Search(xs, ys, coarse, pads, 250.0, top_n=1, refiner=lambda i: None)
+    b_upper = (99_000.0 + 2 * half_diag(250.0)) * 1.05          # about 104,322 m
+    a_upper = (100_000.0 + 2 * half_diag(250.0)) * 1.01         # about 101,357 m
+    assert b_upper > a_upper
+    assert list(s.order) == [1, 0] and list(s.coarse) == [99_000.0, 100_000.0]
+    assert s.uppers[0] == pytest.approx(b_upper) and s.uppers[1] == pytest.approx(a_upper)
+    assert s.upper(0) == pytest.approx(b_upper)
+
+
+def test_per_cell_bound_prunes_what_the_unit_wide_pad_would_have_refined():
+    """P refines to its coarse value; Q's own bound is below it, so Q is never refined.
+
+    Under the unit-wide pad_max (0.10, carried by R) Q was bounded at (98,000 + 2 * hd) * 1.10, about
+    108,189 m, which sits above P's 100,000 m, so the old rule refined Q as well.
+    """
+    xs = np.array([0.0, 100_000.0, 200_000.0]); ys = np.zeros(3)
+    coarse = np.array([100_000.0, 98_000.0, 90_000.0])          # P, Q, R
+    pads = np.array([0.01, 0.01, 0.10])
+    s = Search(xs, ys, coarse, pads, 250.0, top_n=1, dedup_m=0.0,
+               refiner=lambda i: Refined(float(s.xs[i]), float(s.ys[i]), float(s.coarse[i]), None))
+    assert s.uppers[1] == pytest.approx((90_000.0 + 2 * half_diag(250.0)) * 1.10)   # R sorts above Q
+    assert s.uppers[2] == pytest.approx((98_000.0 + 2 * half_diag(250.0)) * 1.01)
+    assert s.uppers[2] < 100_000.0                                                 # Q cannot beat P
+    r = s.run()
+    assert r.refinements == 1
+    assert r.accepted[0].x == 0.0 and r.accepted[0].dist_m == pytest.approx(100_000.0)
 
 
 def test_mismatched_input_lengths_are_rejected():

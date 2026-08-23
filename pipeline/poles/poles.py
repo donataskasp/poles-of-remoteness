@@ -400,7 +400,8 @@ def search_unit(job: UnitJob) -> dict:
 
     search = Search(xs, ys, coarse, pads, frame.res, job.top_n, refiner, DEDUP_M, log=log)
     # `refiner` reads these by name, so they must be bound before search.run(): Search sorts the cells by
-    # coarse value and the refiner is called with indices into that sorted order, not into the raw arrays.
+    # their upper bound and the refiner is called with indices into that sorted order, not into the raw
+    # arrays; the road window still comes from the cell's own coarse value, read as coarse_sorted[i].
     coarse_sorted, x_sorted, y_sorted = search.coarse, search.xs, search.ys
     lon_sorted, lat_sorted = np.asarray(lons)[search.order], np.asarray(lats)[search.order]
     result = search.run()
