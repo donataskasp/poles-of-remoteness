@@ -37,13 +37,17 @@ function renderLegend() {
   ui.legend.innerHTML = rows.map((r) => `<li class="legend__item"><span class="legend__swatch" style="background:${r.color}"></span>${fmtDist(r.label_m)}</li>`).join('');
 }
 
-// The readout holds a sample, not a string, so it can be said again in another language. The hint and the
-// wait for a tile are samples of their own kind for exactly that reason.
+// The readout holds a sample, not a string, so it can be said again in another language. The hint, the wait
+// for a tile and the three locate messages are samples of their own kind for exactly that reason: they say
+// something about the attempt rather than about a place, and each one's I18N key is its kind.
+const LOCATE_KINDS = new Set(['locateDenied', 'locateUnavailable', 'locateOutside']);
+
 function readoutText(sample) {
   if (!sample) return '';
   if (sample.kind === 'hint') return t('readoutHint');
   if (sample.kind === 'loading') return t('readoutLoading');
   if (sample.kind === 'error') return t('loadError');
+  if (LOCATE_KINDS.has(sample.kind)) return t(sample.kind);
   return formatSample(sample);
 }
 
@@ -62,6 +66,7 @@ function applyLanguage(lang) {
   if (ui.ranking) ui.ranking.refresh();
   if (ui.refreshAttribution) ui.refreshAttribution();
   if (ui.refreshZoomTitles) ui.refreshZoomTitles();
+  if (ui.here) ui.here.setTooltipContent(t('locateHere'));
   if (ui.readout) ui.readout.restate(readoutText(state.sample));
 }
 
@@ -126,20 +131,29 @@ async function main() {
   });
   ui.ranking.setRows(region, units, state.s, unit && unit.code);
 
-  let here = null;
   ui.locate = () => {
-    ui.readout.show(t('readoutLoading'), { sticky: true });
+    say({ kind: 'loading' }, { sticky: true });
     map.locate({ setView: true, maxZoom: 11, timeout: 15000 });
   };
   map.on('locationfound', (e) => {
-    if (here) map.removeLayer(here);
-    here = L.circleMarker(e.latlng, { radius: 7, color: '#fff', weight: 2, fillColor: '#1d6fe0', fillOpacity: 1 })
+    if (ui.here) map.removeLayer(ui.here);
+    ui.here = L.circleMarker(e.latlng, { radius: 7, color: '#fff', weight: 2, fillColor: '#1d6fe0', fillOpacity: 1 })
       .bindTooltip(t('locateHere')).addTo(map);
-    const hit = unitAt(units, e.latlng);
-    if (hit && hit.code !== state.unit) openUnit(hit.code, { view: 'keep' });
+    const hit = unitAt(units, e.latlng, visitor().country);
+    // Outside every unit bbox the dot is still true, but there is no unit to open and nothing to read there.
+    if (!hit) { say({ kind: 'locateOutside' }, { sticky: true }); return; }
+    if (hit.code !== state.unit) openUnit(hit.code, { view: 'keep' });
     showSample(e.latlng);
+    // The locate has just jumped the view, so the tiles under the new one may still be in flight and the
+    // first read says "reading" for good. GridLayer fires load once every visible tile is in: read again
+    // then, unless the reader has produced a sample of their own meanwhile.
+    if (explore[state.s].classAt(e.latlng) === undefined) {
+      explore[state.s].once('load', () => {
+        if (state.sample && state.sample.kind === 'loading') showSample(e.latlng);
+      });
+    }
   });
-  map.on('locationerror', (e) => ui.readout.show(t(e.code === 1 ? 'locateDenied' : 'locateUnavailable'), { sticky: true }));
+  map.on('locationerror', (e) => say({ kind: e.code === 1 ? 'locateDenied' : 'locateUnavailable' }, { sticky: true }));
 
   const about = document.getElementById('about');
   document.getElementById('about-btn').addEventListener('click', () => {
@@ -147,7 +161,12 @@ async function main() {
     for (const el of about.querySelectorAll('.detail-res')) el.textContent = String(region.detail_res_m);
     about.showModal();
   });
-  about.addEventListener('click', (e) => { if (e.target === about) about.close(); });
+  // Close on a click outside the dialog box. Testing the target alone would also close on the dialog's own
+  // padding ring, which is part of the dialog and not the backdrop.
+  about.addEventListener('click', (e) => {
+    const r = about.getBoundingClientRect();
+    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) about.close();
+  });
 
   let current = { unit, doc: null, rank: 1 };
 

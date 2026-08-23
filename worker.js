@@ -75,15 +75,19 @@ export default {
     if (request.method !== 'GET' || !where.page) return env.ASSETS.fetch(request);
 
     const response = await env.ASSETS.fetch(request);
-    const type = response.headers.get('Content-Type') || '';
-    if (!type.includes('text/html')) return response;
+    const html = (response.headers.get('Content-Type') || '').includes('text/html');
+    // A 304 carries no Content-Type and no body. On a page path it is a returning visitor's conditional GET,
+    // which the assets layer can only have answered from index.html, so it is a page view like any other.
+    if (!html && response.status !== 304) return response;
 
     try {
       const ua = request.headers.get('User-Agent') || '';
       env.SITE_VIEWS.writeDataPoint({
         /* Fixed blob order, do not reshuffle: queries address blobs positionally.
              blob1 country,  blob2 colo,           blob3 referrer host, blob4 browser,
-             blob5 OS family, blob6 hostname,      blob7 landing region, blob8 landing unit */
+             blob5 OS family, blob6 hostname,      blob7 landing region, blob8 landing unit
+           The landing region is whatever the path said, so queries filter blob7 to the known region ids:
+           an extension-less junk path like '/wp-admin' is served index.html and logs a region that is not. */
         blobs: [
           (request.cf && request.cf.country) || '',
           (request.cf && request.cf.colo) || '',
@@ -102,7 +106,7 @@ export default {
     }
 
     const code = visitorCode(request.cf);
-    if (!code) return response;
+    if (!html || !code) return response; // a 304 has no body to stamp
     return new HTMLRewriter()
       .on('head', { element(el) { el.append(`<meta name="visitor" content="${code}">`, { html: true }); } })
       .transform(response);

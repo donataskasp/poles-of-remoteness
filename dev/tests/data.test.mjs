@@ -61,3 +61,29 @@ test('data: unitAt picks the smallest unit whose bbox contains the point', () =>
   assert.equal(unitAt(units, { lat: 48.8, lng: 2.3 }).code, 'fr');
   assert.equal(unitAt(units, { lat: 60, lng: 20 }), null);
 });
+
+// Bboxes as they really overlap in the Baltics: Latvia's south edge reaches into the northern third of
+// Lithuania and Belarus's bbox reaches over both, so a point near Utena hits three units.
+const BALTIC = [
+  { code: 'lv', country: 'LV', area_km2: 64407, bbox: [20.97, 55.67, 28.24, 58.09] },
+  { code: 'lt', country: 'LT', area_km2: 64833, bbox: [20.95, 53.89, 26.87, 56.45] },
+  { code: 'by', country: 'BY', area_km2: 207273, bbox: [23.18, 51.26, 32.77, 56.17] },
+];
+// Two units of one country over one point plus a smaller unit of another, in the North American shape
+// (unit code 'us-ak', country 'us'). Areas and bboxes here are made up to force the overlap.
+const NESTED = [
+  { code: 'us-ak', country: 'US', area_km2: 1723337, bbox: [-150, 60, -130, 70] },
+  { code: 'us-wy', country: 'US', area_km2: 253335, bbox: [-145, 62, -135, 68] },
+  { code: 'ca-yt', country: 'CA', area_km2: 100000, bbox: [-144, 63, -136, 67] },
+];
+
+test('data: unitAt prefers a hit in the visitor country, then the smallest area', () => {
+  const utena = { lat: 55.9, lng: 25.0 }; // in Lithuania, inside the lv, lt and by bboxes
+  assert.equal(unitAt(BALTIC, utena, 'lt').code, 'lt');
+  assert.equal(unitAt(BALTIC, utena).code, 'lv'); // no visitor country: the smallest area wins
+  assert.equal(unitAt(BALTIC, utena, 'fr').code, 'lv'); // a country none of the hits is in: same fallback
+  const north = { lat: 65, lng: -140 };
+  assert.equal(unitAt(NESTED, north).code, 'ca-yt');
+  assert.equal(unitAt(NESTED, north, 'us').code, 'us-wy'); // inside the country the area rule decides
+  assert.equal(unitAt(BALTIC, { lat: 60, lng: 20 }, 'lt'), null);
+});

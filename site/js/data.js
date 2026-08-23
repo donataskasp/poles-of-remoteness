@@ -45,11 +45,15 @@ export function winner(units, s = 'A') {
   return ranked[0] || units[0];
 }
 
-// The smallest unit whose bbox contains the point, or null. Bboxes overlap (France's holds Andorra), so the
-// smallest area wins; a bbox hit is only a guess at the unit and the site treats it as one.
-export function unitAt(units, { lat, lng }) {
+// The unit whose bbox contains the point, or null. Bboxes overlap badly (Latvia's covers the northern third
+// of Lithuania, France's holds Andorra), so a hit in the visitor's own country comes first and only then does
+// the smallest area win: the visitor is almost always standing in their own country. Country, not code: a
+// North American unit code is 'us-ak' while the visitor country is 'us'. Both rules are guesses; the real fix
+// is a point-in-polygon test against lazily loaded unit outlines (#33).
+export function unitAt(units, { lat, lng }, country = null) {
   const hits = units.filter(({ bbox: [w, s, e, n] }) => lng >= w && lng <= e && lat >= s && lat <= n);
-  hits.sort((a, b) => a.area_km2 - b.area_km2);
+  const own = (u) => (country && (u.country || '').toLowerCase() === country ? 0 : 1);
+  hits.sort((a, b) => own(a) - own(b) || a.area_km2 - b.area_km2);
   return hits[0] || null;
 }
 
