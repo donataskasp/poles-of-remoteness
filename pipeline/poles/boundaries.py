@@ -22,6 +22,7 @@ from shapely.geometry.base import BaseGeometry
 from shapely.ops import linemerge, polygonize, unary_union
 
 from . import opl
+from .antimeridian import split_antimeridian, unwrap_polygon, unwrap_ring
 from .osmium import osmium
 from .shell import ToolError
 
@@ -153,14 +154,53 @@ def seed_points(pbf: Path, node_ids: set[int], work: Path, log: logging.Logger) 
     return seeds
 
 
+def _unwrapped_ring(line: LineString) -> Polygon | None:
+    """The line as a polygon with its longitudes unwrapped, or None when it is no ring at all.
+
+    A relation drawn across the antimeridian stores vertices at 179.9 and at -179.9, and the ring through
+    those as they stand runs the long way round the planet: 356 degrees of arithmetic for 0.2 of ground,
+    and a ring that usually crosses itself on the way, so shapely's `is_ring` says no (issue #22). Hence
+    closedness is judged on the coordinates as stored and simplicity only after the unwrap. Anything the
+    unwrap cannot make into a simple ring, including a ring around a pole whose ends it pulls apart, is
+    left to the caller as an open line, which is where such a line landed before this existed too.
+    """
+    if len(line.coords) < 4 or not line.is_closed:
+        return None
+    unwrapped = LineString(unwrap_ring(line.coords))
+    return Polygon(unwrapped.coords) if unwrapped.is_ring else None
+
+
 def _rings_and_open(lines: list[LineString]) -> tuple[list[Polygon], list[LineString]]:
-    """Merge the lines end to end, then split the result into closed rings and leftover open lines."""
+    """Merge the lines end to end, then split the result into closed rings and leftover open lines.
+
+    Rings come back unwrapped, so a crossing one is continuous and may reach past 180. Open lines keep
+    their original coordinates: they are closed against the data edge polygon below, which is in
+    [-180, 180], and the faces that come out of that are too.
+    """
     if not lines:
         return [], []
     merged = linemerge(lines) if len(lines) > 1 else lines[0]
     parts = list(merged.geoms) if merged.geom_type == "MultiLineString" else [merged]
-    rings = [Polygon(p.coords) for p in parts if p.is_ring and len(p.coords) >= 4]
-    return rings, [p for p in parts if not p.is_ring]
+    rings: list[Polygon] = []
+    open_lines: list[LineString] = []
+    for part in parts:
+        ring = _unwrapped_ring(part)
+        if ring is None:
+            open_lines.append(part)
+        else:
+            rings.append(ring)
+    return rings, open_lines
+
+
+def _holds(shell: Polygon, point: Point) -> bool:
+    """Whether the shell holds the point at its own longitude, or one whole turn either side of it.
+
+    Rings are unwrapped one at a time, so a hole that does not cross the line itself stays where OSM
+    stored it while the shell around it moves east of 180: a lake at -179.2 inside a unit at 178 to 182.
+    A plain `contains` reads that hole as outside and drops it without a word, so the two turns are tried
+    as well. No admin unit is 360 degrees wide, so at most one of the three can be true.
+    """
+    return any(shell.contains(Point(point.x + turn, point.y)) for turn in (0.0, 360.0, -360.0))
 
 
 def _member_lines(rel: Relation, ways: dict[int, LineString], roles: tuple[str, ...]) -> list[LineString]:
@@ -174,8 +214,10 @@ def _assemble(rel: Relation, ways: dict[int, LineString], seeds: dict[int, Point
     inners, _ = _rings_and_open(_member_lines(rel, ways, ("inner",)))
     polys: list[Polygon] = []
     for shell in outers:
-        holes = [h for h in inners if shell.contains(h.representative_point())]
-        polys.append(Polygon(shell.exterior.coords, [h.exterior.coords for h in holes]) if holes else shell)
+        # unwrap_polygon, not Polygon: it turns each hole into the shell's longitude window, which is the
+        # other half of the same frame problem _holds tests for.
+        holes = [h for h in inners if _holds(shell, h.representative_point())]
+        polys.append(unwrap_polygon(shell.exterior.coords, [h.exterior.coords for h in holes]) if holes else shell)
     closed_by_edge = False
     if open_lines and edge is not None:
         seed_pts = [seeds[ref] for kind, ref, role in rel.members if kind == "n" and role in SEED_ROLES and ref in seeds]
@@ -187,12 +229,11 @@ def _assemble(rel: Relation, ways: dict[int, LineString], seeds: dict[int, Point
                     closed_by_edge = True
     if not polys:
         return None, False
-    geom = shapely.make_valid(unary_union(polys))
-    if geom.geom_type == "Polygon":
-        geom = MultiPolygon([geom])
-    elif geom.geom_type == "GeometryCollection":
-        geom = MultiPolygon([g for g in geom.geoms if g.geom_type == "Polygon"] +
-                            [p for g in geom.geoms if g.geom_type == "MultiPolygon" for p in g.geoms])
+    # Split last: make_valid on an unwrapped polygon is fine, but on a polygon smeared the wrong way round
+    # the ring order is already lost, so the cut has to happen after the union and before anything reads
+    # the geometry. split_antimeridian also does the Polygon and GeometryCollection to MultiPolygon
+    # coercion this used to do by hand, dropping stray lines and points the same way.
+    geom = split_antimeridian(shapely.make_valid(unary_union(polys)))
     if geom.is_empty or geom.geom_type != "MultiPolygon":
         return None, False
     return geom, closed_by_edge

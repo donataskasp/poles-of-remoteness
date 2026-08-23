@@ -47,6 +47,44 @@ def test_assemble_open_ring_without_seed_or_edge_returns_none():
     assert assemble(rel, ways, {50: Point(8, 7.5)}, None) is None
 
 
+def test_assemble_splits_a_relation_drawn_across_the_antimeridian():
+    # Two member ways forming one ring from 178 east to 178 west, the way OSM stores a unit on the line.
+    rel = Relation(5, {}, [("w", 10, "outer"), ("w", 11, "outer")])
+    ways = {10: LineString([(178.0, 50.0), (179.0, 50.0), (-179.0, 50.0), (-178.0, 50.0)]),
+            11: LineString([(-178.0, 50.0), (-178.0, 55.0), (178.0, 55.0), (178.0, 50.0)])}
+    geom = assemble(rel, ways, {}, None)
+    assert geom.geom_type == "MultiPolygon" and len(geom.geoms) == 2
+    assert all(p.bounds[0] >= -180.0 and p.bounds[2] <= 180.0 for p in geom.geoms)
+    assert geom.area == pytest.approx(20.0)              # 4 degrees of longitude, 5 of latitude
+    assert geom.contains(Point(179.5, 52.5)) and geom.contains(Point(-179.5, 52.5))
+    assert not geom.contains(Point(0.0, 52.5))
+
+
+def test_assemble_across_the_line_keeps_an_inner_ring_as_a_hole():
+    rel = Relation(6, {}, [("w", 10, "outer"), ("w", 11, "outer"), ("w", 12, "inner")])
+    ways = {10: LineString([(178.0, 50.0), (179.0, 50.0), (-179.0, 50.0), (-178.0, 50.0)]),
+            11: LineString([(-178.0, 50.0), (-178.0, 55.0), (178.0, 55.0), (178.0, 50.0)]),
+            12: LineString([(179.5, 51.0), (-179.5, 51.0), (-179.5, 52.0), (179.5, 52.0), (179.5, 51.0)])}
+    geom = assemble(rel, ways, {}, None)
+    assert geom.area == pytest.approx(20.0 - 1.0)        # a hole 1 degree wide and 1 degree tall
+    assert not geom.contains(Point(179.75, 51.5)) and not geom.contains(Point(-179.75, 51.5))
+    assert geom.contains(Point(179.75, 53.0))
+
+
+def test_assemble_across_the_line_keeps_a_hole_that_lies_wholly_in_the_far_lobe():
+    """The inner ring never steps over the line itself, so it unwraps to where it was stored while the
+    shell moves east of 180. Only a containment test that turns by a whole 360 still sees it as a hole."""
+    rel = Relation(7, {}, [("w", 10, "outer"), ("w", 11, "outer"), ("w", 13, "inner")])
+    ways = {10: LineString([(178.0, 50.0), (179.0, 50.0), (-179.0, 50.0), (-178.0, 50.0)]),
+            11: LineString([(-178.0, 50.0), (-178.0, 55.0), (178.0, 55.0), (178.0, 50.0)]),
+            13: LineString([(-179.5, 51.0), (-179.0, 51.0), (-179.0, 52.0), (-179.5, 52.0), (-179.5, 51.0)])}
+    geom = assemble(rel, ways, {}, None)
+    assert geom.geom_type == "MultiPolygon" and len(geom.geoms) == 2 and geom.is_valid
+    assert geom.area == pytest.approx(20.0 - 0.5)        # a hole half a degree wide and 1 degree tall
+    assert not geom.contains(Point(-179.25, 51.5))
+    assert geom.contains(Point(-179.75, 51.5)) and geom.contains(Point(179.5, 51.5))
+
+
 def test_load_admin_areas_end_to_end(admin_pbf, tmp_path, log):
     areas = {a.osm_id: a for a in load_admin_areas(admin_pbf, {2, 4}, EDGE, tmp_path, log, CODES)}
     assert set(areas) == {201, 202, 203, 205, 206}
