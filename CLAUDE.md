@@ -86,7 +86,8 @@ At session close: fix only the doc drift this session caused, and verify any num
 
 ## Docs
 
-- `docs/OVERVIEW.md`: what works, what is not done, current status; read first
+- `docs/OVERVIEW.md`: what works, what is not done, where things are; read first
+- `docs/diagrams/README.md`: index of the Mermaid diagrams (the pipeline, the site's data flow, deploys and hosting), who each one is for, and the trigger table saying what to update when the code moves
 - `docs/EUROPE_SPEC.md` and `docs/EUROPE_PLAN.md`: the approved design and staged plan for the Europe build; `docs/EUROPE_KICKOFF.md` is the brief that produced them
 - `docs/DECISIONS.md`: dated decision log with rationale; append, don't relitigate
 - `docs/IDEAS.md`: parked plans (app, stats viewer, extra scenarios); build only on owner's go

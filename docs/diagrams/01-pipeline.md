@@ -16,7 +16,7 @@ The dashed arrow is the site documents: `publish` writes them into the repositor
 
 ## Detailed view
 
-One diagram per stage. Every path is relative to `work/<region>/<snapshot>/`, except `shared/`, which is `work/shared/` and belongs to no region. Each name below is in the code and in a run on disk: the Europe snapshot for `fetch`, `grid`, `poles`, `validate` and `publish`, the North America one for `extract` and `classify`. Long sub-steps carry a `<file>.ok` marker beside the file, which is how a crashed stage resumes at the first missing piece.
+One diagram per stage. Every path is relative to `work/<region>/<snapshot>/`, except `shared/`, which is `work/shared/` and belongs to no region. Each name below is in the code and in a run on disk: the Europe snapshot for `fetch`, `grid`, `poles`, `validate` and `publish`, the North America one for `extract` and `classify`. Long sub-steps carry a `<file>.ok` marker beside the file, which is how a crashed stage resumes at the first missing piece. One name is in the code and in no run yet: `publish/inputs.json`, the stamp added after the Europe publish, which adopts a run that predates it rather than rebuilding it.
 
 ### fetch
 
@@ -63,7 +63,7 @@ The raster frame, the road masks, the tiled exact Euclidean distance transform, 
 ```mermaid
 flowchart LR
     cfg["region.yaml: coarse_crs, coarse_res_m, max_distance_m"] --> frame[("grid/frame.json")]
-    poly[("fetch/[name].poly")] --> frame
+    snap[("fetch/snapshot.json")] --> poly[("fetch/[name].poly, the primary sources")] --> frame
     roads[("classify/roads_A.fgb, roads_B.fgb")] --> rast["gdal_rasterize"]
     frame --> rast
     rast --> rtif[("grid/roads_A.tif, roads_B.tif")]
@@ -85,9 +85,9 @@ flowchart LR
     frame[("grid/frame.json")] --> prepare
     landv[("shared/land.vrt")] --> prepare
     wp[("grid/water_proj.fgb")] --> prepare
-    prepare --> units[("poles/countries.fgb, units.fgb, units.json, units.tif, land_idx.fgb, water_big.fgb")]
+    prepare --> units[("poles/countries.fgb, units.fgb, units.json, units.tif, units_low.tif, land_idx.fgb, water_big.fgb")]
     hv[("extract/highways.vrt")] --> tiling["5 degree road tiles, built once"]
-    tiling --> rtiles[("poles/roads/t_[west]_[south].fgb")]
+    tiling --> rtiles[("poles/roads/t_[west]_[south].fgb, indexed by poles/roads/tiles.json")]
     units --> search["search_unit, one unit and scenario per process"]
     dist[("grid/dist_A.tif, dist_B.tif")] --> search
     rtiles --> search
@@ -105,7 +105,7 @@ flowchart LR
     ab[("poles/A.json, B.json, units.json, units.fgb, water_big.fgb")] --> checks["checks 1 to 7"]
     gridin[("grid/frame.json, dist_A.tif, dist_B.tif, roads_A.tif, roads_B.tif")] --> checks
     rtiles[("poles/roads/")] --> checks
-    checks --> shift[("validate/frame_shift.json, dist_[S]_shift.tif, units_shift.tif, shifted_winners.json")]
+    checks --> shift[("validate/frame_shift.json, dist_[S]_shift.tif, roads_[S]_shift.tif, units_shift.tif, shifted_winners.json")]
     checks --> rep[("validate/report.json, report.html, contact-sheet.html")]
     basemap[("basemap tiles cached under validate/tiles/")] --> rep
 ```
@@ -120,10 +120,12 @@ flowchart LR
     gridin[("grid/dist_A.tif, dist_B.tif, land.tif, frame.json")] --> quant["quantise to the class table"]
     masks --> quant
     quant --> expl[("publish/explore_[S].tif, explore_[S]_3857.tif")]
+    quant --> stamp[("publish/inputs.json, what the explore artefacts were built from")]
     expl --> cut["tile cut and MBTiles pack"]
     cut --> arch[("publish/A.pmtiles, B.pmtiles")]
     rtiles[("poles/roads/")] --> det["detail rasters at detail_res_m over detail_window_m"]
     det --> dpng[("publish/detail/[unit]/[S]-[rank].png and .json")]
+    det --> dstamp[("publish/detail/published.json, the pole set the directory was built for")]
     arch --> up["upload over S3, then HEAD and range verify"]
     dpng --> up
     val[("validate/report.json, report.html, contact-sheet.html")] --> up

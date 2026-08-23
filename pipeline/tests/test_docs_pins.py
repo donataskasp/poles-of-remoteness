@@ -1,7 +1,14 @@
 """Executable doc pins: the docs that claim to describe the code are checked against it.
 
 A failing test here means a doc drifted, not that the code is wrong. Fix the doc (or the table) in the same
-commit as the change that moved the code."""
+commit as the change that moved the code.
+
+The docs are not in the pipeline image, which carries `pipeline/` alone, so `POLES_REPO_ROOT` points this
+module at a checkout when the tests run from outside the repository; CI mounts the checkout read-only and
+sets it. Without that directory every test here skips, and a skip means the docs were not available to
+check, never that they passed.
+"""
+import os
 from pathlib import Path
 
 import pytest
@@ -9,7 +16,10 @@ import yaml
 
 from poles.stages import ORDER
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(os.environ["POLES_REPO_ROOT"]) if os.environ.get("POLES_REPO_ROOT") else Path(__file__).resolve().parents[2]
+pytestmark = pytest.mark.skipif(
+    not (ROOT / "docs" / "diagrams").is_dir(),
+    reason="the docs are not in the pipeline image; set POLES_REPO_ROOT to the checkout to run the pins")
 REGIONS = sorted((ROOT / "pipeline" / "regions").glob("*.yaml"))
 REGION_CONFIGS = [p for p in REGIONS if not p.name.endswith("-refs.yaml")]
 

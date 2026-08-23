@@ -29,5 +29,8 @@ jobs:
           load: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      # The checkout is mounted read-only and named by POLES_REPO_ROOT so tests/test_docs_pins.py can
+      # read the docs, which the image does not carry (build context is pipeline/). Without it those
+      # tests would skip and a drifted doc would reach main unnoticed.
       - name: Run the pipeline tests in the image
-        run: docker run --rm --entrypoint pytest poles:ci -q /app/tests
+        run: docker run --rm -v "${{ github.workspace }}:/repo:ro" -e POLES_REPO_ROOT=/repo --entrypoint pytest poles:ci -q /app/tests

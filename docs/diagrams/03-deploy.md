@@ -23,14 +23,14 @@ flowchart LR
     push["push touching site/**, worker.js, wrangler.jsonc or the workflow"] --> creds["check CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID"]
     creds --> stamp["write site/version.json with the commit"]
     stamp --> deploy["wrangler deploy, plus --env preview off main"]
-    deploy --> prod["main: atokiausia-lietuva, dataset poles_views"]
+    deploy --> prod["main: atokiausia-lietuva, dataset poles_views after the cutover"]
     deploy --> prev["europe: atokiausia-lietuva-preview, dataset poles_preview_views"]
     prod --> ver["verify: poll /version.json until it carries this commit"]
     prev --> ver
     ver --> budget["preview only: first screen under 256 KB compressed"]
 ```
 
-The verify job proves that this commit is live, not that some version of the site is. It polls for up to three minutes, because a new worker version reaches the edges over a few seconds and one edge can answer while another still serves the previous version. The budget step fetches every file the first screen needs and adds up the compressed bytes; `JSON_STRICT` is `0` until `site/data/<region>/` exists, so a data file answered as the SPA fallback is reported instead of failing the run.
+The production box is this branch's `wrangler.jsonc` and describes what `main` becomes at the cutover; `main` deploys its own today and logs to `atokiausia_views`. The verify job proves that this commit is live, not that some version of the site is. It polls for up to three minutes, because a new worker version reaches the edges over a few seconds and one edge can answer while another still serves the previous version. The budget step fetches every file the first screen needs and adds up the compressed bytes; `JSON_STRICT` is `0` until `site/data/<region>/` exists, so a data file answered as the SPA fallback is reported instead of failing the run.
 
 Two other workflows guard the same repository and deploy nothing: `pipeline-tests.yml` builds `pipeline/Dockerfile` and runs pytest inside it on any change under `pipeline/`, and `site-tests.yml` runs `node --test 'dev/tests/*.test.mjs'` on any change under `site/js/`, `dev/` or `worker.js`.
 

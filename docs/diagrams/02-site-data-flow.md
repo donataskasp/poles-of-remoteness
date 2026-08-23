@@ -51,7 +51,7 @@ The path names the region and the unit; everything else rides in the hash, so a 
 | hash | `lon` | -180 to 180 | map centre longitude |
 | hash | `s` | `A` or `B` | scenario |
 | hash | `b` | `sat` or `osm` | basemap, satellite by default |
-| hash | `l` | `en` or `lt` | language, otherwise the browser's, otherwise `localStorage` |
+| hash | `l` | `en` or `lt` | language; without it `pickLang` takes the `localStorage` choice, otherwise the first of `navigator.languages` the site has, otherwise `en` |
 
 The open pole is not a hash key: selecting one flies the map, so `z`, `lat` and `lon` carry it. Anything the router does not recognise is dropped, and a region segment that does not parse takes its unit with it. `pickStart` decides the opening unit when the path does not: the visitor's own unit from the worker's meta tag, otherwise the region's rank 1.
 
