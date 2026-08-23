@@ -91,6 +91,32 @@ def test_incomplete_unit_is_warned_about(regions_dir, caplog):
     assert "bb" in caplog.records[0].getMessage() and "closed along the data edge" in caplog.records[0].getMessage()
 
 
+def test_a_unit_whose_country_is_missing_is_skipped_with_a_warning(regions_dir, caplog):
+    aa = _area(1, "AA", box(0, 0, 10, 10))
+    inside = _area(3, "AA-X", box(1, 1, 3, 3), level=4)
+    orphan = _area(4, "ZZ-Q", box(20, 1, 22, 3), level=4, name="Orphan")   # no level-2 area holds it
+    cfg = _cfg(regions_dir, unit_admin_level=4, unit_countries=["aa"], unit_exclude=[], territory_mask=[],
+               expected_units=None, transcontinental=[])
+    with caplog.at_level(logging.WARNING):
+        units = select_units([aa, inside, orphan], cfg, box(-5, -5, 40, 15))
+    assert [u.code for u in units] == ["aa-x"]
+    assert "Orphan" in caplog.text and "zz-q" in caplog.text.lower() and "no country" in caplog.text
+
+
+def test_a_unit_split_at_the_antimeridian_is_still_inside_the_primary_polygons(regions_dir):
+    # The unit and the extract polygon are both stored split at the line, which is how Geofabrik writes
+    # its poly file and how the assembler now writes an area. Planar fractions work on both as they are.
+    split_unit = MultiPolygon([box(178, 50, 180, 55), box(-180, 50, -178, 55)])
+    primary = MultiPolygon([box(170, 45, 180, 60), box(-180, 45, -170, 60)])
+    assert inside_fraction(split_unit, primary) == pytest.approx(1.0)
+    aa = _area(1, "AA", primary)
+    state = _area(3, "AA-X", split_unit, level=4)
+    cfg = _cfg(regions_dir, unit_admin_level=4, unit_countries=["aa"], unit_exclude=[], territory_mask=[],
+               expected_units=1, transcontinental=[])
+    units = select_units([aa, state], cfg, primary)
+    assert [(u.code, u.country) for u in units] == [("aa-x", "aa")]
+
+
 # ---------- the candidate-cell raster ----------
 
 def _unit(code: str, geom, index: int) -> Unit:

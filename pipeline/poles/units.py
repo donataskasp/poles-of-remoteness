@@ -91,16 +91,22 @@ def select_units(areas: list[AdminArea], cfg: RegionConfig, primary: BaseGeometr
             continue
         if inside_fraction(area.geometry, primary) < MIN_INSIDE_FRACTION:
             continue
+        code = area.code.lower() if area.code else None
         country = country_of(area, countries)
         if country is None:
-            if area.level == 2 and area.code is None:
+            if area.level == 2 and code is None:
                 continue  # "land mass" style relations without a code are not countries
-            raise UnitsError(f"unit relation {area.osm_id} ({area.name}) has no country")
+            # A unit whose country is missing from the extract, or whose country outline the assembler
+            # could not close, is one unit short, not a dead run: the whole list of orphans is worth
+            # more than the first one. expected_units below and validate's check 7 catch the shortfall
+            # (issue #22).
+            log.warning("units: relation %d (%s, code %s) has no country in the extract; skipped",
+                        area.osm_id, area.name, code)
+            continue
         if not cfg.is_unit_country(country):
             continue
-        if not area.code:
+        if not code:
             raise UnitsError(f"unit relation {area.osm_id} ({area.name}) has no {cfg.unit_code_tag} code")
-        code = area.code.lower()
         geom = apply_territory_mask(area.geometry, cfg.territory_mask)
         if geom.is_empty:
             raise UnitsError(f"unit {code}: the territory mask removed everything")
