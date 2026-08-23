@@ -2492,3 +2492,100 @@ git commit -m "docs: diagrams, cadence with triggers, and executable doc pins (#
 ```
 
 Then comment on #42 with the conventions adopted from keenquote and the ones deliberately not copied (commit hooks, a committed repomix snapshot, a changelog), and close it with every box ticked with evidence.
+
+---
+
+### Task 24: Region names in the visitor's language (added 2026-08-23 from the Task 20 screenshots)
+
+The Lithuanian UI shows "Europe", "North America" and "42 vieta iš 52 (Europe)" because `regions.json` carries only the config's English `name`. Spec 5: "Country and region names come from `Intl.DisplayNames` in the active language; only UI strings live in the I18N dictionary." `Intl.DisplayNames` with `type: 'region'` resolves UN M49 area codes as well as ISO 3166-1 alpha-2 codes: `150` is Europe / Europa, `003` is North America / Šiaurės Amerika (node's ICU gives both). The region config gets the code, `regions.json` carries it, the site resolves it and falls back to `name`.
+
+**Files:**
+- Modify: `pipeline/regions/europe.yaml`, `pipeline/regions/north-america.yaml` (one key each, under `name`)
+- Modify: `pipeline/poles/config.py` (`RegionConfig.code: str` after `name`; the key table row `"code": (str,)`), `pipeline/poles/publish/__init__.py` (the `region = {...}` dict near line 207 gets `"code": cfg.code`), `pipeline/poles/publish/sitedata.py` (`regions_entry` near line 101 gets `"code": region["code"]`), `pipeline/poles/schemas/regions.schema.json` (`code` required, `{"type": "string", "pattern": "^([A-Z]{2}|[0-9]{3})$"}`), `dev/site-json.py` (wherever it builds the same region dict: grep `"name": cfg.name`), `pipeline/README.md` (the region config key table; `pipeline/tests/test_docs_pins.py` fails without the row)
+- Modify: `site/js/i18n.js` (`regionName` accepts a 3-digit code; new `regionLabel`), `site/js/data.js` (`regionLinks` carries `code`), `site/js/app.js` (`renderRegions` labels through `regionLabel`; a language switch re-labels the control without a page load), `site/js/card.js` (the rank line)
+- Test: `pipeline/tests/test_config.py`, `pipeline/tests/test_publish_sitedata.py`, `dev/tests/i18n.test.mjs`, `dev/tests/data.test.mjs`
+- Do NOT touch: `site/css/app.css`, `dev/screenshots.mjs`, `docs/screenshots/`, `docs/DECISIONS.md` (the decision entry is already written), `docs/OVERVIEW.md`, `docs/EUROPE_SPEC.md`. Stage explicit paths only.
+
+**Interfaces:**
+- Produces: `regionLabel(region, lang = current) -> string` in `site/js/i18n.js`; `code` on every `regions.json` entry; `RegionConfig.code`.
+
+- [ ] **Step 24.1: Pipeline tests first**
+
+In `pipeline/tests/test_config.py`, extend the two spec-table tests with `assert cfg.code == "150"` (Europe) and `assert cfg.code == "003"` (North America), and add, modelled on `test_missing_required_key_raises_config_error_naming_key` and `test_wrong_type_raises_config_error_naming_key`:
+
+```python
+def test_code_is_required_and_must_stay_a_string(tmp_path):
+    # An unquoted 003 is the integer 3 to YAML, which is why both configs quote the key.
+    ...  # drop `code` -> ConfigError whose message names 'code'; `code: 003` unquoted -> ConfigError naming 'code'
+```
+
+In `pipeline/tests/test_publish_sitedata.py`, the test that asserts the `regions_entry` fields gets `assert site.regions_entry["code"] == region["code"]` (give the fixture region `"code": "150"`), and the schema validation test keeps passing with `code` required.
+
+Run: `cd pipeline && .venv/bin/python -m pytest -q tests/test_config.py tests/test_publish_sitedata.py`. Expected: the new assertions fail on the missing attribute and key.
+
+- [ ] **Step 24.2: The pipeline side**
+
+`pipeline/regions/europe.yaml`, under `name: Europe`:
+
+```yaml
+code: "150"   # UN M49 area code; the site localises the name from it. Quoted: YAML would read 003 as the integer 3.
+```
+
+and `code: "003"` in `north-america.yaml` with the same comment. `config.py`: the dataclass field and the key table row. `publish/__init__.py` and `sitedata.py`: the two dict entries. The schema: `code` in `required` and in `properties`. `dev/site-json.py`: mirror the publish stage's dict. `pipeline/README.md` row, after the `name` row:
+
+```
+| `code` | string | the UN M49 area code (or an ISO 3166-1 alpha-2 code) the site localises the region's name from through `Intl.DisplayNames`: `"150"` Europe, `"003"` North America; quoted so YAML keeps the leading zero; `name` is the English fallback |
+```
+
+Run: `cd pipeline && .venv/bin/python -m pytest -q`. Expected: green, including `test_docs_pins.py`.
+
+- [ ] **Step 24.3: Site tests first**
+
+`dev/tests/i18n.test.mjs` (add `regionLabel` to the import):
+
+```js
+test('i18n: regionName takes a UN M49 area code and regionLabel falls back to the data name', () => {
+  assert.equal(regionName('150'), 'Europe');
+  assert.equal(regionName('150', 'lt'), 'Europa');
+  assert.equal(regionName('003', 'lt'), 'Šiaurės Amerika');
+  assert.equal(regionName('999'), null);
+  assert.equal(regionLabel({ code: '003', name: 'North America' }, 'lt'), 'Šiaurės Amerika');
+  assert.equal(regionLabel({ name: 'North America' }, 'lt'), 'North America');
+  assert.equal(regionLabel({ id: 'north-america' }, 'lt'), 'north-america');
+});
+```
+
+`dev/tests/data.test.mjs`: give the `region` fixture `code: '150'` and `na` `code: '003'`, and assert in the `regionLinks` test that the links carry `code` (`regionLinks([region, na], 'europe')[1].code === '003'`).
+
+Run: `node --test 'dev/tests/*.test.mjs'`. Expected: the new test fails (`regionLabel` is not exported; `regionName('150')` is null).
+
+- [ ] **Step 24.4: The site side**
+
+`site/js/i18n.js`:
+
+```js
+export function regionName(code, lang = current) {
+  // ISO 3166-1 alpha-2 for a country, UN M49 for a region the size of a continent (150 Europe, 003 North America).
+  if (!/^([a-z]{2}|\d{3})$/i.test(code || '')) return null;
+  ...unchanged...
+}
+
+// A region's name for the control and the rank line: the localised name from its code, else the data name.
+export function regionLabel(region, lang = current) {
+  return regionName(region.code, lang) || region.name || region.id;
+}
+```
+
+`site/js/data.js`: `regionLinks` returns `{ id, code: r.code, name: r.name || r.id, href, current }`. `site/js/app.js`: `renderRegions` sets `a.textContent = regionLabel(l)`; `applyLanguage` re-renders the control so a language switch re-labels it without a page load (it runs once before the regions are loaded, so keep the regions and the current id in `state` and guard the call). `site/js/card.js`: `region: regionLabel(v.region)`. Grep `site/js` and `site/index.html` for any other read of a region's `name` and route it through `regionLabel`.
+
+Run: `node --test 'dev/tests/*.test.mjs'`. Expected: green.
+
+- [ ] **Step 24.5: Green and commit**
+
+```bash
+cd pipeline && .venv/bin/python -m pytest -q && cd .. && node --test 'dev/tests/*.test.mjs'
+git add pipeline/regions/europe.yaml pipeline/regions/north-america.yaml pipeline/poles/config.py pipeline/poles/publish/__init__.py pipeline/poles/publish/sitedata.py pipeline/poles/schemas/regions.schema.json dev/site-json.py pipeline/README.md site/js/i18n.js site/js/data.js site/js/app.js site/js/card.js pipeline/tests/test_config.py pipeline/tests/test_publish_sitedata.py dev/tests/i18n.test.mjs dev/tests/data.test.mjs
+git commit -m "site: region names in the visitor's language through a UN M49 code in the region config (#11)"
+```
+
+The controller rebuilds the dev JSON and re-renders the screenshots afterwards; the Lithuanian views must then read "Europa" and "Šiaurės Amerika".
