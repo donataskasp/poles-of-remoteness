@@ -2,7 +2,7 @@
 import { makeClassTable } from './classes.js';
 import { pickLang, setLang, getLang, applyDom, t, fmtDist } from './i18n.js';
 import { parse, write, visitor } from './router.js';
-import { loadRegions, loadUnits, loadUnit, archiveUrl, pickStart, bboxToBounds } from './data.js';
+import { loadRegions, loadUnits, loadUnit, archiveUrl, pickStart, bboxToBounds, unitAt } from './data.js';
 import { readTokens, makePalette, legendRows } from './palette.js';
 import { describe, formatSample, mountReadout } from './readout.js';
 import { createMap } from './map.js';
@@ -125,6 +125,29 @@ async function main() {
     },
   });
   ui.ranking.setRows(region, units, state.s, unit && unit.code);
+
+  let here = null;
+  ui.locate = () => {
+    ui.readout.show(t('readoutLoading'), { sticky: true });
+    map.locate({ setView: true, maxZoom: 11, timeout: 15000 });
+  };
+  map.on('locationfound', (e) => {
+    if (here) map.removeLayer(here);
+    here = L.circleMarker(e.latlng, { radius: 7, color: '#fff', weight: 2, fillColor: '#1d6fe0', fillOpacity: 1 })
+      .bindTooltip(t('locateHere')).addTo(map);
+    const hit = unitAt(units, e.latlng);
+    if (hit && hit.code !== state.unit) openUnit(hit.code, { view: 'keep' });
+    showSample(e.latlng);
+  });
+  map.on('locationerror', (e) => ui.readout.show(t(e.code === 1 ? 'locateDenied' : 'locateUnavailable'), { sticky: true }));
+
+  const about = document.getElementById('about');
+  document.getElementById('about-btn').addEventListener('click', () => {
+    for (const el of about.querySelectorAll('.snapshot')) el.textContent = t('snapshotNote', { date: region.snapshot });
+    for (const el of about.querySelectorAll('.detail-res')) el.textContent = String(region.detail_res_m);
+    about.showModal();
+  });
+  about.addEventListener('click', (e) => { if (e.target === about) about.close(); });
 
   let current = { unit, doc: null, rank: 1 };
 

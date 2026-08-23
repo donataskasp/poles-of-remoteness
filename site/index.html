@@ -62,7 +62,36 @@
   <form method="dialog" class="about__close-form">
     <button class="about__close" value="close" data-i18n-aria="close">&times;</button>
   </form>
-  <div class="about__body" id="about-body"></div>
+  <div class="about__body" id="about-body">
+    <div data-lang="en">
+      <h2>About this map</h2>
+      <p>For every country and a few dependent territories of the region, this map shows the place farthest from any road: its pole of remoteness. Two readings are given. <b>A</b> is the distance to anything drivable, forest and field tracks included. <b>B</b> counts public roads only.</p>
+      <h3>How it is computed</h3>
+      <p>Roads come from OpenStreetMap (<span class="snapshot"></span>). The distance to the nearest road is computed on a grid across the whole region, then refined on a <span class="detail-res"></span> m grid around each candidate point, and the ten best points per unit are kept. The coloured layer shows the coarse distances; tap anywhere to read the value. Near the edge of the data a distance is only a lower bound and the cell is grey.</p>
+      <h3>What counts as a road</h3>
+      <p>Physical, not legal: anything a car can physically drive on counts in reading A, including forest and field tracks, private roads and closed roads, because a track that exists still breaks the remoteness whatever the sign says. A is the headline because tracks are the roads that actually reach remote places; B shows what the public road network alone gives. Borders are as mapped in OpenStreetMap; a disputed area belongs to the unit OSM draws it in.</p>
+      <h3>What it is not</h3>
+      <p>A road missing from OpenStreetMap makes a place look remoter than it is, and a mapped track that is gone in reality makes it look less remote. The points are computed, not visited. Check before you go.</p>
+      <h3>Accuracy</h3>
+      <p>Each pole's distance is exact to the 50 m grid around it. The coloured layer is a 250 m grid and the readout gives the class, not the metre. Units within one road-mask width of the data edge are marked; a point near the edge may be closer to a road outside the data than the map can know.</p>
+      <h3>Data and licence</h3>
+      <p>Map data © OpenStreetMap contributors, ODbL. The computed remoteness data on this site is ODbL as well. Satellite imagery: Esri, Maxar, Earthstar Geographics. A hobby project; no tracking beyond a count of page views by country.</p>
+    </div>
+    <div data-lang="lt">
+      <h2>Apie šį žemėlapį</h2>
+      <p>Kiekvienai regiono šaliai ir keliems priklausomiems kraštams žemėlapis rodo vietą, toliausiai nutolusią nuo bet kokio kelio: jos atokumo polių. Pateikiami du atstumai. <b>A</b> yra atstumas iki bet ko, kuo galima pravažiuoti, įskaitant miško ir lauko keliukus. <b>B</b> skaičiuoja tik viešuosius kelius.</p>
+      <h3>Kaip skaičiuojama</h3>
+      <p>Keliai imami iš OpenStreetMap (<span class="snapshot"></span>). Atstumas iki artimiausio kelio skaičiuojamas tinkleliu per visą regioną, tada patikslinamas <span class="detail-res"></span> m tinkleliu aplink kiekvieną kandidatą, ir kiekvienam vienetui paliekama dešimt geriausių taškų. Spalvotas sluoksnis rodo stambaus tinklelio atstumus; palieskite bet kurią vietą ir pamatysite reikšmę. Prie duomenų krašto atstumas yra tik apatinė riba, tokios vietos pilkos.</p>
+      <h3>Kas laikoma keliu</h3>
+      <p>Fiziškai, ne teisiškai: A variante skaičiuojama viskas, kuo automobilis fiziškai gali pravažiuoti, įskaitant miško ir lauko keliukus, privačius ir uždarytus kelius, nes esantis keliukas atokumą naikina nepriklausomai nuo ženklo. A yra pagrindinis rodiklis, nes būtent keliukai pasiekia atokias vietas; B rodo, ką duoda vien viešųjų kelių tinklas. Sienos tokios, kokios pažymėtos OpenStreetMap; ginčijama teritorija priklauso tam vienetui, kuriame ją piešia OSM.</p>
+      <h3>Kas tai nėra</h3>
+      <p>OpenStreetMap trūkstamas kelias vietą parodo atokesnę, nei ji yra, o pažymėtas, bet realybėje išnykęs keliukas parodo mažiau atokią. Taškai apskaičiuoti, ne aplankyti. Prieš vykdami pasitikrinkite.</p>
+      <h3>Tikslumas</h3>
+      <p>Kiekvieno poliaus atstumas tikslus iki 50 m tinklelio aplink jį. Spalvotas sluoksnis yra 250 m tinklelis, o rodmuo nurodo klasę, ne metrą. Vienetai, esantys arti duomenų krašto, pažymėti; prie krašto esantis taškas gali būti arčiau kelio už duomenų ribos, nei žemėlapis gali žinoti.</p>
+      <h3>Duomenys ir licencija</h3>
+      <p>Žemėlapio duomenys © OpenStreetMap bendraautoriai, ODbL. Šioje svetainėje apskaičiuoti atokumo duomenys taip pat ODbL. Palydovinės nuotraukos: Esri, Maxar, Earthstar Geographics. Laisvalaikio projektas; jokio sekimo, tik lankytojų skaičius pagal šalį.</p>
+    </div>
+  </div>
 </dialog>
 
 <script src="/vendor/leaflet/leaflet.js"></script>

@@ -45,6 +45,14 @@ export function winner(units, s = 'A') {
   return ranked[0] || units[0];
 }
 
+// The smallest unit whose bbox contains the point, or null. Bboxes overlap (France's holds Andorra), so the
+// smallest area wins; a bbox hit is only a guess at the unit and the site treats it as one.
+export function unitAt(units, { lat, lng }) {
+  const hits = units.filter(({ bbox: [w, s, e, n] }) => lng >= w && lng <= e && lat >= s && lat <= n);
+  hits.sort((a, b) => a.area_km2 - b.area_km2);
+  return hits[0] || null;
+}
+
 // Opening unit (spec 5.3): the path; the visitor's own unit (country-region, then country); the winner of
 // the first region with any unit in the visitor's country; the first region's winner.
 export async function pickStart(parsed, vis, regions, load = loadUnits) {

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { getJSON, r2Url, archiveUrl, detailUrl, winner, bboxToBounds, pickStart } from '../../site/js/data.js';
+import { getJSON, r2Url, archiveUrl, detailUrl, winner, bboxToBounds, pickStart, unitAt } from '../../site/js/data.js';
 
 const region = { id: 'europe', name: 'Europe', snapshot: '2026-08-19', r2_base: 'https://pub-x.r2.dev/' };
 const na = { id: 'north-america', name: 'North America', snapshot: '2026-08-19', r2_base: 'https://pub-x.r2.dev' };
@@ -50,4 +50,14 @@ test('data: getJSON caches successes and evicts failures', async () => {
   await assert.rejects(getJSON('/bad.json', fetchFn), /HTTP 404/);
   await assert.rejects(getJSON('/bad.json', fetchFn), /HTTP 404/);
   assert.equal(calls, 3);
+});
+
+test('data: unitAt picks the smallest unit whose bbox contains the point', () => {
+  const units = [
+    { code: 'fr', area_km2: 550000, bbox: [-5, 41, 10, 51] },
+    { code: 'ad', area_km2: 468, bbox: [1.4, 42.4, 1.8, 42.7] },
+  ];
+  assert.equal(unitAt(units, { lat: 42.5, lng: 1.5 }).code, 'ad');
+  assert.equal(unitAt(units, { lat: 48.8, lng: 2.3 }).code, 'fr');
+  assert.equal(unitAt(units, { lat: 60, lng: 20 }), null);
 });

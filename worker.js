@@ -1,21 +1,38 @@
-/* Atokiausia Lietuva - server side page view logging.
-   Runs in front of HTML page loads only (see run_worker_first in
-   wrangler.jsonc), records one Analytics Engine data point, then hands the
-   request straight back to the static assets binding.
+/* Poles of remoteness, server side. Two jobs on HTML page loads (run_worker_first in wrangler.jsonc sends
+   only the extension-less paths here): record one Analytics Engine data point, and stamp the visitor's
+   coarse location into the page so the first screen can open the visitor's own unit without a geolocation
+   prompt. Every other request goes straight to the static assets binding.
 
-   Privacy by design (GDPR): we deliberately do NOT store the raw user agent
-   string, the client IP, or any other unique or quasi-unique identifier, so a
-   data point cannot be traced back to a person and no consent banner is owed.
-   What we keep is coarse and non-identifying: country, Cloudflare colo,
-   referrer host, browser family, OS family, and our own hostname. */
+   Privacy by design (GDPR): no raw user agent, no IP, no unique or quasi-unique identifier, so a data point
+   cannot be traced back to a person and no consent banner is owed. What is kept is coarse: country,
+   Cloudflare colo, referrer host, browser family, OS family, our hostname, and the landing region and unit
+   from the URL path. The visitor meta written into the page is the country and region code Cloudflare
+   already attaches to the request; it never leaves the visitor's own page. */
 
-/* Only '/' counts: a direct /index.html hit gets a 307 redirect to '/' from
-   the assets layer and would otherwise log twice. */
-const PAGE_PATHS = new Set(['/']);
+const SEG = /^[a-z][a-z0-9-]{0,31}$/;
 
-/* Coarse user agent buckets. Order matters: a specific token has to be tested
-   before the generic one it embeds. Edge, Opera and Samsung Internet all carry
-   "Chrome", Chrome and Firefox on iOS carry "Safari", Android carries "Linux". */
+/* The page paths are '/', '/<region>' and '/<region>/<unit>', a trailing slash tolerated. Anything else
+   (including '/index.html', which the assets layer redirects to '/') is not a page view. */
+export function landing(pathname) {
+  const parts = pathname.replace(/\/+$/, '').split('/').slice(1);
+  if (parts.length === 0) return { page: true, region: '', unit: '' };
+  if (parts.length > 2 || !parts.every((p) => SEG.test(p))) return { page: false, region: '', unit: '' };
+  return { page: true, region: parts[0], unit: parts[1] || '' };
+}
+
+/* 'LT' or 'US-AK' from request.cf, uppercase, or '' when the country is not a plain two-letter code
+   (Cloudflare uses 'T1' for Tor and leaves the field empty for some ranges). The value is written into
+   HTML, so the shape is enforced here and the site re-checks it before use. */
+export function visitorCode(cf) {
+  const country = String((cf && cf.country) || '').toUpperCase();
+  if (!/^[A-Z]{2}$/.test(country)) return '';
+  const region = String((cf && cf.regionCode) || '').toUpperCase();
+  return /^[A-Z0-9]{1,3}$/.test(region) ? `${country}-${region}` : country;
+}
+
+/* Coarse user agent buckets. Order matters: a specific token has to be tested before the generic one it
+   embeds. Edge, Opera and Samsung Internet all carry "Chrome", Chrome and Firefox on iOS carry "Safari",
+   Android carries "Linux". */
 export function browserFamily(ua) {
   if (!ua) return 'Other';
   if (/bot|crawl|spider|slurp|headlesschrome|facebookexternalhit|curl|wget|monitoring/i.test(ua)) return 'Bot';
@@ -38,9 +55,8 @@ export function osFamily(ua) {
   return 'Other';
 }
 
-/* Host of the referring page, or '' when there is no referrer, it does not
-   parse, or the visit came from our own site. Only the host is kept, never the
-   full referrer URL, which can carry query strings and personal data. */
+/* Host of the referring page, or '' when there is no referrer, it does not parse, or the visit came from
+   our own site. Only the host is kept, never the full URL, which can carry query strings and personal data. */
 export function referrerHost(request, url) {
   const ref = request.headers.get('Referer');
   if (!ref) return '';
@@ -55,31 +71,40 @@ export function referrerHost(request, url) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    const where = landing(url.pathname);
+    if (request.method !== 'GET' || !where.page) return env.ASSETS.fetch(request);
 
-    if (request.method === 'GET' && PAGE_PATHS.has(url.pathname)) {
-      try {
-        const ua = request.headers.get('User-Agent') || '';
-        env.SITE_VIEWS.writeDataPoint({
-          /* Fixed blob order, do not reshuffle: existing rows keep the old
-             layout and queries address blobs positionally.
-               blob1 country, blob2 colo,       blob3 referrer host,
-               blob4 browser, blob5 OS family,  blob6 hostname */
-          blobs: [
-            request.cf?.country || '',
-            request.cf?.colo || '',
-            referrerHost(request, url),
-            browserFamily(ua),
-            osFamily(ua),
-            url.hostname,
-          ],
-          doubles: [1],
-          indexes: ['view'],
-        });
-      } catch {
-        /* Analytics is best effort. Never let it break serving the page. */
-      }
+    const response = await env.ASSETS.fetch(request);
+    const type = response.headers.get('Content-Type') || '';
+    if (!type.includes('text/html')) return response;
+
+    try {
+      const ua = request.headers.get('User-Agent') || '';
+      env.SITE_VIEWS.writeDataPoint({
+        /* Fixed blob order, do not reshuffle: queries address blobs positionally.
+             blob1 country,  blob2 colo,           blob3 referrer host, blob4 browser,
+             blob5 OS family, blob6 hostname,      blob7 landing region, blob8 landing unit */
+        blobs: [
+          (request.cf && request.cf.country) || '',
+          (request.cf && request.cf.colo) || '',
+          referrerHost(request, url),
+          browserFamily(ua),
+          osFamily(ua),
+          url.hostname,
+          where.region,
+          where.unit,
+        ],
+        doubles: [1],
+        indexes: ['view'],
+      });
+    } catch {
+      /* Analytics is best effort. Never let it break serving the page. */
     }
 
-    return env.ASSETS.fetch(request);
+    const code = visitorCode(request.cf);
+    if (!code) return response;
+    return new HTMLRewriter()
+      .on('head', { element(el) { el.append(`<meta name="visitor" content="${code}">`, { html: true }); } })
+      .transform(response);
   },
 };

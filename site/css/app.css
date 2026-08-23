@@ -177,6 +177,8 @@ html[lang="en"] .about__body [data-lang="lt"], html[lang="lt"] .about__body [dat
 .ranking__dist b { display: block; font-weight: 600; }
 .ranking__dist small { color: var(--ink-2); font-size: 11px; }
 
+.about__body b { font-weight: 600; }
+
 /* Phone: ranking becomes a bottom sheet, the map fills the screen. Phone rules only in here. */
 @media (max-width: 720px) {
   .map { right: 0; }
