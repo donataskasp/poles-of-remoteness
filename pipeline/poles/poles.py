@@ -35,6 +35,7 @@ from rasterio.windows import Window
 from shapely.ops import unary_union
 from shapely.strtree import STRtree
 
+from .antimeridian import split_bbox, wrapped_bounds
 from .attrib import Countries, Places, clean_text, nearest_way, pole_record
 from .boundaries import AdminArea, load_admin_areas
 from .candidates import Refined, Search, half_diag, pad_fn_for
@@ -200,7 +201,7 @@ def prepare(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> Prepared:
         units_json.write_text(json.dumps({"units": [{
             "code": u.code, "name": u.name, "name_en": u.name_en, "osm_id": u.osm_id, "country": u.country, "index": u.index,
             "area_km2": u.area_km2, "cells": u.cells, "transcontinental": u.transcontinental, "closed_by_edge": u.closed_by_edge,
-            "bbox": list(u.geometry.bounds), "window": list(windows_by_index[u.index]) if u.index in windows_by_index else None}
+            "bbox": list(wrapped_bounds(u.geometry)), "window": list(windows_by_index[u.index]) if u.index in windows_by_index else None}
             for u in units]}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         _mark(units_tif)
         # A cached job is keyed by unit code alone, so keeping the cache here would republish results
@@ -274,8 +275,14 @@ def _worker_logger(job: UnitJob) -> logging.Logger:
 
 
 def _bbox_window(unit: Unit, frame: Frame, to_frame: Transformer) -> Window:
-    """The frame window covering the unit's lon/lat bbox, one cell wider each way and clamped to the frame."""
-    ring = shapely.segmentize(shapely.box(*unit.geometry.bounds).exterior, 0.1)
+    """The frame window covering the unit's lon/lat bbox, one cell wider each way and clamped to the frame.
+
+    The bbox is the wrapped one, so a unit split at the antimeridian gets its own 4 degrees rather than
+    the whole world (issue #22). The frame CRS is continuous across 180 (the region's LAEA, centred on
+    the region), and pyproj normalises a longitude above 180 into it, so the segmentized ring projects
+    to one compact run of columns.
+    """
+    ring = shapely.segmentize(shapely.box(*wrapped_bounds(unit.geometry)).exterior, 0.1)
     fx, fy = to_frame.transform(*np.asarray(ring.coords).T)
     col_off = max(0, math.floor((fx.min() - frame.res - frame.x0) / frame.res))
     row_off = max(0, math.floor((frame.y1 - fy.max() - frame.res) / frame.res))
@@ -286,12 +293,18 @@ def _bbox_window(unit: Unit, frame: Frame, to_frame: Transformer) -> Window:
 
 def _allowed_factory(unit: Unit, land_idx: Path, water_big: Path):
     """Point allowed when inside the unit, on a land polygon, and in no water polygon of 1 km2 or more."""
-    w, s, e, n = unit.geometry.bounds
+    w, s, e, n = wrapped_bounds(unit.geometry)
     pad = 0.05
-    _, _, lwkb, _ = read(str(land_idx), layer="land", bbox=(w - pad, s - pad, e + pad, n + pad))
-    _, _, wwkb, _ = read(str(water_big), layer="water", bbox=(w - pad, s - pad, e + pad, n + pad))
-    land_tree = STRtree(shapely.from_wkb(lwkb)) if len(lwkb) else None
-    water_tree = STRtree(shapely.from_wkb(wwkb)) if len(wwkb) else None
+    # A unit split at the antimeridian has plain bounds of -180 to 180, so a single read would pull the
+    # whole planet's coastline at these latitudes. The wrapped box is the unit's real extent and splits
+    # into the one or two boxes the bbox filter understands (issue #22).
+    parts = split_bbox(w - pad, s - pad, e + pad, n + pad)
+    lwkb = [read(str(land_idx), layer="land", bbox=p)[2] for p in parts]
+    wwkb = [read(str(water_big), layer="water", bbox=p)[2] for p in parts]
+    land_geoms = [g for chunk in lwkb for g in shapely.from_wkb(chunk)]
+    water_geoms = [g for chunk in wwkb for g in shapely.from_wkb(chunk)]
+    land_tree = STRtree(land_geoms) if land_geoms else None
+    water_tree = STRtree(water_geoms) if water_geoms else None
     geom = unit.geometry
     shapely.prepare(geom)                      # one prepared geometry, then one vectorised call per batch
 

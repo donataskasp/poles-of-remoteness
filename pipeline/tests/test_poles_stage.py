@@ -75,6 +75,24 @@ def test_allowed_needs_the_unit_and_land_and_no_big_water(tmp_path):
     assert allowed(lons, lats).tolist() == [True, False, False, False]
 
 
+def test_allowed_reads_only_the_two_windows_a_unit_on_the_line_covers(tmp_path, monkeypatch):
+    unit = Unit("aa", "Aa", "Aa", 1, "aa",
+                MultiPolygon([box(178.0, 50.0, 180.0, 52.0), box(-180.0, 50.0, -178.0, 52.0)]), False, 1)
+    land = write_fgb(tmp_path / "land.fgb", "land",
+                     [box(177.5, 49.5, 180.0, 52.5), box(-180.0, 49.5, -177.5, 52.5)], {"osm_id": [1, 2]})
+    water = write_fgb(tmp_path / "water.fgb", "water", [box(179.0, 50.5, 179.2, 50.7)], {"osm_id": [1]})
+    seen = []
+    real_read = poles_mod.read
+    monkeypatch.setattr(poles_mod, "read", lambda *a, **k: (seen.append(k["bbox"]), real_read(*a, **k))[1])
+    allowed = _allowed_factory(unit, land, water)
+    # Two reads per index, one per side of the line, and never a box that spans the planet.
+    assert [round(v, 6) for b in seen for v in b] == [177.95, 49.95, 180.0, 52.05,
+                                                      -180.0, 49.95, -177.95, 52.05] * 2
+    lons = np.array([179.0, -179.0, 179.1, 170.0])   # east of the line; west of it; in the lake; outside the unit
+    lats = np.array([51.0, 51.0, 50.6, 51.0])
+    assert allowed(lons, lats).tolist() == [True, True, False, False]
+
+
 def test_write_water_big_keeps_only_the_large_polygon(tmp_path, log):
     """Real ogr2ogr: the area filter must survive whatever copy path GDAL picks."""
     src = write_fgb(tmp_path / "water_proj.fgb", "water",
@@ -226,7 +244,7 @@ def test_a_cache_file_of_the_wrong_shape_is_a_poles_error_naming_the_file(tmp_pa
         poles_mod.run(cfg, ws, log)
 
 
-def _prepare_workspace(tmp_path, monkeypatch):
+def _prepare_workspace(tmp_path, monkeypatch, unit=None):
     """The least on-disk state prepare() needs to reach its units.tif branch: the rest is marked done or stubbed."""
     ws = Workspace(tmp_path / "work", "rr", "2026-01-01")
     frame = Frame("EPSG:3035", 250.0, 0.0, 1000.0, 4, 4)
@@ -236,7 +254,7 @@ def _prepare_workspace(tmp_path, monkeypatch):
     (fetch / "snapshot.json").write_text(json.dumps({"sources": [
         {"url": "http://x/r-latest.osm.pbf", "role": "primary", "poly": "r.poly"}]}), encoding="utf-8")
     out = ws.dir("poles")
-    write_units([Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([box(0, 0, 1, 1)]), False, 1)], out / "units.fgb")
+    write_units([unit or Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([box(0, 0, 1, 1)]), False, 1)], out / "units.fgb")
     for name in ("countries.fgb", "units.fgb", "land_idx.fgb", "water_big.fgb"):
         (out / name).touch()
         (out / (name + MARKER)).touch()
@@ -265,6 +283,17 @@ def test_prepare_clears_the_result_cache_when_it_rebuilds_the_units(tmp_path, cf
     assert (results / "aa-A.json").is_file()      # units.tif done: the cache belongs to these units and stays
 
 
+def test_units_json_bbox_takes_the_short_way_round_the_line(tmp_path, cfg, log, monkeypatch):
+    # The bbox units.json publishes is what the site zooms to. Written from plain bounds, a unit split at
+    # the line asks the map to show the whole world (issue #22).
+    straddler = Unit("aa", "Aa", "Aa", 1, "aa",
+                     MultiPolygon([box(178.0, 50.0, 180.0, 55.0), box(-180.0, 50.0, -178.0, 55.0)]), False, 1)
+    ws, out = _prepare_workspace(tmp_path, monkeypatch, unit=straddler)
+    poles_mod.prepare(cfg, ws, log)
+    bbox = json.loads((out / "units.json").read_text(encoding="utf-8"))["units"][0]["bbox"]
+    assert bbox == [178.0, 50.0, 182.0, 55.0]
+
+
 
 # ---------- windows and the resume path ----------
 
@@ -279,6 +308,22 @@ def test_bbox_window_floors_and_ceils_flips_y_and_clamps_to_the_frame():
     edge = Unit("bb", "Bb", "Bb", 2, "bb", MultiPolygon([box(-3.0, -3.0, 1.0, 1.0)]), False, 2)
     win = _bbox_window(edge, frame, same)                        # clamped, never negative and never past the frame
     assert (win.col_off, win.row_off) == (0, 8) and (win.width, win.height) == (2, 2)
+
+
+def test_bbox_window_of_a_unit_on_the_line_is_narrow_and_holds_the_far_side():
+    """The fallback window when units.json has no window for a unit. Measured: 800 columns of an 800
+    column frame before the fix, 72 after, with the far side of the line inside it either way."""
+    crs = "+proj=laea +lat_0=50 +lon_0=170 +datum=WGS84 +units=m"
+    to_frame = Transformer.from_crs("EPSG:4326", crs, always_xy=True)
+    frame = Frame(crs, 5000.0, -2_000_000.0, 2_000_000.0, 800, 800)
+    straddler = Unit("aa", "Aa", "Aa", 1, "aa",
+                     MultiPolygon([box(178.0, 50.0, 180.0, 55.0), box(-180.0, 50.0, -178.0, 55.0)]), False, 1)
+    win = _bbox_window(straddler, frame, to_frame)
+    assert win.width < 200                              # about 4 degrees of ground, not 360
+    fx, fy = to_frame.transform(-179.0, 52.5)           # a point on the far side of the line
+    col, row = int((fx - frame.x0) / frame.res), int((frame.y1 - fy) / frame.res)
+    assert win.col_off <= col < win.col_off + win.width
+    assert win.row_off <= row < win.row_off + win.height
 
 
 def test_unit_meta_raises_poles_error_naming_the_file(tmp_path):
