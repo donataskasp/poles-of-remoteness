@@ -1,9 +1,5 @@
 // The card: the headline sentence for the unit, the scenario toggle, the two actions, and the selected pole.
-import { t, unitName, flag, fmtDist, fmtKmExact, highwayLabel, placeLabel } from './i18n.js';
-
-function esc(s) {
-  return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-}
+import { t, unitName, flag, fmtDist, fmtKmExact, highwayLabel, placeLabel, esc } from './i18n.js';
 
 export function createCard(el, { onScenario, onRanking, onLocate, onPole }) {
   let view = null; // { region, unit, units, doc, scenario, rank }

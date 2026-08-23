@@ -2383,7 +2383,7 @@ Run: `colima status` (expected: not running; if running, `colima stop`), `df -g 
 - [ ] **Step 2: Launch the run in the background**
 
 ```bash
-cd /Users/donatas.kasparavicius/Personal/pole-of-remoteness/pipeline
+cd <repo>/pipeline
 export PATH=/opt/homebrew/bin:$PATH
 unset POLES_R2_ACCOUNT_ID POLES_R2_BUCKET POLES_R2_TOKEN_FILE POLES_R2_ACCESS_KEY_ID_FILE POLES_R2_SECRET_FILE POLES_R2_BASE
 nohup env POLES_WORKERS=4 caffeinate -i .venv/bin/poles run europe --snapshot 2026-08-19 --work ../work --stage publish --no-write-site \

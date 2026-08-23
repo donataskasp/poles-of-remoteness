@@ -1,7 +1,7 @@
 // Bootstrap and wiring. Everything with behaviour lives in the modules.
 import { makeClassTable } from './classes.js';
 import { pickLang, setLang, getLang, applyDom, t, fmtDist } from './i18n.js';
-import { parse, write, visitor } from './router.js';
+import { parse, write, visitor, changedState } from './router.js';
 import { loadRegions, loadUnits, loadUnit, archiveUrl, pickStart, bboxToBounds, unitAt } from './data.js';
 import { readTokens, makePalette, legendRows } from './palette.js';
 import { describe, formatSample, mountReadout } from './readout.js';
@@ -129,7 +129,7 @@ async function main() {
       if (matchMedia('(max-width: 720px)').matches) ui.ranking.toggle();
     },
   });
-  ui.ranking.setRows(region, units, state.s, unit && unit.code);
+  ui.ranking.setRows(units, state.s, unit && unit.code);
 
   ui.locate = () => {
     say({ kind: 'loading' }, { sticky: true });
@@ -146,10 +146,12 @@ async function main() {
     showSample(e.latlng);
     // The locate has just jumped the view, so the tiles under the new one may still be in flight and the
     // first read says "reading" for good. GridLayer fires load once every visible tile is in: read again
-    // then, unless the reader has produced a sample of their own meanwhile.
+    // then, unless the reader has produced a sample of their own meanwhile. The test is identity, not
+    // kind: say() allocates a sample per call, so a second locate's own "reading" is not this one's.
+    const pending = state.sample;
     if (explore[state.s].classAt(e.latlng) === undefined) {
       explore[state.s].once('load', () => {
-        if (state.sample && state.sample.kind === 'loading') showSample(e.latlng);
+        if (state.sample === pending) showSample(e.latlng);
       });
     }
   });
@@ -162,11 +164,15 @@ async function main() {
     about.showModal();
   });
   // Close on a click outside the dialog box. Testing the target alone would also close on the dialog's own
-  // padding ring, which is part of the dialog and not the backdrop.
-  about.addEventListener('click', (e) => {
+  // padding ring, which is part of the dialog and not the backdrop. Both ends of the click have to land
+  // outside: a text selection dragged out of the body and released over the backdrop is not a close.
+  const outsideDialog = (e) => {
     const r = about.getBoundingClientRect();
-    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) about.close();
-  });
+    return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+  };
+  let pressedOutside = false;
+  about.addEventListener('mousedown', (e) => { pressedOutside = outsideDialog(e); });
+  about.addEventListener('click', (e) => { if (pressedOutside && outsideDialog(e)) about.close(); });
 
   let current = { unit, doc: null, rank: 1 };
 
@@ -243,12 +249,18 @@ async function main() {
   }
   map.on('moveend zoomend', () => syncUrl(true));
 
+  const markBasemap = () => document.querySelectorAll('#basemap-seg .seg__btn')
+    .forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.base === state.b)));
+  // One place that switches the base map: the segmented control here, and the history restore below.
+  function applyBasemap(base) {
+    state.b = setBasemap(base);
+    markBasemap();
+  }
   document.querySelectorAll('#basemap-seg .seg__btn').forEach((b) => b.addEventListener('click', () => {
-    state.b = setBasemap(b.dataset.base);
-    document.querySelectorAll('#basemap-seg .seg__btn').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.base === state.b)));
+    applyBasemap(b.dataset.base);
     syncUrl(true);
   }));
-  document.querySelectorAll('#basemap-seg .seg__btn').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.base === state.b)));
+  markBasemap();
 
   document.querySelectorAll('#lang-seg .seg__btn').forEach((b) => b.addEventListener('click', () => {
     applyLanguage(b.dataset.lang);
@@ -267,11 +279,16 @@ async function main() {
   // is set without animation to keep its moveend inside the guarded window and the unit is awaited inside it.
   window.addEventListener('popstate', async () => {
     const p = parse();
+    // Every key the URL carries is restored, or the URL and the screen disagree from that point on and the
+    // next syncUrl resolves the disagreement by discarding what the URL said.
+    const change = changedState(p, state);
     restoring = true;
     try {
-      if (p.s && p.s !== state.s) setScenario(p.s);
+      if (change.s) setScenario(change.s);
+      if (change.b) applyBasemap(change.b);
+      if (change.l) applyLanguage(change.l);
       if (p.z != null && p.lat != null && p.lon != null) map.setView([p.lat, p.lon], p.z, { animate: false });
-      if (p.unit && p.unit !== state.unit) await openUnit(p.unit, { push: false, view: p.z != null ? 'keep' : 'unit' });
+      if (change.unit) await openUnit(change.unit, { push: false, view: p.z != null ? 'keep' : 'unit' });
     } catch (e) {
       console.warn('popstate', e);
     } finally {
@@ -285,8 +302,12 @@ async function main() {
 }
 
 main().catch((e) => {
+  // The raw error keeps going to the console; the reader gets a sentence in their own language. "Not
+  // published yet" and "the load broke" are different facts, and a JSON parser's message is neither.
   console.error(e);
-  document.getElementById('readout').hidden = false;
-  document.getElementById('readout').textContent = String(e.message || e);
+  const missing = e && (e.code === 'not-json' || e.status === 404);
+  const readout = document.getElementById('readout');
+  readout.hidden = false;
+  readout.textContent = t(missing ? 'dataMissing' : 'loadError');
   markReady();
 });

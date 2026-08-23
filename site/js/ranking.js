@@ -1,12 +1,8 @@
 // The ranking: every unit of the region sorted by the active scenario, the other scenario in small type.
 // On phones the container is a bottom sheet with three heights; on desktop it is the side panel.
-import { t, unitName, flag, fmtKmExact } from './i18n.js';
+import { t, unitName, flag, fmtKmExact, esc } from './i18n.js';
 
 const STATES = ['collapsed', 'half', 'full'];
-
-function esc(s) {
-  return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-}
 
 export function sortUnits(units, s) {
   const other = s === 'A' ? 'B' : 'A';
@@ -25,20 +21,33 @@ export function createRanking(el, { onPick }) {
   const list = el.querySelector('#ranking');
   const note = el.querySelector('#ranking-note');
   const handle = el.querySelector('#panel-handle');
-  let view = { region: null, units: [], scenario: 'A', current: null };
-  let sheet = 'collapsed';
+  let view = { units: [], scenario: 'A', current: null };
+  let sheet;
+
+  // The one place that scrolls the current unit into view, for the desktop panel and the phone sheet alike.
+  // A sheet that has just been opened is still animating its height, so this runs against a container that
+  // is about to grow; the browser clamps the scroll position as it does, which lands on the same row.
+  function showCurrent(block) {
+    const cur = list.querySelector('.ranking__row--current');
+    if (cur) cur.scrollIntoView({ block });
+  }
 
   function setState(next) {
     sheet = STATES.includes(next) ? next : 'collapsed';
     STATES.forEach((s) => el.classList.toggle(`panel--${s}`, s === sheet));
     handle.setAttribute('aria-expanded', String(sheet !== 'collapsed'));
+    // Opening the sheet at rank 1 hides the unit the reader is looking at, wherever it ranks (#35).
+    if (sheet !== 'collapsed') showCurrent('center');
   }
 
   function row(u) {
     const s = view.scenario;
     const other = s === 'A' ? 'B' : 'A';
-    const main = u[s] ? fmtKmExact(u[s].dist_m) : '';
-    const side = u[other] ? `${other} ${fmtKmExact(u[other].dist_m)}` : '';
+    // A unit can have no summary for a scenario, and a summary can carry no distance: both render empty.
+    const km = (key) => (u[key] ? fmtKmExact(u[key].dist_m) : '');
+    const main = km(s);
+    const otherKm = km(other);
+    const side = otherKm ? `${t(`scenarioShort_${other}`)} ${otherKm}` : '';
     const rank = u[s] ? u[s].rank : '';
     const cur = u.code === view.current ? ' ranking__row--current' : '';
     return `<li class="ranking__row${cur}">
@@ -61,16 +70,19 @@ export function createRanking(el, { onPick }) {
   });
   handle.addEventListener('click', () => setState(STATES[(STATES.indexOf(sheet) + 1) % STATES.length]));
 
+  // The class on the panel and the variable have to start out saying the same thing, so the starting state
+  // is applied rather than assumed.
+  setState('collapsed');
+
   return {
-    setRows(region, units, scenario, current) { view = { region, units, scenario, current }; render(); },
+    setRows(units, scenario, current) { view = { units, scenario, current }; render(); },
     setScenario(s) { view.scenario = s; render(); },
     setCurrent(code) {
       view.current = code;
       render();
-      const cur = list.querySelector('.ranking__row--current');
-      if (cur) cur.scrollIntoView({ block: 'nearest' });
+      showCurrent('nearest');
     },
-    open() { setState('half'); const cur = list.querySelector('.ranking__row--current'); if (cur) cur.scrollIntoView({ block: 'center' }); },
+    open() { setState('half'); },
     toggle() { setState(sheet === 'collapsed' ? 'half' : 'collapsed'); },
     refresh: render,
     state: () => sheet,

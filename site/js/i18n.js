@@ -42,7 +42,6 @@ const DICT = {
     nearestPlace: 'Nearest settlement',
     coordinates: 'Coordinates',
     openMaps: 'Open in Google Maps',
-    copyCoords: 'Copy',
     unnamed: 'unnamed',
     noPlace: 'no settlement within the search window',
     withheldNote: '{n} further pole(s) withheld by validation',
@@ -52,6 +51,7 @@ const DICT = {
     readoutLoading: 'reading',
     readoutHint: 'Tap the map to read the distance to the nearest road',
     loadError: 'Could not load this place, try again',
+    dataMissing: 'The map data is not published yet.',
     aboutBtn: 'About this map',
     close: 'Close',
     snapshotNote: 'OpenStreetMap snapshot {date}',
@@ -106,7 +106,6 @@ const DICT = {
     nearestPlace: 'Artimiausia gyvenvietė',
     coordinates: 'Koordinatės',
     openMaps: 'Atidaryti Google žemėlapiuose',
-    copyCoords: 'Kopijuoti',
     unnamed: 'be pavadinimo',
     noPlace: 'gyvenviečių paieškos lange nėra',
     withheldNote: 'dar {n} tašk. sulaikyta patikros',
@@ -116,6 +115,7 @@ const DICT = {
     readoutLoading: 'skaitoma',
     readoutHint: 'Palieskite žemėlapį ir pamatysite atstumą iki artimiausio kelio',
     loadError: 'Nepavyko įkelti šios vietos, bandykite dar kartą',
+    dataMissing: 'Žemėlapio duomenys dar nepaskelbti.',
     aboutBtn: 'Apie šį žemėlapį',
     close: 'Uždaryti',
     snapshotNote: 'OpenStreetMap duomenys {date}',
@@ -156,6 +156,14 @@ export function pickLang({ hash, stored, navigator: nav } = {}) {
     if (LANGS.includes(base)) return base;
   }
   return 'en';
+}
+
+// HTML escaping for the modules that build markup as strings (card.js, ranking.js). One implementation on
+// purpose: escaping is a security primitive, and a second copy is a second thing to get right. It lives
+// here rather than in a module of its own because both callers already import this one, and a new module
+// would need an entry in CI's first-screen budget list.
+export function esc(s) {
+  return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
 export function t(key, vars) {
@@ -205,7 +213,10 @@ export function fmtDist(m, lang = current) {
   return `${nf(lang, { minimumFractionDigits: digits, maximumFractionDigits: digits }).format(km)} km`;
 }
 
+// A unit can have no result for a scenario, and then there is no distance to say. Nothing beats "NaN km":
+// the caller decides what stands in the empty place.
 export function fmtKmExact(m, lang = current) {
+  if (!Number.isFinite(m)) return '';
   return `${nf(lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(m / 1000)} km`;
 }
 

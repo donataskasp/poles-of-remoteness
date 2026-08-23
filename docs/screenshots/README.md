@@ -9,13 +9,13 @@ with a flat grey tile so the images are deterministic, and writes this set:
 | desktop-lt.png | 1440x900 | /europe/lt, scenario A, English |
 | desktop-lt-lang-lt.png | 1440x900 | same, Lithuanian |
 | desktop-lt-b.png | 1440x900 | scenario B |
-| desktop-continent.png | 1440x900 | zoomed out to the continent (explore layer only) |
-| desktop-detail.png | 1440x900 | zoom 13 on pole 1 with the detail overlay and a readout |
+| desktop-continent.png | 1440x900 | zoomed out to the continent |
+| desktop-detail.png | 1440x900 | zoom 13 on pole 1, detail overlay on; the script clicks the map once to fill the readout |
 | desktop-about.png | 1440x900 | the About dialog |
 | phone-lt.png | 390x844 | /europe/lt, sheet collapsed |
 | phone-lt-lang-lt.png | 390x844 | same, Lithuanian |
-| phone-ranking.png | 390x844 | sheet at half height |
-| phone-about.png | 390x844 | the About dialog, Lithuanian |
+| phone-ranking.png | 390x844 | the script taps the sheet handle: sheet at half height, scrolled to the current unit |
+| phone-about.png | 390x844 | the About dialog, Lithuanian; the script opens the sheet first, because the About button sits in the panel body |
 
 Rule: a change that touches only phone styles must leave every `desktop-*.png` byte-identical
 (`shasum -a 256 docs/screenshots/desktop-*.png` before and after). A UI change is not done until the

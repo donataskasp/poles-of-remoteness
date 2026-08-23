@@ -2,10 +2,24 @@
 // Paths are root-absolute: the page is served at nested paths like /<region>/<unit>.
 const cache = new Map();
 
+// A failure the caller can tell apart without matching on message text: 'http' carries the status, and
+// 'not-json' means the answer was not a JSON document whatever its status said.
+function dataError(code, message, status = null) {
+  const e = new Error(message);
+  e.code = code;
+  if (status != null) e.status = status;
+  return e;
+}
+
 export function getJSON(url, fetchFn = fetch) {
   if (!cache.has(url)) {
     const p = fetchFn(url).then((r) => {
-      if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
+      if (!r.ok) throw dataError('http', `${url}: HTTP ${r.status}`, r.status);
+      // The assets binding answers a missing file with index.html and HTTP 200 (not_found_handling is
+      // single-page-application), so r.ok is no proof of a JSON body. Without this check the visitor gets
+      // the JSON parser's own message in the readout, which says nothing they can act on.
+      const type = (r.headers && r.headers.get('Content-Type')) || '';
+      if (!/json/i.test(type)) throw dataError('not-json', `${url}: not JSON (${type || 'no content type'})`);
       return r.json();
     }).catch((e) => {
       cache.delete(url);

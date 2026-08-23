@@ -41,15 +41,35 @@ test('data: pickStart follows the fallback order', async () => {
   assert.deepEqual(await pickStart({ region: 'europe', unit: 'lt' }, none, regions, async () => []), { region: 'europe', unit: null });
 });
 
+const headers = (type) => ({ get: (name) => (name.toLowerCase() === 'content-type' ? type : null) });
+const answer = (type, body) => ({ ok: true, status: 200, headers: headers(type), json: async () => body });
+
 test('data: getJSON caches successes and evicts failures', async () => {
   let calls = 0;
-  const fetchFn = async (url) => { calls += 1; return { ok: !url.includes('bad'), status: url.includes('bad') ? 404 : 200, json: async () => ({ url }) }; };
+  const fetchFn = async (url) => {
+    calls += 1;
+    if (url.includes('bad')) return { ok: false, status: 404, headers: headers('text/html'), json: async () => ({}) };
+    return answer('application/json; charset=utf-8', { url });
+  };
   assert.deepEqual(await getJSON('/x.json', fetchFn), { url: '/x.json' });
   await getJSON('/x.json', fetchFn);
   assert.equal(calls, 1);
-  await assert.rejects(getJSON('/bad.json', fetchFn), /HTTP 404/);
+  await assert.rejects(getJSON('/bad.json', fetchFn), (e) => e.code === 'http' && e.status === 404);
   await assert.rejects(getJSON('/bad.json', fetchFn), /HTTP 404/);
   assert.equal(calls, 3);
+});
+
+test('data: getJSON refuses an HTML body answered with 200, and does not cache it', async () => {
+  // The assets binding answers a missing /data/ file with index.html and HTTP 200 (SPA fallback), which is
+  // the deployed state until the region JSON is published: r.ok alone would hand the page to JSON.parse.
+  let calls = 0;
+  const fetchFn = async () => { calls += 1; return answer('text/html; charset=utf-8', {}); };
+  await assert.rejects(getJSON('/data/regions.json', fetchFn), (e) => e.code === 'not-json');
+  await assert.rejects(getJSON('/data/regions.json', fetchFn), (e) => e.code === 'not-json');
+  assert.equal(calls, 2, 'the failure is evicted, so a later publish is picked up without a reload');
+  // A response with no Content-Type at all is treated the same way: absence is not proof of JSON.
+  await assert.rejects(getJSON('/data/none.json', async () => ({ ok: true, status: 200, headers: headers(null), json: async () => ({}) })),
+    (e) => e.code === 'not-json');
 });
 
 test('data: unitAt picks the smallest unit whose bbox contains the point', () => {

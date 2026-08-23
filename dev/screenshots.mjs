@@ -17,7 +17,20 @@ import { startServer } from './serve.mjs';
 const { chromium } = createRequire(import.meta.url)('playwright');
 
 const argv = process.argv.slice(2);
-const opt = (name, dflt) => { const i = argv.indexOf(`--${name}`); return i >= 0 ? argv[i + 1] : dflt; };
+// Exit 2 on a bad invocation, the same code a bad --only uses: a run that writes nothing must not read as a pass.
+function fail(msg) {
+  console.error(msg);
+  process.exit(2);
+}
+// A flag with nothing behind it, or with the next flag behind it, is a typo. Falling back to the default there
+// would be silent: a trailing `--only` would rewrite the whole set instead of the one shot that was asked for.
+function opt(name, dflt) {
+  const i = argv.indexOf(`--${name}`);
+  if (i < 0) return dflt;
+  const v = argv[i + 1];
+  if (v === undefined || v.startsWith('--')) fail(`--${name} needs a value`);
+  return v;
+}
 const DATA = resolve(opt('data', 'dev/out/site'));
 const R2 = resolve(opt('r2', 'work/europe/2026-08-19/publish'));
 const R2_PREFIX = opt('r2-prefix', 'europe/2026-08-19');
@@ -36,13 +49,25 @@ function portFromData() {
   } catch { /* no dev JSON, or a real https base: fall back to the default port */ }
   return 8123;
 }
-const PORT = Number(opt('port', portFromData()));
+const portArg = opt('port', null);
+if (portArg !== null && !(/^[0-9]+$/.test(portArg) && Number(portArg) >= 1 && Number(portArg) <= 65535)) {
+  fail(`--port needs a port number between 1 and 65535, got: ${portArg}`);
+}
+const PORT = portArg === null ? portFromData() : Number(portArg);
 
 const DESKTOP = { width: 1440, height: 900 };
 const PHONE = { width: 390, height: 844 };
 
 // The run of record's Lithuania pole 1, for the detail view. Data about the run, not behaviour.
-const lt = JSON.parse(readFileSync(resolve(DATA, 'europe/units/lt.json'), 'utf8'));
+// The dev JSON is built, not committed, so a first run in a fresh clone finds nothing here; say what to build
+// rather than printing an ENOENT stack.
+const unitPath = resolve(DATA, 'europe/units/lt.json');
+let lt;
+try {
+  lt = JSON.parse(readFileSync(unitPath, 'utf8'));
+} catch (e) {
+  fail(`cannot read ${unitPath}: ${e.message}\nbuild the dev JSON first: pipeline/.venv/bin/python dev/site-json.py --region europe --snapshot <snapshot>  (see dev/README.md)`);
+}
 const pole1 = lt.A.poles[0];
 
 const SHOTS = [
@@ -95,9 +120,9 @@ try {
     await page.waitForTimeout(800);
     if (shot.after) await shot.after(page);
     // Park the pointer off the map before the shot. A click leaves the cursor where it landed, and a row
-    // under it paints its hover state, which is the same colour the ranking uses for the current unit: the
-    // phone sheet came out with a random country looking selected. (0, 0) is header background, so no
-    // element is hovered and the map gets no mousemove, which on desktop would rewrite the readout.
+    // under it paints its hover state: the phone sheet came out with a random country looking picked out.
+    // (0, 0) is header background, so no element is hovered and the map gets no mousemove, which on desktop
+    // would rewrite the readout.
     await page.mouse.move(0, 0);
     await page.waitForTimeout(100);
     await page.screenshot({ path: resolve(OUT, `${shot.name}.png`), type: 'png' });

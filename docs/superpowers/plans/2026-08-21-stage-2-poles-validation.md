@@ -373,7 +373,7 @@ Read the bisection log at `<scratchpad>/fgb-limit/bisect.log` (the orchestrator 
 - [ ] **Step 8: Build the Europe tiles in the background**
 
 ```bash
-cd /Users/donatas.kasparavicius/Personal/pole-of-remoteness/pipeline && export PATH=/opt/homebrew/bin:$PATH
+cd <repo>/pipeline && export PATH=/opt/homebrew/bin:$PATH
 nohup caffeinate -i .venv/bin/python -c "
 import logging, sys
 from pathlib import Path

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { pickLang, setLang, getLang, t, regionName, unitName, flag, fmtDist, fmtKmExact, fmtInt, highwayLabel, placeLabel } from '../../site/js/i18n.js';
+import { pickLang, setLang, getLang, t, regionName, unitName, flag, fmtDist, fmtKmExact, fmtInt, highwayLabel, placeLabel, esc } from '../../site/js/i18n.js';
 
 test('i18n: pickLang order is hash, stored, browser, default en', () => {
   assert.equal(pickLang({ hash: 'lt', stored: 'en', navigator: { languages: ['en-GB'] } }), 'lt');
@@ -53,6 +53,24 @@ test('i18n: distances', () => {
   assert.equal(highwayLabel('track'), 'track');
   assert.equal(highwayLabel('bus_guideway'), 'bus_guideway');
   assert.equal(placeLabel('nowhere'), 'nowhere');
+});
+
+test('i18n: an exact kilometre needs a number to format', () => {
+  setLang('en');
+  assert.equal(fmtKmExact(3426), '3.43 km');
+  // A published summary can carry no distance at all (a scenario with no result for the unit). Say nothing
+  // rather than "NaN km"; the caller decides what stands in its place.
+  assert.equal(fmtKmExact(null), '');
+  assert.equal(fmtKmExact(undefined), '');
+  assert.equal(fmtKmExact(Infinity), '');
+});
+
+// One escape for the whole site: card.js and ranking.js both build HTML strings and both import this.
+test('i18n: esc neutralises every character that can end an HTML context', () => {
+  assert.equal(esc('<script>alert("x")</script>'), '&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt;');
+  assert.equal(esc("O'Brien & Co"), 'O&#39;Brien &amp; Co');
+  assert.equal(esc(42), '42');
+  assert.equal(esc(null), 'null');
 });
 
 test('i18n: language values are case-normalised', () => {

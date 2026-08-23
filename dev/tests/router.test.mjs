@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parse, toUrl, write, visitor } from '../../site/js/router.js';
+import { parse, toUrl, write, visitor, changedState } from '../../site/js/router.js';
 
 const loc = (pathname, hash = '') => ({ pathname, hash });
 
@@ -52,6 +52,24 @@ test('router: toUrl round-trips and rounds', () => {
     { region: 'europe', unit: 'lt', z: 9.12, lat: 55.12346, lon: 24.5, s: 'A', b: 'sat', l: 'en' });
   assert.equal(toUrl({ region: null, unit: null }), '/');
   assert.equal(toUrl({ region: 'europe', unit: null, s: 'B' }), '/europe#s=B');
+});
+
+test('router: the basemap and the language survive the round trip too', () => {
+  // The defaults are covered above; these are the values a reader has to switch to before Back can lose them.
+  const url = toUrl({ region: 'europe', unit: 'lt', s: 'B', b: 'osm', l: 'lt' });
+  assert.equal(url, '/europe/lt#s=B&b=osm&l=lt');
+  const back = parse(loc('/europe/lt', url.slice(url.indexOf('#'))));
+  assert.deepEqual([back.s, back.b, back.l], ['B', 'osm', 'lt']);
+});
+
+test('router: changedState names only the keys a history entry actually changes', () => {
+  const state = { region: 'europe', unit: 'lt', s: 'A', b: 'sat', l: 'en' };
+  assert.deepEqual(changedState(parse(loc('/europe/lt', '#s=A&b=sat&l=en')), state), {});
+  assert.deepEqual(changedState(parse(loc('/europe/lt', '#s=B&b=osm&l=lt')), state), { s: 'B', b: 'osm', l: 'lt' });
+  assert.deepEqual(changedState(parse(loc('/europe/no', '#s=A&b=sat&l=en')), state), { unit: 'no' });
+  // A key the URL does not carry keeps what is on screen: an entry written before the key existed, or a
+  // hand-typed link, must not reset the basemap or the language to a default nobody asked for.
+  assert.deepEqual(changedState(parse(loc('/europe/lt')), state), {});
 });
 
 test('router: visitor meta', () => {

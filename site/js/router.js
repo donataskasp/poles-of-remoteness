@@ -1,5 +1,7 @@
 // URL state. Path: /, /<region>, /<region>/<unit>. Hash: z, lat, lon, s, b, l. The pure functions take a
 // location-like {pathname, hash} so they run in Node; only write() and visitor() touch the browser by default.
+// Twin of SEG in worker.js. The worker is not a module the site can import (that would need a build step),
+// so dev/tests/worker.test.mjs feeds both a shared table of paths to keep the two copies in step.
 const SEG = /^[a-z][a-z0-9-]{0,31}$/;
 const NUM = /^-?\d+(\.\d+)?$/;
 export const SCENARIOS = ['A', 'B'];
@@ -54,6 +56,15 @@ export function toUrl(state) {
   if (state.l) h.set('l', state.l);
   const q = h.toString();
   return q ? `${path}#${q}` : path;
+}
+
+// What a history entry asks to change: the keys a parsed URL carries that differ from what is on screen.
+// Back and forward apply exactly these, so nothing already correct is re-applied and a key the URL does not
+// carry (an entry written before the key existed, or a hand-typed link) keeps its current value.
+export function changedState(parsed, state, keys = ['s', 'b', 'l', 'unit']) {
+  const out = {};
+  for (const k of keys) if (parsed[k] != null && parsed[k] !== state[k]) out[k] = parsed[k];
+  return out;
 }
 
 // The query string is not state, so it is compared out of the no-op guard and copied into whatever is

@@ -9,14 +9,27 @@
    from the URL path. The visitor meta written into the page is the country and region code Cloudflare
    already attaches to the request; it never leaves the visitor's own page. */
 
+/* Twin of SEG in site/js/router.js, which the worker cannot import without a build step; the shared table
+   in dev/tests/worker.test.mjs is what keeps the two copies in step. */
 const SEG = /^[a-z][a-z0-9-]{0,31}$/;
+
+/* One path segment, normalised the way the router normalises it, or null when it is not a segment at all.
+   Case and percent escapes are decided here rather than at the caller: an upper-case or percent-encoded
+   link is a page to the site, so it has to be a page here too, and the blobs have to carry the codes the
+   site will read. */
+function segment(raw) {
+  let s;
+  try { s = decodeURIComponent(raw).toLowerCase(); } catch { return null; }
+  return SEG.test(s) ? s : null;
+}
 
 /* The page paths are '/', '/<region>' and '/<region>/<unit>', a trailing slash tolerated. Anything else
    (including '/index.html', which the assets layer redirects to '/') is not a page view. */
 export function landing(pathname) {
-  const parts = pathname.replace(/\/+$/, '').split('/').slice(1);
-  if (parts.length === 0) return { page: true, region: '', unit: '' };
-  if (parts.length > 2 || !parts.every((p) => SEG.test(p))) return { page: false, region: '', unit: '' };
+  const raw = pathname.replace(/\/+$/, '').split('/').slice(1);
+  if (raw.length === 0) return { page: true, region: '', unit: '' };
+  const parts = raw.map(segment);
+  if (raw.length > 2 || parts.some((p) => p === null)) return { page: false, region: '', unit: '' };
   return { page: true, region: parts[0], unit: parts[1] || '' };
 }
 
@@ -105,6 +118,10 @@ export default {
       /* Analytics is best effort. Never let it break serving the page. */
     }
 
+    /* The stamped body varies by visitor country while the headers, ETag included, come through from the
+       assets binding unchanged, and no Vary is added. Accepted: the value only picks the opening unit, the
+       site re-checks it, and pickStart falls back cleanly when it is stale or absent. A traveller keeps the
+       old country until the asset itself changes, which costs one fallback opening unit and nothing else. */
     const code = visitorCode(request.cf);
     if (!html || !code) return response; // a 304 has no body to stamp
     return new HTMLRewriter()
