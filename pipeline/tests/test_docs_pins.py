@@ -59,7 +59,16 @@ def test_every_diagram_is_indexed_and_carries_the_two_required_sections():
         assert "Reflects the code at " in body, f"{f.name}: no reflects line"
 
 
-def test_no_em_dashes_in_the_docs_touched_by_this_round():
-    for rel in ("CLAUDE.md", "docs/OVERVIEW.md", "docs/DECISIONS.md", "docs/LOG.md", "pipeline/README.md", "README.md",
-                *(f"docs/diagrams/{p.name}" for p in (ROOT / "docs" / "diagrams").glob("*.md"))):
+def test_no_em_dashes_in_the_docs():
+    """Every doc anyone reads, found by walking `docs/`, not a list someone has to remember to extend.
+
+    `docs/superpowers/plans/` is out: those are the stage plans as they were written, one of them carries
+    the character twice, and rewriting history to satisfy a pin would be the wrong repair."""
+    docs = ROOT / "docs"
+    paths = {ROOT / "CLAUDE.md", ROOT / "README.md", ROOT / "pipeline" / "README.md",
+             *docs.glob("*.md"), *docs.glob("*/*.md"), *docs.rglob("README.md")}
+    checked = sorted(p for p in paths if "docs/superpowers/plans/" not in p.as_posix())
+    assert len(checked) > 10, f"the walk found only {len(checked)} docs to check"
+    for p in checked:
+        rel = p.relative_to(ROOT).as_posix()
         assert "\u2014" not in _text(rel), rel

@@ -586,12 +586,38 @@ def test_refine_cell_carries_the_way_record_and_never_the_road_set():
     assert abs(refined.dist_m - pole.dist_m) < 1e-9 and 1_500 < refined.dist_m < 2_500
 
 
-def test_worker_log_records_name_their_unit_and_scenario(tmp_path):
+@pytest.fixture
+def worker_log_parent():
+    """Hand `poles.unit` to the test empty and take back what the test attached.
+
+    `_worker_logger` hangs a FileHandler on that shared logger and leaves it there for the life of the
+    process, which in a session means an open file under a tmp_path that is about to be deleted and a first
+    caller deciding where every later one writes. `propagate` is restored with the handlers because pytest
+    attaches its capture handlers to every non-propagating logger at the start of each phase, and the guard
+    under test (`if not parent.handlers`) would then see those instead of an empty logger."""
+    parent = logging.getLogger("poles.unit")
+    for h in list(parent.handlers):
+        parent.removeHandler(h)
+    parent.propagate = True
+    try:
+        yield parent
+    finally:
+        for h in list(parent.handlers):
+            parent.removeHandler(h)
+            if isinstance(h, logging.FileHandler):
+                h.close()
+        parent.setLevel(logging.NOTSET)
+        parent.propagate = True
+
+
+def test_worker_log_records_name_their_unit_and_scenario(tmp_path, worker_log_parent):
     """The run log's "500 refinements and counting" warnings named no unit, so the worker that grew to
     20 GB could not be matched to its job (issue #43). The handler hangs on the shared parent and keeps the
     first log_path it saw, so what has to carry the job is the record's logger name."""
     job = UnitJob(cfg=None, prepared=None, unit=Unit("zz", "Z", "Z", 1, "zz", MultiPolygon([box(20.0, 53.0, 21.0, 54.0)]), False, 1),
                   scenario="B", dist_tif=tmp_path / "d.tif", top_n=3, log_path=tmp_path / "log.txt")
     log = poles_mod._worker_logger(job)
-    fmt = logging.getLogger("poles.unit").handlers[0].formatter
-    assert "%(name)s" in fmt._fmt and log.name == "poles.unit.zz.B"
+    assert len(worker_log_parent.handlers) == 1, "the call under test attaches exactly one handler"
+    handler = worker_log_parent.handlers[0]
+    assert Path(handler.baseFilename) == job.log_path
+    assert "%(name)s" in handler.formatter._fmt and log.name == "poles.unit.zz.B"

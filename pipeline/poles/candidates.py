@@ -88,6 +88,12 @@ class Search:
         # Sorted by each cell's own bound, not by its coarse value: a far cell with a small pad can bound
         # lower than a nearer cell with a large one, and only this order makes uppers[i] the maximum of
         # the rest. On a frame spanning 23 degrees of latitude the pads run 10 to 1 across one unit.
+        # The assumption: the cell's own distortion plus PAD_SAFETY covers the whole path, although the
+        # coarse value is a planar path to a road that may lie far away where the frame distorts
+        # differently (the unit-wide pad_max this replaced assumed the same for roads outside the unit).
+        # The backstop is validation, which re-measures every published pole geodesically: check 1 against
+        # the road geometry and check 4 against a half-shifted grid, so a pad too small for a long path
+        # fails there rather than passing quietly.
         uppers = (coarse + 2 * self.hd) * (1 + pads)
         order = np.argsort(-uppers, kind="stable")
         self.order = order
