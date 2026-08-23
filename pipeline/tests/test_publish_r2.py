@@ -429,3 +429,41 @@ def test_verify_head_gives_up_when_the_rate_limit_holds(monkeypatch, log):
         with pytest.raises(PublishError, match="429"):
             r2.verify_head(base, ["r/A.pmtiles"], [], log)
     assert always.hits[("HEAD", "/r/A.pmtiles")] == 4            # the first attempt plus three retries
+
+
+class _BlocksScriptAgents(BaseHTTPRequestHandler):
+    """The r2.dev edge as observed on 2026-08-23 (issue #49): the same URL answers 403 to urllib's default
+    `Python-urllib/3.x` agent and 200 to a request that says who it is."""
+    body = b"\x05" * 40_000
+
+    def _serve(self, send_body):
+        if not self.headers.get("User-Agent", "").startswith("poles-publish/"):
+            self.send_response(403)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
+        ranged = self.headers.get("Range") is not None
+        data = self.body[:r2.RANGE_BYTES] if ranged else self.body
+        self.send_response(206 if ranged else 200)
+        self.send_header("Content-Length", str(len(data)))
+        if ranged:
+            self.send_header("Content-Range", f"bytes 0-{len(data) - 1}/{len(self.body)}")
+        self.end_headers()
+        if send_body:
+            self.wfile.write(data)
+
+    def do_GET(self):
+        self._serve(True)
+
+    def do_HEAD(self):
+        self._serve(False)
+
+    def log_message(self, *a):
+        pass
+
+
+def test_verify_head_identifies_itself_to_an_edge_that_blocks_script_agents(log):
+    assert r2.USER_AGENT.startswith("poles-publish/")
+    with _serving(_BlocksScriptAgents) as base:
+        out = r2.verify_head(base, ["r/A.pmtiles"], ["r/A.pmtiles"], log)
+    assert out["keys"] == 1 and out["range_ok"] == 1

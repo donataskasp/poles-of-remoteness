@@ -36,6 +36,9 @@ MISSING_KEY_CODES = ("404", "NoSuchKey", "NotFound")
 BUCKET_EXISTS_CODE = 10004
 RETRY_STATUSES = (429, 500, 502, 503, 504)
 RETRY_PAUSES = (1.0, 2.0, 4.0)     # seconds before each retry of a rate-limited or failing verification request
+# The r2.dev edge answers 403 to urllib's default `Python-urllib/3.x` agent (Cloudflare's script-agent rule, seen
+# 2026-08-23, issue #49) and 200 to a request that says who it is, so every verification request names the tool.
+USER_AGENT = "poles-publish/1 (+https://github.com/donataskasp/atokiausia-lietuva)"
 # The managed domain is verified from many threads and the upload runs on a machine the grid stage already fills,
 # so cap the parts in flight per file instead of taking boto3's default of ten.
 TRANSFER = TransferConfig(max_concurrency=2)
@@ -203,7 +206,7 @@ def _retrying(probe: Callable[[str], tuple[int, str]], url: str) -> tuple[int, s
 
 def _head_once(url: str) -> tuple[int, str]:
     """(status, detail); status 0 when the request never reached a server or the object came back without a size."""
-    req = urllib.request.Request(url, method="HEAD")
+    req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": USER_AGENT})
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
             if resp.status == 200 and resp.headers.get("Content-Length") is None:
@@ -233,7 +236,7 @@ def _total_size(content_range: str | None) -> int:
 
 def _range_once(url: str) -> tuple[int, str]:
     """(status, detail) for a 16 KiB range request; status 0 when the body came back the wrong length."""
-    req = urllib.request.Request(url, headers={"Range": f"bytes=0-{RANGE_BYTES - 1}"})
+    req = urllib.request.Request(url, headers={"Range": f"bytes=0-{RANGE_BYTES - 1}", "User-Agent": USER_AGENT})
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
             got = len(resp.read())
