@@ -44,9 +44,8 @@ from .config import RegionConfig
 from .errors import PolesError
 from .extract import MARKER
 from .grid import Frame
-from .logsetup import FORMAT
 from .poly import parse_poly
-from .refine import RoadCache, refine, utm_epsg
+from .refine import RoadCache, UtmRoads, refine, utm_epsg
 from .roads import RoadTiles, build_tiles
 from .shell import require_tools, run_cmd
 from .units import Unit, low_tif, rasterize_units, select_units, unit_cells, write_units
@@ -269,11 +268,14 @@ def _countries(path: str) -> Countries:
 
 def _worker_logger(job: UnitJob) -> logging.Logger:
     """Per-unit logger writing to the run's log file. The handler hangs on the shared parent, so a worker
-    opens the file once however many jobs it runs; appends of a single line are atomic."""
+    opens the file once however many jobs it runs; appends of a single line are atomic.
+
+    The records carry the logger name, unlike the run's own format: every worker writes to the one file,
+    so a line without its unit and scenario cannot be traced back to the job that wrote it (issue #43)."""
     parent = logging.getLogger("poles.unit")
     if not parent.handlers:
         handler = logging.FileHandler(job.log_path, encoding="utf-8")
-        handler.setFormatter(logging.Formatter(FORMAT, datefmt="%Y-%m-%dT%H:%M:%S"))
+        handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(name)s: %(message)s", datefmt="%Y-%m-%dT%H:%M:%S"))
         parent.addHandler(handler)
         parent.setLevel(logging.INFO)
         parent.propagate = False
@@ -332,6 +334,18 @@ def _allowed_factory(unit: Unit, land_idx: Path, water_big: Path):
     return allowed
 
 
+def refine_cell(x: float, y: float, frame_crs: str, roads: UtmRoads, half_m: float, allowed, countries: Countries,
+                to_frame: Transformer) -> Refined | None:
+    """One cell refined and attributed. The payload is the pole and its nearest-way record, never the road
+    set: a refined candidate waits in Search.pending until the search finalises it, and a payload holding
+    the UtmRoads would pin that whole window for as long as it waits (issue #43: 20 GB in one worker)."""
+    r = refine(x, y, frame_crs, roads, half_m=half_m, allowed=allowed)
+    if r is None:
+        return None
+    fx, fy = to_frame.transform(r.lon, r.lat)
+    return Refined(float(fx), float(fy), r.dist_m, (r, nearest_way(roads, r, countries)))
+
+
 def search_unit(job: UnitJob) -> dict:
     """One unit and one scenario: coarse cells, branch-and-bound, exact refinement, attribution."""
     t0 = time.monotonic()
@@ -382,11 +396,7 @@ def search_unit(job: UnitJob) -> dict:
         dlon = dlat / max(0.05, np.cos(np.radians(lat)))
         epsg = utm_epsg(lon, lat)
         roads = cache.get(lon - dlon, lat - dlat, lon + dlon, lat + dlat, epsg)
-        r = refine(x_sorted[i], y_sorted[i], frame.crs, roads, half_m=hd, allowed=allowed)
-        if r is None:
-            return None
-        fx, fy = to_frame.transform(r.lon, r.lat)
-        return Refined(float(fx), float(fy), r.dist_m, (r, roads))
+        return refine_cell(x_sorted[i], y_sorted[i], frame.crs, roads, hd, allowed, countries, to_frame)
 
     search = Search(xs, ys, coarse, pads, frame.res, job.top_n, refiner, DEDUP_M, log=log)
     # `refiner` reads these by name, so they must be bound before search.run(): Search sorts the cells by
@@ -398,8 +408,8 @@ def search_unit(job: UnitJob) -> dict:
     places = _places(str(prep_.places))
     poles = []
     for rank, acc in enumerate(result.accepted, start=1):
-        refined, roads = acc.payload
-        poles.append(pole_record(rank, refined, nearest_way(roads, refined, countries), places.nearest(refined.lon, refined.lat)))
+        refined, way = acc.payload
+        poles.append(pole_record(rank, refined, way, places.nearest(refined.lon, refined.lat)))
     reason = None
     if result.exhausted:
         reason = (f"only {len(poles)} pole(s): no further point of the unit is both at least "

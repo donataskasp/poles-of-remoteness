@@ -1,4 +1,5 @@
 import json
+import logging
 from concurrent.futures.process import BrokenProcessPool
 
 import numpy as np
@@ -7,14 +8,19 @@ import rasterio
 import shapely
 from pyogrio.raw import read
 from pyproj import Transformer
-from shapely.geometry import MultiPolygon, Polygon, box
+from shapely.geometry import LineString, MultiPolygon, Polygon, box
 
 from poles import poles as poles_mod
+from poles.attrib import Countries
+from poles.boundaries import AdminArea
+from poles.candidates import Refined
 from poles.errors import PolesError
 from poles.grid import Frame, create_raster, write_float_tif
 from poles.poles import (Prepared, UnitJob, _allowed_factory, _bbox_window, _unit_meta, _unit_windows,
                          validate_poles_json, write_water_big)
 from poles.extract import MARKER
+from poles.refine import RefinedPole, UtmRoads, utm_epsg
+from poles.roads import RoadSet
 from poles.units import Unit, low_tif, write_units
 from poles.workspace import Workspace
 from tests.helpers import write_fgb
@@ -377,3 +383,40 @@ def test_unit_meta_raises_poles_error_naming_the_file(tmp_path):
     missing.write_text(json.dumps({"units": [{"code": "aa", "cells": 7, "area_km2": 0.4, "window": [1, 2, 3, 4]}]}), encoding="utf-8")
     windows = _unit_meta(missing, units)
     assert windows == {"aa": (1, 2, 3, 4)} and (units[0].cells, units[0].area_km2) == (7, 0.4)
+
+
+def _one_road_utm(lon: float, lat: float) -> UtmRoads:
+    """One north-south road at `lon`, projected into the UTM zone of (lon, lat)."""
+    rs = RoadSet(np.array([LineString([(lon, lat - 0.1), (lon, lat + 0.1)])], dtype=object),
+                 {"osm_id": np.array([7], dtype=object), "highway": np.array(["track"], dtype=object),
+                  "name": np.array([""], dtype=object), "ref": np.array([""], dtype=object)})
+    return UtmRoads(rs, utm_epsg(lon, lat))
+
+
+def test_refine_cell_carries_the_way_record_and_never_the_road_set():
+    """A pending candidate lives until the search finalises it; if it held the road set it would pin the
+    whole window (issue #43). The payload is the pole and its nearest-way record, nothing else."""
+    roads = _one_road_utm(25.0, 54.1)
+    countries = Countries([AdminArea(1, 2, "lt", "Lietuva", "Lithuania", MultiPolygon([box(24, 53, 26, 55)]), True, False)])
+    frame_crs = "EPSG:3035"
+    to_frame = Transformer.from_crs("EPSG:4326", frame_crs, always_xy=True)
+    x, y = to_frame.transform(25.03, 54.1)
+    refined = poles_mod.refine_cell(x, y, frame_crs, roads, half_m=125.0, allowed=lambda lons, lats: np.ones(len(lons), bool),
+                                    countries=countries, to_frame=to_frame)
+    assert isinstance(refined, Refined)
+    pole, way = refined.payload
+    assert isinstance(pole, RefinedPole)
+    assert way == {"id": 7, "highway": "track", "name": "", "ref": "", "country": "lt"}
+    assert not any(isinstance(v, (UtmRoads, RoadSet)) for v in refined.payload)
+    assert abs(refined.dist_m - pole.dist_m) < 1e-9 and 1_500 < refined.dist_m < 2_500
+
+
+def test_worker_log_records_name_their_unit_and_scenario(tmp_path):
+    """The run log's "500 refinements and counting" warnings named no unit, so the worker that grew to
+    20 GB could not be matched to its job (issue #43). The handler hangs on the shared parent and keeps the
+    first log_path it saw, so what has to carry the job is the record's logger name."""
+    job = UnitJob(cfg=None, prepared=None, unit=Unit("zz", "Z", "Z", 1, "zz", MultiPolygon([box(20.0, 53.0, 21.0, 54.0)]), False, 1),
+                  scenario="B", dist_tif=tmp_path / "d.tif", top_n=3, log_path=tmp_path / "log.txt")
+    log = poles_mod._worker_logger(job)
+    fmt = logging.getLogger("poles.unit").handlers[0].formatter
+    assert "%(name)s" in fmt._fmt and log.name == "poles.unit.zz.B"
