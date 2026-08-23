@@ -278,9 +278,10 @@ def _bbox_window(unit: Unit, frame: Frame, to_frame: Transformer) -> Window:
     """The frame window covering the unit's lon/lat bbox, one cell wider each way and clamped to the frame.
 
     The bbox is the wrapped one, so a unit split at the antimeridian gets its own 4 degrees rather than
-    the whole world (issue #22). The frame CRS is continuous across 180 (the region's LAEA, centred on
-    the region), and pyproj normalises a longitude above 180 into it, so the segmentized ring projects
-    to one compact run of columns.
+    the whole world (issue #22). PROJ normalises the longitude relative to the frame's central meridian
+    for any lon_0, so 182 and -178 project to the same point and the segmentized ring lands in one
+    compact run of columns; the only seam of an azimuthal frame is its antipode, which no region puts
+    near a unit.
     """
     ring = shapely.segmentize(shapely.box(*wrapped_bounds(unit.geometry)).exterior, 0.1)
     fx, fy = to_frame.transform(*np.asarray(ring.coords).T)
