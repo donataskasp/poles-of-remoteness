@@ -14,6 +14,7 @@ from pyproj import Transformer
 from shapely.geometry.base import BaseGeometry
 from shapely.ops import unary_union
 
+from ..antimeridian import dissolve_seam, split_antimeridian
 from ..classes import EDGE, NODATA, ClassTable
 from ..extract import MARKER
 from ..grid import GTIFF_OPTS, Frame, create_raster, rasterize
@@ -81,10 +82,16 @@ def edge_masks(edge_4326: BaseGeometry, frame: Frame, edge_mask_m: float, out_di
     band_wkb = out_dir / "edgeband_4326.wkb"
     if _done(inside_tif) and _done(band_tif) and _done(band_wkb):
         return inside_tif, band_tif, band_wkb
-    edge_proj = _project(edge_4326, "EPSG:4326", frame.crs, SEGMENT_DEG)
+    # The seam of a region stored split at 180 is not an edge of the data, so it is dissolved before the
+    # boundary is buffered; and the band that legitimately crosses the line has to be cut at it on the way
+    # back to lon/lat, or the ring runs the long way round the planet and every detail pixel is tested
+    # against a polygon the width of the world (issue #22).
+    edge_proj = _project(dissolve_seam(edge_4326), "EPSG:4326", frame.crs, SEGMENT_DEG)
     band_proj = edge_proj.boundary.buffer(edge_mask_m)
     _unmark(band_wkb)
-    band_wkb.write_bytes(shapely.to_wkb(_project(band_proj, frame.crs, "EPSG:4326", SEGMENT_M)))
+    # classify_window wraps every pixel longitude into [-180, 180] before testing it, so the band written here
+    # has to be inside that range too or the far side of the line silently misses the band.
+    band_wkb.write_bytes(shapely.to_wkb(split_antimeridian(_project(band_proj, frame.crs, "EPSG:4326", SEGMENT_M))))
     _mark(band_wkb)
     for geom, tif in ((edge_proj, inside_tif), (band_proj, band_tif)):
         fgb = _polygon_fgb(geom, out_dir / (tif.stem + ".fgb"), frame.crs)

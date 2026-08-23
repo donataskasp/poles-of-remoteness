@@ -5,7 +5,7 @@ import numpy as np
 import pytest
 import rasterio
 import shapely
-from shapely.geometry import box
+from shapely.geometry import MultiPolygon, box
 
 from poles.classes import EDGE, NODATA, ClassTable
 from poles.shell import ToolError
@@ -80,6 +80,32 @@ def test_edge_masks_band_hugs_the_boundary(tmp_path, log):
     assert (tmp_path / "inside.tif.ok").exists() and (tmp_path / "edgeband.tif.ok").exists()
     ring = shapely.from_wkb((tmp_path / "edgeband_4326.wkb").read_bytes())
     assert ring.contains(shapely.Point(to_ll.transform(FRAME.x0 + 2_000, FRAME.y0 + 4_000)))
+
+
+def test_edge_masks_dissolve_the_seam_and_bring_the_band_back_in_one_piece(tmp_path, log):
+    """A region stored split at 180, in a frame centred on the line. The band must ring the region's real
+    boundary, must not run down the line, and must survive the trip back to lon/lat (issue #22)."""
+    from pyproj import Transformer
+    crs = "+proj=laea +lat_0=52 +lon_0=180 +datum=WGS84 +units=m"
+    frame = Frame(crs=crs, res=2_000, x0=-300_000, y1=300_000, width=300, height=300)
+    edge_4326 = MultiPolygon([box(177.0, 50.0, 180.0, 54.0), box(-180.0, 50.0, -177.0, 54.0)])
+    inside_tif, band_tif, band_wkb = raster.edge_masks(edge_4326, frame, 20_000, tmp_path, log,
+                                                       tmp_path / "tools.log")
+    with rasterio.open(band_tif) as ds:
+        band = ds.read(1)
+    with rasterio.open(inside_tif) as ds:
+        inside = ds.read(1)
+    to_fr = Transformer.from_crs("EPSG:4326", crs, always_xy=True)
+    x, y = to_fr.transform(177.0, 52.0)
+    col, row = int((x - frame.x0) // frame.res), int((frame.y1 - y) // frame.res)
+    assert band[row, col] == 1              # the region's real western boundary is in the band
+    assert band[150, 150] == 0              # the line through the middle of the region is not an edge
+    assert inside[150, 150] == 1            # and the middle of the region is inside the data
+    ring = shapely.from_wkb(band_wkb.read_bytes())
+    parts = list(ring.geoms) if hasattr(ring, "geoms") else [ring]
+    assert ring.is_valid and -180.0 <= ring.bounds[0] and ring.bounds[2] <= 180.0
+    # Torn at the line the band is one polygon spanning the planet; whole, it is a few degrees of longitude.
+    assert sum(p.bounds[2] - p.bounds[0] for p in parts) < 20.0
 
 
 def test_edge_polygon_unions_every_source(tmp_path):
