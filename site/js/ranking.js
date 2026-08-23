@@ -26,7 +26,9 @@ export function createRanking(el, { onPick }) {
 
   // The one place that scrolls the current unit into view, for the desktop panel and the phone sheet alike.
   // A sheet that has just been opened is still animating its height, so this runs against a container that
-  // is about to grow; the browser clamps the scroll position as it does, which lands on the same row.
+  // is about to grow: 'center' would be computed against the 48 px collapsed sheet and land the row a few
+  // pixels under the top edge once the sheet has grown. 'start' does not read the container's height; the
+  // row's scroll-margin-top keeps the body's top padding above it.
   function showCurrent(block) {
     const cur = list.querySelector('.ranking__row--current');
     if (cur) cur.scrollIntoView({ block });
@@ -37,7 +39,7 @@ export function createRanking(el, { onPick }) {
     STATES.forEach((s) => el.classList.toggle(`panel--${s}`, s === sheet));
     handle.setAttribute('aria-expanded', String(sheet !== 'collapsed'));
     // Opening the sheet at rank 1 hides the unit the reader is looking at, wherever it ranks (#35).
-    if (sheet !== 'collapsed') showCurrent('center');
+    if (sheet !== 'collapsed') showCurrent('start');
   }
 
   function row(u) {

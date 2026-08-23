@@ -172,7 +172,11 @@ async function main() {
   };
   let pressedOutside = false;
   about.addEventListener('mousedown', (e) => { pressedOutside = outsideDialog(e); });
-  about.addEventListener('click', (e) => { if (pressedOutside && outsideDialog(e)) about.close(); });
+  about.addEventListener('click', (e) => {
+    const pressed = pressedOutside;
+    pressedOutside = false; // a keyboard click reads as (0, 0), outside: it must not inherit the last press
+    if (pressed && outsideDialog(e)) about.close();
+  });
 
   let current = { unit, doc: null, rank: 1 };
 

@@ -172,6 +172,7 @@ html[lang="en"] .about__body [data-lang="lt"], html[lang="lt"] .about__body [dat
 /* Hover is neutral and the current unit is the only row tinted with the accent: sharing one colour made a
    row under the pointer look selected. */
 .ranking__btn:hover { background: var(--hair); }
+.ranking__row--current { scroll-margin-top: 12px; } /* the panel body's top padding, kept when scrolled to */
 .ranking__row--current .ranking__btn { background: var(--accent-soft); }
 .ranking__rank { color: var(--ink-2); font-variant-numeric: tabular-nums; font-size: 13px; }
 .ranking__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -204,8 +205,9 @@ html[lang="en"] .about__body [data-lang="lt"], html[lang="lt"] .about__body [dat
   .mapctl { bottom: 116px; }
   .card { width: calc(100% - 24px); }
   /* The full-width card runs under Leaflet's zoom control, which stays where Leaflet puts it (top right of
-     the map, 34px wide with its border, 10px of margin, 64px tall on a touch device). The card's top two
-     lines are the ones it reaches, so they keep the control's width plus its margin free on the right and
-     the headline wraps before it instead of under it (#34). */
-  .card__headline, .card__rank { padding-right: 44px; }
+     the map, 34px wide with its border, 10px of margin, 64px tall on a touch device): its left edge is 44px
+     from the screen edge. The card sits 12px in and pads 16px, so its text already stops 28px from the edge;
+     24px more leaves 8px of clearance. The card's top two lines are the ones the control reaches, so they
+     wrap before it instead of under it (#34). */
+  .card__headline, .card__rank { padding-right: 24px; }
 }
