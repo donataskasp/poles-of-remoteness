@@ -2292,3 +2292,203 @@ The preview still cannot show the region control, because `/data/regions.json` i
 - [ ] **Step 22.7: Close the stage**
 
 Issue #11: tick what is done, leave the R2 boxes open with a line saying what they wait on, remove `in-progress`, and leave the issue open until the upload happens. Issue #22 is closed in Task 21. The `.superpowers/sdd/2026-08-23-stage-5-north-america/` workspace is scratch: delete it at stage close, as stage 2 did. The git log and `docs/DECISIONS.md` are the durable record.
+
+---
+
+### Task 23: Documentation round: diagrams, cadence with triggers, executable doc pins (#42)
+
+Added 2026-08-23 on the owner's instruction, after a survey of the keenquote project's documentation practice. The aim is that a session opening this repo weeks from now reaches "what works, what is not done, where things are, how the pieces connect" in one hop, and that the docs cannot silently drift from the code. Keep it light: text diagrams, one test file, a cadence table. No docs framework, no generator, no commit hooks (`.claude/` is never committed here, so hooks would not travel with the repo).
+
+Runs after Task 22 and before the final whole-branch review, which then covers these docs too. The pipeline test floor rises by the number of pin tests added (at least four).
+
+**Files:**
+- Create: `docs/diagrams/README.md`, `docs/diagrams/01-pipeline.md`, `docs/diagrams/02-site-data-flow.md`, `docs/diagrams/03-deploy.md`
+- Create: `pipeline/tests/test_docs_pins.py`
+- Modify: `CLAUDE.md` (orientation path, docs cadence table), `docs/OVERVIEW.md` (access table, strict lists), `docs/DECISIONS.md` (format line), `docs/LOG.md` (entry bar), `pipeline/README.md` (stage table, region config key table), `README.md` (pointer section)
+
+**Interfaces:** consumes `poles.stages.ORDER` (the stage names, `pipeline/poles/stages.py:12`) and the region config files `pipeline/regions/*.yaml` (ids and top-level keys). Produces nothing code-side.
+
+- [ ] **Step 23.1: The pins, first**
+
+Create `pipeline/tests/test_docs_pins.py`. These tests fail when a doc and the code disagree; they are the only freshness mechanism that cannot be forgotten.
+
+```python
+"""Executable doc pins: the docs that claim to describe the code are checked against it.
+
+A failing test here means a doc drifted, not that the code is wrong. Fix the doc (or the table) in the same
+commit as the change that moved the code."""
+from pathlib import Path
+
+import pytest
+import yaml
+
+from poles.stages import ORDER
+
+ROOT = Path(__file__).resolve().parents[2]
+REGIONS = sorted((ROOT / "pipeline" / "regions").glob("*.yaml"))
+REGION_CONFIGS = [p for p in REGIONS if not p.name.endswith("-refs.yaml")]
+
+
+def _text(rel: str) -> str:
+    return (ROOT / rel).read_text(encoding="utf-8")
+
+
+@pytest.mark.parametrize("stage", ORDER)
+def test_every_stage_is_in_the_pipeline_readme_and_the_pipeline_diagram(stage):
+    assert f"`{stage}`" in _text("pipeline/README.md")
+    assert stage in _text("docs/diagrams/01-pipeline.md")
+
+
+@pytest.mark.parametrize("path", REGION_CONFIGS, ids=lambda p: p.stem)
+def test_every_region_config_key_is_documented(path):
+    keys = yaml.safe_load(path.read_text(encoding="utf-8")).keys()
+    readme = _text("pipeline/README.md")
+    missing = [k for k in keys if f"`{k}`" not in readme]
+    assert not missing, f"{path.name}: keys without a row in pipeline/README.md: {missing}"
+
+
+@pytest.mark.parametrize("path", REGION_CONFIGS, ids=lambda p: p.stem)
+def test_every_region_has_a_status_line_in_overview(path):
+    region_id = yaml.safe_load(path.read_text(encoding="utf-8"))["id"]
+    assert f"`{region_id}`" in _text("docs/OVERVIEW.md")
+
+
+def test_every_diagram_is_indexed_and_carries_the_two_required_sections():
+    index = _text("docs/diagrams/README.md")
+    files = sorted((ROOT / "docs" / "diagrams").glob("[0-9][0-9]-*.md"))
+    assert files, "no diagrams"
+    for f in files:
+        assert f.name in index, f"{f.name} missing from docs/diagrams/README.md"
+        body = f.read_text(encoding="utf-8")
+        assert "## At a glance" in body and "```mermaid" in body, f"{f.name}: no at-a-glance diagram"
+        assert "Reflects the code at " in body, f"{f.name}: no reflects line"
+
+
+def test_no_em_dashes_in_the_docs_touched_by_this_round():
+    for rel in ("CLAUDE.md", "docs/OVERVIEW.md", "docs/DECISIONS.md", "docs/LOG.md", "pipeline/README.md", "README.md",
+                *(f"docs/diagrams/{p.name}" for p in (ROOT / "docs" / "diagrams").glob("*.md"))):
+        assert "\u2014" not in _text(rel), rel
+```
+
+Run: `cd pipeline && .venv/bin/python -m pytest -q tests/test_docs_pins.py`. Expected: the stage and config-key pins fail (no `docs/diagrams/`, no key table), the em dash pin passes. `yaml` is already a pipeline dependency (the region configs are YAML).
+
+- [ ] **Step 23.2: The diagrams**
+
+Create `docs/diagrams/README.md`:
+
+```markdown
+# Diagrams: the map, not the territory
+
+Mermaid in markdown: renders on GitHub and in VS Code, diffs with the code. They show how the pieces connect, not every field or flag; the detail lives in `pipeline/README.md`, `docs/EUROPE_SPEC.md` and the code.
+
+| File | What it shows | Audience |
+|---|---|---|
+| `01-pipeline.md` | the seven stages, what each reads and writes under `work/`, what leaves the machine | pipeline work |
+| `02-site-data-flow.md` | what the site loads from R2 and `site/data/`, the URL and hash state, the modules that own each step | site work |
+| `03-deploy.md` | what a push to `main` does, what a pipeline publish does, where the live pieces sit | deploys, incidents |
+
+Each file opens with "At a glance" (a handful of boxes) and then the detailed view, and ends with a "Reflects the code at ..." line naming the stage and date it was last checked against the code.
+
+## Legend
+
+Solid arrow: a stage or request in the order shown. Dashed arrow: optional, or only when configured. Cylinder: a file or object store. `[name]`: a placeholder in a path or URL.
+
+## Keeping these current (do not let them drift)
+
+A stale diagram is worse than none. Update the diagram in the same commit as the change:
+
+| If you change | Update |
+|---|---|
+| a stage name, its order, or what a stage writes (`pipeline/poles/stages.py`, a stage module) | `01-pipeline.md`, and the stage table in `pipeline/README.md` |
+| a region config key (`pipeline/regions/*.yaml`, `pipeline/poles/config.py`) | the key table in `pipeline/README.md` |
+| what publish uploads or where (`pipeline/poles/publish/`) | `01-pipeline.md` and `02-site-data-flow.md` |
+| what the site fetches, the routes or the hash state (`site/js/data.js`, `site/js/router.js`, `site/js/app.js`) | `02-site-data-flow.md` |
+| the worker, the CI workflow or the hosting (`worker.js`, `wrangler.jsonc`, `.github/workflows/`) | `03-deploy.md` |
+
+`pipeline/tests/test_docs_pins.py` fails when a stage or a config key is missing from the docs; everything else in this table is on the author.
+```
+
+Create `docs/diagrams/01-pipeline.md` with this at-a-glance view verbatim, then a detailed `flowchart LR` per stage derived from the code: for each stage module under `pipeline/poles/` (and `pipeline/poles/publish/`), list the inputs it opens and the files it writes under `work/<region>/<snapshot>/<stage>/`, and verify every name against `ls work/*/*/<stage>` for a region whose run exists on this machine; a name that is not in both the code and a listing does not go in the diagram.
+
+````markdown
+# 01: the pipeline
+
+## At a glance
+
+```mermaid
+flowchart LR
+    osm[(Geofabrik PBF + .poly)] --> fetch --> extract --> classify --> grid --> poles --> validate --> publish
+    publish --> r2[(R2 bucket)]
+    publish -.-> sitedata[(site/data, dev only)]
+    cfg[pipeline/regions/region.yaml] --> fetch
+```
+
+One `poles run <region> --snapshot <date>` runs the stages in this order; each stage writes `done.json` in its directory under `work/<region>/<snapshot>/` and is skipped next time unless `--force`.
+````
+
+Close the file with `Reflects the code at Stage 5 close (2026-08-23).`
+
+Create `docs/diagrams/02-site-data-flow.md`: at a glance, a `flowchart LR` from the R2 objects the site reads (derive the exact object names from `pipeline/poles/publish/` and `site/js/data.js`) through `router.js` (path to region and unit), `data.js` (fetches), `app.js` (state, hash, i18n) to the Leaflet map and the card; the detailed section adds the hash parameters (`site/js/app.js`, the hash contract), the LT legacy data in `site/data/` on `main`, and the basemaps. Same closing line.
+
+Create `docs/diagrams/03-deploy.md`: at a glance, a `flowchart LR`: push to `main` touching `site/**`, `worker.js`, `wrangler.jsonc` -> `deploy-cloudflare.yml` -> `wrangler deploy` -> Workers static assets (+ Analytics Engine writes on `/`) -> verify job; and the other path: `poles run ... publish` on the owner's Mac -> R2 via the S3 API with the five `POLES_R2_*` variables -> `r2.dev` public bucket read by the site. Detailed section: the secrets each path needs, by name only. Same closing line.
+
+- [ ] **Step 23.3: CLAUDE.md: orientation path and cadence with triggers**
+
+Replace the "Orient first" line at the top of `CLAUDE.md` with:
+
+```markdown
+Orient first: read docs/OVERVIEW.md (what works, what is not done, where things are), then docs/diagrams/README.md (how the pieces connect), then docs/DECISIONS.md only when a past choice needs context.
+```
+
+Replace the whole "## Docs cadence" section with:
+
+```markdown
+## Docs cadence
+
+Each doc has a trigger and a moment. "Same commit" means the doc change travels with the code change that caused it.
+
+| Doc | Trigger | When |
+|---|---|---|
+| `docs/OVERVIEW.md` | a stage lands, a region is built or published, something starts or stops working | same commit |
+| `docs/DECISIONS.md` | a design choice is made, reversed, or deviates from the spec | same commit; a reversal is a new entry, never a deletion |
+| `docs/diagrams/` | a stage, artefact, site data source, route, or deploy path changes (the trigger table is in `docs/diagrams/README.md`) | same commit; a stale diagram is worse than none |
+| `pipeline/README.md` | a CLI flag, stage, environment variable, or region config key changes | same commit (`pipeline/tests/test_docs_pins.py` enforces stages and keys) |
+| `docs/LOG.md` | a big event only: a stage closed, a region live, a domain or rename | at stage close |
+| `docs/IDEAS.md` | an idea is parked or picked up | when it happens |
+| `README.md` | the published results or the reproduce steps change | at stage close |
+
+At session close: fix only the doc drift this session caused, and verify any number a doc asserts (grid resolution, feature counts, timings, unit counts) by running the count or grep, never by eye.
+```
+
+- [ ] **Step 23.4: OVERVIEW, DECISIONS, LOG, READMEs**
+
+`docs/OVERVIEW.md`: keep its spine, make the lists strictly binary. Add directly under the Status heading an access table with one row each for: live site URL, Cloudflare Worker and dataset names, region configs (`pipeline/regions/`), work data (`work/<region>/<snapshot>/<stage>/`, gitignored, regenerable), published data (R2 bucket and prefix, or `site/data/` for the LT site on `main`), the plans (`docs/superpowers/plans/`), and the diagrams (`docs/diagrams/README.md`). Every built region has one status line naming its id in backticks (`europe`, `north-america`), the snapshot date, and the last stage that completed, so the pin in Step 23.1 holds. No local paths.
+
+`docs/DECISIONS.md`: add as lines 3 and 4, under the title:
+
+```markdown
+Format per entry: date, what was decided, why, alternatives considered, what it costs if wrong. Append only; a reversal is a new entry.
+```
+
+`docs/LOG.md`: add under the title: `Bar for an entry: a stage closed, a region live, a domain or rename, an outage. Not a changelog.`
+
+`pipeline/README.md`: add a "## Stages" table with one row per stage in `ORDER` (name in backticks, what it reads, what it writes, rough Europe timing from `docs/EUROPE_SPEC.md` 3.3), and a "## Region config keys" table with one row per top-level key of `pipeline/regions/europe.yaml` (key in backticks, type, one-line meaning, taken from `pipeline/poles/config.py` and `docs/EUROPE_SPEC.md` 2.1). Point to `docs/diagrams/01-pipeline.md` above the stages table.
+
+`README.md` (root): add a short "## Europe and North America build" section after the results: one paragraph saying the region-agnostic pipeline lives in `pipeline/` on branch `europe`, what is built (from `docs/OVERVIEW.md`), and that `docs/OVERVIEW.md` is the orientation doc. Leave the LT results and method sections as they are; the cutover stage rewrites this file.
+
+- [ ] **Step 23.5: Green**
+
+```bash
+cd pipeline && .venv/bin/python -m pytest -q tests/test_docs_pins.py && .venv/bin/python -m pytest -q
+```
+
+Expected: all pins pass, the full suite passes with the new floor. Then `grep -rn $'\xe2\x80\x94' CLAUDE.md README.md docs pipeline/README.md` prints nothing.
+
+- [ ] **Step 23.6: Commit**
+
+```bash
+git add docs/diagrams CLAUDE.md docs/OVERVIEW.md docs/DECISIONS.md docs/LOG.md pipeline/README.md README.md pipeline/tests/test_docs_pins.py
+git commit -m "docs: diagrams, cadence with triggers, and executable doc pins (#42)"
+```
+
+Then comment on #42 with the conventions adopted from keenquote and the ones deliberately not copied (commit hooks, a committed repomix snapshot, a changelog), and close it with every box ticked with evidence.
