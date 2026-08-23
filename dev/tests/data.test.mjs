@@ -49,6 +49,20 @@ test('data: pickStart follows the fallback order', async () => {
   assert.deepEqual(await pickStart({ region: 'europe', unit: 'lt' }, none, regions, async () => []), { region: 'europe', unit: null });
 });
 
+test('data: pickStart opens the visitor own unit only when the region code names one', async () => {
+  // The second region's winner is 'us-ak', so a rule that ignored the region code would answer it every
+  // time. These four say the code is read: a non-winner own unit in either country, an unknown code
+  // falling back to the region winner, and the visitor meta arriving upper case as the worker sends it.
+  assert.deepEqual(await pickStart({ region: null, unit: null }, { country: 'us', region: 'wy' }, regions, load),
+    { region: 'north-america', unit: 'us-wy' });
+  assert.deepEqual(await pickStart({ region: null, unit: null }, { country: 'ca', region: 'nu' }, regions, load),
+    { region: 'north-america', unit: 'ca-nu' });
+  assert.deepEqual(await pickStart({ region: null, unit: null }, { country: 'us', region: 'zz' }, regions, load),
+    { region: 'north-america', unit: 'us-ak' });
+  assert.deepEqual(await pickStart({ region: null, unit: null }, { country: 'US', region: 'WY' }, regions, load),
+    { region: 'north-america', unit: 'us-wy' });
+});
+
 const headers = (type) => ({ get: (name) => (name.toLowerCase() === 'content-type' ? type : null) });
 const answer = (type, body) => ({ ok: true, status: 200, headers: headers(type), json: async () => body });
 
