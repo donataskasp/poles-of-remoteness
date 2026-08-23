@@ -43,8 +43,13 @@ export function detailUrl(region, pole, ext) {
   return r2Url(region, `${pole.detail}.${ext}`);
 }
 
+// Leaflet bounds for a unit bbox. A unit that straddles the line is stored the short way round, with its
+// east past 180. Leaflet would frame that turn of the world faithfully, but every marker and overlay sits at
+// its literal longitude in [-180, 180], a full turn west of such a frame. Shift the box by a turn whenever
+// its centre lies past the line, so the frame and the layers share a copy of the world.
 export function bboxToBounds([west, south, east, north]) {
-  return [[south, west], [north, east]];
+  const shift = (west + east) / 2 > 180 ? -360 : 0;
+  return [[south, west + shift], [north, east + shift]];
 }
 
 // A region with no units yields no winner, so every caller below reads the code through this guard.
@@ -67,7 +72,8 @@ export function winner(units, s = 'A') {
 export function unitAt(units, { lat, lng }, country = null) {
   // The bbox can run past 180 (a unit that straddles the line is written the short way round, west in
   // [-180, 180] and east above it), and the point can arrive from a map the reader panned past the line,
-  // so the point is brought into the box's own turn of the world before the comparison.
+  // so the point is brought into the box's own turn of the world before the comparison. Only the east edge
+  // is tested: x is w plus less than a turn, so x >= w holds by construction.
   const hits = units.filter(({ bbox: [w, s, e, n] }) => {
     const x = w + ((((lng - w) % 360) + 360) % 360);
     return x <= e && lat >= s && lat <= n;

@@ -21,6 +21,14 @@ test('data: urls', () => {
   assert.throws(() => detailUrl(region, { rank: 1 }, 'png'), /pole has no detail/);
 });
 
+test('data: bboxToBounds keeps the frame on the copy of the world the markers are drawn on', () => {
+  // A straddling bbox whose centre is past the line comes back a turn to the west, same geography.
+  assert.deepEqual(bboxToBounds([172, 51, 228, 72]), [[51, -188], [72, -132]]);
+  // One that straddles but centres short of the line stays put, and an ordinary bbox is untouched.
+  assert.deepEqual(bboxToBounds([175, 51, 184, 72]), [[51, 175], [72, 184]]);
+  assert.deepEqual(bboxToBounds([-141, 60, -123, 70]), [[60, -141], [70, -123]]);
+});
+
 test('data: winner and ranks', () => {
   assert.equal(winner(EU).code, 'no');
   assert.equal(winner(EU, 'B').code, 'no');
@@ -120,6 +128,9 @@ test('data: unitAt reads a bbox that runs past 180', () => {
   assert.equal(unitAt(WRAPPED, { lat: 60, lng: -179.5 }).code, 'xx-1');  // the far side, the same unit
   assert.equal(unitAt(WRAPPED, { lat: 65, lng: -130 }).code, 'yy-1');    // an ordinary bbox is unaffected
   assert.equal(unitAt(WRAPPED, { lat: 60, lng: 170 }), null);            // and the gap is still a miss
+  // Both spellings of the line itself land in the unit that straddles it.
+  assert.equal(unitAt(WRAPPED, { lat: 60, lng: -180 }).code, 'xx-1');
+  assert.equal(unitAt(WRAPPED, { lat: 60, lng: 180 }).code, 'xx-1');
   // Leaflet hands out the longitude of the world the reader panned into, which can be any turn of it.
   assert.equal(unitAt(WRAPPED, { lat: 65, lng: 590 }).code, 'yy-1');
 });
