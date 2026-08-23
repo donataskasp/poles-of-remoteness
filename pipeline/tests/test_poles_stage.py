@@ -416,8 +416,22 @@ def test_a_cache_write_that_fails_while_draining_does_not_replace_the_error(tmp_
     disk is full, so the write it makes is exactly the one that fails. It must not become the reported error."""
     results_dir = tmp_path / "results"
     results_dir.mkdir()
-    raised = threading.Event()
+    running = threading.Barrier(3)      # boom raises only once bad and good run: a job still queued is cancelled
+    draining = threading.Event()        # and both finish inside the drain, not before it (issue #48)
     real_cache = poles_mod._cache_result
+
+    class _Pool(ThreadPoolExecutor):
+        """Futures whose exception() announces the drain: nothing else in _search_pending calls it."""
+
+        def submit(self, fn, *args, **kwargs):
+            f = super().submit(fn, *args, **kwargs)
+            real_exception = f.exception
+
+            def exception(timeout=None):
+                draining.set()
+                return real_exception(timeout)
+            f.exception = exception
+            return f
 
     def flaky_cache(dirpath, result):
         if result["unit"] == "bad":
@@ -425,11 +439,10 @@ def test_a_cache_write_that_fails_while_draining_does_not_replace_the_error(tmp_
         real_cache(dirpath, result)
 
     def stub(job):
+        running.wait(5)
         if job.unit.code == "boom":
-            raised.set()
             raise PolesError("unit boom scenario A: the search gave up")
-        assert raised.wait(5)
-        time.sleep(0.05)                                       # both finish inside the drain, not before it
+        assert draining.wait(5)
         return _result(job.unit.code, job.scenario, 3000)
 
     monkeypatch.setattr(poles_mod, "search_unit", stub)
@@ -437,7 +450,7 @@ def test_a_cache_write_that_fails_while_draining_does_not_replace_the_error(tmp_
     jobs = [_job("boom"), _job("bad"), _job("good")]
     with caplog.at_level(logging.ERROR, logger=log.name):
         with pytest.raises(PolesError, match="the search gave up"):
-            _search_pending(jobs, results_dir, 3, log, ThreadPoolExecutor)
+            _search_pending(jobs, results_dir, 3, log, _Pool)
     assert (results_dir / "good-A.json").is_file()             # the drain carried on past the failed write
     assert not (results_dir / "bad-A.json").exists()
     assert [r.getMessage() for r in caplog.records if r.levelno == logging.ERROR and "bad" in r.getMessage()]
@@ -448,13 +461,21 @@ def test_timing_json_is_sorted_by_unit(tmp_path, cfg, log, monkeypatch):
     and a diff against an earlier run says everything changed."""
     ws = Workspace(tmp_path / "work", "rr", "2026-01-01")
     _patch_run(monkeypatch, tmp_path, ["bb", "aa"], pool=ThreadPoolExecutor)
+    bb_cached = {"A": threading.Event(), "B": threading.Event()}
+    real_cache = poles_mod._cache_result
+
+    def cache(dirpath, result):
+        real_cache(dirpath, result)
+        if result["unit"] == "bb":
+            bb_cached[result["scenario"]].set()
 
     def slow_aa(job):
         if job.unit.code == "aa":
-            time.sleep(0.2)                                    # bb finishes first in both scenarios
+            assert bb_cached[job.scenario].wait(5)             # bb is consumed first in both scenarios (#48)
         return _result(job.unit.code, job.scenario, 3000)
 
     monkeypatch.setattr(poles_mod, "search_unit", slow_aa)
+    monkeypatch.setattr(poles_mod, "_cache_result", cache)
     poles_mod.run(cfg, ws, log)
     timing = json.loads((ws.dir("poles") / "timing.json").read_text(encoding="utf-8"))
     assert sorted(timing) == ["A", "B"]
