@@ -49,3 +49,14 @@ def test_places_nearest_reports_missing_name_and_place_as_null_never_as_the_stri
                     {"osm_id": [1], "name": [None], "name:en": [None], "place": [None], "population": [None]})
     near = Places(fgb, layer="places").nearest(23.50, 54.38)
     assert near["name"] is None and near["type"] is None
+
+
+def test_places_nearest_shortlist_reaches_across_the_antimeridian(tmp_path):
+    # Across is 0.11 degrees of longitude from the query point, Decoy is 0.99 degrees; in plain
+    # arithmetic Across looks 359.89 degrees away and loses the only shortlist slot to Decoy.
+    fgb = write_fgb(tmp_path / "places.fgb", "places", [Point(179.90, 52.0), Point(-179.00, 52.0)], {
+        "osm_id": [1, 2], "name": ["Across", "Decoy"], "name:en": [None, None],
+        "place": ["village", "village"], "population": [None, None]})
+    near = Places(fgb, layer="places").nearest(-179.99, 52.0, k=1)
+    assert near["name"] == "Across"
+    assert near["dist_m"] == pytest.approx(7554, rel=0.02)

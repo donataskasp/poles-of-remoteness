@@ -9,6 +9,7 @@ from pyogrio.raw import read
 from pyproj import Geod
 from shapely.strtree import STRtree
 
+from .antimeridian import lon_delta
 from .boundaries import AdminArea
 from .refine import RefinedPole, UtmRoads
 
@@ -44,7 +45,9 @@ class Places:
         if len(self.lon) == 0:
             return None
         scale = np.cos(np.radians(lat))
-        planar = ((self.lon - lon) * scale) ** 2 + (self.lat - lat) ** 2
+        # The longitude term wraps: on a region that crosses the antimeridian a plain difference makes
+        # the nearest settlement look 360 degrees away and it never reaches the geodesic step (issue #22).
+        planar = (lon_delta(self.lon, lon) * scale) ** 2 + (self.lat - lat) ** 2
         idx = np.argpartition(planar, min(k, len(planar) - 1))[:k]
         _, _, dist = GEOD.inv(np.full(len(idx), lon), np.full(len(idx), lat), self.lon[idx], self.lat[idx])
         j = idx[int(np.argmin(dist))]
