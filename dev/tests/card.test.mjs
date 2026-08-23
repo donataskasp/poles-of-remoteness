@@ -79,3 +79,18 @@ test('card: a withheld count is shown next to the poles that did survive', () =>
   assert.ok(el.innerHTML.includes(t('withheldNote', { n: 3 })));
   setLang('en'); // the language is module state, so leave it as found and keep the file order-independent
 });
+
+test('card: a unit below country level opens with its own name and no empty flag slot', () => {
+  setLang('en');
+  const unit = { code: 'xx-1', country: 'xx', name: 'Šiaurė', name_en: 'North', A: { dist_m: 3426, rank: 2 } };
+  const el = render({ unit, units: [unit], doc: { A: { poles: [pole(1)], withheld: 0 } }, scenario: 'A', rank: 1 });
+  assert.ok(el.innerHTML.includes('<p class="card__headline">North: the remotest point is'));
+  assert.ok(!el.innerHTML.includes('card__headline"> '), 'no space where the flag would have been');
+});
+
+test('card: a country unit still carries its flag', () => {
+  setLang('en');
+  const unit = { code: 'lt', country: 'lt', name: 'Lietuva', name_en: 'Lithuania', A: { dist_m: 3426, rank: 1 } };
+  const el = render({ unit, units: [unit], doc: { A: { poles: [pole(1)], withheld: 0 } }, scenario: 'A', rank: 1 });
+  assert.ok(el.innerHTML.includes('<p class="card__headline">\u{1F1F1}\u{1F1F9} Lithuania: '));
+});

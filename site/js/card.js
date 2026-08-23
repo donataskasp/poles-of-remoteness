@@ -15,15 +15,19 @@ export function createCard(el, { onScenario, onRanking, onLocate, onPole }) {
 
   function headline(v) {
     const name = unitName(v.unit);
+    // A unit below country level has no flag (the emoji is built from a two-letter country code), so the
+    // slot and the space after it go away rather than render empty.
+    const mark = flag(v.unit.code);
+    const lead = mark ? `${esc(mark)} ` : '';
     const sum = v.unit[v.scenario];
     if (!sum) {
       const d = v.doc && v.doc[v.scenario];
       const reason = d && d.withheld ? t('reasonWithheld') : t('reasonNone');
-      return `<p class="card__headline">${esc(flag(v.unit.code))} ${esc(t('noPoles', { name, reason }))}</p>`;
+      return `<p class="card__headline">${lead}${esc(t('noPoles', { name, reason }))}</p>`;
     }
     const what = t(v.scenario === 'A' ? 'headlineA' : 'headlineB');
     const count = v.units.filter((u) => u[v.scenario]).length;
-    return `<p class="card__headline">${esc(flag(v.unit.code))} ${esc(t('headline', { name, km: fmtKmExact(sum.dist_m), what }))}</p>
+    return `<p class="card__headline">${lead}${esc(t('headline', { name, km: fmtKmExact(sum.dist_m), what }))}</p>
       <p class="card__rank">${esc(t('rankOf', { rank: sum.rank, count, region: v.region.name }))}</p>`;
   }
 
