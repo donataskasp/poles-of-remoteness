@@ -1,6 +1,7 @@
 """Region configuration: the only place a region is described."""
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -16,7 +17,7 @@ class ConfigError(ValueError):
 class RegionConfig:
     id: str
     name: str
-    code: str
+    names: dict
     sources: list[str]
     supplement_sources: list[str]
     coarse_crs: str
@@ -49,7 +50,7 @@ class RegionConfig:
 
 _NONE = type(None)
 _TYPES: dict[str, tuple[type, ...]] = {
-    "id": (str,), "name": (str,), "code": (str,), "sources": (list,), "supplement_sources": (list,),
+    "id": (str,), "name": (str,), "names": (dict,), "sources": (list,), "supplement_sources": (list,),
     "coarse_crs": (str,), "coarse_res_m": (int,), "unit_admin_level": (int,),
     "unit_countries": (list, _NONE), "unit_exclude": (list,), "unit_code_tag": (str,),
     "territory_mask": (list,), "edge_mask_m": (int,), "max_distance_m": (int,), "top_n": (int,),
@@ -86,6 +87,11 @@ def load_region(path: str | Path) -> RegionConfig:
             raise ConfigError(f"{path}: key '{key}' must be a list of strings")
     if values["unit_countries"] is not None and not all(isinstance(s, str) for s in values["unit_countries"]):
         raise ConfigError(f"{path}: key 'unit_countries' must be a list of strings or null")
+    # The display names live in the config because Intl.DisplayNames localises countries, not regions:
+    # a browser echoes a UN M49 code such as 150 back unchanged. `name` is the English name and the fallback.
+    if not all(isinstance(k, str) and re.fullmatch(r"[a-z]{2}", k) and isinstance(v, str) and v
+               for k, v in values["names"].items()):
+        raise ConfigError(f"{path}: key 'names' must map two-letter language codes to non-empty names")
     if not values["sources"]:
         raise ConfigError(f"{path}: key 'sources' must list at least one URL")
     for mask in values["territory_mask"]:

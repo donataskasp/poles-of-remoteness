@@ -2,7 +2,7 @@
 # This file is the only place the region is described; nothing in code names it.
 id: north-america
 name: North America
-code: "003"   # UN M49 area code; the site localises the name from it. Quoted: YAML would read 003 as the integer 3.
+names: {lt: Šiaurės Amerika}   # display names by language; `name` is the English one and the fallback
 
 sources:
   - https://download.geofabrik.de/north-america-latest.osm.pbf

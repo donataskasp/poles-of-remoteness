@@ -2,8 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { getJSON, r2Url, archiveUrl, detailUrl, winner, bboxToBounds, pickStart, unitAt, regionLinks } from '../../site/js/data.js';
 
-const region = { id: 'europe', name: 'Europe', code: '150', snapshot: '2026-08-19', r2_base: 'https://pub-x.r2.dev/' };
-const na = { id: 'north-america', name: 'North America', code: '003', snapshot: '2026-08-19', r2_base: 'https://pub-x.r2.dev' };
+const region = { id: 'europe', name: 'Europe', names: { lt: 'Europa' }, snapshot: '2026-08-19', r2_base: 'https://pub-x.r2.dev/' };
+const na = { id: 'north-america', name: 'North America', names: { lt: 'Šiaurės Amerika' }, snapshot: '2026-08-19', r2_base: 'https://pub-x.r2.dev' };
 const u = (code, country, rankA, rankB = rankA) => ({ code, country, name: code, name_en: code, bbox: [0, 0, 1, 1],
   A: rankA == null ? null : { dist_m: 10000 / rankA, lat: 0, lon: 0, rank: rankA, withheld: 0 },
   B: rankB == null ? null : { dist_m: 9000 / rankB, lat: 0, lon: 0, rank: rankB, withheld: 0 } });
@@ -153,11 +153,11 @@ test('data: regionLinks appears only when there is somewhere to go', () => {
   assert.deepEqual(regionLinks([region], 'europe'), []);
   assert.deepEqual(regionLinks([], null), []);
   assert.deepEqual(regionLinks(regions, 'north-america'), [
-    { id: 'europe', code: '150', name: 'Europe', href: '/europe', current: false },
-    { id: 'north-america', code: '003', name: 'North America', href: '/north-america', current: true },
+    { id: 'europe', names: { lt: 'Europa' }, name: 'Europe', href: '/europe', current: false },
+    { id: 'north-america', names: { lt: 'Šiaurės Amerika' }, name: 'North America', href: '/north-america', current: true },
   ]);
-  // The code travels with the link so the control can say the region's name in the reader's language.
-  assert.equal(regionLinks(regions, 'europe')[1].code, '003');
+  // The names ride along with the link so the control can say the region in the reader's language.
+  assert.deepEqual(regionLinks(regions, 'europe')[1].names, { lt: 'Šiaurės Amerika' });
   // The name is whatever the region document carries (it comes from the region config), and the id stands
   // in when it carries none: no name of any region is written in the code.
   assert.deepEqual(regionLinks([{ id: 'a-1', name: null }, { id: 'b-2', name: 'Bee' }], 'a-1').map((l) => l.name),

@@ -77,7 +77,7 @@ def main() -> None:
     verify_meta = {"at": now, "keys": 0, "range_ok": 0}
     snapshot = json.loads((ws.dir("fetch") / "snapshot.json").read_text(encoding="utf-8"))
     units_meta = json.loads((ws.dir("poles") / "units.json").read_text(encoding="utf-8"))["units"]
-    region = {"id": cfg.id, "name": cfg.name, "code": cfg.code, "snapshot": ws.snapshot,
+    region = {"id": cfg.id, "name": cfg.name, "names": cfg.names, "snapshot": ws.snapshot,
               "unit_level": cfg.unit_admin_level, "r2_base": PLACEHOLDER_R2_BASE,
               "max_distance_m": cfg.max_distance_m, "edge_mask_m": cfg.edge_mask_m,
               "detail_res_m": cfg.detail_res_m, "detail_window_m": cfg.detail_window_m}

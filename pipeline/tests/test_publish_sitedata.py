@@ -32,7 +32,7 @@ UNITS_META = [
     {"code": "mc", "name": "Monaco", "name_en": "Monaco", "osm_id": 1124039, "country": "mc", "index": 3, "area_km2": 0.0,
      "cells": 0, "transcontinental": False, "closed_by_edge": False, "bbox": [7.4, 43.7, 7.5, 43.8], "window": [0, 0, 1, 1]},
 ]
-REGION = {"id": "testland", "name": "Testland", "code": "150", "snapshot": "2026-01-01", "unit_level": 2,
+REGION = {"id": "testland", "name": "Testland", "names": {"lt": "Testlandija"}, "snapshot": "2026-01-01", "unit_level": 2,
           "r2_base": "https://pub-x.r2.dev", "max_distance_m": 250000, "edge_mask_m": 50000, "detail_res_m": 50,
           "detail_window_m": 20000}
 ARCHIVES = {"A": {"key_name": "A.pmtiles", "bytes": 10, "tiles": 3, "min_zoom": 0, "max_zoom": 9, "tile_type": "png", "per_zoom": {9: 1}, "blank_skipped": 0},
@@ -41,9 +41,9 @@ SOURCES = [{"url": "https://example.org/x.pbf", "role": "primary", "file": "x.pb
             "last_modified": "2026-01-01T00:00:00+00:00", "poly": "x.poly"}]
 
 # A complete foreign region, so the merge tests exercise the merge instead of bypassing the schema.
-OTHER_REGION = {"id": "other", "name": "Other", "code": "142", "snapshot": "2025-01-01", "unit_level": 2, "units_count": 1,
-                "r2_base": "https://pub-y.r2.dev", "class_edges": ClassTable().edges, "max_distance_m": 250000,
-                "edge_mask_m": 50000, "detail_res_m": 50, "detail_window_m": 20000}
+OTHER_REGION = {"id": "other", "name": "Other", "names": {"lt": "Kita"}, "snapshot": "2025-01-01", "unit_level": 2,
+                "units_count": 1, "r2_base": "https://pub-y.r2.dev", "class_edges": ClassTable().edges,
+                "max_distance_m": 250000, "edge_mask_m": 50000, "detail_res_m": 50, "detail_window_m": 20000}
 OTHER_MANIFEST = {"snapshot": "2025-01-01", "published_at": "2025-01-01T00:00:00+00:00", "r2_base": "https://pub-y.r2.dev",
                   "pipeline_commit": None, "sources": [], "archives": {}, "detail": {"count": 0, "bytes": 0},
                   "validation": {"report": "other/2025-01-01/validation/report.json",
@@ -93,7 +93,7 @@ def test_regional_ranks_dense_ties_by_code():
 def test_build_documents():
     site = _build()
     assert site.regions_entry["id"] == "testland" and site.regions_entry["units_count"] == 3
-    assert site.regions_entry["code"] == REGION["code"]   # the site localises the region name from it
+    assert site.regions_entry["names"] == REGION["names"]   # the site says the region's name in the reader's language
     assert len(site.regions_entry["class_edges"]) == 254 and site.regions_entry["r2_base"] == REGION["r2_base"]
     units = {u["code"]: u for u in site.units_doc["units"]}
     assert units["lt"]["A"]["dist_m"] == 9000.0 and units["lt"]["A"]["rank"] == 2 and units["lt"]["A"]["withheld"] == 0
@@ -238,12 +238,14 @@ def test_write_site_removes_a_unit_that_is_no_longer_published(tmp_path):
 
 def test_write_site_writes_nothing_when_an_existing_region_is_incomplete(tmp_path):
     site = _build()
-    _seed_other(tmp_path, regions_entry={"id": "other", "name": "Other"})
-    # The first missing required key is named; 'code' now precedes 'snapshot' in the schema's required list.
-    with pytest.raises(PolesError, match="regions/0: 'code' is a required property"):
+    # The stub carries the keys before 'snapshot' in the schema, so the refusal names 'snapshot' whatever
+    # order the required list is written in.
+    stub = {"id": "other", "name": "Other", "names": {"lt": "Kita"}}
+    _seed_other(tmp_path, regions_entry=stub)
+    with pytest.raises(PolesError, match="regions/0: 'snapshot' is a required property"):
         sitedata.write_site(site, tmp_path, "testland", "2026-01-02T00:00:00+00:00")
     assert not (tmp_path / "testland").exists()
-    assert json.loads((tmp_path / "regions.json").read_text())["regions"] == [{"id": "other", "name": "Other"}]
+    assert json.loads((tmp_path / "regions.json").read_text())["regions"] == [stub]
 
 
 def test_write_site_refuses_unreadable_existing_json(tmp_path):

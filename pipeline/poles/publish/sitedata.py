@@ -98,7 +98,7 @@ def build(region: dict, units_meta: list[dict], published: dict[str, list[dict]]
             doc[s] = {"poles": poles, "withheld": u["withheld"], "reason": u["reason"]}
         units_rows.append(row)
         unit_docs[code] = doc
-    regions_entry = {"id": rid, "name": region["name"], "code": region["code"], "snapshot": snapshot,
+    regions_entry = {"id": rid, "name": region["name"], "names": region["names"], "snapshot": snapshot,
                      "unit_level": region["unit_level"], "units_count": len(units_meta), "r2_base": region["r2_base"],
                      "class_edges": list(table.edges), "max_distance_m": region["max_distance_m"],
                      "edge_mask_m": region["edge_mask_m"], "detail_res_m": region["detail_res_m"],

@@ -28,7 +28,7 @@ def test_load_europe_config_matches_spec_table():
     cfg = load_region(REGIONS / "europe.yaml")
     assert isinstance(cfg, RegionConfig)
     assert cfg.id == "europe" and cfg.name == "Europe"
-    assert cfg.code == "150"                 # UN M49; the site localises the name from it
+    assert cfg.names == {"lt": "Europa"}     # display names by language; `name` is the English one
     assert cfg.sources == ["https://download.geofabrik.de/europe-latest.osm.pbf"]
     assert cfg.supplement_sources == [
         f"https://download.geofabrik.de/asia/{c}-latest.osm.pbf" for c in SUPPLEMENTS
@@ -63,7 +63,7 @@ def test_load_europe_config_matches_spec_table():
 def test_load_north_america_config_matches_spec_table(regions_dir):
     cfg = load_region(regions_dir / "north-america.yaml")
     assert cfg.id == "north-america" and cfg.name == "North America"
-    assert cfg.code == "003"                 # UN M49; the site localises the name from it
+    assert cfg.names == {"lt": "Šiaurės Amerika"}
     assert cfg.sources == ["https://download.geofabrik.de/north-america-latest.osm.pbf"]
     assert cfg.supplement_sources == []
     assert cfg.coarse_crs == "+proj=laea +lat_0=50 +lon_0=-100 +datum=WGS84 +units=m"
@@ -105,13 +105,16 @@ def test_wrong_type_raises_config_error_naming_key(tmp_path):
         load_region(_variant(tmp_path, top_n=True))
 
 
-def test_code_is_required_and_must_stay_a_string(tmp_path):
-    # An unquoted 003 is the integer 3 to YAML, which is why both configs quote the key.
-    assert yaml.safe_load("code: 003")["code"] == 3
-    with pytest.raises(ConfigError, match="'code'"):
-        load_region(_variant(tmp_path, drop=["code"]))
-    with pytest.raises(ConfigError, match="'code'"):
-        load_region(_variant(tmp_path, code=3))
+def test_names_is_required_and_maps_language_codes_to_strings(tmp_path):
+    # The display names live in the config because Intl.DisplayNames localises countries, not regions.
+    with pytest.raises(ConfigError, match="'names'"):
+        load_region(_variant(tmp_path, drop=["names"]))
+    with pytest.raises(ConfigError, match="'names'"):
+        load_region(_variant(tmp_path, names=["Europa"]))
+    with pytest.raises(ConfigError, match="'names'"):
+        load_region(_variant(tmp_path, names={"lt": 3}))
+    with pytest.raises(ConfigError, match="'names'"):
+        load_region(_variant(tmp_path, names={"lithuanian": "Europa"}))
 
 
 def test_unknown_key_raises_config_error_naming_key(tmp_path):

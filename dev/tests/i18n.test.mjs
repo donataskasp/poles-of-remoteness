@@ -31,14 +31,12 @@ test('i18n: names and flags', () => {
   assert.equal(flag('us-ak'), '');
 });
 
-test('i18n: regionName takes a UN M49 area code and regionLabel falls back to the data name', () => {
-  setLang('en');
-  assert.equal(regionName('150'), 'Europe');
-  assert.equal(regionName('150', 'lt'), 'Europa');
-  assert.equal(regionName('003', 'lt'), 'Šiaurės Amerika');
-  assert.equal(regionName('999'), null);
-  assert.equal(regionLabel({ code: '003', name: 'North America' }, 'lt'), 'Šiaurės Amerika');
-  assert.equal(regionLabel({ name: 'North America' }, 'lt'), 'North America');
+test('i18n: regionLabel reads the name for the language from the region, falling back to the data name', () => {
+  assert.equal(regionName('150'), null);                      // M49 codes stay out: browsers echo them unchanged
+  const eu = { id: 'europe', name: 'Europe', names: { lt: 'Europa' } };
+  assert.equal(regionLabel(eu, 'lt'), 'Europa');
+  assert.equal(regionLabel(eu, 'en'), 'Europe');
+  assert.equal(regionLabel({ name: 'North America', names: {} }, 'lt'), 'North America');
   assert.equal(regionLabel({ id: 'north-america' }, 'lt'), 'north-america');
 });
 
