@@ -180,7 +180,10 @@ def build_tiles(src: Path, layer: str, out_dir: Path, log: logging.Logger, *, ti
     # A grid laid out from the extract polygons reaches wherever the polygons do, and a pass over a tile
     # the source layer cannot reach is a full scan of the source for nothing. Dropping those costs one
     # header read and no accuracy: a tile outside the layer's own extent holds no feature of it, and the
-    # coverage check at the end is still what proves the grid and the source agree.
+    # coverage check at the end is still what proves the grid and the source agree. The line also keeps
+    # the extent tests alive: GDAL 3.13.3 fails an ogr2ogr FlatGeobuf-to-FlatGeobuf pass with
+    # SPATIAL_INDEX=YES when the spatial filter selects nothing ("ICreateFeature: NULL geometry not
+    # supported with spatial index"); a VRT source, which is what the stages open, exits 0.
     grid = [t for t in tile_grid(bounds, tile_deg, intervals) if t.intersects(*source_box)]
     workers = _worker_count(workers)
     log.info("roads: %d tiles of %s deg over %s%s with %d workers", len(grid), tile_deg, bounds,
