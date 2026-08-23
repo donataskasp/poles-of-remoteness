@@ -7,7 +7,8 @@ Three ideas, and everything here is one of them:
 
 - A ring drawn across 180 is continuous only when its longitudes are unwrapped past the line. OSM stores
   the vertices at 179.9 and at -179.9, and a polygon built from those as they are runs the long way round
-  the planet: 356 degrees of arithmetic for 0.2 degrees of ground.
+  the planet: 356 degrees of arithmetic for 0.2 degrees of ground. `unwrap_polygon` does a shell and its
+  holes together, because a hole is only unwrapped correctly relative to the shell it belongs to.
 - A geometry stored split at the line has two longitude intervals, not one bounding box 360 degrees wide.
 - A bounding box that runs across the line (east above 180, or west below -180) has to be split back into
   one or two ordinary boxes before a file format or a spatial index sees it.
@@ -15,6 +16,7 @@ Three ideas, and everything here is one of them:
 from __future__ import annotations
 
 import math
+from collections.abc import Sequence
 
 import shapely
 from shapely.affinity import translate
@@ -71,23 +73,58 @@ def unwrap_ring(coords) -> list[tuple[float, float]]:
     return out
 
 
+def unwrap_polygon(shell: Sequence[tuple[float, float]],
+                   holes: Sequence[Sequence[tuple[float, float]]] = ()) -> Polygon:
+    """A polygon whose shell and holes are unwrapped into one frame, so the holes are still holes.
+
+    `unwrap_ring` normalises each ring on its own, which is not enough: a lake in the western lobe of a
+    unit that straddles 180 is stored at about -179.5 and never steps more than 180 degrees, so it comes
+    back where it started while the shell has moved to 178..182. The polygon built from those is invalid
+    ("hole lies outside shell") and a later intersection drops the lake without a word. So each unwrapped
+    hole is turned by whole 360s until it lands in the shell's longitude window. A hole that no turn can
+    put there is a broken input; it is kept as it is and left to `shapely.make_valid`.
+    """
+    ring = unwrap_ring(shell)
+    if not ring:
+        return Polygon()
+    west = min(x for x, _ in ring)
+    east = max(x for x, _ in ring)
+    turned: list[list[tuple[float, float]]] = []
+    for hole in holes:
+        inner = unwrap_ring(hole)
+        if not inner:
+            continue
+        hole_west = min(x for x, _ in inner)
+        hole_east = max(x for x, _ in inner)
+        first = math.ceil((west - hole_east) / 360.0)      # the first turn that reaches the shell
+        last = math.floor((east - hole_west) / 360.0)      # the last one that has not passed it
+        if first <= last:
+            turn = min(max(round((west + east - hole_west - hole_east) / 720.0), first), last)
+            if turn:
+                inner = [(x + 360.0 * turn, y) for x, y in inner]
+        turned.append(inner)
+    return Polygon(ring, turned)
+
+
 def split_antimeridian(geom: BaseGeometry) -> MultiPolygon:
     """A MultiPolygon whose parts all lie inside [-180, 180], cut at the line where the input crossed it.
 
-    Each ring is unwrapped first, so a polygon drawn across the line becomes one continuous polygon
-    somewhere in [-180, 540]; it is then intersected with each 360 degree strip it reaches and every piece
-    outside the first strip is translated back. A geometry that does not cross is returned with its own
-    coordinates, only normalised to MultiPolygon.
+    Each polygon is unwrapped first through `unwrap_polygon`, so one drawn across the line becomes one
+    continuous polygon with its holes in the same frame; it is then intersected with each 360 degree strip
+    it reaches and every piece outside the first strip is translated back. The input need not be inside
+    [-180, 180] to begin with: that same strip loop is what normalises it, and a box from 350 to 365 comes
+    back as -10 to 5. A geometry that does not cross is returned with its own coordinates, only normalised
+    to MultiPolygon. The pieces are dissolved with `unary_union`, so parts that meet once the geometry is
+    in one frame come back merged and the result can have fewer parts than the input had.
     """
     polys = _polygons(geom)
     if not polys:
         return MultiPolygon()
     unwrapped, crossed = [], False
     for poly in polys:
-        shell = unwrap_ring(poly.exterior.coords)
-        holes = [unwrap_ring(ring.coords) for ring in poly.interiors]
-        unwrapped.append(Polygon(shell, holes))
-        if max(x for x, _ in shell) > 180.0 + TOL_DEG:
+        one = unwrap_polygon(poly.exterior.coords, [ring.coords for ring in poly.interiors])
+        unwrapped.append(one)
+        if max(x for x, _ in one.exterior.coords) > 180.0 + TOL_DEG:
             crossed = True
     if not crossed:
         return _multi(geom)
@@ -155,6 +192,9 @@ def split_bbox(west: float, south: float, east: float, north: float) -> list[tup
     if east < west:
         raise ValueError(f"split_bbox: east {east} is west of west {west}; a wrapped box is written with "
                          f"its east edge past 180 (or its west edge below -180), never inverted")
+    if north < south:
+        raise ValueError(f"split_bbox: north {north} is below south {south}; latitude does not wrap, so a "
+                         f"box is never inverted there either")
     if east - west >= 360.0:
         return [(-180.0, south, 180.0, north)]
     w = (west + 180.0) % 360.0 - 180.0
@@ -165,9 +205,12 @@ def split_bbox(west: float, south: float, east: float, north: float) -> list[tup
 
 
 def lon_delta(a, b):
-    """The signed difference a minus b in degrees of longitude, wrapped into (-180, 180].
+    """The signed difference a minus b in degrees of longitude, the short way round: negative when a is
+    west of b, positive when a is east of b, wrapped into (-180, 180].
 
-    Scalars or numpy arrays, elementwise either way. Without it a place at -179.9 is 359.8 degrees from a
-    pole at 179.9 instead of 0.2, and any shortlist ordered by a plain difference drops the true nearest.
+    Scalars or numpy arrays, elementwise either way. The outer minus is what puts the open end at +180
+    instead of -180, so half the planet away reads as `lon_delta(0, 180) == 180`, never -180. Without any
+    of this a place at -179.9 is 359.8 degrees from a pole at 179.9 instead of 0.2, and any shortlist
+    ordered by a plain difference drops the true nearest.
     """
     return -(((b - a) + 180.0) % 360.0 - 180.0)

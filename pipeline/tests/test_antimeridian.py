@@ -2,12 +2,16 @@ import numpy as np
 import pytest
 from shapely.geometry import MultiPolygon, Point, Polygon, box
 
-from poles.antimeridian import (lon_delta, lon_intervals, split_antimeridian, split_bbox, unwrap_ring,
-                                wrapped_bounds)
+from poles.antimeridian import (lon_delta, lon_intervals, split_antimeridian, split_bbox, unwrap_polygon,
+                                unwrap_ring, wrapped_bounds)
 
 # A unit drawn the way OSM stores one that sits on the line: the ring's longitudes step from 178 east
 # to 178 west, which is 4 degrees of ground and 356 degrees of arithmetic.
 CROSSER = Polygon([(178.0, 50.0), (-178.0, 50.0), (-178.0, 55.0), (178.0, 55.0), (178.0, 50.0)])
+
+# A lake in the western lobe of that unit. OSM stores it at -179.5 to -179 and it never steps more than
+# 180 degrees on its own, so only the shell's window says which side of the line it belongs to.
+FAR_HOLE = [(-179.5, 51.0), (-179.0, 51.0), (-179.0, 51.5), (-179.5, 51.5)]
 
 
 def test_unwrap_ring_makes_a_crossing_ring_continuous():
@@ -67,6 +71,8 @@ def test_split_bbox_returns_one_or_two_ordinary_boxes():
     assert split_bbox(-400.0, -10.0, 400.0, 10.0) == [(-180.0, -10.0, 180.0, 10.0)]
     with pytest.raises(ValueError, match="never inverted"):
         split_bbox(170.0, 50.0, -170.0, 55.0)
+    with pytest.raises(ValueError, match="inverted"):
+        split_bbox(20.0, 56.5, 26.5, 53.0)
 
 
 def test_lon_delta_wraps_and_works_elementwise():
@@ -77,3 +83,45 @@ def test_lon_delta_wraps_and_works_elementwise():
     assert lon_delta(0.0, 180.0) == pytest.approx(180.0)           # the open end of (-180, 180]
     got = lon_delta(np.array([179.9, -179.9, 10.0]), -179.9)
     assert got == pytest.approx([-0.2, 0.0, -170.1])
+
+
+def test_split_antimeridian_keeps_a_hole_that_lies_wholly_in_the_far_lobe():
+    east_first = Polygon([(178.0, 50.0), (-178.0, 50.0), (-178.0, 55.0), (178.0, 55.0)], [FAR_HOLE])
+    out = split_antimeridian(east_first)
+    assert out.is_valid
+    assert out.area == pytest.approx(20.0 - 0.5 * 0.5)
+    assert not out.contains(Point(-179.25, 51.25))       # inside the lake
+    assert out.contains(Point(-179.25, 53.0))            # the same lobe, north of it
+    # The same unit written the other way round the line comes out the same.
+    west_first = Polygon([(-178.0, 50.0), (-178.0, 55.0), (178.0, 55.0), (178.0, 50.0)], [FAR_HOLE])
+    other = split_antimeridian(west_first)
+    assert other.is_valid and other.area == pytest.approx(out.area)
+    assert not other.contains(Point(-179.25, 51.25))
+
+
+def test_unwrap_polygon_turns_a_hole_into_the_shells_window():
+    poly = unwrap_polygon([(178.0, 50.0), (-178.0, 50.0), (-178.0, 55.0), (178.0, 55.0)], [FAR_HOLE])
+    assert poly.is_valid
+    shell_x = [x for x, _ in poly.exterior.coords]
+    hole_x = [x for x, _ in poly.interiors[0].coords]
+    assert (min(shell_x), max(shell_x)) == (178.0, 182.0)
+    assert (min(hole_x), max(hole_x)) == (180.5, 181.0)
+    assert min(hole_x) >= min(shell_x) and max(hole_x) <= max(shell_x)
+    # A hole already inside the shell's window stays where it was, and holes are optional.
+    square = [(0.0, 0.0), (4.0, 0.0), (4.0, 4.0), (0.0, 4.0)]
+    plain = unwrap_polygon(square, [[(1.0, 1.0), (2.0, 1.0), (2.0, 2.0), (1.0, 2.0)]])
+    assert plain.is_valid and plain.area == pytest.approx(16.0 - 1.0)
+    assert unwrap_polygon(square).area == pytest.approx(16.0)
+
+
+def test_the_degenerate_readings_are_pinned():
+    empty = split_antimeridian(MultiPolygon())
+    assert empty.geom_type == "MultiPolygon" and empty.is_empty
+    assert unwrap_ring([]) == []
+    # A ring that reaches 180 without crossing it is not a crossing, and comes back untouched.
+    touching = box(170.0, 50.0, 180.0, 55.0)
+    assert split_antimeridian(touching).geoms[0].equals(touching)
+    # A single step of exactly 180 degrees is the same arc either way, so it reads as non-crossing: the
+    # only reading that leaves ordinary geometry where it was.
+    half = Polygon([(0.0, 0.0), (180.0, 0.0), (180.0, 1.0), (0.0, 1.0)])
+    assert split_antimeridian(half).bounds == (0.0, 0.0, 180.0, 1.0)
