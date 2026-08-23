@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 import shapely
-from shapely.geometry import LineString
+from shapely.geometry import LineString, MultiPolygon, box
 
 from poles.errors import PolesError
 from poles.roads import RoadTiles, build_tiles, tile_grid
@@ -81,3 +81,50 @@ def test_build_tiles_refuses_a_tile_past_the_index_limit(tmp_path, log, monkeypa
     with pytest.raises(PolesError, match="t_0_40"):
         build_tiles(src, "highways", out, log, tile_deg=10.0, workers=1)
     assert not (out / "tiles.json").exists()
+
+
+def test_tile_grid_from_longitude_intervals_skips_the_empty_ocean():
+    # The shape a region drawn across the antimeridian has: its plain bounds run the whole world and
+    # would tile 72 columns, of which 68 are ocean nobody asked about.
+    bounds = (-180.0, 50.0, 180.0, 60.0)
+    intervals = [(-180.0, -170.0), (170.0, 180.0)]
+    tiles = tile_grid(bounds, 5.0, intervals)
+    assert {t.name for t in tiles} == {"t_-180_50", "t_-175_50", "t_170_50", "t_175_50",
+                                       "t_-180_55", "t_-175_55", "t_170_55", "t_175_55"}
+    assert len(tile_grid(bounds, 5.0)) == 72 * 2
+
+
+def test_build_tiles_lays_the_grid_out_from_the_extent_when_it_is_given(tmp_path, log):
+    src = _roads(tmp_path)
+    extent = MultiPolygon([box(0.0, 40.0, 9.0, 60.0), box(11.0, 40.0, 20.0, 60.0)])
+    meta = build_tiles(src, "highways", tmp_path / "roads", log, tile_deg=10.0, workers=2, extent=extent)
+    assert {t["name"] for t in meta["tiles"]} == {"t_0_40", "t_10_40", "t_0_50", "t_10_50"}
+    assert sum(t["features"] for t in meta["tiles"]) == 402
+
+
+def test_build_tiles_refuses_an_extent_that_does_not_cover_the_source(tmp_path, log):
+    # The coverage guard used to be satisfied by construction (the grid came from the source's own
+    # bounds). Now that the grid comes from the extract polygons it is the real check that the two agree.
+    src = _roads(tmp_path)
+    with pytest.raises(PolesError, match="but the source has"):
+        build_tiles(src, "highways", tmp_path / "roads2", log, tile_deg=10.0, workers=2,
+                    extent=box(0.0, 40.0, 9.0, 49.0))
+
+
+def test_query_reads_both_sides_of_the_antimeridian(tmp_path, log):
+    # Two ways either side of the line and one way across it: in the tile grid they are 360 degrees
+    # apart, on the ground 0.1 degrees. The way across the line lands in both tiles under one osm_id.
+    geoms = [LineString([(179.95, 51.9), (179.95, 52.1)]),
+             LineString([(-179.95, 51.9), (-179.95, 52.1)]),
+             LineString([(179.99, 52.0), (-179.99, 52.0)])]
+    src = write_fgb(tmp_path / "highways.fgb", "highways", geoms,
+                    {"osm_id": [1, 2, 3], "highway": ["track"] * 3, "name": [None] * 3, "ref": [None] * 3})
+    out = tmp_path / "roads"
+    extent = MultiPolygon([box(179.0, 51.0, 180.0, 53.0), box(-180.0, 51.0, -179.0, 53.0)])
+    build_tiles(src, "highways", out, log, tile_deg=10.0, workers=2, extent=extent)
+    tiles = RoadTiles(out)
+    assert sorted(int(i) for i in tiles.query(179.9, 51.95, 180.1, 52.05).attrs["osm_id"]) == [1, 2, 3]
+    # The same window written the other way round reads the same three ways.
+    assert sorted(int(i) for i in tiles.query(-180.1, 51.95, -179.9, 52.05).attrs["osm_id"]) == [1, 2, 3]
+    # An ordinary window still behaves like an ordinary window.
+    assert sorted(int(i) for i in tiles.query(179.90, 51.95, 179.93, 52.05).attrs["osm_id"]) == [3]

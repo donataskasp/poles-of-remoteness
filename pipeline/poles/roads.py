@@ -26,7 +26,9 @@ import numpy as np
 import shapely
 from pyogrio import read_info
 from pyogrio.raw import read
+from shapely.geometry.base import BaseGeometry
 
+from .antimeridian import lon_intervals, split_bbox
 from .errors import PolesError
 from .shell import require_tools, run_cmd
 
@@ -35,6 +37,9 @@ TILE_DEG = 5.0
 # The ceiling from the measurement in the module docstring, rounded down to a round number. A tile
 # above it writes without complaint and then reads back empty, so build_tiles refuses to ship one.
 INDEX_LIMIT = 40_000_000
+# osmium keeps whole ways, so a road can run a little past the extract polygon; the grid is padded by
+# this much before it is snapped outward to whole tiles.
+EXTENT_PAD_DEG = 0.5
 MARKER = ".ok"
 EMPTY_MARKER = ".empty"
 
@@ -68,17 +73,30 @@ def _fmt(v: float) -> str:
     return str(int(v)) if float(v).is_integer() else str(v)
 
 
-def tile_grid(bounds: tuple[float, float, float, float], tile_deg: float) -> list[Tile]:
-    """Tiles of tile_deg anchored at multiples of tile_deg, covering bounds (west, south, east, north)."""
-    w0 = math.floor(bounds[0] / tile_deg) * tile_deg
-    s0 = math.floor(bounds[1] / tile_deg) * tile_deg
+def tile_grid(bounds: tuple[float, float, float, float], tile_deg: float,
+              intervals: list[tuple[float, float]] | None = None) -> list[Tile]:
+    """Tiles of tile_deg anchored at multiples of tile_deg, covering bounds (west, south, east, north).
+
+    `intervals` are the longitude spans that actually hold data. Without them the whole west to east span
+    is tiled, which is what a layer's total_bounds asks for and is exactly wrong for a region drawn across
+    the antimeridian: its bounds run -180 to 180 and the empty half of the planet gets tiled too (issue
+    #22). Columns are clipped to [-180, 180): a tile west of -180 is the same ground as one just under
+    180, and the tiles are cut from data that is already stored split at the line.
+    """
+    spans = intervals if intervals is not None else [(bounds[0], bounds[2])]
+    wests: list[float] = []
+    for west, east in spans:
+        x = math.floor(west / tile_deg) * tile_deg
+        while x < east:
+            if -180.0 <= x < 180.0 and x not in wests:
+                wests.append(x)
+            x += tile_deg
+    wests.sort()
     tiles = []
-    south = s0
+    south = math.floor(bounds[1] / tile_deg) * tile_deg
     while south < bounds[3]:
-        west = w0
-        while west < bounds[2]:
+        for west in wests:
             tiles.append(Tile(f"t_{_fmt(west)}_{_fmt(south)}", west, south, west + tile_deg, south + tile_deg))
-            west += tile_deg
         south += tile_deg
     return tiles
 
@@ -103,6 +121,16 @@ def _source_count(src: Path, layer: str, info: dict) -> int:
     if n is None or int(n) < 0:
         raise PolesError(f"roads: layer {layer} in {src} reports no feature count; cannot check coverage")
     return int(n)
+
+
+def _extent_grid(extent: BaseGeometry, pad: float) -> tuple[tuple[float, float, float, float],
+                                                            list[tuple[float, float]]]:
+    """Latitude bounds and longitude intervals of the extract polygons, padded and clipped to the world."""
+    west, south, east, north = extent.bounds
+    bounds = (max(-180.0, west - pad), max(-90.0, south - pad),
+              min(180.0, east + pad), min(90.0, north + pad))
+    intervals = [(max(-180.0, w - pad), min(180.0, e + pad)) for w, e in lon_intervals(extent)]
+    return bounds, intervals
 
 
 def _within_index_limit(tile: Tile, n: int, tile_deg: float) -> int:
@@ -131,17 +159,32 @@ def _worker_count(workers: int | None) -> int:
 
 
 def build_tiles(src: Path, layer: str, out_dir: Path, log: logging.Logger, *, tile_deg: float = TILE_DEG,
-                workers: int | None = None) -> dict:
+                workers: int | None = None, extent: BaseGeometry | None = None) -> dict:
     """One `ogr2ogr -spat` pass per tile over the unindexed source; every non-empty tile becomes an indexed
-    FlatGeobuf guarded by a `.ok` marker, so a rerun skips finished tiles. Writes tiles.json last."""
+    FlatGeobuf guarded by a `.ok` marker, so a rerun skips finished tiles. Writes tiles.json last.
+
+    `extent` is the union of the extract polygons. Given it, the grid follows the land the extract
+    actually holds rather than the layer's total bounds, which for a region drawn across the antimeridian
+    is the whole planet. The coverage check at the end is what keeps the two honest: a grid that misses
+    part of the source refuses to ship.
+    """
     require_tools(["ogr2ogr"])
     out_dir.mkdir(parents=True, exist_ok=True)
     info = read_info(str(src), layer=layer, force_feature_count=True)
-    bounds = _bounds(src, layer, info)
     source_features = _source_count(src, layer, info)
-    grid = tile_grid(bounds, tile_deg)
+    source_box = _bounds(src, layer, info)
+    if extent is None:
+        bounds, intervals = source_box, None
+    else:
+        bounds, intervals = _extent_grid(extent, EXTENT_PAD_DEG)
+    # A grid laid out from the extract polygons reaches wherever the polygons do, and a pass over a tile
+    # the source layer cannot reach is a full scan of the source for nothing. Dropping those costs one
+    # header read and no accuracy: a tile outside the layer's own extent holds no feature of it, and the
+    # coverage check at the end is still what proves the grid and the source agree.
+    grid = [t for t in tile_grid(bounds, tile_deg, intervals) if t.intersects(*source_box)]
     workers = _worker_count(workers)
-    log.info("roads: %d tiles of %s deg over %s with %d workers", len(grid), tile_deg, bounds, workers)
+    log.info("roads: %d tiles of %s deg over %s%s with %d workers", len(grid), tile_deg, bounds,
+             f" in {len(intervals)} longitude interval(s)" if intervals else "", workers)
     tools_log = out_dir / "tools.log"
 
     def one(tile: Tile) -> tuple[Tile, int]:
@@ -192,23 +235,28 @@ class RoadTiles:
               columns=("osm_id", "highway", "name", "ref")) -> RoadSet:
         """Roads intersecting the bbox, in lon/lat, deduplicated by osm_id across the tile seams.
 
-        osm_id is what the dedup keys on, so it is always read; it comes back in attrs only if asked for.
+        The bbox may be wrapped (east past 180, or west below -180): it is split into the one or two
+        ordinary boxes the tiles and the pyogrio bbox filter understand, and the dedup that already
+        covers the tile seams covers the antimeridian seam too, since a way stored on both sides keeps
+        one osm_id. osm_id is what the dedup keys on, so it is always read; it comes back in attrs only
+        if asked for.
         """
         wanted = tuple(columns)
         columns = wanted if "osm_id" in wanted else ("osm_id",) + wanted
         geoms: list[np.ndarray] = []
         attrs: dict[str, list[np.ndarray]] = {c: [] for c in columns}
-        for tile in self.tiles:
-            if not tile.intersects(west, south, east, north):
-                continue
-            meta, _, wkb, fields = read(str(self.dir / f"{tile.name}.fgb"), layer=self.layer, columns=list(columns),
-                                        bbox=(west, south, east, north), where=where)
-            if len(wkb) == 0:
-                continue
-            by_name = dict(zip(meta["fields"], fields))
-            geoms.append(shapely.from_wkb(wkb))
-            for c in columns:
-                attrs[c].append(np.asarray(by_name[c], dtype=object))
+        for w, s, e, n in split_bbox(west, south, east, north):
+            for tile in self.tiles:
+                if not tile.intersects(w, s, e, n):
+                    continue
+                meta, _, wkb, fields = read(str(self.dir / f"{tile.name}.fgb"), layer=self.layer,
+                                            columns=list(columns), bbox=(w, s, e, n), where=where)
+                if len(wkb) == 0:
+                    continue
+                by_name = dict(zip(meta["fields"], fields))
+                geoms.append(shapely.from_wkb(wkb))
+                for c in columns:
+                    attrs[c].append(np.asarray(by_name[c], dtype=object))
         if not geoms:
             return RoadSet.empty(wanted)
         all_geoms = np.concatenate(geoms)

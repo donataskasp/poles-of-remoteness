@@ -212,7 +212,7 @@ def prepare(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> Prepared:
 
     roads_dir = out / "roads"
     if not (roads_dir / "tiles.json").exists():
-        build_tiles(extract_dir / "highways.vrt", "highways", roads_dir, log)
+        build_tiles(extract_dir / "highways.vrt", "highways", roads_dir, log, extent=edge)
 
     land_idx = out / "land_idx.fgb"
     if not _done(land_idx):
