@@ -337,7 +337,7 @@ def _allowed_factory(unit: Unit, land_idx: Path, water_big: Path):
 def refine_cell(x: float, y: float, frame_crs: str, roads: UtmRoads, half_m: float, allowed, countries: Countries,
                 to_frame: Transformer) -> Refined | None:
     """One cell refined and attributed. The payload is the pole and its nearest-way record, never the road
-    set: a refined candidate waits in Search.pending until the search finalises it, and a payload holding
+    set: a refined candidate waits in the search's pending list until the search finalises it, and a payload holding
     the UtmRoads would pin that whole window for as long as it waits (issue #43: 20 GB in one worker)."""
     r = refine(x, y, frame_crs, roads, half_m=half_m, allowed=allowed)
     if r is None:
@@ -396,7 +396,7 @@ def search_unit(job: UnitJob) -> dict:
         dlon = dlat / max(0.05, np.cos(np.radians(lat)))
         epsg = utm_epsg(lon, lat)
         roads = cache.get(lon - dlon, lat - dlat, lon + dlon, lat + dlat, epsg)
-        return refine_cell(x_sorted[i], y_sorted[i], frame.crs, roads, hd, allowed, countries, to_frame)
+        return refine_cell(x_sorted[i], y_sorted[i], frame.crs, roads, half_m=hd, allowed=allowed, countries=countries, to_frame=to_frame)
 
     search = Search(xs, ys, coarse, pads, frame.res, job.top_n, refiner, DEDUP_M, log=log)
     # `refiner` reads these by name, so they must be bound before search.run(): Search sorts the cells by
