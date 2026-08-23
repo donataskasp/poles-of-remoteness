@@ -1,6 +1,10 @@
 import json
 import logging
+import threading
+import time
+from concurrent.futures import Future, ThreadPoolExecutor
 from concurrent.futures.process import BrokenProcessPool
+from pathlib import Path
 
 import numpy as np
 import pytest
@@ -16,8 +20,8 @@ from poles.boundaries import AdminArea
 from poles.candidates import Refined
 from poles.errors import PolesError
 from poles.grid import Frame, create_raster, write_float_tif
-from poles.poles import (Prepared, UnitJob, _allowed_factory, _bbox_window, _unit_meta, _unit_windows,
-                         validate_poles_json, write_water_big)
+from poles.poles import (Prepared, UnitJob, _allowed_factory, _bbox_window, _search_pending, _unit_meta,
+                         _unit_windows, validate_poles_json, write_water_big)
 from poles.extract import MARKER
 from poles.refine import RefinedPole, UtmRoads, utm_epsg
 from poles.roads import RoadSet
@@ -152,7 +156,8 @@ def test_write_water_big_splits_a_polygon_on_the_line_into_two_valid_parts(tmp_p
 # ---------- run(): the per-unit result cache and worker deaths ----------
 
 class _SerialPool:
-    """Stands in for ProcessPoolExecutor with the same surface run() uses, minus the processes."""
+    """Stands in for ProcessPoolExecutor with the same surface run() uses, minus the processes. Each job
+    runs where it is submitted and its future is handed back already finished."""
 
     def __init__(self, max_workers=None):
         self.max_workers = max_workers
@@ -163,18 +168,30 @@ class _SerialPool:
     def __exit__(self, *exc):
         return False
 
-    def map(self, fn, jobs):
-        return (fn(job) for job in jobs)
+    def submit(self, fn, job):
+        f = Future()
+        try:
+            f.set_result(fn(job))
+        except BaseException as exc:                            # noqa: BLE001 - a pool carries anything a job raises
+            f.set_exception(exc)
+        return f
 
 
 class _DyingPool(_SerialPool):
-    """Finishes the first job, then dies the way a worker killed by the OOM killer does."""
+    """Finishes the first job, then dies the way a worker killed by the OOM killer does: the pool marks
+    every remaining future with the same BrokenProcessPool as it tears itself down."""
 
-    def map(self, fn, jobs):
-        def gen():
-            yield fn(jobs[0])
-            raise BrokenProcessPool("A process in the process pool was terminated abruptly")
-        return gen()
+    def __init__(self, max_workers=None):
+        super().__init__(max_workers)
+        self.submitted = 0
+
+    def submit(self, fn, job):
+        self.submitted += 1
+        if self.submitted == 1:
+            return super().submit(fn, job)
+        f = Future()
+        f.set_exception(BrokenProcessPool("A process in the process pool was terminated abruptly"))
+        return f
 
 
 def _prepared(tmp_path, codes) -> Prepared:
@@ -285,6 +302,98 @@ def test_a_cache_file_of_the_wrong_shape_is_a_poles_error_naming_the_file(tmp_pa
     (results / "aa-A.json").write_text("{not json", encoding="utf-8")
     with pytest.raises(PolesError, match="aa-A.json"):
         poles_mod.run(cfg, ws, log)
+
+
+# ---------- _search_pending(): a result is cached the moment its own job finishes ----------
+
+def _job(code, scenario="A"):
+    unit = Unit(code, code, code, 1, code, MultiPolygon([box(0, 0, 1, 1)]), False, 1, cells=1)
+    return UnitJob(None, None, unit, scenario, Path("dist.tif"), 3, Path("log.txt"))
+
+
+def _wait_for(path: Path, seconds: float = 5.0) -> bool:
+    deadline = time.monotonic() + seconds
+    while time.monotonic() < deadline:
+        if path.exists():
+            return True
+        time.sleep(0.01)
+    return False
+
+
+def test_results_are_cached_as_they_finish_not_in_job_order(tmp_path, log, monkeypatch):
+    """`pool.map` yields in job order, so a run that died held back everything the later jobs had already
+    finished: two searches were lost that way on North America run 4 (issue #45)."""
+    results_dir = tmp_path / "results"
+    results_dir.mkdir()
+    gate = threading.Event()
+
+    def stub(job):
+        if job.unit.code == "slow":
+            assert gate.wait(5)
+        return _result(job.unit.code, job.scenario, 3000)
+
+    monkeypatch.setattr(poles_mod, "search_unit", stub)
+    jobs = [_job("slow"), _job("quick")]          # the biggest unit heads the queue, as it does in run()
+    got: list[list[dict]] = []
+    runner = threading.Thread(target=lambda: got.append(_search_pending(jobs, results_dir, 2, log, ThreadPoolExecutor)))
+    runner.start()
+    try:
+        assert _wait_for(results_dir / "quick-A.json")
+        assert not (results_dir / "slow-A.json").exists()      # still running, and it does not hold quick back
+    finally:
+        gate.set()
+        runner.join(5)
+    assert not runner.is_alive()
+    assert (results_dir / "slow-A.json").is_file()
+    assert [r["unit"] for r in got[0]] == ["quick", "slow"]    # completion order, not job order
+
+
+def test_a_worker_error_keeps_the_finished_results_and_reraises(tmp_path, log, monkeypatch):
+    """The worker's own error comes back unchanged, what finished before it is kept, and the jobs still
+    queued behind it are cancelled instead of searched."""
+    results_dir = tmp_path / "results"
+    results_dir.mkdir()
+    quick_done = threading.Event()
+    started: list[str] = []
+
+    def stub(job):
+        started.append(job.unit.code)
+        if job.unit.code == "quick":
+            quick_done.set()
+            return _result(job.unit.code, job.scenario, 3000)
+        if job.unit.code == "boom":
+            assert quick_done.wait(5)
+            raise PolesError("candidates: branch-and-bound exceeded 200000 refinements")
+        time.sleep(0.05)                                       # long enough that a freed worker takes one, not ten
+        return _result(job.unit.code, job.scenario, 3000)
+
+    monkeypatch.setattr(poles_mod, "search_unit", stub)
+    jobs = [_job("boom"), _job("quick")] + [_job(f"zz{i}") for i in range(20)]
+    t0 = time.monotonic()
+    with pytest.raises(PolesError, match="exceeded 200000 refinements"):
+        _search_pending(jobs, results_dir, 2, log, ThreadPoolExecutor)
+    assert time.monotonic() - t0 < 10                          # it returned, it did not wait out the queue
+    assert (results_dir / "quick-A.json").is_file()            # finished before the error, so it is kept
+    assert len([c for c in started if c.startswith("zz")]) <= 4   # 20 without cancellation
+
+
+def test_timing_json_is_sorted_by_unit(tmp_path, cfg, log, monkeypatch):
+    """Results arrive in completion order now, so timing.json has to sort or its key order drifts run to run
+    and a diff against an earlier run says everything changed."""
+    ws = Workspace(tmp_path / "work", "rr", "2026-01-01")
+    _patch_run(monkeypatch, tmp_path, ["bb", "aa"], pool=ThreadPoolExecutor)
+
+    def slow_aa(job):
+        if job.unit.code == "aa":
+            time.sleep(0.2)                                    # bb finishes first in both scenarios
+        return _result(job.unit.code, job.scenario, 3000)
+
+    monkeypatch.setattr(poles_mod, "search_unit", slow_aa)
+    poles_mod.run(cfg, ws, log)
+    timing = json.loads((ws.dir("poles") / "timing.json").read_text(encoding="utf-8"))
+    assert sorted(timing) == ["A", "B"]
+    for s in ("A", "B"):
+        assert list(timing[s]) == ["aa", "bb"]
 
 
 def _prepare_workspace(tmp_path, monkeypatch, unit=None):

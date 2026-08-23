@@ -20,7 +20,7 @@ import math
 import os
 import shutil
 import time
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from concurrent.futures.process import BrokenProcessPool
 from dataclasses import dataclass, replace
 from functools import lru_cache
@@ -466,6 +466,60 @@ def _cached_result(path: Path) -> dict:
     return result
 
 
+def _search_pending(pending: list[UnitJob], results_dir: Path, workers: int, log: logging.Logger,
+                    executor_factory=ProcessPoolExecutor) -> list[dict]:
+    """Search every pending job, caching and logging each result the moment its own job finishes.
+
+    `pool.map` yields in job order, so the results of the jobs that finished early sat in the pool until
+    the ones ahead of them were done: on North America run 4 two finished searches were still uncached
+    when the run died on the job at the head of the queue, and both were lost (issue #45). The returned
+    list is in completion order, which is why `run` sorts what it writes.
+    """
+    results: list[dict] = []
+    with executor_factory(max_workers=workers) as pool:
+        futures = [pool.submit(search_unit, job) for job in pending]
+        jobs = dict(zip(futures, pending))
+        taken: set = set()
+
+        def take(f) -> None:
+            taken.add(f)
+            r = f.result()
+            _cache_result(results_dir, r)
+            results.append(r)
+            log.info("%s %s: %d poles, best %.0f m, %d refinements, %.0fs%s", r["unit"], r["scenario"], len(r["poles"]),
+                     r["poles"][0]["dist_m"] if r["poles"] else 0, r["refinements"], r["duration_s"],
+                     f" ({r['reason']})" if r["reason"] else "")
+
+        def drain() -> None:
+            """Every job that finished but was not consumed yet, cached and logged: it is paid for."""
+            for f in futures:
+                if f not in taken and not f.cancelled() and f.exception() is None:
+                    take(f)
+
+        try:
+            for f in as_completed(futures):
+                take(f)
+        except PolesError:
+            # A worker's own error ends the stage, but the jobs already running are paid for: drop the
+            # queue, wait the running ones out and cache what they return, then re-raise the original.
+            for f in futures:
+                f.cancel()
+            drain()
+            raise
+        except BrokenProcessPool as exc:
+            drain()
+            # Every job that produced no result: the one the dead worker held plus everything still
+            # queued. `f.done()` cannot say which is which, because a pool tearing down marks every
+            # remaining future with this same error before the first `result()` call sees it.
+            lost = [jobs[f] for f in futures if f not in taken]
+            named = ", ".join(f"unit {j.unit.code} scenario {j.scenario}" for j in lost[:5])
+            more = f" and {len(lost) - 5} more" if len(lost) > 5 else ""
+            raise PolesError(f"a worker process died with {named}{more} in flight; {len(results)} of "
+                             f"{len(pending)} searched jobs are cached and a rerun resumes there. Lower "
+                             f"POLES_WORKERS (now {workers}) if the machine ran out of memory") from exc
+    return results
+
+
 def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
     prepared = prepare(cfg, ws, log)
     out, grid_dir = ws.dir(STAGE), ws.dir("grid")
@@ -493,28 +547,18 @@ def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
              len(prepared.units), len(SCENARIOS), workers, len(results), len(pending))
     searched = 0
     if pending:
-        try:
-            with ProcessPoolExecutor(max_workers=workers) as pool:
-                for r in pool.map(search_unit, pending):
-                    _cache_result(results_dir, r)
-                    results.append(r)
-                    searched += 1
-                    log.info("%s %s: %d poles, best %.0f m, %d refinements, %.0fs%s", r["unit"], r["scenario"], len(r["poles"]),
-                             r["poles"][0]["dist_m"] if r["poles"] else 0, r["refinements"], r["duration_s"],
-                             f" ({r['reason']})" if r["reason"] else "")
-        except BrokenProcessPool as exc:
-            stalled = pending[min(searched, len(pending) - 1)]
-            raise PolesError(f"a worker process died with unit {stalled.unit.code} scenario {stalled.scenario} in "
-                             f"flight; {searched} of {len(pending)} searched jobs are cached and a rerun resumes "
-                             f"there. Lower POLES_WORKERS (now {workers}) if the machine ran out of memory") from exc
+        fresh = _search_pending(pending, results_dir, workers, log, ProcessPoolExecutor)
+        results.extend(fresh)
+        searched = len(fresh)
     timing = {}
     for s in SCENARIOS:
         entries = [{"unit": r["unit"], "poles": r["poles"], "reason": r["reason"]} for r in results if r["scenario"] == s]
         entries.sort(key=lambda e: e["unit"])
         validate_poles_json(entries, cfg.top_n)
         (out / f"{s}.json").write_text(json.dumps(entries, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+        # Sorted by unit, because the searched results now arrive in completion order.
         timing[s] = {r["unit"]: {"duration_s": r["duration_s"], "refinements": r["refinements"], "top_coarse_m": r["top_coarse_m"],
-                                 "warnings": r["warnings"]} for r in results if r["scenario"] == s}
+                                 "warnings": r["warnings"]} for r in sorted(results, key=lambda r: r["unit"]) if r["scenario"] == s}
     (out / "timing.json").write_text(json.dumps(timing, indent=1) + "\n", encoding="utf-8")
     return {"units": len(prepared.units), "jobs": len(jobs), "workers": workers, "cached": len(results) - searched,
             "searched": searched, "total_refinements": sum(r["refinements"] for r in results)}
