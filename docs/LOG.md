@@ -1,5 +1,7 @@
 # Project log
 
+Bar for an entry: a stage closed, a region live, a domain or rename, an outage. Not a changelog.
+
 Sparse, dated, append-only. Big events only.
 
 ## 2026-08-16/17: Built

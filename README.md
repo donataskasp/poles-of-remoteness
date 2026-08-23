@@ -20,6 +20,19 @@ Full ranking, coordinates, and nearest-road identities: `out/results.md`.
 The site itself lives in `site/`; `out/map.html` is the older compute-time
 preview.
 
+## Europe and North America build
+
+The project is being extended past Lithuania. A region-agnostic pipeline lives in
+`pipeline/` on branch `europe`: one command per region, seven resumable stages,
+and a region config as the only place a region is described. Europe (OSM
+snapshot 2026-08-19) is computed and validated through publishing on local
+artefacts, 918 poles over 52 country units, and the new site runs on a preview
+worker; the upload to R2 waits on the bucket being enabled. North America
+(states and provinces, snapshot 2026-08-22) is in progress. `docs/OVERVIEW.md`
+is the orientation doc for what works and what is not done,
+`docs/diagrams/README.md` draws how the pieces connect, and `pipeline/README.md`
+documents the stages and the region config keys.
+
 ## Reproduce
 
 ```

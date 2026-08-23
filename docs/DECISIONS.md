@@ -1,5 +1,7 @@
 # Decision log
 
+Format per entry: date, what was decided, why, alternatives considered, what it costs if wrong. Append only; a reversal is a new entry.
+
 Dated, append-only. Newest at the bottom. Each entry: what was decided and why, so future sessions do not relitigate.
 
 ## 2026-08-16/17: Computation

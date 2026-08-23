@@ -4,7 +4,7 @@ Interactive map of the places in Lithuania farthest from any drivable road, comp
 
 - Live: https://atokiausia-lietuva.donatas-kasparavicius.workers.dev (Cloudflare Workers, the only deploy target)
 
-Orient first: read docs/OVERVIEW.md (what works, what is not done, current status), then docs/DECISIONS.md if a past choice needs context.
+Orient first: read docs/OVERVIEW.md (what works, what is not done, where things are), then docs/diagrams/README.md (how the pieces connect), then docs/DECISIONS.md only when a past choice needs context.
 
 ## Scenarios
 
@@ -42,10 +42,19 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, current statu
 
 ## Docs cadence
 
-- `docs/OVERVIEW.md`: update immediately when what-works or project status changes; this is the re-orientation doc for sessions weeks apart.
-- `docs/DECISIONS.md`: dated decision log with rationale; append immediately when a significant decision lands, never delete; a reversal is a new entry.
-- `docs/IDEAS.md`: parked plans; build only on owner's go.
-- `docs/LOG.md`: sparse project log of big events only, not a changelog.
+Each doc has a trigger and a moment. "Same commit" means the doc change travels with the code change that caused it.
+
+| Doc | Trigger | When |
+|---|---|---|
+| `docs/OVERVIEW.md` | a stage lands, a region is built or published, something starts or stops working | same commit |
+| `docs/DECISIONS.md` | a design choice is made, reversed, or deviates from the spec | same commit; a reversal is a new entry, never a deletion |
+| `docs/diagrams/` | a stage, artefact, site data source, route, or deploy path changes (the trigger table is in `docs/diagrams/README.md`) | same commit; a stale diagram is worse than none |
+| `pipeline/README.md` | a CLI flag, stage, environment variable, or region config key changes | same commit (`pipeline/tests/test_docs_pins.py` enforces stages and keys) |
+| `docs/LOG.md` | a big event only: a stage closed, a region live, a domain or rename | at stage close |
+| `docs/IDEAS.md` | an idea is parked or picked up | when it happens |
+| `README.md` | the published results or the reproduce steps change | at stage close |
+
+At session close: fix only the doc drift this session caused, and verify any number a doc asserts (grid resolution, feature counts, timings, unit counts) by running the count or grep, never by eye.
 
 ## What not to do
 
