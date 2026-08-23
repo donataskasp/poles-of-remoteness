@@ -22,7 +22,7 @@ Rule: a change that touches only phone styles must leave every `desktop-*.png` b
 (`shasum -a 256 docs/screenshots/desktop-*.png` before and after). A UI change is not done until the
 affected images are regenerated, read, and committed with the code.
 
-The desktop six are byte-identical run to run, so the rule is a hash comparison. The phone shots are not
+The seven desktop images are byte-identical run to run, so the rule is a hash comparison. The phone shots are not
 quite: a marker's antialiased border can move by up to 5 of 255 on about fifteen pixels between runs
 (measured over five runs of the full set, `phone-lt.png` and `phone-lt-lang-lt.png`), which is Chromium
 rendering noise and not a state difference. Compare those by eye, or by a diff that tolerates a few
