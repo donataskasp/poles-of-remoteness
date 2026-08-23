@@ -4,14 +4,14 @@ Every cell of a unit carries a coarse distance c (cell centre to the nearest roa
 metres). Any point of the cell is within half a diagonal of the centre and the nearest road passes within
 half a diagonal of the road cell centre, so the true distance of any point in the cell is at most
 (c + 2 * hd) * (1 + pad), where pad bounds the projection's scale error at that cell plus a small safety
-for UTM and the ellipsoid. Cells are visited in descending order of that bound, which is not the same
-as descending c once the pads differ; a refined point is a lower bound on the unit's maximum. A refined
-point becomes final once no unvisited cell can beat it; final points are accepted greedily with the
-dedup distance, measured as a lower bound on the ground separation so that an accepted pair survives the
-exact geodesic recheck the poles stage runs later; every unvisited cell that lies surely within the
-dedup distance of an accepted pole is dominated and skipped. The result
-equals "refine every cell, sort, accept greedily under the same separation rule", checked against a
-brute-force model on synthetic fields in tests/test_candidates.py.
+for UTM and the ellipsoid. Cells are visited in descending order of that bound, which is not the same as
+descending c once the pads differ; a refined point is a lower bound on the unit's maximum. A refined point
+becomes final once no unvisited cell can beat it; final points are accepted greedily with the dedup distance,
+measured as a lower bound on the ground separation so that an accepted pair survives the exact geodesic
+recheck the poles stage runs later; every unvisited cell that lies surely within the dedup distance of an
+accepted pole is dominated and skipped. The result equals "refine every cell, sort, accept greedily under
+the same separation rule", checked against a brute-force model on synthetic fields in
+tests/test_candidates.py.
 """
 from __future__ import annotations
 

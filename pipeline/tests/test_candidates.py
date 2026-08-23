@@ -195,10 +195,12 @@ def test_cells_sort_by_their_own_upper_bound_not_by_coarse_value():
 
 
 def test_per_cell_bound_prunes_what_the_unit_wide_pad_would_have_refined():
-    """P refines to its coarse value; Q's own bound is below it, so Q is never refined.
+    """P refines to its coarse value and nothing left can beat it, so it is the only refinement.
 
-    Under the unit-wide pad_max (0.10, carried by R) Q was bounded at (98,000 + 2 * hd) * 1.10, about
-    108,189 m, which sits above P's 100,000 m, so the old rule refined Q as well.
+    Sorted by their own bounds the cells run P (101,357.09), R (99,388.91), Q (99,337.09), so the bound
+    at i = 1 is R's, and it already sits below P's 100,000 m: P is final and the search stops before
+    either of the other two. Under the unit-wide pad_max (0.10, carried by R) every remaining cell was
+    bounded with 1.10, which put Q at about 108,189 m, above P, so the old rule refined Q as well.
     """
     xs = np.array([0.0, 100_000.0, 200_000.0]); ys = np.zeros(3)
     coarse = np.array([100_000.0, 98_000.0, 90_000.0])          # P, Q, R

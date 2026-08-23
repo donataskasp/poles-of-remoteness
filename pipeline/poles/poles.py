@@ -20,7 +20,7 @@ import math
 import os
 import shutil
 import time
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import Future, ProcessPoolExecutor, as_completed
 from concurrent.futures.process import BrokenProcessPool
 from dataclasses import dataclass, replace
 from functools import lru_cache
@@ -467,7 +467,7 @@ def _cached_result(path: Path) -> dict:
 
 
 def _search_pending(pending: list[UnitJob], results_dir: Path, workers: int, log: logging.Logger,
-                    executor_factory=ProcessPoolExecutor) -> list[dict]:
+                    executor_factory=None) -> list[dict]:
     """Search every pending job, caching and logging each result the moment its own job finishes.
 
     `pool.map` yields in job order, so the results of the jobs that finished early sat in the pool until
@@ -476,47 +476,60 @@ def _search_pending(pending: list[UnitJob], results_dir: Path, workers: int, log
     list is in completion order, which is why `run` sorts what it writes.
     """
     results: list[dict] = []
-    with executor_factory(max_workers=workers) as pool:
+    with (executor_factory or ProcessPoolExecutor)(max_workers=workers) as pool:
         futures = [pool.submit(search_unit, job) for job in pending]
         jobs = dict(zip(futures, pending))
-        taken: set = set()
+        stored: set[Future] = set()          # futures whose result reached results_dir, nothing else
 
-        def take(f) -> None:
-            taken.add(f)
+        def take(f: Future) -> None:
             r = f.result()
             _cache_result(results_dir, r)
+            stored.add(f)
             results.append(r)
             log.info("%s %s: %d poles, best %.0f m, %d refinements, %.0fs%s", r["unit"], r["scenario"], len(r["poles"]),
                      r["poles"][0]["dist_m"] if r["poles"] else 0, r["refinements"], r["duration_s"],
                      f" ({r['reason']})" if r["reason"] else "")
 
         def drain() -> None:
-            """Every job that finished but was not consumed yet, cached and logged: it is paid for."""
+            """Every job that finished but was not consumed yet, cached and logged: it is paid for.
+
+            The write is guarded because this runs while an error is already on its way out, and the
+            failure this whole path exists for is a machine out of memory with swap eating the disk,
+            which is exactly when a write fails. An OSError here would replace the error being reported
+            and abandon the results still to drain, so it is logged against its job and the drain goes on.
+            """
             for f in futures:
-                if f not in taken and not f.cancelled() and f.exception() is None:
-                    take(f)
+                if f not in stored and not f.cancelled() and f.exception() is None:
+                    try:
+                        take(f)
+                    except OSError as exc:
+                        job = jobs[f]
+                        log.error("unit %s scenario %s finished but its result could not be cached (%s); "
+                                  "the rerun searches it again", job.unit.code, job.scenario, exc)
 
         try:
             for f in as_completed(futures):
                 take(f)
-        except PolesError:
-            # A worker's own error ends the stage, but the jobs already running are paid for: drop the
-            # queue, wait the running ones out and cache what they return, then re-raise the original.
-            for f in futures:
-                f.cancel()
-            drain()
-            raise
         except BrokenProcessPool as exc:
             drain()
-            # Every job that produced no result: the one the dead worker held plus everything still
-            # queued. `f.done()` cannot say which is which, because a pool tearing down marks every
-            # remaining future with this same error before the first `result()` call sees it.
-            lost = [jobs[f] for f in futures if f not in taken]
+            # Every job with no stored result: the one the dead worker held plus everything still queued.
+            # `f.done()` cannot say which is which, because a pool tearing down marks every remaining
+            # future with this same error before the first `result()` call sees it.
+            lost = [jobs[f] for f in futures if f not in stored]
             named = ", ".join(f"unit {j.unit.code} scenario {j.scenario}" for j in lost[:5])
             more = f" and {len(lost) - 5} more" if len(lost) > 5 else ""
             raise PolesError(f"a worker process died with {named}{more} in flight; {len(results)} of "
                              f"{len(pending)} searched jobs are cached and a rerun resumes there. Lower "
                              f"POLES_WORKERS (now {workers}) if the machine ran out of memory") from exc
+        except Exception:
+            # Any error out of a worker ends the stage, a PolesError and a MemoryError alike, but the jobs
+            # already running are paid for: drop the queue, wait the running ones out and cache what they
+            # return, then re-raise the original. Without this the queue runs to the end inside
+            # `pool.__exit__` before the traceback appears, and a finished result is lost with it.
+            for f in futures:
+                f.cancel()
+            drain()
+            raise
     return results
 
 
@@ -547,7 +560,7 @@ def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
              len(prepared.units), len(SCENARIOS), workers, len(results), len(pending))
     searched = 0
     if pending:
-        fresh = _search_pending(pending, results_dir, workers, log, ProcessPoolExecutor)
+        fresh = _search_pending(pending, results_dir, workers, log)
         results.extend(fresh)
         searched = len(fresh)
     timing = {}

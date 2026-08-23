@@ -178,8 +178,8 @@ class _SerialPool:
 
 
 class _DyingPool(_SerialPool):
-    """Finishes the first job, then dies the way a worker killed by the OOM killer does: the pool marks
-    every remaining future with the same BrokenProcessPool as it tears itself down."""
+    """The worker holding the first job dies the way one killed by the OOM killer does; the jobs behind it
+    finish. The message has to name the job that died, and that job is exactly the one with no result."""
 
     def __init__(self, max_workers=None):
         super().__init__(max_workers)
@@ -187,7 +187,7 @@ class _DyingPool(_SerialPool):
 
     def submit(self, fn, job):
         self.submitted += 1
-        if self.submitted == 1:
+        if self.submitted > 1:
             return super().submit(fn, job)
         f = Future()
         f.set_exception(BrokenProcessPool("A process in the process pool was terminated abruptly"))
@@ -248,11 +248,14 @@ def test_forced_run_clears_the_result_cache(tmp_path, cfg, log, monkeypatch):
 
 
 def test_a_dead_worker_becomes_a_poles_error_naming_the_job_and_the_finished_results_stay(tmp_path, cfg, log, monkeypatch):
+    """The job the dead worker held is the one a rerun has to redo, so it is the one the message must name:
+    it is the future whose result was never stored, not one of the futures that were never reached."""
     ws = Workspace(tmp_path / "work", "rr", "2026-01-01")
-    _patch_run(monkeypatch, tmp_path, ["aa", "bb"], pool=_DyingPool)
-    with pytest.raises(PolesError, match="bb.*POLES_WORKERS|POLES_WORKERS.*bb"):
+    _patch_run(monkeypatch, tmp_path, ["aa", "bb"], pool=_DyingPool)      # job order: aa-A first, and it dies
+    with pytest.raises(PolesError, match="unit aa scenario A.*3 of 4.*POLES_WORKERS"):
         poles_mod.run(cfg, ws, log)
-    assert (ws.dir("poles") / "results" / "aa-A.json").is_file()
+    assert (ws.dir("poles") / "results" / "bb-A.json").is_file()          # the jobs behind it are still cached
+    assert not (ws.dir("poles") / "results" / "aa-A.json").exists()
 
 
 def test_a_saturated_candidate_cell_is_a_poles_error_naming_the_unit_and_the_cell(tmp_path, cfg):
@@ -375,6 +378,69 @@ def test_a_worker_error_keeps_the_finished_results_and_reraises(tmp_path, log, m
     assert time.monotonic() - t0 < 10                          # it returned, it did not wait out the queue
     assert (results_dir / "quick-A.json").is_file()            # finished before the error, so it is kept
     assert len([c for c in started if c.startswith("zz")]) <= 4   # 20 without cancellation
+
+
+def test_any_worker_error_cancels_the_queue_and_keeps_the_finished_results(tmp_path, log, monkeypatch):
+    """A MemoryError or a RasterioIOError is not a PolesError and not a BrokenProcessPool, and it has to take
+    the same path: without it a finished result is dropped and the pool sits through the whole queue before
+    the traceback appears."""
+    results_dir = tmp_path / "results"
+    results_dir.mkdir()
+    quick_done = threading.Event()
+    started: list[str] = []
+
+    def stub(job):
+        started.append(job.unit.code)
+        if job.unit.code == "quick":
+            quick_done.set()
+            return _result(job.unit.code, job.scenario, 3000)
+        if job.unit.code == "boom":
+            assert quick_done.wait(5)
+            raise RuntimeError("a worker ran out of memory")
+        time.sleep(0.05)                                       # long enough that a freed worker takes one, not ten
+        return _result(job.unit.code, job.scenario, 3000)
+
+    monkeypatch.setattr(poles_mod, "search_unit", stub)
+    jobs = [_job("boom"), _job("quick")] + [_job(f"zz{i}") for i in range(20)]
+    t0 = time.monotonic()
+    with pytest.raises(RuntimeError, match="ran out of memory") as exc:
+        _search_pending(jobs, results_dir, 2, log, ThreadPoolExecutor)
+    assert exc.type is RuntimeError                            # the worker's own error, not a rewritten one
+    assert time.monotonic() - t0 < 10
+    assert (results_dir / "quick-A.json").is_file()
+    assert len([c for c in started if c.startswith("zz")]) <= 4
+
+
+def test_a_cache_write_that_fails_while_draining_does_not_replace_the_error(tmp_path, log, monkeypatch, caplog):
+    """The drain runs while an error is already on its way out, and the machine it exists for is one whose
+    disk is full, so the write it makes is exactly the one that fails. It must not become the reported error."""
+    results_dir = tmp_path / "results"
+    results_dir.mkdir()
+    raised = threading.Event()
+    real_cache = poles_mod._cache_result
+
+    def flaky_cache(dirpath, result):
+        if result["unit"] == "bad":
+            raise OSError(28, "No space left on device")
+        real_cache(dirpath, result)
+
+    def stub(job):
+        if job.unit.code == "boom":
+            raised.set()
+            raise PolesError("unit boom scenario A: the search gave up")
+        assert raised.wait(5)
+        time.sleep(0.05)                                       # both finish inside the drain, not before it
+        return _result(job.unit.code, job.scenario, 3000)
+
+    monkeypatch.setattr(poles_mod, "search_unit", stub)
+    monkeypatch.setattr(poles_mod, "_cache_result", flaky_cache)
+    jobs = [_job("boom"), _job("bad"), _job("good")]
+    with caplog.at_level(logging.ERROR, logger=log.name):
+        with pytest.raises(PolesError, match="the search gave up"):
+            _search_pending(jobs, results_dir, 3, log, ThreadPoolExecutor)
+    assert (results_dir / "good-A.json").is_file()             # the drain carried on past the failed write
+    assert not (results_dir / "bad-A.json").exists()
+    assert [r.getMessage() for r in caplog.records if r.levelno == logging.ERROR and "bad" in r.getMessage()]
 
 
 def test_timing_json_is_sorted_by_unit(tmp_path, cfg, log, monkeypatch):
