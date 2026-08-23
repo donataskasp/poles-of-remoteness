@@ -65,7 +65,13 @@ export function winner(units, s = 'A') {
 // North American unit code is 'us-ak' while the visitor country is 'us'. Both rules are guesses; the real fix
 // is a point-in-polygon test against lazily loaded unit outlines (#33).
 export function unitAt(units, { lat, lng }, country = null) {
-  const hits = units.filter(({ bbox: [w, s, e, n] }) => lng >= w && lng <= e && lat >= s && lat <= n);
+  // The bbox can run past 180 (a unit that straddles the line is written the short way round, west in
+  // [-180, 180] and east above it), and the point can arrive from a map the reader panned past the line,
+  // so the point is brought into the box's own turn of the world before the comparison.
+  const hits = units.filter(({ bbox: [w, s, e, n] }) => {
+    const x = w + ((((lng - w) % 360) + 360) % 360);
+    return x <= e && lat >= s && lat <= n;
+  });
   const own = (u) => (country && (u.country || '').toLowerCase() === country ? 0 : 1);
   hits.sort((a, b) => own(a) - own(b) || a.area_km2 - b.area_km2);
   return hits[0] || null;

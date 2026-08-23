@@ -107,3 +107,19 @@ test('data: unitAt prefers a hit in the visitor country, then the smallest area'
   assert.equal(unitAt(NESTED, north, 'us').code, 'us-wy'); // inside the country the area rule decides
   assert.equal(unitAt(BALTIC, { lat: 60, lng: 20 }, 'lt'), null);
 });
+
+// A unit that straddles the line is written the short way round: west stays in [-180, 180] and east runs
+// past it. The numbers are the shape of such a bbox, not a real one.
+const WRAPPED = [
+  { code: 'xx-1', country: 'XX', area_km2: 1723337, bbox: [172, 51, 228, 72] },
+  { code: 'yy-1', country: 'YY', area_km2: 474391, bbox: [-141, 60, -123, 70] },
+];
+
+test('data: unitAt reads a bbox that runs past 180', () => {
+  assert.equal(unitAt(WRAPPED, { lat: 60, lng: 179.5 }).code, 'xx-1');   // the near side of the line
+  assert.equal(unitAt(WRAPPED, { lat: 60, lng: -179.5 }).code, 'xx-1');  // the far side, the same unit
+  assert.equal(unitAt(WRAPPED, { lat: 65, lng: -130 }).code, 'yy-1');    // an ordinary bbox is unaffected
+  assert.equal(unitAt(WRAPPED, { lat: 60, lng: 170 }), null);            // and the gap is still a miss
+  // Leaflet hands out the longitude of the world the reader panned into, which can be any turn of it.
+  assert.equal(unitAt(WRAPPED, { lat: 65, lng: 590 }).code, 'yy-1');
+});

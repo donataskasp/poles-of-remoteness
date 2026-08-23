@@ -27,7 +27,10 @@ let restoring = false;
 
 function syncUrl(replace = false) {
   if (restoring) return;
-  const c = ui.map.getCenter();
+  // getCenter returns the longitude of the world the reader panned into, so it can be 181 or -190 next to
+  // the line, and the router only accepts [-180, 180]: an unwrapped value would be dropped on the way back
+  // and the shared link would open somewhere else.
+  const c = ui.map.getCenter().wrap();
   write({ ...state, z: ui.map.getZoom(), lat: c.lat, lon: c.lng }, { replace });
 }
 
