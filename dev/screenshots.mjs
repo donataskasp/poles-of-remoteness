@@ -77,6 +77,9 @@ const SHOTS = [
   { name: 'desktop-continent', view: DESKTOP, path: '/europe/lt#z=4&lat=56&lon=14&s=A&l=en' },
   { name: 'desktop-detail', view: DESKTOP, path: `/europe/lt#z=13&lat=${pole1.lat}&lon=${pole1.lon}&s=A&l=en`, after: async (p) => { await p.mouse.click(720, 450); await p.waitForTimeout(500); } },
   { name: 'desktop-about', view: DESKTOP, path: '/europe/lt#s=A&l=en', after: async (p) => { await p.click('#about-btn'); await p.waitForTimeout(300); } },
+  // The second region's top unit, which straddles the line: the map has to draw it in one piece, the header
+  // has to show the region control, and the ranking has to name a unit that carries no flag.
+  { name: 'desktop-us-ak', view: DESKTOP, path: '/north-america/us-ak#s=A&l=en' },
   { name: 'phone-lt', view: PHONE, mobile: true, path: '/europe/lt#s=A&l=en' },
   { name: 'phone-lt-lang-lt', view: PHONE, mobile: true, path: '/europe/lt#s=A&l=lt' },
   { name: 'phone-ranking', view: PHONE, mobile: true, path: '/europe/lt#s=A&l=en', after: async (p) => { await p.click('#panel-handle'); await p.waitForTimeout(400); } },

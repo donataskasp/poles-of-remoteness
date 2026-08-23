@@ -198,7 +198,7 @@ html[lang="en"] .about__body [data-lang="lt"], html[lang="lt"] .about__body [dat
   .hdr--regions { gap: 8px; padding: 0 10px; }
   .hdr--regions .hdr__brand { min-width: 0; }
   .hdr--regions .hdr__title { font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .hdr--regions .seg__btn { padding: 4px 8px; font-size: 12px; }
+  .hdr--regions .seg__btn { padding: 4px 8px; font-size: 12px; white-space: nowrap; }
   .panel { top: auto; left: 0; right: 0; width: auto; border-left: 0; border-top: 1px solid var(--hair);
     border-radius: var(--r-lg) var(--r-lg) 0 0; box-shadow: var(--shadow); transition: height var(--t); }
   .panel--collapsed { height: 48px; }
