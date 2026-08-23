@@ -35,7 +35,9 @@ CONTENT_TYPES = {".pmtiles": "application/octet-stream", ".png": "image/png", ".
 RANGE_BYTES = 16384
 MISSING_KEY_CODES = ("404", "NoSuchKey", "NotFound")
 BUCKET_EXISTS_CODE = 10004
-RETRY_STATUSES = (429, 500, 502, 503, 504)
+# 0 is a request that never got an answer (a resolver hiccup, a reset, a body cut short): one of 1,825 HEADs
+# failed that way on 2026-08-23 and took the run with it.
+RETRY_STATUSES = (0, 429, 500, 502, 503, 504)
 # Seconds of quiet before each retry of a rate-limited or failing verification request. The r2.dev limiter is a
 # window budget, not a per-second rate (800 probes at 66 per second from cold drew no 429 on 2026-08-23; the stage
 # drew them about 700 requests in), so a 429 holds every verification thread, and the pauses are long enough

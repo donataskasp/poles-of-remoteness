@@ -352,13 +352,15 @@ class _ShortBody(BaseHTTPRequestHandler):
         pass
 
 
-def test_verify_head_reports_a_body_that_stops_early(log):
+def test_verify_head_reports_a_body_that_stops_early(monkeypatch, log):
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))
     with _serving(_ShortBody) as base:
         with pytest.raises(PublishError, match="IncompleteRead"):
             r2.verify_head(base, [], ["r/A.pmtiles"], log)
 
 
-def test_verify_head_reports_an_unreachable_base(log):
+def test_verify_head_reports_an_unreachable_base(monkeypatch, log):
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))
     with pytest.raises(PublishError, match="r/A.pmtiles"):
         r2.verify_head(f"http://127.0.0.1:{_closed_port()}", ["r/A.pmtiles"], [], log)
 
@@ -374,7 +376,8 @@ class _NoLength(BaseHTTPRequestHandler):
         pass
 
 
-def test_verify_head_requires_a_content_length(log):
+def test_verify_head_requires_a_content_length(monkeypatch, log):
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))
     with _serving(_NoLength) as base:
         with pytest.raises(PublishError, match="without Content-Length"):
             r2.verify_head(base, ["r/A.pmtiles"], [], log)
@@ -533,3 +536,43 @@ def test_a_retry_after_header_is_honoured_over_the_pause(monkeypatch, log):
         out = r2.verify_head(base, ["r/A.pmtiles"], ["r/A.pmtiles"], log, workers=1)
     assert out["keys"] == 1 and out["range_ok"] == 1
     assert time.monotonic() - t0 >= 1.0 and len(limited.hits429) == 1
+
+
+class _DropsFirst(BaseHTTPRequestHandler):
+    """Closes the first connection per path without a byte of response (what a resolver hiccup or a reset looks
+    like from urllib: status 0, "unreachable"), then serves."""
+    hits: dict = {}
+    body = b"\x07" * 40_000
+
+    def _serve(self, send_body):
+        seen = self.hits[self.path] = self.hits.get(self.path, 0) + 1
+        if seen == 1:
+            self.close_connection = True
+            return
+        ranged = self.headers.get("Range") is not None
+        data = self.body[:r2.RANGE_BYTES] if ranged else self.body
+        self.send_response(206 if ranged else 200)
+        self.send_header("Content-Length", str(len(data)))
+        if ranged:
+            self.send_header("Content-Range", f"bytes 0-{len(data) - 1}/{len(self.body)}")
+        self.end_headers()
+        if send_body:
+            self.wfile.write(data)
+
+    def do_GET(self):
+        self._serve(True)
+
+    def do_HEAD(self):
+        self._serve(False)
+
+    def log_message(self, *a):
+        pass
+
+
+def test_verify_head_retries_a_request_that_never_got_an_answer(monkeypatch, log):
+    assert 0 in r2.RETRY_STATUSES
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))
+    drops = type("Drops", (_DropsFirst,), {"hits": {}})
+    with _serving(drops) as base:
+        out = r2.verify_head(base, ["r/A.json"], [], log)
+    assert out["keys"] == 1 and drops.hits["/r/A.json"] == 2
