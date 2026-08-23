@@ -1,0 +1,34 @@
+# North America reference poles for check 6 (spec 6.6), named by `references:` in north-america.yaml.
+# There is no prior published run for this region, so there are no blocking regression entries:
+# every entry here is external and informs without ever failing the stage.
+#
+# Every external entry was opened and read on the date in `checked`; the page states both the
+# position and the distance recorded here. `note` says how that publication's question differs
+# from ours, because almost every one of them counts a different set of roads.
+#
+# Two entries passed that bar, not the three the spec column asks for. The widely repeated claims
+# about the Thorofare in Yellowstone (21.7 miles, Center for Land Use Interpretation) and about
+# Isle Royale's Point Houghton (26.1 miles, Blue Book) publish a distance and a place name but no
+# coordinates, the National Park Service withholds the exact spot on purpose, and Project Remote,
+# the one survey that covers states one by one, publishes each Remote Spot's distance while keeping
+# its coordinates unpublished to protect the place. Positions without distances and distances
+# without positions were both left out.
+external:
+  - unit: us-wy
+    scenario: A
+    name: "Pole of road inaccessibility of the contiguous US, southeast corner of Yellowstone National Park"
+    lat: 44.146994
+    lon: -110.074264
+    dist_m: 34854.6
+    source: "https://notes.secretsauce.net/notes/2017/09/25_pole-of-road-inaccessibility-of-the-contiguous-us.html"
+    note: "Dima Kogan, September 2017, from a North America OSM extract: a 0.2 degree grid search for roadless cells refined with a Voronoi diagram, reported as 34854.600557 m. His road set is every way tagged highway except footway and path, so tracks count and scenario A is the closer of our two; it also counts cycleway, bridleway and steps, which barely exist in this backcountry. The page ranks the whole contiguous US rather than states, and this is its winner, so nothing in Wyoming beats it under that road set. The data is nine years older than our snapshot"
+    checked: "2026-08-23"
+  - unit: us-id
+    scenario: A
+    name: "Third place of the same search, Frank Church wilderness"
+    lat: 45.418804
+    lon: -115.023049
+    dist_m: 25053.6
+    source: "https://notes.secretsauce.net/notes/2017/09/25_pole-of-road-inaccessibility-of-the-contiguous-us.html"
+    note: "Same page, same method and same 2017 road set, reported as 25053.636148 m. It is third in a contiguous US ranking, not a stated Idaho maximum, but nothing in Idaho placed above it, so that search found no more remote point in the state. The runner-up (Bob Marshall wilderness, 29.0 km, Montana) is published with a distance and a map link but no coordinates, so it is not an entry"
+    checked: "2026-08-23"
