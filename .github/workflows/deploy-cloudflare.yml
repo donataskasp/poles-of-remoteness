@@ -72,7 +72,7 @@ jobs:
           # Flip to '1' once site/data/ carries the region JSON (after the R2 rerun). Until then a
           # .json entry answered as HTML is the SPA fallback for a file that is not published yet,
           # so it is reported and left out of the total instead of failing the run.
-          JSON_STRICT: '0'
+          JSON_STRICT: '1'
         run: |
           # Everything the first screen fetches before it is interactive, compressed bytes as the browser gets them.
           # Keep this list in step with index.html; the data files are the region list and the opening region's units.
