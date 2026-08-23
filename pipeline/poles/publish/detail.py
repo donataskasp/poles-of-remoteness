@@ -33,6 +33,7 @@ from pyproj import Transformer
 from shapely.geometry.base import BaseGeometry
 from shapely.strtree import STRtree
 
+from ..antimeridian import split_bbox
 from ..classes import EDGE, NODATA, ClassTable
 from ..classify import where_clause
 from ..config import RegionConfig
@@ -92,11 +93,16 @@ def centres(g: Georef) -> tuple[np.ndarray, np.ndarray]:
 
 def land_test(land_idx: Path, water_big: Path, bbox: tuple[float, float, float, float]):
     """Point on a land polygon and in no water polygon of 1 km2 or more; the unit boundary does not matter here,
-    a neighbour's land shows its distances too."""
-    _, _, lwkb, _ = read(str(land_idx), layer="land", bbox=bbox)
-    _, _, wwkb, _ = read(str(water_big), layer="water", bbox=bbox)
-    land_tree = STRtree(shapely.from_wkb(lwkb)) if len(lwkb) else None
-    water_tree = STRtree(shapely.from_wkb(wwkb)) if len(wwkb) else None
+    a neighbour's land shows its distances too.
+
+    The window may run past 180 (issue #22): read each side of the line separately, since a bbox filter takes
+    only ordinary boxes and would otherwise return nothing at all for the far half of the window.
+    """
+    parts = split_bbox(*bbox)
+    land = [g for p in parts for g in shapely.from_wkb(read(str(land_idx), layer="land", bbox=p)[2])]
+    water = [g for p in parts for g in shapely.from_wkb(read(str(water_big), layer="water", bbox=p)[2])]
+    land_tree = STRtree(land) if land else None
+    water_tree = STRtree(water) if water else None
 
     def ok(lons, lats):
         lons, lats = np.asarray(lons, dtype=np.float64), np.asarray(lats, dtype=np.float64)
@@ -211,13 +217,19 @@ def _nearest_land_m(land_idx: Path, bbox: tuple[float, float, float, float], lon
 
     Degrees are scaled by the metres of one degree of latitude, which overstates any longitude component and
     so is an upper bound on the true distance; the caller's tolerance is far above the rounding it forgives.
-    Read again rather than kept from land_test, because this runs only on a window that came out empty."""
-    _, _, wkb, _ = read(str(land_idx), layer="land", bbox=bbox)
-    if not len(wkb):
-        return math.inf
-    geoms = shapely.from_wkb(wkb)
-    pt = shapely.points([lon], [lat])
-    return float(shapely.distance(pt, geoms[STRtree(geoms).nearest(pt)])[0]) * M_PER_DEG
+    Read again rather than kept from land_test, because this runs only on a window that came out empty.
+    Each side of a window that crosses 180 is measured in its own turn of the world, so land 20 m across the
+    line reads as 20 m and not as most of the way round the planet (issue #22)."""
+    best = math.inf
+    for part in split_bbox(*bbox):
+        _, _, wkb, _ = read(str(land_idx), layer="land", bbox=part)
+        if not len(wkb):
+            continue
+        geoms = shapely.from_wkb(wkb)
+        centre = (part[0] + part[2]) / 2.0
+        pt = shapely.points([lon - 360.0 * round((lon - centre) / 360.0)], [lat])
+        best = min(best, float(shapely.distance(pt, geoms[STRtree(geoms).nearest(pt)])[0]) * M_PER_DEG)
+    return best
 
 
 def render(job: DetailJob) -> dict:

@@ -146,6 +146,19 @@ def refine(x: float, y: float, src_crs: str, roads: UtmRoads, half_m: float = 25
     return RefinedPole(float(lat), float(lon), dist, int(roads.roads.attrs["osm_id"][i]), bx, by, roads.epsg, i)
 
 
+def _lon_inside(cached_west: float, cached_east: float, west: float, east: float) -> bool:
+    """Is the span west to east inside the cached span, whichever side of 180 each of them is written on?
+
+    The request's west is brought into the cached window's own turn of the world before the widths are
+    compared, so the two spellings of one window match and the cache keeps working near the antimeridian
+    (issue #22). Latitude needs none of this: there is no wrap at the poles of a lon/lat bbox.
+    """
+    if cached_east - cached_west >= 360.0:
+        return True
+    start = cached_west + ((west - cached_west) % 360.0)
+    return start + (east - west) <= cached_east
+
+
 class RoadCache:
     """Roads for one bbox at a time: refinements of neighbouring cells share one tile query and one projection."""
 
@@ -157,7 +170,7 @@ class RoadCache:
     def get(self, west: float, south: float, east: float, north: float, epsg: int) -> UtmRoads:
         b = self._bbox
         if self._roads is not None and self._roads.epsg == epsg and b is not None \
-                and b[0] <= west and b[1] <= south and b[2] >= east and b[3] >= north:
+                and b[1] <= south and b[3] >= north and _lon_inside(b[0], b[2], west, east):
             return self._roads
         bbox = (west - self.pad_deg, south - self.pad_deg, east + self.pad_deg, north + self.pad_deg)
         self._roads = UtmRoads(self.tiles.query(*bbox, where=self.where), epsg)

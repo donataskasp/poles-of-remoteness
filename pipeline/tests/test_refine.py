@@ -158,3 +158,16 @@ def test_road_cache_reuses_covering_bbox():
     assert len(tiles.calls) == 2
     cache.get(25.02, 54.02, 25.08, 54.08, 32636)      # inside the cached bbox but another zone: a fresh query
     assert len(tiles.calls) == 3
+
+
+def test_road_cache_treats_the_two_spellings_of_a_window_across_the_line_as_one():
+    # 179.3 to 180.7 and -180.5 to -179.5 are the same ground written two ways. Compared with plain
+    # arithmetic the second is nowhere near the first, so the cache misses on every cell near the line
+    # and the tiles are read again for each one (issue #22).
+    tiles = _FakeTiles()
+    cache = RoadCache(tiles, pad_deg=0.5)
+    r1 = cache.get(179.3, 54.0, 180.7, 54.4, 32601)
+    r2 = cache.get(-180.5, 54.05, -179.5, 54.35, 32601)
+    assert r1 is r2 and len(tiles.calls) == 1
+    cache.get(178.0, 54.0, 178.2, 54.2, 32601)          # genuinely outside the cached window: a fresh query
+    assert len(tiles.calls) == 2

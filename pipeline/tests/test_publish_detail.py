@@ -97,6 +97,15 @@ def test_land_test_uses_land_minus_big_water(tmp_path):
     assert got.tolist() == [True, False, False]
 
 
+def test_land_test_reads_both_sides_of_a_window_that_runs_past_the_line(tmp_path):
+    write_fgb(tmp_path / "land_idx.fgb", "land",
+              [box(179.9, 54.9, 180.0, 55.1), box(-180.0, 54.9, -179.9, 55.1)], {"id": [1, 2]})
+    write_fgb(tmp_path / "water_big.fgb", "water", [box(-179.98, 54.98, -179.96, 55.02)], {"id": [1]})
+    ok = detail.land_test(tmp_path / "land_idx.fgb", tmp_path / "water_big.fgb", (179.85, 54.85, 180.15, 55.15))
+    got = ok(np.array([179.95, -179.95, -179.97, 179.5]), np.array([55.0, 55.0, 55.0, 55.0]))
+    assert got.tolist() == [True, True, False, False]   # near side; far side; far side in the lake; off the land
+
+
 # ---------- beyond the plan's four: the cases a continental run hits ----------
 
 def test_georef_keeps_the_window_square_in_metres_at_a_high_latitude():
@@ -346,6 +355,14 @@ def test_render_refuses_a_blank_window_whose_land_is_far_from_the_pole(tmp_path,
                            ((1, 55.0, 24.0, 1000.0),), 50, 2_000, b"", tuple(default_edges()))
     with pytest.raises(PolesError, match="nearest land"):
         detail.render(job)
+
+
+def test_nearest_land_measures_across_the_line_not_around_the_world(tmp_path):
+    # The blank-window guard turns this number into a hard error at 100 m. Measured the long way round it
+    # is 40,000 km and every islet on the line becomes a failed run (issue #22).
+    write_fgb(tmp_path / "land_idx.fgb", "land", [box(-179.99, 54.99, -179.97, 55.01)], {"id": [1]})
+    near = detail._nearest_land_m(tmp_path / "land_idx.fgb", (179.9, 54.9, 180.1, 55.1), 179.995, 55.0)
+    assert near == pytest.approx(1670, rel=0.01)        # 0.015 degrees of longitude at M_PER_DEG
 
 
 def test_run_detail_names_the_job_in_flight_when_a_worker_dies(tmp_path, cfg, log, monkeypatch):
