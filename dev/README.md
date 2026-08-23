@@ -36,4 +36,34 @@ The visitor fallback compares that `country` with the country in the Worker's me
 
 ## Screenshots
 
-See `docs/screenshots/README.md`.
+`dev/screenshots.mjs` is the UI test suite: it starts the dev server itself, drives a headless Chromium
+through the fixed set of views, and writes them to `docs/screenshots/`. The set and the rule that goes with
+it (a phone-only change leaves every `desktop-*.png` byte-identical) are in `docs/screenshots/README.md`.
+
+Playwright is a heavy dependency and the repository has no build step and no `package.json`, so the browser
+lives outside it. Either way is one command:
+
+- a scratch directory: `mkdir -p /some/scratch/pw && cd /some/scratch/pw && npm install playwright && npx playwright install chromium`, then run with `NODE_PATH=/some/scratch/pw/node_modules node dev/screenshots.mjs` from the repo root;
+- or under `dev/`: `cd dev && npm init -y && npm install playwright && npx playwright install chromium`, then `node dev/screenshots.mjs`. `dev/node_modules/`, `dev/package.json` and `dev/package-lock.json` are gitignored.
+
+The script loads Playwright through a CommonJS `require` on purpose: ESM `import` ignores `NODE_PATH`, so a
+plain `import ... from 'playwright'` would only ever find an install inside the repository.
+
+Flags, all optional:
+
+`node dev/screenshots.mjs --data dev/out/site --r2 work/europe/2026-08-19/publish --r2-prefix europe/2026-08-19 --out docs/screenshots --only desktop-lt --port 8000`
+
+The defaults are exactly the run of record above, so a normal regeneration takes no flags. `--only <name>`
+writes a single image from the set, which is what to use while iterating on one screen. `--port` is normally
+not needed: the port is taken from the `r2_base` in `dev/out/site/regions.json`, because the archives and
+the detail rasters are fetched from that absolute URL and a server on any other port would leave the page
+with an empty map and a "Failed to fetch" readout.
+
+The script starts its own server on that port, so stop a `dev/serve.mjs` left running first; otherwise node
+exits with `EADDRINUSE`. Moving the screenshots to a free port with `--port` is not the fix, because the
+page would still fetch its data from the port the JSON names.
+
+Expected output: ten lines, one per image, no `ERRORS`, exit 0. A page error or a console error is appended
+to the line and turns the exit code non-zero; the image is still written, so the failure can be looked at.
+An unknown `--only` name exits 2 and lists the known ones.
+
