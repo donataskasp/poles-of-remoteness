@@ -2,7 +2,7 @@
 import { makeClassTable } from './classes.js';
 import { pickLang, setLang, getLang, applyDom, t, fmtDist } from './i18n.js';
 import { parse, write, visitor, changedState } from './router.js';
-import { loadRegions, loadUnits, loadUnit, archiveUrl, pickStart, bboxToBounds, unitAt } from './data.js';
+import { loadRegions, loadUnits, loadUnit, archiveUrl, pickStart, bboxToBounds, unitAt, regionLinks } from './data.js';
 import { readTokens, makePalette, legendRows } from './palette.js';
 import { describe, formatSample, mountReadout } from './readout.js';
 import { createMap } from './map.js';
@@ -38,6 +38,24 @@ function renderLegend() {
   if (!ui.legend) return; // the first applyLanguage runs before the map controls are wired
   const rows = legendRows(readTokens());
   ui.legend.innerHTML = rows.map((r) => `<li class="legend__item"><span class="legend__swatch" style="background:${r.color}"></span>${fmtDist(r.label_m)}</li>`).join('');
+}
+
+// The header's region control. Built as elements, not as an HTML string: the name comes from a data file
+// and textContent cannot become markup. The class on the header is what the phone rules key off, so a
+// one-region site keeps its header untouched.
+function renderRegions(regions, currentId) {
+  const nav = document.getElementById('regions');
+  const links = regionLinks(regions, currentId);
+  nav.replaceChildren(...links.map((l) => {
+    const a = document.createElement('a');
+    a.className = 'seg__btn';
+    a.href = l.href;
+    a.textContent = l.name;
+    if (l.current) a.setAttribute('aria-current', 'page');
+    return a;
+  }));
+  nav.hidden = links.length === 0;
+  document.getElementById('hdr').classList.toggle('hdr--regions', links.length > 0);
 }
 
 // The readout holds a sample, not a string, so it can be said again in another language. The hint, the wait
@@ -85,6 +103,7 @@ async function main() {
   const regions = await loadRegions();
   const start = await pickStart(parsed, visitor(), regions);
   const region = regions.find((r) => r.id === start.region);
+  renderRegions(regions, region.id);
   const units = await loadUnits(region.id);
   // A region with no units at all opens without one; the archive still covers the whole region.
   const unit = units.find((u) => u.code === start.unit) || null;

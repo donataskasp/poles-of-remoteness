@@ -88,6 +88,13 @@ button { font: inherit; color: inherit; }
 .seg--sm .seg__btn { padding: 4px 10px; font-size: 13px; }
 .link-btn { border: 0; background: none; padding: 0; color: var(--accent-ink); cursor: pointer; text-decoration: underline; }
 
+/* The region control: links wearing the segmented look, absent while there is only one region. [hidden] is
+   a user agent rule and .seg sets display, so the hidden state is spelled out or the empty control would
+   still paint its border. */
+.hdr__regions[hidden] { display: none; }
+.hdr__regions .seg__btn { text-decoration: none; }
+.hdr__regions .seg__btn[aria-current="page"] { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
+
 /* Stage and map */
 .stage { position: fixed; inset: var(--hdr-h) 0 0 0; }
 .map { position: absolute; inset: 0; right: var(--panel-w); background: var(--ground); }
@@ -186,6 +193,12 @@ html[lang="en"] .about__body [data-lang="lt"], html[lang="lt"] .about__body [dat
 @media (max-width: 720px) {
   .map { right: 0; }
   .hdr__sub { display: none; }
+  /* Only when the control is there: two region names beside the language control do not fit a 390px header
+     next to a full-size title. A one-region site keeps the header it has, byte for byte. */
+  .hdr--regions { gap: 8px; padding: 0 10px; }
+  .hdr--regions .hdr__brand { min-width: 0; }
+  .hdr--regions .hdr__title { font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hdr--regions .seg__btn { padding: 4px 8px; font-size: 12px; }
   .panel { top: auto; left: 0; right: 0; width: auto; border-left: 0; border-top: 1px solid var(--hair);
     border-radius: var(--r-lg) var(--r-lg) 0 0; box-shadow: var(--shadow); transition: height var(--t); }
   .panel--collapsed { height: 48px; }

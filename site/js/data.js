@@ -83,6 +83,13 @@ export function unitAt(units, { lat, lng }, country = null) {
   return hits[0] || null;
 }
 
+// The region control: one link per region, and nothing at all while there is only one. Links rather than a
+// switch because the page binds its region and its layers once at start, so another region is a page load.
+export function regionLinks(regions, currentId) {
+  if (!regions || regions.length < 2) return [];
+  return regions.map((r) => ({ id: r.id, name: r.name || r.id, href: `/${r.id}`, current: r.id === currentId }));
+}
+
 // Opening unit (spec 5.3): the path; the visitor's own unit (country-region, then country); the winner of
 // the first region with any unit in the visitor's country; the first region's winner.
 export async function pickStart(parsed, vis, regions, load = loadUnits) {

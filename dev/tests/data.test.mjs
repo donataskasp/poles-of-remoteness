@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { getJSON, r2Url, archiveUrl, detailUrl, winner, bboxToBounds, pickStart, unitAt } from '../../site/js/data.js';
+import { getJSON, r2Url, archiveUrl, detailUrl, winner, bboxToBounds, pickStart, unitAt, regionLinks } from '../../site/js/data.js';
 
 const region = { id: 'europe', name: 'Europe', snapshot: '2026-08-19', r2_base: 'https://pub-x.r2.dev/' };
 const na = { id: 'north-america', name: 'North America', snapshot: '2026-08-19', r2_base: 'https://pub-x.r2.dev' };
@@ -133,4 +133,17 @@ test('data: unitAt reads a bbox that runs past 180', () => {
   assert.equal(unitAt(WRAPPED, { lat: 60, lng: 180 }).code, 'xx-1');
   // Leaflet hands out the longitude of the world the reader panned into, which can be any turn of it.
   assert.equal(unitAt(WRAPPED, { lat: 65, lng: 590 }).code, 'yy-1');
+});
+
+test('data: regionLinks appears only when there is somewhere to go', () => {
+  assert.deepEqual(regionLinks([region], 'europe'), []);
+  assert.deepEqual(regionLinks([], null), []);
+  assert.deepEqual(regionLinks(regions, 'north-america'), [
+    { id: 'europe', name: 'Europe', href: '/europe', current: false },
+    { id: 'north-america', name: 'North America', href: '/north-america', current: true },
+  ]);
+  // The name is whatever the region document carries (it comes from the region config), and the id stands
+  // in when it carries none: no name of any region is written in the code.
+  assert.deepEqual(regionLinks([{ id: 'a-1', name: null }, { id: 'b-2', name: 'Bee' }], 'a-1').map((l) => l.name),
+    ['a-1', 'Bee']);
 });
