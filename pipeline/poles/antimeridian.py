@@ -214,3 +214,24 @@ def lon_delta(a, b):
     ordered by a plain difference drops the true nearest.
     """
     return -(((b - a) + 180.0) % 360.0 - 180.0)
+
+
+def dissolve_seam(geom: BaseGeometry) -> MultiPolygon:
+    """The same area with the antimeridian seam dissolved, for anything that measures a distance to a boundary.
+
+    A region stored split at the line keeps a boundary segment running down it although its data continues on
+    the other side. Parts touching -180 are shifted up by 360 so they meet the parts touching 180, and the
+    union removes the shared segment; a part of the line that only one side reaches stays, because there the
+    data really does stop. Nothing happens unless both sides are present, so a region nowhere near the line is
+    returned as it stands.
+
+    The result is deliberately NOT inside [-180, 180]. Use it where a boundary is measured (validate's
+    data-edge check, the published edge band) and never where an extent or a bounding box is read.
+    """
+    polys = _polygons(geom)
+    touches_west = [p for p in polys if abs(p.bounds[0] + 180.0) <= TOL_DEG]
+    touches_east = [p for p in polys if abs(p.bounds[2] - 180.0) <= TOL_DEG]
+    if not polys or not touches_west or not touches_east:
+        return _multi(geom)
+    shifted = [translate(p, xoff=360.0) if abs(p.bounds[0] + 180.0) <= TOL_DEG else p for p in polys]
+    return _multi(shapely.make_valid(unary_union(shifted)))

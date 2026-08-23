@@ -2,8 +2,8 @@ import numpy as np
 import pytest
 from shapely.geometry import MultiPolygon, Point, Polygon, box
 
-from poles.antimeridian import (lon_delta, lon_intervals, split_antimeridian, split_bbox, unwrap_polygon,
-                                unwrap_ring, wrapped_bounds)
+from poles.antimeridian import (dissolve_seam, lon_delta, lon_intervals, split_antimeridian, split_bbox,
+                                unwrap_polygon, unwrap_ring, wrapped_bounds)
 
 # A unit drawn the way OSM stores one that sits on the line: the ring's longitudes step from 178 east
 # to 178 west, which is 4 degrees of ground and 356 degrees of arithmetic.
@@ -62,6 +62,16 @@ def test_wrapped_bounds_takes_the_short_way_only_when_the_parts_touch_both_edges
     assert wrapped_bounds(plain) == (20.0, 53.0, 26.5, 56.5)
     with pytest.raises(ValueError, match="empty"):
         wrapped_bounds(MultiPolygon())
+
+
+def test_dissolve_seam_joins_the_two_halves_and_leaves_an_ordinary_region_alone():
+    split = MultiPolygon([box(170.0, 50.0, 180.0, 56.0), box(-180.0, 50.0, -170.0, 56.0)])
+    joined = dissolve_seam(split)
+    assert len(joined.geoms) == 1 and joined.geoms[0].bounds == (170.0, 50.0, 190.0, 56.0)
+    # The seam is gone: a point on the line is inside the area, 3 degrees from the nearest real boundary.
+    assert joined.geoms[0].boundary.distance(Point(180.0, 53.0)) == pytest.approx(3.0)
+    plain = MultiPolygon([box(20.0, 53.0, 26.5, 56.5)])
+    assert dissolve_seam(plain).geoms[0].bounds == (20.0, 53.0, 26.5, 56.5)
 
 
 def test_split_bbox_returns_one_or_two_ordinary_boxes():

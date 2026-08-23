@@ -20,6 +20,7 @@ from pyproj import Geod, Transformer
 from rasterio.windows import Window
 from shapely.geometry.base import BaseGeometry
 
+from ..antimeridian import dissolve_seam
 from ..classify import SET_A, SET_B
 from ..config import RegionConfig
 from ..errors import PolesError
@@ -144,7 +145,12 @@ def recheck(poles, tiles, tolerance: float = 0.005, log: logging.Logger | None =
 def membership(poles, units: list[Unit], land_idx: Path, water_big: Path) -> list[CheckResult]:
     """Check 2: inside the unit polygon, on a land polygon, in no water polygon of 1 km2 or more.
 
-    Inside is measured to within COORD_ROUND_DEG, the quantum the poles stage rounds its output to."""
+    Inside is measured to within COORD_ROUND_DEG, the quantum the poles stage rounds its output to.
+    The read window and the containment test are both planar, which is exact everywhere except within
+    COORD_ROUND_DEG of the antimeridian itself (about 7 cm): there a pole and the land under it can be
+    written 360 degrees apart. Nothing in the pipeline can put a pole there but the sea, so this is left
+    planar on purpose rather than half-wrapped (issue #22).
+    """
     by_code = {u.code: u.geometry for u in units}
     pad = 10 * COORD_ROUND_DEG                 # read wider than the tolerance, or the filter hides the polygon
     out = []
@@ -165,8 +171,13 @@ def membership(poles, units: list[Unit], land_idx: Path, water_big: Path) -> lis
 def edge_bound(poles, edge: BaseGeometry, segment_m: float = 100.0) -> list[CheckResult]:
     """Check 3: the pole must be farther from the data edge than its claimed distance.
 
-    The edge is one polygon for the whole run, so it is densified once here rather than once per pole."""
-    boundary = edge.boundary
+    The edge is one polygon for the whole run, so it is densified once here rather than once per pole. The
+    antimeridian seam is dissolved first: where a region is stored split at the line, the line is not an
+    edge of the data and a pole beside it is not a pole beside the edge (issue #22). The dissolved geometry
+    carries longitudes past 180, which is what pyproj's geodesic wants anyway: it normalises them and
+    measures the short way round.
+    """
+    boundary = dissolve_seam(edge).boundary
     parts = np.array(list(boundary.geoms) if hasattr(boundary, "geoms") else [boundary], dtype=object)
     coords = _densify(parts, segment_m)
     out = []
@@ -271,7 +282,12 @@ def holes(poles, road_masks: dict[str, Path], units_tif: Path, frame: Frame, uni
     The unit median comes from `samples` cells of the unit drawn with a fixed seed, so a rerun over the same
     rasters flags the same candidates. Every raster read here is a window of the 30 km radius the rings need
     (or one block of the unit raster while sampling): at a continent-sized frame a full read would be
-    hundreds of millions of cells."""
+    hundreds of millions of cells.
+
+    The one lon/lat step is the transform into the frame CRS, which is continuous across the antimeridian,
+    so a pole written either side of the line lands on an ordinary row and column: nothing here wraps, on
+    purpose (issue #22).
+    """
     to_frame = Transformer.from_crs("EPSG:4326", frame.crs, always_xy=True)
     inner, outer = INNER_KM * 1000 / frame.res, OUTER_KM * 1000 / frame.res
     radius = int(np.ceil(outer)) + 1

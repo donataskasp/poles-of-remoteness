@@ -76,6 +76,26 @@ def test_recheck_fails_when_no_way_of_the_scenario_is_in_range():
     assert results[0].details["geodesic_m"] is None and results[0].details["ways"] == 0
 
 
+class _RecordingTiles(_Tiles):
+    def query(self, west, south, east, north, where=None):
+        self.boxes = getattr(self, "boxes", [])
+        self.boxes.append((west, south, east, north))
+        return super().query(west, south, east, north, where)
+
+
+def test_recheck_hands_the_tiles_a_window_that_runs_past_the_line():
+    """A guard, not a fix: check 1 must keep handing the window over whole. Clamping it here would drop the
+    far side, and splitting it here would duplicate what RoadTiles.query already does."""
+    road = LineString([(-179.98, 54.40), (-179.90, 54.40)])       # the road is west of the line
+    lat, lon = 54.40, 179.98                                      # the pole is east of it
+    d = GEOD.inv(lon, lat, -179.98, 54.40)[2]
+    tiles = _RecordingTiles([road])
+    poles = {"A": [{"unit": "aa", "poles": [_pole(lat, lon, round(d, 2))], "reason": None}]}
+    assert recheck(poles, tiles)[0].passed                        # geodesic, so it measures the short way
+    west, south, east, north = tiles.boxes[0]
+    assert west < 180.0 < east                                    # handed over wrapped, for query to split
+
+
 def test_geodesic_min_splits_a_batch_over_the_vertex_budget():
     """The budget bounds the coordinate array handed to one Geod.inv call, even for a single way whose own
     densified length exceeds it."""
@@ -148,6 +168,15 @@ def test_edge_bound_fails_when_edge_closer_than_distance():
     assert results[0].details["edge_m"] == pytest.approx(6400, rel=0.05)
 
 
+def test_edge_bound_ignores_the_seam_where_the_extract_is_stored_split_at_the_line():
+    # Two halves of one region, stored the way a .poly file stores them. Their union has a boundary running
+    # down the line, and a pole 5 km east of it is 5 km from that boundary and 300 km from any real edge.
+    edge = MultiPolygon([box(170.0, 50.0, 180.0, 56.0), box(-180.0, 50.0, -170.0, 56.0)])
+    poles = {"A": [{"unit": "aa", "poles": [_pole(53.0, 179.93, 30_000)], "reason": None}]}
+    r = edge_bound(poles, edge)[0]
+    assert r.passed and r.details["edge_m"] > 100_000             # the parallels at 50 and 56, not the line
+
+
 # ---------- check 4: grid-shift sensitivity ----------
 
 def test_grid_shift_compare_judges_the_distance_with_a_metre_floor():
@@ -173,15 +202,16 @@ def test_grid_shift_compare_calls_a_far_move_at_the_same_distance_a_tie():
 
 # ---------- check 5: hole detection ----------
 
-def _frame_and_rasters(tmp_path, doughnut: bool):
-    frame = Frame("EPSG:3035", 250.0, 5_000_000.0, 3_600_000.0, 400, 400)  # 100 km square
+def _frame_and_rasters(tmp_path, doughnut: bool, frame: Frame | None = None):
+    frame = frame or Frame("EPSG:3035", 250.0, 5_000_000.0, 3_600_000.0, 400, 400)  # 100 km square
     rng = np.random.default_rng(0)
-    roads = (rng.uniform(size=(400, 400)) < 0.02).astype("uint8")
+    shape = (frame.height, frame.width)
+    roads = (rng.uniform(size=shape) < 0.02).astype("uint8")
     if doughnut:
-        rr, cc = np.mgrid[0:400, 0:400]
-        d = np.hypot(rr - 200, cc - 200) * 250.0
+        rr, cc = np.mgrid[0:frame.height, 0:frame.width]
+        d = np.hypot(rr - frame.height // 2, cc - frame.width // 2) * frame.res
         roads[d <= 10_000] = 0
-        roads[(d > 10_000) & (d <= 30_000)] = (rng.uniform(size=roads.shape) < 0.1)[(d > 10_000) & (d <= 30_000)]
+        roads[(d > 10_000) & (d <= 30_000)] = (rng.uniform(size=shape) < 0.1)[(d > 10_000) & (d <= 30_000)]
     road_tif = tmp_path / "roads_A.tif"
     create_raster(frame, road_tif)
     with rasterio.open(road_tif, "r+") as ds:
@@ -190,7 +220,7 @@ def _frame_and_rasters(tmp_path, doughnut: bool):
     for path in (units_tif, low_tif(units_tif)):     # an uncontested unit holds the same cells in both
         create_raster(frame, path, dtype="int16")
         with rasterio.open(path, "r+") as ds:
-            ds.write(np.ones((400, 400), dtype="int16"), 1)
+            ds.write(np.ones(shape, dtype="int16"), 1)
     return frame, road_tif, units_tif
 
 
@@ -254,6 +284,22 @@ def test_holes_rejects_a_pole_outside_the_frame(tmp_path):
     far = {"A": [{"unit": "uu", "poles": [_pole(0.0, 0.0, 12_000)], "reason": None}]}
     with pytest.raises(ChecksError, match="outside"):
         holes(far, {"A": road_tif}, units_tif, frame, [unit])
+
+
+def test_holes_takes_a_pole_written_on_the_far_side_of_the_line(tmp_path):
+    """Also a guard: the frame CRS is the region's own equal-area projection, which is continuous across
+    180, and pyproj normalises a longitude either side of it, so the pole lands on an ordinary row and
+    column. Check 5 needs no wrapping of its own and does none."""
+    crs = "+proj=laea +lat_0=52 +lon_0=180 +datum=WGS84 +units=m"
+    frame = Frame(crs, 500.0, -100_000.0, 100_000.0, 400, 400)     # 200 km square centred on the line
+    to_ll = Transformer.from_crs(crs, "EPSG:4326", always_xy=True)
+    lon, lat = to_ll.transform(-100_000 + 260 * 500, 100_000 - 200 * 500)
+    assert lon < -179.0                                            # 30 km east of the line, written negative
+    unit = Unit("uu", "U", "U", 1, "uu",
+                MultiPolygon([box(179.0, 51.0, 180.0, 53.0), box(-180.0, 51.0, -179.0, 53.0)]), False, 1)
+    poles = {"A": [{"unit": "uu", "poles": [_pole(lat, lon, 12_000)], "reason": None}]}
+    _, road_tif, units_tif = _frame_and_rasters(tmp_path, doughnut=False, frame=frame)
+    assert holes(poles, {"A": road_tif}, units_tif, frame, [unit])[0].passed
 
 
 # ---------- check 6: reference values ----------
