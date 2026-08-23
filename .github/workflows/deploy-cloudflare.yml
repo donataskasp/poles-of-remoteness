@@ -84,12 +84,23 @@ jobs:
             # A static asset answered as HTML is the SPA fallback, which means the file is absent:
             # it would weigh nothing here and break the page at runtime. The /europe/lt entry is the
             # page itself and is HTML by design, so only the extensions below are content checked.
-            out=$(curl -sS --compressed --max-time 20 -o /dev/null -w '%{http_code} %{size_download} %{content_type}' "$LIVE_URL$p?ci=$GITHUB_SHA") \
-              || { echo "::error::first-screen fetch failed: $p"; exit 1; }
-            code=${out%% *}
-            rest=${out#* }
-            n=${rest%% *}
-            ct=${rest#* }
+            # The new worker version reaches the edges over a few seconds, and the version check above can be
+            # answered by one edge while this fetch lands on another still serving the previous version (seen
+            # 2026-08-23: a module new in that version answered 404 for about 40 s). A 404, or an SPA fallback
+            # for a .js or .css, is retried for up to a minute before it counts as missing.
+            for attempt in 1 2 3 4 5 6; do
+              out=$(curl -sS --compressed --max-time 20 -o /dev/null -w '%{http_code} %{size_download} %{content_type}' "$LIVE_URL$p?ci=$GITHUB_SHA-$attempt") \
+                || { echo "::error::first-screen fetch failed: $p"; exit 1; }
+              code=${out%% *}
+              rest=${out#* }
+              n=${rest%% *}
+              ct=${rest#* }
+              case "$code:$p:$ct" in
+                404:*|200:*.js:text/html*|200:*.css:text/html*)
+                  if [ "$attempt" -lt 6 ]; then echo "attempt $attempt: $p not there yet (HTTP $code, $ct), retrying"; sleep 10; fi ;;
+                *) break ;;
+              esac
+            done
             if [ "$code" != 200 ]; then echo "MISSING (HTTP $code): $p"; missing=1; continue; fi
             case "$p:$ct" in
               *.js:text/html*|*.css:text/html*)
