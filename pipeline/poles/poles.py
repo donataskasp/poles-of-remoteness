@@ -130,9 +130,15 @@ def write_water_big(src: Path, dst: Path, min_m2: float, log: logging.Logger, to
     dst.unlink(missing_ok=True)
     # OGR2OGR_USE_ARROW_API NO: GDAL's Arrow copy path silently drops filters on special fields such as
     # OGR_GEOM_AREA and writes an empty layer with no error (seen on 3.13.3, FlatGeobuf to FlatGeobuf).
+    # -wrapdateline: a water body straddling 180 is cut into a part on each side of the line on the way to
+    # lon/lat. Without it GDAL cuts only a polygon centred on the line; one lying mostly on one side comes back
+    # as a single band the long way round the planet (valid when it has no holes, so nothing downstream
+    # notices; invalid with holes, which FlatGeobuf then refuses to write). The frame CRS is continuous across
+    # the line, so this is the one place the cut can be made (issue #22). PROMOTE_TO_MULTI keeps the layer's
+    # declared type for whatever the cut leaves as a single polygon.
     run_cmd(["ogr2ogr", "--config", "OGR2OGR_USE_ARROW_API", "NO",
-             "-f", "FlatGeobuf", dst, src, "-t_srs", "EPSG:4326", "-nln", "water",
-             "-sql", f"SELECT * FROM water WHERE OGR_GEOM_AREA >= {min_m2}",
+             "-f", "FlatGeobuf", dst, src, "-t_srs", "EPSG:4326", "-wrapdateline", "-nlt", "PROMOTE_TO_MULTI",
+             "-nln", "water", "-sql", f"SELECT * FROM water WHERE OGR_GEOM_AREA >= {min_m2}",
              "-lco", "SPATIAL_INDEX=YES"], log, stderr_path=tools_log)
 
 

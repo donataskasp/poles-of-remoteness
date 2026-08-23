@@ -4,9 +4,10 @@ from concurrent.futures.process import BrokenProcessPool
 import numpy as np
 import pytest
 import rasterio
+import shapely
 from pyogrio.raw import read
 from pyproj import Transformer
-from shapely.geometry import MultiPolygon, box
+from shapely.geometry import MultiPolygon, Polygon, box
 
 from poles import poles as poles_mod
 from poles.errors import PolesError
@@ -104,6 +105,41 @@ def test_write_water_big_keeps_only_the_large_polygon(tmp_path, log):
     meta, _, wkb, fields = read(str(dst), layer="water")
     assert len(wkb) == 1 and dict(zip(meta["fields"], fields))["osm_id"].tolist() == [1]
     assert "4326" in meta["crs"]
+
+
+def test_write_water_big_splits_a_polygon_on_the_line_into_two_valid_parts(tmp_path, log):
+    """Real ogr2ogr: a lake straddling 180 must come out as two parts inside [-180, 180], not as one polygon
+    that runs the long way round the planet (the lon/lat copy of a region on the line, issue #22).
+
+    GDAL cuts at the line by itself only for a polygon centred on it; one lying mostly on one side with a lobe
+    past the line comes back as a single 359 degree band, and a valid one when it has no holes, so no later
+    validity check would catch it. The frame is centred away from the line, as a region's frame is."""
+    crs = "+proj=laea +lat_0=50 +lon_0=-100 +datum=WGS84 +units=m"
+    to_frame = Transformer.from_crs("EPSG:4326", crs, always_xy=True)
+
+    def projected(shell, holes=()):                                        # the frame is continuous across 180
+        return Polygon([to_frame.transform(*v) for v in shell], [[to_frame.transform(*v) for v in h] for h in holes])
+
+    lagoon = projected([(179.2, 68.97), (-179.99, 68.97), (-179.99, 69.28), (179.2, 69.28)],   # 0.81 deg, mostly east
+                       [[(179.5, 69.1), (179.6, 69.1), (179.6, 69.15), (179.5, 69.15)]])
+    plain = projected([(-150.0, 60.0), (-149.95, 60.0), (-149.95, 60.05), (-150.0, 60.05)])   # about 15 km2
+    tiny = projected([(-150.0, 61.0), (-150.001, 61.0), (-150.001, 61.001), (-150.0, 61.001)])   # 0.006 km2
+    src = write_fgb(tmp_path / "water_proj.fgb", "water",
+                    [MultiPolygon([lagoon]), MultiPolygon([plain]), MultiPolygon([tiny])],
+                    {"osm_id": [1, 2, 3]}, crs=crs)
+    dst = tmp_path / "water_big.fgb"
+    write_water_big(src, dst, 1_000_000.0, log, tmp_path / "tools.log")
+    meta, _, wkb, fields = read(str(dst), layer="water")
+    assert meta["geometry_type"] == "MultiPolygon"
+    by_id = dict(zip(dict(zip(meta["fields"], fields))["osm_id"].tolist(), (shapely.from_wkb(w) for w in wkb)))
+    assert sorted(by_id) == [1, 2]
+    on_line, east = by_id[1], by_id[2]
+    assert on_line.geom_type == "MultiPolygon" and len(on_line.geoms) == 2 and on_line.is_valid
+    for part in on_line.geoms:
+        assert -180.0 <= part.bounds[0] and part.bounds[2] <= 180.0
+        assert part.bounds[2] - part.bounds[0] < 1.0                       # each part hugs its own side
+    assert sorted(round(b) for part in on_line.geoms for b in (part.bounds[0], part.bounds[2])) == [-180, -180, 179, 180]
+    assert east.geom_type == "MultiPolygon" and len(east.geoms) == 1 and round(east.bounds[0], 1) == -150.0
 
 
 # ---------- run(): the per-unit result cache and worker deaths ----------
