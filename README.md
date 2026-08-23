@@ -28,10 +28,13 @@ and a region config as the only place a region is described. Europe (OSM
 snapshot 2026-08-19) is computed and validated through publishing on local
 artefacts, 918 poles over 52 country units, and the new site runs on a preview
 worker; the upload to R2 waits on the bucket being enabled. North America
-(states and provinces, snapshot 2026-08-22) is in progress. `docs/OVERVIEW.md`
-is the orientation doc for what works and what is not done,
-`docs/diagrams/README.md` draws how the pieces connect, and `pipeline/README.md`
-documents the stages and the region config keys.
+(states and provinces, snapshot 2026-08-22) is built and validated the same way
+on this machine, 64 units (the 50 states with the District of Columbia, the 10
+provinces and 3 territories), 1,266 poles and 0 blocking validation failures,
+through the local part of the publish stage; it waits with Europe on the R2
+rerun. `docs/OVERVIEW.md` is the orientation doc for what works and what is not
+done, `docs/diagrams/README.md` draws how the pieces connect, and
+`pipeline/README.md` documents the stages and the region config keys.
 
 ## Reproduce
 
