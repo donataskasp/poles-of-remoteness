@@ -7,6 +7,7 @@ import http.client
 import json
 import logging
 import mimetypes
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -35,7 +36,11 @@ RANGE_BYTES = 16384
 MISSING_KEY_CODES = ("404", "NoSuchKey", "NotFound")
 BUCKET_EXISTS_CODE = 10004
 RETRY_STATUSES = (429, 500, 502, 503, 504)
-RETRY_PAUSES = (1.0, 2.0, 4.0)     # seconds before each retry of a rate-limited or failing verification request
+# Seconds of quiet before each retry of a rate-limited or failing verification request. The r2.dev limiter is a
+# window budget, not a per-second rate (800 probes at 66 per second from cold drew no 429 on 2026-08-23; the stage
+# drew them about 700 requests in), so a 429 holds every verification thread, and the pauses are long enough
+# for a window to clear: 50 s in all.
+RETRY_PAUSES = (5.0, 15.0, 30.0)
 # The r2.dev edge answers 403 to urllib's default `Python-urllib/3.x` agent (Cloudflare's script-agent rule, seen
 # 2026-08-23, issue #49) and 200 to a request that says who it is, so every verification request names the tool.
 USER_AGENT = "poles-publish/1 (+https://github.com/donataskasp/atokiausia-lietuva)"
@@ -192,37 +197,72 @@ def upload_tree(client, bucket: str, items: list[tuple[Path, str]], log: logging
     return stats
 
 
-def _retrying(probe: Callable[[str], tuple[int, str]], url: str) -> tuple[int, str]:
-    """Reads off the managed domain are rate limited, so give a 429 or a 5xx up to three backed-off retries.
-    Whatever the last attempt says is what the caller lists."""
-    status, detail = probe(url)
+class _Hold:
+    """One per verification run, shared by its threads: a 429 (or a 5xx) from any of them keeps all of them off
+    the wire until the pause has passed. A per-key pause would send the other threads straight into the same
+    window, as the Europe run of 2026-08-23 showed (16 keys still refused after three retries each)."""
+
+    def __init__(self) -> None:
+        self._until = 0.0
+        self._lock = threading.Lock()
+
+    def raise_to(self, seconds: float) -> None:
+        with self._lock:
+            self._until = max(self._until, time.monotonic() + seconds)
+
+    def wait(self) -> None:
+        while True:
+            with self._lock:
+                delay = self._until - time.monotonic()
+            if delay <= 0:
+                return
+            time.sleep(delay)
+
+
+def _retry_after(headers) -> float | None:
+    """Seconds out of a Retry-After header when it is a number (the delay-seconds form); None otherwise."""
+    value = (headers.get("Retry-After") or "").strip() if headers is not None else ""
+    return float(value) if value.replace(".", "", 1).isdigit() else None
+
+
+Probe = Callable[[str], tuple[int, str, float | None]]
+
+
+def _retrying(probe: Probe, url: str, hold: _Hold) -> tuple[int, str]:
+    """Reads off the managed domain are rate limited, so give a 429 or a 5xx up to three backed-off retries, the
+    pause raised to the server's Retry-After when it names one. Whatever the last attempt says is what the caller
+    lists."""
+    hold.wait()
+    status, detail, retry_after = probe(url)
     for pause in RETRY_PAUSES:
         if status not in RETRY_STATUSES:
             break
-        time.sleep(pause)
-        status, detail = probe(url)
+        hold.raise_to(max(pause, retry_after or 0.0))
+        hold.wait()
+        status, detail, retry_after = probe(url)
     return status, detail
 
 
-def _head_once(url: str) -> tuple[int, str]:
-    """(status, detail); status 0 when the request never reached a server or the object came back without a size."""
+def _head_once(url: str) -> tuple[int, str, float | None]:
+    """(status, detail, Retry-After); status 0 when the request never reached a server or the object came back
+    without a size."""
     req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": USER_AGENT})
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
             if resp.status == 200 and resp.headers.get("Content-Length") is None:
-                return 0, "200 without Content-Length"
-            return resp.status, str(resp.status)
+                return 0, "200 without Content-Length", None
+            return resp.status, str(resp.status), None
     except urllib.error.HTTPError as exc:
         exc.close()
-        return exc.code, f"{exc.code} {exc.reason}"
+        return exc.code, f"{exc.code} {exc.reason}", _retry_after(exc.headers)
     except urllib.error.URLError as exc:
-        return 0, f"unreachable ({exc.reason})"
+        return 0, f"unreachable ({exc.reason})", None
     except (OSError, http.client.HTTPException) as exc:
-        return 0, f"unreachable ({exc})"
+        return 0, f"unreachable ({exc})", None
 
 
-def _head(url: str) -> tuple[int, str]:
-    return _retrying(_head_once, url)
+def _head(url: str, hold: _Hold) -> tuple[int, str]:
+    return _retrying(_head_once, url, hold)
 
 
 def _total_size(content_range: str | None) -> int:
@@ -234,39 +274,40 @@ def _total_size(content_range: str | None) -> int:
     return 0
 
 
-def _range_once(url: str) -> tuple[int, str]:
-    """(status, detail) for a 16 KiB range request; status 0 when the body came back the wrong length."""
+def _range_once(url: str) -> tuple[int, str, float | None]:
+    """(status, detail, Retry-After) for a 16 KiB range request; status 0 when the body came back the wrong length."""
     req = urllib.request.Request(url, headers={"Range": f"bytes=0-{RANGE_BYTES - 1}", "User-Agent": USER_AGENT})
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
             got = len(resp.read())
             if resp.status != 206:
-                return resp.status, f"{resp.status}, the range was ignored"
+                return resp.status, f"{resp.status}, the range was ignored", None
             total = _total_size(resp.headers.get("Content-Range"))
             want = min(RANGE_BYTES, total) if total else RANGE_BYTES
-            return (206, "206") if got == want else (0, f"206 with {got} bytes, expected {want}")
+            return (206, "206", None) if got == want else (0, f"206 with {got} bytes, expected {want}", None)
     except urllib.error.HTTPError as exc:
         exc.close()
-        return exc.code, f"{exc.code} {exc.reason}"
+        return exc.code, f"{exc.code} {exc.reason}", _retry_after(exc.headers)
     except urllib.error.URLError as exc:
-        return 0, f"unreachable ({exc.reason})"
+        return 0, f"unreachable ({exc.reason})", None
     except (OSError, http.client.HTTPException) as exc:   # the body died between the headers and the last byte
-        return 0, f"unreachable ({exc})"
+        return 0, f"unreachable ({exc})", None
 
 
-def _range(url: str) -> tuple[int, str]:
-    return _retrying(_range_once, url)
+def _range(url: str, hold: _Hold) -> tuple[int, str]:
+    return _retrying(_range_once, url, hold)
 
 
 def verify_head(base: str, keys: list[str], range_keys: list[str], log: logging.Logger, workers: int = 8) -> dict:
     """Spec check 7: every published key answers HEAD 200; the archives answer a 16 KiB range with 206."""
     failures = []
     range_ok = 0
+    hold = _Hold()
     with ThreadPoolExecutor(max_workers=max(1, min(workers, len(keys) + len(range_keys)))) as pool:
-        for key, (status, detail) in zip(keys, pool.map(lambda k: _head(f"{base}/{k}"), keys)):
+        for key, (status, detail) in zip(keys, pool.map(lambda k: _head(f"{base}/{k}", hold), keys)):
             if status != 200:
                 failures.append(f"HEAD {key}: {detail}")
-        for key, (status, detail) in zip(range_keys, pool.map(lambda k: _range(f"{base}/{k}"), range_keys)):
+        for key, (status, detail) in zip(range_keys, pool.map(lambda k: _range(f"{base}/{k}", hold), range_keys)):
             if status == 206:
                 range_ok += 1
             else:

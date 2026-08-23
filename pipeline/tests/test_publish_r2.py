@@ -1,6 +1,7 @@
 import json
 import socket
 import threading
+import time
 from contextlib import contextmanager
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -413,7 +414,7 @@ class _Flaky(BaseHTTPRequestHandler):
 
 
 def test_verify_head_retries_a_rate_limited_key(monkeypatch, log):
-    assert r2.RETRY_PAUSES == (1.0, 2.0, 4.0) and 429 in r2.RETRY_STATUSES and 503 in r2.RETRY_STATUSES
+    assert r2.RETRY_PAUSES == (5.0, 15.0, 30.0) and 429 in r2.RETRY_STATUSES and 503 in r2.RETRY_STATUSES
     monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))     # the wait itself is not what is under test
     flaky = type("Flaky", (_Flaky,), {"hits": {}})
     with _serving(flaky) as base:
@@ -467,3 +468,68 @@ def test_verify_head_identifies_itself_to_an_edge_that_blocks_script_agents(log)
     with _serving(_BlocksScriptAgents) as base:
         out = r2.verify_head(base, ["r/A.pmtiles"], ["r/A.pmtiles"], log)
     assert out["keys"] == 1 and out["range_ok"] == 1
+
+
+class _WindowLimited(BaseHTTPRequestHandler):
+    """The r2.dev limiter as it behaved on 2026-08-23: every request inside a window after the first one gets
+    429, whoever sends it; after the window everything is served. `hits429` counts the refusals."""
+    window_s = 0.3
+    retry_after: str | None = None
+    started: list = []
+    hits429: list = []
+    body = b"\x06" * 40_000
+
+    def _serve(self, send_body):
+        now = time.monotonic()
+        if not self.started:
+            self.started.append(now)
+        if now < self.started[0] + self.window_s:
+            self.hits429.append(now)
+            self.send_response(429)
+            if self.retry_after is not None:
+                self.send_header("Retry-After", self.retry_after)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
+        ranged = self.headers.get("Range") is not None
+        data = self.body[:r2.RANGE_BYTES] if ranged else self.body
+        self.send_response(206 if ranged else 200)
+        self.send_header("Content-Length", str(len(data)))
+        if ranged:
+            self.send_header("Content-Range", f"bytes 0-{len(data) - 1}/{len(self.body)}")
+        self.end_headers()
+        if send_body:
+            self.wfile.write(data)
+
+    def do_GET(self):
+        self._serve(True)
+
+    def do_HEAD(self):
+        self._serve(False)
+
+    def log_message(self, *a):
+        pass
+
+
+def test_a_rate_limit_on_one_key_holds_every_verification_thread(monkeypatch, log):
+    assert r2.RETRY_PAUSES == (5.0, 15.0, 30.0)
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.4, 0.0, 0.0))
+    limited = type("Limited", (_WindowLimited,), {"started": [], "hits429": []})
+    keys = [f"r/{i}.json" for i in range(16)]
+    with _serving(limited) as base:
+        out = r2.verify_head(base, keys, [], log, workers=8)
+    assert out["keys"] == 16
+    # Only the first wave is refused (at most one request per worker; a worker whose thread starts after the
+    # hold is raised never reaches the wire inside the window), and keys 9 to 16 wait the window out. Per-key
+    # retries alone would have sent every one of the 16 straight into it.
+    assert 1 <= len(limited.hits429) <= 8
+
+
+def test_a_retry_after_header_is_honoured_over_the_pause(monkeypatch, log):
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))
+    limited = type("Limited", (_WindowLimited,), {"started": [], "hits429": [], "retry_after": "1"})
+    with _serving(limited) as base:
+        t0 = time.monotonic()
+        out = r2.verify_head(base, ["r/A.pmtiles"], ["r/A.pmtiles"], log, workers=1)
+    assert out["keys"] == 1 and out["range_ok"] == 1
+    assert time.monotonic() - t0 >= 1.0 and len(limited.hits429) == 1
