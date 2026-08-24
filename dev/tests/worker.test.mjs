@@ -84,6 +84,18 @@ async function drive(path, asset) {
   return { rows, res };
 }
 
+test('worker: www is answered with one permanent redirect to the apex, no view logged', async () => {
+  const rows = [];
+  const env = {
+    ASSETS: { fetch: async () => { throw new Error('assets must not be consulted for www'); } },
+    SITE_VIEWS: { writeDataPoint: (row) => rows.push(row) },
+  };
+  const res = await worker.fetch(new Request('https://www.example.com/europe/lt?x=1'), env);
+  assert.equal(res.status, 301);
+  assert.equal(res.headers.get('Location'), 'https://example.com/europe/lt?x=1');
+  assert.equal(rows.length, 0);
+});
+
 test('worker: a 304 on a page path is a view and is passed through', async () => {
   const { rows, res } = await drive('/europe/lt', new Response(null, { status: 304, headers: { ETag: '"x"' } }));
   assert.equal(rows.length, 1);

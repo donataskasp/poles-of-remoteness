@@ -1,10 +1,16 @@
 {
   "$schema": "https://unpkg.com/wrangler/config-schema.json",
-  // Production (branch main, deployed by CI). The name changes at stage 6 with the domain; until then
-  // main keeps serving the LT site and this file on branch europe describes the site to come.
-  "name": "atokiausia-lietuva",
+  // Production (branch main, deployed by CI) under the stage 6 name and domain. The apex and www are
+  // Worker custom domains; workers.dev is off in production so the site has one canonical URL
+  // (worker.js answers www with a 301 to the apex).
+  "name": "polesofremoteness",
   "main": "worker.js",
   "compatibility_date": "2025-10-01",
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "polesofremoteness.com", "custom_domain": true },
+    { "pattern": "www.polesofremoteness.com", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./site",
     "binding": "ASSETS",
@@ -21,6 +27,7 @@
     // Preview (branch europe). Same worker, its own name and its own analytics dataset.
     "preview": {
       "name": "atokiausia-lietuva-preview",
+      "workers_dev": true,
       "assets": {
         "directory": "./site",
         "binding": "ASSETS",

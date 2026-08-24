@@ -84,6 +84,11 @@ export function referrerHost(request, url) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    // www is a doorway, not a second site: any page request on it is one permanent redirect to the apex.
+    if (url.hostname.startsWith('www.')) {
+      url.hostname = url.hostname.slice(4);
+      return Response.redirect(url.toString(), 301);
+    }
     const where = landing(url.pathname);
     if (request.method !== 'GET' || !where.page) return env.ASSETS.fetch(request);
 
