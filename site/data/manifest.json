@@ -1,12 +1,12 @@
 {
  "schema_version": 1,
- "generated_at": "2026-08-23T19:22:35+00:00",
+ "generated_at": "2026-08-24T18:17:06+00:00",
  "regions": {
   "europe": {
    "snapshot": "2026-08-19",
-   "published_at": "2026-08-23T19:15:26+00:00",
-   "r2_base": "https://pub-32ed0225f9884314b6a77f6eb0087b70.r2.dev",
-   "pipeline_commit": "8da0e821d0d374a40495d80da65dd1547141a25c",
+   "published_at": "2026-08-24T18:15:45+00:00",
+   "r2_base": "https://data.polesofremoteness.com",
+   "pipeline_commit": "3bc954e5fd022e5a07be407ba0af164ce94ed054",
    "sources": [
     {
      "url": "https://download.geofabrik.de/europe-latest.osm.pbf",
@@ -95,16 +95,16 @@
     "contact_sheet": "europe/2026-08-19/validation/contact-sheet.html"
    },
    "verified": {
-    "at": "2026-08-23T19:15:26+00:00",
+    "at": "2026-08-24T18:15:45+00:00",
     "keys": 1823,
     "range_ok": 2
    }
   },
   "north-america": {
    "snapshot": "2026-08-22",
-   "published_at": "2026-08-23T19:22:35+00:00",
-   "r2_base": "https://pub-32ed0225f9884314b6a77f6eb0087b70.r2.dev",
-   "pipeline_commit": "a22f89556c27d3d5f6ac03a8623e9099759dc790",
+   "published_at": "2026-08-24T18:17:06+00:00",
+   "r2_base": "https://data.polesofremoteness.com",
+   "pipeline_commit": null,
    "sources": [
     {
      "url": "https://download.geofabrik.de/north-america-latest.osm.pbf",
@@ -143,7 +143,7 @@
     "contact_sheet": "north-america/2026-08-22/validation/contact-sheet.html"
    },
    "verified": {
-    "at": "2026-08-23T19:22:35+00:00",
+    "at": "2026-08-24T18:17:06+00:00",
     "keys": 2529,
     "range_ok": 2
    }

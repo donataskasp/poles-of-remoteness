@@ -10,7 +10,7 @@
    "snapshot": "2026-08-19",
    "unit_level": 2,
    "units_count": 52,
-   "r2_base": "https://pub-32ed0225f9884314b6a77f6eb0087b70.r2.dev",
+   "r2_base": "https://data.polesofremoteness.com",
    "class_edges": [
     0,
     50,
@@ -281,7 +281,7 @@
    "snapshot": "2026-08-22",
    "unit_level": 4,
    "units_count": 64,
-   "r2_base": "https://pub-32ed0225f9884314b6a77f6eb0087b70.r2.dev",
+   "r2_base": "https://data.polesofremoteness.com",
    "class_edges": [
     0,
     50,
