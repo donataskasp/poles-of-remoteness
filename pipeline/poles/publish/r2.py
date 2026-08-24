@@ -259,13 +259,34 @@ def _retrying(probe: Probe, url: str, hold: _Hold) -> tuple[int, str]:
 
 def _head_once(url: str) -> tuple[int, str, float | None]:
     """(status, detail, Retry-After); status 0 when the request never reached a server or the object came back
-    without a size."""
+    without a provable size."""
     req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": USER_AGENT})
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
             if resp.status == 200 and resp.headers.get("Content-Length") is None:
-                return 0, "200 without Content-Length", None
+                return _sized_by_range(url)
             return resp.status, str(resp.status), None
+    except urllib.error.HTTPError as exc:
+        exc.close()
+        return exc.code, f"{exc.code} {exc.reason}", _retry_after(exc.headers)
+    except urllib.error.URLError as exc:
+        return 0, f"unreachable ({exc.reason})", None
+    except (OSError, http.client.HTTPException) as exc:
+        return 0, f"unreachable ({exc})", None
+
+
+def _sized_by_range(url: str) -> tuple[int, str, float | None]:
+    """A proxied HEAD can legitimately drop Content-Length (a CDN in front of the bucket streams text/html
+    chunked, with or without compression), so the object's existence and size are proven by a one-byte range
+    instead: a 206 whose Content-Range names a total. A 200 to that range request is an error page or a proxy
+    ignoring Range, and stays a failure."""
+    req = urllib.request.Request(url, headers={"Range": "bytes=0-0", "User-Agent": USER_AGENT})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            body = resp.read()
+            if resp.status == 206 and _total_size(resp.headers.get("Content-Range")) > 0 and len(body) == 1:
+                return 200, "200 (sized by a one-byte range)", None
+            return 0, f"200 without Content-Length, and the one-byte range answered {resp.status}", None
     except urllib.error.HTTPError as exc:
         exc.close()
         return exc.code, f"{exc.code} {exc.reason}", _retry_after(exc.headers)

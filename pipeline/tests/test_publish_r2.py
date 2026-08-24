@@ -386,14 +386,51 @@ def test_verify_head_reports_an_unreachable_base(monkeypatch, log):
 
 
 class _NoLength(BaseHTTPRequestHandler):
-    """A HEAD 200 that does not say how big the object is, so the key count would attest nothing."""
+    """A HEAD 200 that does not say how big the object is, and a GET that ignores Range: the key count would
+    attest nothing, and the one-byte fallback proves nothing either."""
 
     def do_HEAD(self):
         self.send_response(200)
         self.end_headers()
 
+    def do_GET(self):
+        body = b"error page"
+        self.send_response(200)
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
     def log_message(self, *a):
         pass
+
+
+class _ProxiedHtml(BaseHTTPRequestHandler):
+    """A CDN in front of the bucket: HEAD on HTML answers 200 with no Content-Length, but a range request is
+    passed through and answers 206 with the object's total."""
+
+    def do_HEAD(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.end_headers()
+
+    def do_GET(self):
+        if self.headers.get("Range") != "bytes=0-0":
+            self.send_response(200)
+            self.end_headers()
+            return
+        self.send_response(206)
+        self.send_header("Content-Range", "bytes 0-0/774451")
+        self.send_header("Content-Length", "1")
+        self.end_headers()
+        self.wfile.write(b"<")
+
+    def log_message(self, *a):
+        pass
+
+
+def test_a_headless_size_is_proven_by_a_one_byte_range(log):
+    with _serving(_ProxiedHtml) as base:
+        assert r2.verify_head(base, ["r/report.html"], [], log)["keys"] == 1
 
 
 def test_verify_head_requires_a_content_length(monkeypatch, log):
