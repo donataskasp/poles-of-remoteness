@@ -18,7 +18,7 @@ The design as first thought through:
 
 ## Naming and URLs (decide with the domain, not before; now stage 6, issue #12)
 
-"Atokiausia Lietuva" stops being accurate the moment the map covers Europe, so a rename is coming. Park it until the domain is bought, then do it ONCE, because the pieces move together:
+Done 2026-08-24 (stage 6): the rename happened once, as designed. polesofremoteness.com is the primary URL; the worker rename broke no public link because the old workers.dev name lives on as a permanent redirect; the analytics series restarted as `poles_views`; the repo is `poles-of-remoteness`. The considerations that shaped it, kept for the record:
 
 - Worker name in `wrangler.jsonc` is what generates the workers.dev hostname; changing it changes the primary URL and **breaks the LinkedIn launch post link**, which is currently the project's only inbound traffic source. A custom domain absorbs this permanently: point the domain at the worker, and future renames never break a public link again.
 - Repo rename is cheap (GitHub redirects the old path) and now touches nothing user-facing, since the repo is private and serves no site.
