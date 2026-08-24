@@ -79,6 +79,10 @@ class _Api(BaseHTTPRequestHandler):
         self._record("PUT")
         self._reply({"domain": "pub-abc.r2.dev", "enabled": True} if "domains" in self.path else {})
 
+    def do_GET(self):
+        self._record("GET")
+        self._reply({"domains": [{"domain": "data.poles.example", "enabled": True}]})
+
     def log_message(self, *a):
         pass
 
@@ -152,13 +156,29 @@ def test_ensure_bucket_creates_enables_domain_and_cors(tmp_path, api, log):
     assert "Accept-Ranges" in rule["exposeHeaders"] and "Content-Range" in rule["exposeHeaders"]
 
 
-def test_ensure_bucket_refuses_a_base_mismatch(tmp_path, api, log):
+def test_ensure_bucket_refuses_a_base_that_is_no_domain_of_the_bucket(tmp_path, api, log):
     base_url, _ = api
     env = dict(_files(tmp_path), POLES_R2_BASE="https://data.example.org")
-    with pytest.raises(PublishError, match="pub-abc.r2.dev"):
+    with pytest.raises(PublishError, match="pub-abc.r2.dev.*data.poles.example"):
         r2.ensure_bucket(R2Config.from_env(env), log, api_base=base_url)
     agrees = dict(_files(tmp_path), POLES_R2_BASE="https://pub-abc.r2.dev")
     assert r2.ensure_bucket(R2Config.from_env(agrees), log, api_base=base_url) == "https://pub-abc.r2.dev"
+
+
+def test_ensure_bucket_accepts_a_connected_custom_domain_as_the_base(tmp_path, api, log):
+    base_url, calls = api
+    env = dict(_files(tmp_path), POLES_R2_BASE="https://data.poles.example")
+    assert r2.ensure_bucket(R2Config.from_env(env), log, api_base=base_url) == "https://data.poles.example"
+    assert ("GET", f"/accounts/acct/r2/buckets/{BUCKET}/domains/custom") in [c[:2] for c in calls]
+
+
+def test_cors_origins_come_from_the_environment(tmp_path, api, log):
+    base_url, calls = api
+    env = dict(_files(tmp_path), POLES_R2_CORS="https://poles.example, https://www.poles.example")
+    r2.ensure_bucket(R2Config.from_env(env), log, api_base=base_url)
+    rule = [c for c in calls if c[1].endswith("/cors")][0][3]["rules"][0]
+    assert rule["allowed"]["origins"] == ["https://poles.example", "https://www.poles.example"]
+    assert R2Config.from_env(_files(tmp_path)).cors_origins == ("*",)
 
 
 def test_ensure_bucket_accepts_a_bucket_that_already_exists(tmp_path, log):

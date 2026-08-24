@@ -30,6 +30,7 @@ CACHE_CONTROL = "public, max-age=31536000, immutable"
 ENV_NAMES = {"account_id": "POLES_R2_ACCOUNT_ID", "bucket": "POLES_R2_BUCKET", "token_file": "POLES_R2_TOKEN_FILE",
              "key_id_file": "POLES_R2_ACCESS_KEY_ID_FILE", "secret_file": "POLES_R2_SECRET_FILE"}
 ENV_BASE = "POLES_R2_BASE"
+ENV_CORS = "POLES_R2_CORS"
 CONTENT_TYPES = {".pmtiles": "application/octet-stream", ".png": "image/png", ".json": "application/json",
                  ".html": "text/html; charset=utf-8"}
 RANGE_BYTES = 16384
@@ -63,6 +64,7 @@ class R2Config:
     token_file: Path
     key_id_file: Path
     secret_file: Path
+    cors_origins: tuple[str, ...] = ("*",)
 
     @classmethod
     def from_env(cls, env: Mapping[str, str]) -> "R2Config":
@@ -71,8 +73,10 @@ class R2Config:
             raise PublishError("R2 is not configured; set " + ", ".join(missing)
                                + " (the *_FILE variables name files holding the secrets; see pipeline/README.md)")
         base = env.get(ENV_BASE) or None
+        cors = tuple(o.strip() for o in (env.get(ENV_CORS) or "*").split(",") if o.strip()) or ("*",)
         return cls(env[ENV_NAMES["account_id"]], env[ENV_NAMES["bucket"]], base.rstrip("/") if base else None,
-                   Path(env[ENV_NAMES["token_file"]]), Path(env[ENV_NAMES["key_id_file"]]), Path(env[ENV_NAMES["secret_file"]]))
+                   Path(env[ENV_NAMES["token_file"]]), Path(env[ENV_NAMES["key_id_file"]]), Path(env[ENV_NAMES["secret_file"]]),
+                   cors)
 
 
 def read_secret(path: Path) -> str:
@@ -137,8 +141,9 @@ def _api(method: str, url: str, token: str, body: dict | None) -> dict:
 
 
 def ensure_bucket(cfg: R2Config, log: logging.Logger, api_base: str = API_BASE) -> str:
-    """Create the bucket if it is new, publish it on its managed r2.dev domain, allow ranged cross-origin reads.
-    Returns the public base URL the site will fetch from."""
+    """Create the bucket if it is new, publish it on its managed r2.dev domain, allow ranged cross-origin reads
+    from the configured origins. Returns the public base URL the site will fetch from: the managed domain, or a
+    custom domain already connected to the bucket when the base override names one."""
     token = read_secret(cfg.token_file)
     buckets = f"{api_base}/accounts/{cfg.account_id}/r2/buckets"
     _api("POST", buckets, token, {"name": cfg.bucket})
@@ -147,11 +152,18 @@ def ensure_bucket(cfg: R2Config, log: logging.Logger, api_base: str = API_BASE) 
     if not managed:
         raise PublishError(f"managed domain response without a domain: {domain}")
     _api("PUT", f"{buckets}/{cfg.bucket}/cors", token, {"rules": [{
-        "allowed": {"origins": ["*"], "methods": ["GET", "HEAD"], "headers": ["*"]},
+        "allowed": {"origins": list(cfg.cors_origins), "methods": ["GET", "HEAD"], "headers": ["*"]},
         "exposeHeaders": ["Content-Length", "Content-Range", "ETag", "Accept-Ranges"], "maxAgeSeconds": 86400}]})
     base = f"https://{managed}"
     if cfg.base and cfg.base != base:
-        raise PublishError(f"{ENV_BASE} is {cfg.base} but the bucket's managed domain is {base}")
+        # A base that is not the managed domain has to be a custom domain already connected to the bucket;
+        # connecting one is a one-time cutover act, not something a publish run does on its own.
+        listed = _api("GET", f"{buckets}/{cfg.bucket}/domains/custom", token, None)
+        domains = [d.get("domain") for d in (listed.get("result") or {}).get("domains", [])]
+        if cfg.base.split("://", 1)[-1] not in domains:
+            raise PublishError(f"{ENV_BASE} is {cfg.base}: neither the managed domain (https://{managed}) nor a "
+                               f"custom domain of bucket {cfg.bucket} ({', '.join(domains) or 'none connected'})")
+        base = cfg.base
     log.info("publish: bucket %s ready at %s", cfg.bucket, base)
     return base
 

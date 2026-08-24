@@ -61,7 +61,8 @@ R2 is configured by environment. The secrets are file contents, never values in 
 - `POLES_R2_TOKEN_FILE`: file holding the Cloudflare API token with R2 admin read and write, used for bucket creation, the managed `r2.dev` domain and CORS.
 - `POLES_R2_ACCESS_KEY_ID_FILE`: file holding the S3 access key id used for the uploads.
 - `POLES_R2_SECRET_FILE`: file holding the S3 secret.
-- `POLES_R2_BASE` (optional): the public base URL; when set it must equal the bucket's managed `r2.dev` domain, which the stage otherwise discovers.
+- `POLES_R2_BASE` (optional): the public base URL; when set it must be the bucket's managed `r2.dev` domain (which the stage otherwise discovers) or a custom domain already connected to the bucket. The upload is verified and the site documents are written against this base.
+- `POLES_R2_CORS` (optional): comma-separated list of origins allowed by the bucket's CORS rule; default `*`. Set it to the site origin at cutover.
 
 Two flags belong to this stage: `--site-dir DIR` (default `$POLES_SITE_DIR` when set, otherwise the repository's `site/data`) names the directory that receives the site documents, and `--no-write-site` keeps them under the work directory only.
 
