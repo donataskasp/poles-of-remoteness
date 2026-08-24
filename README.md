@@ -1,71 +1,55 @@
-# Lithuania's pole of remoteness
+# Poles of remoteness
 
-Finds the point on Lithuanian land farthest from any drivable road. Roads in
-Latvia, Belarus, Poland, and Kaliningrad count too, so a spot near the border
-is only as remote as the nearest foreign road. Two definitions:
+How far from a road can you get? This project finds, for every country in Europe and every US state and Canadian province, the point on land farthest from anything drivable, computed from OpenStreetMap data, and puts them all on an interactive map. It started with a YouTube video about the remotest spot in Norway and a simple question: what is the equivalent for Lithuania? One weekend later the answer (a bog, 3.43 km) was live and on LinkedIn; the pipeline then grew until it covered two continents.
 
-- **Scenario A** - any drivable way, forest/field tracks included
-- **Scenario B** - public-style roads only (`highway=track` excluded)
+**Live map: https://polesofremoteness.com**
 
-## Results (OSM snapshot 2026-08-17)
+![The remotest corner of Alaska is 366 km from anything drivable](docs/hero.png)
 
-- **A: 3.43 km**, Žuvintas biosphere reserve bog (54.441473, 23.537020).
-  Čepkeliai is second at 3.41 km - the mapped border patrol tracks along its
-  southern edge cap its score once tracks count.
-- **B: 6.67 km**, Čepkelių raistas interior (53.995818, 24.462993).
+## Headlines
 
-Full ranking, coordinates, and nearest-road identities: `out/results.md`.
+| | Farthest from any drivable way (A) | Public roads only (B) |
+|---|---|---|
+| **Europe**, 52 countries | **71.4 km**: Kolbeinsey, an Icelandic islet in the Greenland Sea | **73.4 km**: North Rona, an island north of the Scottish mainland |
+| **North America**, 64 states and provinces | **425.2 km**: northern Victoria Island, Nunavut | **431.9 km**: Nunavut again |
+| **Lithuania**, the original weekend build | **3.43 km**: Žuvintas biosphere reserve bog | **6.67 km**: Čepkeliai raised bog |
 
-**Live interactive map**: https://atokiausia-lietuva.donatas-kasparavicius.workers.dev
-The site itself lives in `site/`; `out/map.html` is the older compute-time
-preview.
+Distance is the straight line to the nearest drivable OSM way, sea included, which is why lonely islets win. Scenario A counts every drivable way, forest and field tracks included; scenario B counts public roads only. Roads in neighbouring data always count: a point near the Texas border is only as remote as the nearest Mexican road, and the Europe extract carries Armenia through Syria so its southeastern edge is honest.
 
-## Europe and North America build
+## Scale
 
-The project is being extended past Lithuania. A region-agnostic pipeline lives in
-`pipeline/` on branch `europe`: one command per region, seven resumable stages,
-and a region config as the only place a region is described. Europe (OSM
-snapshot 2026-08-19) is computed and validated through publishing on local
-artefacts, 918 poles over 52 country units, and the new site runs on a preview
-worker; the upload to R2 waits on the bucket being enabled. North America
-(states and provinces, snapshot 2026-08-22) is built and validated the same way
-on this machine, 64 units (the 50 states with the District of Columbia, the 10
-provinces and 3 territories), 1,266 poles and 0 blocking validation failures,
-through the local part of the publish stage; it waits with Europe on the R2
-rerun. `docs/OVERVIEW.md` is the orientation doc for what works and what is not
-done, `docs/diagrams/README.md` draws how the pieces connect, and
-`pipeline/README.md` documents the stages and the region config keys.
+- Input: full Geofabrik extracts, 34.8 GB (Europe plus five neighbours) and 19.3 GB (North America) of compressed OSM.
+- Coarse pass: drivable ways rasterised at 250 m in an equal-area projection; a tiled Euclidean distance transform over 675 million cells (Europe) and 1.9 billion cells (North America).
+- Refinement: per unit and scenario, branch-and-bound from the coarse grid down to exact vector distances at a 5 m step in the local UTM zone; 225,197 candidate refinements across 232 searches.
+- Output: 2,171 published poles across 116 units, a 250 m explore layer, and 50 m detail rasters around every pole; 4,352 objects, 705 MB, on Cloudflare R2.
+- Hardware: one MacBook (M-series, 24 GB RAM). Europe takes about 2.5 hours end to end, North America about 5.5.
 
-## Reproduce
+## How it was built
 
-```
-scripts/01_download.sh   # ~860 MB from Geofabrik (LT, LV, BY, 2 PL voivodeships, Kaliningrad)
-scripts/02_prepare.sh    # osmium: clip to LT+20 km, filter highway=*, export layers
-.venv/bin/python scripts/03_compute.py   # both scenarios + verification -> out/results.json
-.venv/bin/python scripts/04_report.py    # -> out/results.md, out/map.html
-```
+AI agents (Claude) wrote effectively all of this end to end: the pipeline, the site, the tests, the CI, the docs. My role was direction and verification: choosing what to build, making the product calls, reviewing diffs, and checking results against reality. The repo is the record of that process: `docs/EUROPE_SPEC.md` (the design), `docs/EUROPE_PLAN.md` (the staged plan), `docs/DECISIONS.md` (a dated decision log), `docs/diagrams/` (how the pieces connect), and a history of small reviewed commits. Tests: 436 for the pipeline, 59 for the site tooling.
 
-Dependencies: `brew install osmium-tool`; Python 3.12 venv from
-`requirements.txt` (pinned with pip freeze).
+## How it works
 
-## Method
+1. **extract**: osmium filters each continent-scale PBF down to drivable ways, boundaries, places and water.
+2. **classify**: ways split into scenario A (all drivable) and scenario B (public roads only).
+3. **grid**: roads rasterised at 250 m; a tiled distance transform (scipy) gives every cell its distance to the nearest road.
+4. **poles**: per unit and scenario, a branch-and-bound search refines a coarse cell only if it could still beat the best exact result; exact distances are vector computations (shapely STRtree) at a 5 m step.
+5. **validate**: seven independent checks, from re-deriving every winner to rerunning the whole search on a half-shifted grid, plus a visual contact sheet.
+6. **publish**: class-band PMTiles for the explore layer, 50 m PNG detail rasters, JSON documents for the site, uploaded to R2 and verified over the public URL.
 
-1. Everything in EPSG:3346 (LKS-94, meters).
-2. Land mask: OSM admin_level=2 polygon minus sea/lagoon (coastline ways
-   polygonized, faces classified by probe points) minus lakes ≥ 0.5 km².
-   Result: 63,884 km². Bogs and wetlands stay in.
-3. Coarse pass: roads rasterized at 25 m over LT bounds + 15 km
-   (16,880 x 12,581 px), `scipy.ndimage.distance_transform_edt`, top 80
-   candidate cells ≥ 2 km apart.
-4. Refinement: exact vector distances (shapely STRtree) on a 5 m grid in a
-   500 m window around each candidate.
-5. Verification: cross-border roads present after clipping; winner on land and
-   in LT; independent exact re-check plus 1 m densified nearest-way check;
-   A ≤ B.
+Regions are YAML configs; nothing in the code names Europe. The antimeridian is handled: Alaska's Aleutians cross it.
 
-## Runtime and footprint
+## Tech
 
-On an M-series MacBook (24 GB RAM): downloads are the slow part; prepare ~2
-min; compute ~90 s total for both scenarios (EDT peak memory a few GB).
-Disk: ~1 GB raw PBF, ~250 MB derived layers, 2x 810 MB float32 distance
-grids in `out/` (deletable, only used for map isolines).
+- **Pipeline**: Python 3.12 with osmium, GDAL, rasterio, shapely, pyproj and scipy. `pipeline/README.md` has the stage table and the region config reference.
+- **Site**: plain HTML/CSS/JS with vendored Leaflet 1.9.4; PMTiles fetched by HTTP range requests. No build step, no framework. Bilingual (EN/LT), state in the URL, dark mode.
+- **Hosting**: a Cloudflare Worker serves the static site; the heavy layers stream from R2. Analytics is a privacy-clean edge counter: no cookies, no IPs, no fingerprinting.
+- **CI**: GitHub Actions deploys on push, checks the live URL, and enforces a first-screen byte budget; reference screenshots keep the desktop UI byte-identical when only mobile styles change.
+
+## Run it
+
+The site is static: `cd site && python3 -m http.server`, then open localhost. The pipeline is one command per region, `poles run europe`; setup and stages are in `pipeline/README.md`. The original Lithuania-only version lives in `scripts/` with its own README.
+
+## License
+
+Code is MIT. Map data © OpenStreetMap contributors; the derived remoteness data is available under the same ODbL terms.
