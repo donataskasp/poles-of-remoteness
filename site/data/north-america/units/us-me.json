@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-me",
+ "name": "Maine",
+ "name_en": "Maine",
+ "country": "us",
+ "area_km2": 83232.8,
+ "bbox": [
+  -71.0841694,
+  42.9222206,
+  -66.8854174,
+  47.4598397
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 43.893462,
+    "lon": -68.731918,
+    "dist_m": 12511.43,
+    "nearest_way": {
+     "id": 11447737,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Matinicus",
+     "type": "village",
+     "dist_m": 12914.5,
+     "lat": 43.864187,
+     "lon": -68.887428
+    },
+    "detail": "detail/us-me/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 46.008171,
+    "lon": -68.91982,
+    "dist_m": 10890.73,
+    "nearest_way": {
+     "id": 1344882420,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mount Chase",
+     "type": "village",
+     "dist_m": 30605.1,
+     "lat": 46.065073,
+     "lon": -68.533001
+    },
+    "detail": "detail/us-me/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 43.121299,
+    "lon": -70.475364,
+    "dist_m": 10761.23,
+    "nearest_way": {
+     "id": 11533971,
+     "highway": "service",
+     "name": "Sohier Park Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cape Neddick",
+     "type": "village",
+     "dist_m": 12536.4,
+     "lat": 43.175714,
+     "lon": -70.610377
+    },
+    "detail": "detail/us-me/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 43.782306,
+    "lon": -68.855182,
+    "dist_m": 8155.22,
+    "nearest_way": {
+     "id": 514978389,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Criehaven Township",
+     "type": "hamlet",
+     "dist_m": 6359.8,
+     "lat": 43.833973,
+     "lon": -68.889201
+    },
+    "detail": "detail/us-me/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 43.859906,
+    "lon": -69.383163,
+    "dist_m": 7129.61,
+    "nearest_way": {
+     "id": 776717680,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chamberlain",
+     "type": "village",
+     "dist_m": 8376.9,
+     "lat": 43.89191,
+     "lon": -69.477531
+    },
+    "detail": "detail/us-me/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 43.655304,
+    "lon": -70.035843,
+    "dist_m": 6702.85,
+    "nearest_way": {
+     "id": 11409327,
+     "highway": "residential",
+     "name": "Beach Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cliff Island",
+     "type": "hamlet",
+     "dist_m": 7371.3,
+     "lat": 43.696194,
+     "lon": -70.107825
+    },
+    "detail": "detail/us-me/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 44.014743,
+    "lon": -68.727271,
+    "dist_m": 5894.86,
+    "nearest_way": {
+     "id": 692919722,
+     "highway": "track",
+     "name": "Western Head Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Vinalhaven",
+     "type": "village",
+     "dist_m": 9156.8,
+     "lat": 44.048137,
+     "lon": -68.831699
+    },
+    "detail": "detail/us-me/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.456768,
+    "lon": -67.668255,
+    "dist_m": 5742.9,
+    "nearest_way": {
+     "id": 848613803,
+     "highway": "residential",
+     "name": "Narrows Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Beals",
+     "type": "village",
+     "dist_m": 8191.1,
+     "lat": 44.52001,
+     "lon": -67.615356
+    },
+    "detail": "detail/us-me/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.366043,
+    "lon": -67.86434,
+    "dist_m": 5644.61,
+    "nearest_way": {
+     "id": 794821626,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Gouldsboro",
+     "type": "village",
+     "dist_m": 13742.5,
+     "lat": 44.408618,
+     "lon": -68.026264
+    },
+    "detail": "detail/us-me/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.719024,
+    "lon": -69.923849,
+    "dist_m": 5515.8,
+    "nearest_way": {
+     "id": 491013573,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bailey Island",
+     "type": "village",
+     "dist_m": 6042.2,
+     "lat": 43.735878,
+     "lon": -69.995147
+    },
+    "detail": "detail/us-me/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 43.893462,
+    "lon": -68.731918,
+    "dist_m": 12511.43,
+    "nearest_way": {
+     "id": 11447737,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Matinicus",
+     "type": "village",
+     "dist_m": 12914.5,
+     "lat": 43.864187,
+     "lon": -68.887428
+    },
+    "detail": "detail/us-me/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 43.912424,
+    "lon": -69.03415,
+    "dist_m": 11079.25,
+    "nearest_way": {
+     "id": 905651560,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Matinicus",
+     "type": "village",
+     "dist_m": 12951.1,
+     "lat": 43.864187,
+     "lon": -68.887428
+    },
+    "detail": "detail/us-me/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 46.00971,
+    "lon": -68.918356,
+    "dist_m": 10996.87,
+    "nearest_way": {
+     "id": 163531128,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mount Chase",
+     "type": "village",
+     "dist_m": 30458.8,
+     "lat": 46.065073,
+     "lon": -68.533001
+    },
+    "detail": "detail/us-me/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 43.121299,
+    "lon": -70.475364,
+    "dist_m": 10761.23,
+    "nearest_way": {
+     "id": 11533971,
+     "highway": "service",
+     "name": "Sohier Park Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cape Neddick",
+     "type": "village",
+     "dist_m": 12536.4,
+     "lat": 43.175714,
+     "lon": -70.610377
+    },
+    "detail": "detail/us-me/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 43.845639,
+    "lon": -69.358105,
+    "dist_m": 9234.8,
+    "nearest_way": {
+     "id": 1188133372,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Monhegan",
+     "type": "village",
+     "dist_m": 9647.9,
+     "lat": 43.763185,
+     "lon": -69.320508
+    },
+    "detail": "detail/us-me/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 46.050159,
+    "lon": -69.291746,
+    "dist_m": 8627.89,
+    "nearest_way": {
+     "id": 11475468,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chesuncook",
+     "type": "hamlet",
+     "dist_m": 9182.2,
+     "lat": 46.060318,
+     "lon": -69.4095
+    },
+    "detail": "detail/us-me/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 43.782306,
+    "lon": -68.855182,
+    "dist_m": 8558.44,
+    "nearest_way": {
+     "id": 946103873,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Criehaven Township",
+     "type": "hamlet",
+     "dist_m": 6359.8,
+     "lat": 43.833973,
+     "lon": -68.889201
+    },
+    "detail": "detail/us-me/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.141897,
+    "lon": -68.245081,
+    "dist_m": 8389.32,
+    "nearest_way": {
+     "id": 843558361,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Frenchboro",
+     "type": "hamlet",
+     "dist_m": 9762.2,
+     "lat": 44.118138,
+     "lon": -68.362517
+    },
+    "detail": "detail/us-me/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.022781,
+    "lon": -69.958836,
+    "dist_m": 8012.13,
+    "nearest_way": {
+     "id": 966009362,
+     "highway": "service",
+     "name": "Strawberry Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Seboomook",
+     "type": "hamlet",
+     "dist_m": 24047.4,
+     "lat": 45.880595,
+     "lon": -69.72506
+    },
+    "detail": "detail/us-me/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 45.760808,
+    "lon": -70.102941,
+    "dist_m": 7629.58,
+    "nearest_way": {
+     "id": 1345969820,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Long Pond",
+     "type": "hamlet",
+     "dist_m": 15543.8,
+     "lat": 45.621434,
+     "lon": -70.086454
+    },
+    "detail": "detail/us-me/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

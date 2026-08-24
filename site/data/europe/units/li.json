@@ -1,0 +1,161 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "li",
+ "name": "Liechtenstein",
+ "name_en": "Liechtenstein",
+ "country": "li",
+ "area_km2": 172.6,
+ "bbox": [
+  9.4716829,
+  47.0484269,
+  9.6356933,
+  47.2705751
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 47.162613,
+    "lon": 9.564951,
+    "dist_m": 2035.9,
+    "nearest_way": {
+     "id": 27346602,
+     "highway": "track",
+     "name": "Saminaweg",
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Oberplanken",
+     "type": "hamlet",
+     "dist_m": 2324.0,
+     "lat": 47.178495,
+     "lon": 9.545018
+    },
+    "detail": "detail/li/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 47.048735,
+    "lon": 9.560213,
+    "dist_m": 1786.0,
+    "nearest_way": {
+     "id": 1319638315,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Lawena",
+     "type": "hamlet",
+     "dist_m": 1989.8,
+     "lat": 47.066601,
+     "lon": 9.558641
+    },
+    "detail": "detail/li/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 47.257664,
+    "lon": 9.541685,
+    "dist_m": 259.01,
+    "nearest_way": {
+     "id": 152786347,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "li"
+    },
+    "nearest_place": {
+     "name": "Bangs",
+     "type": "hamlet",
+     "dist_m": 1085.3,
+     "lat": 47.267254,
+     "lon": 9.544363
+    },
+    "detail": "detail/li/A-3",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 3 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 47.054861,
+    "lon": 9.588006,
+    "dist_m": 4664.33,
+    "nearest_way": {
+     "id": 31129913,
+     "highway": "residential",
+     "name": "Kurrstrasse",
+     "ref": null,
+     "country": "li"
+    },
+    "nearest_place": {
+     "name": "Fläscher Alp",
+     "type": "isolated_dwelling",
+     "dist_m": 2204.3,
+     "lat": 47.035239,
+     "lon": 9.592172
+    },
+    "detail": "detail/li/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 47.157175,
+    "lon": 9.600552,
+    "dist_m": 4506.04,
+    "nearest_way": {
+     "id": 796545273,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Silum",
+     "type": "hamlet",
+     "dist_m": 4520.2,
+     "lat": 47.131316,
+     "lon": 9.554564
+    },
+    "detail": "detail/li/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 47.254675,
+    "lon": 9.54843,
+    "dist_m": 858.42,
+    "nearest_way": {
+     "id": 75599914,
+     "highway": "secondary",
+     "name": "Rheinstraße",
+     "ref": "L53",
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Bangs",
+     "type": "hamlet",
+     "dist_m": 1431.9,
+     "lat": 47.267254,
+     "lon": 9.544363
+    },
+    "detail": "detail/li/B-3",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 3 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ }
+}

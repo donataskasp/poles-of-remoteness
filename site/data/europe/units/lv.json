@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "lv",
+ "name": "Latvija",
+ "name_en": "Latvia",
+ "country": "lv",
+ "area_km2": 64407.1,
+ "bbox": [
+  20.6009852,
+  55.6746505,
+  28.2414937,
+  58.0855688
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 57.802578,
+    "lon": 22.63417,
+    "dist_m": 5322.0,
+    "nearest_way": {
+     "id": 233385325,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Ragagals",
+     "type": "isolated_dwelling",
+     "dist_m": 5319.7,
+     "lat": 57.758269,
+     "lon": 22.600777
+    },
+    "detail": "detail/lv/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 56.867668,
+    "lon": 26.982256,
+    "dist_m": 4708.29,
+    "nearest_way": {
+     "id": 818075507,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Galiņu māja",
+     "type": "isolated_dwelling",
+     "dist_m": 4725.7,
+     "lat": 56.864096,
+     "lon": 27.059463
+    },
+    "detail": "detail/lv/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 56.59896,
+    "lon": 26.530702,
+    "dist_m": 4391.18,
+    "nearest_way": {
+     "id": 1132020516,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Vērstiņsala",
+     "type": "isolated_dwelling",
+     "dist_m": 4621.9,
+     "lat": 56.63214,
+     "lon": 26.485474
+    },
+    "detail": "detail/lv/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 56.874215,
+    "lon": 23.462298,
+    "dist_m": 4181.27,
+    "nearest_way": {
+     "id": 238095758,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Tīreļi",
+     "type": "isolated_dwelling",
+     "dist_m": 4705.0,
+     "lat": 56.916455,
+     "lon": 23.464032
+    },
+    "detail": "detail/lv/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 57.976491,
+    "lon": 24.773885,
+    "dist_m": 3552.5,
+    "nearest_way": {
+     "id": 147988689,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Tuuliku",
+     "type": "hamlet",
+     "dist_m": 3863.8,
+     "lat": 57.969454,
+     "lon": 24.70995
+    },
+    "detail": "detail/lv/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 56.48463,
+    "lon": 26.550675,
+    "dist_m": 3289.2,
+    "nearest_way": {
+     "id": 1166071757,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Kurčini",
+     "type": "hamlet",
+     "dist_m": 3034.1,
+     "lat": 56.458333,
+     "lon": 26.537778
+    },
+    "detail": "detail/lv/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 56.677925,
+    "lon": 26.435089,
+    "dist_m": 3135.38,
+    "nearest_way": {
+     "id": 546787950,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Medņuriests",
+     "type": "isolated_dwelling",
+     "dist_m": 2531.8,
+     "lat": 56.690654,
+     "lon": 26.400859
+    },
+    "detail": "detail/lv/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 57.708684,
+    "lon": 25.784438,
+    "dist_m": 3096.14,
+    "nearest_way": {
+     "id": 909653354,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "isolated_dwelling",
+     "dist_m": 3949.5,
+     "lat": 57.738132,
+     "lon": 25.74751
+    },
+    "detail": "detail/lv/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 56.623074,
+    "lon": 28.02357,
+    "dist_m": 3076.89,
+    "nearest_way": {
+     "id": 567549649,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ru"
+    },
+    "nearest_place": {
+     "name": "Kozusola",
+     "type": "hamlet",
+     "dist_m": 2814.8,
+     "lat": 56.627222,
+     "lon": 27.978333
+    },
+    "detail": "detail/lv/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 57.228615,
+    "lon": 23.105895,
+    "dist_m": 2976.2,
+    "nearest_way": {
+     "id": 1337551230,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Zvirbuļi",
+     "type": "isolated_dwelling",
+     "dist_m": 2382.1,
+     "lat": 57.214149,
+     "lon": 23.076848
+    },
+    "detail": "detail/lv/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 56.870481,
+    "lon": 26.96283,
+    "dist_m": 5910.11,
+    "nearest_way": {
+     "id": 331722684,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Slāņi",
+     "type": "isolated_dwelling",
+     "dist_m": 5894.2,
+     "lat": 56.87646,
+     "lon": 27.058872
+    },
+    "detail": "detail/lv/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 57.802578,
+    "lon": 22.63417,
+    "dist_m": 5474.19,
+    "nearest_way": {
+     "id": 1315153473,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Ragagals",
+     "type": "isolated_dwelling",
+     "dist_m": 5319.7,
+     "lat": 57.758269,
+     "lon": 22.600777
+    },
+    "detail": "detail/lv/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 56.592992,
+    "lon": 26.525398,
+    "dist_m": 5085.95,
+    "nearest_way": {
+     "id": 583509409,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Jaunpodnieki",
+     "type": "isolated_dwelling",
+     "dist_m": 4164.3,
+     "lat": 56.567832,
+     "lon": 26.475262
+    },
+    "detail": "detail/lv/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 56.872846,
+    "lon": 23.463357,
+    "dist_m": 4470.28,
+    "nearest_way": {
+     "id": 156541963,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Tīreļi",
+     "type": "isolated_dwelling",
+     "dist_m": 4856.4,
+     "lat": 56.916455,
+     "lon": 23.464032
+    },
+    "detail": "detail/lv/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 57.698287,
+    "lon": 25.769895,
+    "dist_m": 3982.57,
+    "nearest_way": {
+     "id": 275560373,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "isolated_dwelling",
+     "dist_m": 4633.8,
+     "lat": 57.738132,
+     "lon": 25.74751
+    },
+    "detail": "detail/lv/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 57.979663,
+    "lon": 24.780432,
+    "dist_m": 3865.9,
+    "nearest_way": {
+     "id": 1027051458,
+     "highway": "tertiary",
+     "name": "Lanksaare tee",
+     "ref": "19311",
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Lanksaare",
+     "type": "hamlet",
+     "dist_m": 4050.4,
+     "lat": 58.013606,
+     "lon": 24.805021
+    },
+    "detail": "detail/lv/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 56.808307,
+    "lon": 21.16005,
+    "dist_m": 3820.37,
+    "nearest_way": {
+     "id": 90792321,
+     "highway": "unclassified",
+     "name": "Šmiukšu dambis",
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Ceriņi",
+     "type": "isolated_dwelling",
+     "dist_m": 622.3,
+     "lat": 56.804016,
+     "lon": 21.166577
+    },
+    "detail": "detail/lv/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 56.209609,
+    "lon": 20.986734,
+    "dist_m": 3476.46,
+    "nearest_way": {
+     "id": 992023414,
+     "highway": "unclassified",
+     "name": "Mietraga ceļš",
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Kāpenieki",
+     "type": "isolated_dwelling",
+     "dist_m": 3156.6,
+     "lat": 56.186345,
+     "lon": 21.015794
+    },
+    "detail": "detail/lv/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 57.234644,
+    "lon": 23.099481,
+    "dist_m": 3423.28,
+    "nearest_way": {
+     "id": 24663722,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Melnupītes",
+     "type": "isolated_dwelling",
+     "dist_m": 2648.4,
+     "lat": 57.215913,
+     "lon": 23.072466
+    },
+    "detail": "detail/lv/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 56.620143,
+    "lon": 28.026321,
+    "dist_m": 3330.53,
+    "nearest_way": {
+     "id": 215568354,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Kozusola",
+     "type": "hamlet",
+     "dist_m": 3049.3,
+     "lat": 56.627222,
+     "lon": 27.978333
+    },
+    "detail": "detail/lv/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

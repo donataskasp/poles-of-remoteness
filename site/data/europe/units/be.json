@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "be",
+ "name": "België / Belgique / Belgien",
+ "name_en": "Belgium",
+ "country": "be",
+ "area_km2": 30881.1,
+ "bbox": [
+  2.3889137,
+  49.4969821,
+  6.408097,
+  51.550781
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 51.371479,
+    "lon": 4.224662,
+    "dist_m": 1318.12,
+    "nearest_way": {
+     "id": 572636041,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Bath",
+     "type": "hamlet",
+     "dist_m": 3487.1,
+     "lat": 51.401255,
+     "lon": 4.209026
+    },
+    "detail": "detail/be/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 50.151414,
+    "lon": 4.664668,
+    "dist_m": 1279.26,
+    "nearest_way": {
+     "id": 626024576,
+     "highway": "track",
+     "name": "Rue des Tilleuls",
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Romerée",
+     "type": "village",
+     "dist_m": 1943.2,
+     "lat": 50.135223,
+     "lon": 4.674878
+    },
+    "detail": "detail/be/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 50.537531,
+    "lon": 6.115222,
+    "dist_m": 1273.18,
+    "nearest_way": {
+     "id": 737308967,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Mont Rigi",
+     "type": "isolated_dwelling",
+     "dist_m": 4088.9,
+     "lat": 50.510017,
+     "lon": 6.076989
+    },
+    "detail": "detail/be/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 50.114439,
+    "lon": 4.384739,
+    "dist_m": 1029.37,
+    "nearest_way": {
+     "id": 586652517,
+     "highway": "tertiary",
+     "name": "Rue de Mariembourg",
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Géronsart",
+     "type": "hamlet",
+     "dist_m": 4605.2,
+     "lat": 50.110668,
+     "lon": 4.448854
+    },
+    "detail": "detail/be/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 51.36749,
+    "lon": 3.358746,
+    "dist_m": 962.48,
+    "nearest_way": {
+     "id": 1011004632,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Cadzand-Bad",
+     "type": "village",
+     "dist_m": 2328.9,
+     "lat": 51.377181,
+     "lon": 3.388391
+    },
+    "detail": "detail/be/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 50.154791,
+    "lon": 4.144471,
+    "dist_m": 953.11,
+    "nearest_way": {
+     "id": 76435564,
+     "highway": "track",
+     "name": "Chemin du Tonnelier",
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "Clairfayts",
+     "type": "village",
+     "dist_m": 1312.4,
+     "lat": 50.157094,
+     "lon": 4.126461
+    },
+    "detail": "detail/be/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 50.01572,
+    "lon": 4.400156,
+    "dist_m": 948.98,
+    "nearest_way": {
+     "id": 1240716457,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Presgaux",
+     "type": "village",
+     "dist_m": 1779.8,
+     "lat": 50.02479,
+     "lon": 4.420617
+    },
+    "detail": "detail/be/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 50.520855,
+    "lon": 3.356346,
+    "dist_m": 907.31,
+    "nearest_way": {
+     "id": 93392565,
+     "highway": "track",
+     "name": "Circuit VTT",
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Howardries",
+     "type": "hamlet",
+     "dist_m": 1664.7,
+     "lat": 50.505894,
+     "lon": 3.355808
+    },
+    "detail": "detail/be/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 50.159206,
+    "lon": 5.013514,
+    "dist_m": 891.3,
+    "nearest_way": {
+     "id": 99063684,
+     "highway": "tertiary",
+     "name": "Route de Hour",
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Grande-Hour",
+     "type": "village",
+     "dist_m": 1047.4,
+     "lat": 50.15596,
+     "lon": 5.027273
+    },
+    "detail": "detail/be/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 51.394032,
+    "lon": 4.440674,
+    "dist_m": 867.78,
+    "nearest_way": {
+     "id": 32398285,
+     "highway": "track",
+     "name": "GP 205",
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Kalmthout",
+     "type": "town",
+     "dist_m": 2787.4,
+     "lat": 51.382841,
+     "lon": 4.4765
+    },
+    "detail": "detail/be/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 50.539567,
+    "lon": 6.124579,
+    "dist_m": 4486.84,
+    "nearest_way": {
+     "id": 882171383,
+     "highway": "primary",
+     "name": "Monschauer Straße",
+     "ref": "N67",
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Neu-Hattlich",
+     "type": "isolated_dwelling",
+     "dist_m": 4512.6,
+     "lat": 50.574747,
+     "lon": 6.156286
+    },
+    "detail": "detail/be/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 49.989729,
+    "lon": 4.592298,
+    "dist_m": 2785.42,
+    "nearest_way": {
+     "id": 867642484,
+     "highway": "residential",
+     "name": "Regniessart",
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Regniessart",
+     "type": "hamlet",
+     "dist_m": 2849.1,
+     "lat": 50.014507,
+     "lon": 4.582225
+    },
+    "detail": "detail/be/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 50.075859,
+    "lon": 5.383461,
+    "dist_m": 2533.69,
+    "nearest_way": {
+     "id": 93279803,
+     "highway": "unclassified",
+     "name": "Mochamps",
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Mochamps",
+     "type": "isolated_dwelling",
+     "dist_m": 3126.4,
+     "lat": 50.098324,
+     "lon": 5.409716
+    },
+    "detail": "detail/be/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 50.195368,
+    "lon": 5.747505,
+    "dist_m": 2295.14,
+    "nearest_way": {
+     "id": 181739467,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Wilogne",
+     "type": "village",
+     "dist_m": 3187.5,
+     "lat": 50.168807,
+     "lon": 5.764255
+    },
+    "detail": "detail/be/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 49.738872,
+    "lon": 5.44817,
+    "dist_m": 2282.29,
+    "nearest_way": {
+     "id": 312176242,
+     "highway": "tertiary",
+     "name": "Les Croisettes",
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Les Croisettes",
+     "type": "hamlet",
+     "dist_m": 2729.9,
+     "lat": 49.723614,
+     "lon": 5.41851
+    },
+    "detail": "detail/be/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 51.398813,
+    "lon": 4.40387,
+    "dist_m": 2251.49,
+    "nearest_way": {
+     "id": 389590389,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Eiland",
+     "type": "hamlet",
+     "dist_m": 4109.6,
+     "lat": 51.427007,
+     "lon": 4.365707
+    },
+    "detail": "detail/be/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 50.033133,
+    "lon": 5.02285,
+    "dist_m": 2237.49,
+    "nearest_way": {
+     "id": 129916258,
+     "highway": "unclassified",
+     "name": "Chemin de Monseufoy",
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Les Scottons",
+     "type": "hamlet",
+     "dist_m": 2489.4,
+     "lat": 50.012374,
+     "lon": 5.035834
+    },
+    "detail": "detail/be/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 50.611425,
+    "lon": 6.211238,
+    "dist_m": 2171.57,
+    "nearest_way": {
+     "id": 812644023,
+     "highway": "primary",
+     "name": "Fringshaus",
+     "ref": "B 258",
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Fringshaus",
+     "type": "isolated_dwelling",
+     "dist_m": 2305.6,
+     "lat": 50.626253,
+     "lon": 6.234
+    },
+    "detail": "detail/be/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 50.142102,
+    "lon": 4.448384,
+    "dist_m": 2108.43,
+    "nearest_way": {
+     "id": 739169934,
+     "highway": "residential",
+     "name": "Avenue des Bouleaux",
+     "ref": null,
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Géronsart",
+     "type": "hamlet",
+     "dist_m": 3496.6,
+     "lat": 50.110668,
+     "lon": 4.448854
+    },
+    "detail": "detail/be/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 49.954229,
+    "lon": 5.318873,
+    "dist_m": 2078.47,
+    "nearest_way": {
+     "id": 1230373089,
+     "highway": "primary",
+     "name": "Peroy",
+     "ref": "N40",
+     "country": "be"
+    },
+    "nearest_place": {
+     "name": "Serpont",
+     "type": "hamlet",
+     "dist_m": 3034.6,
+     "lat": 49.937055,
+     "lon": 5.351724
+    },
+    "detail": "detail/be/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "si",
+ "name": "Slovenija",
+ "name_en": "Slovenia",
+ "country": "si",
+ "area_km2": 20448.8,
+ "bbox": [
+  13.3754696,
+  45.4214681,
+  16.5967003,
+  46.8766816
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 46.372365,
+    "lon": 13.853877,
+    "dist_m": 4182.54,
+    "nearest_way": {
+     "id": 32304468,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Prehodavci",
+     "type": "isolated_dwelling",
+     "dist_m": 4982.2,
+     "lat": 46.358252,
+     "lon": 13.792426
+    },
+    "detail": "detail/si/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 46.316458,
+    "lon": 13.750461,
+    "dist_m": 3311.57,
+    "nearest_way": {
+     "id": 379814530,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Pod Zjabci",
+     "type": "isolated_dwelling",
+     "dist_m": 4141.7,
+     "lat": 46.326141,
+     "lon": 13.69853
+    },
+    "detail": "detail/si/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 46.391117,
+    "lon": 13.662418,
+    "dist_m": 3072.29,
+    "nearest_way": {
+     "id": 1376107945,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Logje",
+     "type": "isolated_dwelling",
+     "dist_m": 2795.5,
+     "lat": 46.375024,
+     "lon": 13.634493
+    },
+    "detail": "detail/si/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 46.353556,
+    "lon": 14.63745,
+    "dist_m": 2895.25,
+    "nearest_way": {
+     "id": 1447761969,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Planina Rzenik",
+     "type": "hamlet",
+     "dist_m": 3140.3,
+     "lat": 46.325306,
+     "lon": 14.637867
+    },
+    "detail": "detail/si/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 46.375158,
+    "lon": 13.527567,
+    "dist_m": 2869.52,
+    "nearest_way": {
+     "id": 147753065,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Planina Krnica",
+     "type": "isolated_dwelling",
+     "dist_m": 2905.4,
+     "lat": 46.352486,
+     "lon": 13.508781
+    },
+    "detail": "detail/si/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 46.462268,
+    "lon": 13.746509,
+    "dist_m": 1875.8,
+    "nearest_way": {
+     "id": 576245093,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Jasna",
+     "type": "hamlet",
+     "dist_m": 3199.5,
+     "lat": 46.47612,
+     "lon": 13.783025
+    },
+    "detail": "detail/si/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.234861,
+    "lon": 13.852052,
+    "dist_m": 1799.35,
+    "nearest_way": {
+     "id": 967093127,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Planina Zadnji Vogel",
+     "type": "isolated_dwelling",
+     "dist_m": 2587.6,
+     "lat": 46.250147,
+     "lon": 13.826748
+    },
+    "detail": "detail/si/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.494713,
+    "lon": 13.955778,
+    "dist_m": 1793.6,
+    "nearest_way": {
+     "id": 430968272,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Sedučnik",
+     "type": "isolated_dwelling",
+     "dist_m": 2870.9,
+     "lat": 46.472975,
+     "lon": 13.93559
+    },
+    "detail": "detail/si/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 45.484765,
+    "lon": 15.115563,
+    "dist_m": 1661.13,
+    "nearest_way": {
+     "id": 963877525,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Dečina",
+     "type": "hamlet",
+     "dist_m": 2285.1,
+     "lat": 45.477384,
+     "lon": 15.088283
+    },
+    "detail": "detail/si/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.290939,
+    "lon": 13.389005,
+    "dist_m": 1530.62,
+    "nearest_way": {
+     "id": 1162803903,
+     "highway": "track",
+     "name": "Breginj - Plazi",
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Uccea / Učja",
+     "type": "hamlet",
+     "dist_m": 1966.0,
+     "lat": 46.307578,
+     "lon": 13.397656
+    },
+    "detail": "detail/si/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 46.332932,
+    "lon": 13.796818,
+    "dist_m": 4728.72,
+    "nearest_way": {
+     "id": 130457580,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Planina v Lazu",
+     "type": "isolated_dwelling",
+     "dist_m": 2266.4,
+     "lat": 46.328507,
+     "lon": 13.825551
+    },
+    "detail": "detail/si/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 46.270402,
+    "lon": 13.700631,
+    "dist_m": 3982.91,
+    "nearest_way": {
+     "id": 16775243,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Planina Sleme",
+     "type": "hamlet",
+     "dist_m": 3107.0,
+     "lat": 46.243111,
+     "lon": 13.691927
+    },
+    "detail": "detail/si/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 46.430062,
+    "lon": 14.429253,
+    "dist_m": 3813.26,
+    "nearest_way": {
+     "id": 1203057384,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Košutnik",
+     "type": "isolated_dwelling",
+     "dist_m": 3718.7,
+     "lat": 46.463469,
+     "lon": 14.426701
+    },
+    "detail": "detail/si/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 46.342008,
+    "lon": 14.636544,
+    "dist_m": 3779.4,
+    "nearest_way": {
+     "id": 61574647,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Planina Rzenik",
+     "type": "hamlet",
+     "dist_m": 1859.4,
+     "lat": 46.325306,
+     "lon": 14.637867
+    },
+    "detail": "detail/si/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 46.443723,
+    "lon": 13.696194,
+    "dist_m": 3777.11,
+    "nearest_way": {
+     "id": 23909252,
+     "highway": "tertiary",
+     "name": "Cesta na Mangart",
+     "ref": "902",
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Flori",
+     "type": "isolated_dwelling",
+     "dist_m": 4493.8,
+     "lat": 46.404007,
+     "lon": 13.707105
+    },
+    "detail": "detail/si/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 46.447544,
+    "lon": 13.827872,
+    "dist_m": 3754.14,
+    "nearest_way": {
+     "id": 1159923966,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Gozd Martuljek",
+     "type": "village",
+     "dist_m": 4150.8,
+     "lat": 46.484123,
+     "lon": 13.838727
+    },
+    "detail": "detail/si/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.355401,
+    "lon": 13.459036,
+    "dist_m": 3672.9,
+    "nearest_way": {
+     "id": 39390069,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Planina Na pečeh",
+     "type": "isolated_dwelling",
+     "dist_m": 3822.3,
+     "lat": 46.337307,
+     "lon": 13.501259
+    },
+    "detail": "detail/si/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.438533,
+    "lon": 14.199512,
+    "dist_m": 3463.05,
+    "nearest_way": {
+     "id": 638607148,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Pamschbauer / Pamž",
+     "type": "isolated_dwelling",
+     "dist_m": 3914.8,
+     "lat": 46.44405,
+     "lon": 14.249827
+    },
+    "detail": "detail/si/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 45.710545,
+    "lon": 14.129031,
+    "dist_m": 3048.51,
+    "nearest_way": {
+     "id": 539307435,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Čermelice",
+     "type": "isolated_dwelling",
+     "dist_m": 3101.2,
+     "lat": 45.737336,
+     "lon": 14.140163
+    },
+    "detail": "detail/si/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 45.49303,
+    "lon": 14.134039,
+    "dist_m": 2997.62,
+    "nearest_way": {
+     "id": 1286077799,
+     "highway": "residential",
+     "name": "Poljane pri Podgradu",
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Poljane pri Podgradu",
+     "type": "village",
+     "dist_m": 3068.8,
+     "lat": 45.505407,
+     "lon": 14.098941
+    },
+    "detail": "detail/si/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

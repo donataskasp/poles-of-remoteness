@@ -1,0 +1,152 @@
+{
+ "schema_version": 1,
+ "generated_at": "2026-08-24T18:19:04+00:00",
+ "regions": {
+  "europe": {
+   "snapshot": "2026-08-19",
+   "published_at": "2026-08-24T18:15:45+00:00",
+   "r2_base": "https://data.polesofremoteness.com",
+   "pipeline_commit": "3bc954e5fd022e5a07be407ba0af164ce94ed054",
+   "sources": [
+    {
+     "url": "https://download.geofabrik.de/europe-latest.osm.pbf",
+     "role": "primary",
+     "file": "europe-latest.osm.pbf",
+     "size": 34824371403,
+     "md5": "db177178703cbb0d69077af5caa8b200",
+     "sha256": "a1b8d34987128239e7af44e86e5211b9ca06241ce0855ae5415664ac905eddf9",
+     "last_modified": "2026-08-19T22:18:15+00:00",
+     "poly": "europe.poly"
+    },
+    {
+     "url": "https://download.geofabrik.de/asia/armenia-latest.osm.pbf",
+     "role": "supplement",
+     "file": "armenia-latest.osm.pbf",
+     "size": 52912762,
+     "md5": "901554a843c7e3bdae5a58951fc67e64",
+     "sha256": "e8b42483cb386935e11567266878970c1f7dd59a12a47adfcb6ce3cc4be58cf3",
+     "last_modified": "2026-08-19T22:42:20+00:00",
+     "poly": "armenia.poly"
+    },
+    {
+     "url": "https://download.geofabrik.de/asia/azerbaijan-latest.osm.pbf",
+     "role": "supplement",
+     "file": "azerbaijan-latest.osm.pbf",
+     "size": 45742308,
+     "md5": "81393c6dcef5ed224028fc7901a59ba6",
+     "sha256": "0902f2863d9255a77715b99faab4117ccf75d556f34c1892da0c8c93122988be",
+     "last_modified": "2026-08-19T22:52:34+00:00",
+     "poly": "azerbaijan.poly"
+    },
+    {
+     "url": "https://download.geofabrik.de/asia/iran-latest.osm.pbf",
+     "role": "supplement",
+     "file": "iran-latest.osm.pbf",
+     "size": 228829206,
+     "md5": "653b4699da67733c4d4736f47f3ec186",
+     "sha256": "7b572a7789f79ea71ce4d6eb1958f86f7e10ab1884fb516b64388eb5ac903e30",
+     "last_modified": "2026-08-19T22:48:38+00:00",
+     "poly": "iran.poly"
+    },
+    {
+     "url": "https://download.geofabrik.de/asia/iraq-latest.osm.pbf",
+     "role": "supplement",
+     "file": "iraq-latest.osm.pbf",
+     "size": 90070413,
+     "md5": "fe6c707bda6c400c2778bfe4d705c6e6",
+     "sha256": "16df250e5ced39131d433126db222d1be03dfc61fb3bd669e547cd43de0471ad",
+     "last_modified": "2026-08-19T22:50:27+00:00",
+     "poly": "iraq.poly"
+    },
+    {
+     "url": "https://download.geofabrik.de/asia/syria-latest.osm.pbf",
+     "role": "supplement",
+     "file": "syria-latest.osm.pbf",
+     "size": 81380562,
+     "md5": "4ed03f98a3cb615084fbde5328b86d17",
+     "sha256": "b2b4fda7579174effa5042742b1c59da6f3ca8d2405e6e7ee14b5ce27aa57021",
+     "last_modified": "2026-08-19T22:47:28+00:00",
+     "poly": "syria.poly"
+    }
+   ],
+   "archives": {
+    "A": {
+     "key": "europe/2026-08-19/A.pmtiles",
+     "bytes": 114160033,
+     "tiles": 8137,
+     "min_zoom": 0,
+     "max_zoom": 9
+    },
+    "B": {
+     "key": "europe/2026-08-19/B.pmtiles",
+     "bytes": 128332120,
+     "tiles": 8138,
+     "min_zoom": 0,
+     "max_zoom": 9
+    }
+   },
+   "detail": {
+    "count": 909,
+    "bytes": 13449861
+   },
+   "validation": {
+    "report": "europe/2026-08-19/validation/report.json",
+    "report_html": "europe/2026-08-19/validation/report.html",
+    "contact_sheet": "europe/2026-08-19/validation/contact-sheet.html"
+   },
+   "verified": {
+    "at": "2026-08-24T18:15:45+00:00",
+    "keys": 1823,
+    "range_ok": 2
+   }
+  },
+  "north-america": {
+   "snapshot": "2026-08-22",
+   "published_at": "2026-08-24T18:19:04+00:00",
+   "r2_base": "https://data.polesofremoteness.com",
+   "pipeline_commit": "e92063bff00dfc292ecce23f951e06443c11f873",
+   "sources": [
+    {
+     "url": "https://download.geofabrik.de/north-america-latest.osm.pbf",
+     "role": "primary",
+     "file": "north-america-latest.osm.pbf",
+     "size": 19287324996,
+     "md5": "f78d747821d558989457c18e950fbab4",
+     "sha256": "893fd2a83ad3a1d105081d0b66cbb6a949d18ba1a32ecc99cde2530aa57fce28",
+     "last_modified": "2026-08-22T22:31:54+00:00",
+     "poly": "north-america.poly"
+    }
+   ],
+   "archives": {
+    "A": {
+     "key": "north-america/2026-08-22/A.pmtiles",
+     "bytes": 206704617,
+     "tiles": 29109,
+     "min_zoom": 0,
+     "max_zoom": 9
+    },
+    "B": {
+     "key": "north-america/2026-08-22/B.pmtiles",
+     "bytes": 197608566,
+     "tiles": 29110,
+     "min_zoom": 0,
+     "max_zoom": 9
+    }
+   },
+   "detail": {
+    "count": 1262,
+    "bytes": 16018638
+   },
+   "validation": {
+    "report": "north-america/2026-08-22/validation/report.json",
+    "report_html": "north-america/2026-08-22/validation/report.html",
+    "contact_sheet": "north-america/2026-08-22/validation/contact-sheet.html"
+   },
+   "verified": {
+    "at": "2026-08-24T18:19:04+00:00",
+    "keys": 2529,
+    "range_ok": 2
+   }
+  }
+ }
+}

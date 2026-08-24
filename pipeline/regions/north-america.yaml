@@ -1,0 +1,42 @@
+# North America region. Spec: docs/EUROPE_SPEC.md section 2.1 (North America column).
+# This file is the only place the region is described; nothing in code names it.
+id: north-america
+name: North America
+names: {lt: Šiaurės Amerika}   # display names by language; `name` is the English one and the fallback
+
+sources:
+  - https://download.geofabrik.de/north-america-latest.osm.pbf
+# None. The land edges of this extract are the Mexico borders, which matter only if Mexico
+# ever becomes a unit country (spec 2.3).
+supplement_sources: []
+
+# LAEA centred on the continent. A PROJ string rather than an EPSG code because no published
+# code frames North America the way EPSG:3035 frames Europe. It is continuous across 180,
+# which is why the frame arithmetic of the grid, the poles and check 5 needs no wrapping.
+coarse_crs: +proj=laea +lat_0=50 +lon_0=-100 +datum=WGS84 +units=m
+coarse_res_m: 250
+
+unit_admin_level: 4           # states, provinces and territories
+unit_countries: [us, ca]      # Mexico is a config change, not a code change
+unit_exclude: []
+unit_code_tag: ISO3166-2
+# Main territory only (spec 2.2). The unit list is explicit, so a mask removes part of a unit, not a unit:
+# Hawaii's Northwestern Hawaiian Islands (Nihoa to Kure, a roadless refuge chain) saturated the 500 km cap on
+# Laysan (lon -171.74, lat 25.78, about 1,100 km from the nearest road on Kauai) on 2026-08-23, see DECISIONS.
+# The east edge at -161.0 keeps Niihau and Kaula (lon -160.5) in and takes Nihoa (lon -161.9) out.
+territory_mask:
+  - {name: Northwestern Hawaiian Islands, bbox: [-179.0, 22.5, -161.0, 29.0]}
+
+edge_mask_m: 50000
+# 500 km: the uncapped maximum is 439 km, on northern Victoria Island in Nunavut (scenario B, 429 km in A);
+# 400 km saturated there on 2026-08-23 and the poles stage aborted, see DECISIONS.
+max_distance_m: 500000
+top_n: 10
+detail_res_m: 50
+detail_window_m: 20000
+
+class_table: null             # null = the default table in spec 3.4
+expected_units: 64            # spec 2.1: 51 US including DC, 13 CA. Measured at the gate in Task 17.
+transcontinental: []
+
+references: north-america-refs.yaml

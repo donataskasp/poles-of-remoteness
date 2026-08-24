@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "dk",
+ "name": "Danmark",
+ "name_en": "Denmark",
+ "country": "dk",
+ "area_km2": 43997.0,
+ "bbox": [
+  7.7153255,
+  54.4516667,
+  15.5530641,
+  57.9524297
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 55.32316,
+    "lon": 15.191408,
+    "dist_m": 18573.48,
+    "nearest_way": {
+     "id": 1283574900,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Gudhjem",
+     "type": "village",
+     "dist_m": 18779.0,
+     "lat": 55.211224,
+     "lon": 14.970412
+    },
+    "detail": "detail/dk/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 55.906622,
+    "lon": 10.825904,
+    "dist_m": 9630.47,
+    "nearest_way": {
+     "id": 154734374,
+     "highway": "unclassified",
+     "name": "Sildeballe",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Besser",
+     "type": "hamlet",
+     "dist_m": 12521.1,
+     "lat": 55.863176,
+     "lon": 10.641351
+    },
+    "detail": "detail/dk/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 57.364624,
+    "lon": 10.932874,
+    "dist_m": 7062.16,
+    "nearest_way": {
+     "id": 169279143,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Vesterø Havn",
+     "type": "village",
+     "dist_m": 7755.8,
+     "lat": 57.295066,
+     "lon": 10.926542
+    },
+    "detail": "detail/dk/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 55.53635,
+    "lon": 12.711614,
+    "dist_m": 6083.4,
+    "nearest_way": {
+     "id": 1103171128,
+     "highway": "service",
+     "name": "Søndre Strandvej",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Dragør",
+     "type": "town",
+     "dist_m": 6731.3,
+     "lat": 55.592487,
+     "lon": 12.671995
+    },
+    "detail": "detail/dk/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 54.579553,
+    "lon": 11.828078,
+    "dist_m": 6006.16,
+    "nearest_way": {
+     "id": 55147919,
+     "highway": "service",
+     "name": "Solvej",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Gedser",
+     "type": "village",
+     "dist_m": 6684.2,
+     "lat": 54.577045,
+     "lon": 11.931356
+    },
+    "detail": "detail/dk/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 55.835885,
+    "lon": 10.346201,
+    "dist_m": 5774.72,
+    "nearest_way": {
+     "id": 38245821,
+     "highway": "track",
+     "name": "Øvre",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Endelave By",
+     "type": "hamlet",
+     "dist_m": 9787.7,
+     "lat": 55.758456,
+     "lon": 10.272305
+    },
+    "detail": "detail/dk/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 55.224013,
+    "lon": 8.456961,
+    "dist_m": 5402.67,
+    "nearest_way": {
+     "id": 1083493713,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Mandø By",
+     "type": "village",
+     "dist_m": 7629.5,
+     "lat": 55.274802,
+     "lon": 8.537507
+    },
+    "detail": "detail/dk/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 55.221118,
+    "lon": 10.889956,
+    "dist_m": 4887.1,
+    "nearest_way": {
+     "id": 402417388,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Revsøre Fiskerleje",
+     "type": "hamlet",
+     "dist_m": 5203.9,
+     "lat": 55.208842,
+     "lon": 10.81107
+    },
+    "detail": "detail/dk/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 55.474042,
+    "lon": 11.073206,
+    "dist_m": 4613.73,
+    "nearest_way": {
+     "id": 915154959,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Reersø",
+     "type": "village",
+     "dist_m": 6039.7,
+     "lat": 55.524015,
+     "lon": 11.110397
+    },
+    "detail": "detail/dk/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 55.703997,
+    "lon": 12.72921,
+    "dist_m": 4165.48,
+    "nearest_way": {
+     "id": 28936153,
+     "highway": "unclassified",
+     "name": "Saltholm",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Kastrup",
+     "type": "town",
+     "dist_m": 9337.5,
+     "lat": 55.637843,
+     "lon": 12.637996
+    },
+    "detail": "detail/dk/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 56.199816,
+    "lon": 11.697212,
+    "dist_m": 25545.22,
+    "nearest_way": {
+     "id": 100753377,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Nødebohuse",
+     "type": "village",
+     "dist_m": 26587.2,
+     "lat": 55.990815,
+     "lon": 11.903813
+    },
+    "detail": "detail/dk/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 55.32316,
+    "lon": 15.191408,
+    "dist_m": 18573.48,
+    "nearest_way": {
+     "id": 1283574900,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Gudhjem",
+     "type": "village",
+     "dist_m": 18779.0,
+     "lat": 55.211224,
+     "lon": 14.970412
+    },
+    "detail": "detail/dk/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 55.906622,
+    "lon": 10.825904,
+    "dist_m": 9630.47,
+    "nearest_way": {
+     "id": 154734374,
+     "highway": "unclassified",
+     "name": "Sildeballe",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Besser",
+     "type": "hamlet",
+     "dist_m": 12521.1,
+     "lat": 55.863176,
+     "lon": 10.641351
+    },
+    "detail": "detail/dk/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 55.835885,
+    "lon": 10.346201,
+    "dist_m": 7684.81,
+    "nearest_way": {
+     "id": 38245820,
+     "highway": "service",
+     "name": "Øvre",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Endelave By",
+     "type": "hamlet",
+     "dist_m": 9787.7,
+     "lat": 55.758456,
+     "lon": 10.272305
+    },
+    "detail": "detail/dk/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 56.736687,
+    "lon": 11.662932,
+    "dist_m": 7675.06,
+    "nearest_way": {
+     "id": 121435717,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Anholt",
+     "type": "hamlet",
+     "dist_m": 8085.0,
+     "lat": 56.704081,
+     "lon": 11.544947
+    },
+    "detail": "detail/dk/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 55.22521,
+    "lon": 8.453486,
+    "dist_m": 7301.73,
+    "nearest_way": {
+     "id": 356968515,
+     "highway": "unclassified",
+     "name": "Sønder Strandvej",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Mandø By",
+     "type": "village",
+     "dist_m": 7683.2,
+     "lat": 55.274802,
+     "lon": 8.537507
+    },
+    "detail": "detail/dk/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 57.364625,
+    "lon": 10.932895,
+    "dist_m": 7298.25,
+    "nearest_way": {
+     "id": 43076033,
+     "highway": "residential",
+     "name": "Gyvelvej",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Vesterø Havn",
+     "type": "village",
+     "dist_m": 7756.0,
+     "lat": 57.295066,
+     "lon": 10.926542
+    },
+    "detail": "detail/dk/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 55.081373,
+    "lon": 11.616555,
+    "dist_m": 6633.95,
+    "nearest_way": {
+     "id": 1385867505,
+     "highway": "unclassified",
+     "name": "Knudsskovvej",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Svinø Strand",
+     "type": "hamlet",
+     "dist_m": 7932.8,
+     "lat": 55.119343,
+     "lon": 11.721715
+    },
+    "detail": "detail/dk/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 55.646842,
+    "lon": 10.162539,
+    "dist_m": 6134.84,
+    "nearest_way": {
+     "id": 32818688,
+     "highway": "unclassified",
+     "name": "Lindøhoved",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Lindø",
+     "type": "hamlet",
+     "dist_m": 6308.2,
+     "lat": 55.593069,
+     "lon": 10.194089
+    },
+    "detail": "detail/dk/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 55.53635,
+    "lon": 12.711614,
+    "dist_m": 6083.4,
+    "nearest_way": {
+     "id": 1103171128,
+     "highway": "service",
+     "name": "Søndre Strandvej",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Dragør",
+     "type": "town",
+     "dist_m": 6731.3,
+     "lat": 55.592487,
+     "lon": 12.671995
+    },
+    "detail": "detail/dk/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

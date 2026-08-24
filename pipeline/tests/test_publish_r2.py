@@ -1,0 +1,635 @@
+import json
+import socket
+import threading
+import time
+from contextlib import contextmanager
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+
+import boto3
+import pytest
+from moto import mock_aws
+
+from poles.publish import r2
+from poles.publish.r2 import PublishError, R2Config
+
+BUCKET = "poles-test"     # moto rejects bucket names shorter than three characters, as S3 does
+
+
+def _files(tmp_path):
+    for name, value in [("token", "tok-123"), ("key", "AKIAEXAMPLE"), ("secret", "s3cr3t")]:
+        (tmp_path / name).write_text(value + "\n")
+    return {"POLES_R2_ACCOUNT_ID": "acct", "POLES_R2_BUCKET": BUCKET, "POLES_R2_TOKEN_FILE": str(tmp_path / "token"),
+            "POLES_R2_ACCESS_KEY_ID_FILE": str(tmp_path / "key"), "POLES_R2_SECRET_FILE": str(tmp_path / "secret")}
+
+
+def test_config_from_env_names_every_missing_variable(tmp_path):
+    with pytest.raises(PublishError) as exc:
+        R2Config.from_env({})
+    for name in ("POLES_R2_ACCOUNT_ID", "POLES_R2_BUCKET", "POLES_R2_TOKEN_FILE", "POLES_R2_ACCESS_KEY_ID_FILE", "POLES_R2_SECRET_FILE"):
+        assert name in str(exc.value)
+    cfg = R2Config.from_env(_files(tmp_path))
+    assert cfg.bucket == BUCKET and cfg.base is None and r2.read_secret(cfg.token_file) == "tok-123"
+    with pytest.raises(PublishError, match="secret"):
+        r2.read_secret(tmp_path / "nope")
+
+
+def test_config_keeps_an_explicit_base_without_its_trailing_slash(tmp_path):
+    env = dict(_files(tmp_path), POLES_R2_BASE="https://data.example.org/")
+    assert R2Config.from_env(env).base == "https://data.example.org"
+    assert R2Config.from_env(dict(_files(tmp_path), POLES_R2_BASE="")).base is None
+
+
+def test_read_secret_refuses_an_empty_file(tmp_path):
+    (tmp_path / "blank").write_text("\n \n")
+    with pytest.raises(PublishError, match="empty"):
+        r2.read_secret(tmp_path / "blank")
+
+
+class _Api(BaseHTTPRequestHandler):
+    calls: list = []
+
+    def _reply(self, result):
+        body = json.dumps({"success": True, "errors": [], "result": result}).encode()
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def _fail(self, status, errors):
+        body = json.dumps({"success": False, "errors": errors, "result": None}).encode()
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def _record(self, method):
+        n = int(self.headers.get("Content-Length", 0))
+        body = json.loads(self.rfile.read(n) or b"{}")
+        _Api.calls.append((method, self.path, self.headers.get("Authorization"), body))
+        return body
+
+    def do_POST(self):
+        self._record("POST")
+        self._reply({"name": BUCKET})
+
+    def do_PUT(self):
+        self._record("PUT")
+        self._reply({"domain": "pub-abc.r2.dev", "enabled": True} if "domains" in self.path else {})
+
+    def do_GET(self):
+        self._record("GET")
+        self._reply({"domains": [{"domain": "data.poles.example", "enabled": True}]})
+
+    def log_message(self, *a):
+        pass
+
+
+class _BucketExistsApi(_Api):
+    """Cloudflare answers a second create with HTTP 409 and error code 10004."""
+
+    def do_POST(self):
+        self._record("POST")
+        self._fail(409, [{"code": 10004, "message": "The bucket you tried to create already exists."}])
+
+
+class _ForbiddenApi(_Api):
+    def do_POST(self):
+        self._record("POST")
+        self._fail(403, [{"code": 10000, "message": "Authentication error"}])
+
+
+class _HtmlApi(_Api):
+    """An edge maintenance page or a proxy answering 200 with HTML where the API's JSON belongs."""
+
+    def do_POST(self):
+        self._record("POST")
+        body = b"<html><body>under maintenance</body></html>"
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+
+def _closed_port() -> int:
+    """A port nothing listens on: bind one, release it, hand back the number."""
+    with socket.socket() as sock:
+        sock.bind(("127.0.0.1", 0))
+        return sock.getsockname()[1]
+
+
+@contextmanager
+def _serving(handler):
+    server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    try:
+        yield f"http://127.0.0.1:{server.server_port}"
+    finally:
+        server.shutdown()
+        thread.join()
+        server.server_close()
+
+
+@pytest.fixture
+def api():
+    _Api.calls = []
+    with _serving(_Api) as base:
+        yield base, _Api.calls
+
+
+def test_ensure_bucket_creates_enables_domain_and_cors(tmp_path, api, log):
+    base_url, calls = api
+    cfg = R2Config.from_env(_files(tmp_path))
+    base = r2.ensure_bucket(cfg, log, api_base=base_url)
+    assert base == "https://pub-abc.r2.dev"
+    assert [c[:2] for c in calls] == [("POST", "/accounts/acct/r2/buckets"),
+                                      ("PUT", f"/accounts/acct/r2/buckets/{BUCKET}/domains/managed"),
+                                      ("PUT", f"/accounts/acct/r2/buckets/{BUCKET}/cors")]
+    assert all(c[2] == "Bearer tok-123" for c in calls)
+    assert calls[0][3] == {"name": BUCKET} and calls[1][3] == {"enabled": True}
+    rule = calls[2][3]["rules"][0]
+    assert rule["allowed"]["origins"] == ["*"] and set(rule["allowed"]["methods"]) == {"GET", "HEAD"}
+    assert "Accept-Ranges" in rule["exposeHeaders"] and "Content-Range" in rule["exposeHeaders"]
+
+
+def test_ensure_bucket_refuses_a_base_that_is_no_domain_of_the_bucket(tmp_path, api, log):
+    base_url, _ = api
+    env = dict(_files(tmp_path), POLES_R2_BASE="https://data.example.org")
+    with pytest.raises(PublishError, match="pub-abc.r2.dev.*data.poles.example"):
+        r2.ensure_bucket(R2Config.from_env(env), log, api_base=base_url)
+    agrees = dict(_files(tmp_path), POLES_R2_BASE="https://pub-abc.r2.dev")
+    assert r2.ensure_bucket(R2Config.from_env(agrees), log, api_base=base_url) == "https://pub-abc.r2.dev"
+
+
+def test_ensure_bucket_accepts_a_connected_custom_domain_as_the_base(tmp_path, api, log):
+    base_url, calls = api
+    env = dict(_files(tmp_path), POLES_R2_BASE="https://data.poles.example")
+    assert r2.ensure_bucket(R2Config.from_env(env), log, api_base=base_url) == "https://data.poles.example"
+    assert ("GET", f"/accounts/acct/r2/buckets/{BUCKET}/domains/custom") in [c[:2] for c in calls]
+
+
+def test_cors_origins_come_from_the_environment(tmp_path, api, log):
+    base_url, calls = api
+    env = dict(_files(tmp_path), POLES_R2_CORS="https://poles.example, https://www.poles.example")
+    r2.ensure_bucket(R2Config.from_env(env), log, api_base=base_url)
+    rule = [c for c in calls if c[1].endswith("/cors")][0][3]["rules"][0]
+    assert rule["allowed"]["origins"] == ["https://poles.example", "https://www.poles.example"]
+    assert R2Config.from_env(_files(tmp_path)).cors_origins == ("*",)
+
+
+def test_ensure_bucket_accepts_a_bucket_that_already_exists(tmp_path, log):
+    _Api.calls = []
+    with _serving(_BucketExistsApi) as base_url:
+        assert r2.ensure_bucket(R2Config.from_env(_files(tmp_path)), log, api_base=base_url) == "https://pub-abc.r2.dev"
+    assert [c[0] for c in _Api.calls] == ["POST", "PUT", "PUT"]
+
+
+def test_ensure_bucket_raises_without_leaking_the_token(tmp_path, log):
+    _Api.calls = []
+    with _serving(_ForbiddenApi) as base_url:
+        with pytest.raises(PublishError) as exc:
+            r2.ensure_bucket(R2Config.from_env(_files(tmp_path)), log, api_base=base_url)
+    assert "403" in str(exc.value) and "Authentication error" in str(exc.value)
+    assert "tok-123" not in str(exc.value)
+
+
+def test_ensure_bucket_refuses_a_response_that_is_not_json(tmp_path, log):
+    _Api.calls = []
+    with _serving(_HtmlApi) as base_url:
+        with pytest.raises(PublishError) as exc:
+            r2.ensure_bucket(R2Config.from_env(_files(tmp_path)), log, api_base=base_url)
+    assert "under maintenance" in str(exc.value) and "/r2/buckets" in str(exc.value)
+    assert "tok-123" not in str(exc.value)
+
+
+def test_ensure_bucket_reports_an_api_it_cannot_reach(tmp_path, log):
+    with pytest.raises(PublishError, match="unreachable"):
+        r2.ensure_bucket(R2Config.from_env(_files(tmp_path)), log, api_base=f"http://127.0.0.1:{_closed_port()}")
+
+
+def test_uploads_cap_the_parts_in_flight():
+    assert r2.TRANSFER.max_concurrency == 2
+    assert r2.TRANSFER.multipart_threshold == 8 * 1024 * 1024     # boto3's default, deliberately left alone
+
+
+@mock_aws
+def test_upload_tree_skips_same_size_and_sets_headers(tmp_path, log):
+    client = boto3.client("s3", region_name="us-east-1")
+    client.create_bucket(Bucket=BUCKET)
+    a, b = tmp_path / "A.pmtiles", tmp_path / "x.json"
+    a.write_bytes(b"\x00" * 1000)
+    b.write_text("{}")
+    items = [(a, "r/s/A.pmtiles"), (b, "r/s/x.json")]
+    first = r2.upload_tree(client, BUCKET, items, log)
+    assert first == {"uploaded": 2, "skipped": 0, "bytes": 1002}
+    head = client.head_object(Bucket=BUCKET, Key="r/s/A.pmtiles")
+    assert head["ContentType"] == "application/octet-stream" and head["CacheControl"] == r2.CACHE_CONTROL
+    assert client.head_object(Bucket=BUCKET, Key="r/s/x.json")["ContentType"] == "application/json"
+    second = r2.upload_tree(client, BUCKET, items, log)
+    assert second == {"uploaded": 0, "skipped": 2, "bytes": 0}
+    b.write_text('{"changed": true}')
+    third = r2.upload_tree(client, BUCKET, items, log)
+    assert third == {"uploaded": 1, "skipped": 1, "bytes": len('{"changed": true}')}
+
+
+@mock_aws
+def test_a_forced_upload_replaces_a_key_of_the_same_size(tmp_path, log):
+    """Keys are immutable per snapshot, so a rebuilt archive that happens to come out the same size would leave
+    the previous run's bytes in the bucket for good. --force is the run that rebuilt it, so it sends every key."""
+    client = boto3.client("s3", region_name="us-east-1")
+    client.create_bucket(Bucket=BUCKET)
+    a = tmp_path / "A.pmtiles"
+    a.write_bytes(b"\x00" * 1000)
+    items = [(a, "r/s/A.pmtiles")]
+    assert r2.upload_tree(client, BUCKET, items, log) == {"uploaded": 1, "skipped": 0, "bytes": 1000}
+    a.write_bytes(b"\x01" * 1000)
+    assert r2.upload_tree(client, BUCKET, items, log) == {"uploaded": 0, "skipped": 1, "bytes": 0}
+    assert r2.upload_tree(client, BUCKET, items, log, forced=True) == {"uploaded": 1, "skipped": 0, "bytes": 1000}
+    assert client.get_object(Bucket=BUCKET, Key="r/s/A.pmtiles")["Body"].read() == b"\x01" * 1000
+
+
+@mock_aws
+def test_upload_tree_handles_empty_files_and_spare_workers(tmp_path, log):
+    client = boto3.client("s3", region_name="us-east-1")
+    client.create_bucket(Bucket=BUCKET)
+    empty = tmp_path / "empty.json"
+    empty.write_text("")
+    items = [(empty, "r/s/empty.json")]
+    assert r2.upload_tree(client, BUCKET, items, log, workers=8) == {"uploaded": 1, "skipped": 0, "bytes": 0}
+    assert client.head_object(Bucket=BUCKET, Key="r/s/empty.json")["ContentLength"] == 0
+    assert r2.upload_tree(client, BUCKET, items, log, workers=8) == {"uploaded": 0, "skipped": 1, "bytes": 0}
+    assert r2.upload_tree(client, BUCKET, [], log) == {"uploaded": 0, "skipped": 0, "bytes": 0}
+
+
+@mock_aws
+def test_upload_tree_names_the_key_that_failed(tmp_path, log):
+    client = boto3.client("s3", region_name="us-east-1")
+    client.create_bucket(Bucket=BUCKET)
+    good, bad = tmp_path / "good.json", tmp_path / "bad.json"
+    good.write_text("{}")
+    bad.write_text("{}")
+    with pytest.raises(PublishError, match="r/s/bad.json"):
+        r2.upload_tree(client, "no-such-bucket", [(bad, "r/s/bad.json")], log, workers=1)
+    gone = [(good, "r/s/good.json"), (tmp_path / "vanished.png", "r/s/vanished.png")]
+    with pytest.raises(PublishError, match="r/s/vanished.png"):     # one worker failing stops the whole upload
+        r2.upload_tree(client, BUCKET, gone, log, workers=2)
+
+
+@mock_aws
+def test_s3_client_uses_the_key_pair_and_the_account_endpoint(tmp_path, log):
+    cfg = R2Config.from_env(_files(tmp_path))
+    default = r2.s3_client(cfg)
+    assert default.meta.endpoint_url == "https://acct.r2.cloudflarestorage.com"
+    assert default.meta.region_name == "auto" and default.meta.config.signature_version == "s3v4"
+    assert default._request_signer._credentials.access_key == "AKIAEXAMPLE"    # no public accessor for this
+    # moto only intercepts AWS-shaped endpoints, so the end-to-end upload goes through an S3 endpoint override.
+    boto3.client("s3", region_name="us-east-1").create_bucket(Bucket=BUCKET)
+    client = r2.s3_client(cfg, endpoint_url="https://s3.amazonaws.com")
+    archive = tmp_path / "A.pmtiles"
+    archive.write_bytes(b"\x01" * 2048)
+    assert r2.upload_tree(client, BUCKET, [(archive, "r/s/A.pmtiles")], log) == {"uploaded": 1, "skipped": 0, "bytes": 2048}
+    assert r2.upload_tree(client, BUCKET, [(archive, "r/s/A.pmtiles")], log) == {"uploaded": 0, "skipped": 1, "bytes": 0}
+    head = client.head_object(Bucket=BUCKET, Key="r/s/A.pmtiles")
+    assert head["ContentType"] == "application/octet-stream" and head["CacheControl"] == r2.CACHE_CONTROL
+
+
+def test_s3_client_refuses_an_unreadable_key_file(tmp_path):
+    env = dict(_files(tmp_path), POLES_R2_SECRET_FILE=str(tmp_path / "gone"))
+    with pytest.raises(PublishError, match="gone"):
+        r2.s3_client(R2Config.from_env(env))
+
+
+def test_content_types():
+    assert r2.content_type(Path("a.png")) == "image/png"
+    assert r2.content_type(Path("a.html")) == "text/html; charset=utf-8"
+    assert r2.content_type(Path("a.pmtiles")) == "application/octet-stream"
+    assert r2.content_type(Path("a.JSON")) == "application/json"
+    assert r2.content_type(Path("a.unknown-suffix")) == "application/octet-stream"
+
+
+def test_verify_head_checks_every_key_and_ranges(http_server, log):
+    base, docroot, requests = http_server
+    (docroot / "r").mkdir()
+    (docroot / "r" / "A.pmtiles").write_bytes(b"\x01" * 40_000)
+    (docroot / "r" / "u.json").write_text("{}")
+    out = r2.verify_head(base, ["r/A.pmtiles", "r/u.json"], ["r/A.pmtiles"], log)
+    assert out["keys"] == 2 and out["range_ok"] == 1 and out["at"].endswith("+00:00")
+    assert ("HEAD", "/r/A.pmtiles", None) in requests and ("GET", "/r/A.pmtiles", "bytes=0-16383") in requests
+    with pytest.raises(PublishError, match="r/missing.png"):
+        r2.verify_head(base, ["r/A.pmtiles", "r/missing.png"], [], log)
+
+
+def test_verify_head_accepts_a_file_shorter_than_the_range(http_server, log):
+    base, docroot, _ = http_server
+    (docroot / "small.pmtiles").write_bytes(b"\x01" * 100)
+    assert r2.verify_head(base, ["small.pmtiles"], ["small.pmtiles"], log)["range_ok"] == 1
+
+
+class _IgnoresRange(BaseHTTPRequestHandler):
+    """Answers HEAD, but serves the whole body with 200 for a range request, as a proxy without range support would."""
+    body = b"\x02" * 40_000
+
+    def _serve(self, send_body):
+        self.send_response(200)
+        self.send_header("Content-Length", str(len(self.body)))
+        self.end_headers()
+        if send_body:
+            self.wfile.write(self.body)
+
+    def do_GET(self):
+        self._serve(True)
+
+    def do_HEAD(self):
+        self._serve(False)
+
+    def log_message(self, *a):
+        pass
+
+
+def test_verify_head_fails_when_the_server_ignores_the_range(log):
+    with _serving(_IgnoresRange) as base:
+        with pytest.raises(PublishError) as exc:
+            r2.verify_head(base, ["r/A.pmtiles"], ["r/A.pmtiles"], log)
+    assert "r/A.pmtiles" in str(exc.value) and "200" in str(exc.value)
+
+
+class _ShortBody(BaseHTTPRequestHandler):
+    """Promises a body it never finishes sending. The read then raises http.client.IncompleteRead, which is not
+    an OSError: it has to come back as a failed check, not as a traceback out of the stage."""
+
+    def do_GET(self):
+        self.send_response(206)
+        self.send_header("Content-Length", str(r2.RANGE_BYTES))
+        self.send_header("Content-Range", f"bytes 0-{r2.RANGE_BYTES - 1}/40000")
+        self.end_headers()
+        self.wfile.write(b"\x04" * 100)
+
+    def log_message(self, *a):
+        pass
+
+
+def test_verify_head_reports_a_body_that_stops_early(monkeypatch, log):
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))
+    with _serving(_ShortBody) as base:
+        with pytest.raises(PublishError, match="IncompleteRead"):
+            r2.verify_head(base, [], ["r/A.pmtiles"], log)
+
+
+def test_verify_head_reports_an_unreachable_base(monkeypatch, log):
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))
+    with pytest.raises(PublishError, match="r/A.pmtiles"):
+        r2.verify_head(f"http://127.0.0.1:{_closed_port()}", ["r/A.pmtiles"], [], log)
+
+
+class _NoLength(BaseHTTPRequestHandler):
+    """A HEAD 200 that does not say how big the object is, and a GET that ignores Range: the key count would
+    attest nothing, and the one-byte fallback proves nothing either."""
+
+    def do_HEAD(self):
+        self.send_response(200)
+        self.end_headers()
+
+    def do_GET(self):
+        body = b"error page"
+        self.send_response(200)
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def log_message(self, *a):
+        pass
+
+
+class _ProxiedHtml(BaseHTTPRequestHandler):
+    """A CDN in front of the bucket: HEAD on HTML answers 200 with no Content-Length, but a range request is
+    passed through and answers 206 with the object's total."""
+
+    def do_HEAD(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.end_headers()
+
+    def do_GET(self):
+        if self.headers.get("Range") != "bytes=0-0":
+            self.send_response(200)
+            self.end_headers()
+            return
+        self.send_response(206)
+        self.send_header("Content-Range", "bytes 0-0/774451")
+        self.send_header("Content-Length", "1")
+        self.end_headers()
+        self.wfile.write(b"<")
+
+    def log_message(self, *a):
+        pass
+
+
+def test_a_headless_size_is_proven_by_a_one_byte_range(log):
+    with _serving(_ProxiedHtml) as base:
+        assert r2.verify_head(base, ["r/report.html"], [], log)["keys"] == 1
+
+
+def test_verify_head_requires_a_content_length(monkeypatch, log):
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))
+    with _serving(_NoLength) as base:
+        with pytest.raises(PublishError, match="without Content-Length"):
+            r2.verify_head(base, ["r/A.pmtiles"], [], log)
+
+
+class _Flaky(BaseHTTPRequestHandler):
+    """Answers the first `fail_times` requests for each method and path with 429, then serves the object."""
+    hits: dict = {}
+    fail_times = 1
+    body = b"\x03" * 40_000
+
+    def _serve(self, send_body):
+        seen = self.hits[(self.command, self.path)] = self.hits.get((self.command, self.path), 0) + 1
+        if seen <= self.fail_times:
+            self.send_response(429)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
+        ranged = self.headers.get("Range") is not None
+        data = self.body[:r2.RANGE_BYTES] if ranged else self.body
+        self.send_response(206 if ranged else 200)
+        self.send_header("Content-Length", str(len(data)))
+        if ranged:
+            self.send_header("Content-Range", f"bytes 0-{len(data) - 1}/{len(self.body)}")
+        self.end_headers()
+        if send_body:
+            self.wfile.write(data)
+
+    def do_GET(self):
+        self._serve(True)
+
+    def do_HEAD(self):
+        self._serve(False)
+
+    def log_message(self, *a):
+        pass
+
+
+def test_verify_head_retries_a_rate_limited_key(monkeypatch, log):
+    assert r2.RETRY_PAUSES == (5.0, 15.0, 30.0) and 429 in r2.RETRY_STATUSES and 503 in r2.RETRY_STATUSES
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))     # the wait itself is not what is under test
+    flaky = type("Flaky", (_Flaky,), {"hits": {}})
+    with _serving(flaky) as base:
+        out = r2.verify_head(base, ["r/A.pmtiles"], ["r/A.pmtiles"], log)
+    assert out["keys"] == 1 and out["range_ok"] == 1
+    assert flaky.hits[("HEAD", "/r/A.pmtiles")] == 2 and flaky.hits[("GET", "/r/A.pmtiles")] == 2
+
+
+def test_verify_head_gives_up_when_the_rate_limit_holds(monkeypatch, log):
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))
+    always = type("Always", (_Flaky,), {"hits": {}, "fail_times": 99})
+    with _serving(always) as base:
+        with pytest.raises(PublishError, match="429"):
+            r2.verify_head(base, ["r/A.pmtiles"], [], log)
+    assert always.hits[("HEAD", "/r/A.pmtiles")] == 4            # the first attempt plus three retries
+
+
+class _BlocksScriptAgents(BaseHTTPRequestHandler):
+    """The r2.dev edge as observed on 2026-08-23 (issue #49): the same URL answers 403 to urllib's default
+    `Python-urllib/3.x` agent and 200 to a request that says who it is."""
+    body = b"\x05" * 40_000
+
+    def _serve(self, send_body):
+        if not self.headers.get("User-Agent", "").startswith("poles-publish/"):
+            self.send_response(403)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
+        ranged = self.headers.get("Range") is not None
+        data = self.body[:r2.RANGE_BYTES] if ranged else self.body
+        self.send_response(206 if ranged else 200)
+        self.send_header("Content-Length", str(len(data)))
+        if ranged:
+            self.send_header("Content-Range", f"bytes 0-{len(data) - 1}/{len(self.body)}")
+        self.end_headers()
+        if send_body:
+            self.wfile.write(data)
+
+    def do_GET(self):
+        self._serve(True)
+
+    def do_HEAD(self):
+        self._serve(False)
+
+    def log_message(self, *a):
+        pass
+
+
+def test_verify_head_identifies_itself_to_an_edge_that_blocks_script_agents(log):
+    assert r2.USER_AGENT.startswith("poles-publish/")
+    with _serving(_BlocksScriptAgents) as base:
+        out = r2.verify_head(base, ["r/A.pmtiles"], ["r/A.pmtiles"], log)
+    assert out["keys"] == 1 and out["range_ok"] == 1
+
+
+class _WindowLimited(BaseHTTPRequestHandler):
+    """The r2.dev limiter as it behaved on 2026-08-23: every request inside a window after the first one gets
+    429, whoever sends it; after the window everything is served. `hits429` counts the refusals."""
+    window_s = 0.3
+    retry_after: str | None = None
+    started: list = []
+    hits429: list = []
+    body = b"\x06" * 40_000
+
+    def _serve(self, send_body):
+        now = time.monotonic()
+        if not self.started:
+            self.started.append(now)
+        if now < self.started[0] + self.window_s:
+            self.hits429.append(now)
+            self.send_response(429)
+            if self.retry_after is not None:
+                self.send_header("Retry-After", self.retry_after)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
+        ranged = self.headers.get("Range") is not None
+        data = self.body[:r2.RANGE_BYTES] if ranged else self.body
+        self.send_response(206 if ranged else 200)
+        self.send_header("Content-Length", str(len(data)))
+        if ranged:
+            self.send_header("Content-Range", f"bytes 0-{len(data) - 1}/{len(self.body)}")
+        self.end_headers()
+        if send_body:
+            self.wfile.write(data)
+
+    def do_GET(self):
+        self._serve(True)
+
+    def do_HEAD(self):
+        self._serve(False)
+
+    def log_message(self, *a):
+        pass
+
+
+def test_a_rate_limit_on_one_key_holds_every_verification_thread(monkeypatch, log):
+    assert r2.RETRY_PAUSES == (5.0, 15.0, 30.0)
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.4, 0.0, 0.0))
+    limited = type("Limited", (_WindowLimited,), {"started": [], "hits429": []})
+    keys = [f"r/{i}.json" for i in range(16)]
+    with _serving(limited) as base:
+        out = r2.verify_head(base, keys, [], log, workers=8)
+    assert out["keys"] == 16
+    # Only the first wave is refused (at most one request per worker; a worker whose thread starts after the
+    # hold is raised never reaches the wire inside the window), and keys 9 to 16 wait the window out. Per-key
+    # retries alone would have sent every one of the 16 straight into it.
+    assert 1 <= len(limited.hits429) <= 8
+
+
+def test_a_retry_after_header_is_honoured_over_the_pause(monkeypatch, log):
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))
+    limited = type("Limited", (_WindowLimited,), {"started": [], "hits429": [], "retry_after": "1"})
+    with _serving(limited) as base:
+        t0 = time.monotonic()
+        out = r2.verify_head(base, ["r/A.pmtiles"], ["r/A.pmtiles"], log, workers=1)
+    assert out["keys"] == 1 and out["range_ok"] == 1
+    assert time.monotonic() - t0 >= 1.0 and len(limited.hits429) == 1
+
+
+class _DropsFirst(BaseHTTPRequestHandler):
+    """Closes the first connection per path without a byte of response (what a resolver hiccup or a reset looks
+    like from urllib: status 0, "unreachable"), then serves."""
+    hits: dict = {}
+    body = b"\x07" * 40_000
+
+    def _serve(self, send_body):
+        seen = self.hits[self.path] = self.hits.get(self.path, 0) + 1
+        if seen == 1:
+            self.close_connection = True
+            return
+        ranged = self.headers.get("Range") is not None
+        data = self.body[:r2.RANGE_BYTES] if ranged else self.body
+        self.send_response(206 if ranged else 200)
+        self.send_header("Content-Length", str(len(data)))
+        if ranged:
+            self.send_header("Content-Range", f"bytes 0-{len(data) - 1}/{len(self.body)}")
+        self.end_headers()
+        if send_body:
+            self.wfile.write(data)
+
+    def do_GET(self):
+        self._serve(True)
+
+    def do_HEAD(self):
+        self._serve(False)
+
+    def log_message(self, *a):
+        pass
+
+
+def test_verify_head_retries_a_request_that_never_got_an_answer(monkeypatch, log):
+    assert 0 in r2.RETRY_STATUSES
+    monkeypatch.setattr(r2, "RETRY_PAUSES", (0.0, 0.0, 0.0))
+    drops = type("Drops", (_DropsFirst,), {"hits": {}})
+    with _serving(drops) as base:
+        out = r2.verify_head(base, ["r/A.json"], [], log)
+    assert out["keys"] == 1 and drops.hits["/r/A.json"] == 2

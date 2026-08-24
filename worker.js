@@ -1,22 +1,52 @@
-/* Atokiausia Lietuva - server side page view logging.
-   Runs in front of HTML page loads only (see run_worker_first in
-   wrangler.jsonc), records one Analytics Engine data point, then hands the
-   request straight back to the static assets binding.
+/* Poles of remoteness, server side. Two jobs on HTML page loads (run_worker_first in wrangler.jsonc sends
+   only the extension-less paths here): record one Analytics Engine data point, and stamp the visitor's
+   coarse location into the page so the first screen can open the visitor's own unit without a geolocation
+   prompt. Every other request goes straight to the static assets binding.
 
-   Privacy by design (GDPR): we deliberately do NOT store the raw user agent
-   string, the client IP, or any other unique or quasi-unique identifier, so a
-   data point cannot be traced back to a person and no consent banner is owed.
-   What we keep is coarse and non-identifying: country, Cloudflare colo,
-   referrer host, browser family, OS family, and our own hostname. */
+   Privacy by design (GDPR): no raw user agent, no IP, no unique or quasi-unique identifier, so a data point
+   cannot be traced back to a person and no consent banner is owed. What is kept is coarse: country,
+   Cloudflare colo, referrer host, browser family, OS family, our hostname, and the landing region and unit
+   from the URL path. The visitor meta written into the page is the country and region code Cloudflare
+   already attaches to the request; it never leaves the visitor's own page. */
 
-/* Only '/' counts: a direct /index.html hit gets a 307 redirect to '/' from
-   the assets layer and would otherwise log twice. */
-const PAGE_PATHS = new Set(['/']);
+/* Twin of SEG in site/js/router.js, which the worker cannot import without a build step; the shared table
+   in dev/tests/worker.test.mjs is what keeps the two copies in step. */
+const SEG = /^[a-z][a-z0-9-]{0,31}$/;
 
-/* Coarse user agent buckets. Order matters: a specific token has to be tested
-   before the generic one it embeds. Edge, Opera and Samsung Internet all carry
-   "Chrome", Chrome and Firefox on iOS carry "Safari", Android carries "Linux". */
-function browserFamily(ua) {
+/* One path segment, normalised the way the router normalises it, or null when it is not a segment at all.
+   Case and percent escapes are decided here rather than at the caller: an upper-case or percent-encoded
+   link is a page to the site, so it has to be a page here too, and the blobs have to carry the codes the
+   site will read. */
+function segment(raw) {
+  let s;
+  try { s = decodeURIComponent(raw).toLowerCase(); } catch { return null; }
+  return SEG.test(s) ? s : null;
+}
+
+/* The page paths are '/', '/<region>' and '/<region>/<unit>', a trailing slash tolerated. Anything else
+   (including '/index.html', which the assets layer redirects to '/') is not a page view. */
+export function landing(pathname) {
+  const raw = pathname.replace(/\/+$/, '').split('/').slice(1);
+  if (raw.length === 0) return { page: true, region: '', unit: '' };
+  const parts = raw.map(segment);
+  if (raw.length > 2 || parts.some((p) => p === null)) return { page: false, region: '', unit: '' };
+  return { page: true, region: parts[0], unit: parts[1] || '' };
+}
+
+/* 'LT' or 'US-AK' from request.cf, uppercase, or '' when the country is not a plain two-letter code
+   (Cloudflare uses 'T1' for Tor and leaves the field empty for some ranges). The value is written into
+   HTML, so the shape is enforced here and the site re-checks it before use. */
+export function visitorCode(cf) {
+  const country = String((cf && cf.country) || '').toUpperCase();
+  if (!/^[A-Z]{2}$/.test(country)) return '';
+  const region = String((cf && cf.regionCode) || '').toUpperCase();
+  return /^[A-Z0-9]{1,3}$/.test(region) ? `${country}-${region}` : country;
+}
+
+/* Coarse user agent buckets. Order matters: a specific token has to be tested before the generic one it
+   embeds. Edge, Opera and Samsung Internet all carry "Chrome", Chrome and Firefox on iOS carry "Safari",
+   Android carries "Linux". */
+export function browserFamily(ua) {
   if (!ua) return 'Other';
   if (/bot|crawl|spider|slurp|headlesschrome|facebookexternalhit|curl|wget|monitoring/i.test(ua)) return 'Bot';
   if (/edg(e|a|ios)?\//i.test(ua)) return 'Edge';
@@ -28,7 +58,7 @@ function browserFamily(ua) {
   return 'Other';
 }
 
-function osFamily(ua) {
+export function osFamily(ua) {
   if (!ua) return 'Other';
   if (/android/i.test(ua)) return 'Android';
   if (/iphone|ipad|ipod|ios\//i.test(ua)) return 'iOS';
@@ -38,10 +68,9 @@ function osFamily(ua) {
   return 'Other';
 }
 
-/* Host of the referring page, or '' when there is no referrer, it does not
-   parse, or the visit came from our own site. Only the host is kept, never the
-   full referrer URL, which can carry query strings and personal data. */
-function referrerHost(request, url) {
+/* Host of the referring page, or '' when there is no referrer, it does not parse, or the visit came from
+   our own site. Only the host is kept, never the full URL, which can carry query strings and personal data. */
+export function referrerHost(request, url) {
   const ref = request.headers.get('Referer');
   if (!ref) return '';
   try {
@@ -55,31 +84,53 @@ function referrerHost(request, url) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    // www is a doorway, not a second site: any page request on it is one permanent redirect to the apex.
+    if (url.hostname.startsWith('www.')) {
+      url.hostname = url.hostname.slice(4);
+      return Response.redirect(url.toString(), 301);
+    }
+    const where = landing(url.pathname);
+    if (request.method !== 'GET' || !where.page) return env.ASSETS.fetch(request);
 
-    if (request.method === 'GET' && PAGE_PATHS.has(url.pathname)) {
-      try {
-        const ua = request.headers.get('User-Agent') || '';
-        env.SITE_VIEWS.writeDataPoint({
-          /* Fixed blob order, do not reshuffle: existing rows keep the old
-             layout and queries address blobs positionally.
-               blob1 country, blob2 colo,       blob3 referrer host,
-               blob4 browser, blob5 OS family,  blob6 hostname */
-          blobs: [
-            request.cf?.country || '',
-            request.cf?.colo || '',
-            referrerHost(request, url),
-            browserFamily(ua),
-            osFamily(ua),
-            url.hostname,
-          ],
-          doubles: [1],
-          indexes: ['view'],
-        });
-      } catch {
-        /* Analytics is best effort. Never let it break serving the page. */
-      }
+    const response = await env.ASSETS.fetch(request);
+    const html = (response.headers.get('Content-Type') || '').includes('text/html');
+    // A 304 carries no Content-Type and no body. On a page path it is a returning visitor's conditional GET,
+    // which the assets layer can only have answered from index.html, so it is a page view like any other.
+    if (!html && response.status !== 304) return response;
+
+    try {
+      const ua = request.headers.get('User-Agent') || '';
+      env.SITE_VIEWS.writeDataPoint({
+        /* Fixed blob order, do not reshuffle: queries address blobs positionally.
+             blob1 country,  blob2 colo,           blob3 referrer host, blob4 browser,
+             blob5 OS family, blob6 hostname,      blob7 landing region, blob8 landing unit
+           The landing region is whatever the path said, so queries filter blob7 to the known region ids:
+           an extension-less junk path like '/wp-admin' is served index.html and logs a region that is not. */
+        blobs: [
+          (request.cf && request.cf.country) || '',
+          (request.cf && request.cf.colo) || '',
+          referrerHost(request, url),
+          browserFamily(ua),
+          osFamily(ua),
+          url.hostname,
+          where.region,
+          where.unit,
+        ],
+        doubles: [1],
+        indexes: ['view'],
+      });
+    } catch {
+      /* Analytics is best effort. Never let it break serving the page. */
     }
 
-    return env.ASSETS.fetch(request);
+    /* The stamped body varies by visitor country while the headers, ETag included, come through from the
+       assets binding unchanged, and no Vary is added. Accepted: the value only picks the opening unit, the
+       site re-checks it, and pickStart falls back cleanly when it is stale or absent. A traveller keeps the
+       old country until the asset itself changes, which costs one fallback opening unit and nothing else. */
+    const code = visitorCode(request.cf);
+    if (!html || !code) return response; // a 304 has no body to stamp
+    return new HTMLRewriter()
+      .on('head', { element(el) { el.append(`<meta name="visitor" content="${code}">`, { html: true }); } })
+      .transform(response);
   },
 };

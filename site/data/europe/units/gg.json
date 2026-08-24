@@ -1,0 +1,293 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "gg",
+ "name": "Guernsey",
+ "name_en": "Guernsey",
+ "country": "gg",
+ "area_km2": 105.6,
+ "bbox": [
+  -3.0209018,
+  49.219875,
+  -2.0502773,
+  49.9403001
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 49.719964,
+    "lon": -2.384948,
+    "dist_m": 11030.49,
+    "nearest_way": {
+     "id": 4066366,
+     "highway": "track",
+     "name": "Clonque Causeway",
+     "ref": null,
+     "country": "gg"
+    },
+    "nearest_place": {
+     "name": "Crabby",
+     "type": "hamlet",
+     "dist_m": 12756.5,
+     "lat": 49.719879,
+     "lon": -2.208048
+    },
+    "detail": "detail/gg/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 49.509847,
+    "lon": -2.409562,
+    "dist_m": 4525.23,
+    "nearest_way": {
+     "id": 196968043,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gg"
+    },
+    "nearest_place": {
+     "name": "Manor Village",
+     "type": "hamlet",
+     "dist_m": 5096.9,
+     "lat": 49.471789,
+     "lon": -2.448751
+    },
+    "detail": "detail/gg/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 49.737766,
+    "lon": -2.246263,
+    "dist_m": 2685.09,
+    "nearest_way": {
+     "id": 4066368,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gg"
+    },
+    "nearest_place": {
+     "name": "Crabby",
+     "type": "hamlet",
+     "dist_m": 3398.4,
+     "lat": 49.719879,
+     "lon": -2.208048
+    },
+    "detail": "detail/gg/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 49.400093,
+    "lon": -2.367936,
+    "dist_m": 1345.16,
+    "nearest_way": {
+     "id": 185844268,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gg"
+    },
+    "nearest_place": {
+     "name": "Sark",
+     "type": "village",
+     "dist_m": 3947.2,
+     "lat": 49.435165,
+     "lon": -2.359599
+    },
+    "detail": "detail/gg/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 49.461425,
+    "lon": -2.676106,
+    "dist_m": 773.85,
+    "nearest_way": {
+     "id": 126881734,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gg"
+    },
+    "nearest_place": {
+     "name": "Torteval",
+     "type": "hamlet",
+     "dist_m": 3863.4,
+     "lat": 49.430281,
+     "lon": -2.652507
+    },
+    "detail": "detail/gg/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 49.417316,
+    "lon": -2.54081,
+    "dist_m": 579.42,
+    "nearest_way": {
+     "id": 37958166,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gg"
+    },
+    "nearest_place": {
+     "name": "St Martin",
+     "type": "village",
+     "dist_m": 2470.5,
+     "lat": 49.437349,
+     "lon": -2.555524
+    },
+    "detail": "detail/gg/A-6",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 6 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 49.719964,
+    "lon": -2.384948,
+    "dist_m": 11532.09,
+    "nearest_way": {
+     "id": 29385585,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gg"
+    },
+    "nearest_place": {
+     "name": "Crabby",
+     "type": "hamlet",
+     "dist_m": 12756.5,
+     "lat": 49.719879,
+     "lon": -2.208048
+    },
+    "detail": "detail/gg/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 49.509847,
+    "lon": -2.409562,
+    "dist_m": 6530.92,
+    "nearest_way": {
+     "id": 185848724,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gg"
+    },
+    "nearest_place": {
+     "name": "Manor Village",
+     "type": "hamlet",
+     "dist_m": 5096.9,
+     "lat": 49.471789,
+     "lon": -2.448751
+    },
+    "detail": "detail/gg/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 49.737766,
+    "lon": -2.246263,
+    "dist_m": 2685.09,
+    "nearest_way": {
+     "id": 4066368,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gg"
+    },
+    "nearest_place": {
+     "name": "Crabby",
+     "type": "hamlet",
+     "dist_m": 3398.4,
+     "lat": 49.719879,
+     "lon": -2.208048
+    },
+    "detail": "detail/gg/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 49.461425,
+    "lon": -2.676106,
+    "dist_m": 1410.52,
+    "nearest_way": {
+     "id": 186002404,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gg"
+    },
+    "nearest_place": {
+     "name": "Torteval",
+     "type": "hamlet",
+     "dist_m": 3863.4,
+     "lat": 49.430281,
+     "lon": -2.652507
+    },
+    "detail": "detail/gg/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 49.400093,
+    "lon": -2.367936,
+    "dist_m": 1345.16,
+    "nearest_way": {
+     "id": 185844268,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gg"
+    },
+    "nearest_place": {
+     "name": "Sark",
+     "type": "village",
+     "dist_m": 3947.2,
+     "lat": 49.435165,
+     "lon": -2.359599
+    },
+    "detail": "detail/gg/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 49.417357,
+    "lon": -2.540902,
+    "dist_m": 649.21,
+    "nearest_way": {
+     "id": 25468596,
+     "highway": "residential",
+     "name": "La Moye",
+     "ref": null,
+     "country": "gg"
+    },
+    "nearest_place": {
+     "name": "St Martin",
+     "type": "village",
+     "dist_m": 2463.5,
+     "lat": 49.437349,
+     "lon": -2.555524
+    },
+    "detail": "detail/gg/B-6",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 6 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ }
+}

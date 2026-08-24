@@ -1,0 +1,315 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "ge",
+ "name": "საქართველო",
+ "name_en": "Georgia",
+ "country": "ge",
+ "area_km2": 69821.1,
+ "bbox": [
+  39.8844803,
+  41.0551284,
+  46.7365373,
+  43.5864294
+ ],
+ "transcontinental": true,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 43.345383,
+    "lon": 41.08534,
+    "dist_m": 12544.71,
+    "nearest_way": {
+     "id": 321495298,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Dou",
+     "type": "isolated_dwelling",
+     "dist_m": 17507.7,
+     "lat": 43.267505,
+     "lon": 40.897745
+    },
+    "detail": "detail/ge/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 42.409358,
+    "lon": 44.195341,
+    "dist_m": 11936.84,
+    "nearest_way": {
+     "id": 170416034,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Gudisi",
+     "type": "hamlet",
+     "dist_m": 7225.4,
+     "lat": 42.388151,
+     "lon": 44.112377
+    },
+    "detail": "detail/ge/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 43.243299,
+    "lon": 41.167189,
+    "dist_m": 11186.31,
+    "nearest_way": {
+     "id": 1354135603,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Kialasur",
+     "type": "hamlet",
+     "dist_m": 14224.4,
+     "lat": 43.120736,
+     "lon": 41.217798
+    },
+    "detail": "detail/ge/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 42.390854,
+    "lon": 44.320304,
+    "dist_m": 10829.57,
+    "nearest_way": {
+     "id": 635335885,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Isroliskhevi",
+     "type": "isolated_dwelling",
+     "dist_m": 12027.2,
+     "lat": 42.282602,
+     "lon": 44.317263
+    },
+    "detail": "detail/ge/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 42.70688,
+    "lon": 44.460957,
+    "dist_m": 10333.55,
+    "nearest_way": {
+     "id": 293679620,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ru"
+    },
+    "nearest_place": {
+     "name": "Suatisi",
+     "type": "hamlet",
+     "dist_m": 10651.0,
+     "lat": 42.630643,
+     "lon": 44.382165
+    },
+    "detail": "detail/ge/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 42.372949,
+    "lon": 45.361411,
+    "dist_m": 10259.65,
+    "nearest_way": {
+     "id": 567279385,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Indurta",
+     "type": "village",
+     "dist_m": 10314.6,
+     "lat": 42.447532,
+     "lon": 45.436053
+    },
+    "detail": "detail/ge/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 43.226956,
+    "lon": 41.295094,
+    "dist_m": 10213.34,
+    "nearest_way": {
+     "id": 1350405561,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Kialasur",
+     "type": "hamlet",
+     "dist_m": 13370.0,
+     "lat": 43.120736,
+     "lon": 41.217798
+    },
+    "detail": "detail/ge/A-7",
+    "warnings": []
+   }
+  ],
+  "withheld": 3,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 43.322716,
+    "lon": 41.227155,
+    "dist_m": 21052.13,
+    "nearest_way": {
+     "id": 860566029,
+     "highway": "unclassified",
+     "name": "Белая улица",
+     "ref": null,
+     "country": "ru"
+    },
+    "nearest_place": {
+     "name": "Kialasur",
+     "type": "hamlet",
+     "dist_m": 22452.4,
+     "lat": 43.120736,
+     "lon": 41.217798
+    },
+    "detail": "detail/ge/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 43.351662,
+    "lon": 41.103596,
+    "dist_m": 19185.66,
+    "nearest_way": {
+     "id": 202654804,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Dou",
+     "type": "isolated_dwelling",
+     "dist_m": 19139.8,
+     "lat": 43.267505,
+     "lon": 40.897745
+    },
+    "detail": "detail/ge/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 42.405365,
+    "lon": 45.281039,
+    "dist_m": 17423.98,
+    "nearest_way": {
+     "id": 1305730726,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Elia-Gza",
+     "type": "village",
+     "dist_m": 11386.4,
+     "lat": 42.401856,
+     "lon": 45.14281
+    },
+    "detail": "detail/ge/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 43.258764,
+    "lon": 41.322941,
+    "dist_m": 17396.14,
+    "nearest_way": {
+     "id": 1148033193,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Kialasur",
+     "type": "hamlet",
+     "dist_m": 17555.6,
+     "lat": 43.120736,
+     "lon": 41.217798
+    },
+    "detail": "detail/ge/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 43.206521,
+    "lon": 41.431805,
+    "dist_m": 15255.72,
+    "nearest_way": {
+     "id": 87112873,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Qwarash",
+     "type": "hamlet",
+     "dist_m": 9569.1,
+     "lat": 43.199236,
+     "lon": 41.549124
+    },
+    "detail": "detail/ge/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 41.862553,
+    "lon": 43.095491,
+    "dist_m": 14759.64,
+    "nearest_way": {
+     "id": 209365505,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Shepherds settlement",
+     "type": "hamlet",
+     "dist_m": 5203.5,
+     "lat": 41.815857,
+     "lon": 43.10055
+    },
+    "detail": "detail/ge/B-6",
+    "warnings": []
+   }
+  ],
+  "withheld": 4,
+  "reason": null
+ }
+}

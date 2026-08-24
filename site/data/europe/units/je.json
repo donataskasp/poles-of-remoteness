@@ -1,0 +1,293 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "je",
+ "name": "Jersey",
+ "name_en": "Jersey",
+ "country": "je",
+ "area_km2": 142.9,
+ "bbox": [
+  -2.5605483,
+  48.871203,
+  -1.8347,
+  49.4596091
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 48.956112,
+    "lon": -2.145596,
+    "dist_m": 23533.69,
+    "nearest_way": {
+     "id": 28002054,
+     "highway": "unclassified",
+     "name": "Chemin de Noirmont",
+     "ref": null,
+     "country": "je"
+    },
+    "nearest_place": {
+     "name": "Maîtresse Île",
+     "type": "hamlet",
+     "dist_m": 6310.3,
+     "lat": 48.970809,
+     "lon": -2.06236
+    },
+    "detail": "detail/je/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 49.294117,
+    "lon": -1.9152,
+    "dist_m": 10520.21,
+    "nearest_way": {
+     "id": 166767752,
+     "highway": "unclassified",
+     "name": "Rue de la Coupe",
+     "ref": null,
+     "country": "je"
+    },
+    "nearest_place": {
+     "name": "Rozel",
+     "type": "hamlet",
+     "dist_m": 11549.6,
+     "lat": 49.237129,
+     "lon": -2.047861
+    },
+    "detail": "detail/je/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 49.2968,
+    "lon": -2.194168,
+    "dist_m": 4879.65,
+    "nearest_way": {
+     "id": 367167010,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "je"
+    },
+    "nearest_place": {
+     "name": "Grève de Lecq",
+     "type": "hamlet",
+     "dist_m": 5585.6,
+     "lat": 49.246826,
+     "lon": -2.201815
+    },
+    "detail": "detail/je/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 49.148442,
+    "lon": -2.050366,
+    "dist_m": 2103.93,
+    "nearest_way": {
+     "id": 168436069,
+     "highway": "unclassified",
+     "name": "La Charriere au Long",
+     "ref": null,
+     "country": "je"
+    },
+    "nearest_place": {
+     "name": "Le Bourg",
+     "type": "hamlet",
+     "dist_m": 2338.9,
+     "lat": 49.168987,
+     "lon": -2.043513
+    },
+    "detail": "detail/je/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 49.170649,
+    "lon": -2.193244,
+    "dist_m": 896.14,
+    "nearest_way": {
+     "id": 1112104492,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "je"
+    },
+    "nearest_place": {
+     "name": "Portelet",
+     "type": "hamlet",
+     "dist_m": 1209.8,
+     "lat": 49.171999,
+     "lon": -2.176782
+    },
+    "detail": "detail/je/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 49.243648,
+    "lon": -2.05158,
+    "dist_m": 376.25,
+    "nearest_way": {
+     "id": 62190020,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "je"
+    },
+    "nearest_place": {
+     "name": "Rozel",
+     "type": "hamlet",
+     "dist_m": 773.9,
+     "lat": 49.237129,
+     "lon": -2.047861
+    },
+    "detail": "detail/je/A-6",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 6 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 48.956112,
+    "lon": -2.145596,
+    "dist_m": 23533.69,
+    "nearest_way": {
+     "id": 28002054,
+     "highway": "unclassified",
+     "name": "Chemin de Noirmont",
+     "ref": null,
+     "country": "je"
+    },
+    "nearest_place": {
+     "name": "Maîtresse Île",
+     "type": "hamlet",
+     "dist_m": 6310.3,
+     "lat": 48.970809,
+     "lon": -2.06236
+    },
+    "detail": "detail/je/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 49.294117,
+    "lon": -1.9152,
+    "dist_m": 10520.21,
+    "nearest_way": {
+     "id": 166767752,
+     "highway": "unclassified",
+     "name": "Rue de la Coupe",
+     "ref": null,
+     "country": "je"
+    },
+    "nearest_place": {
+     "name": "Rozel",
+     "type": "hamlet",
+     "dist_m": 11549.6,
+     "lat": 49.237129,
+     "lon": -2.047861
+    },
+    "detail": "detail/je/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 49.296845,
+    "lon": -2.194305,
+    "dist_m": 4897.87,
+    "nearest_way": {
+     "id": 1003574826,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "je"
+    },
+    "nearest_place": {
+     "name": "Grève de Lecq",
+     "type": "hamlet",
+     "dist_m": 5589.7,
+     "lat": 49.246826,
+     "lon": -2.201815
+    },
+    "detail": "detail/je/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 49.148442,
+    "lon": -2.050366,
+    "dist_m": 2103.93,
+    "nearest_way": {
+     "id": 168436069,
+     "highway": "unclassified",
+     "name": "La Charriere au Long",
+     "ref": null,
+     "country": "je"
+    },
+    "nearest_place": {
+     "name": "Le Bourg",
+     "type": "hamlet",
+     "dist_m": 2338.9,
+     "lat": 49.168987,
+     "lon": -2.043513
+    },
+    "detail": "detail/je/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 49.170649,
+    "lon": -2.193244,
+    "dist_m": 896.14,
+    "nearest_way": {
+     "id": 1112104492,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "je"
+    },
+    "nearest_place": {
+     "name": "Portelet",
+     "type": "hamlet",
+     "dist_m": 1209.8,
+     "lat": 49.171999,
+     "lon": -2.176782
+    },
+    "detail": "detail/je/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 49.243648,
+    "lon": -2.05158,
+    "dist_m": 376.25,
+    "nearest_way": {
+     "id": 62190020,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "je"
+    },
+    "nearest_place": {
+     "name": "Rozel",
+     "type": "hamlet",
+     "dist_m": 773.9,
+     "lat": 49.237129,
+     "lon": -2.047861
+    },
+    "detail": "detail/je/B-6",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 6 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ }
+}

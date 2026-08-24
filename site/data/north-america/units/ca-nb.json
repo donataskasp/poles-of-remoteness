@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "ca-nb",
+ "name": "New Brunswick / Nouveau-Brunswick",
+ "name_en": "New Brunswick",
+ "country": "ca",
+ "area_km2": 72911.0,
+ "bbox": [
+  -69.0534663,
+  44.2836704,
+  -63.328871,
+  48.2206848
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 44.499745,
+    "lon": -67.100304,
+    "dist_m": 18027.14,
+    "nearest_way": {
+     "id": 11498589,
+     "highway": "service",
+     "name": "Daniels Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cutler",
+     "type": "village",
+     "dist_m": 19349.3,
+     "lat": 44.657365,
+     "lon": -67.203831
+    },
+    "detail": "detail/ca-nb/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 46.64345,
+    "lon": -66.960967,
+    "dist_m": 16601.63,
+    "nearest_way": {
+     "id": 151315013,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Deersdale",
+     "type": "hamlet",
+     "dist_m": 17466.3,
+     "lat": 46.496632,
+     "lon": -67.042121
+    },
+    "detail": "detail/ca-nb/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 44.48431,
+    "lon": -66.850174,
+    "dist_m": 13088.57,
+    "nearest_way": {
+     "id": 1414049864,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Deep Cove",
+     "type": "hamlet",
+     "dist_m": 14899.1,
+     "lat": 44.617666,
+     "lon": -66.869602
+    },
+    "detail": "detail/ca-nb/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 46.682336,
+    "lon": -67.085272,
+    "dist_m": 12062.39,
+    "nearest_way": {
+     "id": 412997902,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Juniper",
+     "type": "village",
+     "dist_m": 17930.7,
+     "lat": 46.55098,
+     "lon": -67.221129
+    },
+    "detail": "detail/ca-nb/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 46.717309,
+    "lon": -66.881803,
+    "dist_m": 11295.94,
+    "nearest_way": {
+     "id": 152108921,
+     "highway": "unclassified",
+     "name": "Redstone Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Deersdale",
+     "type": "hamlet",
+     "dist_m": 27434.1,
+     "lat": 46.496632,
+     "lon": -67.042121
+    },
+    "detail": "detail/ca-nb/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 46.600534,
+    "lon": -66.838186,
+    "dist_m": 10451.47,
+    "nearest_way": {
+     "id": 151315013,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Deersdale",
+     "type": "hamlet",
+     "dist_m": 19443.0,
+     "lat": 46.496632,
+     "lon": -67.042121
+    },
+    "detail": "detail/ca-nb/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 47.243941,
+    "lon": -67.562934,
+    "dist_m": 10220.3,
+    "nearest_way": {
+     "id": 70194877,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Saint-André",
+     "type": "village",
+     "dist_m": 21768.5,
+     "lat": 47.101078,
+     "lon": -67.759298
+    },
+    "detail": "detail/ca-nb/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.251007,
+    "lon": -65.370502,
+    "dist_m": 9711.55,
+    "nearest_way": {
+     "id": 1377084182,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Harcourt",
+     "type": "village",
+     "dist_m": 26156.3,
+     "lat": 46.469846,
+     "lon": -65.245588
+    },
+    "detail": "detail/ca-nb/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.551982,
+    "lon": -66.954919,
+    "dist_m": 9047.31,
+    "nearest_way": {
+     "id": 1313841978,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Deersdale",
+     "type": "hamlet",
+     "dist_m": 9089.8,
+     "lat": 46.496632,
+     "lon": -67.042121
+    },
+    "detail": "detail/ca-nb/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 47.159381,
+    "lon": -65.031464,
+    "dist_m": 8264.7,
+    "nearest_way": {
+     "id": 161004468,
+     "highway": "tertiary",
+     "name": "Chemin Bayview",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Burnt Church (Esgenoôpetitj)",
+     "type": "village",
+     "dist_m": 8570.3,
+     "lat": 47.20645,
+     "lon": -65.121011
+    },
+    "detail": "detail/ca-nb/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 44.499745,
+    "lon": -67.100304,
+    "dist_m": 18027.14,
+    "nearest_way": {
+     "id": 11498589,
+     "highway": "service",
+     "name": "Daniels Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cutler",
+     "type": "village",
+     "dist_m": 19349.3,
+     "lat": 44.657365,
+     "lon": -67.203831
+    },
+    "detail": "detail/ca-nb/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 46.64345,
+    "lon": -66.960967,
+    "dist_m": 16601.63,
+    "nearest_way": {
+     "id": 151315013,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Deersdale",
+     "type": "hamlet",
+     "dist_m": 17466.3,
+     "lat": 46.496632,
+     "lon": -67.042121
+    },
+    "detail": "detail/ca-nb/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 44.48431,
+    "lon": -66.850174,
+    "dist_m": 13167.68,
+    "nearest_way": {
+     "id": 1414049866,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Deep Cove",
+     "type": "hamlet",
+     "dist_m": 14899.1,
+     "lat": 44.617666,
+     "lon": -66.869602
+    },
+    "detail": "detail/ca-nb/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 44.93675,
+    "lon": -66.73204,
+    "dist_m": 12843.02,
+    "nearest_way": {
+     "id": 116528718,
+     "highway": "secondary",
+     "name": "Deadmans Harbour Road",
+     "ref": "NB 778",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Deadmans Harbour",
+     "type": "hamlet",
+     "dist_m": 13207.8,
+     "lat": 45.05286,
+     "lon": -66.767789
+    },
+    "detail": "detail/ca-nb/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 45.309964,
+    "lon": -66.421405,
+    "dist_m": 12290.08,
+    "nearest_way": {
+     "id": 76535722,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nerepis",
+     "type": "hamlet",
+     "dist_m": 14765.2,
+     "lat": 45.401442,
+     "lon": -66.284757
+    },
+    "detail": "detail/ca-nb/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 46.682336,
+    "lon": -67.085272,
+    "dist_m": 12062.39,
+    "nearest_way": {
+     "id": 412997902,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Juniper",
+     "type": "village",
+     "dist_m": 17930.7,
+     "lat": 46.55098,
+     "lon": -67.221129
+    },
+    "detail": "detail/ca-nb/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.717309,
+    "lon": -66.881803,
+    "dist_m": 11295.94,
+    "nearest_way": {
+     "id": 152108921,
+     "highway": "unclassified",
+     "name": "Redstone Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Deersdale",
+     "type": "hamlet",
+     "dist_m": 27434.1,
+     "lat": 46.496632,
+     "lon": -67.042121
+    },
+    "detail": "detail/ca-nb/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 47.230605,
+    "lon": -67.568642,
+    "dist_m": 10816.04,
+    "nearest_way": {
+     "id": 70194877,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Saint-André",
+     "type": "village",
+     "dist_m": 20404.1,
+     "lat": 47.101078,
+     "lon": -67.759298
+    },
+    "detail": "detail/ca-nb/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.600534,
+    "lon": -66.838186,
+    "dist_m": 10451.47,
+    "nearest_way": {
+     "id": 151315013,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Deersdale",
+     "type": "hamlet",
+     "dist_m": 19443.0,
+     "lat": 46.496632,
+     "lon": -67.042121
+    },
+    "detail": "detail/ca-nb/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 47.606059,
+    "lon": -66.760087,
+    "dist_m": 10318.4,
+    "nearest_way": {
+     "id": 166664395,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Runnymede",
+     "type": "hamlet",
+     "dist_m": 35789.3,
+     "lat": 47.901556,
+     "lon": -66.949374
+    },
+    "detail": "detail/ca-nb/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

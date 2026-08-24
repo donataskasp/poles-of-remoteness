@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-ky",
+ "name": "Kentucky",
+ "name_en": "Kentucky",
+ "country": "us",
+ "area_km2": 104205.6,
+ "bbox": [
+  -89.571509,
+  36.497118,
+  -81.9645413,
+  39.1477997
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 37.199809,
+    "lon": -86.179036,
+    "dist_m": 3036.94,
+    "nearest_way": {
+     "id": 16157567,
+     "highway": "unclassified",
+     "name": "Good Spring Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Arthur",
+     "type": "hamlet",
+     "dist_m": 3636.7,
+     "lat": 37.175603,
+     "lon": -86.206643
+    },
+    "detail": "detail/us-ky/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 37.963049,
+    "lon": -85.905913,
+    "dist_m": 2976.85,
+    "nearest_way": {
+     "id": 1286146578,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Katharyn",
+     "type": "hamlet",
+     "dist_m": 4660.1,
+     "lat": 38.000905,
+     "lon": -85.928852
+    },
+    "detail": "detail/us-ky/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 36.619711,
+    "lon": -84.610857,
+    "dist_m": 2838.88,
+    "nearest_way": {
+     "id": 668004736,
+     "highway": "track",
+     "name": "Closed Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fidelity",
+     "type": "hamlet",
+     "dist_m": 4880.7,
+     "lat": 36.663687,
+     "lon": -84.60994
+    },
+    "detail": "detail/us-ky/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 36.778249,
+    "lon": -83.433441,
+    "dist_m": 2758.42,
+    "nearest_way": {
+     "id": 1226693067,
+     "highway": "track",
+     "name": "Rocky Branch Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kentenia",
+     "type": "hamlet",
+     "dist_m": 3513.2,
+     "lat": 36.796198,
+     "lon": -83.401019
+    },
+    "detail": "detail/us-ky/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 36.67105,
+    "lon": -83.462662,
+    "dist_m": 2757.94,
+    "nearest_way": {
+     "id": 16084090,
+     "highway": "residential",
+     "name": "Lee Acres Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ewing",
+     "type": "village",
+     "dist_m": 4713.0,
+     "lat": 36.636753,
+     "lon": -83.431574
+    },
+    "detail": "detail/us-ky/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 36.848065,
+    "lon": -83.670215,
+    "dist_m": 2708.34,
+    "nearest_way": {
+     "id": 16254442,
+     "highway": "residential",
+     "name": "Roaring Fork Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Blanche",
+     "type": "hamlet",
+     "dist_m": 3580.8,
+     "lat": 36.818142,
+     "lon": -83.655194
+    },
+    "detail": "detail/us-ky/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 36.677531,
+    "lon": -87.731685,
+    "dist_m": 2705.22,
+    "nearest_way": {
+     "id": 1231445127,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Roaring Spring",
+     "type": "hamlet",
+     "dist_m": 5774.1,
+     "lat": 36.725604,
+     "lon": -87.70696
+    },
+    "detail": "detail/us-ky/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.523618,
+    "lon": -83.289442,
+    "dist_m": 2670.18,
+    "nearest_way": {
+     "id": 16281805,
+     "highway": "residential",
+     "name": "Mills Branch Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kinniconick",
+     "type": "hamlet",
+     "dist_m": 4239.8,
+     "lat": 38.521188,
+     "lon": -83.337962
+    },
+    "detail": "detail/us-ky/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 36.788538,
+    "lon": -89.142869,
+    "dist_m": 2628.84,
+    "nearest_way": {
+     "id": 18587568,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Belmont Landing",
+     "type": "hamlet",
+     "dist_m": 3093.6,
+     "lat": 36.766446,
+     "lon": -89.121734
+    },
+    "detail": "detail/us-ky/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 37.027153,
+    "lon": -83.319006,
+    "dist_m": 2561.69,
+    "nearest_way": {
+     "id": 16273319,
+     "highway": "residential",
+     "name": "Lower Bad Creek Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chappell",
+     "type": "hamlet",
+     "dist_m": 3286.9,
+     "lat": 37.010924,
+     "lon": -83.349903
+    },
+    "detail": "detail/us-ky/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 37.911844,
+    "lon": -85.810316,
+    "dist_m": 4175.21,
+    "nearest_way": {
+     "id": 837562788,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pitts Point",
+     "type": "hamlet",
+     "dist_m": 1488.1,
+     "lat": 37.916734,
+     "lon": -85.826072
+    },
+    "detail": "detail/us-ky/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 37.462375,
+    "lon": -83.115417,
+    "dist_m": 3659.58,
+    "nearest_way": {
+     "id": 16246388,
+     "highway": "secondary",
+     "name": "Elmrock Decoy Road",
+     "ref": "KY 1098",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Decoy",
+     "type": "hamlet",
+     "dist_m": 4148.3,
+     "lat": 37.495651,
+     "lon": -83.094059
+    },
+    "detail": "detail/us-ky/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 36.613042,
+    "lon": -84.603181,
+    "dist_m": 3595.54,
+    "nearest_way": {
+     "id": 1313093280,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Foster Crossroads",
+     "type": "hamlet",
+     "dist_m": 5405.8,
+     "lat": 36.583133,
+     "lon": -84.555495
+    },
+    "detail": "detail/us-ky/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 36.663098,
+    "lon": -83.778227,
+    "dist_m": 3374.94,
+    "nearest_way": {
+     "id": 16088380,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Davisburg",
+     "type": "hamlet",
+     "dist_m": 4418.8,
+     "lat": 36.679528,
+     "lon": -83.823254
+    },
+    "detail": "detail/us-ky/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 36.667253,
+    "lon": -87.724837,
+    "dist_m": 3318.24,
+    "nearest_way": {
+     "id": 16364415,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "La Fayette",
+     "type": "hamlet",
+     "dist_m": 6025.3,
+     "lat": 36.658382,
+     "lon": -87.658349
+    },
+    "detail": "detail/us-ky/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 36.696023,
+    "lon": -84.80292,
+    "dist_m": 3263.42,
+    "nearest_way": {
+     "id": 16375018,
+     "highway": "residential",
+     "name": "Blue Hollow Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Burfield",
+     "type": "hamlet",
+     "dist_m": 3571.2,
+     "lat": 36.726461,
+     "lon": -84.789943
+    },
+    "detail": "detail/us-ky/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 36.585817,
+    "lon": -83.841471,
+    "dist_m": 3225.66,
+    "nearest_way": {
+     "id": 19427368,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Capito",
+     "type": "hamlet",
+     "dist_m": 3304.9,
+     "lat": 36.614249,
+     "lon": -83.830475
+    },
+    "detail": "detail/us-ky/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 36.812713,
+    "lon": -84.313684,
+    "dist_m": 3203.8,
+    "nearest_way": {
+     "id": 872803583,
+     "highway": "residential",
+     "name": "Mulberry Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Honeybee",
+     "type": "hamlet",
+     "dist_m": 6115.4,
+     "lat": 36.84147,
+     "lon": -84.37216
+    },
+    "detail": "detail/us-ky/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 37.577513,
+    "lon": -83.056232,
+    "dist_m": 3178.78,
+    "nearest_way": {
+     "id": 16296883,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Duco",
+     "type": "hamlet",
+     "dist_m": 4045.5,
+     "lat": 37.60565,
+     "lon": -83.027113
+    },
+    "detail": "detail/us-ky/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 37.199809,
+    "lon": -86.179036,
+    "dist_m": 3036.94,
+    "nearest_way": {
+     "id": 16157567,
+     "highway": "unclassified",
+     "name": "Good Spring Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Arthur",
+     "type": "hamlet",
+     "dist_m": 3636.7,
+     "lat": 37.175603,
+     "lon": -86.206643
+    },
+    "detail": "detail/us-ky/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

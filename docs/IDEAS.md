@@ -18,7 +18,7 @@ The design as first thought through:
 
 ## Naming and URLs (decide with the domain, not before; now stage 6, issue #12)
 
-"Atokiausia Lietuva" stops being accurate the moment the map covers Europe, so a rename is coming. Park it until the domain is bought, then do it ONCE, because the pieces move together:
+Done 2026-08-24 (stage 6): the rename happened once, as designed. polesofremoteness.com is the primary URL; the worker rename broke no public link because the old workers.dev name lives on as a permanent redirect; the analytics series restarted as `poles_views`; the repo is `poles-of-remoteness`. The considerations that shaped it, kept for the record:
 
 - Worker name in `wrangler.jsonc` is what generates the workers.dev hostname; changing it changes the primary URL and **breaks the LinkedIn launch post link**, which is currently the project's only inbound traffic source. A custom domain absorbs this permanently: point the domain at the worker, and future renames never break a public link again.
 - Repo rename is cheap (GitHub redirects the old path) and now touches nothing user-facing, since the repo is private and serves no site.
@@ -46,3 +46,7 @@ Honest premise: little unique value on its own; the point is learning the publis
 ## Marketing follow-ups
 
 - The Europe build is a natural second LinkedIn post; the app a third. Launch pattern observed: ~60% of all traffic in the first hour, one-day half-life, so publish when people are online (evening worked).
+
+## Distance to anything (owner idea, 2026-08-20)
+
+Not only "how far from any road" but "how far from any shop, building, bus stop, pub, railway station". The pipeline is already shaped for it: a scenario is a tag filter over OSM objects followed by the same tiled distance transform, so each new layer is one more filter in the extract stage (points work like lines) plus one grid run (about an hour for Europe) and one more tile archive (about 155 MB per layer at 250 m, measured 2026-08-20). The extract stage currently drops everything but roads, borders, settlements, and water, so adding a layer means keeping one more tag class there. Open questions when this is picked up: which features people would actually care about, whether a layer ranks per unit like roads do or is explore-only, and the storage budget on R2 (each layer is another archive per snapshot). Parked until the road version has shipped.

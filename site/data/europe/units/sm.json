@@ -1,0 +1,73 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "sm",
+ "name": "San Marino",
+ "name_en": "San Marino",
+ "country": "sm",
+ "area_km2": 68.0,
+ "bbox": [
+  12.402433,
+  43.893632,
+  12.5169591,
+  43.992042
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 43.937559,
+    "lon": 12.42422,
+    "dist_m": 421.82,
+    "nearest_way": {
+     "id": 1041625300,
+     "highway": "unclassified",
+     "name": "Strada Prima Gualdaria",
+     "ref": null,
+     "country": "sm"
+    },
+    "nearest_place": {
+     "name": "Cà Torre",
+     "type": "hamlet",
+     "dist_m": 462.1,
+     "lat": 43.936679,
+     "lon": 12.429845
+    },
+    "detail": "detail/sm/A-1",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 1 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 43.914921,
+    "lon": 12.49343,
+    "dist_m": 546.07,
+    "nearest_way": {
+     "id": 295604830,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "sm"
+    },
+    "nearest_place": {
+     "name": "Crete",
+     "type": "hamlet",
+     "dist_m": 230.9,
+     "lat": 43.913223,
+     "lon": 12.491774
+    },
+    "detail": "detail/sm/B-1",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 1 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ }
+}

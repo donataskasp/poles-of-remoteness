@@ -1,0 +1,73 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "va",
+ "name": "Civitas Vaticana - Città del Vaticano",
+ "name_en": "Vatican City",
+ "country": "va",
+ "area_km2": 1.0,
+ "bbox": [
+  12.4457878,
+  41.9002048,
+  12.4583653,
+  41.9073829
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.902473,
+    "lon": 12.457251,
+    "dist_m": 126.34,
+    "nearest_way": {
+     "id": 1418663362,
+     "highway": "service",
+     "name": "Largo degli Alicorni",
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Rome",
+     "type": "city",
+     "dist_m": 2361.1,
+     "lat": 41.89332,
+     "lon": 12.482932
+    },
+    "detail": "detail/va/A-1",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 1 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.902473,
+    "lon": 12.457251,
+    "dist_m": 126.34,
+    "nearest_way": {
+     "id": 1418663362,
+     "highway": "service",
+     "name": "Largo degli Alicorni",
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Rome",
+     "type": "city",
+     "dist_m": 2361.1,
+     "lat": 41.89332,
+     "lon": 12.482932
+    },
+    "detail": "detail/va/B-1",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 1 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ }
+}

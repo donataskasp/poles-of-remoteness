@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "gr",
+ "name": "Ελλάς",
+ "name_en": "Greece",
+ "country": "gr",
+ "area_km2": 133933.1,
+ "bbox": [
+  19.1127535,
+  34.7188863,
+  29.68381,
+  41.7488889
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 35.925229,
+    "lon": 26.509093,
+    "dist_m": 61797.96,
+    "nearest_way": {
+     "id": 600175199,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Sokastro",
+     "type": "hamlet",
+     "dist_m": 61584.7,
+     "lat": 35.596458,
+     "lon": 27.057758
+    },
+    "detail": "detail/gr/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 35.865141,
+    "lon": 26.228151,
+    "dist_m": 61389.19,
+    "nearest_way": {
+     "id": 890073308,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Kyriamadi",
+     "type": "hamlet",
+     "dist_m": 62394.6,
+     "lat": 35.305623,
+     "lon": 26.297269
+    },
+    "detail": "detail/gr/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 35.828484,
+    "lon": 26.463318,
+    "dist_m": 58526.18,
+    "nearest_way": {
+     "id": 890073308,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Sokastro",
+     "type": "hamlet",
+     "dist_m": 59633.8,
+     "lat": 35.596458,
+     "lon": 27.057758
+    },
+    "detail": "detail/gr/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 35.99987,
+    "lon": 26.434907,
+    "dist_m": 57981.77,
+    "nearest_way": {
+     "id": 124910061,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Livadia",
+     "type": "village",
+     "dist_m": 60939.7,
+     "lat": 36.543852,
+     "lon": 26.341779
+    },
+    "detail": "detail/gr/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 36.77018,
+    "lon": 23.603551,
+    "dist_m": 45289.53,
+    "nearest_way": {
+     "id": 273191187,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Geraka Port",
+     "type": "hamlet",
+     "dist_m": 46197.4,
+     "lat": 36.785723,
+     "lon": 23.086409
+    },
+    "detail": "detail/gr/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 36.846179,
+    "lon": 23.87362,
+    "dist_m": 43284.29,
+    "nearest_way": {
+     "id": 203623403,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Ραλάκι Χάλακος",
+     "type": "isolated_dwelling",
+     "dist_m": 47912.6,
+     "lat": 36.699494,
+     "lon": 24.378379
+    },
+    "detail": "detail/gr/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 36.282035,
+    "lon": 26.752949,
+    "dist_m": 43105.23,
+    "nearest_way": {
+     "id": 307592845,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Analipsi",
+     "type": "village",
+     "dist_m": 46505.1,
+     "lat": 36.577192,
+     "lon": 26.384774
+    },
+    "detail": "detail/gr/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.169014,
+    "lon": 25.300091,
+    "dist_m": 42670.19,
+    "nearest_way": {
+     "id": 355301677,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Psara",
+     "type": "village",
+     "dist_m": 47169.1,
+     "lat": 38.539912,
+     "lon": 25.563447
+    },
+    "detail": "detail/gr/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 36.913546,
+    "lon": 23.469202,
+    "dist_m": 36362.39,
+    "nearest_way": {
+     "id": 273191187,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Geraka Port",
+     "type": "hamlet",
+     "dist_m": 36969.7,
+     "lat": 36.785723,
+     "lon": 23.086409
+    },
+    "detail": "detail/gr/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 35.893744,
+    "lon": 26.814684,
+    "dist_m": 35100.03,
+    "nearest_way": {
+     "id": 484628253,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Avlona",
+     "type": "village",
+     "dist_m": 35677.4,
+     "lat": 35.774237,
+     "lon": 27.181269
+    },
+    "detail": "detail/gr/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 35.925229,
+    "lon": 26.509093,
+    "dist_m": 62615.9,
+    "nearest_way": {
+     "id": 273492874,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Sokastro",
+     "type": "hamlet",
+     "dist_m": 61584.7,
+     "lat": 35.596458,
+     "lon": 27.057758
+    },
+    "detail": "detail/gr/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 35.865141,
+    "lon": 26.228151,
+    "dist_m": 61389.19,
+    "nearest_way": {
+     "id": 890073308,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Kyriamadi",
+     "type": "hamlet",
+     "dist_m": 62394.6,
+     "lat": 35.305623,
+     "lon": 26.297269
+    },
+    "detail": "detail/gr/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 35.828484,
+    "lon": 26.463318,
+    "dist_m": 58526.18,
+    "nearest_way": {
+     "id": 890073308,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Sokastro",
+     "type": "hamlet",
+     "dist_m": 59633.8,
+     "lat": 35.596458,
+     "lon": 27.057758
+    },
+    "detail": "detail/gr/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 35.99987,
+    "lon": 26.434907,
+    "dist_m": 57981.77,
+    "nearest_way": {
+     "id": 124910061,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Livadia",
+     "type": "village",
+     "dist_m": 60939.7,
+     "lat": 36.543852,
+     "lon": 26.341779
+    },
+    "detail": "detail/gr/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 36.846179,
+    "lon": 23.87362,
+    "dist_m": 48082.35,
+    "nearest_way": {
+     "id": 71897670,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Ραλάκι Χάλακος",
+     "type": "isolated_dwelling",
+     "dist_m": 47912.6,
+     "lat": 36.699494,
+     "lon": 24.378379
+    },
+    "detail": "detail/gr/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 38.169014,
+    "lon": 25.300091,
+    "dist_m": 46555.53,
+    "nearest_way": {
+     "id": 444241638,
+     "highway": "secondary",
+     "name": "Αποίκια - Μπατσί",
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Psara",
+     "type": "village",
+     "dist_m": 47169.1,
+     "lat": 38.539912,
+     "lon": 25.563447
+    },
+    "detail": "detail/gr/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 36.77018,
+    "lon": 23.603551,
+    "dist_m": 46046.0,
+    "nearest_way": {
+     "id": 229479595,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Geraka Port",
+     "type": "hamlet",
+     "dist_m": 46197.4,
+     "lat": 36.785723,
+     "lon": 23.086409
+    },
+    "detail": "detail/gr/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 36.282035,
+    "lon": 26.752949,
+    "dist_m": 44860.34,
+    "nearest_way": {
+     "id": 307592841,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Analipsi",
+     "type": "village",
+     "dist_m": 46505.1,
+     "lat": 36.577192,
+     "lon": 26.384774
+    },
+    "detail": "detail/gr/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 36.913546,
+    "lon": 23.469202,
+    "dist_m": 36556.11,
+    "nearest_way": {
+     "id": 968711580,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Geraka Port",
+     "type": "hamlet",
+     "dist_m": 36969.7,
+     "lat": 36.785723,
+     "lon": 23.086409
+    },
+    "detail": "detail/gr/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 35.893744,
+    "lon": 26.814684,
+    "dist_m": 35287.45,
+    "nearest_way": {
+     "id": 273492874,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Avlona",
+     "type": "village",
+     "dist_m": 35677.4,
+     "lat": 35.774237,
+     "lon": 27.181269
+    },
+    "detail": "detail/gr/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

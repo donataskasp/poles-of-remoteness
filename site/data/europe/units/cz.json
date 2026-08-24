@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "cz",
+ "name": "Česko",
+ "name_en": "Czechia",
+ "country": "cz",
+ "area_km2": 79099.5,
+ "bbox": [
+  12.0905752,
+  48.5518081,
+  18.8592531,
+  51.0557008
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 50.569538,
+    "lon": 13.713002,
+    "dist_m": 2062.74,
+    "nearest_way": {
+     "id": 1335338515,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Braňany",
+     "type": "village",
+     "dist_m": 3107.0,
+     "lat": 50.542836,
+     "lon": 13.700142
+    },
+    "detail": "detail/cz/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 50.754276,
+    "lon": 15.661952,
+    "dist_m": 1778.51,
+    "nearest_way": {
+     "id": 65406778,
+     "highway": "track",
+     "name": "Hollmanova cesta",
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Odrodzenie",
+     "type": "isolated_dwelling",
+     "dist_m": 1879.4,
+     "lat": 50.763476,
+     "lon": 15.639612
+    },
+    "detail": "detail/cz/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 50.415655,
+    "lon": 13.387977,
+    "dist_m": 1726.53,
+    "nearest_way": {
+     "id": 1503421432,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Březno",
+     "type": "village",
+     "dist_m": 2831.9,
+     "lat": 50.40195,
+     "lon": 13.421549
+    },
+    "detail": "detail/cz/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 48.898665,
+    "lon": 16.612352,
+    "dist_m": 1359.26,
+    "nearest_way": {
+     "id": 46888189,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Dolní Věstonice",
+     "type": "village",
+     "dist_m": 2629.4,
+     "lat": 48.888174,
+     "lon": 16.644487
+    },
+    "detail": "detail/cz/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 50.496652,
+    "lon": 13.545535,
+    "dist_m": 1350.74,
+    "nearest_way": {
+     "id": 345201446,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Strupčice",
+     "type": "village",
+     "dist_m": 3017.2,
+     "lat": 50.471342,
+     "lon": 13.530249
+    },
+    "detail": "detail/cz/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 48.958016,
+    "lon": 13.506109,
+    "dist_m": 1343.25,
+    "nearest_way": {
+     "id": 37948755,
+     "highway": "track",
+     "name": "Luzenská cesta",
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Březník",
+     "type": "isolated_dwelling",
+     "dist_m": 2263.8,
+     "lat": 48.971393,
+     "lon": 13.482805
+    },
+    "detail": "detail/cz/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 50.243972,
+    "lon": 13.290006,
+    "dist_m": 1293.5,
+    "nearest_way": {
+     "id": 279088831,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "22117",
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Chmelištná",
+     "type": "hamlet",
+     "dist_m": 1414.3,
+     "lat": 50.235805,
+     "lon": 13.274812
+    },
+    "detail": "detail/cz/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 48.706907,
+    "lon": 14.050121,
+    "dist_m": 1280.12,
+    "nearest_way": {
+     "id": 695720848,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "bývalá Horní Borková",
+     "type": "hamlet",
+     "dist_m": 165.8,
+     "lat": 48.706377,
+     "lon": 14.048015
+    },
+    "detail": "detail/cz/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 48.817042,
+    "lon": 16.718104,
+    "dist_m": 1242.62,
+    "nearest_way": {
+     "id": 27468570,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "42119",
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Bulhary",
+     "type": "village",
+     "dist_m": 2762.8,
+     "lat": 48.831466,
+     "lon": 16.748739
+    },
+    "detail": "detail/cz/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 50.332466,
+    "lon": 14.100166,
+    "dist_m": 1220.05,
+    "nearest_way": {
+     "id": 1049257164,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Loucká",
+     "type": "hamlet",
+     "dist_m": 1408.8,
+     "lat": 50.344957,
+     "lon": 14.103439
+    },
+    "detail": "detail/cz/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 49.009186,
+    "lon": 13.406218,
+    "dist_m": 5771.29,
+    "nearest_way": {
+     "id": 186526160,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Hirschbach",
+     "type": "isolated_dwelling",
+     "dist_m": 3423.0,
+     "lat": 49.011162,
+     "lon": 13.359525
+    },
+    "detail": "detail/cz/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 50.164365,
+    "lon": 17.271384,
+    "dist_m": 5023.11,
+    "nearest_way": {
+     "id": 261442089,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Bílý Potok",
+     "type": "hamlet",
+     "dist_m": 5089.9,
+     "lat": 50.130588,
+     "lon": 17.319427
+    },
+    "detail": "detail/cz/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 48.843512,
+    "lon": 14.041114,
+    "dist_m": 4400.69,
+    "nearest_way": {
+     "id": 434328996,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Otice",
+     "type": "hamlet",
+     "dist_m": 5862.8,
+     "lat": 48.799766,
+     "lon": 14.085673
+    },
+    "detail": "detail/cz/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 50.195093,
+    "lon": 16.838812,
+    "dist_m": 4327.1,
+    "nearest_way": {
+     "id": 460135393,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Stříbrnice",
+     "type": "village",
+     "dist_m": 4820.3,
+     "lat": 50.179173,
+     "lon": 16.901588
+    },
+    "detail": "detail/cz/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 49.104723,
+    "lon": 13.312367,
+    "dist_m": 4317.93,
+    "nearest_way": {
+     "id": 1035424087,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Scheuereck",
+     "type": "hamlet",
+     "dist_m": 4609.3,
+     "lat": 49.063506,
+     "lon": 13.305743
+    },
+    "detail": "detail/cz/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 50.83348,
+    "lon": 15.211503,
+    "dist_m": 4035.69,
+    "nearest_way": {
+     "id": 42553198,
+     "highway": "service",
+     "name": "Bílý Potok",
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Bílý Potok",
+     "type": "village",
+     "dist_m": 4528.1,
+     "lat": 50.873675,
+     "lon": 15.221633
+    },
+    "detail": "detail/cz/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 50.166054,
+    "lon": 17.109123,
+    "dist_m": 3988.42,
+    "nearest_way": {
+     "id": 41665188,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Josefová",
+     "type": "hamlet",
+     "dist_m": 3660.8,
+     "lat": 50.148308,
+     "lon": 17.06598
+    },
+    "detail": "detail/cz/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 50.009671,
+    "lon": 17.208844,
+    "dist_m": 3827.09,
+    "nearest_way": {
+     "id": 9624396,
+     "highway": "primary",
+     "name": null,
+     "ref": "11",
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Žďárský Potok",
+     "type": "hamlet",
+     "dist_m": 3995.8,
+     "lat": 49.973748,
+     "lon": 17.209015
+    },
+    "detail": "detail/cz/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 48.934798,
+    "lon": 13.662742,
+    "dist_m": 3622.65,
+    "nearest_way": {
+     "id": 202581601,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "U Pískovny",
+     "type": "hamlet",
+     "dist_m": 1422.9,
+     "lat": 48.922294,
+     "lon": 13.66686
+    },
+    "detail": "detail/cz/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 48.770035,
+    "lon": 13.877491,
+    "dist_m": 3610.05,
+    "nearest_way": {
+     "id": 840965579,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Oberschwarzenberg",
+     "type": "hamlet",
+     "dist_m": 3883.2,
+     "lat": 48.747679,
+     "lon": 13.836919
+    },
+    "detail": "detail/cz/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

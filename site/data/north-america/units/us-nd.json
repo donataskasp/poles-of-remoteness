@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-nd",
+ "name": "North Dakota",
+ "name_en": "North Dakota",
+ "country": "us",
+ "area_km2": 181091.5,
+ "bbox": [
+  -104.048949,
+  45.934999,
+  -96.5543975,
+  49.0005765
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 47.537699,
+    "lon": -102.452266,
+    "dist_m": 3469.09,
+    "nearest_way": {
+     "id": 9656947,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Charging Eagle Bay",
+     "type": "hamlet",
+     "dist_m": 6970.5,
+     "lat": 47.583659,
+     "lon": -102.38927
+    },
+    "detail": "detail/us-nd/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 46.99392,
+    "lon": -103.550822,
+    "dist_m": 3384.67,
+    "nearest_way": {
+     "id": 9589963,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Scoria Point",
+     "type": "hamlet",
+     "dist_m": 8557.8,
+     "lat": 46.931331,
+     "lon": -103.485362
+    },
+    "detail": "detail/us-nd/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 47.580863,
+    "lon": -103.411197,
+    "dist_m": 3377.01,
+    "nearest_way": {
+     "id": 78901688,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Grassy Butte",
+     "type": "hamlet",
+     "dist_m": 24286.6,
+     "lat": 47.392514,
+     "lon": -103.247966
+    },
+    "detail": "detail/us-nd/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 46.325966,
+    "lon": -100.852035,
+    "dist_m": 3343.97,
+    "nearest_way": {
+     "id": 9780397,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Solen",
+     "type": "hamlet",
+     "dist_m": 7949.6,
+     "lat": 46.386505,
+     "lon": -100.797047
+    },
+    "detail": "detail/us-nd/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 47.8963,
+    "lon": -102.378246,
+    "dist_m": 3167.67,
+    "nearest_way": {
+     "id": 9736544,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Van Hook",
+     "type": "village",
+     "dist_m": 6032.9,
+     "lat": 47.948783,
+     "lon": -102.357766
+    },
+    "detail": "detail/us-nd/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 46.265629,
+    "lon": -100.984371,
+    "dist_m": 3124.54,
+    "nearest_way": {
+     "id": 9779003,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Porcupine",
+     "type": "village",
+     "dist_m": 10070.0,
+     "lat": 46.220174,
+     "lon": -101.097315
+    },
+    "detail": "detail/us-nd/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 47.575035,
+    "lon": -101.320102,
+    "dist_m": 3013.48,
+    "nearest_way": {
+     "id": 859357416,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Coleharbor",
+     "type": "hamlet",
+     "dist_m": 8021.4,
+     "lat": 47.544165,
+     "lon": -101.223766
+    },
+    "detail": "detail/us-nd/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 48.298816,
+    "lon": -99.138791,
+    "dist_m": 2883.89,
+    "nearest_way": {
+     "id": 9749696,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Churchs Ferry",
+     "type": "hamlet",
+     "dist_m": 5371.2,
+     "lat": 48.270644,
+     "lon": -99.19758
+    },
+    "detail": "detail/us-nd/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.91536,
+    "lon": -103.35345,
+    "dist_m": 2872.83,
+    "nearest_way": {
+     "id": 9586453,
+     "highway": "unclassified",
+     "name": "Government Creek Road",
+     "ref": "735",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sully Springs",
+     "type": "hamlet",
+     "dist_m": 6087.8,
+     "lat": 46.867235,
+     "lon": -103.391571
+    },
+    "detail": "detail/us-nd/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 47.771213,
+    "lon": -102.296877,
+    "dist_m": 2825.22,
+    "nearest_way": {
+     "id": 9656486,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Brendle's Bay",
+     "type": "hamlet",
+     "dist_m": 16363.6,
+     "lat": 47.918337,
+     "lon": -102.291282
+    },
+    "detail": "detail/us-nd/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 46.129555,
+    "lon": -100.817098,
+    "dist_m": 6469.3,
+    "nearest_way": {
+     "id": 9777989,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Selfridge",
+     "type": "village",
+     "dist_m": 12878.5,
+     "lat": 46.041389,
+     "lon": -100.92513
+    },
+    "detail": "detail/us-nd/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 46.482225,
+    "lon": -103.785354,
+    "dist_m": 6288.77,
+    "nearest_way": {
+     "id": 1265260142,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Three V Crossing",
+     "type": "hamlet",
+     "dist_m": 8322.1,
+     "lat": 46.556955,
+     "lon": -103.791866
+    },
+    "detail": "detail/us-nd/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 46.0979,
+    "lon": -101.201503,
+    "dist_m": 5840.31,
+    "nearest_way": {
+     "id": 792720946,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Porcupine",
+     "type": "village",
+     "dist_m": 15795.2,
+     "lat": 46.220174,
+     "lon": -101.097315
+    },
+    "detail": "detail/us-nd/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 46.65108,
+    "lon": -103.55474,
+    "dist_m": 5536.76,
+    "nearest_way": {
+     "id": 320178649,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Walser Crossing",
+     "type": "hamlet",
+     "dist_m": 4749.1,
+     "lat": 46.619619,
+     "lon": -103.596699
+    },
+    "detail": "detail/us-nd/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 46.240545,
+    "lon": -100.857694,
+    "dist_m": 4892.26,
+    "nearest_way": {
+     "id": 499568331,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Breien",
+     "type": "hamlet",
+     "dist_m": 16817.2,
+     "lat": 46.379998,
+     "lon": -100.942355
+    },
+    "detail": "detail/us-nd/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 46.681973,
+    "lon": -103.687361,
+    "dist_m": 4831.08,
+    "nearest_way": {
+     "id": 9675064,
+     "highway": "unclassified",
+     "name": "47th Street Southwest",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Walser Crossing",
+     "type": "hamlet",
+     "dist_m": 9808.8,
+     "lat": 46.619619,
+     "lon": -103.596699
+    },
+    "detail": "detail/us-nd/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.108712,
+    "lon": -101.039994,
+    "dist_m": 4784.65,
+    "nearest_way": {
+     "id": 499942518,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Selfridge",
+     "type": "village",
+     "dist_m": 11616.9,
+     "lat": 46.041389,
+     "lon": -100.92513
+    },
+    "detail": "detail/us-nd/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.393552,
+    "lon": -104.045495,
+    "dist_m": 4779.43,
+    "nearest_way": {
+     "id": 1262891279,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Marmarth",
+     "type": "village",
+     "dist_m": 14566.9,
+     "lat": 46.295006,
+     "lon": -103.920761
+    },
+    "detail": "detail/us-nd/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 47.545312,
+    "lon": -101.953317,
+    "dist_m": 4677.93,
+    "nearest_way": {
+     "id": 9725349,
+     "highway": "service",
+     "name": "Bureau of Indian Affairs Road 222",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "White Shield",
+     "type": "village",
+     "dist_m": 15685.4,
+     "lat": 47.665098,
+     "lon": -101.843118
+    },
+    "detail": "detail/us-nd/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 47.563328,
+    "lon": -103.382107,
+    "dist_m": 4625.65,
+    "nearest_way": {
+     "id": 9720795,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Grassy Butte",
+     "type": "hamlet",
+     "dist_m": 21515.0,
+     "lat": 47.392514,
+     "lon": -103.247966
+    },
+    "detail": "detail/us-nd/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

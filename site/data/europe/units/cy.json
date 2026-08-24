@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "cy",
+ "name": "Κύπρος - Kıbrıs",
+ "name_en": "Cyprus",
+ "country": "cy",
+ "area_km2": 9121.4,
+ "bbox": [
+  32.0227581,
+  34.4383706,
+  34.8553182,
+  35.913252
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 35.711796,
+    "lon": 34.60776,
+    "dist_m": 2607.15,
+    "nearest_way": {
+     "id": 188376171,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Rizokarpaso",
+     "type": "town",
+     "dist_m": 24145.9,
+     "lat": 35.59774,
+     "lon": 34.380671
+    },
+    "detail": "detail/cy/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 35.442,
+    "lon": 34.111951,
+    "dist_m": 1846.8,
+    "nearest_way": {
+     "id": 807476144,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "İK.13",
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Koma tou Gialou",
+     "type": "village",
+     "dist_m": 2393.4,
+     "lat": 35.427658,
+     "lon": 34.13164
+    },
+    "detail": "detail/cy/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 35.304243,
+    "lon": 33.662416,
+    "dist_m": 1695.24,
+    "nearest_way": {
+     "id": 95218578,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "GM.95",
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Trypimeni",
+     "type": "village",
+     "dist_m": 2653.7,
+     "lat": 35.310068,
+     "lon": 33.634115
+    },
+    "detail": "detail/cy/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 35.256459,
+    "lon": 33.36177,
+    "dist_m": 1578.65,
+    "nearest_way": {
+     "id": 205769159,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Sichari",
+     "type": "village",
+     "dist_m": 2893.3,
+     "lat": 35.279032,
+     "lon": 33.377693
+    },
+    "detail": "detail/cy/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 34.799679,
+    "lon": 33.109377,
+    "dist_m": 1566.53,
+    "nearest_way": {
+     "id": 1026658864,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Prastio",
+     "type": "village",
+     "dist_m": 3347.3,
+     "lat": 34.81153,
+     "lon": 33.143018
+    },
+    "detail": "detail/cy/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 35.223528,
+    "lon": 33.583393,
+    "dist_m": 1541.9,
+    "nearest_way": {
+     "id": 489212459,
+     "highway": "primary",
+     "name": null,
+     "ref": "D.20",
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Angastina",
+     "type": "village",
+     "dist_m": 2192.3,
+     "lat": 35.204358,
+     "lon": 33.589232
+    },
+    "detail": "detail/cy/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 35.195214,
+    "lon": 33.802036,
+    "dist_m": 1519.88,
+    "nearest_way": {
+     "id": 731792306,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Santalaris",
+     "type": "village",
+     "dist_m": 1886.6,
+     "lat": 35.212057,
+     "lon": 33.799184
+    },
+    "detail": "detail/cy/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 34.969651,
+    "lon": 32.7074,
+    "dist_m": 1504.88,
+    "nearest_way": {
+     "id": 35953784,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Kykkos",
+     "type": "hamlet",
+     "dist_m": 3493.5,
+     "lat": 34.983238,
+     "lon": 32.741914
+    },
+    "detail": "detail/cy/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 35.339545,
+    "lon": 34.02839,
+    "dist_m": 1500.72,
+    "nearest_way": {
+     "id": 330228242,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Gastria",
+     "type": "village",
+     "dist_m": 2618.7,
+     "lat": 35.342474,
+     "lon": 33.999807
+    },
+    "detail": "detail/cy/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 34.722066,
+    "lon": 32.437079,
+    "dist_m": 1469.22,
+    "nearest_way": {
+     "id": 462819151,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Neapolis",
+     "type": "hamlet",
+     "dist_m": 3525.8,
+     "lat": 34.753848,
+     "lon": 32.43726
+    },
+    "detail": "detail/cy/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 35.112433,
+    "lon": 32.281917,
+    "dist_m": 7761.09,
+    "nearest_way": {
+     "id": 190924544,
+     "highway": "unclassified",
+     "name": "Lara Road",
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Neo Chorio",
+     "type": "village",
+     "dist_m": 12087.2,
+     "lat": 35.026539,
+     "lon": 32.363441
+    },
+    "detail": "detail/cy/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 34.976953,
+    "lon": 32.599313,
+    "dist_m": 4477.63,
+    "nearest_way": {
+     "id": 774657475,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Anadiou",
+     "type": "hamlet",
+     "dist_m": 4714.9,
+     "lat": 34.944471,
+     "lon": 32.566024
+    },
+    "detail": "detail/cy/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 35.334762,
+    "lon": 32.935192,
+    "dist_m": 4418.58,
+    "nearest_way": {
+     "id": 806363599,
+     "highway": "secondary",
+     "name": null,
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Agia Eirini",
+     "type": "village",
+     "dist_m": 4761.9,
+     "lat": 35.298681,
+     "lon": 32.963554
+    },
+    "detail": "detail/cy/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 35.058658,
+    "lon": 32.687558,
+    "dist_m": 4205.83,
+    "nearest_way": {
+     "id": 706637056,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Vroisha",
+     "type": "hamlet",
+     "dist_m": 2597.1,
+     "lat": 35.06641,
+     "lon": 32.660693
+    },
+    "detail": "detail/cy/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 35.675837,
+    "lon": 34.504858,
+    "dist_m": 4143.32,
+    "nearest_way": {
+     "id": 967237624,
+     "highway": "tertiary",
+     "name": "Manastır Yolu",
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Rizokarpaso",
+     "type": "town",
+     "dist_m": 14198.9,
+     "lat": 35.59774,
+     "lon": 34.380671
+    },
+    "detail": "detail/cy/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 34.946124,
+    "lon": 32.708321,
+    "dist_m": 3832.37,
+    "nearest_way": {
+     "id": 26596458,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Mylikouri",
+     "type": "village",
+     "dist_m": 4263.2,
+     "lat": 34.962104,
+     "lon": 32.750769
+    },
+    "detail": "detail/cy/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 35.292732,
+    "lon": 33.780856,
+    "dist_m": 3296.18,
+    "nearest_way": {
+     "id": 191238779,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "GM.98",
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Gypsou",
+     "type": "village",
+     "dist_m": 3645.1,
+     "lat": 35.260167,
+     "lon": 33.786164
+    },
+    "detail": "detail/cy/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 35.478205,
+    "lon": 34.273534,
+    "dist_m": 3107.41,
+    "nearest_way": {
+     "id": 333413808,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Koroveia",
+     "type": "village",
+     "dist_m": 3623.7,
+     "lat": 35.510862,
+     "lon": 34.274135
+    },
+    "detail": "detail/cy/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 35.017531,
+    "lon": 32.967459,
+    "dist_m": 2996.71,
+    "nearest_way": {
+     "id": 1221359127,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "F932",
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Kannavia",
+     "type": "village",
+     "dist_m": 3866.5,
+     "lat": 34.983561,
+     "lon": 32.976925
+    },
+    "detail": "detail/cy/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 34.928043,
+    "lon": 32.367945,
+    "dist_m": 2865.84,
+    "nearest_way": {
+     "id": 186825023,
+     "highway": "unclassified",
+     "name": "Lara - Ilia Road",
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Kato Arodes",
+     "type": "hamlet",
+     "dist_m": 3460.8,
+     "lat": 34.940367,
+     "lon": 32.402744
+    },
+    "detail": "detail/cy/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

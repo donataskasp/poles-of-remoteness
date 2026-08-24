@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-ar",
+ "name": "Arkansas",
+ "name_en": "Arkansas",
+ "country": "us",
+ "area_km2": 137066.1,
+ "bbox": [
+  -94.6178753,
+  33.0042455,
+  -89.6425425,
+  36.4996
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 36.113592,
+    "lon": -92.462768,
+    "dist_m": 4386.52,
+    "nearest_way": {
+     "id": 897826162,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Old Buffalo",
+     "type": "hamlet",
+     "dist_m": 6105.5,
+     "lat": 36.168403,
+     "lon": -92.456827
+    },
+    "detail": "detail/us-ar/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 33.185199,
+    "lon": -92.168392,
+    "dist_m": 4077.23,
+    "nearest_way": {
+     "id": 12724347,
+     "highway": "residential",
+     "name": "Bradley Rd 59",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "New Union",
+     "type": "hamlet",
+     "dist_m": 7659.8,
+     "lat": 33.161236,
+     "lon": -92.245416
+    },
+    "detail": "detail/us-ar/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 34.778408,
+    "lon": -91.337858,
+    "dist_m": 3776.96,
+    "nearest_way": {
+     "id": 12865683,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dobbs Landing",
+     "type": "hamlet",
+     "dist_m": 3880.4,
+     "lat": 34.755373,
+     "lon": -91.30596
+    },
+    "detail": "detail/us-ar/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 35.394936,
+    "lon": -90.105754,
+    "dist_m": 3637.53,
+    "nearest_way": {
+     "id": 869082276,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Corona",
+     "type": "hamlet",
+     "dist_m": 5977.1,
+     "lat": 35.445361,
+     "lon": -90.082591
+    },
+    "detail": "detail/us-ar/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 34.525128,
+    "lon": -91.237945,
+    "dist_m": 3571.98,
+    "nearest_way": {
+     "id": 12864970,
+     "highway": "residential",
+     "name": "Sweatts Camp Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mount Adams",
+     "type": "hamlet",
+     "dist_m": 4413.4,
+     "lat": 34.488432,
+     "lon": -91.25651
+    },
+    "detail": "detail/us-ar/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 34.580107,
+    "lon": -93.329021,
+    "dist_m": 3563.79,
+    "nearest_way": {
+     "id": 12817112,
+     "highway": "track",
+     "name": "Target Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Crystal Springs Landing",
+     "type": "hamlet",
+     "dist_m": 4691.4,
+     "lat": 34.547314,
+     "lon": -93.3613
+    },
+    "detail": "detail/us-ar/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 33.988507,
+    "lon": -91.062455,
+    "dist_m": 3536.8,
+    "nearest_way": {
+     "id": 12783398,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stimson",
+     "type": "hamlet",
+     "dist_m": 4658.8,
+     "lat": 34.029549,
+     "lon": -91.073167
+    },
+    "detail": "detail/us-ar/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 33.096698,
+    "lon": -92.131336,
+    "dist_m": 3333.1,
+    "nearest_way": {
+     "id": 13282767,
+     "highway": "residential",
+     "name": "Ashley Road 227",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Felsenthal",
+     "type": "hamlet",
+     "dist_m": 4797.0,
+     "lat": 33.057557,
+     "lon": -92.153197
+    },
+    "detail": "detail/us-ar/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 34.178318,
+    "lon": -91.152758,
+    "dist_m": 3270.79,
+    "nearest_way": {
+     "id": 13266464,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Weber",
+     "type": "hamlet",
+     "dist_m": 4220.2,
+     "lat": 34.145936,
+     "lon": -91.176782
+    },
+    "detail": "detail/us-ar/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 35.737412,
+    "lon": -93.18554,
+    "dist_m": 3214.16,
+    "nearest_way": {
+     "id": 12874697,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dillen",
+     "type": "hamlet",
+     "dist_m": 3261.5,
+     "lat": 35.708136,
+     "lon": -93.188787
+    },
+    "detail": "detail/us-ar/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 34.065349,
+    "lon": -91.118212,
+    "dist_m": 5792.57,
+    "nearest_way": {
+     "id": 1530851199,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mozart",
+     "type": "hamlet",
+     "dist_m": 5657.2,
+     "lat": 34.014827,
+     "lon": -91.109835
+    },
+    "detail": "detail/us-ar/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 36.11988,
+    "lon": -92.450206,
+    "dist_m": 4676.55,
+    "nearest_way": {
+     "id": 897826162,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Buffalo City",
+     "type": "hamlet",
+     "dist_m": 5372.3,
+     "lat": 36.167848,
+     "lon": -92.442104
+    },
+    "detail": "detail/us-ar/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 33.798931,
+    "lon": -91.073963,
+    "dist_m": 4575.31,
+    "nearest_way": {
+     "id": 12787914,
+     "highway": "residential",
+     "name": "Beulah Island Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Beulah Island Landing",
+     "type": "hamlet",
+     "dist_m": 4516.7,
+     "lat": 33.80261,
+     "lon": -91.025386
+    },
+    "detail": "detail/us-ar/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 34.632556,
+    "lon": -90.526308,
+    "dist_m": 4505.23,
+    "nearest_way": {
+     "id": 13974540,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Harbert Landing",
+     "type": "hamlet",
+     "dist_m": 3687.2,
+     "lat": 34.653712,
+     "lon": -90.557327
+    },
+    "detail": "detail/us-ar/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 34.781847,
+    "lon": -91.343258,
+    "dist_m": 4389.75,
+    "nearest_way": {
+     "id": 12867276,
+     "highway": "residential",
+     "name": "Dobbs Landing Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dobbs Landing",
+     "type": "hamlet",
+     "dist_m": 4503.8,
+     "lat": 34.755373,
+     "lon": -91.30596
+    },
+    "detail": "detail/us-ar/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 35.377446,
+    "lon": -90.121586,
+    "dist_m": 4122.55,
+    "nearest_way": {
+     "id": 1185715175,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lambethville",
+     "type": "hamlet",
+     "dist_m": 5444.4,
+     "lat": 35.378696,
+     "lon": -90.181483
+    },
+    "detail": "detail/us-ar/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 33.185199,
+    "lon": -92.168392,
+    "dist_m": 4077.23,
+    "nearest_way": {
+     "id": 12724347,
+     "highway": "residential",
+     "name": "Bradley Rd 59",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "New Union",
+     "type": "hamlet",
+     "dist_m": 7659.8,
+     "lat": 33.161236,
+     "lon": -92.245416
+    },
+    "detail": "detail/us-ar/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 34.170202,
+    "lon": -90.847236,
+    "dist_m": 3921.04,
+    "nearest_way": {
+     "id": 13576751,
+     "highway": "residential",
+     "name": "Topper Landing Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Anderson Landing",
+     "type": "hamlet",
+     "dist_m": 3820.6,
+     "lat": 34.139829,
+     "lon": -90.866773
+    },
+    "detail": "detail/us-ar/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 34.834202,
+    "lon": -92.659567,
+    "dist_m": 3866.72,
+    "nearest_way": {
+     "id": 12917201,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Martindale",
+     "type": "hamlet",
+     "dist_m": 5890.4,
+     "lat": 34.881756,
+     "lon": -92.68822
+    },
+    "detail": "detail/us-ar/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 34.575949,
+    "lon": -93.335344,
+    "dist_m": 3841.87,
+    "nearest_way": {
+     "id": 12802561,
+     "highway": "unclassified",
+     "name": "Tadpole Point",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Crystal Springs Landing",
+     "type": "hamlet",
+     "dist_m": 3970.5,
+     "lat": 34.547314,
+     "lon": -93.3613
+    },
+    "detail": "detail/us-ar/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

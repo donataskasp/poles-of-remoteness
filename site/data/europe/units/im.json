@@ -1,0 +1,359 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "im",
+ "name": "Isle of Man",
+ "name_en": "Isle of Man",
+ "country": "im",
+ "area_km2": 599.8,
+ "bbox": [
+  -5.1707285,
+  53.845,
+  -3.9654061,
+  54.5534288
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 54.037825,
+    "lon": -4.837683,
+    "dist_m": 1558.22,
+    "nearest_way": {
+     "id": 167489832,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Cregneash",
+     "type": "hamlet",
+     "dist_m": 5769.1,
+     "lat": 54.069676,
+     "lon": -4.76819
+    },
+    "detail": "detail/im/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 54.286344,
+    "lon": -4.458341,
+    "dist_m": 1340.18,
+    "nearest_way": {
+     "id": 1004986973,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Ballaskella",
+     "type": "hamlet",
+     "dist_m": 1774.4,
+     "lat": 54.279821,
+     "lon": -4.483199
+    },
+    "detail": "detail/im/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 54.138434,
+    "lon": -4.731382,
+    "dist_m": 1166.3,
+    "nearest_way": {
+     "id": 29497545,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Niarbyl",
+     "type": "hamlet",
+     "dist_m": 2885.6,
+     "lat": 54.163854,
+     "lon": -4.740051
+    },
+    "detail": "detail/im/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 54.403655,
+    "lon": -4.4293,
+    "dist_m": 1090.03,
+    "nearest_way": {
+     "id": 1007482619,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Bride",
+     "type": "village",
+     "dist_m": 3559.6,
+     "lat": 54.382077,
+     "lon": -4.388857
+    },
+    "detail": "detail/im/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 54.204322,
+    "lon": -4.578426,
+    "dist_m": 1082.6,
+    "nearest_way": {
+     "id": 526091171,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Crosby",
+     "type": "village",
+     "dist_m": 2355.9,
+     "lat": 54.184373,
+     "lon": -4.566361
+    },
+    "detail": "detail/im/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 54.113003,
+    "lon": -4.537594,
+    "dist_m": 654.85,
+    "nearest_way": {
+     "id": 167903303,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Crogga",
+     "type": "hamlet",
+     "dist_m": 1405.6,
+     "lat": 54.123205,
+     "lon": -4.550263
+    },
+    "detail": "detail/im/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 54.184413,
+    "lon": -4.401334,
+    "dist_m": 493.9,
+    "nearest_way": {
+     "id": 1094728801,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Baldrine",
+     "type": "village",
+     "dist_m": 2159.1,
+     "lat": 54.203441,
+     "lon": -4.407758
+    },
+    "detail": "detail/im/A-7",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 7 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 54.226614,
+    "lon": -4.560718,
+    "dist_m": 2113.24,
+    "nearest_way": {
+     "id": 30169858,
+     "highway": "secondary",
+     "name": "West Baldwin Road",
+     "ref": "B22",
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Little London",
+     "type": "hamlet",
+     "dist_m": 2202.7,
+     "lat": 54.244135,
+     "lon": -4.57642
+    },
+    "detail": "detail/im/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 54.266584,
+    "lon": -4.411089,
+    "dist_m": 2083.76,
+    "nearest_way": {
+     "id": 925621415,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Agneash",
+     "type": "hamlet",
+     "dist_m": 2290.9,
+     "lat": 54.246023,
+     "lon": -4.40954
+    },
+    "detail": "detail/im/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 54.038044,
+    "lon": -4.837998,
+    "dist_m": 1871.38,
+    "nearest_way": {
+     "id": 104685752,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Cregneash",
+     "type": "hamlet",
+     "dist_m": 5770.4,
+     "lat": 54.069676,
+     "lon": -4.76819
+    },
+    "detail": "detail/im/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 54.143648,
+    "lon": -4.731284,
+    "dist_m": 1644.89,
+    "nearest_way": {
+     "id": 1324884130,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Niarbyl",
+     "type": "hamlet",
+     "dist_m": 2320.9,
+     "lat": 54.163854,
+     "lon": -4.740051
+    },
+    "detail": "detail/im/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 54.411816,
+    "lon": -4.393849,
+    "dist_m": 1357.01,
+    "nearest_way": {
+     "id": 99582496,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Cranstal",
+     "type": "hamlet",
+     "dist_m": 2579.0,
+     "lat": 54.39264,
+     "lon": -4.37156
+    },
+    "detail": "detail/im/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 54.337859,
+    "lon": -4.514098,
+    "dist_m": 882.23,
+    "nearest_way": {
+     "id": 997903208,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Sandygate",
+     "type": "hamlet",
+     "dist_m": 1170.1,
+     "lat": 54.346216,
+     "lon": -4.503185
+    },
+    "detail": "detail/im/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 54.112266,
+    "lon": -4.539273,
+    "dist_m": 750.31,
+    "nearest_way": {
+     "id": 1454398966,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Crogga",
+     "type": "hamlet",
+     "dist_m": 1413.9,
+     "lat": 54.123205,
+     "lon": -4.550263
+    },
+    "detail": "detail/im/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 54.173366,
+    "lon": -4.42058,
+    "dist_m": 271.87,
+    "nearest_way": {
+     "id": 38962191,
+     "highway": "primary",
+     "name": "King Edward Road",
+     "ref": "A11",
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Onchan",
+     "type": "town",
+     "dist_m": 2283.6,
+     "lat": 54.174926,
+     "lon": -4.45545
+    },
+    "detail": "detail/im/B-8",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 8 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ }
+}

@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "ch",
+ "name": "Schweiz/Suisse/Svizzera/Svizra",
+ "name_en": "Switzerland",
+ "country": "ch",
+ "area_km2": 40408.7,
+ "bbox": [
+  5.955902,
+  45.8179585,
+  10.4921713,
+  47.8084543
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 46.536424,
+    "lon": 8.110933,
+    "dist_m": 9843.45,
+    "nearest_way": {
+     "id": 1240406445,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Märjelewang",
+     "type": "isolated_dwelling",
+     "dist_m": 10047.5,
+     "lat": 46.446067,
+     "lon": 8.114305
+    },
+    "detail": "detail/ch/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 46.466624,
+    "lon": 7.987271,
+    "dist_m": 9135.21,
+    "nearest_way": {
+     "id": 127204388,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Hanalpetli",
+     "type": "isolated_dwelling",
+     "dist_m": 8788.0,
+     "lat": 46.520134,
+     "lon": 7.903008
+    },
+    "detail": "detail/ch/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 46.649131,
+    "lon": 8.40078,
+    "dist_m": 7213.31,
+    "nearest_way": {
+     "id": 74851483,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Tiefenbach",
+     "type": "hamlet",
+     "dist_m": 7790.8,
+     "lat": 46.593032,
+     "lon": 8.461752
+    },
+    "detail": "detail/ch/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 45.936149,
+    "lon": 7.844075,
+    "dist_m": 6704.34,
+    "nearest_way": {
+     "id": 297881188,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Alpe Pedriola",
+     "type": "isolated_dwelling",
+     "dist_m": 6046.6,
+     "lat": 45.953711,
+     "lon": 7.91788
+    },
+    "detail": "detail/ch/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 46.603613,
+    "lon": 8.199751,
+    "dist_m": 6448.89,
+    "nearest_way": {
+     "id": 1317944178,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Rohrmatten",
+     "type": "isolated_dwelling",
+     "dist_m": 6497.8,
+     "lat": 46.661946,
+     "lon": 8.205175
+    },
+    "detail": "detail/ch/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 46.375688,
+    "lon": 9.894007,
+    "dist_m": 6388.72,
+    "nearest_way": {
+     "id": 682304821,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Alpe Musella",
+     "type": "hamlet",
+     "dist_m": 6867.7,
+     "lat": 46.31415,
+     "lon": 9.901962
+    },
+    "detail": "detail/ch/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 45.989265,
+    "lon": 7.572219,
+    "dist_m": 6222.52,
+    "nearest_way": {
+     "id": 174896707,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Crot de Labies",
+     "type": "hamlet",
+     "dist_m": 6218.0,
+     "lat": 45.951582,
+     "lon": 7.631515
+    },
+    "detail": "detail/ch/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.31309,
+    "lon": 8.878924,
+    "dist_m": 5777.01,
+    "nearest_way": {
+     "id": 240853559,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Alpe Lingnasc",
+     "type": "isolated_dwelling",
+     "dist_m": 859.5,
+     "lat": 46.307906,
+     "lon": 8.870645
+    },
+    "detail": "detail/ch/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.063452,
+    "lon": 7.696157,
+    "dist_m": 5662.15,
+    "nearest_way": {
+     "id": 1526480548,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Berggasthaus Trift",
+     "type": "isolated_dwelling",
+     "dist_m": 4184.7,
+     "lat": 46.030039,
+     "lon": 7.721071
+    },
+    "detail": "detail/ch/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.477076,
+    "lon": 7.794935,
+    "dist_m": 5538.92,
+    "nearest_way": {
+     "id": 506254737,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Tellialp",
+     "type": "hamlet",
+     "dist_m": 5613.2,
+     "lat": 46.429117,
+     "lon": 7.817804
+    },
+    "detail": "detail/ch/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 46.498558,
+    "lon": 8.028826,
+    "dist_m": 10805.62,
+    "nearest_way": {
+     "id": 59716204,
+     "highway": "unclassified",
+     "name": "Unterbergstrasse",
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Märjelewang",
+     "type": "isolated_dwelling",
+     "dist_m": 8783.2,
+     "lat": 46.446067,
+     "lon": 8.114305
+    },
+    "detail": "detail/ch/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 46.548515,
+    "lon": 8.139594,
+    "dist_m": 10059.91,
+    "nearest_way": {
+     "id": 228279336,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Oberaar",
+     "type": "isolated_dwelling",
+     "dist_m": 10528.6,
+     "lat": 46.548708,
+     "lon": 8.276874
+    },
+    "detail": "detail/ch/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 45.94631,
+    "lon": 7.833134,
+    "dist_m": 9584.36,
+    "nearest_way": {
+     "id": 665317977,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Alpe Pedriola",
+     "type": "isolated_dwelling",
+     "dist_m": 6621.9,
+     "lat": 45.953711,
+     "lon": 7.91788
+    },
+    "detail": "detail/ch/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 46.892932,
+    "lon": 10.240059,
+    "dist_m": 8569.57,
+    "nearest_way": {
+     "id": 1204273437,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Griosch",
+     "type": "isolated_dwelling",
+     "dist_m": 7139.5,
+     "lat": 46.879917,
+     "lon": 10.331789
+    },
+    "detail": "detail/ch/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 46.839876,
+    "lon": 10.066426,
+    "dist_m": 8309.94,
+    "nearest_way": {
+     "id": 1267517015,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Spärra",
+     "type": "isolated_dwelling",
+     "dist_m": 6330.4,
+     "lat": 46.858054,
+     "lon": 9.987769
+    },
+    "detail": "detail/ch/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 46.52499,
+    "lon": 10.016264,
+    "dist_m": 7967.46,
+    "nearest_way": {
+     "id": 214201573,
+     "highway": "residential",
+     "name": "Gulas",
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Chamues-ch",
+     "type": "hamlet",
+     "dist_m": 8237.9,
+     "lat": 46.573156,
+     "lon": 9.934633
+    },
+    "detail": "detail/ch/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.784607,
+    "lon": 8.816608,
+    "dist_m": 7911.66,
+    "nearest_way": {
+     "id": 131390349,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Balmenegg",
+     "type": "isolated_dwelling",
+     "dist_m": 3362.4,
+     "lat": 46.782214,
+     "lon": 8.772714
+    },
+    "detail": "detail/ch/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.401944,
+    "lon": 9.47368,
+    "dist_m": 7756.97,
+    "nearest_way": {
+     "id": 1539474364,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Avero",
+     "type": "hamlet",
+     "dist_m": 7307.2,
+     "lat": 46.365495,
+     "lon": 9.39463
+    },
+    "detail": "detail/ch/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.369557,
+    "lon": 9.880009,
+    "dist_m": 7662.71,
+    "nearest_way": {
+     "id": 71433156,
+     "highway": "unclassified",
+     "name": "Via Val Roseg",
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Alpe Sasso Nero",
+     "type": "isolated_dwelling",
+     "dist_m": 6249.9,
+     "lat": 46.315601,
+     "lon": 9.857178
+    },
+    "detail": "detail/ch/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 45.956265,
+    "lon": 7.42609,
+    "dist_m": 7562.67,
+    "nearest_way": {
+     "id": 959106546,
+     "highway": "unclassified",
+     "name": "Strada Comunale per Place Moulin",
+     "ref": "SC",
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "La Bouetta",
+     "type": "isolated_dwelling",
+     "dist_m": 5746.6,
+     "lat": 45.906401,
+     "lon": 7.445665
+    },
+    "detail": "detail/ch/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

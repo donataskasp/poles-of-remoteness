@@ -1,0 +1,48 @@
+# Europe region. Spec: docs/EUROPE_SPEC.md section 2.1 (Europe column).
+# This file is the only place the region is described; nothing in code names it.
+id: europe
+name: Europe
+names: {lt: Europa}   # display names by language; `name` is the English one and the fallback
+
+sources:
+  - https://download.geofabrik.de/europe-latest.osm.pbf
+# Roads count, no units: Turkey's and Georgia's borders with these would otherwise be data edges.
+supplement_sources:
+  - https://download.geofabrik.de/asia/armenia-latest.osm.pbf
+  - https://download.geofabrik.de/asia/azerbaijan-latest.osm.pbf
+  - https://download.geofabrik.de/asia/iran-latest.osm.pbf
+  - https://download.geofabrik.de/asia/iraq-latest.osm.pbf
+  - https://download.geofabrik.de/asia/syria-latest.osm.pbf
+
+coarse_crs: EPSG:3035
+coarse_res_m: 250
+
+unit_admin_level: 2
+unit_countries: null          # every country in the extract ...
+unit_exclude: [ru]            # ... except Russia (roads count, no unit)
+unit_code_tag: ISO3166-1
+# Main territory only. Generous lon/lat boxes [west, south, east, north]; stage 2 applies them.
+territory_mask:
+  - {name: Svalbard, bbox: [10.0, 74.0, 36.0, 81.0]}   # south edge 74.0 so Bjornoya (74.4 N) is in
+  - {name: Jan Mayen, bbox: [-9.5, 70.7, -7.5, 71.3]}
+  - {name: Franz Josef Land, bbox: [44.0, 79.5, 66.0, 82.0]}
+  - {name: Novaya Zemlya, bbox: [50.0, 70.3, 70.0, 77.5]}
+  - {name: Azores, bbox: [-31.5, 36.5, -24.5, 40.0]}
+  - {name: Madeira, bbox: [-17.5, 32.3, -16.0, 33.3]}
+  - {name: Rockall, bbox: [-14.0, 57.4, -13.4, 57.8]}   # a 20 m rock 300 km out; saturated at the 250 km cap once sub-cell land became a candidate (stage 2, run 2)
+
+edge_mask_m: 50000
+# DECISIONS 2026-08-20: 250 km, not the spec table's 150 km. The tiled distance transform is exact
+# below this value and saturates at it; 250 km keeps saturation inside class 253 ("240 km or more").
+max_distance_m: 250000
+top_n: 10
+detail_res_m: 50
+detail_window_m: 20000
+
+class_table: null             # null = the default table in spec 3.4
+expected_units: 52            # counted on the 2026-08-19 snapshot in stage 2
+transcontinental: [tr, ge]
+
+# Reference poles for check 6, a path relative to this file. Optional: without it check 6 has nothing
+# to compare against and reports that instead of failing.
+references: europe-refs.yaml

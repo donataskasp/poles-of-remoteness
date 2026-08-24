@@ -1,20 +1,42 @@
-// Cloudflare Workers + static assets configuration.
-// Serves the site/ folder as static assets (same pattern as kongaprojects),
-// with one addition: HTML page loads run through worker.js first, which records
-// a privacy-clean view count in Workers Analytics Engine and then serves the
-// page from the same assets binding. Every other request goes straight to
-// assets and never reaches the Worker.
 {
   "$schema": "https://unpkg.com/wrangler/config-schema.json",
-  "name": "atokiausia-lietuva",
+  // Production (branch main, deployed by CI) under the stage 6 name and domain. The apex and www are
+  // Worker custom domains; workers.dev is off in production so the site has one canonical URL
+  // (worker.js answers www with a 301 to the apex).
+  "name": "polesofremoteness",
   "main": "worker.js",
   "compatibility_date": "2025-10-01",
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "polesofremoteness.com", "custom_domain": true },
+    { "pattern": "www.polesofremoteness.com", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./site",
     "binding": "ASSETS",
-    "run_worker_first": ["/"]
+    // Extension-less paths (/, /<region>, /<region>/<unit>) get index.html with status 200.
+    "not_found_handling": "single-page-application",
+    // The worker runs for page navigations only: it injects the visitor meta tag and logs one view.
+    // Static files are answered by the assets layer directly, so they never count as views.
+    "run_worker_first": ["/*", "!/css/*", "!/js/*", "!/vendor/*", "!/data/*", "!/*.*"]
   },
   "analytics_engine_datasets": [
-    { "binding": "SITE_VIEWS", "dataset": "atokiausia_views" }
-  ]
+    { "binding": "SITE_VIEWS", "dataset": "poles_views" }
+  ],
+  "env": {
+    // Preview (branch europe). Same worker, its own name and its own analytics dataset.
+    "preview": {
+      "name": "atokiausia-lietuva-preview",
+      "workers_dev": true,
+      "assets": {
+        "directory": "./site",
+        "binding": "ASSETS",
+        "not_found_handling": "single-page-application",
+        "run_worker_first": ["/*", "!/css/*", "!/js/*", "!/vendor/*", "!/data/*", "!/*.*"]
+      },
+      "analytics_engine_datasets": [
+        { "binding": "SITE_VIEWS", "dataset": "poles_preview_views" }
+      ]
+    }
+  }
 }

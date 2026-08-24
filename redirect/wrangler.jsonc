@@ -1,0 +1,7 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  // Deployed from main by CI after the production deploy is verified; replaces the old LT site worker.
+  "name": "atokiausia-lietuva",
+  "main": "worker.js",
+  "compatibility_date": "2025-10-01"
+}

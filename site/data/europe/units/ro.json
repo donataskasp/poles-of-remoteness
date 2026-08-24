@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "ro",
+ "name": "România",
+ "name_en": "Romania",
+ "country": "ro",
+ "area_km2": 237161.0,
+ "bbox": [
+  20.2619955,
+  43.6188114,
+  30.0454257,
+  48.2654738
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 44.76884,
+    "lon": 29.475778,
+    "dist_m": 16637.28,
+    "nearest_way": {
+     "id": 24162294,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Sfântu Gheorghe",
+     "type": "village",
+     "dist_m": 16943.0,
+     "lat": 44.896507,
+     "lon": 29.592905
+    },
+    "detail": "detail/ro/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 44.892587,
+    "lon": 29.398186,
+    "dist_m": 14370.43,
+    "nearest_way": {
+     "id": 24162294,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Dranov",
+     "type": "isolated_dwelling",
+     "dist_m": 14633.1,
+     "lat": 44.860352,
+     "lon": 29.218629
+    },
+    "detail": "detail/ro/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 44.969727,
+    "lon": 29.46489,
+    "dist_m": 11870.38,
+    "nearest_way": {
+     "id": 641660014,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Sfântu Gheorghe",
+     "type": "village",
+     "dist_m": 12974.1,
+     "lat": 44.896507,
+     "lon": 29.592905
+    },
+    "detail": "detail/ro/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 44.891929,
+    "lon": 29.059812,
+    "dist_m": 11295.05,
+    "nearest_way": {
+     "id": 1117939255,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Dranov",
+     "type": "isolated_dwelling",
+     "dist_m": 13030.5,
+     "lat": 44.860352,
+     "lon": 29.218629
+    },
+    "detail": "detail/ro/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 45.090844,
+    "lon": 29.516618,
+    "dist_m": 9330.17,
+    "nearest_way": {
+     "id": 27746354,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Sulina",
+     "type": "town",
+     "dist_m": 13066.6,
+     "lat": 45.155824,
+     "lon": 29.655027
+    },
+    "detail": "detail/ro/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 45.282405,
+    "lon": 29.401735,
+    "dist_m": 8340.04,
+    "nearest_way": {
+     "id": 552016052,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Letea",
+     "type": "village",
+     "dist_m": 9625.7,
+     "lat": 45.28407,
+     "lon": 29.524399
+    },
+    "detail": "detail/ro/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 45.2024,
+    "lon": 29.52586,
+    "dist_m": 7815.46,
+    "nearest_way": {
+     "id": 158830807,
+     "highway": "tertiary",
+     "name": "Strada Principală",
+     "ref": "DC2",
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Cardon",
+     "type": "hamlet",
+     "dist_m": 8681.9,
+     "lat": 45.237991,
+     "lon": 29.624257
+    },
+    "detail": "detail/ro/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.82048,
+    "lon": 29.580178,
+    "dist_m": 7647.77,
+    "nearest_way": {
+     "id": 24162746,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Sfântu Gheorghe",
+     "type": "village",
+     "dist_m": 8508.5,
+     "lat": 44.896507,
+     "lon": 29.592905
+    },
+    "detail": "detail/ro/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.922583,
+    "lon": 29.182659,
+    "dist_m": 6926.77,
+    "nearest_way": {
+     "id": 239853172,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Dunavățu de Jos",
+     "type": "village",
+     "dist_m": 7424.8,
+     "lat": 44.982809,
+     "lon": 29.223392
+    },
+    "detail": "detail/ro/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 45.387384,
+    "lon": 29.44226,
+    "dist_m": 6438.97,
+    "nearest_way": {
+     "id": 640466966,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Periprava",
+     "type": "village",
+     "dist_m": 8370.3,
+     "lat": 45.401781,
+     "lon": 29.547184
+    },
+    "detail": "detail/ro/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 44.808831,
+    "lon": 29.346821,
+    "dist_m": 20976.56,
+    "nearest_way": {
+     "id": 201448198,
+     "highway": "residential",
+     "name": "Strada Egretei",
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Dranov",
+     "type": "isolated_dwelling",
+     "dist_m": 11641.8,
+     "lat": 44.860352,
+     "lon": 29.218629
+    },
+    "detail": "detail/ro/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 44.794103,
+    "lon": 29.220308,
+    "dist_m": 20548.21,
+    "nearest_way": {
+     "id": 61958749,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Dranov",
+     "type": "isolated_dwelling",
+     "dist_m": 7363.4,
+     "lat": 44.860352,
+     "lon": 29.218629
+    },
+    "detail": "detail/ro/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 44.771559,
+    "lon": 29.465397,
+    "dist_m": 16809.13,
+    "nearest_way": {
+     "id": 24162294,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Sfântu Gheorghe",
+     "type": "village",
+     "dist_m": 17159.8,
+     "lat": 44.896507,
+     "lon": 29.592905
+    },
+    "detail": "detail/ro/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 44.852475,
+    "lon": 29.117164,
+    "dist_m": 16371.94,
+    "nearest_way": {
+     "id": 295293868,
+     "highway": "residential",
+     "name": "Strada Gropeni",
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Dranov",
+     "type": "isolated_dwelling",
+     "dist_m": 8067.7,
+     "lat": 44.860352,
+     "lon": 29.218629
+    },
+    "detail": "detail/ro/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 44.894775,
+    "lon": 29.385933,
+    "dist_m": 15327.15,
+    "nearest_way": {
+     "id": 24162294,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Dranov",
+     "type": "isolated_dwelling",
+     "dist_m": 13761.8,
+     "lat": 44.860352,
+     "lon": 29.218629
+    },
+    "detail": "detail/ro/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 45.243511,
+    "lon": 22.596198,
+    "dist_m": 13571.85,
+    "nearest_way": {
+     "id": 43845356,
+     "highway": "unclassified",
+     "name": null,
+     "ref": "DN66A",
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Plopu",
+     "type": "hamlet",
+     "dist_m": 13664.3,
+     "lat": 45.238203,
+     "lon": 22.422327
+    },
+    "detail": "detail/ro/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 45.713259,
+    "lon": 26.478198,
+    "dist_m": 13361.39,
+    "nearest_way": {
+     "id": 160010427,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Secuiu",
+     "type": "hamlet",
+     "dist_m": 11361.0,
+     "lat": 45.612832,
+     "lon": 26.505368
+    },
+    "detail": "detail/ro/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 47.824309,
+    "lon": 24.680071,
+    "dist_m": 12883.47,
+    "nearest_way": {
+     "id": 330274832,
+     "highway": "unclassified",
+     "name": null,
+     "ref": "С090206",
+     "country": "ua"
+    },
+    "nearest_place": {
+     "name": "Burkut",
+     "type": "hamlet",
+     "dist_m": 13322.2,
+     "lat": 47.943684,
+     "lon": 24.695358
+    },
+    "detail": "detail/ro/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 45.552465,
+    "lon": 24.930685,
+    "dist_m": 12568.77,
+    "nearest_way": {
+     "id": 629482185,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Satul de vacanță Dejani",
+     "type": "hamlet",
+     "dist_m": 13886.1,
+     "lat": 45.677214,
+     "lon": 24.920876
+    },
+    "detail": "detail/ro/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 44.758551,
+    "lon": 22.194252,
+    "dist_m": 12499.22,
+    "nearest_way": {
+     "id": 1060416404,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Bigăr",
+     "type": "village",
+     "dist_m": 12659.6,
+     "lat": 44.664886,
+     "lon": 22.103314
+    },
+    "detail": "detail/ro/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

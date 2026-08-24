@@ -1,96 +1,56 @@
 <!doctype html>
-<html lang="lt">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Atokiausia Lietuva</title>
-<meta name="description" content="Interaktyvus žemėlapis: toliausiai nuo bet kokio kelio nutolusios Lietuvos vietos, apskaičiuotos iš OpenStreetMap duomenų.">
+<title data-i18n="title">Poles of remoteness</title>
+<meta name="description" data-i18n-content="metaDescription" content="The places farthest from any road, computed from OpenStreetMap data.">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
-<link rel="stylesheet" href="css/app.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
 
 <header class="hdr" id="hdr">
   <div class="hdr__brand">
-    <h1 class="hdr__title">
-      <button type="button" class="hdr__reset" id="brand-reset"
-              data-i18n-aria="resetView" data-i18n-title="resetView">Atokiausia Lietuva</button>
-    </h1>
+    <h1 class="hdr__title"><a class="hdr__home" id="brand-home" href="/" data-i18n="title">Poles of remoteness</a></h1>
     <p class="hdr__sub" data-i18n="subtitle"></p>
   </div>
-
-  <div class="hdr__center">
-    <div class="scenario" id="scenario-wrap">
-      <div class="seg" role="group" id="scenario-seg" data-i18n-aria="scenarioGroup">
-        <button type="button" class="seg__btn" data-scenario="A" aria-pressed="true"></button>
-        <button type="button" class="seg__btn" data-scenario="B" aria-pressed="false"></button>
-      </div>
-
-      <button type="button" class="info-btn" id="scenario-info" aria-expanded="false"
-              aria-controls="scenario-pop" data-i18n-aria="scenarioHelp" data-i18n-title="scenarioHelp">?</button>
-
-      <div class="pop" id="scenario-pop" role="dialog" aria-modal="false" data-i18n-aria="scenarioHelp" hidden>
-        <p class="pop__item"><b data-i18n="scenarioA"></b><span data-i18n="scenarioAHint"></span></p>
-        <p class="pop__item"><b data-i18n="scenarioB"></b><span data-i18n="scenarioBHint"></span></p>
-      </div>
-    </div>
-  </div>
-
   <div class="hdr__right">
-    <div class="search" id="search">
-      <label class="vh" for="q" data-i18n="searchLabel"></label>
-      <svg class="search__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.4 10.4 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      <input id="q" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
-             role="combobox" aria-expanded="false" aria-controls="q-list" aria-autocomplete="list">
-      <button type="button" class="search__clear" id="q-clear" hidden data-i18n-aria="clear">&times;</button>
-      <ul class="search__list" id="q-list" role="listbox" hidden></ul>
-    </div>
-
+    <nav class="seg hdr__regions" id="regions" hidden data-i18n-aria="regionGroup"></nav>
     <div class="seg seg--lang" role="group" id="lang-seg" data-i18n-aria="langGroup">
-      <button type="button" class="seg__btn" data-lang="lt" aria-pressed="true" lang="lt">LT</button>
-      <button type="button" class="seg__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      <button type="button" class="seg__btn" data-lang="en" aria-pressed="true" lang="en">EN</button>
+      <button type="button" class="seg__btn" data-lang="lt" aria-pressed="false" lang="lt">LT</button>
     </div>
   </div>
 </header>
 
 <main class="stage">
-  <div id="map"></div>
+  <div id="map" class="map"></div>
 
+  <!-- Task 6 and Task 8: the card -->
+  <section class="card" id="card" hidden></section>
+
+  <!-- Task 5: map controls and readout -->
   <div class="mapctl" id="mapctl">
-    <div class="mapctl__row">
-      <div class="seg seg--sm" role="group" id="basemap-seg" data-i18n-aria="basemapLabel">
-        <button type="button" class="seg__btn" data-base="osm" aria-pressed="false" data-i18n="baseOsm"></button>
-        <button type="button" class="seg__btn" data-base="sat" aria-pressed="true" data-i18n="baseSat"></button>
-      </div>
-
-      <div class="mapctl__check">
-        <input type="checkbox" id="bands-toggle" checked>
-        <label for="bands-toggle" data-i18n="bandsToggle"></label>
-      </div>
+    <div class="seg seg--sm" role="group" id="basemap-seg" data-i18n-aria="basemapLabel">
+      <button type="button" class="seg__btn" data-base="sat" aria-pressed="true" data-i18n="baseSat"></button>
+      <button type="button" class="seg__btn" data-base="osm" aria-pressed="false" data-i18n="baseOsm"></button>
     </div>
-
-    <div class="legend-card" id="legend-card" data-i18n-aria="legendHeading" data-i18n-title="legendHint">
-      <ul class="legend" id="legend"></ul>
-    </div>
-
+    <ul class="legend" id="legend" data-i18n-aria="legendLabel"></ul>
     <section class="readout" id="readout" hidden aria-live="polite"></section>
   </div>
 
-  <aside class="panel" id="panel" aria-label="Info">
-    <button type="button" class="panel__handle" id="panel-handle" aria-expanded="true" aria-controls="panel-body">
+  <!-- Task 7: the ranking -->
+  <aside class="panel panel--collapsed" id="panel" data-i18n-aria="rankingTitle">
+    <button type="button" class="panel__handle" id="panel-handle" aria-expanded="false" aria-controls="panel-body">
       <span class="panel__grip" aria-hidden="true"></span>
-      <span class="vh" data-i18n="togglePanel"></span>
+      <span class="panel__handle-text" data-i18n="rankingTitle"></span>
     </button>
-
     <div class="panel__body" id="panel-body">
-      <section class="block" id="spots-block">
-        <h2 class="block__h" data-i18n="spotsHeading"></h2>
-        <p class="block__note" id="spots-note"></p>
-        <ol class="spots" id="spots"></ol>
-      </section>
-
+      <p class="panel__note" id="ranking-note"></p>
+      <ol class="ranking" id="ranking"></ol>
       <footer class="panel__foot">
         <button type="button" class="link-btn" id="about-btn" data-i18n="aboutBtn"></button>
       </footer>
@@ -98,15 +58,45 @@
   </aside>
 </main>
 
+<!-- Task 8: About, both languages inline, toggled by html[lang] -->
 <dialog class="about" id="about">
   <form method="dialog" class="about__close-form">
     <button class="about__close" value="close" data-i18n-aria="close">&times;</button>
   </form>
-  <h2 class="about__h" data-i18n="aboutTitle"></h2>
-  <div class="about__body" id="about-body"></div>
+  <div class="about__body" id="about-body">
+    <div data-lang="en">
+      <h2>About this map</h2>
+      <p>For every country and a few dependent territories of the region, this map shows the place farthest from any road: its pole of remoteness. Two readings are given. <b>A</b> is the distance to anything drivable, forest and field tracks included. <b>B</b> counts public roads only.</p>
+      <h3>How it is computed</h3>
+      <p>Roads come from OpenStreetMap (<span class="snapshot"></span>). The distance to the nearest road is computed on a grid across the whole region, then refined on a <span class="detail-res"></span> m grid around each candidate point, and the ten best points per unit are kept. The coloured layer shows the coarse distances; tap anywhere to read the value. Near the edge of the data a distance is only a lower bound and the cell is grey.</p>
+      <h3>What counts as a road</h3>
+      <p>Physical, not legal: anything a car can physically drive on counts in reading A, including forest and field tracks, private roads and closed roads, because a track that exists still breaks the remoteness whatever the sign says. A is the headline because tracks are the roads that actually reach remote places; B shows what the public road network alone gives. Borders are as mapped in OpenStreetMap; a disputed area belongs to the unit OSM draws it in.</p>
+      <h3>What it is not</h3>
+      <p>A road missing from OpenStreetMap makes a place look remoter than it is, and a mapped track that is gone in reality makes it look less remote. The points are computed, not visited. Check before you go.</p>
+      <h3>Accuracy</h3>
+      <p>Each pole's distance is exact to the 50 m grid around it. The coloured layer is a 250 m grid and the readout gives the class, not the metre. Units within one road-mask width of the data edge are marked; a point near the edge may be closer to a road outside the data than the map can know.</p>
+      <h3>Data and licence</h3>
+      <p>Map data © OpenStreetMap contributors, ODbL. The computed remoteness data on this site is ODbL as well. Satellite imagery: Esri, Maxar, Earthstar Geographics. A hobby project; no tracking beyond a count of page views by country.</p>
+    </div>
+    <div data-lang="lt">
+      <h2>Apie šį žemėlapį</h2>
+      <p>Kiekvienai regiono šaliai ir keliems priklausomiems kraštams žemėlapis rodo vietą, toliausiai nutolusią nuo bet kokio kelio: jos atokumo polių. Pateikiami du atstumai. <b>A</b> yra atstumas iki bet ko, kuo galima pravažiuoti, įskaitant miško ir lauko keliukus. <b>B</b> skaičiuoja tik viešuosius kelius.</p>
+      <h3>Kaip skaičiuojama</h3>
+      <p>Keliai imami iš OpenStreetMap (<span class="snapshot"></span>). Atstumas iki artimiausio kelio skaičiuojamas tinkleliu per visą regioną, tada patikslinamas <span class="detail-res"></span> m tinkleliu aplink kiekvieną kandidatą, ir kiekvienam vienetui paliekama dešimt geriausių taškų. Spalvotas sluoksnis rodo stambaus tinklelio atstumus; palieskite bet kurią vietą ir pamatysite reikšmę. Prie duomenų krašto atstumas yra tik apatinė riba, tokios vietos pilkos.</p>
+      <h3>Kas laikoma keliu</h3>
+      <p>Fiziškai, ne teisiškai: A variante skaičiuojama viskas, kuo automobilis fiziškai gali pravažiuoti, įskaitant miško ir lauko keliukus, privačius ir uždarytus kelius, nes esantis keliukas atokumą naikina nepriklausomai nuo ženklo. A yra pagrindinis rodiklis, nes būtent keliukai pasiekia atokias vietas; B rodo, ką duoda vien viešųjų kelių tinklas. Sienos tokios, kokios pažymėtos OpenStreetMap; ginčijama teritorija priklauso tam vienetui, kuriame ją piešia OSM.</p>
+      <h3>Kas tai nėra</h3>
+      <p>OpenStreetMap trūkstamas kelias vietą parodo atokesnę, nei ji yra, o pažymėtas, bet realybėje išnykęs keliukas parodo mažiau atokią. Taškai apskaičiuoti, ne aplankyti. Prieš vykdami pasitikrinkite.</p>
+      <h3>Tikslumas</h3>
+      <p>Kiekvieno poliaus atstumas tikslus iki 50 m tinklelio aplink jį. Spalvotas sluoksnis yra 250 m tinklelis, o rodmuo nurodo klasę, ne metrą. Vienetai, esantys arti duomenų krašto, pažymėti; prie krašto esantis taškas gali būti arčiau kelio už duomenų ribos, nei žemėlapis gali žinoti.</p>
+      <h3>Duomenys ir licencija</h3>
+      <p>Žemėlapio duomenys © OpenStreetMap bendraautoriai, ODbL. Šioje svetainėje apskaičiuoti atokumo duomenys taip pat ODbL. Palydovinės nuotraukos: Esri, Maxar, Earthstar Geographics. Laisvalaikio projektas; jokio sekimo, tik lankytojų skaičius pagal šalį.</p>
+    </div>
+  </div>
 </dialog>
 
-<script src="vendor/leaflet/leaflet.js"></script>
-<script type="module" src="js/app.js"></script>
+<script src="/vendor/leaflet/leaflet.js"></script>
+<script src="/vendor/pmtiles/pmtiles.js"></script>
+<script type="module" src="/js/app.js"></script>
 </body>
 </html>

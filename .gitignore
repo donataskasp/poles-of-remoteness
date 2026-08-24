@@ -17,3 +17,14 @@ out/land.gpkg
 # Claude session config and local notes (public repo, never commit)
 .claude/
 CLAUDE.local.md
+
+# pipeline working data: PBFs, layers, grids; regenerable from the snapshot identity
+/work/
+*.egg-info/
+
+# dev harness output and the generated version stamp
+/dev/out/
+/site/version.json
+# a local Playwright install for the screenshot routine (node_modules/ above covers dev/node_modules)
+/dev/package.json
+/dev/package-lock.json

@@ -1,0 +1,1514 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "units": [
+  {
+   "code": "ad",
+   "name": "Andorra",
+   "name_en": "Andorra",
+   "country": "ad",
+   "area_km2": 487.9,
+   "bbox": [
+    1.4077997,
+    42.4288238,
+    1.7868662,
+    42.6559357
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 4963.65,
+    "lat": 42.48936,
+    "lon": 1.642551,
+    "rank": 33,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 5985.45,
+    "lat": 42.48471,
+    "lon": 1.660912,
+    "rank": 39,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "al",
+   "name": "Shqipëria",
+   "name_en": "Albania",
+   "country": "al",
+   "area_km2": 28535.5,
+   "bbox": [
+    19.0009866,
+    39.640394,
+    21.0574335,
+    42.6610848
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 6704.39,
+    "lat": 40.213932,
+    "lon": 19.473161,
+    "rank": 24,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 9098.77,
+    "lat": 42.202101,
+    "lon": 19.877022,
+    "rank": 29,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "at",
+   "name": "Österreich",
+   "name_en": "Austria",
+   "country": "at",
+   "area_km2": 84032.2,
+   "bbox": [
+    9.5307327,
+    46.3722987,
+    17.1607728,
+    49.0205249
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 6182.93,
+    "lat": 46.843473,
+    "lon": 10.791113,
+    "rank": 27,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 11385.53,
+    "lat": 47.12693,
+    "lon": 12.346776,
+    "rank": 24,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ba",
+   "name": "Bosna i Hercegovina / Босна и Херцеговина",
+   "name_en": "Bosnia and Herzegovina",
+   "country": "ba",
+   "area_km2": 51375.9,
+   "bbox": [
+    15.7286823,
+    42.5553114,
+    19.6237311,
+    45.2764141
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 5097.14,
+    "lat": 43.612899,
+    "lon": 17.624664,
+    "rank": 30,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 8411.78,
+    "lat": 44.027836,
+    "lon": 17.018453,
+    "rank": 30,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "be",
+   "name": "België / Belgique / Belgien",
+   "name_en": "Belgium",
+   "country": "be",
+   "area_km2": 30881.1,
+   "bbox": [
+    2.3889137,
+    49.4969821,
+    6.408097,
+    51.550781
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 1318.12,
+    "lat": 51.371479,
+    "lon": 4.224662,
+    "rank": 47,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 4486.84,
+    "lat": 50.539567,
+    "lon": 6.124579,
+    "rank": 46,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "bg",
+   "name": "България",
+   "name_en": "Bulgaria",
+   "country": "bg",
+   "area_km2": 110887.1,
+   "bbox": [
+    22.3571459,
+    41.2353678,
+    28.8875409,
+    44.2162232
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 6125.23,
+    "lat": 42.701781,
+    "lon": 24.843998,
+    "rank": 28,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 9137.17,
+    "lat": 42.189462,
+    "lon": 23.666834,
+    "rank": 28,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "by",
+   "name": "Беларусь",
+   "name_en": "Belarus",
+   "country": "by",
+   "area_km2": 207273.0,
+   "bbox": [
+    23.1786854,
+    51.2626864,
+    32.7627809,
+    56.1722446
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 10077.98,
+    "lat": 51.767439,
+    "lon": 27.243773,
+    "rank": 22,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 11669.56,
+    "lat": 51.77562,
+    "lon": 27.233481,
+    "rank": 22,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ch",
+   "name": "Schweiz/Suisse/Svizzera/Svizra",
+   "name_en": "Switzerland",
+   "country": "ch",
+   "area_km2": 40408.7,
+   "bbox": [
+    5.955902,
+    45.8179585,
+    10.4921713,
+    47.8084543
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 9843.45,
+    "lat": 46.536424,
+    "lon": 8.110933,
+    "rank": 23,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 10805.62,
+    "lat": 46.498558,
+    "lon": 8.028826,
+    "rank": 25,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "cy",
+   "name": "Κύπρος - Kıbrıs",
+   "name_en": "Cyprus",
+   "country": "cy",
+   "area_km2": 9121.4,
+   "bbox": [
+    32.0227581,
+    34.4383706,
+    34.8553182,
+    35.913252
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 2607.15,
+    "lat": 35.711796,
+    "lon": 34.60776,
+    "rank": 43,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 7761.09,
+    "lat": 35.112433,
+    "lon": 32.281917,
+    "rank": 32,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "cz",
+   "name": "Česko",
+   "name_en": "Czechia",
+   "country": "cz",
+   "area_km2": 79099.5,
+   "bbox": [
+    12.0905752,
+    48.5518081,
+    18.8592531,
+    51.0557008
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 2062.74,
+    "lat": 50.569538,
+    "lon": 13.713002,
+    "rank": 44,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 5771.29,
+    "lat": 49.009186,
+    "lon": 13.406218,
+    "rank": 42,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "de",
+   "name": "Deutschland",
+   "name_en": "Germany",
+   "country": "de",
+   "area_km2": 357295.0,
+   "bbox": [
+    5.8663153,
+    47.2701114,
+    15.0419309,
+    55.099161
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 13533.64,
+    "lat": 53.827827,
+    "lon": 8.342982,
+    "rank": 16,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 13533.64,
+    "lat": 53.827827,
+    "lon": 8.342982,
+    "rank": 20,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "dk",
+   "name": "Danmark",
+   "name_en": "Denmark",
+   "country": "dk",
+   "area_km2": 43997.0,
+   "bbox": [
+    7.7153255,
+    54.4516667,
+    15.5530641,
+    57.9524297
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 18573.48,
+    "lat": 55.32316,
+    "lon": 15.191408,
+    "rank": 13,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 25545.22,
+    "lat": 56.199816,
+    "lon": 11.697212,
+    "rank": 12,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ee",
+   "name": "Eesti",
+   "name_en": "Estonia",
+   "country": "ee",
+   "area_km2": 44087.0,
+   "bbox": [
+    21.3826069,
+    57.5093328,
+    28.2100175,
+    59.9383333
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 26802.86,
+    "lat": 59.821992,
+    "lon": 26.358829,
+    "rank": 9,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 26802.86,
+    "lat": 59.821992,
+    "lon": 26.358829,
+    "rank": 11,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "es",
+   "name": "España",
+   "name_en": "Spain",
+   "country": "es",
+   "area_km2": 498739.1,
+   "bbox": [
+    -9.5754539,
+    35.2656282,
+    4.5918885,
+    43.9933088
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 6432.56,
+    "lat": 42.823085,
+    "lon": -0.244579,
+    "rank": 26,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 52314.12,
+    "lat": 39.850337,
+    "lon": 0.678837,
+    "rank": 6,
+    "withheld": 1
+   }
+  },
+  {
+   "code": "fi",
+   "name": "Suomi / Finland",
+   "name_en": "Finland",
+   "country": "fi",
+   "area_km2": 328537.7,
+   "bbox": [
+    19.0832,
+    59.4541578,
+    31.5867071,
+    70.092293
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 52846.2,
+    "lat": 59.503955,
+    "lon": 20.348039,
+    "rank": 3,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 52846.2,
+    "lat": 59.503955,
+    "lon": 20.348039,
+    "rank": 5,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "fo",
+   "name": "Føroyar",
+   "name_en": "Faroe Islands",
+   "country": "fo",
+   "area_km2": 1557.1,
+   "bbox": [
+    -8.1188416,
+    61.1367723,
+    -5.8254974,
+    62.5958399
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 6573.87,
+    "lat": 61.628703,
+    "lon": -6.702045,
+    "rank": 25,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 10377.36,
+    "lat": 61.637663,
+    "lon": -6.705598,
+    "rank": 26,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "fr",
+   "name": "France",
+   "name_en": "France",
+   "country": "fr",
+   "area_km2": 549596.9,
+   "bbox": [
+    -5.4517733,
+    41.2611155,
+    9.8282225,
+    51.3055721
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 29818.09,
+    "lat": 49.113243,
+    "lon": -2.833563,
+    "rank": 8,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 30132.46,
+    "lat": 49.113243,
+    "lon": -2.833563,
+    "rank": 9,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "gb",
+   "name": "United Kingdom",
+   "name_en": "United Kingdom",
+   "country": "gb",
+   "area_km2": 246901.8,
+   "bbox": [
+    -14.015517,
+    49.674,
+    2.0919117,
+    61.061
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 34442.15,
+    "lat": 58.281513,
+    "lon": -7.6558,
+    "rank": 6,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 73387.3,
+    "lat": 59.134181,
+    "lon": -5.825207,
+    "rank": 1,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ge",
+   "name": "საქართველო",
+   "name_en": "Georgia",
+   "country": "ge",
+   "area_km2": 69821.1,
+   "bbox": [
+    39.8844803,
+    41.0551284,
+    46.7365373,
+    43.5864294
+   ],
+   "transcontinental": true,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 12544.71,
+    "lat": 43.345383,
+    "lon": 41.08534,
+    "rank": 17,
+    "withheld": 3
+   },
+   "B": {
+    "dist_m": 21052.13,
+    "lat": 43.322716,
+    "lon": 41.227155,
+    "rank": 16,
+    "withheld": 4
+   }
+  },
+  {
+   "code": "gg",
+   "name": "Guernsey",
+   "name_en": "Guernsey",
+   "country": "gg",
+   "area_km2": 105.6,
+   "bbox": [
+    -3.0209018,
+    49.219875,
+    -2.0502773,
+    49.9403001
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 11030.49,
+    "lat": 49.719964,
+    "lon": -2.384948,
+    "rank": 20,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 11532.09,
+    "lat": 49.719964,
+    "lon": -2.384948,
+    "rank": 23,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "gi",
+   "name": "Gibraltar",
+   "name_en": "Gibraltar",
+   "country": "gi",
+   "area_km2": 10.4,
+   "bbox": [
+    -5.3967893,
+    36.058755,
+    -5.2766611,
+    36.1550251
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 627.13,
+    "lat": 36.133049,
+    "lon": -5.363689,
+    "rank": 48,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 627.13,
+    "lat": 36.133049,
+    "lon": -5.363689,
+    "rank": 49,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "gr",
+   "name": "Ελλάς",
+   "name_en": "Greece",
+   "country": "gr",
+   "area_km2": 133933.1,
+   "bbox": [
+    19.1127535,
+    34.7188863,
+    29.68381,
+    41.7488889
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 61797.96,
+    "lat": 35.925229,
+    "lon": 26.509093,
+    "rank": 2,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 62615.9,
+    "lat": 35.925229,
+    "lon": 26.509093,
+    "rank": 3,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "hr",
+   "name": "Hrvatska",
+   "name_en": "Croatia",
+   "country": "hr",
+   "area_km2": 57719.2,
+   "bbox": [
+    13.2125413,
+    42.1765993,
+    19.4472713,
+    46.5550254
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 45675.96,
+    "lat": 43.091719,
+    "lon": 15.458659,
+    "rank": 4,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 53039.04,
+    "lat": 42.378177,
+    "lon": 16.339236,
+    "rank": 4,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "hu",
+   "name": "Magyarország",
+   "name_en": "Hungary",
+   "country": "hu",
+   "area_km2": 92522.2,
+   "bbox": [
+    16.1138866,
+    45.737128,
+    22.8965048,
+    48.585257
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 4455.24,
+    "lat": 47.692815,
+    "lon": 16.74141,
+    "rank": 36,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 5930.6,
+    "lat": 47.454818,
+    "lon": 21.003418,
+    "rank": 40,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ie",
+   "name": "Éire / Ireland",
+   "name_en": "Ireland",
+   "country": "ie",
+   "area_km2": 70569.5,
+   "bbox": [
+    -11.0133788,
+    51.222,
+    -5.6582363,
+    55.636
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 10620.59,
+    "lat": 53.872152,
+    "lon": -10.207875,
+    "rank": 21,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 14525.26,
+    "lat": 54.067328,
+    "lon": -10.343328,
+    "rank": 19,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "im",
+   "name": "Isle of Man",
+   "name_en": "Isle of Man",
+   "country": "im",
+   "area_km2": 599.8,
+   "bbox": [
+    -5.1707285,
+    53.845,
+    -3.9654061,
+    54.5534288
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 1558.22,
+    "lat": 54.037825,
+    "lon": -4.837683,
+    "rank": 46,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 2113.24,
+    "lat": 54.226614,
+    "lon": -4.560718,
+    "rank": 47,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "is",
+   "name": "Ísland",
+   "name_en": "Iceland",
+   "country": "is",
+   "area_km2": 102765.0,
+   "bbox": [
+    -25.0135069,
+    63.0859177,
+    -12.8046162,
+    67.353
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 71375.38,
+    "lat": 67.15042,
+    "lon": -18.683029,
+    "rank": 1,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 73176.62,
+    "lat": 67.15042,
+    "lon": -18.683029,
+    "rank": 2,
+    "withheld": 1
+   }
+  },
+  {
+   "code": "it",
+   "name": "Italia",
+   "name_en": "Italy",
+   "country": "it",
+   "area_km2": 301039.6,
+   "bbox": [
+    6.6272658,
+    35.2889616,
+    18.7844746,
+    47.0921485
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 22056.18,
+    "lat": 42.225924,
+    "lon": 15.751619,
+    "rank": 11,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 23709.25,
+    "lat": 42.225924,
+    "lon": 15.751619,
+    "rank": 13,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "je",
+   "name": "Jersey",
+   "name_en": "Jersey",
+   "country": "je",
+   "area_km2": 142.9,
+   "bbox": [
+    -2.5605483,
+    48.871203,
+    -1.8347,
+    49.4596091
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 23533.69,
+    "lat": 48.956112,
+    "lon": -2.145596,
+    "rank": 10,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 23533.69,
+    "lat": 48.956112,
+    "lon": -2.145596,
+    "rank": 14,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "li",
+   "name": "Liechtenstein",
+   "name_en": "Liechtenstein",
+   "country": "li",
+   "area_km2": 172.6,
+   "bbox": [
+    9.4716829,
+    47.0484269,
+    9.6356933,
+    47.2705751
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 2035.9,
+    "lat": 47.162613,
+    "lon": 9.564951,
+    "rank": 45,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 4664.33,
+    "lat": 47.054861,
+    "lon": 9.588006,
+    "rank": 45,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "lt",
+   "name": "Lietuva",
+   "name_en": "Lithuania",
+   "country": "lt",
+   "area_km2": 64833.2,
+   "bbox": [
+    20.6557167,
+    53.8967893,
+    26.8355198,
+    56.4504213
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 3426.0,
+    "lat": 54.441478,
+    "lon": 23.537029,
+    "rank": 42,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 6675.91,
+    "lat": 53.995841,
+    "lon": 24.463029,
+    "rank": 36,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "lu",
+   "name": "Lëtzebuerg",
+   "name_en": "Luxembourg",
+   "country": "lu",
+   "area_km2": 2655.6,
+   "bbox": [
+    5.7356988,
+    49.4478587,
+    6.5312481,
+    50.1827989
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 471.61,
+    "lat": 49.751631,
+    "lon": 5.873729,
+    "rank": 49,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 1801.3,
+    "lat": 50.074745,
+    "lon": 6.109844,
+    "rank": 48,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "lv",
+   "name": "Latvija",
+   "name_en": "Latvia",
+   "country": "lv",
+   "area_km2": 64407.1,
+   "bbox": [
+    20.6009852,
+    55.6746505,
+    28.2414937,
+    58.0855688
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 5322.0,
+    "lat": 57.802578,
+    "lon": 22.63417,
+    "rank": 29,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 5910.11,
+    "lat": 56.870481,
+    "lon": 26.96283,
+    "rank": 41,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "mc",
+   "name": "Monaco",
+   "name_en": "Monaco",
+   "country": "mc",
+   "area_km2": 3.9,
+   "bbox": [
+    7.4090279,
+    43.5165358,
+    7.5329917,
+    43.7519173
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 242.96,
+    "lat": 43.742605,
+    "lon": 7.433766,
+    "rank": 51,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 242.96,
+    "lat": 43.742605,
+    "lon": 7.433766,
+    "rank": 51,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "md",
+   "name": "Moldova",
+   "name_en": "Moldova",
+   "country": "md",
+   "area_km2": 34069.4,
+   "bbox": [
+    26.6164054,
+    45.4671885,
+    30.1637143,
+    48.4920527
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 3571.83,
+    "lat": 47.942551,
+    "lon": 27.782582,
+    "rank": 40,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 6392.47,
+    "lat": 45.762662,
+    "lon": 28.266625,
+    "rank": 38,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "me",
+   "name": "Crna Gora / Црна Гора",
+   "name_en": "Montenegro",
+   "country": "me",
+   "area_km2": 13815.3,
+   "bbox": [
+    18.4195781,
+    41.6849866,
+    20.3529276,
+    43.5585061
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 4912.16,
+    "lat": 43.228336,
+    "lon": 18.745505,
+    "rank": 34,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 6635.72,
+    "lat": 42.969494,
+    "lon": 18.8145,
+    "rank": 37,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "mk",
+   "name": "Северна Македонија",
+   "name_en": "North Macedonia",
+   "country": "mk",
+   "area_km2": 25112.8,
+   "bbox": [
+    20.4529023,
+    40.852478,
+    23.0341407,
+    42.3739044
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 4983.31,
+    "lat": 41.283876,
+    "lon": 21.896498,
+    "rank": 31,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 9760.59,
+    "lat": 41.068841,
+    "lon": 21.884256,
+    "rank": 27,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "mt",
+   "name": "Malta",
+   "name_en": "Malta",
+   "country": "mt",
+   "area_km2": 347.2,
+   "bbox": [
+    13.9360446,
+    35.5853691,
+    14.822786,
+    36.2825455
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 4760.9,
+    "lat": 35.786359,
+    "lon": 14.406833,
+    "rank": 35,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 4760.9,
+    "lat": 35.786359,
+    "lon": 14.406833,
+    "rank": 43,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "nl",
+   "name": "Nederland",
+   "name_en": "Netherlands",
+   "country": "nl",
+   "area_km2": 35485.9,
+   "bbox": [
+    3.0807927,
+    50.7503658,
+    7.2274985,
+    53.748815
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 11913.89,
+    "lat": 53.250061,
+    "lon": 5.258749,
+    "rank": 18,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 13464.35,
+    "lat": 53.544073,
+    "lon": 6.467091,
+    "rank": 21,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "no",
+   "name": "Norge",
+   "name_en": "Norway",
+   "country": "no",
+   "area_km2": 329213.6,
+   "bbox": [
+    -9.6846279,
+    57.7590052,
+    31.7615929,
+    81.0280176
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 30288.1,
+    "lat": 66.176083,
+    "lon": 11.610525,
+    "rank": 7,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 44155.87,
+    "lat": 68.92277,
+    "lon": 24.533259,
+    "rank": 8,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "pl",
+   "name": "Polska",
+   "name_en": "Poland",
+   "country": "pl",
+   "area_km2": 311260.2,
+   "bbox": [
+    14.0696389,
+    49.0020468,
+    24.145783,
+    55.03605
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 4978.62,
+    "lat": 54.691322,
+    "lon": 18.548518,
+    "rank": 32,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 7119.91,
+    "lat": 54.750113,
+    "lon": 17.356355,
+    "rank": 35,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "pt",
+   "name": "Portugal",
+   "name_en": "Portugal",
+   "country": "pt",
+   "area_km2": 88982.1,
+   "bbox": [
+    -31.5575303,
+    29.828247,
+    -6.1891593,
+    42.1543112
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 21477.37,
+    "lat": 30.028847,
+    "lon": -16.051646,
+    "rank": 12,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 21477.37,
+    "lat": 30.028847,
+    "lon": -16.051646,
+    "rank": 15,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ro",
+   "name": "România",
+   "name_en": "Romania",
+   "country": "ro",
+   "area_km2": 237161.0,
+   "bbox": [
+    20.2619955,
+    43.6188114,
+    30.0454257,
+    48.2654738
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 16637.28,
+    "lat": 44.76884,
+    "lon": 29.475778,
+    "rank": 14,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 20976.56,
+    "lat": 44.808831,
+    "lon": 29.346821,
+    "rank": 17,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "rs",
+   "name": "Србија",
+   "name_en": "Serbia",
+   "country": "rs",
+   "area_km2": 77677.5,
+   "bbox": [
+    18.8149945,
+    42.2324539,
+    23.006309,
+    46.1900524
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 3860.4,
+    "lat": 44.581617,
+    "lon": 21.923261,
+    "rank": 39,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 7517.42,
+    "lat": 43.306656,
+    "lon": 22.766295,
+    "rank": 34,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "se",
+   "name": "Sverige",
+   "name_en": "Sweden",
+   "country": "se",
+   "area_km2": 435255.8,
+   "bbox": [
+    10.5935025,
+    55.1370957,
+    24.177685,
+    69.0599735
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 42167.15,
+    "lat": 67.275662,
+    "lon": 17.093097,
+    "rank": 5,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 45984.79,
+    "lat": 67.30385,
+    "lon": 17.157436,
+    "rank": 7,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "si",
+   "name": "Slovenija",
+   "name_en": "Slovenia",
+   "country": "si",
+   "area_km2": 20448.8,
+   "bbox": [
+    13.3754696,
+    45.4214681,
+    16.5967003,
+    46.8766816
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 4182.54,
+    "lat": 46.372365,
+    "lon": 13.853877,
+    "rank": 37,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 4728.72,
+    "lat": 46.332932,
+    "lon": 13.796818,
+    "rank": 44,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "sk",
+   "name": "Slovensko",
+   "name_en": "Slovakia",
+   "country": "sk",
+   "area_km2": 49159.2,
+   "bbox": [
+    16.8331891,
+    47.7311798,
+    22.5657103,
+    49.6138162
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 4080.4,
+    "lat": 49.191399,
+    "lon": 20.172912,
+    "rank": 38,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 7599.01,
+    "lat": 48.946241,
+    "lon": 19.066164,
+    "rank": 33,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "sm",
+   "name": "San Marino",
+   "name_en": "San Marino",
+   "country": "sm",
+   "area_km2": 68.0,
+   "bbox": [
+    12.402433,
+    43.893632,
+    12.5169591,
+    43.992042
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 421.82,
+    "lat": 43.937559,
+    "lon": 12.42422,
+    "rank": 50,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 546.07,
+    "lat": 43.914921,
+    "lon": 12.49343,
+    "rank": 50,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "tr",
+   "name": "Türkiye",
+   "name_en": "Turkey",
+   "country": "tr",
+   "area_km2": 771791.3,
+   "bbox": [
+    25.5656305,
+    35.8058974,
+    44.8176638,
+    42.297
+   ],
+   "transcontinental": true,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 15366.91,
+    "lat": 38.622216,
+    "lon": 33.53643,
+    "rank": 15,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 18437.44,
+    "lat": 38.649989,
+    "lon": 33.480917,
+    "rank": 18,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "ua",
+   "name": "Україна",
+   "name_en": "Ukraine",
+   "country": "ua",
+   "area_km2": 593861.6,
+   "bbox": [
+    22.137059,
+    44.184598,
+    40.2278093,
+    52.3797464
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 11491.67,
+    "lat": 49.196656,
+    "lon": 32.925239,
+    "rank": 19,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 27499.78,
+    "lat": 46.22665,
+    "lon": 31.674212,
+    "rank": 10,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "va",
+   "name": "Civitas Vaticana - Città del Vaticano",
+   "name_en": "Vatican City",
+   "country": "va",
+   "area_km2": 1.0,
+   "bbox": [
+    12.4457878,
+    41.9002048,
+    12.4583653,
+    41.9073829
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 126.34,
+    "lat": 41.902473,
+    "lon": 12.457251,
+    "rank": 52,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 126.34,
+    "lat": 41.902473,
+    "lon": 12.457251,
+    "rank": 52,
+    "withheld": 0
+   }
+  },
+  {
+   "code": "xk",
+   "name": "Kosova / Kosovo",
+   "name_en": "Kosovo",
+   "country": "xk",
+   "area_km2": 11014.1,
+   "bbox": [
+    20.0142844,
+    41.8576408,
+    21.7899366,
+    43.2733306
+   ],
+   "transcontinental": false,
+   "closed_by_edge": false,
+   "A": {
+    "dist_m": 3530.85,
+    "lat": 42.149603,
+    "lon": 21.00831,
+    "rank": 41,
+    "withheld": 0
+   },
+   "B": {
+    "dist_m": 8159.97,
+    "lat": 41.878457,
+    "lon": 20.736014,
+    "rank": 31,
+    "withheld": 0
+   }
+  }
+ ]
+}

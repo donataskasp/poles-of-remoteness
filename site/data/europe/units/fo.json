@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "fo",
+ "name": "Føroyar",
+ "name_en": "Faroe Islands",
+ "country": "fo",
+ "area_km2": 1557.1,
+ "bbox": [
+  -8.1188416,
+  61.1367723,
+  -5.8254974,
+  62.5958399
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 61.628703,
+    "lon": -6.702045,
+    "dist_m": 6573.87,
+    "nearest_way": {
+     "id": 850807207,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Stóra Dímun",
+     "type": "village",
+     "dist_m": 6894.4,
+     "lat": 61.685322,
+     "lon": -6.754486
+    },
+    "detail": "detail/fo/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 61.337925,
+    "lon": -6.671067,
+    "dist_m": 6361.97,
+    "nearest_way": {
+     "id": 850965769,
+     "highway": "service",
+     "name": "Akrabergsvegur",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Akraberg",
+     "type": "hamlet",
+     "dist_m": 6417.2,
+     "lat": 61.39532,
+     "lon": -6.680835
+    },
+    "detail": "detail/fo/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 61.949694,
+    "lon": -6.623515,
+    "dist_m": 6201.93,
+    "nearest_way": {
+     "id": 616172907,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Nólsoy",
+     "type": "village",
+     "dist_m": 7184.5,
+     "lat": 62.009703,
+     "lon": -6.673581
+    },
+    "detail": "detail/fo/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 62.366461,
+    "lon": -6.682321,
+    "dist_m": 5389.47,
+    "nearest_way": {
+     "id": 44657162,
+     "highway": "track",
+     "name": "Fornagøta",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Skarð",
+     "type": "hamlet",
+     "dist_m": 5051.6,
+     "lat": 62.323952,
+     "lon": -6.648483
+    },
+    "detail": "detail/fo/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 62.093382,
+    "lon": -7.530653,
+    "dist_m": 4962.82,
+    "nearest_way": {
+     "id": 527020182,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Gásadalur",
+     "type": "village",
+     "dist_m": 5268.0,
+     "lat": 62.109738,
+     "lon": -7.436009
+    },
+    "detail": "detail/fo/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 62.183531,
+    "lon": -6.442516,
+    "dist_m": 4957.29,
+    "nearest_way": {
+     "id": 707060480,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Norðoyri",
+     "type": "village",
+     "dist_m": 6224.8,
+     "lat": 62.213384,
+     "lon": -6.543578
+    },
+    "detail": "detail/fo/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 62.211579,
+    "lon": -7.236156,
+    "dist_m": 4557.98,
+    "nearest_way": {
+     "id": 346902430,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Saksun",
+     "type": "village",
+     "dist_m": 4963.6,
+     "lat": 62.24423,
+     "lon": -7.171247
+    },
+    "detail": "detail/fo/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 62.312014,
+    "lon": -6.428145,
+    "dist_m": 4341.72,
+    "nearest_way": {
+     "id": 1044464596,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Hvannasund",
+     "type": "village",
+     "dist_m": 5023.0,
+     "lat": 62.297938,
+     "lon": -6.520132
+    },
+    "detail": "detail/fo/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 62.304364,
+    "lon": -7.21949,
+    "dist_m": 3898.85,
+    "nearest_way": {
+     "id": 972959152,
+     "highway": "service",
+     "name": "Bakkagøta",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Tjørnuvík",
+     "type": "village",
+     "dist_m": 4006.8,
+     "lat": 62.289509,
+     "lon": -7.14917
+    },
+    "detail": "detail/fo/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 62.068297,
+    "lon": -7.075067,
+    "dist_m": 3673.28,
+    "nearest_way": {
+     "id": 156799028,
+     "highway": "residential",
+     "name": "Smæruteigur",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Sandavágur",
+     "type": "village",
+     "dist_m": 4262.5,
+     "lat": 62.054477,
+     "lon": -7.151071
+    },
+    "detail": "detail/fo/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 61.637663,
+    "lon": -6.705598,
+    "dist_m": 10377.36,
+    "nearest_way": {
+     "id": 588483760,
+     "highway": "residential",
+     "name": "Ovari Vegur",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Stóra Dímun",
+     "type": "village",
+     "dist_m": 5909.0,
+     "lat": 61.685322,
+     "lon": -6.754486
+    },
+    "detail": "detail/fo/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 62.144994,
+    "lon": -7.314887,
+    "dist_m": 6846.64,
+    "nearest_way": {
+     "id": 822307332,
+     "highway": "residential",
+     "name": "Bjargalíð",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Slættanes",
+     "type": "hamlet",
+     "dist_m": 3839.0,
+     "lat": 62.155042,
+     "lon": -7.24446
+    },
+    "detail": "detail/fo/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 61.949694,
+    "lon": -6.623515,
+    "dist_m": 6684.1,
+    "nearest_way": {
+     "id": 43267018,
+     "highway": "residential",
+     "name": "Korndalsgøta",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Nólsoy",
+     "type": "village",
+     "dist_m": 7184.5,
+     "lat": 62.009703,
+     "lon": -6.673581
+    },
+    "detail": "detail/fo/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 61.337925,
+    "lon": -6.671067,
+    "dist_m": 6361.97,
+    "nearest_way": {
+     "id": 850965769,
+     "highway": "service",
+     "name": "Akrabergsvegur",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Akraberg",
+     "type": "hamlet",
+     "dist_m": 6417.2,
+     "lat": 61.39532,
+     "lon": -6.680835
+    },
+    "detail": "detail/fo/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 62.093949,
+    "lon": -7.539363,
+    "dist_m": 5504.46,
+    "nearest_way": {
+     "id": 44651185,
+     "highway": "residential",
+     "name": "Túalsvegur",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Gásadalur",
+     "type": "village",
+     "dist_m": 5677.0,
+     "lat": 62.109738,
+     "lon": -7.436009
+    },
+    "detail": "detail/fo/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 62.183531,
+    "lon": -6.442516,
+    "dist_m": 5467.72,
+    "nearest_way": {
+     "id": 34446280,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Norðoyri",
+     "type": "village",
+     "dist_m": 6224.8,
+     "lat": 62.213384,
+     "lon": -6.543578
+    },
+    "detail": "detail/fo/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 62.366394,
+    "lon": -6.682232,
+    "dist_m": 5428.37,
+    "nearest_way": {
+     "id": 669332302,
+     "highway": "residential",
+     "name": "Á Trøllanesi",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Skarð",
+     "type": "hamlet",
+     "dist_m": 5043.0,
+     "lat": 62.323952,
+     "lon": -6.648483
+    },
+    "detail": "detail/fo/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 61.995225,
+    "lon": -7.007912,
+    "dist_m": 5331.19,
+    "nearest_way": {
+     "id": 772525312,
+     "highway": "service",
+     "name": "Norðradalsvegur",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Koltur",
+     "type": "village",
+     "dist_m": 2336.8,
+     "lat": 61.986176,
+     "lon": -6.967695
+    },
+    "detail": "detail/fo/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 62.311825,
+    "lon": -6.42633,
+    "dist_m": 4431.34,
+    "nearest_way": {
+     "id": 1104434666,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Hvannasund",
+     "type": "village",
+     "dist_m": 5106.1,
+     "lat": 62.297938,
+     "lon": -6.520132
+    },
+    "detail": "detail/fo/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 62.280699,
+    "lon": -7.231441,
+    "dist_m": 4335.4,
+    "nearest_way": {
+     "id": 839630354,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Tjørnuvík",
+     "type": "village",
+     "dist_m": 4381.9,
+     "lat": 62.289509,
+     "lon": -7.14917
+    },
+    "detail": "detail/fo/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

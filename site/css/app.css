@@ -1,22 +1,25 @@
-/* Atokiausia Lietuva — field-journal map
-   Tokens first; everything else styles only through them. */
-
+/* Poles of remoteness. Tokens first, dark variant, then layout. Phone rules live in the media query at
+   the end of the file; desktop rules never go there. */
 :root {
   --ground:      #f3f2ec;
   --panel:       #faf9f4;
-  --panel-solid: #faf9f4;
   --ink:         #22271f;
   --ink-2:       #5b5f54;
   --hair:        rgba(34, 39, 31, .12);
   --hair-strong: rgba(34, 39, 31, .24);
   --accent:      #a55f1f;
   --accent-soft: rgba(165, 95, 31, .10);
-  --accent-ink:  #8a4d1b;          /* accent text on light ground, >= 4.5:1 */
+  --accent-ink:  #8a4d1b;
   --shadow:      0 1px 2px rgba(34, 39, 31, .06), 0 8px 24px rgba(34, 39, 31, .10);
-  --band-1: #e8c98a;
-  --band-2: #d19a4f;
-  --band-3: #b06f2a;
-  --band-4: #8a4d1b;
+  /* Explore palette, one colour per distance stop (1, 2.5, 5, 10, 20, 50 km). Read by js/palette.js. */
+  --band-1: #efd9a8;
+  --band-2: #e2b86f;
+  --band-3: #d19a4f;
+  --band-4: #b06f2a;
+  --band-5: #8a4d1b;
+  --band-6: #5a2f12;
+  --edge:   #7a7f86;
+  --band-alpha: 0.62;
 
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -27,7 +30,7 @@
   --r-lg: 14px;
   --t: 170ms cubic-bezier(.3, .7, .3, 1);
   --panel-w: 360px;
-  --hdr-pad: 14px;
+  --hdr-h: 56px;
   color-scheme: light;
 }
 
@@ -35,7 +38,6 @@
   :root {
     --ground:      #151812;
     --panel:       #1c211a;
-    --panel-solid: #1c211a;
     --ink:         #e8e8dd;
     --ink-2:       #a8ad9d;
     --hair:        rgba(232, 232, 221, .12);
@@ -44,787 +46,181 @@
     --accent-soft: rgba(217, 138, 63, .12);
     --accent-ink:  #e6a15e;
     --shadow:      0 1px 2px rgba(0, 0, 0, .5), 0 10px 28px rgba(0, 0, 0, .45);
+    --band-1: #f3e0b5;
+    --band-2: #ecc27a;
+    --band-3: #e0a356;
+    --band-4: #c97f36;
+    --band-5: #a55f1f;
+    --band-6: #7a3f12;
+    --edge:   #9aa0a8;
+    --band-alpha: 0.58;
     color-scheme: dark;
   }
 }
 
-* { box-sizing: border-box; }
-
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
 body {
-  background: var(--ground);
+  font: 15px/1.45 var(--sans);
   color: var(--ink);
-  font-family: var(--sans);
-  font-size: 15px;
-  line-height: 1.45;
-  -webkit-text-size-adjust: 100%;
-  display: flex;
-  flex-direction: column;
+  background: var(--ground);
   overflow: hidden;
 }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+button { font: inherit; color: inherit; }
 
-h1, h2, h3, p, ul, ol, figure { margin: 0; }
-ul, ol { padding: 0; list-style: none; }
-
-a { color: var(--accent-ink); text-decoration-color: color-mix(in srgb, var(--accent-ink) 40%, transparent); text-underline-offset: 2px; }
-a:hover { text-decoration-color: currentColor; }
-
-button, input { font: inherit; color: inherit; }
-
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: 3px;
-}
-
-.vh {
-  position: absolute; width: 1px; height: 1px;
-  margin: -1px; padding: 0; overflow: hidden;
-  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
-}
-
-/* ───────────────────────── header ───────────────────────── */
-
+/* Header */
 .hdr {
-  position: relative;
-  z-index: 1200;
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 12px 18px;
-  flex-wrap: wrap;
-  padding: 10px var(--hdr-pad);
-  background: var(--panel);
-  border-bottom: 1px solid var(--hair);
+  position: fixed; inset: 0 0 auto 0; height: var(--hdr-h); z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 0 16px; background: var(--panel); border-bottom: 1px solid var(--hair);
 }
+.hdr__title { margin: 0; font: 600 19px/1.2 var(--serif); }
+.hdr__home { color: inherit; text-decoration: none; }
+.hdr__sub { margin: 0; font-size: 12px; color: var(--ink-2); }
+.hdr__right { display: flex; align-items: center; gap: 10px; }
 
-.hdr__brand { flex: 1 1 auto; min-width: 0; }
+/* Segmented buttons */
+.seg { display: inline-flex; border: 1px solid var(--hair-strong); border-radius: var(--r-md); overflow: hidden; background: var(--panel); }
+.seg__btn { border: 0; background: transparent; padding: 6px 12px; cursor: pointer; color: var(--ink-2); }
+.seg__btn + .seg__btn { border-left: 1px solid var(--hair); }
+.seg__btn[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
+.seg--sm .seg__btn { padding: 4px 10px; font-size: 13px; }
+.link-btn { border: 0; background: none; padding: 0; color: var(--accent-ink); cursor: pointer; text-decoration: underline; }
 
-.hdr__title {
-  font-family: var(--serif);
-  font-size: clamp(19px, 2.4vw, 23px);
-  font-weight: 600;
-  letter-spacing: .01em;
-  line-height: 1.1;
-}
+/* The region control: links wearing the segmented look, absent while there is only one region. [hidden] is
+   a user agent rule and .seg sets display, so the hidden state is spelled out or the empty control would
+   still paint its border. */
+.hdr__regions[hidden] { display: none; }
+.hdr__regions .seg__btn { text-decoration: none; }
+.hdr__regions .seg__btn[aria-current="page"] { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
 
-/* The title is a control: it takes the map back to the whole country. */
-.hdr__reset {
-  appearance: none;
-  border: 0;
-  background: none;
-  padding: 0;
-  font: inherit;
-  letter-spacing: inherit;
-  text-align: left;
-  cursor: pointer;
-  transition: color var(--t);
-}
-.hdr__reset:hover { color: var(--accent-ink); }
+/* Stage and map */
+.stage { position: fixed; inset: var(--hdr-h) 0 0 0; }
+.map { position: absolute; inset: 0; right: var(--panel-w); background: var(--ground); }
+.leaflet-container { font: inherit; }
+.leaflet-tile.explore-tile, .detail-overlay { image-rendering: pixelated; }
 
-.hdr__sub {
-  font-size: 12.5px;
-  color: var(--ink-2);
-  margin-top: 2px;
-  max-width: 46ch;
-}
-
-.hdr__center { flex: 0 0 auto; }
-
-.hdr__right {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-left: auto;
-}
-
-/* segmented control */
-
-.seg {
-  display: inline-flex;
-  background: color-mix(in srgb, var(--ink) 5%, transparent);
-  border: 1px solid var(--hair);
-  border-radius: 999px;
-  padding: 2px;
-  gap: 2px;
-}
-
-.seg__btn {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: var(--ink-2);
-  padding: 5px 13px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.3;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background var(--t), color var(--t);
-}
-.seg__btn:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 6%, transparent); }
-.seg__btn[aria-pressed="true"] {
-  background: var(--panel-solid);
-  color: var(--ink);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .12);
-  border: 1px solid var(--hair);
-  padding: 4px 12px;
-}
-/* scenario explainer */
-
-.scenario { position: relative; display: flex; align-items: center; gap: 7px; }
-
-.info-btn {
-  flex: 0 0 auto;
-  display: grid;
-  place-items: center;
-  width: 21px; height: 21px;
-  padding: 0;
-  border: 1px solid var(--hair-strong);
-  border-radius: 50%;
-  background: var(--panel-solid);
-  color: var(--ink-2);
-  font-size: 12px;
-  font-weight: 650;
-  line-height: 1;
-  cursor: pointer;
-  transition: color var(--t), border-color var(--t), background var(--t);
-}
-.info-btn:hover,
-.info-btn[aria-expanded="true"] {
-  color: var(--accent-ink);
-  border-color: var(--accent);
-  background: var(--accent-soft);
-}
-
-.pop {
-  position: absolute;
-  top: calc(100% + 10px); right: 0;
-  width: min(320px, calc(100vw - 20px));
-  padding: 11px 13px 12px;
-  background: var(--panel-solid);
-  border: 1px solid var(--hair-strong);
-  border-radius: var(--r-md);
-  box-shadow: var(--shadow);
-  z-index: 30;
-}
-.pop::before {
-  content: "";
-  position: absolute;
-  top: -5px; right: 6px;
-  width: 9px; height: 9px;
-  background: var(--panel-solid);
-  border-left: 1px solid var(--hair-strong);
-  border-top: 1px solid var(--hair-strong);
-  transform: rotate(45deg);
-}
-.pop__item { font-size: 12.5px; color: var(--ink-2); line-height: 1.4; margin-top: 9px; }
-.pop__item:first-child { margin-top: 0; }
-.pop__item b { display: block; color: var(--ink); font-weight: 600; }
-
-.seg--lang .seg__btn { padding: 5px 10px; font-size: 12px; letter-spacing: .04em; }
-.seg--lang .seg__btn[aria-pressed="true"] { padding: 4px 9px; }
-.seg--sm .seg__btn { font-size: 12px; padding: 4px 10px; }
-.seg--sm .seg__btn[aria-pressed="true"] { padding: 3px 9px; }
-
-/* search */
-
-.search { position: relative; width: min(280px, 46vw); }
-
-.search__icon {
-  position: absolute; left: 9px; top: 50%; transform: translateY(-50%);
-  width: 15px; height: 15px; color: var(--ink-2); pointer-events: none;
-}
-
-#q {
-  width: 100%;
-  padding: 7px 28px 7px 29px;
-  background: var(--panel-solid);
-  border: 1px solid var(--hair-strong);
-  border-radius: 999px;
-  font-size: 13.5px;
-  transition: border-color var(--t), box-shadow var(--t);
-}
-#q::placeholder { color: var(--ink-2); opacity: .85; }
-#q:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); outline: none; }
-
-.search__clear {
-  position: absolute; right: 5px; top: 50%; transform: translateY(-50%);
-  width: 22px; height: 22px; line-height: 1;
-  border: 0; border-radius: 50%; background: transparent;
-  color: var(--ink-2); font-size: 17px; cursor: pointer;
-}
-.search__clear:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); color: var(--ink); }
-
-.search__list {
-  position: absolute;
-  top: calc(100% + 6px); left: 0;
-  width: max(100%, 250px);
-  background: var(--panel-solid);
-  border: 1px solid var(--hair);
-  border-radius: var(--r-md);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  z-index: 20;
-}
-
-.search__opt {
-  display: flex; align-items: baseline; gap: 8px;
-  padding: 7px 11px;
-  cursor: pointer;
-  border-bottom: 1px solid var(--hair);
-}
-.search__opt:last-child { border-bottom: 0; }
-.search__opt[aria-selected="true"], .search__opt:hover { background: var(--accent-soft); }
-.search__name { font-size: 13.5px; }
-.search__badge {
-  margin-left: auto;
-  font-size: 10.5px; letter-spacing: .05em; text-transform: uppercase;
-  color: var(--ink-2);
-  border: 1px solid var(--hair-strong);
-  border-radius: 999px;
-  padding: 1px 6px;
-  white-space: nowrap;
-}
-.search__coord { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
-
-/* ───────────────────────── stage / map ───────────────────────── */
-
-.stage { position: relative; flex: 1 1 auto; min-height: 0; }
-
-#map {
-  position: absolute; inset: 0;
-  background: var(--ground);
-}
-
-.leaflet-container { font-family: var(--sans); background: var(--ground); }
-
-.leaflet-control-attribution {
-  background: color-mix(in srgb, #faf9f4 82%, transparent);
-  color: #3d4137;
-  font-size: 10.5px;
-  padding: 1px 6px;
-}
-.leaflet-control-attribution a { color: #7d4a19; }
-
-.leaflet-control-zoom { border: 0 !important; box-shadow: var(--shadow); }
-.leaflet-touch .leaflet-bar a {
-  background: var(--panel-solid);
-  color: var(--ink);
-  border-bottom-color: var(--hair);
-  width: 30px; height: 30px; line-height: 30px;
-}
-.leaflet-touch .leaflet-bar a:hover { background: color-mix(in srgb, var(--accent) 12%, var(--panel-solid)); }
-
-/* rank markers */
-
-.rank-pin {
-  display: grid;
-  place-items: center;
-  width: 24px; height: 24px;
-  border-radius: 50%;
-  background: #a55f1f;
-  color: #faf9f4;
-  font-size: 12px;
-  font-weight: 650;
-  font-variant-numeric: tabular-nums;
-  box-shadow: 0 0 0 2px rgba(250, 249, 244, .92), 0 1px 4px rgba(0, 0, 0, .45);
-  transition: transform var(--t);
-}
-.rank-pin--on {
-  background: #8a4d1b;
-  transform: scale(1.22);
-  box-shadow: 0 0 0 2.5px rgba(250, 249, 244, .96), 0 2px 8px rgba(0, 0, 0, .5);
-}
-.rank-pin:hover { transform: scale(1.15); }
-.rank-pin--on:hover { transform: scale(1.28); }
-
-/* ───────────────────────── floating map controls ───────────────────────── */
-
+/* Map controls, bottom left of the map */
 .mapctl {
-  position: absolute;
-  top: 14px; right: 14px;
-  z-index: 1001;          /* same tier as the panel, above the Leaflet corners */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-  max-width: calc(100% - var(--panel-w) - 56px);
-  pointer-events: none;   /* the gaps between the cards stay pannable map */
+  position: absolute; left: 12px; bottom: 28px; z-index: 800; display: flex; flex-direction: column; gap: 8px;
+  align-items: flex-start; pointer-events: none;
 }
+.mapctl > * { pointer-events: auto; }
+.legend { list-style: none; margin: 0; padding: 6px 10px; display: flex; gap: 10px; font-size: 12px;
+  background: var(--panel); border-radius: var(--r-md); box-shadow: var(--shadow); }
+.legend__item { display: flex; align-items: center; gap: 4px; }
+.legend__swatch { width: 12px; height: 12px; border-radius: 3px; }
 
-.mapctl__row {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 8px;
-  pointer-events: none;
-}
+/* Card (task 6 and 8) */
+.card { position: absolute; left: 12px; top: 12px; z-index: 900; width: min(380px, calc(100% - 24px));
+  background: var(--panel); border-radius: var(--r-lg); box-shadow: var(--shadow); padding: 14px 16px; }
 
-.mapctl .seg,
-.mapctl__check,
-.legend-card,
-.readout { pointer-events: auto; }
+/* Readout (task 5) */
+.readout { padding: 8px 12px; background: var(--panel); border-radius: var(--r-md); box-shadow: var(--shadow);
+  font-size: 14px; line-height: 1.35; max-width: 320px; }
 
-/* The map runs underneath, so every card needs its own solid ground. */
-.mapctl .seg { background: color-mix(in srgb, var(--ink) 7%, var(--panel)); box-shadow: var(--shadow); }
-
-.mapctl__check {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 5px 12px 5px 10px;
-  background: var(--panel);
-  border: 1px solid var(--hair);
-  border-radius: 999px;
-  box-shadow: var(--shadow);
-  font-size: 12.5px;
-}
-.mapctl__check input { accent-color: var(--accent); width: 15px; height: 15px; margin: 0; cursor: pointer; }
-.mapctl__check label { cursor: pointer; white-space: nowrap; }
-
-/* Zoom buttons stack below the cluster: its 14px inset plus its measured
-   height plus a gap, less the 10px Leaflet already keeps. */
-.leaflet-top.leaflet-right { margin-top: calc(var(--ctl-h, 0px) + 12px); }
-
-/* ───────────────────────── panel ───────────────────────── */
-
-.panel {
-  position: absolute;
-  top: 14px; left: 14px;
-  z-index: 1001;          /* Leaflet control corners sit at 1000 */
-  width: var(--panel-w);
-  max-height: calc(100% - 28px);
-  display: flex;
-  flex-direction: column;
-  background: var(--panel);
-  border: 1px solid var(--hair);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-
+/* Side panel (desktop) and sheet (phone, see the media query) */
+.panel { position: absolute; top: 0; right: 0; bottom: 0; width: var(--panel-w); background: var(--panel);
+  border-left: 1px solid var(--hair); display: flex; flex-direction: column; z-index: 900; }
 .panel__handle { display: none; }
+.panel__body { overflow: auto; padding: 12px 16px 16px; flex: 1; }
+.panel__note { margin: 0 0 10px; font-size: 12px; color: var(--ink-2); }
+.panel__foot { margin-top: 16px; font-size: 13px; }
+.ranking { list-style: none; margin: 0; padding: 0; }
 
-.panel__body {
-  flex: 1 1 auto;
-  min-height: 0;          /* let it shrink so it can actually scroll */
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  padding: 4px 0 0;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: var(--hair-strong) transparent;
-}
+/* About dialog */
+.about { width: min(640px, calc(100% - 32px)); max-height: calc(100% - 32px); border: 0; border-radius: var(--r-lg);
+  padding: 20px 24px; background: var(--panel); color: var(--ink); box-shadow: var(--shadow); }
+.about::backdrop { background: rgba(0, 0, 0, .4); }
+.about__close-form { position: sticky; top: 0; float: right; }
+.about__close { border: 0; background: none; font-size: 24px; cursor: pointer; line-height: 1; }
+.about__body h2 { font: 600 22px/1.2 var(--serif); margin: 0 0 12px; }
+.about__body h3 { font: 600 16px/1.3 var(--serif); margin: 18px 0 6px; }
+.about__body p { margin: 0 0 10px; }
+/* The About text carries both languages inline and html[lang] picks one. Scoped to the dialog on purpose:
+   unscoped it also matches the language switcher, which hides the button for the language you would
+   switch to and leaves only the one already active. */
+html[lang="en"] .about__body [data-lang="lt"], html[lang="lt"] .about__body [data-lang="en"] { display: none; }
 
-/* "there is more below" fade, only while there is */
-.panel::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 30px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--t);
-  background: linear-gradient(to bottom, color-mix(in srgb, var(--panel) 0%, transparent), var(--panel));
-}
-.panel.has-more::after { opacity: 1; }
+/* Card internals */
+.card__headline { margin: 0 0 4px; font: 600 17px/1.3 var(--serif); }
+.card__rank { margin: 0 0 10px; color: var(--ink-2); font-size: 13px; }
+.card__seg { display: flex; width: 100%; }
+.card__seg .seg__btn { flex: 1; }
+.card__hint { margin: 4px 0 10px; font-size: 12px; color: var(--ink-2); }
+.card__actions { display: flex; gap: 8px; margin-bottom: 12px; }
+.btn { border: 1px solid var(--accent); background: var(--accent); color: #fff; border-radius: var(--r-md); padding: 7px 12px; cursor: pointer; font-weight: 600; }
+.btn--ghost { background: transparent; color: var(--accent-ink); }
+.card__poles { border-top: 1px solid var(--hair); padding-top: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+.chip { border: 1px solid var(--hair-strong); background: transparent; border-radius: 999px; min-width: 26px; height: 26px; padding: 0 8px; cursor: pointer; font-size: 12px; }
+.chip--on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.card__pole-title { margin: 4px 0 6px; font: 600 15px/1.3 var(--serif); }
+.card__of { font-weight: 400; color: var(--ink-2); font-size: 12px; }
+.card__facts { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; margin: 0; font-size: 13px; }
+.card__facts dt { color: var(--ink-2); }
+.card__facts dd { margin: 0; }
+.card__maps { display: block; color: var(--accent-ink); }
+.card__note { margin: 8px 0 0; font-size: 12px; color: var(--ink-2); }
+.mono { font-family: var(--mono); font-size: 12px; }
 
-.block { padding: 14px 15px; border-top: 1px solid var(--hair); }
-.block:first-child { border-top: 0; }
+/* Pole markers. Leaflet writes the marker's size, margins and transform inline (that is how it positions
+   them), so the active state is said in colour and a ring, never in transform or width. */
+.pole-marker { display: flex; align-items: center; justify-content: center; border-radius: 50%;
+  background: var(--panel); border: 2px solid var(--accent); color: var(--accent-ink); font: 600 12px/1 var(--sans);
+  box-shadow: var(--shadow); }
+.pole-marker--active { background: var(--accent); color: #fff; box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow); }
 
-.block__h {
-  font-size: 11px;
-  font-weight: 650;
-  letter-spacing: .09em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
+/* Ranking rows */
+.ranking__row + .ranking__row { border-top: 1px solid var(--hair); }
+.ranking__btn { display: grid; grid-template-columns: 28px 24px 1fr auto; align-items: center; gap: 6px; width: 100%;
+  border: 0; background: none; padding: 7px 4px; text-align: left; cursor: pointer; border-radius: var(--r-sm); }
+/* Hover is neutral and the current unit is the only row tinted with the accent: sharing one colour made a
+   row under the pointer look selected. */
+.ranking__btn:hover { background: var(--hair); }
+.ranking__row--current { scroll-margin-top: 12px; } /* the panel body's top padding, kept when scrolled to */
+.ranking__row--current .ranking__btn { background: var(--accent-soft); }
+.ranking__rank { color: var(--ink-2); font-variant-numeric: tabular-nums; font-size: 13px; }
+.ranking__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ranking__dist { text-align: right; font-variant-numeric: tabular-nums; }
+.ranking__dist b { display: block; font-weight: 600; }
+.ranking__dist small { color: var(--ink-2); font-size: 11px; }
 
-.block__note { font-size: 12px; color: var(--ink-2); margin-top: 4px; }
+.about__body b { font-weight: 600; }
 
-.panel__foot { padding: 11px 15px 14px; border-top: 1px solid var(--hair); }
-
-.link-btn {
-  border: 0; background: none; padding: 0;
-  color: var(--accent-ink);
-  font-size: 12.5px;
-  cursor: pointer;
-  text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, var(--accent-ink) 40%, transparent);
-  text-underline-offset: 3px;
-}
-.link-btn:hover { text-decoration-color: currentColor; }
-
-/* ───────────────────────── ranked spots ───────────────────────── */
-
-.spots { margin-top: 10px; display: flex; flex-direction: column; gap: 7px; }
-
-.spot-item {
-  background: color-mix(in srgb, var(--ink) 3%, transparent);
-  border: 1px solid var(--hair);
-  border-radius: var(--r-md);
-  overflow: hidden;
-  transition: background var(--t), border-color var(--t), box-shadow var(--t);
-}
-.spot-item:hover { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 40%, transparent); }
-.spot-item.is-on {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-  box-shadow: inset 3px 0 0 var(--accent);
-}
-
-.spot {
-  width: 100%;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 2px 11px;
-  text-align: left;
-  padding: 10px 11px 8px;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-.spot:focus-visible { outline-offset: -3px; }
-
-.spot__rank {
-  grid-row: 1 / span 2;
-  align-self: start;
-  display: grid;
-  place-items: center;
-  width: 22px; height: 22px;
-  margin-top: 3px;
-  border-radius: 50%;
-  border: 1px solid var(--hair-strong);
-  color: var(--ink-2);
-  font-size: 11.5px;
-  font-weight: 650;
-  font-variant-numeric: tabular-nums;
-}
-.spot-item--win .spot__rank {
-  border-color: transparent;
-  background: color-mix(in srgb, var(--accent) 18%, transparent);
-  color: var(--accent-ink);
-}
-.spot__crown { width: 13px; height: 13px; display: block; }
-
-.spot__dist {
-  font-family: var(--serif);
-  font-size: 25px;
-  line-height: 1.05;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -.01em;
-}
-.spot__dist small { font-size: .5em; font-family: var(--sans); color: var(--ink-2); margin-left: 3px; letter-spacing: 0; }
-
-.spot__meta { grid-column: 2; display: block; }
-.spot__title { display: block; font-size: 13.5px; font-weight: 550; margin-top: 3px; }
-.spot__near { display: block; font-size: 12.5px; color: var(--ink-2); margin-top: 1px; }
-.spot__foot {
-  padding: 7px 11px 9px;
-  margin: 0 11px;
-  border-top: 1px dashed var(--hair-strong);
-  padding-left: 0; padding-right: 0;
-}
-.spot__road { font-size: 11.5px; color: var(--ink-2); line-height: 1.4; }
-.spot__road b { font-weight: 550; color: var(--ink); }
-
-.spot__hint {
-  display: none;
-  font-size: 11.5px;
-  color: var(--accent-ink);
-  margin-top: 6px;
-  padding-left: 9px;
-  border-left: 2px solid color-mix(in srgb, var(--accent) 45%, transparent);
-}
-.spot-item.is-on .spot__hint { display: block; }
-
-/* ───────────────────────── floating readout card ───────────────────────── */
-
-.readout {
-  width: min(300px, calc(100vw - 20px));
-  padding: 8px 11px 10px;
-  background: var(--panel);
-  border: 1px solid var(--accent);
-  border-radius: var(--r-md);
-  box-shadow: var(--shadow), inset 0 0 0 3px var(--accent-soft);
-}
-
-.readout__top { display: flex; align-items: baseline; gap: 8px; }
-.readout__kicker {
-  font-size: 10px; letter-spacing: .09em; text-transform: uppercase;
-  color: var(--accent-ink); font-weight: 650;
-}
-.readout__close {
-  margin: -4px -5px 0 auto;
-  border: 0; background: none; cursor: pointer;
-  color: var(--ink-2); font-size: 16px; line-height: 1;
-  width: 22px; height: 22px; border-radius: 50%;
-  flex: 0 0 auto;
-}
-.readout__close:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); color: var(--ink); }
-
-.readout__dist {
-  font-family: var(--serif);
-  font-size: 24px;
-  line-height: 1.1;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -.01em;
-  margin-top: 1px;
-}
-.readout__dist small { font-size: .5em; font-family: var(--sans); color: var(--ink-2); margin-left: 3px; }
-
-.readout__cap { font-size: 11px; color: var(--ink-2); margin-top: 1px; }
-.readout__wait { font-size: 13px; margin-top: 3px; }
-
-.readout__name { font-size: 13px; font-weight: 550; margin-top: 7px; line-height: 1.3; }
-.readout__sub { font-size: 11.5px; color: var(--ink-2); margin-top: 1px; }
-
-.readout__road { font-size: 11.5px; color: var(--ink-2); line-height: 1.4; margin-top: 5px; }
-.readout__road b { font-weight: 550; color: var(--ink); }
-
-.readout__say { font-size: 11.5px; color: var(--accent-ink); margin-top: 6px; line-height: 1.4; }
-
-.readout__foot {
-  margin-top: 8px; padding-top: 7px;
-  border-top: 1px solid var(--hair);
-  display: flex; align-items: center; gap: 3px 10px; flex-wrap: wrap;
-}
-.readout__ll { font-family: var(--mono); font-size: 11px; color: var(--ink-2); }
-.readout__links { display: flex; gap: 10px; margin-left: auto; }
-.readout__link { font-size: 11.5px; white-space: nowrap; }
-
-/* Collapsed pill: a mobile-only state, inert above the breakpoint. */
-
-.readout__pillrow { display: none; align-items: center; min-height: 40px; }
-
-.readout__pill {
-  flex: 1 1 auto;
-  min-width: 0;
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  padding: 9px 2px 9px 14px;
-  border: 0;
-  background: none;
-  text-align: left;
-  cursor: pointer;
-}
-.readout__pill:focus-visible { outline-offset: -4px; border-radius: 999px; }
-
-.readout__pill-dist {
-  flex: 0 0 auto;
-  font-family: var(--serif);
-  font-size: 16px;
-  line-height: 1.15;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -.01em;
-}
-.readout__pill-sep { flex: 0 0 auto; color: var(--ink-2); }
-.readout__pill-name {
-  flex: 1 1 auto;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 13px;
-  color: var(--ink-2);
-}
-
-.readout__chev { flex: 0 0 auto; font-size: 15px; line-height: 1; color: var(--accent-ink); }
-
-.readout__close--pill { margin: 0 8px 0 0; width: 30px; height: 30px; font-size: 18px; }
-
-/* The collapse affordance only exists in the mobile expanded state. */
-.readout__collapse { display: none; }
-
-/* ───────────────────────── legend ───────────────────────── */
-
-.legend-card {
-  padding: 7px 11px 8px;
-  background: var(--panel);
-  border: 1px solid var(--hair);
-  border-radius: var(--r-md);
-  box-shadow: var(--shadow);
-}
-
-.legend { display: flex; flex-direction: column; gap: 3px; }
-.legend li {
-  display: flex; align-items: center; gap: 7px;
-  font-size: 11.5px; color: var(--ink-2);
-  font-variant-numeric: tabular-nums;
-}
-.legend .sw {
-  width: 18px; height: 10px; border-radius: 2px;
-  border: 1px solid rgba(34, 39, 31, .35);
-  flex: 0 0 auto;
-}
-
-/* ───────────────────────── about dialog ───────────────────────── */
-
-.about {
-  width: min(560px, calc(100vw - 32px));
-  max-height: min(80vh, 720px);
-  padding: 22px 24px 24px;
-  border: 1px solid var(--hair);
-  border-radius: var(--r-lg);
-  background: var(--panel);
-  color: var(--ink);
-  box-shadow: var(--shadow);
-  overflow: auto;
-}
-.about::backdrop { background: rgba(15, 18, 12, .45); backdrop-filter: blur(2px); }
-.about__close-form { float: right; margin: -6px -8px 0 0; }
-.about__close {
-  border: 0; background: none; cursor: pointer;
-  color: var(--ink-2); font-size: 22px; line-height: 1;
-  width: 30px; height: 30px; border-radius: 50%;
-}
-.about__close:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); color: var(--ink); }
-.about__h { font-family: var(--serif); font-size: 21px; font-weight: 600; }
-.about__body { margin-top: 10px; font-size: 14px; color: var(--ink); }
-.about__body p { margin-top: 10px; }
-.about__body p:first-child { margin-top: 0; }
-.about__body .muted { color: var(--ink-2); font-size: 12.5px; }
-.about__body dl { margin: 12px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 13.5px; }
-.about__body dt { font-weight: 600; color: var(--accent-ink); white-space: nowrap; }
-.about__body dd { margin: 0; color: var(--ink-2); }
-
-/* ───────────────────────── mobile: bottom sheet ───────────────────────── */
-
+/* Phone: ranking becomes a bottom sheet, the map fills the screen. Phone rules only in here. */
 @media (max-width: 720px) {
-  :root {
-    --hdr-pad: 11px;
-    --readout-lift: 26px;   /* attribution strip plus a gap above it */
-  }
-
-  .hdr { gap: 8px 10px; padding-bottom: 9px; }
-  .hdr__brand { flex: 1 1 auto; }
+  .map { right: 0; }
   .hdr__sub { display: none; }
-  .hdr__right { order: 1; margin-left: auto; }
-  .hdr__center { order: 2; flex: 1 1 100%; }
-  .hdr__center .scenario { width: 100%; }
-  .hdr__center .seg { display: flex; flex: 1 1 auto; min-width: 0; }
-  .hdr__center .seg__btn { flex: 1 1 0; text-align: center; min-width: 0; }
-  .search { width: min(210px, 52vw); }
-
-  /* Tighter insets so the cluster keeps most of the map pannable. */
-  .mapctl {
-    top: 10px; right: 10px;
-    gap: 6px;
-    max-width: calc(100% - 20px);
-  }
-
-  /* The pill clears the legend, but the expanded card still rises into its
-     corner on a phone-sized map band, so that one state outranks it. */
-  .mapctl--expanded .legend-card { display: none; }
-
-  /* The readout leaves the cluster here and rides the bottom of the map, just
-     above the attribution, so it never sits on top of the selected marker.
-     Out of the cluster's flow, it also drops out of the --ctl-h measurement. */
-  .readout {
-    position: fixed;
-    left: 0; right: 0;
-    bottom: calc(var(--sheet-h, 0px) + var(--readout-lift));
-    margin: 0 auto;
-  }
-
-  /* Expanded it grows upward from that same anchor, and stops short of the
-     header: on a short viewport the overflow scrolls inside the card. */
-  .readout--expanded {
-    max-height: calc(100vh - var(--hdr-h, 92px) - var(--sheet-h, 0px) - var(--readout-lift) - 10px);
-    max-height: calc(100dvh - var(--hdr-h, 92px) - var(--sheet-h, 0px) - var(--readout-lift) - 10px);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--hair-strong) transparent;
-  }
-
-  /* Scrolled or not, the close and collapse buttons stay in reach. */
-  .readout--expanded .readout__top {
-    position: sticky;
-    top: -8px;
-    margin: -8px -11px 0;
-    padding: 8px 11px 0;
-    background: var(--panel);
-    z-index: 1;
-  }
-
-  .readout:not(.readout--expanded) {
-    padding: 0;
-    border-radius: 999px;
-    box-shadow: var(--shadow);
-  }
-  .readout:not(.readout--expanded) .readout__pillrow { display: flex; }
-  .readout:not(.readout--expanded) .readout__card { display: none; }
-
-  .readout--expanded .readout__collapse {
-    display: grid;
-    place-items: center;
-    margin: -4px 0 0 auto;
-    width: 26px; height: 26px;
-    padding: 0;
-    border: 0; border-radius: 50%;
-    background: none;
-    color: var(--ink-2);
-    cursor: pointer;
-    flex: 0 0 auto;
-  }
-  .readout--expanded .readout__collapse:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); color: var(--ink); }
-  .readout--expanded .readout__collapse .readout__chev { color: inherit; transform: rotate(-90deg); }
-  .readout--expanded .readout__close { margin-left: 2px; }
-
-  .panel {
-    top: auto; left: 0; right: 0; bottom: 0;
-    width: auto;
-    max-height: 56%;
-    border-radius: var(--r-lg) var(--r-lg) 0 0;
-    border-left: 0; border-right: 0; border-bottom: 0;
-    box-shadow: 0 -2px 24px rgba(0, 0, 0, .18);
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-
-  .panel__handle {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    padding: 9px 0 7px;
-    border: 0;
-    background: none;
-    cursor: pointer;
-    flex: 0 0 auto;
-  }
-  .panel__grip {
-    display: block;
-    width: 38px; height: 4px;
-    border-radius: 999px;
-    background: var(--hair-strong);
-    transition: background var(--t);
-  }
-  .panel__handle:hover .panel__grip { background: var(--ink-2); }
-
-  .panel--collapsed { max-height: none; }
+  /* Only when the control is there: two region names beside the language control do not fit a 390px header
+     next to a full-size title. A one-region site keeps the header it has, byte for byte. */
+  .hdr--regions { gap: 8px; padding: 0 10px; }
+  .hdr--regions .hdr__brand { min-width: 0; }
+  .hdr--regions .hdr__title { font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hdr--regions .seg__btn { padding: 4px 8px; font-size: 12px; white-space: nowrap; }
+  .panel { top: auto; left: 0; right: 0; width: auto; border-left: 0; border-top: 1px solid var(--hair);
+    border-radius: var(--r-lg) var(--r-lg) 0 0; box-shadow: var(--shadow); transition: height var(--t); }
+  .panel--collapsed { height: 48px; }
+  .panel--half { height: 45%; }
+  .panel--full { height: calc(100% - 8px); }
+  .panel__handle { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; height: 48px;
+    border: 0; background: none; cursor: pointer; }
+  .panel__grip { width: 36px; height: 4px; border-radius: 2px; background: var(--hair-strong); }
   .panel--collapsed .panel__body { display: none; }
-
-  /* keep the attribution clear of the bottom sheet */
-  .leaflet-bottom { bottom: var(--sheet-h, 0px); transition: bottom var(--t); }
-  .leaflet-control-attribution { max-width: 90vw; }
-}
-
-@media (max-width: 380px) {
-  .hdr__title { font-size: 18px; }
-  .search { width: min(180px, 48vw); }
-  .mapctl__check { font-size: 12px; padding: 4px 10px 4px 8px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * { transition-duration: 1ms !important; animation-duration: 1ms !important; }
+  /* The bottom stack on a phone, from the screen edge up: the collapsed sheet's 48px handle, then the
+     Leaflet attribution, then the map controls. The attribution defaults to the very bottom, where it hides
+     the grip and swallows the tap; lifting it clear of the handle costs the controls its height in turn
+     (three lines at these widths), or it would cover the readout pill. Leaflet parks its control corners at
+     z-index 1000, above the sheet, so the attribution is dropped to the map controls' layer as well: an open
+     sheet has to cover it, not be sliced by it. */
+  .leaflet-bottom { bottom: 48px; z-index: 800; }
+  .mapctl { bottom: 116px; }
+  .card { width: calc(100% - 24px); }
+  /* The full-width card runs under Leaflet's zoom control, which stays where Leaflet puts it (top right of
+     the map, 34px wide with its border, 10px of margin, 64px tall on a touch device): its left edge is 44px
+     from the screen edge. The card sits 12px in and pads 16px, so its text already stops 28px from the edge;
+     24px more leaves 8px of clearance. The card's top two lines are the ones the control reaches, so they
+     wrap before it instead of under it (#34). */
+  .card__headline, .card__rank { padding-right: 24px; }
 }

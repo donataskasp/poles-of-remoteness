@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-tn",
+ "name": "Tennessee",
+ "name_en": "Tennessee",
+ "country": "us",
+ "area_km2": 108535.2,
+ "bbox": [
+  -90.310298,
+  34.9831554,
+  -81.6472191,
+  36.678118
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 35.571008,
+    "lon": -83.591595,
+    "dist_m": 8802.41,
+    "nearest_way": {
+     "id": 16777222,
+     "highway": "service",
+     "name": "Kuwohi Road Primary Parking",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Elkmont",
+     "type": "hamlet",
+     "dist_m": 9164.1,
+     "lat": 35.653134,
+     "lon": -83.580829
+    },
+    "detail": "detail/us-tn/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 35.688481,
+    "lon": -83.263552,
+    "dist_m": 8299.43,
+    "nearest_way": {
+     "id": 19605257,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rocky Grove",
+     "type": "hamlet",
+     "dist_m": 8961.4,
+     "lat": 35.766762,
+     "lon": -83.287932
+    },
+    "detail": "detail/us-tn/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 35.645989,
+    "lon": -83.361461,
+    "dist_m": 5584.79,
+    "nearest_way": {
+     "id": 275606051,
+     "highway": "trunk",
+     "name": "Newfound Gap Road North",
+     "ref": "US 441",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Smokemont",
+     "type": "village",
+     "dist_m": 10716.9,
+     "lat": 35.558312,
+     "lon": -83.311837
+    },
+    "detail": "detail/us-tn/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 35.568999,
+    "lon": -83.703906,
+    "dist_m": 5526.02,
+    "nearest_way": {
+     "id": 285736211,
+     "highway": "tertiary",
+     "name": "Laurel Creek Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tremont",
+     "type": "hamlet",
+     "dist_m": 7971.4,
+     "lat": 35.639707,
+     "lon": -83.68831
+    },
+    "detail": "detail/us-tn/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 35.525728,
+    "lon": -83.820346,
+    "dist_m": 4684.66,
+    "nearest_way": {
+     "id": 222064955,
+     "highway": "service",
+     "name": "Forge Creek Parking @ End",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Twenty Mile",
+     "type": "hamlet",
+     "dist_m": 8280.0,
+     "lat": 35.466292,
+     "lon": -83.875533
+    },
+    "detail": "detail/us-tn/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 35.406276,
+    "lon": -84.02112,
+    "dist_m": 4320.86,
+    "nearest_way": {
+     "id": 19572171,
+     "highway": "unclassified",
+     "name": "Doublecamp Creek Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Jenkins Meadow",
+     "type": "hamlet",
+     "dist_m": 6751.2,
+     "lat": 35.382029,
+     "lon": -83.952961
+    },
+    "detail": "detail/us-tn/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 35.562179,
+    "lon": -83.943331,
+    "dist_m": 4292.33,
+    "nearest_way": {
+     "id": 222064968,
+     "highway": "residential",
+     "name": "Parson Branch Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Happy Valley",
+     "type": "hamlet",
+     "dist_m": 5346.2,
+     "lat": 35.608973,
+     "lon": -83.957403
+    },
+    "detail": "detail/us-tn/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 35.630509,
+    "lon": -83.866222,
+    "dist_m": 3986.94,
+    "nearest_way": {
+     "id": 222046050,
+     "highway": "tertiary",
+     "name": "Cades Cove Loop Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cades Cove",
+     "type": "hamlet",
+     "dist_m": 6083.6,
+     "lat": 35.608953,
+     "lon": -83.804477
+    },
+    "detail": "detail/us-tn/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 35.004287,
+    "lon": -84.525932,
+    "dist_m": 3681.28,
+    "nearest_way": {
+     "id": 910654179,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sylco",
+     "type": "hamlet",
+     "dist_m": 7399.9,
+     "lat": 35.033966,
+     "lon": -84.598544
+    },
+    "detail": "detail/us-tn/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 36.411718,
+    "lon": -89.372632,
+    "dist_m": 3344.59,
+    "nearest_way": {
+     "id": 19518061,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Samburg",
+     "type": "village",
+     "dist_m": 3775.8,
+     "lat": 36.380899,
+     "lon": -89.354794
+    },
+    "detail": "detail/us-tn/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 35.571008,
+    "lon": -83.591595,
+    "dist_m": 8802.41,
+    "nearest_way": {
+     "id": 16777222,
+     "highway": "service",
+     "name": "Kuwohi Road Primary Parking",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Elkmont",
+     "type": "hamlet",
+     "dist_m": 9164.1,
+     "lat": 35.653134,
+     "lon": -83.580829
+    },
+    "detail": "detail/us-tn/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 35.688481,
+    "lon": -83.263552,
+    "dist_m": 8299.43,
+    "nearest_way": {
+     "id": 19605257,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rocky Grove",
+     "type": "hamlet",
+     "dist_m": 8961.4,
+     "lat": 35.766762,
+     "lon": -83.287932
+    },
+    "detail": "detail/us-tn/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 35.645989,
+    "lon": -83.361461,
+    "dist_m": 5584.79,
+    "nearest_way": {
+     "id": 275606051,
+     "highway": "trunk",
+     "name": "Newfound Gap Road North",
+     "ref": "US 441",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Smokemont",
+     "type": "village",
+     "dist_m": 10716.9,
+     "lat": 35.558312,
+     "lon": -83.311837
+    },
+    "detail": "detail/us-tn/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 35.568999,
+    "lon": -83.703906,
+    "dist_m": 5526.02,
+    "nearest_way": {
+     "id": 285736211,
+     "highway": "tertiary",
+     "name": "Laurel Creek Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tremont",
+     "type": "hamlet",
+     "dist_m": 7971.4,
+     "lat": 35.639707,
+     "lon": -83.68831
+    },
+    "detail": "detail/us-tn/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 35.396194,
+    "lon": -84.013529,
+    "dist_m": 5516.27,
+    "nearest_way": {
+     "id": 16572416,
+     "highway": "unclassified",
+     "name": "Upper Santeetlah Road",
+     "ref": "FS 81",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Jenkins Meadow",
+     "type": "hamlet",
+     "dist_m": 5722.8,
+     "lat": 35.382029,
+     "lon": -83.952961
+    },
+    "detail": "detail/us-tn/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 35.516504,
+    "lon": -85.597615,
+    "dist_m": 5315.92,
+    "nearest_way": {
+     "id": 19479288,
+     "highway": "service",
+     "name": "Kings Cemetery Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Spring Creek",
+     "type": "hamlet",
+     "dist_m": 5644.2,
+     "lat": 35.564236,
+     "lon": -85.619143
+    },
+    "detail": "detail/us-tn/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 34.991275,
+    "lon": -84.53973,
+    "dist_m": 4762.94,
+    "nearest_way": {
+     "id": 19744216,
+     "highway": "residential",
+     "name": "Big Frog Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sylco",
+     "type": "hamlet",
+     "dist_m": 7158.8,
+     "lat": 35.033966,
+     "lon": -84.598544
+    },
+    "detail": "detail/us-tn/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 35.525728,
+    "lon": -83.820346,
+    "dist_m": 4684.66,
+    "nearest_way": {
+     "id": 222064955,
+     "highway": "service",
+     "name": "Forge Creek Parking @ End",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Twenty Mile",
+     "type": "hamlet",
+     "dist_m": 8280.0,
+     "lat": 35.466292,
+     "lon": -83.875533
+    },
+    "detail": "detail/us-tn/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 36.213813,
+    "lon": -84.547447,
+    "dist_m": 4556.48,
+    "nearest_way": {
+     "id": 19566770,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oak Hill",
+     "type": "hamlet",
+     "dist_m": 5162.7,
+     "lat": 36.168966,
+     "lon": -84.532161
+    },
+    "detail": "detail/us-tn/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 35.562179,
+    "lon": -83.943331,
+    "dist_m": 4292.33,
+    "nearest_way": {
+     "id": 222064968,
+     "highway": "residential",
+     "name": "Parson Branch Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Happy Valley",
+     "type": "hamlet",
+     "dist_m": 5346.2,
+     "lat": 35.608973,
+     "lon": -83.957403
+    },
+    "detail": "detail/us-tn/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

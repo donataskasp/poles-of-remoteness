@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-nh",
+ "name": "New Hampshire",
+ "name_en": "New Hampshire",
+ "country": "us",
+ "area_km2": 23891.3,
+ "bbox": [
+  -72.5572359,
+  42.6972286,
+  -70.5613593,
+  45.3057789
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 44.133333,
+    "lon": -71.490081,
+    "dist_m": 7007.36,
+    "nearest_way": {
+     "id": 18837277,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hart's Location",
+     "type": "hamlet",
+     "dist_m": 10677.5,
+     "lat": 44.123995,
+     "lon": -71.357297
+    },
+    "detail": "detail/us-nh/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 44.290476,
+    "lon": -71.140471,
+    "dist_m": 6232.45,
+    "nearest_way": {
+     "id": 52977834,
+     "highway": "track",
+     "name": "Camp Dodge logging road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Glen House",
+     "type": "hamlet",
+     "dist_m": 6730.0,
+     "lat": 44.289308,
+     "lon": -71.224776
+    },
+    "detail": "detail/us-nh/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 44.216563,
+    "lon": -71.329145,
+    "dist_m": 6010.45,
+    "nearest_way": {
+     "id": 1110808378,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Marshfield Station",
+     "type": "hamlet",
+     "dist_m": 6166.2,
+     "lat": 44.268613,
+     "lon": -71.35591
+    },
+    "detail": "detail/us-nh/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 44.168994,
+    "lon": -71.609957,
+    "dist_m": 5326.19,
+    "nearest_way": {
+     "id": 1288461728,
+     "highway": "motorway",
+     "name": "Franconia Notch Parkway",
+     "ref": "I 93;US 3",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Deerfield",
+     "type": "hamlet",
+     "dist_m": 6870.9,
+     "lat": 44.23062,
+     "lon": -71.617027
+    },
+    "detail": "detail/us-nh/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 43.935442,
+    "lon": -71.42874,
+    "dist_m": 5136.04,
+    "nearest_way": {
+     "id": 18808445,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ferncroft",
+     "type": "hamlet",
+     "dist_m": 6105.1,
+     "lat": 43.912294,
+     "lon": -71.359795
+    },
+    "detail": "detail/us-nh/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 44.081781,
+    "lon": -71.740882,
+    "dist_m": 4192.51,
+    "nearest_way": {
+     "id": 18852691,
+     "highway": "residential",
+     "name": "Wildwood Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wildwood",
+     "type": "hamlet",
+     "dist_m": 4779.1,
+     "lat": 44.078399,
+     "lon": -71.800362
+    },
+    "detail": "detail/us-nh/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 44.542554,
+    "lon": -71.353409,
+    "dist_m": 4188.59,
+    "nearest_way": {
+     "id": 18832708,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "West Milan",
+     "type": "hamlet",
+     "dist_m": 7413.1,
+     "lat": 44.599078,
+     "lon": -71.303844
+    },
+    "detail": "detail/us-nh/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.326083,
+    "lon": -71.310929,
+    "dist_m": 4170.09,
+    "nearest_way": {
+     "id": 1468578562,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bowman",
+     "type": "hamlet",
+     "dist_m": 4852.5,
+     "lat": 44.35828,
+     "lon": -71.352039
+    },
+    "detail": "detail/us-nh/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 43.96065,
+    "lon": -71.272949,
+    "dist_m": 3749.19,
+    "nearest_way": {
+     "id": 697311274,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Paugus Mill",
+     "type": "hamlet",
+     "dist_m": 4788.4,
+     "lat": 43.923961,
+     "lon": -71.304239
+    },
+    "detail": "detail/us-nh/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 44.020521,
+    "lon": -71.834957,
+    "dist_m": 3291.43,
+    "nearest_way": {
+     "id": 967981648,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Glencliff",
+     "type": "hamlet",
+     "dist_m": 6252.7,
+     "lat": 43.983463,
+     "lon": -71.893627
+    },
+    "detail": "detail/us-nh/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 44.135882,
+    "lon": -71.509481,
+    "dist_m": 10164.92,
+    "nearest_way": {
+     "id": 784973856,
+     "highway": "primary",
+     "name": "Crawford Notch Road",
+     "ref": "US 302",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hart's Location",
+     "type": "hamlet",
+     "dist_m": 12250.8,
+     "lat": 44.123995,
+     "lon": -71.357297
+    },
+    "detail": "detail/us-nh/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 44.265338,
+    "lon": -71.13805,
+    "dist_m": 7320.54,
+    "nearest_way": {
+     "id": 1153041432,
+     "highway": "unclassified",
+     "name": "Carter Notch Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Glen House",
+     "type": "hamlet",
+     "dist_m": 7418.1,
+     "lat": 44.289308,
+     "lon": -71.224776
+    },
+    "detail": "detail/us-nh/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 44.210664,
+    "lon": -71.327735,
+    "dist_m": 6031.82,
+    "nearest_way": {
+     "id": 538093260,
+     "highway": "primary",
+     "name": "Crawford Notch Road",
+     "ref": "US 302",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Marshfield Station",
+     "type": "hamlet",
+     "dist_m": 6821.1,
+     "lat": 44.268613,
+     "lon": -71.35591
+    },
+    "detail": "detail/us-nh/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 43.948409,
+    "lon": -71.424947,
+    "dist_m": 5980.25,
+    "nearest_way": {
+     "id": 929936144,
+     "highway": "service",
+     "name": "Ferncroft Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Waterville Valley",
+     "type": "village",
+     "dist_m": 6483.6,
+     "lat": 43.949631,
+     "lon": -71.505697
+    },
+    "detail": "detail/us-nh/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 44.950482,
+    "lon": -71.209481,
+    "dist_m": 4877.91,
+    "nearest_way": {
+     "id": 1080095004,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dixville Notch",
+     "type": "hamlet",
+     "dist_m": 11765.3,
+     "lat": 44.871316,
+     "lon": -71.308402
+    },
+    "detail": "detail/us-nh/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 44.182943,
+    "lon": -71.622191,
+    "dist_m": 4785.66,
+    "nearest_way": {
+     "id": 175345399,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Deerfield",
+     "type": "hamlet",
+     "dist_m": 5313.7,
+     "lat": 44.23062,
+     "lon": -71.617027
+    },
+    "detail": "detail/us-nh/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 44.092752,
+    "lon": -71.742375,
+    "dist_m": 4421.68,
+    "nearest_way": {
+     "id": 18850350,
+     "highway": "motorway",
+     "name": "Styles Bridges Highway",
+     "ref": "I 93",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wildwood",
+     "type": "hamlet",
+     "dist_m": 4910.5,
+     "lat": 44.078399,
+     "lon": -71.800362
+    },
+    "detail": "detail/us-nh/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.513897,
+    "lon": -71.410986,
+    "dist_m": 4409.34,
+    "nearest_way": {
+     "id": 18849023,
+     "highway": "residential",
+     "name": "Rowell Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lost Nation",
+     "type": "hamlet",
+     "dist_m": 6399.3,
+     "lat": 44.50989,
+     "lon": -71.491271
+    },
+    "detail": "detail/us-nh/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.35068,
+    "lon": -71.095887,
+    "dist_m": 4299.89,
+    "nearest_way": {
+     "id": 18846306,
+     "highway": "residential",
+     "name": "Grumpy Old Men Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Shelburne",
+     "type": "village",
+     "dist_m": 5876.9,
+     "lat": 44.401445,
+     "lon": -71.075209
+    },
+    "detail": "detail/us-nh/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.954345,
+    "lon": -71.278598,
+    "dist_m": 4271.62,
+    "nearest_way": {
+     "id": 18809397,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Paugus Mill",
+     "type": "hamlet",
+     "dist_m": 3954.2,
+     "lat": 43.923961,
+     "lon": -71.304239
+    },
+    "detail": "detail/us-nh/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

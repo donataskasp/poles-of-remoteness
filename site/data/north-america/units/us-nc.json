@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-nc",
+ "name": "North Carolina",
+ "name_en": "North Carolina",
+ "country": "us",
+ "area_km2": 128296.6,
+ "bbox": [
+  -84.3218293,
+  33.752878,
+  -75.400119,
+  36.588157
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 35.523292,
+    "lon": -83.638122,
+    "dist_m": 10906.85,
+    "nearest_way": {
+     "id": 282743341,
+     "highway": "residential",
+     "name": "Upper Tremont Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tremont",
+     "type": "hamlet",
+     "dist_m": 13694.0,
+     "lat": 35.639707,
+     "lon": -83.68831
+    },
+    "detail": "detail/us-nc/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 35.309344,
+    "lon": -76.268171,
+    "dist_m": 9430.02,
+    "nearest_way": {
+     "id": 1176619760,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oyster Creek Landing",
+     "type": "hamlet",
+     "dist_m": 10027.6,
+     "lat": 35.391562,
+     "lon": -76.31399
+    },
+    "detail": "detail/us-nc/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 35.522048,
+    "lon": -83.75095,
+    "dist_m": 8694.94,
+    "nearest_way": {
+     "id": 239069469,
+     "highway": "unclassified",
+     "name": "Lakeview Drive West",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cades Cove",
+     "type": "hamlet",
+     "dist_m": 10794.4,
+     "lat": 35.608953,
+     "lon": -83.804477
+    },
+    "detail": "detail/us-nc/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 35.686449,
+    "lon": -83.26582,
+    "dist_m": 8491.08,
+    "nearest_way": {
+     "id": 237614168,
+     "highway": "service",
+     "name": "Beech Gap Trailhead Parking #2",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rocky Grove",
+     "type": "hamlet",
+     "dist_m": 9132.9,
+     "lat": 35.766762,
+     "lon": -83.287932
+    },
+    "detail": "detail/us-nc/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 35.347498,
+    "lon": -76.408242,
+    "dist_m": 8119.73,
+    "nearest_way": {
+     "id": 16612006,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Swan Quarter",
+     "type": "village",
+     "dist_m": 9709.0,
+     "lat": 35.406278,
+     "lon": -76.329086
+    },
+    "detail": "detail/us-nc/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 35.296771,
+    "lon": -75.675294,
+    "dist_m": 7596.6,
+    "nearest_way": {
+     "id": 16495781,
+     "highway": "residential",
+     "name": "Sportsman Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Frisco",
+     "type": "hamlet",
+     "dist_m": 8165.2,
+     "lat": 35.234467,
+     "lon": -75.627529
+    },
+    "detail": "detail/us-nc/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 35.073154,
+    "lon": -76.435526,
+    "dist_m": 5836.26,
+    "nearest_way": {
+     "id": 1236342817,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cedar Island",
+     "type": "hamlet",
+     "dist_m": 13068.4,
+     "lat": 35.00822,
+     "lon": -76.316025
+    },
+    "detail": "detail/us-nc/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 35.966634,
+    "lon": -75.930879,
+    "dist_m": 5700.72,
+    "nearest_way": {
+     "id": 16501259,
+     "highway": "unclassified",
+     "name": "Brier Hall Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lake Neighborhood",
+     "type": "hamlet",
+     "dist_m": 8417.3,
+     "lat": 35.891273,
+     "lon": -75.920189
+    },
+    "detail": "detail/us-nc/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 35.677885,
+    "lon": -83.152603,
+    "dist_m": 5420.64,
+    "nearest_way": {
+     "id": 237614154,
+     "highway": "unclassified",
+     "name": "Balsam Mountain Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cataloochee",
+     "type": "hamlet",
+     "dist_m": 7786.1,
+     "lat": 35.640101,
+     "lon": -83.080144
+    },
+    "detail": "detail/us-nc/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 35.184967,
+    "lon": -76.535323,
+    "dist_m": 5367.64,
+    "nearest_way": {
+     "id": 16702502,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hobucken",
+     "type": "hamlet",
+     "dist_m": 7408.7,
+     "lat": 35.245722,
+     "lon": -76.569094
+    },
+    "detail": "detail/us-nc/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 35.069138,
+    "lon": -76.453741,
+    "dist_m": 13128.66,
+    "nearest_way": {
+     "id": 402256130,
+     "highway": "residential",
+     "name": "Preservation Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cedar Island",
+     "type": "hamlet",
+     "dist_m": 14268.0,
+     "lat": 35.00822,
+     "lon": -76.316025
+    },
+    "detail": "detail/us-nc/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 35.039513,
+    "lon": -76.087111,
+    "dist_m": 11688.9,
+    "nearest_way": {
+     "id": 698945358,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Portsmouth",
+     "type": "hamlet",
+     "dist_m": 4005.8,
+     "lat": 35.070015,
+     "lon": -76.063614
+    },
+    "detail": "detail/us-nc/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 35.523299,
+    "lon": -83.63132,
+    "dist_m": 11083.23,
+    "nearest_way": {
+     "id": 843762162,
+     "highway": "unclassified",
+     "name": "Lakeview Drive East",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tremont",
+     "type": "hamlet",
+     "dist_m": 13910.2,
+     "lat": 35.639707,
+     "lon": -83.68831
+    },
+    "detail": "detail/us-nc/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 35.309344,
+    "lon": -76.268171,
+    "dist_m": 9866.99,
+    "nearest_way": {
+     "id": 16612612,
+     "highway": "residential",
+     "name": "Farrow Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oyster Creek Landing",
+     "type": "hamlet",
+     "dist_m": 10027.6,
+     "lat": 35.391562,
+     "lon": -76.31399
+    },
+    "detail": "detail/us-nc/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 35.521276,
+    "lon": -83.743447,
+    "dist_m": 9074.37,
+    "nearest_way": {
+     "id": 239069469,
+     "highway": "unclassified",
+     "name": "Lakeview Drive West",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cades Cove",
+     "type": "hamlet",
+     "dist_m": 11191.1,
+     "lat": 35.608953,
+     "lon": -83.804477
+    },
+    "detail": "detail/us-nc/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 35.346989,
+    "lon": -76.411643,
+    "dist_m": 9010.56,
+    "nearest_way": {
+     "id": 16612676,
+     "highway": "unclassified",
+     "name": "Landing Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Germantown",
+     "type": "hamlet",
+     "dist_m": 9678.9,
+     "lat": 35.425796,
+     "lon": -76.457332
+    },
+    "detail": "detail/us-nc/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 35.686449,
+    "lon": -83.26582,
+    "dist_m": 8491.08,
+    "nearest_way": {
+     "id": 237614168,
+     "highway": "service",
+     "name": "Beech Gap Trailhead Parking #2",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rocky Grove",
+     "type": "hamlet",
+     "dist_m": 9132.9,
+     "lat": 35.766762,
+     "lon": -83.287932
+    },
+    "detail": "detail/us-nc/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 35.731256,
+    "lon": -75.606369,
+    "dist_m": 7643.72,
+    "nearest_way": {
+     "id": 402766981,
+     "highway": "primary",
+     "name": "Marc Basnight Bridge",
+     "ref": "NC 12",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stumpy Point",
+     "type": "hamlet",
+     "dist_m": 12665.3,
+     "lat": 35.698506,
+     "lon": -75.740453
+    },
+    "detail": "detail/us-nc/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 35.296771,
+    "lon": -75.675294,
+    "dist_m": 7596.6,
+    "nearest_way": {
+     "id": 16495781,
+     "highway": "residential",
+     "name": "Sportsman Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Frisco",
+     "type": "hamlet",
+     "dist_m": 8165.2,
+     "lat": 35.234467,
+     "lon": -75.627529
+    },
+    "detail": "detail/us-nc/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 36.529649,
+    "lon": -76.455876,
+    "dist_m": 7449.07,
+    "nearest_way": {
+     "id": 20627157,
+     "highway": "unclassified",
+     "name": "Interior Ditch Road",
+     "ref": "SR 104",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Horseshoe",
+     "type": "hamlet",
+     "dist_m": 9535.7,
+     "lat": 36.460153,
+     "lon": -76.393276
+    },
+    "detail": "detail/us-nc/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

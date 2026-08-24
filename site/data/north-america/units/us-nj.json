@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-nj",
+ "name": "New Jersey",
+ "name_en": "New Jersey",
+ "country": "us",
+ "area_km2": 19820.5,
+ "bbox": [
+  -75.563386,
+  38.7911303,
+  -73.893628,
+  41.3576501
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 39.463136,
+    "lon": -74.322371,
+    "dist_m": 5108.5,
+    "nearest_way": {
+     "id": 30589898,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Brigantine",
+     "type": "town",
+     "dist_m": 6918.1,
+     "lat": 39.410117,
+     "lon": -74.364591
+    },
+    "detail": "detail/us-nj/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 39.182763,
+    "lon": -75.136612,
+    "dist_m": 4968.16,
+    "nearest_way": {
+     "id": 1075445196,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Raybins Beach",
+     "type": "hamlet",
+     "dist_m": 5035.9,
+     "lat": 39.221806,
+     "lon": -75.16629
+    },
+    "detail": "detail/us-nj/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 39.417705,
+    "lon": -74.436241,
+    "dist_m": 3567.98,
+    "nearest_way": {
+     "id": 11572883,
+     "highway": "service",
+     "name": "Wildlife Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Conovertown",
+     "type": "hamlet",
+     "dist_m": 4389.6,
+     "lat": 39.439839,
+     "lon": -74.478485
+    },
+    "detail": "detail/us-nj/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 39.294338,
+    "lon": -75.292271,
+    "dist_m": 3474.46,
+    "nearest_way": {
+     "id": 11613170,
+     "highway": "track",
+     "name": "Beach Avenue",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bay Point",
+     "type": "isolated_dwelling",
+     "dist_m": 3639.7,
+     "lat": 39.297231,
+     "lon": -75.250243
+    },
+    "detail": "detail/us-nj/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 39.56061,
+    "lon": -74.296105,
+    "dist_m": 3375.26,
+    "nearest_way": {
+     "id": 28257451,
+     "highway": "unclassified",
+     "name": "Great Bay Boulevard",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Beach Haven",
+     "type": "town",
+     "dist_m": 4781.1,
+     "lat": 39.562952,
+     "lon": -74.240552
+    },
+    "detail": "detail/us-nj/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 39.306837,
+    "lon": -74.693494,
+    "dist_m": 3351.55,
+    "nearest_way": {
+     "id": 866901339,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "English Creek Landing",
+     "type": "isolated_dwelling",
+     "dist_m": 3385.8,
+     "lat": 39.334838,
+     "lon": -74.677938
+    },
+    "detail": "detail/us-nj/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 39.787138,
+    "lon": -74.142269,
+    "dist_m": 3276.1,
+    "nearest_way": {
+     "id": 11719438,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Forked River Beach",
+     "type": "hamlet",
+     "dist_m": 4091.1,
+     "lat": 39.817064,
+     "lon": -74.170139
+    },
+    "detail": "detail/us-nj/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 39.166853,
+    "lon": -74.886408,
+    "dist_m": 3239.1,
+    "nearest_way": {
+     "id": 11606375,
+     "highway": "residential",
+     "name": "Goshen Landing Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Goshen",
+     "type": "hamlet",
+     "dist_m": 4035.6,
+     "lat": 39.141503,
+     "lon": -74.852947
+    },
+    "detail": "detail/us-nj/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 39.431756,
+    "lon": -75.461327,
+    "dist_m": 3155.73,
+    "nearest_way": {
+     "id": 181216471,
+     "highway": "residential",
+     "name": "Stow Neck Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pine Island",
+     "type": "isolated_dwelling",
+     "dist_m": 3357.1,
+     "lat": 39.420391,
+     "lon": -75.425197
+    },
+    "detail": "detail/us-nj/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 39.543805,
+    "lon": -74.424838,
+    "dist_m": 2915.82,
+    "nearest_way": {
+     "id": 11733706,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mystic Islands",
+     "type": "hamlet",
+     "dist_m": 3651.0,
+     "lat": 39.544285,
+     "lon": -74.382369
+    },
+    "detail": "detail/us-nj/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 39.716555,
+    "lon": -74.638695,
+    "dist_m": 5979.95,
+    "nearest_way": {
+     "id": 11629286,
+     "highway": "unclassified",
+     "name": "Washington Turnpike",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mount",
+     "type": "hamlet",
+     "dist_m": 4464.0,
+     "lat": 39.685356,
+     "lon": -74.605864
+    },
+    "detail": "detail/us-nj/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 39.460204,
+    "lon": -74.323982,
+    "dist_m": 5432.86,
+    "nearest_way": {
+     "id": 38211782,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Brigantine",
+     "type": "town",
+     "dist_m": 6568.6,
+     "lat": 39.410117,
+     "lon": -74.364591
+    },
+    "detail": "detail/us-nj/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 39.182763,
+    "lon": -75.136612,
+    "dist_m": 4968.16,
+    "nearest_way": {
+     "id": 1075445196,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Raybins Beach",
+     "type": "hamlet",
+     "dist_m": 5035.9,
+     "lat": 39.221806,
+     "lon": -75.16629
+    },
+    "detail": "detail/us-nj/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 39.673644,
+    "lon": -74.439523,
+    "dist_m": 4676.93,
+    "nearest_way": {
+     "id": 288728714,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Munion Field",
+     "type": "hamlet",
+     "dist_m": 4195.6,
+     "lat": 39.664731,
+     "lon": -74.392005
+    },
+    "detail": "detail/us-nj/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 39.838147,
+    "lon": -74.329959,
+    "dist_m": 4301.83,
+    "nearest_way": {
+     "id": 1340339425,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Howardsville",
+     "type": "hamlet",
+     "dist_m": 4097.8,
+     "lat": 39.812897,
+     "lon": -74.364869
+    },
+    "detail": "detail/us-nj/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 39.294795,
+    "lon": -75.293924,
+    "dist_m": 3856.84,
+    "nearest_way": {
+     "id": 11610933,
+     "highway": "residential",
+     "name": "West Point Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bay Point",
+     "type": "isolated_dwelling",
+     "dist_m": 3777.8,
+     "lat": 39.297231,
+     "lon": -75.250243
+    },
+    "detail": "detail/us-nj/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 39.71379,
+    "lon": -74.184374,
+    "dist_m": 3694.62,
+    "nearest_way": {
+     "id": 866870143,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Harvey Cedars",
+     "type": "village",
+     "dist_m": 4265.9,
+     "lat": 39.697498,
+     "lon": -74.139325
+    },
+    "detail": "detail/us-nj/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 39.417705,
+    "lon": -74.436241,
+    "dist_m": 3567.98,
+    "nearest_way": {
+     "id": 11572883,
+     "highway": "service",
+     "name": "Wildlife Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Conovertown",
+     "type": "hamlet",
+     "dist_m": 4389.6,
+     "lat": 39.439839,
+     "lon": -74.478485
+    },
+    "detail": "detail/us-nj/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 39.740341,
+    "lon": -74.788505,
+    "dist_m": 3470.81,
+    "nearest_way": {
+     "id": 778825818,
+     "highway": "residential",
+     "name": "Raritan Avenue",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Parkdale",
+     "type": "hamlet",
+     "dist_m": 3726.8,
+     "lat": 39.717929,
+     "lon": -74.756144
+    },
+    "detail": "detail/us-nj/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 39.30684,
+    "lon": -74.695409,
+    "dist_m": 3426.78,
+    "nearest_way": {
+     "id": 866901339,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "English Creek Landing",
+     "type": "isolated_dwelling",
+     "dist_m": 3454.2,
+     "lat": 39.334838,
+     "lon": -74.677938
+    },
+    "detail": "detail/us-nj/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

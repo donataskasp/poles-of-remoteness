@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "me",
+ "name": "Crna Gora / Црна Гора",
+ "name_en": "Montenegro",
+ "country": "me",
+ "area_km2": 13815.3,
+ "bbox": [
+  18.4195781,
+  41.6849866,
+  20.3529276,
+  43.5585061
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 43.228336,
+    "lon": 18.745505,
+    "dist_m": 4912.16,
+    "nearest_way": {
+     "id": 507482823,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ba"
+    },
+    "nearest_place": {
+     "name": "Katun Presjeka",
+     "type": "isolated_dwelling",
+     "dist_m": 2677.5,
+     "lat": 43.250985,
+     "lon": 18.756773
+    },
+    "detail": "detail/me/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 42.23962,
+    "lon": 19.320395,
+    "dist_m": 3818.95,
+    "nearest_way": {
+     "id": 760400360,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "al"
+    },
+    "nearest_place": {
+     "name": "Flakë (Kamicë-Flakë)",
+     "type": "hamlet",
+     "dist_m": 4622.5,
+     "lat": 42.243909,
+     "lon": 19.376102
+    },
+    "detail": "detail/me/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 43.112715,
+    "lon": 18.673691,
+    "dist_m": 3640.61,
+    "nearest_way": {
+     "id": 185608645,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ba"
+    },
+    "nearest_place": {
+     "name": "Pivski Katuni",
+     "type": "hamlet",
+     "dist_m": 2183.1,
+     "lat": 43.118819,
+     "lon": 18.699186
+    },
+    "detail": "detail/me/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 43.147014,
+    "lon": 19.023671,
+    "dist_m": 3600.14,
+    "nearest_way": {
+     "id": 1206711483,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Rbatina",
+     "type": "hamlet",
+     "dist_m": 1688.7,
+     "lat": 43.137313,
+     "lon": 19.039652
+    },
+    "detail": "detail/me/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 42.488307,
+    "lon": 19.863243,
+    "dist_m": 3300.83,
+    "nearest_way": {
+     "id": 41221037,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "al"
+    },
+    "nearest_place": {
+     "name": "Stanovi",
+     "type": "hamlet",
+     "dist_m": 2272.8,
+     "lat": 42.508651,
+     "lon": 19.860289
+    },
+    "detail": "detail/me/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 42.94932,
+    "lon": 19.022842,
+    "dist_m": 3259.14,
+    "nearest_way": {
+     "id": 358892105,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Duži",
+     "type": "village",
+     "dist_m": 3703.5,
+     "lat": 42.982649,
+     "lon": 19.023856
+    },
+    "detail": "detail/me/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 43.069383,
+    "lon": 18.953991,
+    "dist_m": 3224.29,
+    "nearest_way": {
+     "id": 1537778213,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Mijatov do",
+     "type": "hamlet",
+     "dist_m": 2160.7,
+     "lat": 43.074913,
+     "lon": 18.928557
+    },
+    "detail": "detail/me/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 42.647874,
+    "lon": 19.10836,
+    "dist_m": 3203.06,
+    "nearest_way": {
+     "id": 224286458,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Tunjevo",
+     "type": "hamlet",
+     "dist_m": 7669.5,
+     "lat": 42.629019,
+     "lon": 19.018404
+    },
+    "detail": "detail/me/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 42.903813,
+    "lon": 18.715088,
+    "dist_m": 3194.43,
+    "nearest_way": {
+     "id": 972915108,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Zlato",
+     "type": "hamlet",
+     "dist_m": 3678.9,
+     "lat": 42.878291,
+     "lon": 18.68639
+    },
+    "detail": "detail/me/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 42.749503,
+    "lon": 19.290665,
+    "dist_m": 3104.18,
+    "nearest_way": {
+     "id": 1027681860,
+     "highway": "track",
+     "name": "Poljana - Katun Maganik",
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Katun Razbijena Jela",
+     "type": "hamlet",
+     "dist_m": 925.4,
+     "lat": 42.750103,
+     "lon": 19.301939
+    },
+    "detail": "detail/me/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 42.969494,
+    "lon": 18.8145,
+    "dist_m": 6635.72,
+    "nearest_way": {
+     "id": 1104604006,
+     "highway": "primary",
+     "name": null,
+     "ref": "M-3",
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Zlostup",
+     "type": "hamlet",
+     "dist_m": 6390.8,
+     "lat": 42.997383,
+     "lon": 18.745969
+    },
+    "detail": "detail/me/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 43.228118,
+    "lon": 18.729445,
+    "dist_m": 6112.53,
+    "nearest_way": {
+     "id": 1195252920,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Rudinske kolibe",
+     "type": "hamlet",
+     "dist_m": 2572.9,
+     "lat": 43.246972,
+     "lon": 18.71105
+    },
+    "detail": "detail/me/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 42.245283,
+    "lon": 19.294974,
+    "dist_m": 5998.1,
+    "nearest_way": {
+     "id": 742691469,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Flakë (Kamicë-Flakë)",
+     "type": "hamlet",
+     "dist_m": 6697.5,
+     "lat": 42.243909,
+     "lon": 19.376102
+    },
+    "detail": "detail/me/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 43.078024,
+    "lon": 18.721929,
+    "dist_m": 5558.52,
+    "nearest_way": {
+     "id": 1221703192,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Komanske Kolibe",
+     "type": "hamlet",
+     "dist_m": 2347.3,
+     "lat": 43.096097,
+     "lon": 18.736862
+    },
+    "detail": "detail/me/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 43.06083,
+    "lon": 18.994299,
+    "dist_m": 5008.01,
+    "nearest_way": {
+     "id": 1360420482,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Modro polje",
+     "type": "hamlet",
+     "dist_m": 1213.2,
+     "lat": 43.069961,
+     "lon": 18.986128
+    },
+    "detail": "detail/me/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 42.605382,
+    "lon": 18.585928,
+    "dist_m": 4880.14,
+    "nearest_way": {
+     "id": 369438581,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Jarčišta",
+     "type": "hamlet",
+     "dist_m": 2739.8,
+     "lat": 42.628331,
+     "lon": 18.573689
+    },
+    "detail": "detail/me/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 42.671992,
+    "lon": 19.100681,
+    "dist_m": 4781.84,
+    "nearest_way": {
+     "id": 754368211,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Staro Selo",
+     "type": "village",
+     "dist_m": 5220.0,
+     "lat": 42.717621,
+     "lon": 19.115904
+    },
+    "detail": "detail/me/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 42.468138,
+    "lon": 19.822483,
+    "dist_m": 4726.78,
+    "nearest_way": {
+     "id": 173945092,
+     "highway": "unclassified",
+     "name": "Vusanje - Ropojanska dolina",
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Buni i Jezerce",
+     "type": "hamlet",
+     "dist_m": 661.5,
+     "lat": 42.466766,
+     "lon": 19.814656
+    },
+    "detail": "detail/me/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 42.675308,
+    "lon": 19.265109,
+    "dist_m": 4691.84,
+    "nearest_way": {
+     "id": 686090219,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Suva Ponikvica",
+     "type": "hamlet",
+     "dist_m": 982.7,
+     "lat": 42.671805,
+     "lon": 19.2541
+    },
+    "detail": "detail/me/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 42.858788,
+    "lon": 19.215151,
+    "dist_m": 4653.26,
+    "nearest_way": {
+     "id": 225231387,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Crveno Zdrijelo",
+     "type": "hamlet",
+     "dist_m": 1217.9,
+     "lat": 42.857661,
+     "lon": 19.200329
+    },
+    "detail": "detail/me/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

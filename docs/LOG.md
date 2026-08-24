@@ -1,5 +1,7 @@
 # Project log
 
+Bar for an entry: a stage closed, a region live, a domain or rename, an outage. Not a changelog.
+
 Sparse, dated, append-only. Big events only.
 
 ## 2026-08-16/17: Built
@@ -29,3 +31,31 @@ Three things were removed rather than added: the GitHub Pages mirror (a second U
 ## 2026-08-20: Europe planned
 
 Third session of the day, the first in the dedicated `claude-poles` session with the superpowers brainstorming path. Fetched the real numbers first (32 GB Europe extract ending at the Volga, Cloudflare's 20,000-file and 25 MiB asset caps, R2's 10 GB free tier), then settled the load-bearing calls: poles plus a continental explore layer as the hero, countries' main territories as units, Russia as roads only, scenario A as the headline, a dated snapshot with refresh parked, Europe first with North America straight after on a region-agnostic pipeline, R2 for the archives with publishing as a manifest commit. Spec (`docs/EUROPE_SPEC.md`) and staged plan (`docs/EUROPE_PLAN.md`) written and approved; epic #6 with stage issues #7 to #13 filed. No code written, by design.
+
+## 2026-08-21: Stage 1 of Europe done, first continental grids computed
+
+Pipeline foundation built on branch `europe` in one long session (spec to code to real data): the `poles` package with config, resumable CLI, fetch, extract, classify, grid, container and CI, 97 tests. Europe (snapshot 2026-08-19) computed through the grid stage on the Mac in about 1.5 hours, not the 4-5 planned. Two tool limits found on the real data and designed around (GDAL's GeoJSONSeq reader memory, a FlatGeobuf index limit near 100 M features); two stage-2 issues filed (#15, #16). Stages now proceed without waiting for owner review between them.
+
+## 2026-08-22: Stage 2 of Europe done, 918 poles found and validated
+
+The `poles` and `validate` stages landed on branch `europe` with 234 tests. Three Europe runs on the 2026-08-19 snapshot: the first two aborted on Bjornoya and Rockall, which taught the territory mask that sub-cell rocks far offshore are candidate cells too; run 3 passed every blocking check with 0 failures, 52 country units, 918 poles with nearest road and settlement, and Lithuania reproduced from the continental grid within 0.02 % of the published demo. The contact sheet and the offshore-rock question went to the owner on #8; nine poles are excluded by the data-edge check and stage 3 consumes that list.
+
+## 2026-08-22: Stage 3 of Europe, local part done
+
+Stage 3 built everything the site will read and stopped at the one human step. The Europe snapshot now has its explore layer as two PMTiles archives (`A.pmtiles` 114.2 MB, `B.pmtiles` 128.3 MB, z0 to z9, one class byte per pixel) and 909 detail rasters at 50 m with their georeference sidecars (13.6 MB), which is 268.6 MB per snapshot in R2 once the three validation artefacts are counted. Nothing has been uploaded: R2 is not enabled on the Cloudflare account, so the run stopped as designed with the five environment variables named, and the upload, the HEAD verification and the `site/data` commit follow the owner's R2 enablement as a rerun of the same command.
+
+## 2026-08-23: Stage 4 of Europe, the site on a preview worker
+
+The region-agnostic front end landed on branch `europe` together with the development harness that makes it testable before R2 exists: `/<region>/<unit>` paths with the rest of the state in the hash, the explore layer decoded from the published PMTiles archives, a 50 m detail overlay from zoom 12, the card and the ranking panel that becomes a bottom sheet on phones, "Locate me", the About dialog, lt and en. Nothing in the code names a region. `worker.js` stamps the visitor's coarse country and region from `request.cf` into the page as a meta tag, so the first screen needs no geolocation prompt, and logs one Analytics Engine row of eight blobs. CI now deploys the preview worker on every push to `europe`, verifies that exact commit through `version.json` and measures the first screen against a 256 KB budget; the preview has been live since the branch's first push (commit 10abf6f). It has no data to show until the R2 rerun writes `site/data/`.
+
+## 2026-08-23: Stage 5, North America built and validated
+
+The second region ran end to end on the 2026-08-22 snapshot: 64 units (the 50 states with the District of Columbia, the 10 provinces and 3 territories), 1,266 poles in 6,163 s on two workers, 0 blocking validation failures and 5 warnings in 8,079 s, and the publish stage's local part through to the same `PublishError` as Europe's (`A.pmtiles` 206.7 MB, `B.pmtiles` 197.6 MB, 1,262 detail rasters), about 5.3 hours of compute without the road tiles. What the region taught the pipeline: the antimeridian, handled once and in one way (a unit bbox may run past 180, the `.poly` seam is dissolved before the edge checks, water bodies are cut at the line, detail pixels wrap), and three defects the search only showed at this size, found by the run and fixed during it (the refinement payload that pinned road windows, the unit-wide bound that pruned Nunavut too slowly, the results cached per job). Alaska tops its own board at St. Matthew Island, 366 km, and the site gained a region control as soon as `regions.json` listed two regions. Closed on local artefacts; #11 stays open on the R2 rerun both regions now wait for.
+
+## 2026-08-23: Stage 3 closed, Europe and North America published to R2
+
+The owner enabled R2 in the evening and the publish stage ran its R2 part for both regions from the local artefacts already on disk: bucket `poles-data` created with its managed `r2.dev` domain and CORS rule, Europe uploaded (1,823 objects, 268.6 MB) and North America after it (2,529 objects, 436.3 MB), every key verified over the public hostname with a HEAD and each archive with a range request, and `site/data/` written for both regions with `manifest.json` listing the two. The bucket holds 704.8 MB, 6.6 percent of the free tier. The first real run found three things in the verification that tests against a local server could not: the `r2.dev` edge rejects urllib's default User-Agent (#49), rate limits by window rather than by rate, and one resolver hiccup in 1,825 requests is enough to fail a run; each got a fix and a test the same evening. The preview worker serves both regions. What stays with the owner: the two contact sheets, a look at the preview on a phone, and the name for stage 6.
+
+## 2026-08-24: polesofremoteness.com live, the repo public
+
+Stage 6 cutover in one evening: the domain bought at Hostinger (two years), the zone and nameserver flip automated over the Cloudflare and Hostinger APIs, data on data.polesofremoteness.com, production worker `polesofremoteness` on the apex with www and the old workers.dev URL as permanent redirects, `europe` merged to `main`. The repo renamed to poles-of-remoteness and made public with its full history for the owner's CV: MIT licensed, recruiter-grade README. The LinkedIn post about the Europe version stays the owner's move.

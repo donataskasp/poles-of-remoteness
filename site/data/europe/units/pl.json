@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "pl",
+ "name": "Polska",
+ "name_en": "Poland",
+ "country": "pl",
+ "area_km2": 311260.2,
+ "bbox": [
+  14.0696389,
+  49.0020468,
+  24.145783,
+  55.03605
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 54.691322,
+    "lon": 18.548518,
+    "dist_m": 4978.62,
+    "nearest_way": {
+     "id": 724706497,
+     "highway": "service",
+     "name": "Nad Zatoką",
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Kuźnica",
+     "type": "village",
+     "dist_m": 5267.3,
+     "lat": 54.734476,
+     "lon": 18.582038
+    },
+    "detail": "detail/pl/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 54.751183,
+    "lon": 17.373363,
+    "dist_m": 4293.55,
+    "nearest_way": {
+     "id": 40386890,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Kluki",
+     "type": "village",
+     "dist_m": 7994.4,
+     "lat": 54.682645,
+     "lon": 17.336315
+    },
+    "detail": "detail/pl/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 49.196115,
+    "lon": 19.850338,
+    "dist_m": 3705.75,
+    "nearest_way": {
+     "id": 1056711736,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Ornak",
+     "type": "isolated_dwelling",
+     "dist_m": 3737.5,
+     "lat": 49.229292,
+     "lon": 19.858511
+    },
+    "detail": "detail/pl/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 54.32695,
+    "lon": 19.391995,
+    "dist_m": 3684.92,
+    "nearest_way": {
+     "id": 1205225660,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Suchacz",
+     "type": "village",
+     "dist_m": 5584.5,
+     "lat": 54.284519,
+     "lon": 19.437772
+    },
+    "detail": "detail/pl/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 53.273883,
+    "lon": 22.557815,
+    "dist_m": 3281.88,
+    "nearest_way": {
+     "id": 1180153253,
+     "highway": "track",
+     "name": "Grobla Honczarowska",
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Brzeziny",
+     "type": "village",
+     "dist_m": 4130.7,
+     "lat": 53.239072,
+     "lon": 22.53634
+    },
+    "detail": "detail/pl/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 53.458611,
+    "lon": 14.646561,
+    "dist_m": 3173.75,
+    "nearest_way": {
+     "id": 561812615,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Bystra",
+     "type": "hamlet",
+     "dist_m": 4449.0,
+     "lat": 53.461941,
+     "lon": 14.71331
+    },
+    "detail": "detail/pl/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 49.181888,
+    "lon": 20.068005,
+    "dist_m": 3080.97,
+    "nearest_way": {
+     "id": 1203753687,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Štrbské Pleso",
+     "type": "hamlet",
+     "dist_m": 6836.7,
+     "lat": 49.120666,
+     "lon": 20.076495
+    },
+    "detail": "detail/pl/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 53.641271,
+    "lon": 22.832342,
+    "dist_m": 2793.77,
+    "nearest_way": {
+     "id": 257912350,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Choszczewo",
+     "type": "isolated_dwelling",
+     "dist_m": 3986.0,
+     "lat": 53.632193,
+     "lon": 22.77405
+    },
+    "detail": "detail/pl/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 49.099036,
+    "lon": 22.70855,
+    "dist_m": 2703.78,
+    "nearest_way": {
+     "id": 769451246,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Muczne",
+     "type": "village",
+     "dist_m": 4248.0,
+     "lat": 49.129275,
+     "lon": 22.744103
+    },
+    "detail": "detail/pl/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 51.499317,
+    "lon": 15.474969,
+    "dist_m": 2480.41,
+    "nearest_way": {
+     "id": 612085078,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Lubiechów",
+     "type": "village",
+     "dist_m": 3084.7,
+     "lat": 51.526619,
+     "lon": 15.467231
+    },
+    "detail": "detail/pl/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 54.750113,
+    "lon": 17.356355,
+    "dist_m": 7119.91,
+    "nearest_way": {
+     "id": 805989591,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Przybynin",
+     "type": "village",
+     "dist_m": 7541.5,
+     "lat": 54.699942,
+     "lon": 17.277699
+    },
+    "detail": "detail/pl/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 53.574498,
+    "lon": 22.78526,
+    "dist_m": 6375.31,
+    "nearest_way": {
+     "id": 231027085,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Grzędy",
+     "type": "hamlet",
+     "dist_m": 6386.8,
+     "lat": 53.631462,
+     "lon": 22.77359
+    },
+    "detail": "detail/pl/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 51.457737,
+    "lon": 15.732876,
+    "dist_m": 6148.8,
+    "nearest_way": {
+     "id": 609712047,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Biernatów",
+     "type": "village",
+     "dist_m": 6684.1,
+     "lat": 51.484548,
+     "lon": 15.646791
+    },
+    "detail": "detail/pl/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 52.766284,
+    "lon": 23.878743,
+    "dist_m": 5773.8,
+    "nearest_way": {
+     "id": 635249341,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Osada Dziedzinka",
+     "type": "isolated_dwelling",
+     "dist_m": 5276.9,
+     "lat": 52.722127,
+     "lon": 23.907224
+    },
+    "detail": "detail/pl/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 53.530372,
+    "lon": 16.719455,
+    "dist_m": 5353.17,
+    "nearest_way": {
+     "id": 914977472,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Ciosaniec",
+     "type": "village",
+     "dist_m": 5756.6,
+     "lat": 53.480815,
+     "lon": 16.694609
+    },
+    "detail": "detail/pl/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 49.095777,
+    "lon": 22.473313,
+    "dist_m": 5280.11,
+    "nearest_way": {
+     "id": 443006879,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Moczarne",
+     "type": "isolated_dwelling",
+     "dist_m": 3884.1,
+     "lat": 49.111097,
+     "lon": 22.521115
+    },
+    "detail": "detail/pl/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 54.692181,
+    "lon": 17.127375,
+    "dist_m": 5225.07,
+    "nearest_way": {
+     "id": 945881722,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Człuchy",
+     "type": "village",
+     "dist_m": 5328.2,
+     "lat": 54.664829,
+     "lon": 17.195163
+    },
+    "detail": "detail/pl/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 49.0726,
+    "lon": 22.772794,
+    "dist_m": 5056.06,
+    "nearest_way": {
+     "id": 423951988,
+     "highway": "unclassified",
+     "name": null,
+     "ref": "О-070202",
+     "country": "ua"
+    },
+    "nearest_place": {
+     "name": "Tarnawa Niżna",
+     "type": "village",
+     "dist_m": 6117.7,
+     "lat": 49.125801,
+     "lon": 22.7941
+    },
+    "detail": "detail/pl/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 53.286883,
+    "lon": 22.532781,
+    "dist_m": 4979.99,
+    "nearest_way": {
+     "id": 97517013,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Szostaki",
+     "type": "village",
+     "dist_m": 5072.9,
+     "lat": 53.283331,
+     "lon": 22.45695
+    },
+    "detail": "detail/pl/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 54.691322,
+    "lon": 18.548518,
+    "dist_m": 4978.62,
+    "nearest_way": {
+     "id": 724706497,
+     "highway": "service",
+     "name": "Nad Zatoką",
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Kuźnica",
+     "type": "village",
+     "dist_m": 5267.3,
+     "lat": 54.734476,
+     "lon": 18.582038
+    },
+    "detail": "detail/pl/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

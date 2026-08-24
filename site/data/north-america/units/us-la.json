@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-la",
+ "name": "Louisiana",
+ "name_en": "Louisiana",
+ "country": "us",
+ "area_km2": 115807.2,
+ "bbox": [
+  -94.0431869,
+  28.8542892,
+  -88.7583311,
+  33.0195943
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 29.680029,
+    "lon": -88.948087,
+    "dist_m": 58337.2,
+    "nearest_way": {
+     "id": 13401142,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Breton",
+     "type": "hamlet",
+     "dist_m": 30058.7,
+     "lat": 29.494099,
+     "lon": -89.173935
+    },
+    "detail": "detail/us-la/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 29.764186,
+    "lon": -88.888301,
+    "dist_m": 53984.1,
+    "nearest_way": {
+     "id": 13592902,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Breton",
+     "type": "hamlet",
+     "dist_m": 40761.0,
+     "lat": 29.494099,
+     "lon": -89.173935
+    },
+    "detail": "detail/us-la/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 29.85451,
+    "lon": -88.863212,
+    "dist_m": 45703.73,
+    "nearest_way": {
+     "id": 251208526,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Breton",
+     "type": "hamlet",
+     "dist_m": 50007.1,
+     "lat": 29.494099,
+     "lon": -89.173935
+    },
+    "detail": "detail/us-la/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 29.556604,
+    "lon": -89.058085,
+    "dist_m": 41379.86,
+    "nearest_way": {
+     "id": 13401142,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Breton",
+     "type": "hamlet",
+     "dist_m": 13195.9,
+     "lat": 29.494099,
+     "lon": -89.173935
+    },
+    "detail": "detail/us-la/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 29.88482,
+    "lon": -89.24061,
+    "dist_m": 35801.22,
+    "nearest_way": {
+     "id": 495368612,
+     "highway": "service",
+     "name": null,
+     "ref": "LA 624",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Saint Malo",
+     "type": "hamlet",
+     "dist_m": 34435.9,
+     "lat": 29.877982,
+     "lon": -89.597
+    },
+    "detail": "detail/us-la/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 29.943744,
+    "lon": -88.834078,
+    "dist_m": 35544.58,
+    "nearest_way": {
+     "id": 251208526,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Biloxi",
+     "type": "city",
+     "dist_m": 50942.3,
+     "lat": 30.400763,
+     "lon": -88.889382
+    },
+    "detail": "detail/us-la/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 29.734657,
+    "lon": -89.265093,
+    "dist_m": 34356.78,
+    "nearest_way": {
+     "id": 495368612,
+     "highway": "service",
+     "name": null,
+     "ref": "LA 624",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Breton",
+     "type": "hamlet",
+     "dist_m": 28088.7,
+     "lat": 29.494099,
+     "lon": -89.173935
+    },
+    "detail": "detail/us-la/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 29.414727,
+    "lon": -91.855546,
+    "dist_m": 32888.38,
+    "nearest_way": {
+     "id": 13477199,
+     "highway": "residential",
+     "name": "Bayview Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cypremort Point",
+     "type": "hamlet",
+     "dist_m": 33713.3,
+     "lat": 29.718543,
+     "lon": -91.871787
+    },
+    "detail": "detail/us-la/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 29.972321,
+    "lon": -89.284131,
+    "dist_m": 32455.37,
+    "nearest_way": {
+     "id": 13592906,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Saint Malo",
+     "type": "hamlet",
+     "dist_m": 31969.0,
+     "lat": 29.877982,
+     "lon": -89.597
+    },
+    "detail": "detail/us-la/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 29.048607,
+    "lon": -90.922827,
+    "dist_m": 31550.33,
+    "nearest_way": {
+     "id": 1120657041,
+     "highway": "track",
+     "name": "Bayou Dularge Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cocodrie",
+     "type": "hamlet",
+     "dist_m": 33610.5,
+     "lat": 29.246893,
+     "lon": -90.661477
+    },
+    "detail": "detail/us-la/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 29.764186,
+    "lon": -88.888301,
+    "dist_m": 66031.4,
+    "nearest_way": {
+     "id": 857058693,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Breton",
+     "type": "hamlet",
+     "dist_m": 40761.0,
+     "lat": 29.494099,
+     "lon": -89.173935
+    },
+    "detail": "detail/us-la/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 29.680029,
+    "lon": -88.948087,
+    "dist_m": 58357.14,
+    "nearest_way": {
+     "id": 13405805,
+     "highway": "residential",
+     "name": "Boothville River Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Breton",
+     "type": "hamlet",
+     "dist_m": 30058.7,
+     "lat": 29.494099,
+     "lon": -89.173935
+    },
+    "detail": "detail/us-la/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 29.847129,
+    "lon": -88.84243,
+    "dist_m": 56130.99,
+    "nearest_way": {
+     "id": 857058693,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Breton",
+     "type": "hamlet",
+     "dist_m": 50607.7,
+     "lat": 29.494099,
+     "lon": -89.173935
+    },
+    "detail": "detail/us-la/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 29.939356,
+    "lon": -88.8253,
+    "dist_m": 45777.66,
+    "nearest_way": {
+     "id": 857058693,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fountainebleau",
+     "type": "hamlet",
+     "dist_m": 51335.6,
+     "lat": 30.39361,
+     "lon": -88.721707
+    },
+    "detail": "detail/us-la/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 29.556604,
+    "lon": -89.058085,
+    "dist_m": 41405.17,
+    "nearest_way": {
+     "id": 13405805,
+     "highway": "residential",
+     "name": "Boothville River Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Breton",
+     "type": "hamlet",
+     "dist_m": 13195.9,
+     "lat": 29.494099,
+     "lon": -89.173935
+    },
+    "detail": "detail/us-la/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 29.929672,
+    "lon": -89.203955,
+    "dist_m": 40402.59,
+    "nearest_way": {
+     "id": 13591814,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Saint Malo",
+     "type": "hamlet",
+     "dist_m": 38390.0,
+     "lat": 29.877982,
+     "lon": -89.597
+    },
+    "detail": "detail/us-la/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 30.031092,
+    "lon": -88.85867,
+    "dist_m": 36721.88,
+    "nearest_way": {
+     "id": 13631915,
+     "highway": "residential",
+     "name": "Belle Fountain Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Biloxi",
+     "type": "city",
+     "dist_m": 41086.8,
+     "lat": 30.400763,
+     "lon": -88.889382
+    },
+    "detail": "detail/us-la/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 29.824381,
+    "lon": -89.243928,
+    "dist_m": 34880.63,
+    "nearest_way": {
+     "id": 495368612,
+     "highway": "service",
+     "name": null,
+     "ref": "LA 624",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Saint Malo",
+     "type": "hamlet",
+     "dist_m": 34630.8,
+     "lat": 29.877982,
+     "lon": -89.597
+    },
+    "detail": "detail/us-la/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 29.224572,
+    "lon": -91.187596,
+    "dist_m": 34636.56,
+    "nearest_way": {
+     "id": 13506002,
+     "highway": "secondary",
+     "name": "Bayou Dularge Road",
+     "ref": "LA 315",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fivemile Oaks",
+     "type": "hamlet",
+     "dist_m": 41713.6,
+     "lat": 29.558547,
+     "lon": -91.385665
+    },
+    "detail": "detail/us-la/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 29.414727,
+    "lon": -91.855546,
+    "dist_m": 32888.38,
+    "nearest_way": {
+     "id": 13477199,
+     "highway": "residential",
+     "name": "Bayview Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cypremort Point",
+     "type": "hamlet",
+     "dist_m": 33713.3,
+     "lat": 29.718543,
+     "lon": -91.871787
+    },
+    "detail": "detail/us-la/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

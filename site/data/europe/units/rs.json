@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "rs",
+ "name": "Србија",
+ "name_en": "Serbia",
+ "country": "rs",
+ "area_km2": 77677.5,
+ "bbox": [
+  18.8149945,
+  42.2324539,
+  23.006309,
+  46.1900524
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 44.581617,
+    "lon": 21.923261,
+    "dist_m": 3860.4,
+    "nearest_way": {
+     "id": 1059275080,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Dobra",
+     "type": "village",
+     "dist_m": 6100.2,
+     "lat": 44.635421,
+     "lon": 21.908014
+    },
+    "detail": "detail/rs/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 44.357246,
+    "lon": 21.858426,
+    "dist_m": 3653.71,
+    "nearest_way": {
+     "id": 1113279910,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Debeli Lug",
+     "type": "village",
+     "dist_m": 4204.6,
+     "lat": 44.368063,
+     "lon": 21.908969
+    },
+    "detail": "detail/rs/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 42.812448,
+    "lon": 22.003933,
+    "dist_m": 2996.91,
+    "nearest_way": {
+     "id": 921662102,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Padez",
+     "type": "hamlet",
+     "dist_m": 5087.5,
+     "lat": 42.854929,
+     "lon": 22.027178
+    },
+    "detail": "detail/rs/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 42.613174,
+    "lon": 22.164447,
+    "dist_m": 2996.42,
+    "nearest_way": {
+     "id": 1448400074,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Stajkovce",
+     "type": "village",
+     "dist_m": 4342.7,
+     "lat": 42.634722,
+     "lon": 22.120278
+    },
+    "detail": "detail/rs/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 43.156308,
+    "lon": 20.214857,
+    "dist_m": 2826.93,
+    "nearest_way": {
+     "id": 420397524,
+     "highway": "residential",
+     "name": "Баћица",
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Међугор",
+     "type": "village",
+     "dist_m": 3019.1,
+     "lat": 43.178456,
+     "lon": 20.193343
+    },
+    "detail": "detail/rs/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 43.165824,
+    "lon": 19.947913,
+    "dist_m": 2808.58,
+    "nearest_way": {
+     "id": 895155080,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Visnjeva",
+     "type": "village",
+     "dist_m": 4826.9,
+     "lat": 43.152162,
+     "lon": 19.891574
+    },
+    "detail": "detail/rs/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 44.165989,
+    "lon": 21.680954,
+    "dist_m": 2778.44,
+    "nearest_way": {
+     "id": 904149001,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Suvi Do",
+     "type": "village",
+     "dist_m": 6030.5,
+     "lat": 44.207948,
+     "lon": 21.728792
+    },
+    "detail": "detail/rs/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 43.152901,
+    "lon": 22.20994,
+    "dist_m": 2750.02,
+    "nearest_way": {
+     "id": 872779562,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Шебет",
+     "type": "village",
+     "dist_m": 3239.8,
+     "lat": 43.141974,
+     "lon": 22.173015
+    },
+    "detail": "detail/rs/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 42.673424,
+    "lon": 22.427668,
+    "dist_m": 2670.02,
+    "nearest_way": {
+     "id": 710293045,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Kolunica",
+     "type": "hamlet",
+     "dist_m": 955.0,
+     "lat": 42.681944,
+     "lon": 22.426111
+    },
+    "detail": "detail/rs/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 42.844737,
+    "lon": 20.356471,
+    "dist_m": 2614.36,
+    "nearest_way": {
+     "id": 1329471223,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "xk"
+    },
+    "nearest_place": {
+     "name": "Зогића станови",
+     "type": "hamlet",
+     "dist_m": 540.5,
+     "lat": 42.843238,
+     "lon": 20.35018
+    },
+    "detail": "detail/rs/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 43.306656,
+    "lon": 22.766295,
+    "dist_m": 7517.42,
+    "nearest_way": {
+     "id": 751519446,
+     "highway": "unclassified",
+     "name": "Гостуша",
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Topli Do",
+     "type": "village",
+     "dist_m": 7956.6,
+     "lat": 43.34039,
+     "lon": 22.679765
+    },
+    "detail": "detail/rs/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 45.101317,
+    "lon": 20.82248,
+    "dist_m": 6655.67,
+    "nearest_way": {
+     "id": 1185276300,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Padina",
+     "type": "village",
+     "dist_m": 7758.1,
+     "lat": 45.118103,
+     "lon": 20.72679
+    },
+    "detail": "detail/rs/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 43.184182,
+    "lon": 22.991823,
+    "dist_m": 6548.17,
+    "nearest_way": {
+     "id": 487436287,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "bg"
+    },
+    "nearest_place": {
+     "name": "Senokos",
+     "type": "hamlet",
+     "dist_m": 6894.3,
+     "lat": 43.144652,
+     "lon": 22.926472
+    },
+    "detail": "detail/rs/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 44.135488,
+    "lon": 21.70327,
+    "dist_m": 6037.99,
+    "nearest_way": {
+     "id": 685750690,
+     "highway": "unclassified",
+     "name": "Бујдина бара",
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Мечја леска",
+     "type": "isolated_dwelling",
+     "dist_m": 5579.5,
+     "lat": 44.093106,
+     "lon": 21.665889
+    },
+    "detail": "detail/rs/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 44.871996,
+    "lon": 21.164963,
+    "dist_m": 5609.48,
+    "nearest_way": {
+     "id": 149991948,
+     "highway": "residential",
+     "name": "Вука Караџића",
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Sumarak",
+     "type": "village",
+     "dist_m": 5957.4,
+     "lat": 44.82127,
+     "lon": 21.140586
+    },
+    "detail": "detail/rs/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 43.12086,
+    "lon": 22.748397,
+    "dist_m": 5379.45,
+    "nearest_way": {
+     "id": 455826478,
+     "highway": "residential",
+     "name": "Маршала Тита",
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Visocki Odorovci",
+     "type": "village",
+     "dist_m": 5902.5,
+     "lat": 43.102487,
+     "lon": 22.81644
+    },
+    "detail": "detail/rs/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 45.609415,
+    "lon": 18.899285,
+    "dist_m": 5344.71,
+    "nearest_way": {
+     "id": 38767102,
+     "highway": "unclassified",
+     "name": "Омладинска",
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Месарске ливаде",
+     "type": "isolated_dwelling",
+     "dist_m": 3765.8,
+     "lat": 45.577212,
+     "lon": 18.914289
+    },
+    "detail": "detail/rs/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 45.355308,
+    "lon": 20.964515,
+    "dist_m": 5210.0,
+    "nearest_way": {
+     "id": 356500110,
+     "highway": "tertiary",
+     "name": "Бока - Шурјан",
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Konak",
+     "type": "village",
+     "dist_m": 5876.4,
+     "lat": 45.316352,
+     "lon": 20.913825
+    },
+    "detail": "detail/rs/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 45.059933,
+    "lon": 20.704751,
+    "dist_m": 5099.47,
+    "nearest_way": {
+     "id": 244696270,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Padina",
+     "type": "village",
+     "dist_m": 6693.4,
+     "lat": 45.118103,
+     "lon": 20.72679
+    },
+    "detail": "detail/rs/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.144581,
+    "lon": 22.252253,
+    "dist_m": 5076.65,
+    "nearest_way": {
+     "id": 442733197,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Donja Koritnica",
+     "type": "village",
+     "dist_m": 5205.8,
+     "lat": 43.154196,
+     "lon": 22.314891
+    },
+    "detail": "detail/rs/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

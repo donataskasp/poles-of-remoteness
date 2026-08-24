@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "gb",
+ "name": "United Kingdom",
+ "name_en": "United Kingdom",
+ "country": "gb",
+ "area_km2": 246901.8,
+ "bbox": [
+  -14.015517,
+  49.674,
+  2.0919117,
+  61.061
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 58.281513,
+    "lon": -7.6558,
+    "dist_m": 34442.15,
+    "nearest_way": {
+     "id": 292771514,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Mangersta",
+     "type": "village",
+     "dist_m": 35471.2,
+     "lat": 58.171186,
+     "lon": -7.08951
+    },
+    "detail": "detail/gb/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 51.720918,
+    "lon": -5.670077,
+    "dist_m": 25728.81,
+    "nearest_way": {
+     "id": 172083141,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Treginnis-isaf",
+     "type": "hamlet",
+     "dist_m": 29942.6,
+     "lat": 51.867918,
+     "lon": -5.306543
+    },
+    "detail": "detail/gb/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 56.131305,
+    "lon": -6.643553,
+    "dist_m": 25076.94,
+    "nearest_way": {
+     "id": 268770435,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Ardskenish",
+     "type": "isolated_dwelling",
+     "dist_m": 25599.2,
+     "lat": 56.041822,
+     "lon": -6.264765
+    },
+    "detail": "detail/gb/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 59.100871,
+    "lon": -6.171922,
+    "dist_m": 19746.54,
+    "nearest_way": {
+     "id": 96119246,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Eoropie",
+     "type": "village",
+     "dist_m": 66902.9,
+     "lat": 58.502103,
+     "lon": -6.262474
+    },
+    "detail": "detail/gb/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 56.321138,
+    "lon": -7.118337,
+    "dist_m": 17918.18,
+    "nearest_way": {
+     "id": 162202018,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "West Hynish",
+     "type": "hamlet",
+     "dist_m": 18379.7,
+     "lat": 56.451102,
+     "lon": -6.934897
+    },
+    "detail": "detail/gb/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 56.434172,
+    "lon": -2.387261,
+    "dist_m": 17546.32,
+    "nearest_way": {
+     "id": 26175245,
+     "highway": "unclassified",
+     "name": "King's Drive",
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "West Seaton",
+     "type": "isolated_dwelling",
+     "dist_m": 17974.6,
+     "lat": 56.565629,
+     "lon": -2.556646
+    },
+    "detail": "detail/gb/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 57.879389,
+    "lon": -6.353427,
+    "dist_m": 15366.24,
+    "nearest_way": {
+     "id": 840336802,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Lemreway",
+     "type": "village",
+     "dist_m": 16469.0,
+     "lat": 58.019814,
+     "lon": -6.440557
+    },
+    "detail": "detail/gb/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 50.183371,
+    "lon": -4.268321,
+    "dist_m": 15291.89,
+    "nearest_way": {
+     "id": 187201946,
+     "highway": "unclassified",
+     "name": "Ramehead Lane",
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Rame",
+     "type": "hamlet",
+     "dist_m": 15971.1,
+     "lat": 50.322383,
+     "lon": -4.212273
+    },
+    "detail": "detail/gb/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 57.687453,
+    "lon": -7.719568,
+    "dist_m": 14162.98,
+    "nearest_way": {
+     "id": 592502095,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Scolpaig",
+     "type": "hamlet",
+     "dist_m": 14573.7,
+     "lat": 57.648581,
+     "lon": -7.486389
+    },
+    "detail": "detail/gb/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 57.516876,
+    "lon": -7.691668,
+    "dist_m": 12951.95,
+    "nearest_way": {
+     "id": 358796969,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Hougharry",
+     "type": "village",
+     "dist_m": 14739.8,
+     "lat": 57.609256,
+     "lon": -7.515314
+    },
+    "detail": "detail/gb/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 59.134181,
+    "lon": -5.825207,
+    "dist_m": 73387.3,
+    "nearest_way": {
+     "id": 205823838,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Fivepenny",
+     "type": "village",
+     "dist_m": 74741.4,
+     "lat": 58.500404,
+     "lon": -6.249953
+    },
+    "detail": "detail/gb/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 59.10109,
+    "lon": -6.171642,
+    "dist_m": 65450.37,
+    "nearest_way": {
+     "id": 205823838,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Eoropie",
+     "type": "village",
+     "dist_m": 66928.4,
+     "lat": 58.502103,
+     "lon": -6.262474
+    },
+    "detail": "detail/gb/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 58.281513,
+    "lon": -7.6558,
+    "dist_m": 34442.15,
+    "nearest_way": {
+     "id": 292771514,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Mangersta",
+     "type": "village",
+     "dist_m": 35471.2,
+     "lat": 58.171186,
+     "lon": -7.08951
+    },
+    "detail": "detail/gb/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 51.72083,
+    "lon": -5.669999,
+    "dist_m": 28149.02,
+    "nearest_way": {
+     "id": 1210811462,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Treginnis-isaf",
+     "type": "hamlet",
+     "dist_m": 29943.5,
+     "lat": 51.867918,
+     "lon": -5.306543
+    },
+    "detail": "detail/gb/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 56.132668,
+    "lon": -6.646996,
+    "dist_m": 25370.27,
+    "nearest_way": {
+     "id": 1470370165,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Ardskenish",
+     "type": "isolated_dwelling",
+     "dist_m": 25855.4,
+     "lat": 56.041822,
+     "lon": -6.264765
+    },
+    "detail": "detail/gb/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 56.321138,
+    "lon": -7.118337,
+    "dist_m": 18063.7,
+    "nearest_way": {
+     "id": 145555080,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "West Hynish",
+     "type": "hamlet",
+     "dist_m": 18379.7,
+     "lat": 56.451102,
+     "lon": -6.934897
+    },
+    "detail": "detail/gb/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 56.434172,
+    "lon": -2.387261,
+    "dist_m": 17546.32,
+    "nearest_way": {
+     "id": 26175245,
+     "highway": "unclassified",
+     "name": "King's Drive",
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "West Seaton",
+     "type": "isolated_dwelling",
+     "dist_m": 17974.6,
+     "lat": 56.565629,
+     "lon": -2.556646
+    },
+    "detail": "detail/gb/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 56.77817,
+    "lon": -7.637107,
+    "dist_m": 16613.21,
+    "nearest_way": {
+     "id": 208470563,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Vatersay",
+     "type": "village",
+     "dist_m": 16811.2,
+     "lat": 56.918841,
+     "lon": -7.537109
+    },
+    "detail": "detail/gb/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 51.730774,
+    "lon": -5.482611,
+    "dist_m": 16426.96,
+    "nearest_way": {
+     "id": 59194062,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Treginnis-isaf",
+     "type": "hamlet",
+     "dist_m": 19503.0,
+     "lat": 51.867918,
+     "lon": -5.306543
+    },
+    "detail": "detail/gb/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 57.879389,
+    "lon": -6.353427,
+    "dist_m": 15415.3,
+    "nearest_way": {
+     "id": 840336798,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Lemreway",
+     "type": "village",
+     "dist_m": 16469.0,
+     "lat": 58.019814,
+     "lon": -6.440557
+    },
+    "detail": "detail/gb/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

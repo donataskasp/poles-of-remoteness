@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "it",
+ "name": "Italia",
+ "name_en": "Italy",
+ "country": "it",
+ "area_km2": 301039.6,
+ "bbox": [
+  6.6272658,
+  35.2889616,
+  18.7844746,
+  47.0921485
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 42.225924,
+    "lon": 15.751619,
+    "dist_m": 22056.18,
+    "nearest_way": {
+     "id": 183698183,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "San Nicola di Tremiti",
+     "type": "village",
+     "dist_m": 23532.5,
+     "lat": 42.120845,
+     "lon": 15.50431
+    },
+    "detail": "detail/it/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 42.359032,
+    "lon": 10.064109,
+    "dist_m": 19124.79,
+    "nearest_way": {
+     "id": 89697962,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Pianosa",
+     "type": "village",
+     "dist_m": 25509.6,
+     "lat": 42.587257,
+     "lon": 10.098551
+    },
+    "detail": "detail/it/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 35.551475,
+    "lon": 12.320159,
+    "dist_m": 18329.63,
+    "nearest_way": {
+     "id": 87000804,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Lampedusa",
+     "type": "village",
+     "dist_m": 26526.7,
+     "lat": 35.503526,
+     "lon": 12.606689
+    },
+    "detail": "detail/it/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 42.556222,
+    "lon": 10.900437,
+    "dist_m": 14732.69,
+    "nearest_way": {
+     "id": 781930131,
+     "highway": "track",
+     "name": "A7",
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Casa Pinottolai",
+     "type": "isolated_dwelling",
+     "dist_m": 16703.8,
+     "lat": 42.663471,
+     "lon": 11.043123
+    },
+    "detail": "detail/it/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 40.839787,
+    "lon": 13.102929,
+    "dist_m": 12772.7,
+    "nearest_way": {
+     "id": 39394664,
+     "highway": "residential",
+     "name": "Via Madonna",
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Ponza",
+     "type": "village",
+     "dist_m": 13201.1,
+     "lat": 40.893237,
+     "lon": 12.963062
+    },
+    "detail": "detail/it/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 39.881743,
+    "lon": 8.274977,
+    "dist_m": 11124.67,
+    "nearest_way": {
+     "id": 547430947,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Funtana Meiga",
+     "type": "hamlet",
+     "dist_m": 12787.5,
+     "lat": 39.896145,
+     "lon": 8.423308
+    },
+    "detail": "detail/it/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 38.859095,
+    "lon": 8.40834,
+    "dist_m": 10722.15,
+    "nearest_way": {
+     "id": 523639489,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "La Fazenda",
+     "type": "hamlet",
+     "dist_m": 11158.7,
+     "lat": 38.959525,
+     "lon": 8.413675
+    },
+    "detail": "detail/it/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 39.982804,
+    "lon": 8.295947,
+    "dist_m": 8244.62,
+    "nearest_way": {
+     "id": 547446594,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Mandriola",
+     "type": "hamlet",
+     "dist_m": 10365.6,
+     "lat": 40.034191,
+     "lon": 8.397302
+    },
+    "detail": "detail/it/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 42.855667,
+    "lon": 10.546996,
+    "dist_m": 7278.99,
+    "nearest_way": {
+     "id": 95305702,
+     "highway": "residential",
+     "name": "Via Pietro Gori",
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Piombino",
+     "type": "town",
+     "dist_m": 7677.5,
+     "lat": 42.923166,
+     "lon": 10.526819
+    },
+    "detail": "detail/it/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.369779,
+    "lon": 9.906329,
+    "dist_m": 6622.2,
+    "nearest_way": {
+     "id": 436104091,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Alpe Musella",
+     "type": "hamlet",
+     "dist_m": 6192.7,
+     "lat": 46.31415,
+     "lon": 9.901962
+    },
+    "detail": "detail/it/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 42.225924,
+    "lon": 15.751619,
+    "dist_m": 23709.25,
+    "nearest_way": {
+     "id": 1389282110,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "San Nicola di Tremiti",
+     "type": "village",
+     "dist_m": 23532.5,
+     "lat": 42.120845,
+     "lon": 15.50431
+    },
+    "detail": "detail/it/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 38.541147,
+    "lon": 14.339262,
+    "dist_m": 19160.1,
+    "nearest_way": {
+     "id": 422262551,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Pianicello",
+     "type": "hamlet",
+     "dist_m": 1439.9,
+     "lat": 38.537426,
+     "lon": 14.355083
+    },
+    "detail": "detail/it/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 42.359032,
+    "lon": 10.064109,
+    "dist_m": 19124.79,
+    "nearest_way": {
+     "id": 89697962,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Pianosa",
+     "type": "village",
+     "dist_m": 25509.6,
+     "lat": 42.587257,
+     "lon": 10.098551
+    },
+    "detail": "detail/it/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 35.551475,
+    "lon": 12.320159,
+    "dist_m": 18886.23,
+    "nearest_way": {
+     "id": 390054329,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Lampedusa",
+     "type": "village",
+     "dist_m": 26526.7,
+     "lat": 35.503526,
+     "lon": 12.606689
+    },
+    "detail": "detail/it/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 42.556222,
+    "lon": 10.900437,
+    "dist_m": 15103.81,
+    "nearest_way": {
+     "id": 175253596,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Casa Pinottolai",
+     "type": "isolated_dwelling",
+     "dist_m": 16703.8,
+     "lat": 42.663471,
+     "lon": 11.043123
+    },
+    "detail": "detail/it/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 40.839787,
+    "lon": 13.102929,
+    "dist_m": 12772.7,
+    "nearest_way": {
+     "id": 39394664,
+     "highway": "residential",
+     "name": "Via Madonna",
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Ponza",
+     "type": "village",
+     "dist_m": 13201.1,
+     "lat": 40.893237,
+     "lon": 12.963062
+    },
+    "detail": "detail/it/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 39.881743,
+    "lon": 8.274977,
+    "dist_m": 11426.74,
+    "nearest_way": {
+     "id": 1159694505,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Funtana Meiga",
+     "type": "hamlet",
+     "dist_m": 12787.5,
+     "lat": 39.896145,
+     "lon": 8.423308
+    },
+    "detail": "detail/it/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.859095,
+    "lon": 8.40834,
+    "dist_m": 10773.93,
+    "nearest_way": {
+     "id": 523639494,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "La Fazenda",
+     "type": "hamlet",
+     "dist_m": 11158.7,
+     "lat": 38.959525,
+     "lon": 8.413675
+    },
+    "detail": "detail/it/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 39.982804,
+    "lon": 8.295947,
+    "dist_m": 9069.26,
+    "nearest_way": {
+     "id": 1340350197,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Mandriola",
+     "type": "hamlet",
+     "dist_m": 10365.6,
+     "lat": 40.034191,
+     "lon": 8.397302
+    },
+    "detail": "detail/it/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.310058,
+    "lon": 9.335731,
+    "dist_m": 8205.43,
+    "nearest_way": {
+     "id": 1414282136,
+     "highway": "service",
+     "name": "Strada Abbatoggia",
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "hamlet",
+     "dist_m": 3504.3,
+     "lat": 41.295073,
+     "lon": 9.372554
+    },
+    "detail": "detail/it/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

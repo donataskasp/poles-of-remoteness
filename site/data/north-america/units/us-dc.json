@@ -1,0 +1,161 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-dc",
+ "name": "District of Columbia",
+ "name_en": "District of Columbia",
+ "country": "us",
+ "area_km2": 180.8,
+ "bbox": [
+  -77.1197949,
+  38.7916303,
+  -76.909366,
+  38.995968
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 38.975188,
+    "lon": -77.047017,
+    "dist_m": 500.18,
+    "nearest_way": {
+     "id": 1248259617,
+     "highway": "unclassified",
+     "name": "Beach Drive Northwest",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Martin's Additions",
+     "type": "village",
+     "dist_m": 2054.9,
+     "lat": 38.981257,
+     "lon": -77.06942
+    },
+    "detail": "detail/us-dc/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 38.904979,
+    "lon": -76.960936,
+    "dist_m": 467.69,
+    "nearest_way": {
+     "id": 793889972,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Colmar Manor",
+     "type": "village",
+     "dist_m": 3086.6,
+     "lat": 38.931503,
+     "lon": -76.95026
+    },
+    "detail": "detail/us-dc/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 38.809464,
+    "lon": -77.018704,
+    "dist_m": 311.95,
+    "nearest_way": {
+     "id": 50477921,
+     "highway": "motorway",
+     "name": "Anacostia Freeway",
+     "ref": "I 295",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Forest Heights",
+     "type": "village",
+     "dist_m": 1860.6,
+     "lat": 38.815232,
+     "lon": -76.998591
+    },
+    "detail": "detail/us-dc/A-3",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 3 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 38.913352,
+    "lon": -76.947398,
+    "dist_m": 566.36,
+    "nearest_way": {
+     "id": 180348517,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Colmar Manor",
+     "type": "village",
+     "dist_m": 2030.2,
+     "lat": 38.931503,
+     "lon": -76.95026
+    },
+    "detail": "detail/us-dc/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 38.975188,
+    "lon": -77.047017,
+    "dist_m": 500.18,
+    "nearest_way": {
+     "id": 1248259617,
+     "highway": "unclassified",
+     "name": "Beach Drive Northwest",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Martin's Additions",
+     "type": "village",
+     "dist_m": 2054.9,
+     "lat": 38.981257,
+     "lon": -77.06942
+    },
+    "detail": "detail/us-dc/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 38.825043,
+    "lon": -77.038667,
+    "dist_m": 324.98,
+    "nearest_way": {
+     "id": 775998451,
+     "highway": "unclassified",
+     "name": "Marina Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Alexandria",
+     "type": "city",
+     "dist_m": 2328.8,
+     "lat": 38.80511,
+     "lon": -77.047023
+    },
+    "detail": "detail/us-dc/B-3",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": "only 3 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+ }
+}

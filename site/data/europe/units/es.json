@@ -1,0 +1,447 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "es",
+ "name": "España",
+ "name_en": "Spain",
+ "country": "es",
+ "area_km2": 498739.1,
+ "bbox": [
+  -9.5754539,
+  35.2656282,
+  4.5918885,
+  43.9933088
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 42.823085,
+    "lon": -0.244579,
+    "dist_m": 6432.56,
+    "nearest_way": {
+     "id": 329290075,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Baños de Panticosa",
+     "type": "hamlet",
+     "dist_m": 6998.7,
+     "lat": 42.760619,
+     "lon": -0.233448
+    },
+    "detail": "detail/es/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 38.161028,
+    "lon": -0.459136,
+    "dist_m": 6294.58,
+    "nearest_way": {
+     "id": 155169093,
+     "highway": "tertiary",
+     "name": "Camí del Carabassí",
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Tabarca",
+     "type": "hamlet",
+     "dist_m": 2103.2,
+     "lat": 38.16649,
+     "lon": -0.482116
+    },
+    "detail": "detail/es/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 40.25173,
+    "lon": -5.302645,
+    "dist_m": 5941.24,
+    "nearest_way": {
+     "id": 533233744,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "El Raso",
+     "type": "hamlet",
+     "dist_m": 9550.9,
+     "lat": 40.170512,
+     "lon": -5.339583
+    },
+    "detail": "detail/es/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 39.207612,
+    "lon": 2.978645,
+    "dist_m": 5617.7,
+    "nearest_way": {
+     "id": 691422810,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "sa Vall",
+     "type": "hamlet",
+     "dist_m": 12319.4,
+     "lat": 39.310017,
+     "lon": 3.033621
+    },
+    "detail": "detail/es/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 37.084336,
+    "lon": -3.273594,
+    "dist_m": 5561.23,
+    "nearest_way": {
+     "id": 1337136331,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Trevélez",
+     "type": "village",
+     "dist_m": 9114.6,
+     "lat": 37.002398,
+     "lon": -3.266599
+    },
+    "detail": "detail/es/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 42.692372,
+    "lon": 0.449157,
+    "dist_m": 5531.99,
+    "nearest_way": {
+     "id": 723952443,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Bordas de Viadós",
+     "type": "hamlet",
+     "dist_m": 6530.8,
+     "lat": 42.66039,
+     "lon": 0.382303
+    },
+    "detail": "detail/es/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 42.630119,
+    "lon": 0.690822,
+    "dist_m": 5285.62,
+    "nearest_way": {
+     "id": 277054724,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Espitau de Vielha",
+     "type": "isolated_dwelling",
+     "dist_m": 5951.7,
+     "lat": 42.627339,
+     "lon": 0.763278
+    },
+    "detail": "detail/es/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.78711,
+    "lon": 1.484416,
+    "dist_m": 5021.19,
+    "nearest_way": {
+     "id": 74760911,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Pujol de n'Adolf",
+     "type": "isolated_dwelling",
+     "dist_m": 5464.4,
+     "lat": 38.756407,
+     "lon": 1.435267
+    },
+    "detail": "detail/es/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 40.196722,
+    "lon": -5.535756,
+    "dist_m": 4994.71,
+    "nearest_way": {
+     "id": 397770479,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Navalguijo",
+     "type": "hamlet",
+     "dist_m": 6941.0,
+     "lat": 40.258386,
+     "lon": -5.522391
+    },
+    "detail": "detail/es/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 39.850518,
+    "lon": 0.673463,
+    "dist_m": 4933.07,
+    "nearest_way": {
+     "id": 138567233,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Orpesa",
+     "type": "village",
+     "dist_m": 53251.9,
+     "lat": 40.093208,
+     "lon": 0.135812
+    },
+    "detail": "detail/es/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 39.850337,
+    "lon": 0.678837,
+    "dist_m": 52314.12,
+    "nearest_way": {
+     "id": 23425682,
+     "highway": "residential",
+     "name": "Passeig Marítim de la Torre del Rei",
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Orpesa",
+     "type": "village",
+     "dist_m": 53658.5,
+     "lat": 40.093208,
+     "lon": 0.135812
+    },
+    "detail": "detail/es/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 36.889263,
+    "lon": -6.438569,
+    "dist_m": 11233.49,
+    "nearest_way": {
+     "id": 42230968,
+     "highway": "residential",
+     "name": "Calle N",
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Sanlúcar de Barrameda",
+     "type": "town",
+     "dist_m": 14670.3,
+     "lat": 36.776139,
+     "lon": -6.353479
+    },
+    "detail": "detail/es/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 36.997215,
+    "lon": -6.30241,
+    "dist_m": 10783.84,
+    "nearest_way": {
+     "id": 168654547,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Trebujena",
+     "type": "village",
+     "dist_m": 18080.3,
+     "lat": 36.869314,
+     "lon": -6.176702
+    },
+    "detail": "detail/es/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 37.103286,
+    "lon": -3.260733,
+    "dist_m": 10517.63,
+    "nearest_way": {
+     "id": 521004014,
+     "highway": "unclassified",
+     "name": "Camino del Posterillo",
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Cortijillos del Cano",
+     "type": "isolated_dwelling",
+     "dist_m": 8614.4,
+     "lat": 37.156918,
+     "lon": -3.190651
+    },
+    "detail": "detail/es/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 41.858592,
+    "lon": -1.033331,
+    "dist_m": 10458.67,
+    "nearest_way": {
+     "id": 138524429,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Granja de Santa Inés",
+     "type": "isolated_dwelling",
+     "dist_m": 8050.0,
+     "lat": 41.796983,
+     "lon": -1.084368
+    },
+    "detail": "detail/es/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 37.983973,
+    "lon": -2.75355,
+    "dist_m": 10191.91,
+    "nearest_way": {
+     "id": 1235842479,
+     "highway": "unclassified",
+     "name": "Carretera de La Vega",
+     "ref": "JV-7045",
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Los Centenares",
+     "type": "hamlet",
+     "dist_m": 10010.6,
+     "lat": 38.073426,
+     "lon": -2.739018
+    },
+    "detail": "detail/es/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 37.835026,
+    "lon": -2.076051,
+    "dist_m": 9514.53,
+    "nearest_way": {
+     "id": 694058004,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Alcoluche",
+     "type": "hamlet",
+     "dist_m": 3983.1,
+     "lat": 37.805981,
+     "lon": -2.049483
+    },
+    "detail": "detail/es/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.315396,
+    "lon": -3.968444,
+    "dist_m": 9448.49,
+    "nearest_way": {
+     "id": 185946391,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "CR-5002",
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "El Hoyo",
+     "type": "hamlet",
+     "dist_m": 11148.1,
+     "lat": 38.408425,
+     "lon": -3.920384
+    },
+    "detail": "detail/es/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.890792,
+    "lon": -0.621936,
+    "dist_m": 9350.4,
+    "nearest_way": {
+     "id": 290412278,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "CHE-CII",
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Leciñena",
+     "type": "village",
+     "dist_m": 10225.7,
+     "lat": 41.799063,
+     "lon": -0.611426
+    },
+    "detail": "detail/es/B-9",
+    "warnings": []
+   }
+  ],
+  "withheld": 1,
+  "reason": null
+ }
+}

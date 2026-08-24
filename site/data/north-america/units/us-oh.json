@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-oh",
+ "name": "Ohio",
+ "name_en": "Ohio",
+ "country": "us",
+ "area_km2": 106922.0,
+ "bbox": [
+  -84.8203361,
+  38.4031419,
+  -80.5189601,
+  42.3246919
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.742771,
+    "lon": -83.104421,
+    "dist_m": 14198.1,
+    "nearest_way": {
+     "id": 19199950,
+     "highway": "residential",
+     "name": "Lake Street",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Long Beach",
+     "type": "hamlet",
+     "dist_m": 14292.7,
+     "lat": 41.614216,
+     "lon": -83.112143
+    },
+    "detail": "detail/us-oh/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 41.762056,
+    "lon": -83.328852,
+    "dist_m": 6326.62,
+    "nearest_way": {
+     "id": 262084244,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Niles Beach",
+     "type": "hamlet",
+     "dist_m": 9067.7,
+     "lat": 41.686436,
+     "lon": -83.36993
+    },
+    "detail": "detail/us-oh/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 41.645631,
+    "lon": -82.868253,
+    "dist_m": 2114.68,
+    "nearest_way": {
+     "id": 1028214681,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Put-in-Bay",
+     "type": "village",
+     "dist_m": 4187.7,
+     "lat": 41.651888,
+     "lon": -82.818681
+    },
+    "detail": "detail/us-oh/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 38.685314,
+    "lon": -83.284208,
+    "dist_m": 2020.43,
+    "nearest_way": {
+     "id": 697253955,
+     "highway": "tertiary",
+     "name": "Upper Twin Creek-Rocky Fork Road",
+     "ref": "C-96",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Buena Vista",
+     "type": "hamlet",
+     "dist_m": 6826.8,
+     "lat": 38.626887,
+     "lon": -83.259732
+    },
+    "detail": "detail/us-oh/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 41.441657,
+    "lon": -82.993745,
+    "dist_m": 2008.35,
+    "nearest_way": {
+     "id": 1133955930,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bay View",
+     "type": "hamlet",
+     "dist_m": 2959.2,
+     "lat": 41.432552,
+     "lon": -82.96047
+    },
+    "detail": "detail/us-oh/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 41.62072,
+    "lon": -83.160286,
+    "dist_m": 1842.37,
+    "nearest_way": {
+     "id": 733056953,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Long Beach",
+     "type": "hamlet",
+     "dist_m": 4077.0,
+     "lat": 41.614216,
+     "lon": -83.112143
+    },
+    "detail": "detail/us-oh/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 40.119307,
+    "lon": -81.114265,
+    "dist_m": 1841.94,
+    "nearest_way": {
+     "id": 19000701,
+     "highway": "residential",
+     "name": "Six Mile Run Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rock Hill",
+     "type": "hamlet",
+     "dist_m": 2317.6,
+     "lat": 40.138958,
+     "lon": -81.105102
+    },
+    "detail": "detail/us-oh/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 39.173563,
+    "lon": -83.201642,
+    "dist_m": 1812.98,
+    "nearest_way": {
+     "id": 19208861,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Morgantown",
+     "type": "hamlet",
+     "dist_m": 4899.3,
+     "lat": 39.129512,
+     "lon": -83.19824
+    },
+    "detail": "detail/us-oh/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.572529,
+    "lon": -83.048159,
+    "dist_m": 1772.45,
+    "nearest_way": {
+     "id": 893284582,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Locust Point",
+     "type": "hamlet",
+     "dist_m": 4194.4,
+     "lat": 41.588383,
+     "lon": -83.093809
+    },
+    "detail": "detail/us-oh/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 39.43119,
+    "lon": -82.649945,
+    "dist_m": 1686.71,
+    "nearest_way": {
+     "id": 19077546,
+     "highway": "track",
+     "name": "Sloan-Purcell Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Haynes",
+     "type": "hamlet",
+     "dist_m": 2537.9,
+     "lat": 39.434787,
+     "lon": -82.679055
+    },
+    "detail": "detail/us-oh/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.742771,
+    "lon": -83.104421,
+    "dist_m": 14198.1,
+    "nearest_way": {
+     "id": 19199950,
+     "highway": "residential",
+     "name": "Lake Street",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Long Beach",
+     "type": "hamlet",
+     "dist_m": 14292.7,
+     "lat": 41.614216,
+     "lon": -83.112143
+    },
+    "detail": "detail/us-oh/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 41.762056,
+    "lon": -83.328852,
+    "dist_m": 6326.62,
+    "nearest_way": {
+     "id": 262084244,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Niles Beach",
+     "type": "hamlet",
+     "dist_m": 9067.7,
+     "lat": 41.686436,
+     "lon": -83.36993
+    },
+    "detail": "detail/us-oh/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 39.209551,
+    "lon": -82.387231,
+    "dist_m": 2568.1,
+    "nearest_way": {
+     "id": 19282269,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prattsville",
+     "type": "hamlet",
+     "dist_m": 3252.9,
+     "lat": 39.238683,
+     "lon": -82.391265
+    },
+    "detail": "detail/us-oh/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 41.632616,
+    "lon": -83.221918,
+    "dist_m": 2371.84,
+    "nearest_way": {
+     "id": 279465168,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Howard Farms Beach",
+     "type": "hamlet",
+     "dist_m": 3075.9,
+     "lat": 41.653936,
+     "lon": -83.245482
+    },
+    "detail": "detail/us-oh/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 41.442544,
+    "lon": -82.994551,
+    "dist_m": 2117.48,
+    "nearest_way": {
+     "id": 967829344,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bay View",
+     "type": "hamlet",
+     "dist_m": 3056.9,
+     "lat": 41.432552,
+     "lon": -82.96047
+    },
+    "detail": "detail/us-oh/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 41.645631,
+    "lon": -82.868253,
+    "dist_m": 2114.68,
+    "nearest_way": {
+     "id": 1028214681,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Put-in-Bay",
+     "type": "village",
+     "dist_m": 4187.7,
+     "lat": 41.651888,
+     "lon": -82.818681
+    },
+    "detail": "detail/us-oh/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 38.685314,
+    "lon": -83.284208,
+    "dist_m": 2020.43,
+    "nearest_way": {
+     "id": 697253955,
+     "highway": "tertiary",
+     "name": "Upper Twin Creek-Rocky Fork Road",
+     "ref": "C-96",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Buena Vista",
+     "type": "hamlet",
+     "dist_m": 6826.8,
+     "lat": 38.626887,
+     "lon": -83.259732
+    },
+    "detail": "detail/us-oh/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 39.343309,
+    "lon": -82.299633,
+    "dist_m": 1925.46,
+    "nearest_way": {
+     "id": 414673753,
+     "highway": "secondary",
+     "name": null,
+     "ref": "SR 278",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mineral",
+     "type": "hamlet",
+     "dist_m": 3706.9,
+     "lat": 39.32396,
+     "lon": -82.264594
+    },
+    "detail": "detail/us-oh/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 40.119307,
+    "lon": -81.114265,
+    "dist_m": 1841.94,
+    "nearest_way": {
+     "id": 19000701,
+     "highway": "residential",
+     "name": "Six Mile Run Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rock Hill",
+     "type": "hamlet",
+     "dist_m": 2317.6,
+     "lat": 40.138958,
+     "lon": -81.105102
+    },
+    "detail": "detail/us-oh/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 38.686359,
+    "lon": -83.428014,
+    "dist_m": 1816.22,
+    "nearest_way": {
+     "id": 381943537,
+     "highway": "trunk",
+     "name": null,
+     "ref": "US 52",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Carrs",
+     "type": "hamlet",
+     "dist_m": 3283.0,
+     "lat": 38.657575,
+     "lon": -83.419355
+    },
+    "detail": "detail/us-oh/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

@@ -1,24 +1,28 @@
-# Deploys the Worker (worker.js + site/ static assets) to Cloudflare on push,
-# then verifies the live URL actually serves the site.
-# Requires two repo secrets: CLOUDFLARE_API_TOKEN (Workers Scripts:Edit) and
-# CLOUDFLARE_ACCOUNT_ID. Manual fallback stays available: npx --yes wrangler deploy.
-name: Deploy to Cloudflare Workers
-on:
-  # Manual trigger: validate the pipeline without an empty commit.
-  workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - "site/**"
-      - "worker.js"
-      - "wrangler.jsonc"
-      - ".github/workflows/deploy-cloudflare.yml"
+name: Deploy to Cloudflare
 
-# One deploy at a time. A newer push replaces the queued run; the running deploy
-# is never killed mid-flight (cancel-in-progress: false), only queued ones are.
+on:
+  push:
+    branches: [main, europe]
+    paths:
+      - 'site/**'
+      - 'worker.js'
+      - 'wrangler.jsonc'
+      - 'redirect/**'
+      - '.github/workflows/deploy-cloudflare.yml'
+  workflow_dispatch:
+
 concurrency:
-  group: cloudflare-deploy
+  group: cloudflare-deploy-${{ github.ref_name }}
   cancel-in-progress: false
+
+env:
+  # main deploys production, anything else deploys the preview worker (wrangler env "preview").
+  # Fail closed on the branch test: an empty string is falsy in GitHub expressions, so the
+  # inverted form (== 'main' && '' || '--env preview') would silently deploy the preview on main.
+  # Test for "not main" instead, which also routes a workflow_dispatch from a third branch to the
+  # preview rather than to production.
+  PREVIEW: ${{ github.ref_name != 'main' }}
+  LIVE_URL: ${{ github.ref_name != 'main' && 'https://atokiausia-lietuva-preview.donatas-kasparavicius.workers.dev' || 'https://polesofremoteness.com' }}
 
 jobs:
   deploy:
@@ -26,48 +30,119 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
-
-      - name: Check deploy credentials
+      - name: Check credentials are present
+        # Secrets reach the script as environment variables, never interpolated into the body.
         env:
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          missing=""
-          [ -z "$CF_TOKEN" ] && missing="CLOUDFLARE_API_TOKEN"
-          [ -z "$CF_ACCOUNT" ] && missing="${missing:+$missing, }CLOUDFLARE_ACCOUNT_ID"
-          if [ -n "$missing" ]; then
-            echo "::error::Missing repo secret(s): $missing. Add with: gh secret set <NAME>"
+          if [ -z "$CF_TOKEN" ] || [ -z "$CF_ACCOUNT" ]; then
+            echo "::error::Missing repo secrets CLOUDFLARE_API_TOKEN and/or CLOUDFLARE_ACCOUNT_ID. Add with: gh secret set <NAME>"
             exit 1
           fi
-
-      - name: Deploy with wrangler
+      - name: Write version.json
+        run: |
+          printf '{"commit": "%s", "built_at": "%s"}\n' "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > site/version.json
+          cat site/version.json
+      - name: Deploy
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # Pin wrangler for reproducible deploys (and wrangler.jsonc needs v4;
-          # the action's old v3 default, wrangler 3.90.0, could not read it).
-          wranglerVersion: "4.124.0"
+          wranglerVersion: '4.124.0'
+          command: deploy ${{ github.ref_name != 'main' && '--env preview' || '' }}
 
   verify:
     needs: deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 10
     steps:
-      # Content-presence check only: the site carries no version stamp yet, so
-      # this proves the Worker serves the site, not that THIS commit is live.
-      # A /version route stamped at deploy is a decision for the Europe planning
-      # session (see docs/OVERVIEW.md).
-      - name: Verify live site
+      - name: Wait for the new version
+        # Both targets stamp site/version.json at deploy, so both are verified the same way:
+        # this commit is live, not merely some version of the site.
         run: |
-          url="https://atokiausia-lietuva.donatas-kasparavicius.workers.dev/?ci=${GITHUB_SHA}"
           for i in $(seq 1 18); do
-            if curl -fsSL "$url" | grep -q "Atokiausia Lietuva"; then
-              echo "Live site serving expected content (attempt $i)."
-              exit 0
-            fi
-            echo "Attempt $i: not yet, retrying in 10s."
-            sleep 10
+            got=$(curl -fsS --max-time 20 "$LIVE_URL/version.json?ci=$GITHUB_SHA" | python3 -c 'import json,sys; print(json.load(sys.stdin)["commit"])' 2>/dev/null || true)
+            if [ "$got" = "$GITHUB_SHA" ]; then echo "version.json carries $GITHUB_SHA"; exit 0; fi
+            echo "attempt $i: not yet"; sleep 10
           done
-          echo "::error::Cloudflare URL did not serve expected content within 3 minutes."
-          exit 1
+          echo "the deployed site did not show the new version"; exit 1
+      - name: First-screen budget (preview only)
+        if: env.PREVIEW == 'true'
+        env:
+          # Flip to '1' once site/data/ carries the region JSON (after the R2 rerun). Until then a
+          # .json entry answered as HTML is the SPA fallback for a file that is not published yet,
+          # so it is reported and left out of the total instead of failing the run.
+          JSON_STRICT: '1'
+        run: |
+          # Everything the first screen fetches before it is interactive, compressed bytes as the browser gets them.
+          # Keep this list in step with index.html; the data files are the region list and the opening region's units.
+          # The region and unit ids here name the run of record, not a precedent: code never names a region.
+          FIRST_SCREEN="/europe/lt /css/app.css /vendor/leaflet/leaflet.css /vendor/leaflet/leaflet.js /vendor/pmtiles/pmtiles.js /js/app.js /js/i18n.js /js/router.js /js/data.js /js/palette.js /js/readout.js /js/map.js /js/explore.js /js/detail.js /js/markers.js /js/card.js /js/ranking.js /js/classes.js /data/regions.json /data/europe/units.json /data/europe/units/lt.json"
+          total=0
+          missing=0
+          for p in $FIRST_SCREEN; do
+            # A static asset answered as HTML is the SPA fallback, which means the file is absent:
+            # it would weigh nothing here and break the page at runtime. The /europe/lt entry is the
+            # page itself and is HTML by design, so only the extensions below are content checked.
+            # The new worker version reaches the edges over a few seconds, and the version check above can be
+            # answered by one edge while this fetch lands on another still serving the previous version (seen
+            # 2026-08-23: a module new in that version answered 404 for about 40 s). A 404, or an SPA fallback
+            # for a .js or .css, is retried for up to a minute before it counts as missing.
+            for attempt in 1 2 3 4 5 6; do
+              out=$(curl -sS --compressed --max-time 20 -o /dev/null -w '%{http_code} %{size_download} %{content_type}' "$LIVE_URL$p?ci=$GITHUB_SHA-$attempt") \
+                || { echo "::error::first-screen fetch failed: $p"; exit 1; }
+              code=${out%% *}
+              rest=${out#* }
+              n=${rest%% *}
+              ct=${rest#* }
+              case "$code:$p:$ct" in
+                404:*|200:*.js:text/html*|200:*.css:text/html*)
+                  if [ "$attempt" -lt 6 ]; then echo "attempt $attempt: $p not there yet (HTTP $code, $ct), retrying"; sleep 10; fi ;;
+                *) break ;;
+              esac
+            done
+            if [ "$code" != 200 ]; then echo "MISSING (HTTP $code): $p"; missing=1; continue; fi
+            case "$p:$ct" in
+              *.js:text/html*|*.css:text/html*)
+                echo "MISSING (SPA fallback): $p"; missing=1; continue ;;
+              *.json:text/html*)
+                if [ "$JSON_STRICT" = '1' ]; then
+                  echo "MISSING (SPA fallback): $p"; missing=1
+                else
+                  echo "not published yet: $p"
+                fi
+                continue ;;
+            esac
+            echo "$n $p"; total=$((total + n))
+          done
+          if [ "$missing" -ne 0 ]; then
+            echo "::error::first-screen assets are missing from the deploy (see the lines above)"; exit 1
+          fi
+          echo "first screen: $total compressed bytes (budget 256000)"
+          [ "$total" -le 256000 ]
+
+  redirect:
+    # The old worker name becomes a permanent redirect to the new site, deployed only after the
+    # production deploy of this same push is live and verified (spec 8.3 step 4: the old URL never errors).
+    needs: verify
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - name: Deploy the redirect worker
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4.124.0'
+          command: deploy --config redirect/wrangler.jsonc
+      - name: Verify the old URL redirects
+        run: |
+          for i in $(seq 1 12); do
+            loc=$(curl -sS -o /dev/null --max-time 20 -w '%{http_code} %{redirect_url}' "https://atokiausia-lietuva.donatas-kasparavicius.workers.dev/?ci=$GITHUB_SHA")
+            if [ "$loc" = "301 https://polesofremoteness.com/europe/lt" ]; then echo "old URL: $loc"; exit 0; fi
+            echo "attempt $i: $loc"; sleep 10
+          done
+          echo "the old URL does not answer with the permanent redirect"; exit 1

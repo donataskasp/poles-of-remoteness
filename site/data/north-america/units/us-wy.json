@@ -1,0 +1,469 @@
+{
+ "region": "north-america",
+ "snapshot": "2026-08-22",
+ "code": "us-wy",
+ "name": "Wyoming",
+ "name_en": "Wyoming",
+ "country": "us",
+ "area_km2": 252614.5,
+ "bbox": [
+  -111.0552665,
+  40.9948223,
+  -104.0522528,
+  45.0058281
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 44.146777,
+    "lon": -110.073257,
+    "dist_m": 34854.43,
+    "nearest_way": {
+     "id": 1074373673,
+     "highway": "secondary",
+     "name": "East Entrance Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hawkeye",
+     "type": "hamlet",
+     "dist_m": 35964.5,
+     "lat": 44.143561,
+     "lon": -109.62378
+    },
+    "detail": "detail/us-wy/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 44.172957,
+    "lon": -110.194533,
+    "dist_m": 32457.53,
+    "nearest_way": {
+     "id": 891863286,
+     "highway": "service",
+     "name": "Pacific Creek Campground Road",
+     "ref": "FS 30090A",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Grant Village",
+     "type": "hamlet",
+     "dist_m": 38007.4,
+     "lat": 44.392762,
+     "lon": -110.559347
+    },
+    "detail": "detail/us-wy/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 44.06782,
+    "lon": -110.010339,
+    "dist_m": 30442.5,
+    "nearest_way": {
+     "id": 950202147,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hawkeye",
+     "type": "hamlet",
+     "dist_m": 32073.1,
+     "lat": 44.143561,
+     "lon": -109.62378
+    },
+    "detail": "detail/us-wy/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 44.20802,
+    "lon": -109.978276,
+    "dist_m": 28647.48,
+    "nearest_way": {
+     "id": 395139471,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hawkeye",
+     "type": "hamlet",
+     "dist_m": 29239.5,
+     "lat": 44.143561,
+     "lon": -109.62378
+    },
+    "detail": "detail/us-wy/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 44.169813,
+    "lon": -110.320612,
+    "dist_m": 26902.41,
+    "nearest_way": {
+     "id": 39059906,
+     "highway": "secondary",
+     "name": "South Entrance Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Grant Village",
+     "type": "hamlet",
+     "dist_m": 31255.5,
+     "lat": 44.392762,
+     "lon": -110.559347
+    },
+    "detail": "detail/us-wy/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 44.002573,
+    "lon": -109.923361,
+    "dist_m": 26567.35,
+    "nearest_way": {
+     "id": 15723573,
+     "highway": "unclassified",
+     "name": "Bonneville Road",
+     "ref": "FS 516",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hawkeye",
+     "type": "hamlet",
+     "dist_m": 28659.2,
+     "lat": 44.143561,
+     "lon": -109.62378
+    },
+    "detail": "detail/us-wy/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 44.252567,
+    "lon": -110.267268,
+    "dist_m": 25932.26,
+    "nearest_way": {
+     "id": 165377105,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Grant Village",
+     "type": "hamlet",
+     "dist_m": 28027.4,
+     "lat": 44.392762,
+     "lon": -110.559347
+    },
+    "detail": "detail/us-wy/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.083645,
+    "lon": -110.165883,
+    "dist_m": 25514.27,
+    "nearest_way": {
+     "id": 1132089319,
+     "highway": "unclassified",
+     "name": "Turpin Meadow Loop",
+     "ref": "FS 30065",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Moran",
+     "type": "hamlet",
+     "dist_m": 38423.1,
+     "lat": 43.841726,
+     "lon": -110.507982
+    },
+    "detail": "detail/us-wy/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.236271,
+    "lon": -110.102043,
+    "dist_m": 24785.56,
+    "nearest_way": {
+     "id": 1074373673,
+     "highway": "secondary",
+     "name": "East Entrance Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pahaska Tepee",
+     "type": "hamlet",
+     "dist_m": 31605.8,
+     "lat": 44.50277,
+     "lon": -109.963475
+    },
+    "detail": "detail/us-wy/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.950689,
+    "lon": -109.820595,
+    "dist_m": 24248.49,
+    "nearest_way": {
+     "id": 952709066,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hawkeye",
+     "type": "hamlet",
+     "dist_m": 26609.5,
+     "lat": 44.143561,
+     "lon": -109.62378
+    },
+    "detail": "detail/us-wy/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 44.146777,
+    "lon": -110.073257,
+    "dist_m": 34854.43,
+    "nearest_way": {
+     "id": 1074373673,
+     "highway": "secondary",
+     "name": "East Entrance Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hawkeye",
+     "type": "hamlet",
+     "dist_m": 35964.5,
+     "lat": 44.143561,
+     "lon": -109.62378
+    },
+    "detail": "detail/us-wy/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 44.172957,
+    "lon": -110.194533,
+    "dist_m": 32457.53,
+    "nearest_way": {
+     "id": 891863286,
+     "highway": "service",
+     "name": "Pacific Creek Campground Road",
+     "ref": "FS 30090A",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Grant Village",
+     "type": "hamlet",
+     "dist_m": 38007.4,
+     "lat": 44.392762,
+     "lon": -110.559347
+    },
+    "detail": "detail/us-wy/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 44.068045,
+    "lon": -110.010335,
+    "dist_m": 30464.54,
+    "nearest_way": {
+     "id": 746192608,
+     "highway": "unclassified",
+     "name": "Turpin Meadow Loop",
+     "ref": "FS 30065",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hawkeye",
+     "type": "hamlet",
+     "dist_m": 32066.2,
+     "lat": 44.143561,
+     "lon": -109.62378
+    },
+    "detail": "detail/us-wy/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 44.20847,
+    "lon": -109.978268,
+    "dist_m": 28661.48,
+    "nearest_way": {
+     "id": 291937257,
+     "highway": "unclassified",
+     "name": "Forest Service Road 448",
+     "ref": "FSR 448",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hawkeye",
+     "type": "hamlet",
+     "dist_m": 29251.1,
+     "lat": 44.143561,
+     "lon": -109.62378
+    },
+    "detail": "detail/us-wy/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 44.169813,
+    "lon": -110.320612,
+    "dist_m": 26902.41,
+    "nearest_way": {
+     "id": 39059906,
+     "highway": "secondary",
+     "name": "South Entrance Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Grant Village",
+     "type": "hamlet",
+     "dist_m": 31255.5,
+     "lat": 44.392762,
+     "lon": -110.559347
+    },
+    "detail": "detail/us-wy/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 44.002891,
+    "lon": -109.923135,
+    "dist_m": 26605.57,
+    "nearest_way": {
+     "id": 15723573,
+     "highway": "unclassified",
+     "name": "Bonneville Road",
+     "ref": "FS 516",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hawkeye",
+     "type": "hamlet",
+     "dist_m": 28624.7,
+     "lat": 44.143561,
+     "lon": -109.62378
+    },
+    "detail": "detail/us-wy/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 44.252567,
+    "lon": -110.267268,
+    "dist_m": 25932.26,
+    "nearest_way": {
+     "id": 165377105,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Grant Village",
+     "type": "hamlet",
+     "dist_m": 28027.4,
+     "lat": 44.392762,
+     "lon": -110.559347
+    },
+    "detail": "detail/us-wy/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.083645,
+    "lon": -110.165883,
+    "dist_m": 25514.27,
+    "nearest_way": {
+     "id": 1132089319,
+     "highway": "unclassified",
+     "name": "Turpin Meadow Loop",
+     "ref": "FS 30065",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Moran",
+     "type": "hamlet",
+     "dist_m": 38423.1,
+     "lat": 43.841726,
+     "lon": -110.507982
+    },
+    "detail": "detail/us-wy/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.236271,
+    "lon": -110.102043,
+    "dist_m": 24785.56,
+    "nearest_way": {
+     "id": 1074373673,
+     "highway": "secondary",
+     "name": "East Entrance Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pahaska Tepee",
+     "type": "hamlet",
+     "dist_m": 31605.8,
+     "lat": 44.50277,
+     "lon": -109.963475
+    },
+    "detail": "detail/us-wy/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.942004,
+    "lon": -109.803501,
+    "dist_m": 24373.55,
+    "nearest_way": {
+     "id": 395139471,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hawkeye",
+     "type": "hamlet",
+     "dist_m": 26628.0,
+     "lat": 44.143561,
+     "lon": -109.62378
+    },
+    "detail": "detail/us-wy/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

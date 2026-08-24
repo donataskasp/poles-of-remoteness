@@ -1,0 +1,469 @@
+{
+ "region": "europe",
+ "snapshot": "2026-08-19",
+ "code": "pt",
+ "name": "Portugal",
+ "name_en": "Portugal",
+ "country": "pt",
+ "area_km2": 88982.1,
+ "bbox": [
+  -31.5575303,
+  29.828247,
+  -6.1891593,
+  42.1543112
+ ],
+ "transcontinental": false,
+ "closed_by_edge": false,
+ "A": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 30.028847,
+    "lon": -16.051646,
+    "dist_m": 21477.37,
+    "nearest_way": {
+     "id": 194849031,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Caniço",
+     "type": "city",
+     "dist_m": 300423.6,
+     "lat": 32.65238,
+     "lon": -16.84097
+    },
+    "detail": "detail/pt/A-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 39.480139,
+    "lon": -9.545049,
+    "dist_m": 7831.04,
+    "nearest_way": {
+     "id": 441503021,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Peniche",
+     "type": "city",
+     "dist_m": 19812.4,
+     "lat": 39.356875,
+     "lon": -9.378684
+    },
+    "detail": "detail/pt/A-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 36.964697,
+    "lon": -7.910538,
+    "dist_m": 4229.45,
+    "nearest_way": {
+     "id": 1548904727,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Farol",
+     "type": "hamlet",
+     "dist_m": 4243.4,
+     "lat": 36.975902,
+     "lon": -7.864976
+    },
+    "detail": "detail/pt/A-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 41.782454,
+    "lon": -8.095161,
+    "dist_m": 3454.55,
+    "nearest_way": {
+     "id": 865625648,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Portela de Leonte",
+     "type": "isolated_dwelling",
+     "dist_m": 4594.7,
+     "lat": 41.767608,
+     "lon": -8.146743
+    },
+    "detail": "detail/pt/A-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 40.687845,
+    "lon": -8.679356,
+    "dist_m": 3366.76,
+    "nearest_way": {
+     "id": 1353922603,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Póvoa do Paço",
+     "type": "hamlet",
+     "dist_m": 4459.1,
+     "lat": 40.680063,
+     "lon": -8.627608
+    },
+    "detail": "detail/pt/A-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 38.880203,
+    "lon": -7.777054,
+    "dist_m": 2947.67,
+    "nearest_way": {
+     "id": 1152396272,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Aldeia do Reboxo",
+     "type": "hamlet",
+     "dist_m": 3816.2,
+     "lat": 38.845857,
+     "lon": -7.778865
+    },
+    "detail": "detail/pt/A-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 39.129925,
+    "lon": -8.038287,
+    "dist_m": 2762.33,
+    "nearest_way": {
+     "id": 1363891217,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Aldeia Velha",
+     "type": "village",
+     "dist_m": 3995.9,
+     "lat": 39.094181,
+     "lon": -8.032858
+    },
+    "detail": "detail/pt/A-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 41.857989,
+    "lon": -7.995544,
+    "dist_m": 2474.08,
+    "nearest_way": {
+     "id": 865625646,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Bouzas",
+     "type": "hamlet",
+     "dist_m": 3925.0,
+     "lat": 41.879528,
+     "lon": -8.033024
+    },
+    "detail": "detail/pt/A-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 38.939905,
+    "lon": -8.281468,
+    "dist_m": 2466.76,
+    "nearest_way": {
+     "id": 674134769,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Aldeia Velha",
+     "type": "isolated_dwelling",
+     "dist_m": 3165.9,
+     "lat": 38.912098,
+     "lon": -8.289573
+    },
+    "detail": "detail/pt/A-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 37.591566,
+    "lon": -7.49917,
+    "dist_m": 2431.05,
+    "nearest_way": {
+     "id": 757645499,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Bens",
+     "type": "hamlet",
+     "dist_m": 3274.3,
+     "lat": 37.605133,
+     "lon": -7.532094
+    },
+    "detail": "detail/pt/A-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 30.028847,
+    "lon": -16.051646,
+    "dist_m": 21477.37,
+    "nearest_way": {
+     "id": 194849031,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Caniço",
+     "type": "city",
+     "dist_m": 300423.6,
+     "lat": 32.65238,
+     "lon": -16.84097
+    },
+    "detail": "detail/pt/B-1",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 39.480139,
+    "lon": -9.545049,
+    "dist_m": 7831.04,
+    "nearest_way": {
+     "id": 441503021,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Peniche",
+     "type": "city",
+     "dist_m": 19812.4,
+     "lat": 39.356875,
+     "lon": -9.378684
+    },
+    "detail": "detail/pt/B-2",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 40.240585,
+    "lon": -6.999896,
+    "dist_m": 6739.42,
+    "nearest_way": {
+     "id": 802558689,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Vale de Espinho",
+     "type": "village",
+     "dist_m": 7671.4,
+     "lat": 40.298137,
+     "lon": -6.950001
+    },
+    "detail": "detail/pt/B-3",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 40.063022,
+    "lon": -6.907314,
+    "dist_m": 6272.34,
+    "nearest_way": {
+     "id": 671115515,
+     "highway": "unclassified",
+     "name": "Camino de Salvaleón",
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Monfortinho",
+     "type": "village",
+     "dist_m": 6673.9,
+     "lat": 40.003329,
+     "lon": -6.916466
+    },
+    "detail": "detail/pt/B-4",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 38.857938,
+    "lon": -8.312385,
+    "dist_m": 6152.28,
+    "nearest_way": {
+     "id": 151223993,
+     "highway": "unclassified",
+     "name": "Caminho do Monte do Saro de Cima",
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Marco",
+     "type": "isolated_dwelling",
+     "dist_m": 5199.6,
+     "lat": 38.866587,
+     "lon": -8.371261
+    },
+    "detail": "detail/pt/B-5",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 38.21086,
+    "lon": -6.956461,
+    "dist_m": 6077.43,
+    "nearest_way": {
+     "id": 338651172,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "CM 1023-2",
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Monte do Braga",
+     "type": "isolated_dwelling",
+     "dist_m": 6417.6,
+     "lat": 38.153075,
+     "lon": -6.954062
+    },
+    "detail": "detail/pt/B-6",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 41.821474,
+    "lon": -8.040776,
+    "dist_m": 6014.04,
+    "nearest_way": {
+     "id": 1075085389,
+     "highway": "secondary",
+     "name": null,
+     "ref": "EM 308",
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Minas das Sombras",
+     "type": "isolated_dwelling",
+     "dist_m": 1566.1,
+     "lat": 41.823092,
+     "lon": -8.059501
+    },
+    "detail": "detail/pt/B-7",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.324217,
+    "lon": -8.343474,
+    "dist_m": 5956.24,
+    "nearest_way": {
+     "id": 634005222,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "EM 535-1",
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Monte do Pincarinho",
+     "type": "isolated_dwelling",
+     "dist_m": 1592.5,
+     "lat": 38.333054,
+     "lon": -8.329127
+    },
+    "detail": "detail/pt/B-8",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 38.822156,
+    "lon": -8.104701,
+    "dist_m": 5939.98,
+    "nearest_way": {
+     "id": 108227170,
+     "highway": "unclassified",
+     "name": "Caminho do Porto de Aviz",
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Monte Novo",
+     "type": "isolated_dwelling",
+     "dist_m": 3634.6,
+     "lat": 38.844615,
+     "lon": -8.074242
+    },
+    "detail": "detail/pt/B-9",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 37.833212,
+    "lon": -7.791779,
+    "dist_m": 5699.02,
+    "nearest_way": {
+     "id": 163938176,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Monte de Coqueiros",
+     "type": "isolated_dwelling",
+     "dist_m": 4485.1,
+     "lat": 37.863471,
+     "lon": -7.758004
+    },
+    "detail": "detail/pt/B-10",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ }
+}

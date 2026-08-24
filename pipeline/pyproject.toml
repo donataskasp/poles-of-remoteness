@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "poles"
+version = "0.1.0"
+description = "Pole of remoteness pipeline: OSM extract to per-unit poles and explore rasters"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+poles = "poles.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["poles*"]
+
+# The site JSON schemas are validated against at publish time, so they ship with the package: a wheel built
+# for the container would otherwise install poles/schemas as an empty directory and fail the stage.
+[tool.setuptools.package-data]
+poles = ["schemas/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

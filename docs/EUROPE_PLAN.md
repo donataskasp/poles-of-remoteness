@@ -264,7 +264,7 @@ Issue: #8 "Stage 2: poles, attribution, validation, contact sheet; Lithuania rep
 
 ### Task 2.5: validation checks
 
-**Files:** create `pipeline/poles/validate/__init__.py`, `pipeline/poles/validate/checks.py`, `pipeline/poles/validate/refs.yaml` (LT references plus three to five cited national poles with URLs and notes), `pipeline/tests/test_checks.py`.
+**Files:** create `pipeline/poles/validate/__init__.py`, `pipeline/poles/validate/checks.py`, `pipeline/regions/europe-refs.yaml` (LT references plus three to five cited national poles with URLs and notes, named by `references:` in the region config), `pipeline/tests/test_checks.py`.
 
 **Behaviour:** checks 1-7 from spec section 6, each a function returning `list[CheckResult]`; `blocking` true for 1, 2, 3, 4, 7 and for check 6's LT entries; 5 and the external references in 6 are warnings. Check 1 uses `pyproj.Geod` against vertices densified at 1 m via `shapely.segmentize`, over all ways of the scenario within 2x the claimed distance from `highways.fgb` (not the classified subset, re-filtered inline to be independent). Check 4 recomputes the coarse grid shifted by half a cell (reuse `tiled_edt`) and re-runs refine for each unit's top 3.
 
@@ -339,11 +339,11 @@ Issue: #9 "Stage 3: class table, tiles, PMTiles, detail rasters, R2 upload, site
 
 ### Stage 3 acceptance (issue checklist)
 
-- [ ] `pytest` green
-- [ ] `poles run europe --stage publish` produces archives, detail rasters, site JSON, manifest, and uploads in one command
+- [x] `pytest` green (372 tests, 2026-08-22)
+- [ ] `poles run europe --stage publish` produces archives, detail rasters, site JSON, manifest, and uploads in one command (archives and 909 detail rasters produced by the local run of 2026-08-22 in 16 minutes; site JSON, manifest and upload follow the R2 enablement)
 - [ ] every manifest reference answers HEAD with ranges on the dev hostname
-- [ ] archive sizes and total R2 usage recorded in spec 4.1
-- [ ] JSON schemas frozen
+- [x] archive sizes and total R2 usage recorded in spec 4.1 (2026-08-22: 114.2 MB plus 128.3 MB archives, 268.6 MB per snapshot)
+- [x] JSON schemas frozen (`pipeline/poles/schemas/`, validated on every write, 2026-08-22)
 
 ---
 
@@ -435,7 +435,7 @@ Issue: #11 "Stage 5: North America region run and region switch".
 
 ### Task 5.1: region config and masks
 
-**Files:** create `pipeline/regions/north-america.yaml` (spec 2.1 column; `unit_countries: [us, ca]`; `expected_units: 64`; `max_distance_m: 400000`; `edge_mask_m: 50000`; `transcontinental: []`), `pipeline/regions/masks/north-america.geojson` (empty collection), `pipeline/poles/validate/refs.yaml` gains three cited US and Canadian references.
+**Files:** create `pipeline/regions/north-america.yaml` (spec 2.1 column; `unit_countries: [us, ca]`; `expected_units: 64`; `max_distance_m: 400000`; `edge_mask_m: 50000`; `transcontinental: []`), `pipeline/regions/masks/north-america.geojson` (empty collection), `pipeline/regions/north-america-refs.yaml` with three cited US and Canadian references, named by `references:` in that region config.
 
 **Acceptance:** config loads; unit list reviewed in the issue (51 US including DC, 13 Canadian).
 
