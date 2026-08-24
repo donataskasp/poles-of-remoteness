@@ -1,6 +1,6 @@
 # Poles of remoteness
 
-How far from a road can you get? This project finds, for every country in Europe and every US state and Canadian province, the point on land farthest from anything drivable, computed from OpenStreetMap data, and puts them all on an interactive map. It started with a YouTube video about the remotest spot in Norway and a simple question: what is the equivalent for Lithuania? One weekend later the answer (a bog, 3.43 km) was live and on LinkedIn; the pipeline then grew until it covered two continents.
+How far from a road can you get? This project finds, for every country in Europe and every US state and Canadian province, the point on land farthest from anything drivable, computed from OpenStreetMap data, and puts them all on an interactive map. It started with [a YouTube video about the remotest spot in Norway](https://www.youtube.com/watch?v=-0pX5MfDBas) and a simple question: what is the equivalent for Lithuania? One weekend later the answer (a bog, 3.43 km) was live and on LinkedIn; the pipeline then grew until it covered two continents.
 
 **Live map: https://polesofremoteness.com**
 
