@@ -46,7 +46,7 @@ function renderLegend() {
 // it again with the names said in the new language.
 function renderRegions() {
   const nav = document.getElementById('regions');
-  const links = regionLinks(state.regions || [], state.region);
+  const links = regionLinks(state.regions || [], state.region, state);
   nav.replaceChildren(...links.map((l) => {
     const a = document.createElement('a');
     a.className = 'seg__btn';
@@ -98,9 +98,10 @@ const headerBounds = (h) => [[h.minLat, h.minLon], [h.maxLat, h.maxLon]];
 
 async function main() {
   const parsed = parse();
-  applyLanguage(pickLang({ hash: parsed.l, stored: storedLang(), navigator }));
+  // Scenario and basemap before the first language render: every link render reads them off state.
   state.s = parsed.s || 'A';
   state.b = parsed.b || 'sat';
+  applyLanguage(pickLang({ hash: parsed.l, stored: storedLang(), navigator }));
 
   const regions = await loadRegions();
   const start = await pickStart(parsed, visitor(), regions);
@@ -258,6 +259,7 @@ async function main() {
     explore[s].addTo(map);
     current.rank = 1;
     renderUnit();
+    renderRegions();
     if (ui.ranking) ui.ranking.setScenario(s);
     syncUrl(true);
   }
@@ -284,6 +286,7 @@ async function main() {
   function applyBasemap(base) {
     state.b = setBasemap(base);
     markBasemap();
+    renderRegions();
   }
   document.querySelectorAll('#basemap-seg .seg__btn').forEach((b) => b.addEventListener('click', () => {
     applyBasemap(b.dataset.base);

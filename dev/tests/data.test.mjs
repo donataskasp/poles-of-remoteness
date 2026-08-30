@@ -163,3 +163,14 @@ test('data: regionLinks appears only when there is somewhere to go', () => {
   assert.deepEqual(regionLinks([{ id: 'a-1', name: null }, { id: 'b-2', name: 'Bee' }], 'a-1').map((l) => l.name),
     ['a-1', 'Bee']);
 });
+
+test('data: regionLinks carries scenario, basemap and language across the switch, never the spot', () => {
+  // The full app state goes in as it is; only s, b and l may reach the href. Unit and position belong to
+  // the region being left (#40).
+  const state = { region: 'europe', unit: 'lt', s: 'B', b: 'osm', l: 'lt', z: 7, lat: 54.7, lon: 23.5 };
+  assert.deepEqual(regionLinks(regions, 'europe', state).map((l) => l.href),
+    ['/europe#s=B&b=osm&l=lt', '/north-america#s=B&b=osm&l=lt']);
+  // A partial state appends only what it has, and none at all keeps the bare href.
+  assert.equal(regionLinks(regions, 'europe', { s: 'A' })[1].href, '/north-america#s=A');
+  assert.equal(regionLinks(regions, 'europe')[1].href, '/north-america');
+});

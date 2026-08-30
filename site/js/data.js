@@ -1,5 +1,7 @@
 // Site JSON (regions, units, unit documents) with a per-URL cache, R2 URL helpers, and the opening-unit rule.
 // Paths are root-absolute: the page is served at nested paths like /<region>/<unit>.
+import { toUrl } from './router.js';
+
 const cache = new Map();
 
 // A failure the caller can tell apart without matching on message text: 'http' carries the status, and
@@ -84,10 +86,12 @@ export function unitAt(units, { lat, lng }, country = null) {
 }
 
 // The region control: one link per region, and nothing at all while there is only one. Links rather than a
-// switch because the page binds its region and its layers once at start, so another region is a page load.
-export function regionLinks(regions, currentId) {
+// switch because the page binds its region and its layers once at start, so another region is a page load,
+// and the load reads scenario, basemap and language back out of the hash: a link without them resets all
+// three (#40). Spot and position stay off the link, they belong to the region being left.
+export function regionLinks(regions, currentId, { s, b, l } = {}) {
   if (!regions || regions.length < 2) return [];
-  return regions.map((r) => ({ id: r.id, names: r.names, name: r.name || r.id, href: `/${r.id}`, current: r.id === currentId }));
+  return regions.map((r) => ({ id: r.id, names: r.names, name: r.name || r.id, href: toUrl({ region: r.id, s, b, l }), current: r.id === currentId }));
 }
 
 // Opening unit (spec 5.3): the path; the visitor's own unit (country-region, then country); the winner of
