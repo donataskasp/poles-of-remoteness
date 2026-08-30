@@ -1,7 +1,7 @@
 // Bootstrap and wiring. Everything with behaviour lives in the modules.
 import { makeClassTable } from './classes.js';
 import { pickLang, setLang, getLang, applyDom, t, fmtDist, regionLabel } from './i18n.js';
-import { parse, write, visitor, changedState } from './router.js';
+import { parse, write, visitor, changedState, toUrl } from './router.js';
 import { loadRegions, loadUnits, loadUnit, archiveUrl, pickStart, bboxToBounds, unitAt, regionLinks } from './data.js';
 import { readTokens, makePalette, legendRows } from './palette.js';
 import { describe, formatSample, mountReadout } from './readout.js';
@@ -59,6 +59,12 @@ function renderRegions() {
   document.getElementById('hdr').classList.toggle('hdr--regions', links.length > 0);
 }
 
+// The home link is a full page load like a region link, so it carries the same three keys (#51); spot and
+// position stay off it, home picks the region afresh.
+function renderHomeLink() {
+  document.getElementById('brand-home').href = toUrl({ s: state.s, b: state.b, l: state.l });
+}
+
 // The readout holds a sample, not a string, so it can be said again in another language. The hint, the wait
 // for a tile and the three locate messages are samples of their own kind for exactly that reason: they say
 // something about the attempt rather than about a place, and each one's I18N key is its kind.
@@ -84,6 +90,7 @@ function applyLanguage(lang) {
   document.querySelectorAll('#lang-seg .seg__btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === state.l)));
   applyDom();
   renderLegend();
+  renderHomeLink();
   if (state.regions) renderRegions();   // the first call runs before the regions are loaded
   if (ui.card) ui.card.refresh();
   if (ui.ranking) ui.ranking.refresh();
@@ -260,6 +267,7 @@ async function main() {
     current.rank = 1;
     renderUnit();
     renderRegions();
+    renderHomeLink();
     if (ui.ranking) ui.ranking.setScenario(s);
     syncUrl(true);
   }
@@ -287,6 +295,7 @@ async function main() {
     state.b = setBasemap(base);
     markBasemap();
     renderRegions();
+    renderHomeLink();
   }
   document.querySelectorAll('#basemap-seg .seg__btn').forEach((b) => b.addEventListener('click', () => {
     applyBasemap(b.dataset.base);
