@@ -148,7 +148,9 @@ async function main() {
 
   const detail = createDetailOverlays(map, { region, palette });
   const markers = createMarkers(map, { onSelect: (pole) => selectPole(pole.rank, { pan: false }) });
+  const phone = matchMedia('(max-width: 720px)');
   const card = createCard(document.getElementById('card'), {
+    summary: document.getElementById('card-summary'),
     onScenario: (s) => setScenario(s),
     onRanking: () => ui.ranking && ui.ranking.open(),
     onLocate: () => ui.locate && ui.locate(),
@@ -159,10 +161,34 @@ async function main() {
   ui.ranking = createRanking(document.getElementById('panel'), {
     onPick: (code) => {
       openUnit(code, { view: 'pole' });
-      if (matchMedia('(max-width: 720px)').matches) ui.ranking.toggle();
+      if (phone.matches) ui.ranking.toggle();
     },
   });
   ui.ranking.setRows(units, state.s, unit && unit.code);
+
+  // On a phone the card is not a box floating over the map: it is the top of the bottom sheet, its one row of
+  // summary on the handle and the rest of it in the body above the ranking. Leaflet's attribution joins the
+  // map controls' column at the same time, so the stack above the sheet is one flow and no rule has to know
+  // how many lines the attribution wraps to (#32). Both are moves, not rebuilds: the card keeps the listener
+  // card.js gave it, and Leaflet keeps writing into the same attribution element. Nothing moves while the
+  // query does not match, so a desktop page is the page it always was.
+  const cardEl = document.getElementById('card');
+  const stage = document.querySelector('.stage');
+  const mapctl = document.getElementById('mapctl');
+  const panelBody = document.getElementById('panel-body');
+  const attribution = document.querySelector('.leaflet-control-attribution');
+  const attributionHome = attribution && attribution.parentElement;
+  function placeForWidth() {
+    const cardHost = phone.matches ? panelBody : stage;
+    if (cardEl.parentElement !== cardHost) {
+      if (phone.matches) cardHost.prepend(cardEl);
+      else cardHost.insertBefore(cardEl, mapctl);
+    }
+    const attributionHost = phone.matches ? mapctl : attributionHome;
+    if (attribution && attributionHost && attribution.parentElement !== attributionHost) attributionHost.append(attribution);
+  }
+  placeForWidth();
+  phone.addEventListener('change', placeForWidth);
 
   ui.locate = () => {
     say({ kind: 'loading' }, { sticky: true });

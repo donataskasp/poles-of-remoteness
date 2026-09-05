@@ -31,6 +31,10 @@
   --t: 170ms cubic-bezier(.3, .7, .3, 1);
   --panel-w: 360px;
   --hdr-h: 56px;
+  /* The height of the closed phone sheet, measured and written by js/ranking.js because it depends on what
+     the card's summary row wraps to. Only the phone rules read it; the zero is what the page looks like
+     before the sheet has been measured, never a layout figure. */
+  --sheet-h: 0px;
   color-scheme: light;
 }
 
@@ -115,6 +119,9 @@ button { font: inherit; color: inherit; }
 /* Card (task 6 and 8) */
 .card { position: absolute; left: 12px; top: 12px; z-index: 900; width: min(380px, calc(100% - 24px));
   background: var(--panel); border-radius: var(--r-lg); box-shadow: var(--shadow); padding: 14px 16px; }
+/* The card's summary row belongs to the phone sheet's handle (see the media query). On desktop the card
+   itself says all of it at the top of the map, so the row is not painted at all. */
+.card-summary { display: none; }
 
 /* Readout (task 5) */
 .readout { padding: 8px 12px; background: var(--panel); border-radius: var(--r-md); box-shadow: var(--shadow);
@@ -201,26 +208,46 @@ html[lang="en"] .about__body [data-lang="lt"], html[lang="lt"] .about__body [dat
   .hdr--regions .seg__btn { padding: 4px 8px; font-size: 12px; white-space: nowrap; }
   .panel { top: auto; left: 0; right: 0; width: auto; border-left: 0; border-top: 1px solid var(--hair);
     border-radius: var(--r-lg) var(--r-lg) 0 0; box-shadow: var(--shadow); transition: height var(--t); }
-  .panel--collapsed { height: 48px; }
+  /* The closed sheet is exactly its handle, whatever the summary row inside it wraps to; js/ranking.js
+     measures that and writes --sheet-h. A missing variable leaves the height at auto, which is the same
+     figure without the transition, so the sheet is never wrong, only unanimated. */
+  .panel--collapsed { height: var(--sheet-h); }
   .panel--half { height: 45%; }
   .panel--full { height: calc(100% - 8px); }
-  .panel__handle { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; height: 48px;
-    border: 0; background: none; cursor: pointer; }
-  .panel__grip { width: 36px; height: 4px; border-radius: 2px; background: var(--hair-strong); }
+  /* The handle is the sheet's face: the grip, then the card's summary row. The button is the whole face, so
+     the tap target is as wide as the screen and as tall as the summary needs. It never shrinks: the panel's
+     height is derived from it, and a handle that gave way to a stale height would keep it stale. */
+  .panel__handle { display: flex; flex: none; flex-direction: column; align-items: stretch; gap: 6px; width: 100%;
+    padding: 8px 14px 10px; border: 0; background: none; cursor: pointer; text-align: left; }
+  .panel__grip { align-self: center; width: 36px; height: 4px; border-radius: 2px; background: var(--hair-strong); }
+  /* The summary row, the card's first two lines said in one: the unit, its distance in the active scenario,
+     its rank. With it on the handle the word "Ranking" would only repeat what the body says, so it goes. */
+  .card-summary { display: block; }
+  .card-summary[hidden] { display: none; }
+  .card-summary:not([hidden]) ~ .panel__handle-text { display: none; }
+  .card-summary__line { display: flex; align-items: baseline; gap: 8px; }
+  .card-summary__name { flex: 1; min-width: 0; font: 600 15px/1.3 var(--serif); }
+  .card-summary__none { display: block; font: 600 15px/1.3 var(--serif); }
+  .card-summary__dist { flex: none; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .card-summary__rank { display: block; font-size: 12px; color: var(--ink-2); }
   .panel--collapsed .panel__body { display: none; }
-  /* The bottom stack on a phone, from the screen edge up: the collapsed sheet's 48px handle, then the
-     Leaflet attribution, then the map controls. The attribution defaults to the very bottom, where it hides
-     the grip and swallows the tap; lifting it clear of the handle costs the controls its height in turn
-     (three lines at these widths), or it would cover the readout pill. Leaflet parks its control corners at
-     z-index 1000, above the sheet, so the attribution is dropped to the map controls' layer as well: an open
-     sheet has to cover it, not be sliced by it. */
-  .leaflet-bottom { bottom: 48px; z-index: 800; }
-  .mapctl { bottom: 116px; }
-  .card { width: calc(100% - 24px); }
-  /* The full-width card runs under Leaflet's zoom control, which stays where Leaflet puts it (top right of
-     the map, 34px wide with its border, 10px of margin, 64px tall on a touch device): its left edge is 44px
-     from the screen edge. The card sits 12px in and pads 16px, so its text already stops 28px from the edge;
-     24px more leaves 8px of clearance. The card's top two lines are the ones the control reaches, so they
-     wrap before it instead of under it (#34). */
-  .card__headline, .card__rank { padding-right: 24px; }
+  /* The card is moved into the sheet body here (js/app.js), so it stops being a box over the map and becomes
+     the body's first section, scrolling with the ranking under it. Its headline and rank line stay behind:
+     the summary row on the handle says both, and says them whether the sheet is open or shut. */
+  .panel .card { position: static; width: auto; padding: 0 0 12px; margin: 0 0 12px; background: none;
+    border-radius: 0; box-shadow: none; border-bottom: 1px solid var(--hair); }
+  .panel .card__headline, .panel .card__rank { display: none; }
+  /* The bottom stack on a phone, from the screen edge up: the sheet at its measured height, then one column
+     holding the base map switch, the legend, the readout pill and the Leaflet attribution, which js/app.js
+     moves in here. Stacking the attribution rather than lifting the controls over it is what takes its
+     rendered height out of the layout: it wraps to as many lines as the width needs and the column grows
+     with it (#32). Leaflet parks its control corners at z-index 1000, above the sheet, so all four corners
+     drop to this column's layer: an open sheet has to cover the map's own furniture, not be sliced by it.
+     The zoom control is the corner that matters, sitting where the full sheet's summary row lands. */
+  .leaflet-top, .leaflet-bottom { z-index: 800; }
+  .mapctl { right: 12px; bottom: calc(var(--sheet-h) + 8px); }
+  /* Out of .leaflet-container the attribution loses Leaflet's own background, which was white in both
+     schemes anyway; here it wears the skin the legend and the readout wear. */
+  .mapctl .leaflet-control-attribution { background: var(--panel); color: var(--ink-2); font-size: 11px;
+    padding: 4px 8px; border-radius: var(--r-md); box-shadow: var(--shadow); }
 }

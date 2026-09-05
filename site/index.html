@@ -29,7 +29,8 @@
 <main class="stage">
   <div id="map" class="map"></div>
 
-  <!-- Task 6 and Task 8: the card -->
+  <!-- Task 6 and Task 8: the card. On phones js/app.js moves this element into the sheet body below, where it
+       sits above the ranking; on desktop it stays here, floating over the map. -->
   <section class="card" id="card" hidden></section>
 
   <!-- Task 5: map controls and readout -->
@@ -44,8 +45,11 @@
 
   <!-- Task 7: the ranking -->
   <aside class="panel panel--collapsed" id="panel" data-i18n-aria="rankingTitle">
+    <!-- The handle is the phone sheet's face, so the card's summary row rides inside it: the whole face is one
+         tap target. Spans only, because a button may carry no flow content. It paints nothing on desktop. -->
     <button type="button" class="panel__handle" id="panel-handle" aria-expanded="false" aria-controls="panel-body">
       <span class="panel__grip" aria-hidden="true"></span>
+      <span class="card-summary" id="card-summary" hidden></span>
       <span class="panel__handle-text" data-i18n="rankingTitle"></span>
     </button>
     <div class="panel__body" id="panel-body">

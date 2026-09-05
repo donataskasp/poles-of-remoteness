@@ -13,9 +13,9 @@ with a flat grey tile so the images are deterministic, and writes this set:
 | desktop-detail.png | 1440x900 | zoom 13 on pole 1, detail overlay on; the script clicks the map once to fill the readout |
 | desktop-about.png | 1440x900 | the About dialog |
 | desktop-us-ak.png | 1440x900 | /north-america/us-ak, scenario A, English: the region control in the header, a unit that straddles the antimeridian drawn in one piece, a state name where a country shows a flag |
-| phone-lt.png | 390x844 | /europe/lt, sheet collapsed |
+| phone-lt.png | 390x844 | /europe/lt, sheet collapsed: the card's summary row on the sheet handle, the map free above the controls column (base map switch, legend, readout, attribution) |
 | phone-lt-lang-lt.png | 390x844 | same, Lithuanian |
-| phone-ranking.png | 390x844 | the script taps the sheet handle: sheet at half height, scrolled to the current unit |
+| phone-ranking.png | 390x844 | the script taps the sheet handle: sheet at half height, the card at the top of its body and the ranking below it |
 | phone-about.png | 390x844 | the About dialog, Lithuanian; the script opens the sheet first, because the About button sits in the panel body |
 
 Rule: a change that touches only phone styles must leave every `desktop-*.png` byte-identical

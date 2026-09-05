@@ -21,12 +21,25 @@ export function createRanking(el, { onPick }) {
   const list = el.querySelector('#ranking');
   const note = el.querySelector('#ranking-note');
   const handle = el.querySelector('#panel-handle');
+  const body = el.querySelector('#panel-body');
   let view = { units: [], scenario: 'A', current: null };
   let sheet;
 
+  // What the phone stack above the sheet rests on: the height of the closed sheet, which is the handle plus
+  // the sheet's own top border, and the handle is whatever the card's summary row wraps to at this width in
+  // this language. Measured here and published as --sheet-h, so no rule has to state it and no width has to
+  // be guessed. Rounded up, because a sheet a fraction shorter than its handle would push the grip off the
+  // bottom of the screen. The handle is display:none on desktop, where nothing reads the variable.
+  function measure() {
+    const border = parseFloat(getComputedStyle(el).borderTopWidth) || 0;
+    document.documentElement.style.setProperty('--sheet-h', `${Math.ceil(handle.getBoundingClientRect().height + border)}px`);
+  }
+  if (typeof ResizeObserver === 'function') new ResizeObserver(measure).observe(handle);
+  else window.addEventListener('resize', measure);
+
   // The one place that scrolls the current unit into view, for the desktop panel and the phone sheet alike.
   // A sheet that has just been opened is still animating its height, so this runs against a container that
-  // is about to grow: 'center' would be computed against the 48 px collapsed sheet and land the row a few
+  // is about to grow: 'center' would be computed against the closed sheet's height and land the row a few
   // pixels under the top edge once the sheet has grown. 'start' does not read the container's height; the
   // row's scroll-margin-top keeps the body's top padding above it.
   function showCurrent(block) {
@@ -34,12 +47,17 @@ export function createRanking(el, { onPick }) {
     if (cur) cur.scrollIntoView({ block });
   }
 
-  function setState(next) {
+  // reveal says what the reader was after: 'current' the ranking row of the unit on screen, 'top' the card at
+  // the head of the body, 'keep' whatever they had scrolled to.
+  function setState(next, { reveal = 'current' } = {}) {
     sheet = STATES.includes(next) ? next : 'collapsed';
     STATES.forEach((s) => el.classList.toggle(`panel--${s}`, s === sheet));
     handle.setAttribute('aria-expanded', String(sheet !== 'collapsed'));
+    measure();
+    if (sheet === 'collapsed') return;
     // Opening the sheet at rank 1 hides the unit the reader is looking at, wherever it ranks (#35).
-    if (sheet !== 'collapsed') showCurrent('start');
+    if (reveal === 'current') showCurrent('start');
+    else if (reveal === 'top' && body) body.scrollTop = 0;
   }
 
   function row(u) {
@@ -70,7 +88,13 @@ export function createRanking(el, { onPick }) {
     const b = e.target.closest('button[data-code]');
     if (b) onPick(b.dataset.code);
   });
-  handle.addEventListener('click', () => setState(STATES[(STATES.indexOf(sheet) + 1) % STATES.length]));
+  // The handle opens the card, not the list: on a phone the card's own section is the top of the body, and a
+  // sheet that scrolled straight past it to the ranking would look as if the card were gone. Half to full
+  // keeps the place the reader had scrolled to. "See the ranking" is the way to the list, and it still is.
+  handle.addEventListener('click', () => {
+    const next = STATES[(STATES.indexOf(sheet) + 1) % STATES.length];
+    setState(next, { reveal: sheet === 'collapsed' ? 'top' : 'keep' });
+  });
 
   // The class on the panel and the variable have to start out saying the same thing, so the starting state
   // is applied rather than assumed.

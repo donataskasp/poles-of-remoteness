@@ -1,7 +1,9 @@
 // The card: the headline sentence for the unit, the scenario toggle, the two actions, and the selected pole.
+// The summary element is the same facts in one row, for the phone sheet's handle; it is optional, so a
+// caller with nowhere to put it can leave it out.
 import { t, unitName, regionLabel, flag, fmtDist, fmtKmExact, highwayLabel, placeLabel, esc } from './i18n.js';
 
-export function createCard(el, { onScenario, onRanking, onLocate, onPole }) {
+export function createCard(el, { summary, onScenario, onRanking, onLocate, onPole }) {
   let view = null; // { region, unit, units, doc, scenario, rank }
 
   el.addEventListener('click', (e) => {
@@ -13,22 +15,43 @@ export function createCard(el, { onScenario, onRanking, onLocate, onPole }) {
     else if (b.dataset.rank) onPole(Number(b.dataset.rank));
   });
 
-  function headline(v) {
-    const name = unitName(v.unit);
-    // A unit below country level has no flag (the emoji is built from a two-letter country code), so the
-    // slot and the space after it go away rather than render empty.
+  // The unit's name, and the flag ahead of it. A unit below country level has no flag (the emoji is built
+  // from a two-letter country code), so the slot and the space after it go away rather than render empty.
+  function names(v) {
     const mark = flag(v.unit.code);
-    const lead = mark ? `${esc(mark)} ` : '';
+    return { name: unitName(v.unit), lead: mark ? `${esc(mark)} ` : '' };
+  }
+
+  // Why a unit shows no distance for this scenario: held back by validation, or nothing found at all.
+  function reasonFor(v) {
+    const d = v.doc && v.doc[v.scenario];
+    return d && d.withheld ? t('reasonWithheld') : t('reasonNone');
+  }
+
+  // How many units of the region have a result in this scenario: the "of 52" in the rank line.
+  const ranked = (v) => v.units.filter((u) => u[v.scenario]).length;
+
+  function headline(v) {
+    const { name, lead } = names(v);
     const sum = v.unit[v.scenario];
-    if (!sum) {
-      const d = v.doc && v.doc[v.scenario];
-      const reason = d && d.withheld ? t('reasonWithheld') : t('reasonNone');
-      return `<p class="card__headline">${lead}${esc(t('noPoles', { name, reason }))}</p>`;
-    }
+    if (!sum) return `<p class="card__headline">${lead}${esc(t('noPoles', { name, reason: reasonFor(v) }))}</p>`;
     const what = t(v.scenario === 'A' ? 'headlineA' : 'headlineB');
-    const count = v.units.filter((u) => u[v.scenario]).length;
+    const count = ranked(v);
     return `<p class="card__headline">${lead}${esc(t('headline', { name, km: fmtKmExact(sum.dist_m), what }))}</p>
       <p class="card__rank">${esc(t('rankOf', { rank: sum.rank, count, region: regionLabel(v.region) }))}</p>`;
+  }
+
+  // The one row the phone sheet carries while it is closed: who, how far, and where that ranks. It says what
+  // the headline says in fewer words, so it needs no dictionary entry of its own. The scenario letter is
+  // there because the distance changes with it and the toggle is inside the sheet, out of sight.
+  function summaryHtml(v) {
+    const { name, lead } = names(v);
+    const sum = v.unit[v.scenario];
+    if (!sum) return `<span class="card-summary__none">${lead}${esc(t('noPoles', { name, reason: reasonFor(v) }))}</span>`;
+    // The line breaks below fall between block level boxes and inside a flex row, so none of them paints.
+    return `<span class="card-summary__line"><span class="card-summary__name">${lead}${esc(name)}</span>
+      <b class="card-summary__dist">${esc(t(`scenarioShort_${v.scenario}`))} ${esc(fmtKmExact(sum.dist_m))}</b></span>
+      <span class="card-summary__rank">${esc(t('rankOf', { rank: sum.rank, count: ranked(v), region: regionLabel(v.region) }))}</span>`;
   }
 
   function poleBlock(v) {
@@ -59,7 +82,14 @@ export function createCard(el, { onScenario, onRanking, onLocate, onPole }) {
       </dl>${withheld}</div>`;
   }
 
+  function renderSummary() {
+    if (!summary) return;
+    summary.innerHTML = view ? summaryHtml(view) : '';
+    summary.hidden = !view;
+  }
+
   function render() {
+    renderSummary();
     if (!view) { el.hidden = true; return; }
     const v = view;
     el.innerHTML = `${headline(v)}
