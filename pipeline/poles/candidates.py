@@ -90,6 +90,7 @@ class Refined:
     dist_m: float
     payload: object = None
     cell: int = -1               # the sorted index the point was refined from; the search stamps it
+    at: tuple[int, int] | None = None   # frame row and column of the refined point itself, for the distinct rule
 
 
 @dataclass

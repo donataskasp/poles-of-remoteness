@@ -37,8 +37,8 @@ from shapely.ops import unary_union
 from shapely.strtree import STRtree
 
 from .antimeridian import split_bbox, wrapped_bounds
-from .areas import AreaField, col_threshold
-from .attrib import Countries, Places, clean_text, nearest_way, pole_record
+from .areas import AreaField, LandComponents, col_threshold
+from .attrib import GEOD, Countries, Places, clean_text, nearest_way, pole_record
 from .boundaries import AdminArea, load_admin_areas
 from .candidates import Quota, Refined, Search, Verdict, half_diag, pad_fn_for
 from .classify import where_clause
@@ -342,6 +342,14 @@ def refine_cell(x: float, y: float, frame_crs: str, roads: UtmRoads, half_m: flo
     return Refined(float(fx), float(fy), r.dist_m, (r, nearest_way(roads, r, countries)))
 
 
+def refined_cell(frame: Frame, to_frame: Transformer, pole) -> tuple[int, int]:
+    """Frame row and column of a refined point, from its published coordinates: the six-decimal rounding of
+    `pole_record` and the floor division of `validate.checks._pole_cells`, so the search and check 7 name the
+    same cell for the same pole."""
+    x, y = to_frame.transform(round(pole.lon, 6), round(pole.lat, 6))
+    return int((frame.y1 - y) // frame.res), int((x - frame.x0) // frame.res)
+
+
 def padded_window(window: Window, pad_cells: int, frame: Frame) -> Window:
     """The unit's window grown by `pad_cells` each way and clamped to the frame. Shared with check 7.
 
@@ -358,12 +366,57 @@ def padded_window(window: Window, pad_cells: int, frame: Frame) -> Window:
     return Window(col_off=col_off, row_off=row_off, width=col_end - col_off, height=row_end - row_off)
 
 
-def _island_cells(field: AreaField, rows: np.ndarray, cols: np.ndarray,
-                  min_island_m2: float) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+# A land component whose raster area is under this is measured from the land polygons instead (see
+# `vector_component_areas`); above it the all-touched inflation is a percent or two of the island.
+VECTOR_AREA_BELOW_KM2 = 5000.0
+
+
+def vector_component_areas(field: AreaField, comps: LandComponents, labels, land_idx: Path, unit: Unit,
+                           frame: Frame, to_frame: Transformer, below_km2: float = VECTOR_AREA_BELOW_KM2) -> dict[int, float]:
+    """The land area, in km2, of the small components among `labels`: the geodesic area of every land polygon
+    whose representative point falls in the component, summed.
+
+    The raster area of a component is the count of its all-touched cells, and all-touched rasterisation
+    turns a reef into an island: the rocks of Les Minquiers sum to 0.1 km2 of land and touch 19 cells, 1.2
+    km2, so the raster floor kept a pole on them and the half-shifted grid of check 4 dropped it. A polygon
+    piece can belong to only one component (every cell it touches is land, so the cell under its
+    representative point is one of its own), and the pieces of the split land dataset sum to the island
+    whatever 1 degree lines cut it. Only components under `below_km2` of raster area are measured this way:
+    above it the inflation is a perimeter band of a quarter cell against a large area, and reading the
+    pieces of a continent for every job would cost more than it corrects.
+    """
+    small = sorted(int(v) for v in np.unique(labels) if v and comps.area_km2[int(v)] < below_km2)
+    if not small:
+        return {}
+    out = {v: 0.0 for v in small}
+    w, s, e, n = wrapped_bounds(unit.geometry)
+    pad = 1.0    # a small island holding a cell of the unit lies within its own size of the unit's box
+    parts = split_bbox(w - pad, s - pad, e + pad, n + pad)
+    chunks = [read(str(land_idx), layer="land", bbox=p)[2] for p in parts]
+    geoms = [g for chunk in chunks for g in shapely.from_wkb(chunk)]
+    if not geoms:
+        return out
+    rep = shapely.point_on_surface(np.asarray(geoms, dtype=object))
+    x, y = to_frame.transform(shapely.get_x(rep), shapely.get_y(rep))
+    r = np.floor((frame.y1 - np.asarray(y)) / frame.res).astype(np.int64) - field.row_off
+    c = np.floor((np.asarray(x) - frame.x0) / frame.res).astype(np.int64) - field.col_off
+    h, wd = comps.labels.shape
+    inside = (r >= 0) & (r < h) & (c >= 0) & (c < wd)
+    lab = np.zeros(len(geoms), dtype=np.int64)
+    lab[inside] = comps.labels[r[inside], c[inside]]
+    for i in np.flatnonzero(np.isin(lab, small)):
+        out[int(lab[i])] += abs(GEOD.geometry_area_perimeter(geoms[i])[0]) / 1e6
+    return out
+
+
+def _island_cells(field: AreaField, rows: np.ndarray, cols: np.ndarray, min_island_m2: float,
+                  measure: Callable[[np.ndarray], dict[int, float]] | None = None) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Per candidate cell: keep it, the area of its land component, and whether that component is the main one.
 
     A cell on a land component smaller than `min_island_m2` carries no pole (spec 2.3, issue #30): the whole
     of Kolbeinsey rasterises to one all-touched cell of 0.0625 km2, and a pole there is a pole on a rock.
+    The area is the raster's cell count, corrected for the small components by `measure` (the land polygons,
+    see `vector_component_areas`) when the caller passes one: the count alone makes an island of a reef.
     The main component is the one holding the most of this unit's kept cells, which is the unit-relative
     reading of "the unit's largest land component": an island unit's own mainland is the main component
     whatever else the padded window happens to contain, which is the point of measuring it here.
@@ -371,7 +424,11 @@ def _island_cells(field: AreaField, rows: np.ndarray, cols: np.ndarray,
     comps = field.land_components()
     wr, wc = field.rowcol(rows, cols)
     comp = comps.labels[wr, wc]
-    island_km2 = comps.area_km2[comp]
+    area = comps.area_km2.astype("float64")
+    if measure is not None:
+        for label, km2 in measure(comp).items():
+            area[label] = km2
+    island_km2 = area[comp]
     keep = island_km2.astype("float64") * 1e6 >= float(min_island_m2)
     is_main = np.zeros(comp.shape, dtype=bool)
     if keep.any():
@@ -440,7 +497,9 @@ def search_unit(job: UnitJob) -> dict:
     field = AreaField.read(job.dist_tif, land_tif(prep_.units_tif), water_tif(prep_.units_tif), frame,
                            padded_window(window, int(math.ceil(float(coarse.max()) / frame.res)), frame),
                            float(cfg.max_distance_m))
-    keep, cell_island_km2, cell_is_main = _island_cells(field, abs_rows, abs_cols, cfg.min_island_m2)
+    keep, cell_island_km2, cell_is_main = _island_cells(
+        field, abs_rows, abs_cols, cfg.min_island_m2,
+        measure=lambda labels: vector_component_areas(field, field.land_components(), labels, prep_.land_idx, unit, frame, to_frame))
     dropped = len(np.unique(field.land_components().labels[field.rowcol(abs_rows, abs_cols)][~keep]))
     if not keep.any():
         log.info("island floor: none of the %d candidate cells sits on a land component of %.2f km2 or more",
@@ -488,10 +547,26 @@ def search_unit(job: UnitJob) -> dict:
         dlon = dlat / max(0.05, np.cos(np.radians(lat)))
         epsg = utm_epsg(lon, lat)
         roads = cache.get(lon - dlon, lat - dlat, lon + dlon, lat + dlat, epsg)
-        return refine_cell(x_sorted[i], y_sorted[i], frame.crs, roads, half_m=hd, allowed=allowed, countries=countries, to_frame=to_frame)
+        refined = refine_cell(x_sorted[i], y_sorted[i], frame.crs, roads, half_m=hd, allowed=allowed, countries=countries, to_frame=to_frame)
+        if refined is not None:
+            refined.at = refined_cell(frame, to_frame, refined.payload[0])
+        return refined
 
     fraction = cfg.area_col_fraction
     retired: set[tuple[int, int]] = set()
+
+    def cell_of(p: Refined) -> tuple[int, int]:
+        """The cell the rule is asked about: the refined point's own, the one check 7 reads off the published
+        coordinates. A refinement can lap out of its candidate cell into a neighbour, and the two can sit on
+        opposite sides of the threshold: Andorra's fifth pole at 544 m was refined out of a 250 m cell into a
+        559 m one, and read at the candidate cell the rule saw a point joined to nothing. The window holds the
+        neighbour whenever it holds the candidate, since the pad is at least a cell; the fallback is for the
+        degenerate window a test can build."""
+        if p.at is not None:
+            wr, wc = p.at[0] - field.row_off, p.at[1] - field.col_off
+            if 0 <= wr < field.level.shape[0] and 0 <= wc < field.level.shape[1]:
+                return p.at
+        return int(row_sorted[p.cell]), int(col_sorted[p.cell])
 
     def distinct(cand: Refined, accepted: list[Refined]) -> Verdict:
         """The distinct-area rule: is this candidate connected to an accepted pole over high ground?
@@ -504,11 +579,11 @@ def search_unit(job: UnitJob) -> dict:
         asked about 12 M cells each time.
         """
         theta = col_threshold(cand.dist_m, cand.dist_m, fraction)
-        comp = field.component_at(row_sorted[cand.cell], col_sorted[cand.cell], theta)
+        comp = field.component_at(*cell_of(cand), theta)
         if comp == 0:
             # Below the threshold or off land: no accepted pole can be joined to it, and nothing to retire.
             return Verdict(True, None)
-        same = any(field.component_at(row_sorted[a.cell], col_sorted[a.cell], theta) == comp for a in accepted)
+        same = any(field.component_at(*cell_of(a), theta) == comp for a in accepted)
         key = (field.rung(theta), comp)
         if key in retired:
             return Verdict(not same, None)

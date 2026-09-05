@@ -301,9 +301,10 @@ def test_a_dead_worker_becomes_a_poles_error_naming_the_job_and_the_finished_res
     assert not (ws.dir("poles") / "results" / "aa-A.json").exists()
 
 
-def test_a_saturated_candidate_cell_is_a_poles_error_naming_the_unit_and_the_cell(tmp_path, cfg):
+def test_a_saturated_candidate_cell_is_a_poles_error_naming_the_unit_and_the_cell(tmp_path, cfg, monkeypatch):
     """A cell at the cap is a real "at least max_distance_m" answer the search cannot rank, so it aborts.
     The message has to say which cell it was, or finding it means rerunning the continent."""
+    monkeypatch.setattr(poles_mod, "vector_component_areas", lambda *a, **k: {})
     frame = Frame("EPSG:3035", 250.0, 5_000_000.0, 3_600_000.0, 4, 4)
     unit = Unit("aa", "aa", "aa", 1, "aa", MultiPolygon([box(0, 0, 1, 1)]), False, 1, cells=16)
     units_tif = create_raster(frame, tmp_path / "units.tif", dtype="int16")
@@ -756,9 +757,53 @@ def _field_job(tmp_path, monkeypatch, dist, cfg, *, land=None, unit=None, top_n=
     monkeypatch.setattr(poles_mod, "_allowed_factory",
                         lambda *a, **k: (lambda lons, lats: np.ones(len(lons), bool)))
     monkeypatch.setattr(poles_mod, "_countries", lambda path: None)
+    monkeypatch.setattr(poles_mod, "vector_component_areas", lambda *a, **k: {})   # no land polygons here: raster areas
     job = UnitJob(cfg, prepared, unit_obj, scenario, tmp_path / f"dist_{scenario}.tif", top_n,
                   tmp_path / "log.txt")
     return job, refined_at
+
+
+def test_a_reef_that_rasterises_to_an_island_is_measured_from_its_land_polygons(tmp_path):
+    """All-touched rasterisation makes 19 cells of a few rocks; the floor reads the polygons' own area instead
+    (Les Minquiers, 0.1 km2 of land under a 1.2 km2 raster component). Only the small components are measured:
+    the big one keeps its cell count."""
+    from shapely.geometry import box as sbox
+    from tests.helpers import write_fgb
+    from poles.areas import AreaField
+    from poles.units import Unit
+    frame = Frame("EPSG:3035", 250, 4_000_000.0, 3_000_000.0, 12, 12)
+    to_frame = Transformer.from_crs("EPSG:4326", frame.crs, always_xy=True)
+    land = np.zeros((12, 12), dtype=bool)
+    land[1:4, 1:4] = True                  # nine cells, 0.5625 km2 of raster: the reef
+    land[6:12, 6:12] = True                # 36 cells, 2.25 km2: an island, also small in raster terms
+    field = AreaField.from_arrays(np.full((12, 12), 1000.0), land, 250.0, 0, 0, 250_000.0)
+    comps = field.land_components()
+    to_ll = Transformer.from_crs(frame.crs, "EPSG:4326", always_xy=True)
+
+    def cell_box(r, c, shrink):    # a land polygon inside cell (r, c), shrunk to a fraction of the cell
+        x0 = frame.x0 + c * frame.res + shrink * frame.res
+        y0 = frame.y1 - (r + 1) * frame.res + shrink * frame.res
+        x1 = frame.x0 + (c + 1) * frame.res - shrink * frame.res
+        y1 = frame.y1 - r * frame.res - shrink * frame.res
+        lons, lats = to_ll.transform([x0, x1, x1, x0], [y0, y0, y1, y1])
+        return shapely.Polygon(zip(lons, lats))
+
+    rocks = [cell_box(r, c, 0.45) for r in (1, 2, 3) for c in (1, 2, 3)]     # 9 rocks of 25 x 25 m
+    island = [cell_box(r, c, 0.0) for r in range(6, 12) for c in range(6, 12)]  # whole cells: 2.25 km2
+    write_fgb(tmp_path / "land_idx.fgb", "land", rocks + island, {"fid": list(range(len(rocks) + len(island)))})
+    lons, lats = to_ll.transform([frame.x0, frame.x0 + 12 * frame.res], [frame.y1 - 12 * frame.res, frame.y1])
+    unit = Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([sbox(lons[0], lats[0], lons[1], lats[1])]), False, 1, cells=45)
+    rows, cols = np.nonzero(land)
+    labels = comps.labels[rows, cols]
+    areas = poles_mod.vector_component_areas(field, comps, labels, tmp_path / "land_idx.fgb", unit, frame, to_frame)
+    reef, isle = int(comps.labels[2, 2]), int(comps.labels[8, 8])
+    assert areas[reef] == pytest.approx(9 * 0.025 * 0.025, rel=0.05)
+    assert areas[isle] == pytest.approx(2.25, rel=0.02)
+    keep, km2, _ = poles_mod._island_cells(field, rows, cols, 1_000_000, measure=lambda lab: areas)
+    assert not keep[labels == reef].any() and keep[labels == isle].all()
+    assert km2[labels == isle][0] == pytest.approx(2.25, rel=0.02)
+    # A component above the raster cut-off is not measured at all.
+    assert poles_mod.vector_component_areas(field, comps, labels, tmp_path / "land_idx.fgb", unit, frame, to_frame, below_km2=0.1) == {}
 
 
 def test_a_candidate_cell_on_a_land_component_below_the_floor_is_not_searched(tmp_path, cfg, monkeypatch):
