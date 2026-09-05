@@ -80,6 +80,9 @@ const SHOTS = [
   // The second region's top unit, which straddles the line: the map has to draw it in one piece, the header
   // has to show the region control, and the ranking has to name a unit that carries no flag.
   { name: 'desktop-us-ak', view: DESKTOP, path: '/north-america/us-ak#s=A&l=en' },
+  // The same unit read with the islands off: its winner is on an island, so the card's headline, the chips,
+  // the markers and the ranking all move while nothing is fetched again.
+  { name: 'desktop-us-ak-mainland', view: DESKTOP, path: '/north-america/us-ak#s=A&i=0&l=en' },
   { name: 'phone-lt', view: PHONE, mobile: true, path: '/europe/lt#s=A&l=en' },
   { name: 'phone-lt-lang-lt', view: PHONE, mobile: true, path: '/europe/lt#s=A&l=lt' },
   { name: 'phone-ranking', view: PHONE, mobile: true, path: '/europe/lt#s=A&l=en', after: async (p) => { await p.click('#panel-handle'); await p.waitForTimeout(400); } },

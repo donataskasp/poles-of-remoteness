@@ -2,7 +2,7 @@
 import { makeClassTable } from './classes.js';
 import { pickLang, setLang, getLang, applyDom, t, fmtDist, regionLabel } from './i18n.js';
 import { parse, write, visitor, changedState, toUrl } from './router.js';
-import { loadRegions, loadUnits, loadUnit, archiveUrl, pickStart, bboxToBounds, unitAt, regionLinks } from './data.js';
+import { loadRegions, loadUnits, loadUnit, archiveUrl, pickStart, bboxToBounds, unitAt, regionLinks, visiblePoles } from './data.js';
 import { readTokens, makePalette, legendRows } from './palette.js';
 import { describe, formatSample, mountReadout } from './readout.js';
 import { createMap } from './map.js';
@@ -13,7 +13,7 @@ import { createCard } from './card.js';
 import { createRanking } from './ranking.js';
 
 const LANG_KEY = 'poles.lang';
-const state = { region: null, regions: null, unit: null, s: 'A', b: 'sat', l: 'en', sample: null };
+const state = { region: null, regions: null, unit: null, s: 'A', b: 'sat', i: 1, l: 'en', sample: null };
 const ui = {};
 
 function markReady() { document.documentElement.dataset.ready = '1'; }
@@ -59,10 +59,10 @@ function renderRegions() {
   document.getElementById('hdr').classList.toggle('hdr--regions', links.length > 0);
 }
 
-// The home link is a full page load like a region link, so it carries the same three keys (#51); spot and
+// The home link is a full page load like a region link, so it carries the same reading keys (#51); spot and
 // position stay off it, home picks the region afresh.
 function renderHomeLink() {
-  document.getElementById('brand-home').href = toUrl({ s: state.s, b: state.b, l: state.l });
+  document.getElementById('brand-home').href = toUrl({ s: state.s, b: state.b, i: state.i, l: state.l });
 }
 
 // The readout holds a sample, not a string, so it can be said again in another language. The hint, the wait
@@ -108,6 +108,8 @@ async function main() {
   // Scenario and basemap before the first language render: every link render reads them off state.
   state.s = parsed.s || 'A';
   state.b = parsed.b || 'sat';
+  // A missing or malformed i means the islands are shown: the default lives in the router's parse, not here.
+  state.i = parsed.i ?? 1;
   applyLanguage(pickLang({ hash: parsed.l, stored: storedLang(), navigator }));
 
   const regions = await loadRegions();
@@ -152,6 +154,7 @@ async function main() {
   const card = createCard(document.getElementById('card'), {
     summary: document.getElementById('card-summary'),
     onScenario: (s) => setScenario(s),
+    onIslands: (i) => setIslands(i),
     onRanking: () => ui.ranking && ui.ranking.open(),
     onLocate: () => ui.locate && ui.locate(),
     onPole: (rank) => selectPole(rank, { pan: true }),
@@ -164,7 +167,7 @@ async function main() {
       if (phone.matches) ui.ranking.toggle();
     },
   });
-  ui.ranking.setRows(units, state.s, unit && unit.code);
+  ui.ranking.setRows(units, state.s, unit && unit.code, state.i);
 
   // On a phone the card is not a box floating over the map: it is the top of the bottom sheet, its one row of
   // summary on the handle and the rest of it in the body above the ranking. Leaflet's attribution joins the
@@ -220,6 +223,13 @@ async function main() {
   document.getElementById('about-btn').addEventListener('click', () => {
     for (const el of about.querySelectorAll('.snapshot')) el.textContent = t('snapshotNote', { date: region.snapshot });
     for (const el of about.querySelectorAll('.detail-res')) el.textContent = String(region.detail_res_m);
+    // The distinct-area fraction and the island floor come from the region, never from the copy. A region
+    // document written before they existed carries neither, and then the sentence that states them is not
+    // shown at all: half a rule with an empty number in it says less than nothing.
+    const rules = Number.isFinite(region.area_col_fraction) && Number.isFinite(region.min_island_m2);
+    for (const el of about.querySelectorAll('.area-fraction')) el.textContent = rules ? `${Math.round(region.area_col_fraction * 100)}%` : '';
+    for (const el of about.querySelectorAll('.min-island')) el.textContent = rules ? String(region.min_island_m2 / 1e6) : '';
+    for (const el of about.querySelectorAll('.rule-note')) el.hidden = !rules;
     about.showModal();
   });
   // Close on a click outside the dialog box. Testing the target alone would also close on the dialog's own
@@ -239,14 +249,23 @@ async function main() {
 
   let current = { unit, doc: null, rank: 1 };
 
+  // The poles on screen: the published superset read the way the islands toggle asks for. The card does the
+  // same filtering for itself, through the same function, so the chips and the markers cannot disagree.
   function polesOf() {
     const block = current.doc && current.doc[state.s];
-    return (block && block.poles) || [];
+    return visiblePoles(block && block.poles, { islands: state.i });
+  }
+
+  // The pole a fresh view opens on: the first one shown, which is not rank 1 when islands are hidden and the
+  // unit's best point is on one.
+  function firstRank() {
+    const p = polesOf()[0];
+    return p ? p.rank : 1;
   }
 
   function renderUnit() {
     if (!current.unit) return; // a region with no units has no card, no markers and no detail rasters
-    card.show({ region, unit: current.unit, units, doc: current.doc, scenario: state.s, rank: current.rank });
+    card.show({ region, unit: current.unit, units, doc: current.doc, scenario: state.s, rank: current.rank, islands: state.i });
     markers.setPoles(polesOf(), current.rank);
     detail.setPoles(polesOf());
   }
@@ -274,6 +293,7 @@ async function main() {
       return;
     }
     current = { unit: next, doc, rank: 1 };
+    current.rank = firstRank();   // after the assignment: it reads the document that was just loaded
     state.unit = code;
     renderUnit();
     // The URL is written before the map moves: moveend would otherwise write the new view first and this
@@ -290,11 +310,24 @@ async function main() {
     map.removeLayer(explore[state.s]);
     state.s = s;
     explore[s].addTo(map);
-    current.rank = 1;
+    current.rank = firstRank();
     renderUnit();
     renderRegions();
     renderHomeLink();
     if (ui.ranking) ui.ranking.setScenario(s);
+    syncUrl(true);
+  }
+
+  // The islands toggle. Nothing is fetched: the unit document already holds both readings, so this is the
+  // filter changing and every link that carries the reading being written again.
+  function setIslands(i) {
+    if (i === state.i) return;
+    state.i = i;
+    current.rank = firstRank();
+    renderUnit();
+    renderRegions();
+    renderHomeLink();
+    if (ui.ranking) ui.ranking.setIslands(i);
     syncUrl(true);
   }
 
@@ -352,6 +385,7 @@ async function main() {
     restoring = true;
     try {
       if (change.s) setScenario(change.s);
+      if ('i' in change) setIslands(change.i);   // 0 is a value the entry asks for, not an absence
       if (change.b) applyBasemap(change.b);
       if (change.l) applyLanguage(change.l);
       if (p.z != null && p.lat != null && p.lon != null) map.setView([p.lat, p.lon], p.z, { animate: false });

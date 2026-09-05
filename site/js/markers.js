@@ -1,12 +1,14 @@
-// Numbered markers for the poles of the current unit and scenario.
+// Numbered markers for the poles of the current unit and scenario. The number painted is the pole's place in
+// what is shown (`display`, set by data.js when the islands toggle filters the superset); selection is always
+// by `rank`, the pole's identity, which does not move when the toggle does.
 export function createMarkers(map, { onSelect }) {
   const group = L.layerGroup().addTo(map);
   let items = [];
 
-  function icon(rank, active) {
+  function icon(label, active) {
     return L.divIcon({
       className: `pole-marker${active ? ' pole-marker--active' : ''}`,
-      html: `<span>${rank}</span>`,
+      html: `<span>${label}</span>`,
       iconSize: [26, 26],
       iconAnchor: [13, 13],
     });
@@ -16,7 +18,8 @@ export function createMarkers(map, { onSelect }) {
     group.clearLayers();
     items = poles.map((pole) => {
       const active = pole.rank === selectedRank;
-      const m = L.marker([pole.lat, pole.lon], { icon: icon(pole.rank, active), title: String(pole.rank), zIndexOffset: active ? 1000 : 0 });
+      const label = pole.display ?? pole.rank;
+      const m = L.marker([pole.lat, pole.lon], { icon: icon(label, active), title: String(label), zIndexOffset: active ? 1000 : 0 });
       m.on('click', () => onSelect(pole));
       m.addTo(group);
       return { pole, m };
@@ -26,7 +29,7 @@ export function createMarkers(map, { onSelect }) {
   function select(rank) {
     for (const { pole, m } of items) {
       const active = pole.rank === rank;
-      m.setIcon(icon(pole.rank, active));
+      m.setIcon(icon(pole.display ?? pole.rank, active));
       m.setZIndexOffset(active ? 1000 : 0);
     }
   }

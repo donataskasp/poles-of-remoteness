@@ -147,3 +147,112 @@ test('card: with nothing to show the summary is emptied and hidden', () => {
   assert.equal(summary.hidden, true);
   assert.equal(summary.innerHTML, '');
 });
+
+// Task 10 and 11: the island row on a pole, and the islands toggle that filters the published superset.
+
+test('card: a pole on an island says so, right under the distance, in both languages', () => {
+  setLang('en');
+  const unit = { code: 'xx', name_en: 'Nowhere', A: { dist_m: 3426, rank: 1 } };
+  const view = { unit, units: [unit], doc: { A: { poles: [pole(1, { island_km2: 357.2 })], withheld: 0 } }, scenario: 'A', rank: 1 };
+  const en = render(view);
+  assert.ok(en.innerHTML.includes('<dt>On an island</dt><dd>357 km\u00B2</dd>'));
+  // Right after the distance row and before the road row, which is where the reader is already looking.
+  assert.ok(en.innerHTML.indexOf('On an island') > en.innerHTML.indexOf(t('distance')));
+  assert.ok(en.innerHTML.indexOf('On an island') < en.innerHTML.indexOf('Nearest road'));
+  setLang('lt');
+  const lt = render(view);
+  assert.ok(lt.innerHTML.includes('<dt>Saloje</dt><dd>357 km\u00B2</dd>'));
+  setLang('en');
+});
+
+test('card: a pole on the mainland shows no island row, however the field is missing', () => {
+  setLang('en');
+  const unit = { code: 'xx', name_en: 'Nowhere', A: { dist_m: 3426, rank: 1 } };
+  for (const over of [{ island_km2: null }, {}, { island_km2: undefined }]) {
+    const el = render({ unit, units: [unit], doc: { A: { poles: [pole(1, over)], withheld: 0 } }, scenario: 'A', rank: 1 });
+    assert.ok(!el.innerHTML.includes(t('islandFact')), JSON.stringify(over));
+  }
+  // And a value that is not a number is not a row either: the row is the number, so there is nothing to escape.
+  const hostile = render({ unit, units: [unit], doc: { A: { poles: [pole(1, { island_km2: '<b>357</b>' })], withheld: 0 } }, scenario: 'A', rank: 1 });
+  assert.ok(!hostile.innerHTML.includes(t('islandFact')));
+  assert.ok(!hostile.innerHTML.includes('<b>357</b>'));
+});
+
+test('card: the island area reaches neither the summary row nor the headline', () => {
+  setLang('en');
+  const unit = { code: 'lt', name_en: 'Lithuania', A: { dist_m: 3426, rank: 42 } };
+  const view = { unit, units: [unit], doc: { A: { poles: [pole(1, { island_km2: 357.2 })], withheld: 0 } }, scenario: 'A', rank: 1 };
+  const s = renderSummary(view);
+  assert.ok(!s.innerHTML.includes('km\u00B2'), 'the sheet handle keeps its three facts');
+  const el = render(view);
+  assert.ok(!el.innerHTML.split('card__poles')[0].includes('km\u00B2'), 'and so does the headline block');
+});
+
+// A published superset for one unit and scenario: two island poles above the first mainland one.
+const SUPER = [
+  pole(1, { island_km2: 357.2, dist_m: 9000 }),
+  pole(2, { island_km2: 12.5, dist_m: 8000 }),
+  pole(3, { island_km2: null, dist_m: 7000 }),
+  pole(4, { island_km2: null, dist_m: 6000 }),
+];
+const ISLE_UNIT = { code: 'xx', name_en: 'Nowhere', A: { dist_m: 9000, rank: 1 }, A_mainland: { dist_m: 7000, rank: 4 } };
+
+test('card: the islands toggle renders with the reading it is given pressed', () => {
+  setLang('en');
+  const on = render({ unit: ISLE_UNIT, units: [ISLE_UNIT], doc: { A: { poles: SUPER, withheld: 0 } }, scenario: 'A', rank: 1, islands: 1 });
+  assert.ok(on.innerHTML.includes('<span class="card__islands-label" id="islands-label">Islands</span>'));
+  assert.ok(on.innerHTML.includes('data-i="1" aria-pressed="true">Included'));
+  assert.ok(on.innerHTML.includes('data-i="0" aria-pressed="false">Excluded'));
+  const off = render({ unit: ISLE_UNIT, units: [ISLE_UNIT], doc: { A: { poles: SUPER, withheld: 0 } }, scenario: 'A', rank: 3, islands: 0 });
+  assert.ok(off.innerHTML.includes('data-i="1" aria-pressed="false">Included'));
+  assert.ok(off.innerHTML.includes('data-i="0" aria-pressed="true">Excluded'));
+  // A caller that says nothing about islands gets the whole superset, which is the default reading.
+  const dflt = render({ unit: ISLE_UNIT, units: [ISLE_UNIT], doc: { A: { poles: SUPER, withheld: 0 } }, scenario: 'A', rank: 1 });
+  assert.ok(dflt.innerHTML.includes('data-i="1" aria-pressed="true">Included'));
+});
+
+test('card: with the islands hidden the headline follows the mainland summary', () => {
+  setLang('en');
+  const other = { code: 'yy', name_en: 'Elsewhere', A: { dist_m: 5000, rank: 2 }, A_mainland: { dist_m: 5000, rank: 1 } };
+  const units = [ISLE_UNIT, other];
+  const on = render({ unit: ISLE_UNIT, units, doc: { A: { poles: SUPER, withheld: 0 } }, scenario: 'A', rank: 1, islands: 1 });
+  assert.ok(on.innerHTML.includes('9.00 km'));
+  assert.ok(on.innerHTML.includes('#1 of 2 in Europe'));
+  const off = render({ unit: ISLE_UNIT, units, doc: { A: { poles: SUPER, withheld: 0 } }, scenario: 'A', rank: 3, islands: 0 });
+  assert.ok(off.innerHTML.includes('7.00 km'), 'the best mainland distance');
+  assert.ok(off.innerHTML.includes('#4 of 2 in Europe'), 'and its rank among the units that have one');
+});
+
+test('card: the chips are 1..n in what is shown while the selection stays the overall rank', () => {
+  setLang('en');
+  const on = render({ unit: ISLE_UNIT, units: [ISLE_UNIT], doc: { A: { poles: SUPER, withheld: 0 } }, scenario: 'A', rank: 1, islands: 1 });
+  assert.ok(on.innerHTML.includes('data-rank="1" aria-pressed="true">1<'));
+  assert.ok(on.innerHTML.includes('data-rank="4" aria-pressed="false">4<'));
+  assert.ok(on.innerHTML.includes('Pole 1'));
+  assert.ok(on.innerHTML.includes('of 4'));
+
+  const off = render({ unit: ISLE_UNIT, units: [ISLE_UNIT], doc: { A: { poles: SUPER, withheld: 0 } }, scenario: 'A', rank: 3, islands: 0 });
+  // Two poles left, numbered 1 and 2, and their buttons still carry ranks 3 and 4: the rank is the pole's
+  // identity and what the detail raster was keyed from, the number on the chip is only a label.
+  assert.ok(off.innerHTML.includes('data-rank="3" aria-pressed="true">1<'));
+  assert.ok(off.innerHTML.includes('data-rank="4" aria-pressed="false">2<'));
+  assert.ok(!off.innerHTML.includes('data-rank="1"'), 'the island poles are gone from the chips');
+  assert.ok(off.innerHTML.includes('Pole 1'), 'the heading says the place in what is shown');
+  assert.ok(off.innerHTML.includes('of 2'));
+  assert.ok(!off.innerHTML.includes(t('islandFact')), 'and no island row can be reached');
+});
+
+test('card: a unit with no mainland summary says why rather than throwing', () => {
+  setLang('en');
+  // Every pole of this unit is on an island, so the publish stage wrote no A_mainland at all.
+  const unit = { code: 'xx', name_en: 'Nowhere', A: { dist_m: 9000, rank: 1 } };
+  const poles = [pole(1, { island_km2: 357.2 }), pole(2, { island_km2: 12.5 })];
+  const el = render({ unit, units: [unit], doc: { A: { poles, withheld: 0 } }, scenario: 'A', rank: 1, islands: 0 });
+  assert.ok(el.innerHTML.includes(t('reasonNone')));
+  assert.ok(!el.innerHTML.includes('the remotest point is'));
+  assert.ok(!el.innerHTML.includes('card__pole-title'), 'and there is no pole left to show');
+  // The toggle is still there: it is a region-wide reading, not a property of the unit on screen.
+  assert.ok(el.innerHTML.includes('data-i="0" aria-pressed="true"'));
+  const s = renderSummary({ unit, units: [unit], doc: { A: { poles, withheld: 0 } }, scenario: 'A', rank: 1, islands: 0 });
+  assert.ok(s.innerHTML.includes(t('reasonNone')));
+});

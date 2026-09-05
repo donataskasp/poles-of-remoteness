@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { pickLang, setLang, getLang, t, regionName, regionLabel, unitName, flag, fmtDist, fmtKmExact, fmtInt, highwayLabel, placeLabel, esc } from '../../site/js/i18n.js';
+import { pickLang, setLang, getLang, t, regionName, regionLabel, unitName, flag, fmtDist, fmtKmExact, fmtKm2, fmtInt, highwayLabel, placeLabel, esc } from '../../site/js/i18n.js';
 
 test('i18n: pickLang order is hash, stored, browser, default en', () => {
   assert.equal(pickLang({ hash: 'lt', stored: 'en', navigator: { languages: ['en-GB'] } }), 'lt');
@@ -87,4 +87,37 @@ test('i18n: language values are case-normalised', () => {
   assert.equal(pickLang(), 'en');
   assert.equal(setLang('LT'), 'lt');
   assert.equal(setLang(42), 'en');
+});
+
+test('i18n: an island area is one decimal under ten and none above, in both locales', () => {
+  setLang('en');
+  assert.equal(fmtKm2(357.2), '357 km\u00B2');
+  assert.equal(fmtKm2(3.14), '3.1 km\u00B2');
+  assert.equal(fmtKm2(9.9), '9.9 km\u00B2');
+  assert.equal(fmtKm2(10), '10 km\u00B2');
+  // The same 9.95 guard fmtDist uses: rounding up to ten prints as ten, never as 10.0.
+  assert.equal(fmtKm2(9.96), '10 km\u00B2');
+  assert.equal(fmtKm2(1234.5), '1,235 km\u00B2');   // rounded, not truncated
+  setLang('lt');
+  assert.equal(fmtKm2(3.14), '3,1 km\u00B2');
+  assert.equal(fmtKm2(1234.5), '1\u00A0235 km\u00B2');
+  setLang('en');
+  // A unit with no island area has nothing to say, exactly as fmtKmExact does with no distance.
+  assert.equal(fmtKm2(null), '');
+  assert.equal(fmtKm2(undefined), '');
+  assert.equal(fmtKm2(Infinity), '');
+});
+
+test('i18n: the island and toggle strings are said in both languages', () => {
+  // t() falls back to English for a key the active language is missing, so an lt reading equal to the en one
+  // is exactly how a half-added key shows up. All four differ, so all four are really there.
+  const keys = ['islandFact', 'islandsGroup', 'islandsOn', 'islandsOff'];
+  setLang('en');
+  const en = keys.map((k) => t(k));
+  setLang('lt');
+  const lt = keys.map((k) => t(k));
+  assert.deepEqual(en, ['On an island', 'Islands', 'Included', 'Excluded']);
+  assert.deepEqual(lt, ['Saloje', 'Salos', '\u012Eskaitomos', 'Ne\u012Fskaitomos']);
+  keys.forEach((k, n) => assert.notEqual(en[n], lt[n], `${k} falls back to English`));
+  setLang('en');
 });

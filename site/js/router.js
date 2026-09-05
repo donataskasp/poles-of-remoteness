@@ -1,4 +1,4 @@
-// URL state. Path: /, /<region>, /<region>/<unit>. Hash: z, lat, lon, s, b, l. The pure functions take a
+// URL state. Path: /, /<region>, /<region>/<unit>. Hash: z, lat, lon, s, b, i, l. The pure functions take a
 // location-like {pathname, hash} so they run in Node; only write() and visitor() touch the browser by default.
 // Twin of SEG in worker.js. The worker is not a module the site can import (that would need a build step),
 // so dev/tests/worker.test.mjs feeds both a shared table of paths to keep the two copies in step.
@@ -6,6 +6,10 @@ const SEG = /^[a-z][a-z0-9-]{0,31}$/;
 const NUM = /^-?\d+(\.\d+)?$/;
 export const SCENARIOS = ['A', 'B'];
 export const BASEMAPS = ['sat', 'osm'];
+// The islands reading: 1 shows the island poles, 0 hides them. A missing or malformed key parses as null and
+// the page defaults it to 1, so a hand-typed or pre-existing link behaves; a URL the site writes always
+// carries it, which is what keeps back and forward honest through changedState with no per-key exception.
+export const ISLANDS = [1, 0];
 const LANGS = ['en', 'lt']; // twin of the language list in site/js/i18n.js; the router stays dependency-free
 
 function segment(raw) {
@@ -40,6 +44,7 @@ export function parse(loc = location) {
     lon: num('lon', -180, 180),
     s: pick('s', SCENARIOS, (v) => v.toUpperCase()),
     b: pick('b', BASEMAPS, lower),
+    i: pick('i', ISLANDS, (v) => (v === '1' ? 1 : v === '0' ? 0 : null)),
     l: pick('l', LANGS, lower),
   };
 }
@@ -53,6 +58,7 @@ export function toUrl(state) {
   if (state.lon != null) h.set('lon', state.lon.toFixed(5));
   if (state.s) h.set('s', state.s);
   if (state.b) h.set('b', state.b);
+  if (state.i != null) h.set('i', String(state.i));   // 0 is a value, not an absence
   if (state.l) h.set('l', state.l);
   const q = h.toString();
   return q ? `${path}#${q}` : path;
@@ -61,7 +67,7 @@ export function toUrl(state) {
 // What a history entry asks to change: the keys a parsed URL carries that differ from what is on screen.
 // Back and forward apply exactly these, so nothing already correct is re-applied and a key the URL does not
 // carry (an entry written before the key existed, or a hand-typed link) keeps its current value.
-export function changedState(parsed, state, keys = ['s', 'b', 'l', 'unit']) {
+export function changedState(parsed, state, keys = ['s', 'b', 'i', 'l', 'unit']) {
   const out = {};
   for (const k of keys) if (parsed[k] != null && parsed[k] !== state[k]) out[k] = parsed[k];
   return out;

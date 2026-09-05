@@ -1,17 +1,21 @@
 // The ranking: every unit of the region sorted by the active scenario, the other scenario in small type.
 // On phones the container is a bottom sheet with three heights; on desktop it is the side panel.
 import { t, unitName, flag, fmtKmExact, esc } from './i18n.js';
+import { summaryKey } from './data.js';
 
 const STATES = ['collapsed', 'half', 'full'];
 
-export function sortUnits(units, s) {
-  const other = s === 'A' ? 'B' : 'A';
+// The order follows the reading: with islands off a unit is placed by its best mainland pole, and a unit with
+// no mainland pole at all sorts last exactly as a unit with no result for the scenario does.
+export function sortUnits(units, s, islands = 1) {
+  const key = summaryKey(s, islands);
+  const otherKey = summaryKey(s === 'A' ? 'B' : 'A', islands);
   return [...units].sort((a, b) => {
-    const ra = a[s] ? a[s].rank : Infinity;
-    const rb = b[s] ? b[s].rank : Infinity;
+    const ra = a[key] ? a[key].rank : Infinity;
+    const rb = b[key] ? b[key].rank : Infinity;
     if (ra !== rb) return ra - rb;
-    const oa = a[other] ? a[other].rank : Infinity;
-    const ob = b[other] ? b[other].rank : Infinity;
+    const oa = a[otherKey] ? a[otherKey].rank : Infinity;
+    const ob = b[otherKey] ? b[otherKey].rank : Infinity;
     if (oa !== ob) return oa - ob;
     return a.code.localeCompare(b.code);
   });
@@ -22,7 +26,7 @@ export function createRanking(el, { onPick }) {
   const note = el.querySelector('#ranking-note');
   const handle = el.querySelector('#panel-handle');
   const body = el.querySelector('#panel-body');
-  let view = { units: [], scenario: 'A', current: null };
+  let view = { units: [], scenario: 'A', current: null, islands: 1 };
   let sheet;
 
   // What the phone stack above the sheet rests on: the height of the closed sheet, which is the handle plus
@@ -63,12 +67,14 @@ export function createRanking(el, { onPick }) {
   function row(u) {
     const s = view.scenario;
     const other = s === 'A' ? 'B' : 'A';
-    // A unit can have no summary for a scenario, and a summary can carry no distance: both render empty.
+    // A unit can have no summary for a scenario or for the reading, and a summary can carry no distance:
+    // all of them render empty.
     const km = (key) => (u[key] ? fmtKmExact(u[key].dist_m) : '');
-    const main = km(s);
-    const otherKm = km(other);
+    const key = summaryKey(s, view.islands);
+    const main = km(key);
+    const otherKm = km(summaryKey(other, view.islands));
     const side = otherKm ? `${t(`scenarioShort_${other}`)} ${otherKm}` : '';
-    const rank = u[s] ? u[s].rank : '';
+    const rank = u[key] ? u[key].rank : '';
     const cur = u.code === view.current ? ' ranking__row--current' : '';
     return `<li class="ranking__row${cur}">
       <button type="button" class="ranking__btn" data-code="${esc(u.code)}" aria-current="${u.code === view.current}">
@@ -81,7 +87,7 @@ export function createRanking(el, { onPick }) {
 
   function render() {
     note.textContent = t('rankingNote');
-    list.innerHTML = sortUnits(view.units, view.scenario).map(row).join('');
+    list.innerHTML = sortUnits(view.units, view.scenario, view.islands).map(row).join('');
   }
 
   list.addEventListener('click', (e) => {
@@ -101,8 +107,9 @@ export function createRanking(el, { onPick }) {
   setState('collapsed');
 
   return {
-    setRows(units, scenario, current) { view = { units, scenario, current }; render(); },
+    setRows(units, scenario, current, islands = 1) { view = { units, scenario, current, islands }; render(); },
     setScenario(s) { view.scenario = s; render(); },
+    setIslands(i) { view.islands = i; render(); },
     setCurrent(code) {
       view.current = code;
       render();

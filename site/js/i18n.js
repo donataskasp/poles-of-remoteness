@@ -15,6 +15,9 @@ const DICT = {
     scenarioAHint: 'forest and field tracks included',
     scenarioB: 'Public roads only',
     scenarioBHint: 'tracks excluded',
+    islandsGroup: 'Islands',
+    islandsOn: 'Included',
+    islandsOff: 'Excluded',
     basemapLabel: 'Base map',
     baseSat: 'Satellite',
     baseOsm: 'Map',
@@ -40,6 +43,7 @@ const DICT = {
     poleHeading: 'Pole {rank}',
     poleOf: 'of {count}',
     distance: 'Distance',
+    islandFact: 'On an island',
     nearestRoad: 'Nearest road',
     nearestPlace: 'Nearest settlement',
     coordinates: 'Coordinates',
@@ -80,6 +84,9 @@ const DICT = {
     scenarioAHint: 'įskaitant miško ir lauko keliukus',
     scenarioB: 'Tik viešųjų kelių',
     scenarioBHint: 'be keliukų',
+    islandsGroup: 'Salos',
+    islandsOn: 'Įskaitomos',
+    islandsOff: 'Neįskaitomos',
     basemapLabel: 'Pagrindas',
     baseSat: 'Palydovas',
     baseOsm: 'Žemėlapis',
@@ -105,6 +112,7 @@ const DICT = {
     poleHeading: '{rank} taškas',
     poleOf: 'iš {count}',
     distance: 'Atstumas',
+    islandFact: 'Saloje',
     nearestRoad: 'Artimiausias kelias',
     nearestPlace: 'Artimiausia gyvenvietė',
     coordinates: 'Koordinatės',
@@ -227,6 +235,14 @@ export function fmtDist(m, lang = current) {
 export function fmtKmExact(m, lang = current) {
   if (!Number.isFinite(m)) return '';
   return `${nf(lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(m / 1000)} km`;
+}
+
+// An island's area, for the card's island row. One decimal under 10 km2 and none above, the same shape and
+// the same 9.95 guard fmtDist uses, so 9.96 prints as 10 rather than as 10.0.
+export function fmtKm2(km2, lang = current) {
+  if (!Number.isFinite(km2)) return '';
+  const digits = km2 < 9.95 ? 1 : 0;
+  return `${nf(lang, { minimumFractionDigits: digits, maximumFractionDigits: digits }).format(km2)} km\u00B2`;
 }
 
 function labelFor(prefix, tag) {

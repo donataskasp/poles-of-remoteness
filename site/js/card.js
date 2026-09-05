@@ -1,19 +1,30 @@
 // The card: the headline sentence for the unit, the scenario toggle, the two actions, and the selected pole.
 // The summary element is the same facts in one row, for the phone sheet's handle; it is optional, so a
 // caller with nowhere to put it can leave it out.
-import { t, unitName, regionLabel, flag, fmtDist, fmtKmExact, highwayLabel, placeLabel, esc } from './i18n.js';
+import { t, unitName, regionLabel, flag, fmtDist, fmtKmExact, fmtKm2, highwayLabel, placeLabel, esc } from './i18n.js';
+import { summaryKey, visiblePoles } from './data.js';
 
-export function createCard(el, { summary, onScenario, onRanking, onLocate, onPole }) {
-  let view = null; // { region, unit, units, doc, scenario, rank }
+export function createCard(el, { summary, onScenario, onRanking, onLocate, onPole, onIslands }) {
+  let view = null; // { region, unit, units, doc, scenario, rank, islands }
 
   el.addEventListener('click', (e) => {
     const b = e.target.closest('button');
     if (!b || !el.contains(b)) return;
     if (b.dataset.s) onScenario(b.dataset.s);
+    // dataset.i is the string '0' or '1', so both readings are truthy here and the number is what goes out.
+    else if (b.dataset.i) onIslands(Number(b.dataset.i));
     else if (b.dataset.act === 'ranking') onRanking();
     else if (b.dataset.act === 'locate') onLocate();
     else if (b.dataset.rank) onPole(Number(b.dataset.rank));
   });
+
+  // Which of the unit's summaries this reading uses, and the poles it shows. Both are the published superset
+  // read one way or the other; nothing is fetched again when the toggle moves.
+  const summaryOf = (v) => v.unit[summaryKey(v.scenario, v.islands)];
+  const polesOf = (v) => {
+    const block = v.doc && v.doc[v.scenario];
+    return visiblePoles(block && block.poles, { islands: v.islands });
+  };
 
   // The unit's name, and the flag ahead of it. A unit below country level has no flag (the emoji is built
   // from a two-letter country code), so the slot and the space after it go away rather than render empty.
@@ -28,12 +39,12 @@ export function createCard(el, { summary, onScenario, onRanking, onLocate, onPol
     return d && d.withheld ? t('reasonWithheld') : t('reasonNone');
   }
 
-  // How many units of the region have a result in this scenario: the "of 52" in the rank line.
-  const ranked = (v) => v.units.filter((u) => u[v.scenario]).length;
+  // How many units of the region have a result in this scenario and this reading: the "of 52" in the rank line.
+  const ranked = (v) => v.units.filter((u) => u[summaryKey(v.scenario, v.islands)]).length;
 
   function headline(v) {
     const { name, lead } = names(v);
-    const sum = v.unit[v.scenario];
+    const sum = summaryOf(v);
     if (!sum) return `<p class="card__headline">${lead}${esc(t('noPoles', { name, reason: reasonFor(v) }))}</p>`;
     const what = t(v.scenario === 'A' ? 'headlineA' : 'headlineB');
     const count = ranked(v);
@@ -46,7 +57,7 @@ export function createCard(el, { summary, onScenario, onRanking, onLocate, onPol
   // there because the distance changes with it and the toggle is inside the sheet, out of sight.
   function summaryHtml(v) {
     const { name, lead } = names(v);
-    const sum = v.unit[v.scenario];
+    const sum = summaryOf(v);
     if (!sum) return `<span class="card-summary__none">${lead}${esc(t('noPoles', { name, reason: reasonFor(v) }))}</span>`;
     // The line breaks below fall between block level boxes and inside a flex row, so none of them paints.
     return `<span class="card-summary__line"><span class="card-summary__name">${lead}${esc(name)}</span>
@@ -56,7 +67,7 @@ export function createCard(el, { summary, onScenario, onRanking, onLocate, onPol
 
   function poleBlock(v) {
     const block = v.doc && v.doc[v.scenario];
-    const poles = (block && block.poles) || [];
+    const poles = polesOf(v);
     const withheld = block && block.withheld ? `<p class="card__note">${esc(t('withheldNote', { n: block.withheld }))}</p>` : '';
     const pole = poles.find((p) => p.rank === v.rank) || poles[0];
     // Every pole of a unit can be withheld: there are no facts to show, but the count still has to be said.
@@ -67,15 +78,19 @@ export function createCard(el, { summary, onScenario, onRanking, onLocate, onPol
     const placeText = place
       ? `${esc(place.name || placeLabel(place.type))} (${esc(placeLabel(place.type))}, ${esc(fmtDist(place.dist_m))})`
       : esc(t('noPlace'));
-    const chips = poles.map((p) => `<button type="button" class="chip${p.rank === pole.rank ? ' chip--on' : ''}" data-rank="${p.rank}" aria-pressed="${p.rank === pole.rank}">${p.rank}</button>`).join('');
+    // The chip says the pole's place in what is shown; the button still carries the overall rank, which is
+    // the pole's identity and what every other module selects on.
+    const chips = poles.map((p) => `<button type="button" class="chip${p.rank === pole.rank ? ' chip--on' : ''}" data-rank="${p.rank}" aria-pressed="${p.rank === pole.rank}">${p.display ?? p.rank}</button>`).join('');
     const lat = pole.lat.toFixed(5);
     const lon = pole.lon.toFixed(5);
+    const island = Number.isFinite(pole.island_km2)
+      ? `<dt>${esc(t('islandFact'))}</dt><dd>${esc(fmtKm2(pole.island_km2))}</dd>` : '';
     return `<div class="card__poles">
       <div class="chips" role="group" aria-label="${esc(t('polesLabel'))}">${chips}</div>
-      <h2 class="card__pole-title">${esc(t('poleHeading', { rank: pole.rank }))} <span class="card__of">${esc(t('poleOf', { count: poles.length }))}</span></h2>
+      <h2 class="card__pole-title">${esc(t('poleHeading', { rank: pole.display ?? pole.rank }))} <span class="card__of">${esc(t('poleOf', { count: poles.length }))}</span></h2>
       <dl class="card__facts">
         <dt>${esc(t('distance'))}</dt><dd>${esc(fmtKmExact(pole.dist_m))}</dd>
-        <dt>${esc(t('nearestRoad'))}</dt><dd>${esc(highwayLabel(way.highway || 'road'))}, ${esc(roadName)}</dd>
+        ${island}<dt>${esc(t('nearestRoad'))}</dt><dd>${esc(highwayLabel(way.highway || 'road'))}, ${esc(roadName)}</dd>
         <dt>${esc(t('nearestPlace'))}</dt><dd>${placeText}</dd>
         <dt>${esc(t('coordinates'))}</dt><dd><span class="mono">${lat}, ${lon}</span>
           <a class="card__maps" href="https://www.google.com/maps?q=${lat},${lon}" target="_blank" rel="noopener">${esc(t('openMaps'))}</a></dd>
@@ -98,6 +113,13 @@ export function createCard(el, { summary, onScenario, onRanking, onLocate, onPol
         <button type="button" class="seg__btn" data-s="B" aria-pressed="${v.scenario === 'B'}">${esc(t('scenarioB'))}</button>
       </div>
       <p class="card__hint">${esc(t(v.scenario === 'A' ? 'scenarioAHint' : 'scenarioBHint'))}</p>
+      <div class="card__islands">
+        <span class="card__islands-label" id="islands-label">${esc(t('islandsGroup'))}</span>
+        <div class="seg seg--sm" role="group" aria-labelledby="islands-label">
+          <button type="button" class="seg__btn" data-i="1" aria-pressed="${v.islands === 1}">${esc(t('islandsOn'))}</button>
+          <button type="button" class="seg__btn" data-i="0" aria-pressed="${v.islands === 0}">${esc(t('islandsOff'))}</button>
+        </div>
+      </div>
       <div class="card__actions">
         <button type="button" class="btn" data-act="ranking">${esc(t('rankingBtn'))}</button>
         <button type="button" class="btn btn--ghost" data-act="locate">${esc(t('locateBtn'))}</button>
@@ -107,7 +129,8 @@ export function createCard(el, { summary, onScenario, onRanking, onLocate, onPol
   }
 
   return {
-    show(next) { view = { ...(view || {}), ...next }; render(); },
+    // Islands shown is the default reading, so a caller that says nothing about them gets the whole superset.
+    show(next) { view = { ...(view || {}), ...next }; if (view.islands == null) view.islands = 1; render(); },
     setPole(rank) { if (view) { view.rank = rank; render(); } },
     refresh: render,
     current: () => view,

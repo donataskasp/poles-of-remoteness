@@ -87,11 +87,33 @@ export function unitAt(units, { lat, lng }, country = null) {
 
 // The region control: one link per region, and nothing at all while there is only one. Links rather than a
 // switch because the page binds its region and its layers once at start, so another region is a page load,
-// and the load reads scenario, basemap and language back out of the hash: a link without them resets all
-// three (#40). Spot and position stay off the link, they belong to the region being left.
-export function regionLinks(regions, currentId, { s, b, l } = {}) {
+// and the load reads scenario, basemap, islands and language back out of the hash: a link without them resets
+// all four (#40). Spot and position stay off the link, they belong to the region being left.
+export function regionLinks(regions, currentId, { s, b, i, l } = {}) {
   if (!regions || regions.length < 2) return [];
-  return regions.map((r) => ({ id: r.id, names: r.names, name: r.name || r.id, href: toUrl({ region: r.id, s, b, l }), current: r.id === currentId }));
+  return regions.map((r) => ({ id: r.id, names: r.names, name: r.name || r.id, href: toUrl({ region: r.id, s, b, i, l }), current: r.id === currentId }));
+}
+
+// The published pole list of a unit and scenario is a superset: ten mainland poles plus every island pole
+// ranked above the tenth of them. These two are how the site reads it back as one of the two readings.
+
+// Which summary of a unit the active reading uses. The one owner of the '_mainland' naming: card.js and
+// ranking.js both ask here rather than building the string.
+export function summaryKey(s, islands) {
+  return islands ? s : `${s}_mainland`;
+}
+
+// The poles to show, at most `top` of them, each a copy carrying `display`, its 1..n place in what is shown.
+// `rank` keeps its meaning throughout: it is the pole's identity and what selects the marker and the chip.
+// `display` is only ever a label, which is what makes the toggle free of a refetch.
+export function visiblePoles(poles, { islands = 1, top = 10 } = {}) {
+  const out = [];
+  for (const p of poles || []) {
+    if (!islands && p.island_km2 != null) continue;
+    out.push({ ...p, display: out.length + 1 });
+    if (out.length >= top) break;
+  }
+  return out;
 }
 
 // Opening unit (spec 5.3): the path; the visitor's own unit (country-region, then country); the winner of

@@ -13,6 +13,7 @@ with a flat grey tile so the images are deterministic, and writes this set:
 | desktop-detail.png | 1440x900 | zoom 13 on pole 1, detail overlay on; the script clicks the map once to fill the readout |
 | desktop-about.png | 1440x900 | the About dialog |
 | desktop-us-ak.png | 1440x900 | /north-america/us-ak, scenario A, English: the region control in the header, a unit that straddles the antimeridian drawn in one piece, a state name where a country shows a flag |
+| desktop-us-ak-mainland.png | 1440x900 | the same unit with the islands switched off (`#i=0`): a different pole 1, chips and markers renumbered, the ranking reordered |
 | phone-lt.png | 390x844 | /europe/lt, sheet collapsed: the card's summary row on the sheet handle, the map free above the controls column (base map switch, legend, readout, attribution) |
 | phone-lt-lang-lt.png | 390x844 | same, Lithuanian |
 | phone-ranking.png | 390x844 | the script taps the sheet handle: sheet at half height, the card at the top of its body and the ranking below it |
@@ -22,7 +23,7 @@ Rule: a change that touches only phone styles must leave every `desktop-*.png` b
 (`shasum -a 256 docs/screenshots/desktop-*.png` before and after). A UI change is not done until the
 affected images are regenerated, read, and committed with the code.
 
-The seven desktop images are byte-identical run to run (the six older ones measured over five runs, `desktop-us-ak` over two), so the rule is a hash comparison. The phone shots are not
+The eight desktop images are byte-identical run to run (the six older ones measured over five runs, `desktop-us-ak` over two), so the rule is a hash comparison. The phone shots are not
 quite: a marker's antialiased border can move by up to 5 of 255 on about fifteen pixels between runs
 (measured over five runs of the full set, `phone-lt.png` and `phone-lt-lang-lt.png`), which is Chromium
 rendering noise and not a state difference. Compare those by eye, or by a diff that tolerates a few

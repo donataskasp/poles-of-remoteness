@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { getJSON, r2Url, archiveUrl, detailUrl, winner, bboxToBounds, pickStart, unitAt, regionLinks } from '../../site/js/data.js';
+import { getJSON, r2Url, archiveUrl, detailUrl, winner, bboxToBounds, pickStart, unitAt, regionLinks, summaryKey, visiblePoles } from '../../site/js/data.js';
 
 const region = { id: 'europe', name: 'Europe', names: { lt: 'Europa' }, snapshot: '2026-08-19', r2_base: 'https://pub-x.r2.dev/' };
 const na = { id: 'north-america', name: 'North America', names: { lt: 'Šiaurės Amerika' }, snapshot: '2026-08-19', r2_base: 'https://pub-x.r2.dev' };
@@ -173,4 +173,60 @@ test('data: regionLinks carries scenario, basemap and language across the switch
   // A partial state appends only what it has, and none at all keeps the bare href.
   assert.equal(regionLinks(regions, 'europe', { s: 'A' })[1].href, '/north-america#s=A');
   assert.equal(regionLinks(regions, 'europe')[1].href, '/north-america');
+});
+
+test('data: regionLinks carries the islands reading too', () => {
+  const state = { region: 'europe', unit: 'lt', s: 'B', b: 'osm', i: 0, l: 'lt', z: 7, lat: 54.7, lon: 23.5 };
+  assert.deepEqual(regionLinks(regions, 'europe', state).map((l) => l.href),
+    ['/europe#s=B&b=osm&i=0&l=lt', '/north-america#s=B&b=osm&i=0&l=lt']);
+  // Shown is a value as much as hidden is: the link says so rather than leaving the next page to guess.
+  assert.equal(regionLinks(regions, 'europe', { s: 'A', i: 1 })[1].href, '/north-america#s=A&i=1');
+});
+
+test('data: summaryKey is the one owner of the mainland naming', () => {
+  assert.equal(summaryKey('A', 1), 'A');
+  assert.equal(summaryKey('B', 1), 'B');
+  assert.equal(summaryKey('A', 0), 'A_mainland');
+  assert.equal(summaryKey('B', 0), 'B_mainland');
+});
+
+// A published superset: ten mainland poles interleaved with the island poles ranked above the tenth of them.
+const superset = [
+  { rank: 1, island_km2: 357.2 },
+  { rank: 2, island_km2: 12.5 },
+  { rank: 3, island_km2: null },
+  { rank: 4, island_km2: null },
+  { rank: 5, island_km2: 3.1 },
+  ...Array.from({ length: 8 }, (_, k) => ({ rank: 6 + k, island_km2: null })),
+];
+
+test('data: visiblePoles shows the whole superset up to the top, numbered as it stands', () => {
+  const shown = visiblePoles(superset, { islands: 1 });
+  assert.equal(shown.length, 10);
+  assert.deepEqual(shown.map((p) => p.rank), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  assert.deepEqual(shown.map((p) => p.display), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  // Copies, so nothing on the loaded document is written to.
+  assert.equal(superset[0].display, undefined);
+});
+
+test('data: with the islands hidden the mainland poles keep their ranks and are renumbered for display', () => {
+  const shown = visiblePoles(superset, { islands: 0 });
+  assert.equal(shown.length, 10);
+  assert.deepEqual(shown.map((p) => p.rank), [3, 4, 6, 7, 8, 9, 10, 11, 12, 13]);
+  assert.deepEqual(shown.map((p) => p.display), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  // A unit whose best point is on an island opens on rank 3, which is the first one shown.
+  assert.equal(shown[0].rank, 3);
+});
+
+test('data: visiblePoles handles a short list, an empty one and a missing field', () => {
+  assert.deepEqual(visiblePoles([{ rank: 1, island_km2: null }, { rank: 2, island_km2: 4 }], { islands: 0 }).map((p) => p.rank), [1]);
+  assert.deepEqual(visiblePoles([], { islands: 0 }), []);
+  assert.deepEqual(visiblePoles(undefined), []);
+  // A document written before the field existed has no island poles to hide, so both readings are the same.
+  const old = [{ rank: 1 }, { rank: 2 }];
+  assert.deepEqual(visiblePoles(old, { islands: 0 }).map((p) => p.display), [1, 2]);
+  assert.deepEqual(visiblePoles(old, { islands: 1 }).map((p) => p.display), [1, 2]);
+  // The default reading is islands shown, and top is honoured on its own.
+  assert.equal(visiblePoles(superset).length, 10);
+  assert.deepEqual(visiblePoles(superset, { top: 3 }).map((p) => p.rank), [1, 2, 3]);
 });

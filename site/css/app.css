@@ -156,6 +156,11 @@ html[lang="en"] .about__body [data-lang="lt"], html[lang="lt"] .about__body [dat
 .card__seg { display: flex; width: 100%; }
 .card__seg .seg__btn { flex: 1; }
 .card__hint { margin: 4px 0 10px; font-size: 12px; color: var(--ink-2); }
+/* The islands toggle: a secondary reading, so it wears the small segmented look with its label beside it
+   rather than the scenario switch's full width. It sits under the scenario hint, not between the switch and
+   its hint, so the hint stays attached to the buttons it explains. */
+.card__islands { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; }
+.card__islands-label { font-size: 12px; color: var(--ink-2); }
 .card__actions { display: flex; gap: 8px; margin-bottom: 12px; }
 .btn { border: 1px solid var(--accent); background: var(--accent); color: #fff; border-radius: var(--r-md); padding: 7px 12px; cursor: pointer; font-weight: 600; }
 .btn--ghost { background: transparent; color: var(--accent-ink); }
