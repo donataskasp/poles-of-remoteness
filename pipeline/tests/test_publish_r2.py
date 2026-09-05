@@ -633,3 +633,34 @@ def test_verify_head_retries_a_request_that_never_got_an_answer(monkeypatch, log
     with _serving(drops) as base:
         out = r2.verify_head(base, ["r/A.json"], [], log)
     assert out["keys"] == 1 and drops.hits["/r/A.json"] == 2
+
+
+@mock_aws
+def test_a_same_size_object_in_force_keys_is_uploaded_again(tmp_path, log):
+    """The three validation artefacts describe the run rather than a pole, so a rerun must replace them; a
+    rewritten report of the same length would otherwise keep the previous run's bytes for ever."""
+    client = boto3.client("s3", region_name="us-east-1")
+    client.create_bucket(Bucket=BUCKET)
+    report = tmp_path / "report.json"
+    report.write_text('{"blocking": 1}')
+    items = [(report, "r/s/validation/report.json")]
+    assert r2.upload_tree(client, BUCKET, items, log) == {"uploaded": 1, "skipped": 0, "bytes": 15}
+    report.write_text('{"blocking": 0}')
+    forced = r2.upload_tree(client, BUCKET, items, log, force_keys={"r/s/validation/report.json"})
+    assert forced == {"uploaded": 1, "skipped": 0, "bytes": 15}
+    assert client.get_object(Bucket=BUCKET, Key="r/s/validation/report.json")["Body"].read() == b'{"blocking": 0}'
+
+
+@mock_aws
+def test_a_same_size_object_outside_force_keys_is_still_skipped(tmp_path, log):
+    """Everything else under a snapshot prefix is immutable: a detail raster is either unchanged bytes or a
+    new key, never the same key with different pixels."""
+    client = boto3.client("s3", region_name="us-east-1")
+    client.create_bucket(Bucket=BUCKET)
+    png = tmp_path / "A-55.000000_24.000000.png"
+    png.write_bytes(b"\x00" * 64)
+    items = [(png, "r/s/detail/lt/A-55.000000_24.000000.png")]
+    assert r2.upload_tree(client, BUCKET, items, log)["uploaded"] == 1
+    png.write_bytes(b"\x01" * 64)
+    stats = r2.upload_tree(client, BUCKET, items, log, force_keys={"r/s/validation/report.json"})
+    assert stats == {"uploaded": 0, "skipped": 1, "bytes": 0}

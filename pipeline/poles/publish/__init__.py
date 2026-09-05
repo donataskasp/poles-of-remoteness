@@ -27,6 +27,9 @@ from . import detail, r2, raster, sitedata, tiles
 
 STAGE = "publish"
 INPUTS = "inputs.json"
+# The three artefacts of the validate stage that go to R2. They are the only mutable objects under a snapshot
+# prefix; see `mutable_keys`.
+VALIDATION_FILES = ("report.json", "report.html", "contact-sheet.html")
 
 
 def _fingerprint(path: Path) -> dict | None:
@@ -119,9 +122,21 @@ def upload_set(ws: Workspace, region_id: str, snapshot: str) -> list[tuple[Path,
         if p.is_file() and p.suffix in (".png", ".json"):
             items.append((p, f"{prefix}/detail/{p.parent.name}/{p.name}"))
     val = ws.dir("validate")
-    for name in ("report.json", "report.html", "contact-sheet.html"):
+    for name in VALIDATION_FILES:
         items.append((val / name, f"{prefix}/validation/{name}"))
     return items
+
+
+def mutable_keys(region_id: str, snapshot: str) -> set[str]:
+    """The keys a rerun under an unchanged snapshot must replace rather than skip.
+
+    Under a snapshot prefix everything is immutable by construction: an archive is the same bytes, a detail
+    raster is named by its pole so a changed pole is a new key, and the site documents live in git. The three
+    validation artefacts are the exception, because they describe the run and not a pole: a rerun with a new
+    report has to overwrite the old one, and `_upload_one` skips on a size match, so a rewritten report of the
+    same length would otherwise keep the previous run's bytes for ever. They are read by people, never by the
+    site's JavaScript, so replacing them mid-run breaks nothing."""
+    return {f"{region_id}/{snapshot}/validation/{name}" for name in VALIDATION_FILES}
 
 
 def _pipeline_commit(log: logging.Logger) -> str | None:
@@ -195,7 +210,8 @@ def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
     r2cfg = r2.R2Config.from_env(os.environ)
     base = r2.ensure_bucket(r2cfg, log)
     items = upload_set(ws, cfg.id, ws.snapshot)
-    meta["upload"] = r2.upload_tree(r2.s3_client(r2cfg), r2cfg.bucket, items, log, forced=ws.forced)
+    meta["upload"] = r2.upload_tree(r2.s3_client(r2cfg), r2cfg.bucket, items, log, forced=ws.forced,
+                                    force_keys=mutable_keys(cfg.id, ws.snapshot))
     keys = [k for _, k in items]
     meta["verify"] = r2.verify_head(base, keys, [f"{cfg.id}/{ws.snapshot}/{s}.pmtiles" for s in SCENARIOS], log)
     meta["r2_base"] = base
@@ -207,7 +223,8 @@ def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
     region = {"id": cfg.id, "name": cfg.name, "names": cfg.names, "snapshot": ws.snapshot,
               "unit_level": cfg.unit_admin_level, "r2_base": base, "max_distance_m": cfg.max_distance_m,
               "edge_mask_m": cfg.edge_mask_m, "detail_res_m": cfg.detail_res_m,
-              "detail_window_m": cfg.detail_window_m}
+              "detail_window_m": cfg.detail_window_m, "area_col_fraction": cfg.area_col_fraction,
+              "min_island_m2": cfg.min_island_m2}
     site = sitedata.build(region, units_meta, published, table, meta["archives"], meta["detail"], meta["verify"],
                           snapshot["sources"], generated_at, _pipeline_commit(log))
     targets = [out / "site"] + ([ws.site_dir] if ws.site_dir else [])

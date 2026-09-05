@@ -8,6 +8,7 @@ in lon/lat and measures on the WGS84 ellipsoid with pyproj's Geod.
 from __future__ import annotations
 
 import logging
+import math
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
@@ -21,12 +22,13 @@ from rasterio.windows import Window
 from shapely.geometry.base import BaseGeometry
 
 from ..antimeridian import dissolve_seam
+from ..areas import AreaField, col_threshold
 from ..classify import SET_A, SET_B
 from ..config import RegionConfig
 from ..errors import PolesError
 from ..grid import Frame
-from ..poles import validate_poles_json
-from ..units import Unit, low_tif
+from ..poles import padded_window, validate_poles_json
+from ..units import Unit, land_tif, low_tif, water_tif
 
 GEOD = Geod(ellps="WGS84")
 DEG_PER_M = 1.0 / 111_320.0
@@ -374,7 +376,9 @@ def references(poles, refs: dict) -> list[CheckResult]:
 
 
 def invariants(poles, units: list[Unit], cfg: RegionConfig, grid_meta: dict) -> list[CheckResult]:
-    """Check 7 (the stage-2 part): A <= B, top_n or a reason, the separation floor, unit count, JSON structure."""
+    """Check 7, the part that reads only the published JSON: A <= B, `top_n` mainland poles or a reason, the
+    separation floor from the region config, the unit count, the file structure. `distinct_areas` below is
+    check 7's other half, the one that reads the grid."""
     out = []
     a = {e["unit"]: e for e in poles.get("A", [])}
     b = {e["unit"]: e for e in poles.get("B", [])}
@@ -388,11 +392,14 @@ def invariants(poles, units: list[Unit], cfg: RegionConfig, grid_meta: dict) -> 
                                 "B": pb[0]["dist_m"] if pb else None}))
         for scenario, entries in (("A", a), ("B", b)):
             entry = entries.get(u.code)
-            ok = entry is not None and (len(entry["poles"]) == cfg.top_n or bool(entry["reason"]))
-            out.append(CheckResult("invariant", u.code, scenario, ok, True,
-                                   {"name": "top_n_or_reason", "count": len(entry["poles"]) if entry else 0,
-                                    "reason": entry["reason"] if entry else None}))
             ps = entry["poles"] if entry else []
+            # The published set is a superset: the count that has to reach top_n is the mainland one, and the
+            # islands above the last mainland pole ride along on top of it (spec 3.2 stage 5).
+            mainland = sum(1 for p in ps if p["island_km2"] is None)
+            ok = entry is not None and (mainland == cfg.top_n or bool(entry["reason"]))
+            out.append(CheckResult("invariant", u.code, scenario, ok, True,
+                                   {"name": "top_n_or_reason", "count": len(ps), "mainland": mainland,
+                                    "reason": entry["reason"] if entry else None}))
             worst = min((GEOD.inv(p["lon"], p["lat"], q["lon"], q["lat"])[2]
                          for i, p in enumerate(ps) for q in ps[i + 1:]), default=np.inf)
             out.append(CheckResult("invariant", u.code, scenario, bool(worst >= cfg.dedup_m), True,
@@ -406,4 +413,63 @@ def invariants(poles, units: list[Unit], cfg: RegionConfig, grid_meta: dict) -> 
             out.append(CheckResult("invariant", "*", scenario, True, True, {"name": "structure"}))
         except (ValueError, KeyError, TypeError) as e:
             out.append(CheckResult("invariant", "*", scenario, False, True, {"name": "structure", "error": str(e)}))
+    return out
+
+
+def _pole_cells(frame: Frame, poles: list[dict]) -> tuple[list[int], list[int]]:
+    """Frame row and column of each pole. The one lon/lat step is the transform into the frame CRS, which
+    is continuous across the antimeridian, so a pole either side of the line lands on an ordinary cell."""
+    to_frame = Transformer.from_crs("EPSG:4326", frame.crs, always_xy=True)
+    xs, ys = to_frame.transform([p["lon"] for p in poles], [p["lat"] for p in poles])
+    return ([int((frame.y1 - y) // frame.res) for y in np.atleast_1d(ys)],
+            [int((x - frame.x0) // frame.res) for x in np.atleast_1d(xs)])
+
+
+def distinct_areas(poles, units: list[Unit], cfg: RegionConfig, frame: Frame, units_tif: Path,
+                   dist_tifs: dict[str, Path], windows: dict[str, tuple[int, int, int, int]],
+                   log: logging.Logger | None = None) -> list[CheckResult]:
+    """Check 7's second invariant: no two published poles of a unit are joined to each other over high ground.
+
+    The rule is `poles.areas`: label the superlevel set at `area_col_fraction` times the lower of the two
+    distances, over land, and ask whether the two cells carry the same label. The poles are taken in
+    descending distance, so pole j fixes the threshold for every pair (i, j) with i < j and one labelling
+    answers all of them: n - 1 labellings per unit and scenario, up to 19 once the published set is a
+    superset. The window is the unit's own box grown by its farthest pole's distance, the rule the search
+    uses; a window too small can only under-report connectivity, never invent it.
+
+    **This is a consistency check, not an independent one.** It asks the same module the same question about
+    the same grid the search asked, so what it can catch is a published file that disagrees with the rule: a
+    stale A.json, a hand edit, a bug between the search's verdict and the file it wrote. It can never catch a
+    bug in the rule itself. The independent guard is check 4, which recomputes the grid half a cell off and
+    re-runs `search_unit` over it, inheriting every rule of the search with no code of its own.
+    """
+    codes = {u.code for u in units}
+    out = []
+    for scenario in sorted(poles):
+        for entry in poles[scenario]:
+            code = entry["unit"]
+            ps = sorted(entry["poles"], key=lambda p: -p["dist_m"])
+            details = {"name": "distinct_areas", "fraction": cfg.area_col_fraction, "poles": len(ps),
+                       "connected_pairs": []}
+            if len(ps) < 2 or code not in codes or code not in windows:
+                out.append(CheckResult("invariant", code, scenario, True, True, details))
+                continue
+            row_off, col_off, height, width = windows[code]
+            pad = int(math.ceil(ps[0]["dist_m"] / frame.res))
+            window = padded_window(Window(col_off=col_off, row_off=row_off, width=width, height=height), pad, frame)
+            field = AreaField.read(dist_tifs[scenario], land_tif(units_tif), water_tif(units_tif), frame,
+                                   window, float(cfg.max_distance_m))
+            rows, cols = _pole_cells(frame, ps)
+            for j in range(1, len(ps)):
+                theta = col_threshold(ps[0]["dist_m"], ps[j]["dist_m"], cfg.area_col_fraction)
+                comp = field.component_at(rows[j], cols[j], theta)
+                if comp == 0:
+                    continue          # below the threshold or off land: joined to nothing at all
+                for i in range(j):
+                    if field.component_at(rows[i], cols[i], theta) == comp:
+                        details["connected_pairs"].append([ps[i]["rank"], ps[j]["rank"]])
+            if log:
+                log.info("distinct areas %s %s: %d pole(s), %d connected pair(s)", code, scenario, len(ps),
+                         len(details["connected_pairs"]))
+            out.append(CheckResult("invariant", code, scenario, not details["connected_pairs"], True, details))
     return out

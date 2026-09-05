@@ -157,12 +157,29 @@ def classify_window(g: Georef, roads: UtmRoads, land_ok, edge_band: BaseGeometry
     return cls.reshape(g.height, g.width)
 
 
-def write_detail(out_dir: Path, code: str, scenario: str, rank: int, arr: np.ndarray, g: Georef) -> tuple[Path, Path]:
-    """One raster as <out_dir>/<code>/<scenario>-<rank>.png plus its sidecar, the sidecar last: the pair is
+def detail_stem(scenario: str, lat: float, lon: float) -> str:
+    """A pole's detail raster is named by the pole, never by its rank: `<scenario>-<lat>_<lon>`, six decimals.
+
+    A rank moves whenever the search or validation's exclusions move, and the snapshot prefix does not change
+    when only the rules do, so a rank-keyed raster would be overwritten with a different pole's picture on a
+    rerun and the live site reading those keys would draw the wrong window under every pole whose rank moved
+    (issue #57). Keyed by its coordinates a pole that has not moved keeps its file for ever, a new pole gets a
+    new file, and no key the site reads is ever written twice with different bytes. Six decimals is exactly
+    what `attrib.pole_record` publishes, so the key the site builds and the key written here are one string.
+    The alternative, a short hash of the pair, is tidier and opaque; the coordinates win because the one
+    operation this naming exists for, reconciling a bucket listing against the documents, is done by a person
+    reading a list."""
+    return f"{scenario}-{lat:.6f}_{lon:.6f}"
+
+
+def write_detail(out_dir: Path, code: str, scenario: str, lat: float, lon: float, arr: np.ndarray,
+                 g: Georef) -> tuple[Path, Path]:
+    """One raster as <out_dir>/<code>/<detail_stem>.png plus its sidecar, the sidecar last: the pair is
     only complete when the JSON is there, so a run killed mid-write is redone rather than published."""
     d = out_dir / code
     d.mkdir(parents=True, exist_ok=True)
-    png, js = d / f"{scenario}-{rank}.png", d / f"{scenario}-{rank}.json"
+    stem = detail_stem(scenario, lat, lon)
+    png, js = d / f"{stem}.png", d / f"{stem}.json"
     js.unlink(missing_ok=True)
     with ungeoreferenced(), rasterio.open(png, "w", driver="PNG", width=g.width, height=g.height, count=1,
                                           dtype="uint8", ZLEVEL=9) as ds:
@@ -245,8 +262,9 @@ def render(job: DetailJob) -> dict:
     out_dir = Path(job.out_dir)
     done, warned, total_bytes, skipped = [], [], 0, 0
     for rank, lat, lon, dist_m in job.poles:
-        png = out_dir / job.code / f"{job.scenario}-{rank}.png"
-        js = out_dir / job.code / f"{job.scenario}-{rank}.json"
+        stem = detail_stem(job.scenario, lat, lon)
+        png = out_dir / job.code / f"{stem}.png"
+        js = out_dir / job.code / f"{stem}.json"
         if png.exists() and js.exists():
             skipped += 1
             total_bytes += png.stat().st_size
@@ -275,7 +293,7 @@ def render(job: DetailJob) -> dict:
                                  f"index or the water file is the wrong one, or its bbox went in the wrong order")
             warned.append(f"{job.code} {job.scenario} rank {rank}: no land pixel in the window, the pole at lon "
                             f"{lon:.4f}, lat {lat:.4f} sits on an islet narrower than one pixel")
-        png, _ = write_detail(out_dir, job.code, job.scenario, rank, arr, g)
+        png, _ = write_detail(out_dir, job.code, job.scenario, lat, lon, arr, g)
         total_bytes += png.stat().st_size
         done.append(rank)
     return {"code": job.code, "scenario": job.scenario, "rendered": done, "skipped": skipped, "bytes": total_bytes,
@@ -305,9 +323,10 @@ def run_detail(cfg: RegionConfig, ws: Workspace, published: dict[str, list[dict]
                                   str(poles_dir / "water_big.fgb"), str(out_dir), unit["unit"], scenario,
                                   tuple((p["rank"], p["lat"], p["lon"], p["dist_m"]) for p in unit["poles"]),
                                   cfg.detail_res_m, cfg.detail_window_m, edge_wkb, tuple(table.edges)))
-    # A raster is named by its rank and kept when the file is already there, so a rerun after validate excluded a
-    # different set would leave the old rank 1 image under the new rank 1's name: the right file name over the
-    # wrong place, and nothing to raise. The stamp records the inputs the directory was built for; when they do
+    # A raster is named by its pole and kept when the file is already there, so a rerun after validate excluded a
+    # different set writes new files rather than the old pictures under new names. What a name cannot notice is
+    # a changed class table or edge band: the same pole, the same key, different pixels. The stamp records the
+    # inputs the directory was built for; when they do
     # not match what is about to be rendered, the whole directory goes. It is written after the rmtree and before
     # the render, not after: the files present are always a subset of the stamped set, which a resume completes,
     # while a stamp written only on success would leave a crashed run unstamped and its stale files invisible to

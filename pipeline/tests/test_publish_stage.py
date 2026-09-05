@@ -77,11 +77,18 @@ def _mtimes(*paths):
     return {p.name: p.stat().st_mtime_ns for p in paths}
 
 
-def _pole(rank, lat, lon, dist):
+def _stem(ws, scenario, index):
+    """The detail file name of pole `index` (0 based) of poles/<scenario>.json: its scenario and its own
+    coordinates, which is what `detail.detail_stem` builds and what the unit document points at."""
+    p = json.loads((ws.dir("poles") / f"{scenario}.json").read_text())[0]["poles"][index]
+    return f"{scenario}-{p['lat']:.6f}_{p['lon']:.6f}"
+
+
+def _pole(rank, lat, lon, dist, island_km2=None):
     return {"rank": rank, "lat": lat, "lon": lon, "dist_m": dist,
             "nearest_way": {"id": 1, "highway": "unclassified", "name": None, "ref": None, "country": "lt"},
             "nearest_place": {"name": "Kaunas", "type": "city", "dist_m": 5000.0, "lat": 54.9, "lon": 23.9},
-            "detail": None, "warnings": []}
+            "island_km2": island_km2, "detail": None, "warnings": []}
 
 
 @pytest.fixture
@@ -207,8 +214,11 @@ def test_builds_local_artefacts_then_names_the_missing_r2_config(workspace, log,
     out = ws.dir("publish")
     for name in ("explore_A.tif", "explore_A_3857.tif", "A.pmtiles", "explore_B.tif", "B.pmtiles"):
         assert (out / name).exists(), name
-    assert (out / "detail" / "lt" / "A-1.png").exists() and (out / "detail" / "lt" / "A-2.json").exists()
-    assert (out / "detail" / "lt" / "B-1.png").exists() and not (out / "detail" / "lt" / "B-2.png").exists()
+    assert (out / "detail" / "lt" / f"{_stem(ws, 'A', 0)}.png").exists()
+    assert (out / "detail" / "lt" / f"{_stem(ws, 'A', 1)}.json").exists()
+    # rank 1 of B is withheld, so the only B picture is the other pole's, under that pole's own name
+    assert (out / "detail" / "lt" / f"{_stem(ws, 'B', 1)}.png").exists()
+    assert not (out / "detail" / "lt" / f"{_stem(ws, 'B', 0)}.png").exists()
     assert not ws.is_done("publish")
     with rasterio.open(out / "explore_A.tif") as ds:
         cls = ds.read(1)
@@ -225,16 +235,16 @@ def test_resume_after_a_partial_local_run_keeps_the_artefacts(workspace, log, mo
         publish.run(cfg, ws, log)
     out = ws.dir("publish")
     before = {p.name: p.stat().st_mtime_ns for p in (out / "explore_A.tif", out / "A.pmtiles",
-                                                     out / "detail" / "lt" / "A-1.png")}
+                                                     out / "detail" / "lt" / f"{_stem(ws, 'A', 0)}.png")}
     _r2_env(monkeypatch, tmp_path)
     monkeypatch.setattr(r2mod, "ensure_bucket", lambda cfg_, log_, api_base=None: "https://pub-test.r2.dev")
     monkeypatch.setattr(r2mod, "s3_client", lambda cfg_, endpoint_url=None: object())
-    monkeypatch.setattr(r2mod, "upload_tree", lambda client, bucket, items, log_, workers=8, forced=False: {"uploaded": len(items), "skipped": 0, "bytes": 1})
+    monkeypatch.setattr(r2mod, "upload_tree", lambda client, bucket, items, log_, workers=8, forced=False, force_keys=frozenset(): {"uploaded": len(items), "skipped": 0, "bytes": 1})
     monkeypatch.setattr(r2mod, "verify_head", lambda base, keys, range_keys, log_, workers=8: {"at": "2026-01-02T00:00:00+00:00", "keys": len(keys), "range_ok": len(range_keys)})
     ws.site_dir = None                                   # --no-write-site
     meta = publish.run(cfg, ws, log)
     assert {p.name: p.stat().st_mtime_ns for p in (out / "explore_A.tif", out / "A.pmtiles",
-                                                   out / "detail" / "lt" / "A-1.png")} == before
+                                                   out / "detail" / "lt" / f"{_stem(ws, 'A', 0)}.png")} == before
     assert meta["detail"]["skipped"] == 3 and meta["site_dir"] is None
     assert json.loads((out / "site" / "manifest.json").read_text())["regions"][cfg.id]["snapshot"] == "2026-01-01"
     assert (out / "site" / "regions.json").exists()
@@ -247,12 +257,12 @@ def test_force_clears_the_markers_and_rebuilds(workspace, log, monkeypatch, tmp_
     monkeypatch.setenv("POLES_WORKERS", "2")
     monkeypatch.setattr(r2mod, "ensure_bucket", lambda cfg_, log_, api_base=None: "https://pub-test.r2.dev")
     monkeypatch.setattr(r2mod, "s3_client", lambda cfg_, endpoint_url=None: object())
-    monkeypatch.setattr(r2mod, "upload_tree", lambda client, bucket, items, log_, workers=8, forced=False: {"uploaded": len(items), "skipped": 0, "bytes": 1})
+    monkeypatch.setattr(r2mod, "upload_tree", lambda client, bucket, items, log_, workers=8, forced=False, force_keys=frozenset(): {"uploaded": len(items), "skipped": 0, "bytes": 1})
     monkeypatch.setattr(r2mod, "verify_head", lambda base, keys, range_keys, log_, workers=8: {"at": "x", "keys": len(keys), "range_ok": len(range_keys)})
     ws.site_dir = None
     publish.run(cfg, ws, log)
     out = ws.dir("publish")
-    watched = [out / "explore_A.tif", out / "A.pmtiles", out / "detail" / "lt" / "A-1.png"]
+    watched = [out / "explore_A.tif", out / "A.pmtiles", out / "detail" / "lt" / f"{_stem(ws, 'A', 0)}.png"]
     before = [p.stat().st_mtime_ns for p in watched]
     ws.forced = True
     meta = publish.run(cfg, ws, log)
@@ -326,30 +336,28 @@ def test_a_missing_input_stamp_adopts_the_artefacts_on_disk(workspace, log, monk
 
 
 def test_detail_rebuilds_when_the_published_set_changes(workspace, log, monkeypatch):
-    """A detail raster is named by its post-exclusion rank, so a different exclusion list renames the pictures.
-    Without the stamp the rerun would keep the old image under the new rank's name and say nothing."""
+    """A different exclusion list publishes a different pole, and a raster named by its pole is a different
+    file: the picture that is no longer published goes, and the new one arrives under its own name. The
+    stamp is what takes the old file away; without it the directory would grow an object for every pole any
+    run ever published, and a changed class table or edge band would leave every picture stale."""
     cfg, ws = workspace
     for name in r2mod.ENV_NAMES.values():
         monkeypatch.delenv(name, raising=False)
     monkeypatch.setenv("POLES_WORKERS", "2")
     with pytest.raises(r2mod.PublishError):
         publish.run(cfg, ws, log)
-    b1 = ws.dir("publish") / "detail" / "lt" / "B-1.png"
-    with rasterio.open(b1) as ds:
-        before = ds.read(1)
-    before_mtime = b1.stat().st_mtime_ns
-    # validate now withholds rank 2 instead of rank 1, so B-1 must become the picture of the other pole
-    kept = json.loads((ws.dir("poles") / "B.json").read_text())[0]["poles"][0]
-    dropped = json.loads((ws.dir("poles") / "B.json").read_text())[0]["poles"][1]
+    out = ws.dir("publish") / "detail" / "lt"
+    kept, dropped = json.loads((ws.dir("poles") / "B.json").read_text())[0]["poles"]
+    # rank 1 of B is withheld to start with, so the only B picture is the other pole's
+    assert (out / f"{_stem(ws, 'B', 1)}.png").exists() and not (out / f"{_stem(ws, 'B', 0)}.png").exists()
     report = json.loads((ws.dir("validate") / "report.json").read_text())
     report["excluded"][0].update(rank=2, lat=dropped["lat"], lon=dropped["lon"], dist_m=dropped["dist_m"])
     (ws.dir("validate") / "report.json").write_text(json.dumps(report))
     with pytest.raises(r2mod.PublishError):
         publish.run(cfg, ws, log)
-    assert b1.stat().st_mtime_ns != before_mtime
-    with rasterio.open(b1) as ds:
+    assert (out / f"{_stem(ws, 'B', 0)}.png").exists() and not (out / f"{_stem(ws, 'B', 1)}.png").exists()
+    with rasterio.open(out / f"{_stem(ws, 'B', 0)}.png") as ds:
         after = ds.read(1)
-    assert not np.array_equal(after, before)
     n = int(cfg.detail_window_m // cfg.detail_res_m) // 2
     assert abs(int(after[n, n]) - int(_table(cfg).to_class(kept["dist_m"]))) <= 1
     stamp = json.loads((ws.dir("publish") / "detail" / "published.json").read_text())
@@ -365,12 +373,13 @@ def test_full_run_with_r2_mocked_writes_site_and_done(workspace, log, monkeypatc
     uploaded, verified = [], {}
     monkeypatch.setattr(r2mod, "ensure_bucket", lambda cfg_, log_, api_base=None: "https://pub-test.r2.dev")
     monkeypatch.setattr(r2mod, "s3_client", lambda cfg_, endpoint_url=None: object())
-    monkeypatch.setattr(r2mod, "upload_tree", lambda client, bucket, items, log_, workers=8, forced=False: (uploaded.extend(items), {"uploaded": len(items), "skipped": 0, "bytes": 1})[1])
+    monkeypatch.setattr(r2mod, "upload_tree", lambda client, bucket, items, log_, workers=8, forced=False, force_keys=frozenset(): (uploaded.extend(items), {"uploaded": len(items), "skipped": 0, "bytes": 1})[1])
     monkeypatch.setattr(r2mod, "verify_head", lambda base, keys, range_keys, log_, workers=8: verified.update(base=base, keys=keys, range_keys=range_keys) or {"at": "2026-01-02T00:00:00+00:00", "keys": len(keys), "range_ok": len(range_keys)})
     ws.site_dir = tmp_path / "site_data"
     meta = publish.run(cfg, ws, log)
     keys = sorted(k for _, k in uploaded)
-    assert f"{cfg.id}/2026-01-01/A.pmtiles" in keys and f"{cfg.id}/2026-01-01/detail/lt/A-1.png" in keys
+    assert f"{cfg.id}/2026-01-01/A.pmtiles" in keys
+    assert f"{cfg.id}/2026-01-01/detail/lt/{_stem(ws, 'A', 0)}.png" in keys
     assert f"{cfg.id}/2026-01-01/validation/contact-sheet.html" in keys
     assert verified["base"] == "https://pub-test.r2.dev" and sorted(verified["keys"]) == keys
     assert verified["range_keys"] == [f"{cfg.id}/2026-01-01/A.pmtiles", f"{cfg.id}/2026-01-01/B.pmtiles"]
@@ -379,12 +388,12 @@ def test_full_run_with_r2_mocked_writes_site_and_done(workspace, log, monkeypatc
     assert regions["regions"][0]["r2_base"] == "https://pub-test.r2.dev" and regions["regions"][0]["units_count"] == 1
     unit = json.loads((site / cfg.id / "units" / "lt.json").read_text())
     assert [p["rank"] for p in unit["B"]["poles"]] == [1] and unit["B"]["withheld"] == 1 and unit["A"]["withheld"] == 0
-    assert unit["B"]["poles"][0]["detail"] == "detail/lt/B-1"
+    assert unit["B"]["poles"][0]["detail"] == f"detail/lt/{_stem(ws, 'B', 1)}"
     assert (ws.site_dir / "regions.json").exists() and (ws.site_dir / cfg.id / "units.json").exists()
     assert meta["archives"]["A"]["max_zoom"] == 9 and meta["detail"]["count"] == 3 and meta["upload"]["uploaded"] == len(keys)
     assert meta["verify"]["keys"] == len(keys) and meta["r2_base"] == "https://pub-test.r2.dev"
     # the detail raster at the pole's own pixel agrees with the coarse grid to one class
-    with rasterio.open(ws.dir("publish") / "detail" / "lt" / "A-1.png") as ds:
+    with rasterio.open(ws.dir("publish") / "detail" / "lt" / f"{_stem(ws, 'A', 0)}.png") as ds:
         arr = ds.read(1)
     d1 = json.loads((ws.dir("poles") / "A.json").read_text())[0]["poles"][0]["dist_m"]
     n = int(cfg.detail_window_m // cfg.detail_res_m) // 2
@@ -395,13 +404,14 @@ def test_upload_set_covers_the_archives_details_and_validation(workspace):
     cfg, ws = workspace
     out = ws.dir("publish")
     (out / "detail" / "lt").mkdir(parents=True)
-    for name in ("A-1.png", "A-1.json", "A-1.png.aux.xml"):
+    for name in ("A-55.000000_24.000000.png", "A-55.000000_24.000000.json", "A-55.000000_24.000000.png.aux.xml"):
         (out / "detail" / "lt" / name).write_text("x")
     (out / "detail" / "published.json").write_text("[]")     # bookkeeping, not an object of the site
     items = publish.upload_set(ws, cfg.id, ws.snapshot)
     keys = [k for _, k in items]
     assert keys == [f"{cfg.id}/2026-01-01/A.pmtiles", f"{cfg.id}/2026-01-01/B.pmtiles",
-                    f"{cfg.id}/2026-01-01/detail/lt/A-1.json", f"{cfg.id}/2026-01-01/detail/lt/A-1.png",
+                    f"{cfg.id}/2026-01-01/detail/lt/A-55.000000_24.000000.json",
+                    f"{cfg.id}/2026-01-01/detail/lt/A-55.000000_24.000000.png",
                     f"{cfg.id}/2026-01-01/validation/report.json", f"{cfg.id}/2026-01-01/validation/report.html",
                     f"{cfg.id}/2026-01-01/validation/contact-sheet.html"]
     assert items[0][0] == out / "A.pmtiles" and items[-1][0] == ws.dir("validate") / "contact-sheet.html"

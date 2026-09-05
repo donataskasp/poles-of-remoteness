@@ -8,11 +8,11 @@ from poles.errors import PolesError
 from poles.publish import sitedata
 
 
-def _pole(rank, dist):
+def _pole(rank, dist, island_km2=None):
     return {"rank": rank, "lat": 55.0 + rank / 100, "lon": 24.0, "dist_m": dist,
             "nearest_way": {"id": 1, "highway": "track", "name": None, "ref": None, "country": "lt"},
             "nearest_place": {"name": "Kaunas", "type": "city", "dist_m": 5000.0, "lat": 54.9, "lon": 23.9},
-            "detail": None, "warnings": []}
+            "island_km2": island_km2, "detail": None, "warnings": []}
 
 
 POLES = {
@@ -34,7 +34,15 @@ UNITS_META = [
 ]
 REGION = {"id": "testland", "name": "Testland", "names": {"lt": "Testlandija"}, "snapshot": "2026-01-01", "unit_level": 2,
           "r2_base": "https://pub-x.r2.dev", "max_distance_m": 250000, "edge_mask_m": 50000, "detail_res_m": 50,
-          "detail_window_m": 20000}
+          "detail_window_m": 20000, "area_col_fraction": 0.5, "min_island_m2": 1000000}
+# The same units with two of the A poles on smaller land components: lv has nothing but an island, and lt's
+# best mainland pole is its second.
+ISLAND_POLES = {
+    "A": [{"unit": "lt", "poles": [_pole(1, 9000.0, island_km2=12.5), _pole(2, 8000.0), _pole(3, 7000.0)], "reason": None},
+          {"unit": "lv", "poles": [_pole(1, 9500.0, island_km2=3.0)], "reason": None},
+          {"unit": "mc", "poles": [], "reason": "no land cell"}],
+    "B": POLES["B"],
+}
 ARCHIVES = {"A": {"key_name": "A.pmtiles", "bytes": 10, "tiles": 3, "min_zoom": 0, "max_zoom": 9, "tile_type": "png", "per_zoom": {9: 1}, "blank_skipped": 0},
             "B": {"key_name": "B.pmtiles", "bytes": 10, "tiles": 3, "min_zoom": 0, "max_zoom": 9, "tile_type": "png", "per_zoom": {9: 1}, "blank_skipped": 0}}
 SOURCES = [{"url": "https://example.org/x.pbf", "role": "primary", "file": "x.pbf", "size": 1, "md5": "a", "sha256": "b",
@@ -43,7 +51,8 @@ SOURCES = [{"url": "https://example.org/x.pbf", "role": "primary", "file": "x.pb
 # A complete foreign region, so the merge tests exercise the merge instead of bypassing the schema.
 OTHER_REGION = {"id": "other", "name": "Other", "names": {"lt": "Kita"}, "snapshot": "2025-01-01", "unit_level": 2,
                 "units_count": 1, "r2_base": "https://pub-y.r2.dev", "class_edges": ClassTable().edges,
-                "max_distance_m": 250000, "edge_mask_m": 50000, "detail_res_m": 50, "detail_window_m": 20000}
+                "max_distance_m": 250000, "edge_mask_m": 50000, "detail_res_m": 50, "detail_window_m": 20000,
+                "area_col_fraction": 0.5, "min_island_m2": 1000000}
 OTHER_MANIFEST = {"snapshot": "2025-01-01", "published_at": "2025-01-01T00:00:00+00:00", "r2_base": "https://pub-y.r2.dev",
                   "pipeline_commit": None, "sources": [], "archives": {}, "detail": {"count": 0, "bytes": 0},
                   "validation": {"report": "other/2025-01-01/validation/report.json",
@@ -100,7 +109,8 @@ def test_build_documents():
     assert units["mc"]["A"] is None and units["mc"]["B"] is None
     assert units["lt"]["area_km2"] == 64833.2 and units["lt"]["name_en"] == "Lithuania"
     lt = site.unit_docs["lt"]
-    assert lt["A"]["poles"][0]["detail"] == "detail/lt/A-1" and lt["A"]["withheld"] == 0 and lt["A"]["reason"] is None
+    assert lt["A"]["poles"][0]["detail"] == "detail/lt/A-55.010000_24.000000"
+    assert lt["A"]["withheld"] == 0 and lt["A"]["reason"] is None
     assert lt["area_km2"] == 64833.2
     assert site.unit_docs["mc"]["A"] == {"poles": [], "withheld": 0, "reason": "no land cell"}
     m = site.manifest_entry
@@ -121,12 +131,16 @@ def test_build_fills_a_missing_name_from_the_other_one():
     sitedata.validate_doc("units", site.units_doc)
 
 
-def test_build_renumbers_detail_stems_after_an_exclusion():
+def test_an_exclusion_renumbers_the_ranks_and_leaves_every_detail_key_where_it_was():
+    """The point of keying a raster on its pole: the two survivors are ranks 1 and 2 now and their pictures
+    are the same two objects they were, so a rerun overwrites nothing the live site is reading (#57)."""
     published = sitedata.apply_exclusions(POLES, [{"unit": "lt", "scenario": "A", "rank": 1, "lat": 0, "lon": 0,
                                                    "dist_m": 0, "details": {}}])
     site = _build(published)
     lt = site.unit_docs["lt"]["A"]
-    assert [p["detail"] for p in lt["poles"]] == ["detail/lt/A-1", "detail/lt/A-2"]
+    assert [p["rank"] for p in lt["poles"]] == [1, 2]
+    assert [p["detail"] for p in lt["poles"]] == ["detail/lt/A-55.020000_24.000000",
+                                                  "detail/lt/A-55.030000_24.000000"]
     assert [p["dist_m"] for p in lt["poles"]] == [8000.0, 7000.0] and lt["withheld"] == 1
     summary = {u["code"]: u for u in site.units_doc["units"]}["lt"]["A"]
     assert summary["dist_m"] == 8000.0 and summary["withheld"] == 1 and summary["rank"] == 2
@@ -260,3 +274,72 @@ def test_write_site_refuses_existing_json_that_is_not_an_object(tmp_path):
     (tmp_path / "regions.json").write_text('[{"id": "other"}]')
     with pytest.raises(PolesError, match="not a JSON object but a list; fix or remove it before publishing"):
         sitedata.write_site(site, tmp_path, "testland", "2026-01-02T00:00:00+00:00")
+
+
+def test_the_unit_document_points_at_the_identity_keyed_raster():
+    """The site builds an R2 URL out of this string, so it is the same key the detail render writes."""
+    site = _build()
+    lt = site.unit_docs["lt"]["A"]["poles"]
+    assert [p["detail"] for p in lt] == ["detail/lt/A-55.010000_24.000000", "detail/lt/A-55.020000_24.000000",
+                                         "detail/lt/A-55.030000_24.000000"]
+
+
+def test_a_rank_keyed_detail_value_fails_the_unit_schema():
+    """The old naming cannot come back quietly: the schema is what says a detail key is a pole, not a rank."""
+    site = _build()
+    doc = site.unit_docs["lt"]
+    doc["A"]["poles"][0]["detail"] = "detail/lt/A-1"
+    with pytest.raises(PolesError, match="detail"):
+        sitedata.validate_doc("unit", doc)
+
+
+def test_a_pole_without_island_km2_fails_the_unit_schema():
+    """Every published pole carries the field, a number or null; a document missing it is not publishable."""
+    site = _build()
+    doc = site.unit_docs["lt"]
+    del doc["A"]["poles"][0]["island_km2"]
+    with pytest.raises(PolesError, match="island_km2"):
+        sitedata.validate_doc("unit", doc)
+
+
+# ---------- the mainland summaries, for the site's islands toggle ----------
+
+def _island_units():
+    site = _build(sitedata.apply_exclusions(ISLAND_POLES, []))
+    return site, {u["code"]: u for u in site.units_doc["units"]}
+
+
+def test_the_mainland_rank_ignores_island_poles():
+    """lv's only pole is on an island, so with islands off lt is the region's first unit and the distance
+    shown is its second pole's, not its first's."""
+    _, units = _island_units()
+    assert units["lt"]["A"]["dist_m"] == 9000.0 and units["lt"]["A"]["rank"] == 2
+    assert units["lt"]["A_mainland"]["dist_m"] == 8000.0 and units["lt"]["A_mainland"]["rank"] == 1
+    assert units["lt"]["A_mainland"]["lat"] == units["lt"]["A_mainland"]["lat"]
+
+
+def test_a_unit_whose_every_pole_is_an_island_has_a_null_mainland_summary():
+    """The site renders that exactly as it renders a unit with no result at all, and sorts it last."""
+    _, units = _island_units()
+    assert units["lv"]["A"]["rank"] == 1 and units["lv"]["A_mainland"] is None
+    assert units["mc"]["A"] is None and units["mc"]["A_mainland"] is None
+
+
+def test_the_mainland_ranking_is_dense_like_the_overall_one():
+    _, units = _island_units()
+    assert units["lt"]["B_mainland"]["rank"] == 1 and units["lv"]["B_mainland"]["rank"] == 1
+
+
+def test_the_regions_entry_publishes_the_rule_numbers():
+    """The About text states the rule with the region's own numbers, so the region document carries them."""
+    site = _build()
+    assert site.regions_entry["area_col_fraction"] == 0.5 and site.regions_entry["min_island_m2"] == 1000000
+
+
+def test_the_unit_document_and_units_json_agree_on_the_mainland_winner():
+    """The unit document's copy is redundant for the site and is there for a consumer who fetches one unit;
+    it must say the same thing as the region index or it is worse than nothing."""
+    site, units = _island_units()
+    for code in ("lt", "lv", "mc"):
+        assert site.unit_docs[code]["A_mainland"] == units[code]["A_mainland"]
+        assert site.unit_docs[code]["B_mainland"] == units[code]["B_mainland"]

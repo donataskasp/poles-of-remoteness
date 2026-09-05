@@ -13,6 +13,8 @@ from ..classes import ClassTable
 from ..errors import PolesError
 from ..poles import SCENARIOS
 from ..workspace import write_text_atomic
+from .detail import detail_stem
+
 
 SCHEMA_VERSION = 1
 SCHEMAS = Path(__file__).resolve().parent.parent / "schemas"
@@ -49,9 +51,22 @@ def apply_exclusions(poles: dict[str, list[dict]], excluded: list[dict]) -> dict
     return out
 
 
-def regional_ranks(published_scenario: list[dict]) -> dict[str, int]:
-    """Dense rank of each unit's best pole across the region, farthest first; equal distances share a rank."""
-    best = [(u["poles"][0]["dist_m"], u["unit"]) for u in published_scenario if u["poles"]]
+def _best(poles: list[dict], mainland_only: bool) -> dict | None:
+    """The unit's leading pole in this reading: its first, or its first that is not on a smaller land
+    component. Poles are in rank order, which is descending distance, so the first is also the farthest."""
+    if mainland_only:
+        return next((p for p in poles if p["island_km2"] is None), None)
+    return poles[0] if poles else None
+
+
+def regional_ranks(published_scenario: list[dict], mainland_only: bool = False) -> dict[str, int]:
+    """Dense rank of each unit's best pole across the region, farthest first; equal distances share a rank.
+
+    With `mainland_only` a unit is placed by its best pole off any island, which is the ranking the site
+    shows when the reader switches islands off; a unit with no such pole is not ranked at all, exactly as a
+    unit with no pole is not."""
+    best = [(top["dist_m"], u["unit"]) for u in published_scenario
+            if (top := _best(u["poles"], mainland_only)) is not None]
     best.sort(key=lambda t: (-t[0], t[1]))
     ranks, rank, prev = {}, 0, None
     for dist, code in best:
@@ -62,10 +77,10 @@ def regional_ranks(published_scenario: list[dict]) -> dict[str, int]:
     return ranks
 
 
-def _unit_summary(unit: dict, rank: int | None) -> dict | None:
-    if not unit["poles"]:
+def _unit_summary(unit: dict, rank: int | None, mainland_only: bool = False) -> dict | None:
+    top = _best(unit["poles"], mainland_only)
+    if top is None:
         return None
-    top = unit["poles"][0]
     return {"dist_m": top["dist_m"], "lat": top["lat"], "lon": top["lon"], "rank": rank, "withheld": unit["withheld"]}
 
 
@@ -81,6 +96,9 @@ def build(region: dict, units_meta: list[dict], published: dict[str, list[dict]]
         raise PolesError(f"poles/<scenario>.json holds units that poles/units.json does not: {stray}; "
                          "the work directory mixes two unit lists, rerun the poles stage")
     ranks = {s: regional_ranks(published.get(s, [])) for s in SCENARIOS}
+    # The same ranking over mainland poles alone. It cannot be derived from a unit document, which knows
+    # nothing about the other units, so both readings of the regional rank are published here.
+    mainland_ranks = {s: regional_ranks(published.get(s, []), mainland_only=True) for s in SCENARIOS}
     units_rows, unit_docs = [], {}
     for m in units_meta:
         code = m["code"]
@@ -94,15 +112,25 @@ def build(region: dict, units_meta: list[dict], published: dict[str, list[dict]]
         for s in SCENARIOS:
             u = by_unit[s].get(code, {"unit": code, "poles": [], "reason": "not searched", "withheld": 0})
             row[s] = _unit_summary(u, ranks[s].get(code))
-            poles = [dict(p, detail=f"detail/{code}/{s}-{p['rank']}") for p in u["poles"]]
+            mainland = _unit_summary(u, mainland_ranks[s].get(code), mainland_only=True)
+            row[f"{s}_mainland"] = mainland
+            poles = [dict(p, detail=f"detail/{code}/{detail_stem(s, p['lat'], p['lon'])}") for p in u["poles"]]
             doc[s] = {"poles": poles, "withheld": u["withheld"], "reason": u["reason"]}
+            # The same summary in the unit document, which the site does not read: it takes the ranking off
+            # units.json. It is here so a consumer who downloads one unit can answer "what is this unit's
+            # mainland pole and where does it rank" without fetching the region index. Not duplication to
+            # be tidied away.
+            doc[f"{s}_mainland"] = dict(mainland) if mainland else None
         units_rows.append(row)
         unit_docs[code] = doc
     regions_entry = {"id": rid, "name": region["name"], "names": region["names"], "snapshot": snapshot,
                      "unit_level": region["unit_level"], "units_count": len(units_meta), "r2_base": region["r2_base"],
                      "class_edges": list(table.edges), "max_distance_m": region["max_distance_m"],
                      "edge_mask_m": region["edge_mask_m"], "detail_res_m": region["detail_res_m"],
-                     "detail_window_m": region["detail_window_m"]}
+                     "detail_window_m": region["detail_window_m"],
+                     # The two numbers the site's About text states the rules with, so no copy on the site
+                     # names a fraction or an area and a region with different geography reads correctly.
+                     "area_col_fraction": region["area_col_fraction"], "min_island_m2": region["min_island_m2"]}
     prefix = f"{rid}/{snapshot}"
     manifest_entry = {"snapshot": snapshot, "published_at": generated_at, "r2_base": region["r2_base"],
                       "pipeline_commit": pipeline_commit, "sources": [dict(s) for s in sources],

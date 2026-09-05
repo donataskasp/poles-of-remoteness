@@ -246,6 +246,10 @@ def write_contact_sheet(poles: dict[str, list[dict]], units: list[Unit], results
             lines = [f"rank {p['rank']}: <b>{_km(p['dist_m'])}</b> from the nearest drivable way at {p['lat']:.5f}, {p['lon']:.5f}",
                      f"nearest way: {html.escape(way_txt)} (osm way {way['id']}, {html.escape(str(way.get('country')))})",
                      _place_line(place)]
+            # The sheet is the artefact the owner reviews, and a pole on a rock reads very differently from a
+            # pole inland, so the island tag belongs beside the thumbnail.
+            if p.get("island_km2"):
+                lines.insert(1, f"on an island of {p['island_km2']:g} km2")
             for w in flagged.get((s, u.code), []):
                 lines.append(f'<span class="warning">{html.escape(w)}</span>')
             if not mosaic:

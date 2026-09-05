@@ -18,9 +18,10 @@ def _units():
             Unit("bb", "B", "Beta", 2, "bb", MultiPolygon([box(2, 0, 3, 1)]), True, 2)]
 
 
-def _pole(lat, lon, d, rank=1):
+def _pole(lat, lon, d, rank=1, island_km2=None):
     return {"rank": rank, "lat": lat, "lon": lon, "dist_m": d, "nearest_way": {"id": 5, "highway": "track", "name": "Miško kelias", "ref": None, "country": "aa"},
-            "nearest_place": {"name": "Kaimas", "type": "village", "dist_m": 2500.0, "lat": lat + 0.02, "lon": lon}, "detail": None, "warnings": []}
+            "nearest_place": {"name": "Kaimas", "type": "village", "dist_m": 2500.0, "lat": lat + 0.02, "lon": lon},
+            "island_km2": island_km2, "detail": None, "warnings": []}
 
 
 def test_report_json_has_every_check_for_every_unit(tmp_path):
@@ -258,7 +259,7 @@ def _stage_env(tmp_path, monkeypatch, cfg, sheet):
     monkeypatch.setattr(validate, "shifted_poles", lambda *a: {})
     monkeypatch.setattr(validate, "shift_results", lambda *a: [])
     monkeypatch.setattr(validate.checks, "recheck", lambda *a, **k: [CheckResult("recheck", "aa", "A", False, True, {"rank": 1})])
-    for name in ("membership", "edge_bound", "holes", "invariants", "references"):
+    for name in ("membership", "edge_bound", "holes", "invariants", "distinct_areas", "references"):
         monkeypatch.setattr(validate.checks, name, lambda *a, **k: [])
     monkeypatch.setattr(validate.checks, "load_refs", lambda p: {})
     monkeypatch.setattr(validate, "write_contact_sheet", sheet)
@@ -299,3 +300,83 @@ def test_check_6_is_informative_when_the_region_names_no_reference_file(cfg):
     # With the key set, the same call reads the file the region config names.
     named = validate.reference_results(cfg, {"A": [], "B": []})
     assert len(named) > 1 and {r.check for r in named} == {"reference"}
+
+
+def test_a_pole_with_an_island_area_gets_a_line_on_its_contact_sheet_card(tmp_path):
+    """The sheet is what the owner reviews, and a pole on a rock reads very differently from one inland."""
+    poles = {"A": [{"unit": "aa", "poles": [_pole(0.5, 0.5, 4321.0, island_km2=357.4)], "reason": None}]}
+    write_contact_sheet(poles, [_units()[0]], [], tmp_path / "sheet.html", fetch_tile=lambda z, x, y: PNG)
+    assert "on an island of 357.4 km2" in (tmp_path / "sheet.html").read_text()
+
+
+def test_a_pole_without_one_gets_no_such_line(tmp_path):
+    poles = {"A": [{"unit": "aa", "poles": [_pole(0.5, 0.5, 4321.0)], "reason": None}]}
+    write_contact_sheet(poles, [_units()[0]], [], tmp_path / "sheet.html", fetch_tile=lambda z, x, y: PNG)
+    assert "on an island" not in (tmp_path / "sheet.html").read_text()
+
+
+def test_check_4_re_runs_the_search_over_the_shifted_frames_own_rasters(tmp_path, cfg, log, monkeypatch):
+    """Check 4 is where the search's rules are exercised independently, and it carries no copy of them.
+
+    It hands `search_unit` itself a Prepared whose unit raster is the shifted frame's own, and `poles.areas`
+    derives the land and water masks from that raster's name, which is exactly what the `rasterize_units`
+    call above it wrote beside it. So the island floor, the distinct-area rule and the superset all reach the
+    shifted search with no code here, and a rule that disagreed with itself between the two grids would show
+    up as a grid_shift failure rather than pass quietly.
+    """
+    from dataclasses import replace
+
+    from poles import poles as poles_mod
+    from poles import validate
+    from poles.extract import MARKER
+    from poles.grid import Frame
+    from poles.poles import Prepared
+    from poles.units import land_tif, water_tif
+    from poles.workspace import Workspace
+
+    assert validate.search_unit is poles_mod.search_unit          # the same function the poles stage runs
+
+    class _Serial:
+        """The process pool, run in this process: the point here is the jobs, not the concurrency."""
+
+        def __init__(self, max_workers=None):
+            pass
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+        def map(self, fn, items):
+            return [fn(item) for item in items]
+
+    cfg = replace(cfg, top_n=3)
+    ws = Workspace(str(tmp_path), cfg.id, "2026-01-01")
+    out = ws.dir("validate")
+    frame = Frame("EPSG:3035", 250.0, 5_000_000.0, 3_600_000.0, 40, 40)
+    prepared = Prepared(frame, _units(), tmp_path / "countries.fgb", tmp_path / "roads", tmp_path / "units.tif",
+                        tmp_path / "land_idx.fgb", tmp_path / "water_big.fgb", tmp_path / "places.vrt",
+                        {"aa": (0, 0, 40, 40), "bb": (0, 0, 40, 40)})
+    # the stage-1 sized pieces are already built and marked, so this run is the search alone
+    for name in ("dist_A_shift.tif", "dist_B_shift.tif", "units_shift.tif"):
+        (out / name).write_bytes(b"")
+        (out / (name + MARKER)).touch()
+    jobs = []
+    monkeypatch.setattr(validate, "ProcessPoolExecutor", _Serial)
+    monkeypatch.setattr(validate, "search_unit", lambda job: jobs.append(job) or
+                        {"scenario": job.scenario, "unit": job.unit.code, "poles": []})
+
+    result = validate.shifted_poles(cfg, ws, prepared, log)
+
+    assert set(result) == {("A", "aa"), ("A", "bb"), ("B", "aa"), ("B", "bb")}
+    shifted_tif = out / "units_shift.tif"
+    assert {j.prepared.units_tif for j in jobs} == {shifted_tif}
+    assert {j.dist_tif for j in jobs} == {out / "dist_A_shift.tif", out / "dist_B_shift.tif"}
+    assert {j.top_n for j in jobs} == {3}
+    # the land and water masks the candidate rule and the island floor read come from that raster's name
+    assert land_tif(shifted_tif) == out / "units_shift_land.tif"
+    assert water_tif(shifted_tif) == out / "units_shift_water.tif"
+    # and the frame under them is the half-cell shifted one, which is what makes check 4 independent
+    assert jobs[0].prepared.frame.x0 == frame.x0 + frame.res / 2
+    assert jobs[0].prepared.frame.y1 == frame.y1 + frame.res / 2

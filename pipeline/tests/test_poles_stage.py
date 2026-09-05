@@ -34,7 +34,7 @@ from tests.helpers import write_fgb
 
 def _p(lat, lon, d):
     return {"rank": 0, "lat": lat, "lon": lon, "dist_m": d, "nearest_way": {"id": 1, "highway": "track", "name": None, "ref": None, "country": "lt"},
-            "nearest_place": None, "detail": None, "warnings": []}
+            "nearest_place": None, "island_km2": None, "detail": None, "warnings": []}
 
 
 def test_stage_output_schema():
@@ -539,7 +539,6 @@ def test_units_json_bbox_takes_the_short_way_round_the_line(tmp_path, cfg, log, 
     assert bbox == [178.0, 50.0, 182.0, 55.0]
 
 
-
 # ---------- windows and the resume path ----------
 
 def test_bbox_window_floors_and_ceils_flips_y_and_clamps_to_the_frame():
@@ -816,7 +815,7 @@ def test_two_peaks_on_one_plateau_yield_one_pole_and_a_reason(tmp_path, cfg, mon
     job, _ = _field_job(tmp_path, monkeypatch, _plateau(valley=False), replace(cfg, dedup_m=1000), top_n=2)
     result = poles_mod.search_unit(job)
     assert [p["dist_m"] for p in result["poles"]] == [6000.0]
-    assert result["reason"] and "1 pole(s)" in result["reason"]
+    assert result["reason"] and "1 mainland pole(s)" in result["reason"]
 
 
 def _two_blocks():
@@ -843,3 +842,125 @@ def test_a_peak_on_an_islet_is_a_separate_place_from_the_mainland_peak(tmp_path,
     (tmp_path / "bridged").mkdir()
     job, _ = _field_job(tmp_path / "bridged", monkeypatch, bridged, replace(cfg, dedup_m=1000), land=land, top_n=2)
     assert [p["dist_m"] for p in poles_mod.search_unit(job)["poles"]] == [6000.0]
+
+
+# ---------- the superset and the island tag (issues #30, #56) ----------
+
+def _archipelago(mainland_peaks, island_peaks):
+    """A 40 x 40 field of 250 m cells: one mainland block and four islands, with peaks planted on both.
+
+    The mainland is 800 cells (50 km2) across the top twenty rows; each island is 4 by 4 cells, exactly the
+    1 km2 default floor, so nothing here is dropped and these tests are about the superset alone. The peaks
+    are `mainland_peaks` along row 5 at ten cell intervals and `island_peaks` one per island; every other
+    land cell sits at 100 m, far below any col threshold, so each peak is its own place.
+    """
+    dist = np.full((40, 40), 100.0)
+    land = np.zeros((40, 40), dtype=bool)
+    land[0:20, :] = True
+    for k in range(4):
+        land[30:34, 8 * k:8 * k + 4] = True
+    for k, d in enumerate(mainland_peaks):
+        dist[5, 5 + 10 * k] = d
+    for k, d in enumerate(island_peaks):
+        dist[31, 8 * k + 1] = d
+    return dist, land
+
+
+def test_a_unit_with_islands_publishes_ten_mainland_poles_and_the_islands_above_the_tenth(tmp_path, cfg, monkeypatch):
+    """The search stops on the count of mainland poles, and the islands it met on the way come too.
+
+    Ten is `top_n`, three here so the whole superset can be written out: the mainland peaks are 9, 7 and 5 km
+    and the island peaks 8, 6 and 4 km, so the published set is everything down to the third mainland pole
+    and the 4 km island below it is not in it.
+    """
+    dist, land = _archipelago([9000.0, 7000.0, 5000.0, 3000.0], [8000.0, 6000.0, 4000.0, 2000.0])
+    job, _ = _field_job(tmp_path, monkeypatch, dist, replace(cfg, dedup_m=1000), land=land, top_n=3)
+    result = poles_mod.search_unit(job)
+    assert [p["dist_m"] for p in result["poles"]] == [9000.0, 8000.0, 7000.0, 6000.0, 5000.0]
+    assert [p["island_km2"] for p in result["poles"]] == [None, 1.0, None, 1.0, None]
+    assert result["reason"] is None
+
+
+def test_ranks_are_the_overall_order_of_the_superset_with_no_gaps(tmp_path, cfg, monkeypatch):
+    """A rank is the pole's place in the whole published set, islands included: the site filters, the
+    pipeline does not renumber, and the rank is what a detail raster and a marker are selected by."""
+    dist, land = _archipelago([9000.0, 7000.0, 5000.0, 3000.0], [8000.0, 6000.0, 4000.0, 2000.0])
+    job, _ = _field_job(tmp_path, monkeypatch, dist, replace(cfg, dedup_m=1000), land=land, top_n=3)
+    assert [p["rank"] for p in poles_mod.search_unit(job)["poles"]] == [1, 2, 3, 4, 5]
+
+
+def test_no_more_than_top_n_island_poles_are_published(tmp_path, cfg, monkeypatch):
+    """Every peak here is on an island but the two highest, so the cap is what stops the island half."""
+    dist, land = _archipelago([5000.0, 4000.0, 3000.0, 2000.0], [9000.0, 8000.0, 7000.0, 6000.0])
+    job, _ = _field_job(tmp_path, monkeypatch, dist, replace(cfg, dedup_m=1000), land=land, top_n=2)
+    result = poles_mod.search_unit(job)
+    assert [p["dist_m"] for p in result["poles"]] == [9000.0, 8000.0, 5000.0, 4000.0]
+    assert [p["island_km2"] for p in result["poles"]] == [1.0, 1.0, None, None]
+
+
+def test_reaching_the_island_cap_retires_every_remaining_island_cell(tmp_path, cfg, monkeypatch):
+    """Without that one retirement an archipelago unit would refine skerries it can no longer take all the
+    way down to its last mainland pole; the third island's peak outranks both mainland poles and is never
+    refined at all."""
+    dist, land = _archipelago([5000.0, 4000.0, 3000.0, 2000.0], [9000.0, 8000.0, 7000.0, 6000.0])
+    job, refined_at = _field_job(tmp_path, monkeypatch, dist, replace(cfg, dedup_m=1000), land=land, top_n=2)
+    poles_mod.search_unit(job)
+    assert (31, 1) in refined_at and (31, 9) in refined_at        # the two islands the cap had room for
+    assert (31, 17) not in refined_at and (31, 25) not in refined_at
+
+
+def test_a_landlocked_unit_publishes_exactly_top_n_poles(tmp_path, cfg, monkeypatch):
+    """With no second land component the superset is inert: the quota is the old count and nothing is tagged."""
+    dist, land = _archipelago([9000.0, 7000.0, 5000.0, 3000.0], [])
+    land[30:34, :] = False                       # the islands go, so the unit is one landmass
+    job, _ = _field_job(tmp_path, monkeypatch, dist, replace(cfg, dedup_m=1000), land=land, top_n=3)
+    result = poles_mod.search_unit(job)
+    assert [p["dist_m"] for p in result["poles"]] == [9000.0, 7000.0, 5000.0]
+    assert [p["island_km2"] for p in result["poles"]] == [None, None, None]
+
+
+def test_a_pole_on_the_units_largest_land_component_is_not_tagged(tmp_path, cfg, monkeypatch):
+    dist, land = _archipelago([5000.0], [9000.0])
+    job, _ = _field_job(tmp_path, monkeypatch, dist, replace(cfg, dedup_m=1000), land=land, top_n=1)
+    mainland = poles_mod.search_unit(job)["poles"][1]
+    assert mainland["dist_m"] == 5000.0 and mainland["island_km2"] is None
+
+
+def test_a_pole_on_a_smaller_component_carries_that_components_area(tmp_path, cfg, monkeypatch):
+    """The area published is the whole component's, which is what "on an island of 1 km2" means to a reader."""
+    dist, land = _archipelago([5000.0], [9000.0])
+    job, _ = _field_job(tmp_path, monkeypatch, dist, replace(cfg, dedup_m=1000), land=land, top_n=1)
+    island = poles_mod.search_unit(job)["poles"][0]
+    assert island["dist_m"] == 9000.0 and island["island_km2"] == 1.0
+
+
+def test_the_exhausted_reason_counts_mainland_poles(tmp_path, cfg, monkeypatch):
+    """A unit that runs out says how many mainland poles it found, not how many records it wrote."""
+    dist, land = _archipelago([5000.0], [9000.0])
+    job, _ = _field_job(tmp_path, monkeypatch, dist, replace(cfg, dedup_m=1000), land=land, top_n=2)
+    result = poles_mod.search_unit(job)
+    assert "1 mainland pole(s)" in result["reason"]
+    assert sum(1 for p in result["poles"] if p["island_km2"] is None) == 1
+
+
+def _entry(unit, *poles):
+    return {"unit": unit, "poles": list(poles), "reason": None}
+
+
+def _sp(rank, dist, island=None):
+    """One published pole, as `validate_poles_json` reads it."""
+    return dict(_p(55.0 + rank / 100, 24.0, dist), rank=rank, island_km2=island)
+
+
+def test_validate_poles_json_counts_mainland_poles_not_all_poles():
+    """Two mainland poles and two islands is a complete unit at top_n = 2; two islands alone is not."""
+    validate_poles_json([_entry("aa", _sp(1, 9000.0, 1.0), _sp(2, 8000.0), _sp(3, 7000.0, 2.0), _sp(4, 6000.0))], 2)
+    with pytest.raises(ValueError, match="fewer than 2 mainland poles"):
+        validate_poles_json([_entry("aa", _sp(1, 9000.0, 1.0), _sp(2, 8000.0, 2.0))], 2)
+    silent = {"unit": "aa", "poles": [_sp(1, 9000.0, 1.0), _sp(2, 8000.0, 2.0)], "reason": "only 0 mainland pole(s)"}
+    validate_poles_json([silent], 2)
+
+
+def test_validate_poles_json_refuses_more_islands_than_top_n():
+    with pytest.raises(ValueError, match="island poles"):
+        validate_poles_json([_entry("aa", _sp(1, 9000.0, 1.0), _sp(2, 8000.0, 2.0), _sp(3, 7000.0))], 1)

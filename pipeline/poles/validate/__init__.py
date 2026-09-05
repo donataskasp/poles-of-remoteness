@@ -287,6 +287,12 @@ def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
         poles, {s: grid_dir / f"roads_{s}.tif" for s in SCENARIOS}, prepared.units_tif, prepared.frame, prepared.units))
     results += step("check 6: references", lambda: reference_results(cfg, poles))
     results += step("check 7: invariants", lambda: checks.invariants(poles, prepared.units, cfg, ws.meta("grid")))
+    # Check 7's other half has a step of its own because it costs minutes rather than a second: it labels the
+    # coarse grid once per published pole per unit and scenario, and a check that quietly costs minutes is a
+    # check nobody will believe the timing of.
+    results += step("check 7: distinct areas", lambda: checks.distinct_areas(
+        poles, prepared.units, cfg, prepared.frame, prepared.units_tif,
+        {s: grid_dir / f"dist_{s}.tif" for s in SCENARIOS}, prepared.windows, log))
 
     title = f"{cfg.name} validation, snapshot {ws.snapshot}"
     summary = write_report_json(results, out / "report.json",

@@ -201,10 +201,14 @@ def _upload_one(client, bucket: str, path: Path, key: str, forced: bool = False)
 
 
 def upload_tree(client, bucket: str, items: list[tuple[Path, str]], log: logging.Logger, workers: int = 8,
-                forced: bool = False) -> dict:
+                forced: bool = False, force_keys=frozenset()) -> dict:
+    """`force_keys` are the keys that are replaced even on a size match, the way `forced` replaces every key.
+    Under an immutable snapshot prefix that is a short list, and `publish.mutable_keys` is the only caller
+    that has one; everything else is either unchanged bytes or a new key."""
     stats = {"uploaded": 0, "skipped": 0, "bytes": 0}
     with ThreadPoolExecutor(max_workers=max(1, min(workers, len(items)))) as pool:
-        for done, size in pool.map(lambda it: _upload_one(client, bucket, it[0], it[1], forced), items):
+        for done, size in pool.map(lambda it: _upload_one(client, bucket, it[0], it[1],
+                                                          forced or it[1] in force_keys), items):
             stats["uploaded" if done else "skipped"] += 1
             stats["bytes"] += size
     log.info("publish: upload to %s: %s", bucket, stats)

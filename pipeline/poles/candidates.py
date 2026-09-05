@@ -24,6 +24,12 @@ whether this candidate was accepted or refused. `poles.areas` answers the connec
 the threshold **down** onto a fixed ladder, which makes the rule slightly stricter than its exact statement
 and never looser.
 
+How many poles the search wants, and which of them it may take at all, is the `Quota`'s to say rather than
+a bare `top_n`: `CountQuota` is the plain count and the default, and the poles stage passes one that keeps
+going until it holds `top_n` poles on the unit's main landmass while taking the island poles it meets on
+the way, up to a cap. A quota's refusal costs nothing and stops nothing, and a quota that has reached a cap
+returns the cells it can no longer take so they are retired in one operation.
+
 The result equals "refine every cell, sort, accept greedily under the same rules", checked against a
 brute-force model on synthetic fields in tests/test_candidates.py.
 """
@@ -94,6 +100,44 @@ class SearchResult:
     warnings: list[str] = field(default_factory=list)
 
 
+class Quota:
+    """How many more poles the search wants, and whether it may take the one in hand.
+
+    `wants_more` is the loop condition, asked before every cell and again after every acceptance; the
+    result's `exhausted` is its last answer. `accepts` is asked of a candidate that has already cleared the
+    separation floor, and a refusal only means "not this kind of pole": the search runs on and the next
+    candidate down may still be taken. `taken` records an accepted pole and may return a boolean over the
+    search's own sorted cell order, naming cells the quota can no longer take; they are retired at once,
+    which is how a cap on one kind of pole stops the search refining more of that kind for nothing.
+    """
+
+    def wants_more(self) -> bool:
+        raise NotImplementedError
+
+    def accepts(self, p: Refined) -> bool:
+        raise NotImplementedError
+
+    def taken(self, p: Refined) -> np.ndarray | None:
+        raise NotImplementedError
+
+
+class CountQuota(Quota):
+    """`top_n` poles, whatever they are: what the search did before there was a quota at all."""
+
+    def __init__(self, top_n: int):
+        self.top_n, self.count = int(top_n), 0
+
+    def wants_more(self) -> bool:
+        return self.count < self.top_n
+
+    def accepts(self, p: Refined) -> bool:
+        return True
+
+    def taken(self, p: Refined) -> np.ndarray | None:
+        self.count += 1
+        return None
+
+
 class Search:
     """Refine the fewest coarse cells that still prove the unit's top_n poles (spec 3.2 stage 5).
 
@@ -102,10 +146,16 @@ class Search:
     They are sorted by each cell's own upper bound `upper()` descending on construction, so that bound
     at index i is the largest of every cell from i on; `.order` maps a sorted index back to the caller's
     index, and `refiner(i)` is called with the sorted index.
+
+    `quota` decides how many poles the search wants and which of them it may take; without one it is
+    `CountQuota(top_n)`, which is the plain "the first top_n" rule. It may also be replaced after
+    construction and before `run()`, which is what a quota that reads the sorted cell order needs: the
+    sort happens here, and `Refined.cell` is an index into it.
     """
 
     def __init__(self, xs, ys, coarse, pads, res_m: float, top_n: int, refiner: Callable[[int], Refined | None],
                  dedup_m: float = 10_000.0, distinct: Callable[[Refined, list[Refined]], Verdict] | None = None,
+                 quota: Quota | None = None,
                  warn_at: int = 500, fail_at: int = 200_000, log: logging.Logger | None = None):
         xs, ys, coarse, pads = (np.asarray(a, dtype=float) for a in (xs, ys, coarse, pads))
         if len({xs.size, ys.size, coarse.size, pads.size}) != 1:
@@ -127,6 +177,7 @@ class Search:
         self.xs, self.ys, self.coarse, self.pads = xs[order], ys[order], coarse[order], pads[order]
         self.uppers = uppers[order]
         self.top_n, self.refiner, self.dedup_m, self.distinct = top_n, refiner, dedup_m, distinct
+        self.quota = CountQuota(top_n) if quota is None else quota
         self.warn_at, self.fail_at, self.log = warn_at, fail_at, log
         self.pad_max = float(self.pads.max()) if self.pads.size else 0.0
 
@@ -156,10 +207,15 @@ class Search:
 
         def finalize(up_to_value: float) -> None:
             """Make final every pending point above up_to_value, greedily accept, mask dominated cells."""
-            while pending and pending[0].dist_m > up_to_value and len(accepted) < self.top_n:
+            while pending and pending[0].dist_m > up_to_value and self.quota.wants_more():
                 p = pending.pop(0)
                 if not all(math.hypot(p.x - q.x, p.y - q.y) / (1 + self.pad_max) >= self.dedup_m for q in accepted):
                     continue          # the floor is arithmetic and the callback reads a raster: fail cheap first
+                if not self.quota.accepts(p):
+                    # Also arithmetic, and a pole the quota refuses changes nothing: it is not this
+                    # candidate's place that is spoken for, only its kind, so nothing is retired for it
+                    # and the raster is not read. The quota's own `taken` is what retires that kind.
+                    continue
                 if self.distinct is not None:
                     verdict = self.distinct(p, accepted)
                     # Whatever the verdict: candidates are finalised in globally descending distance, so a
@@ -170,6 +226,9 @@ class Search:
                     if not verdict.separate:
                         continue
                 accepted.append(p)
+                retired = self.quota.taken(p)
+                if retired is not None:
+                    alive[retired] = False
                 if self.dedup_m > 0:
                     # A cell is dominated when even its farthest point is surely within dedup_m of p.
                     # The acceptance test above measures a separation as hypot / (1 + pad_max), a lower
@@ -184,7 +243,7 @@ class Search:
                     d = np.hypot(self.xs - p.x, self.ys - p.y)
                     alive[(d + self.hd) / (1 + self.pad_max) < self.dedup_m] = False
 
-        while i < n and len(accepted) < self.top_n:
+        while i < n and self.quota.wants_more():
             if not alive[i]:
                 i += 1
                 continue
@@ -193,7 +252,7 @@ class Search:
             # point is final. `pad_max` belongs to the separations below, never to a bound.
             remaining_upper = self.uppers[i]
             finalize(remaining_upper)
-            if len(accepted) >= self.top_n or not alive[i]:
+            if not self.quota.wants_more() or not alive[i]:
                 i += 1
                 continue
             refined = self.refiner(i)
@@ -221,5 +280,4 @@ class Search:
                 pending.insert(k, refined)
             i += 1
         finalize(-math.inf)
-        exhausted = len(accepted) < self.top_n
-        return SearchResult(accepted, refinements, exhausted, warn_msgs)
+        return SearchResult(accepted, refinements, self.quota.wants_more(), warn_msgs)

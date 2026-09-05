@@ -86,7 +86,14 @@ def nearest_way(roads: UtmRoads, pole: RefinedPole, countries: Countries) -> dic
             "ref": clean_text(attrs["ref"][i]), "country": countries.code_at(lon, lat)}
 
 
-def pole_record(rank: int, pole: RefinedPole, way: dict, place: dict | None) -> dict:
-    """One published pole. `detail` and `warnings` are filled by later stages, never here."""
+def pole_record(rank: int, pole: RefinedPole, way: dict, place: dict | None, island_km2: float | None) -> dict:
+    """One published pole. `detail` and `warnings` are filled by later stages, never here.
+
+    `island_km2` is the area of the pole's whole land component when that component is not its unit's main
+    one, and None when it is: "on an island of 357 km2" is what a reader wants, not the part of the island
+    inside the unit. The component is the one holding the pole's **cell**; a refined point can lap up to
+    half a cell diagonal into a neighbouring cell, and in the pathological case where that neighbour belongs
+    to a different island the cell's answer is the one published.
+    """
     return {"rank": rank, "lat": round(pole.lat, 6), "lon": round(pole.lon, 6), "dist_m": round(pole.dist_m, 2),
-            "nearest_way": way, "nearest_place": place, "detail": None, "warnings": []}
+            "nearest_way": way, "nearest_place": place, "island_km2": island_km2, "detail": None, "warnings": []}

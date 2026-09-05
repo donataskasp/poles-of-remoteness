@@ -37,11 +37,20 @@ def test_nearest_way_country_uses_all_countries_not_only_units():
 def test_pole_record_shape():
     pole = RefinedPole(54.4414731, 23.5370201, 3425.567, 1385319417, 0, 0, 32635, 0)
     rec = pole_record(1, pole, {"id": 1385319417, "highway": "track", "name": None, "ref": None, "country": "lt"},
-                      {"name": "Kumečiai", "type": "village", "dist_m": 3700.0, "lat": 54.47, "lon": 23.53})
+                      {"name": "Kumečiai", "type": "village", "dist_m": 3700.0, "lat": 54.47, "lon": 23.53}, None)
     assert rec == {"rank": 1, "lat": 54.441473, "lon": 23.53702, "dist_m": 3425.57,
                    "nearest_way": {"id": 1385319417, "highway": "track", "name": None, "ref": None, "country": "lt"},
                    "nearest_place": {"name": "Kumečiai", "type": "village", "dist_m": 3700.0, "lat": 54.47, "lon": 23.53},
-                   "detail": None, "warnings": []}
+                   "island_km2": None, "detail": None, "warnings": []}
+
+
+def test_pole_record_carries_the_island_area_or_null():
+    """The field is on every published pole: a number in km2 for a pole off its unit's main landmass, null
+    for one on it. Nothing downstream has to ask whether the key is there."""
+    pole = RefinedPole(54.4414731, 23.5370201, 3425.567, 1385319417, 0, 0, 32635, 0)
+    way = {"id": 1385319417, "highway": "track", "name": None, "ref": None, "country": "lt"}
+    assert pole_record(1, pole, way, None, 357.4)["island_km2"] == 357.4
+    assert pole_record(1, pole, way, None, None)["island_km2"] is None
 
 
 def test_places_nearest_reports_missing_name_and_place_as_null_never_as_the_string_none(tmp_path):

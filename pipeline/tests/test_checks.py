@@ -8,18 +8,19 @@ from poles.config import RegionConfig, load_region
 from poles.grid import Frame, create_raster
 from poles.roads import RoadSet
 from poles.units import Unit, low_tif
-from poles.validate.checks import (CheckResult, ChecksError, _coord_batches, _geodesic_min, edge_bound,
-                                   grid_shift_compare, holes, invariants, load_refs, membership, recheck,
-                                   references)
+from poles.units import land_tif, water_tif
+from poles.validate.checks import (CheckResult, ChecksError, _coord_batches, _geodesic_min, distinct_areas,
+                                   edge_bound, grid_shift_compare, holes, invariants, load_refs, membership,
+                                   recheck, references)
 from tests.helpers import write_fgb
 
 GEOD = Geod(ellps="WGS84")
 
 
-def _pole(lat, lon, d, rank=1, way=1):
+def _pole(lat, lon, d, rank=1, way=1, island_km2=None):
     return {"rank": rank, "lat": lat, "lon": lon, "dist_m": d,
             "nearest_way": {"id": way, "highway": "track", "name": None, "ref": None, "country": "lt"},
-            "nearest_place": None, "detail": None, "warnings": []}
+            "nearest_place": None, "island_km2": island_km2, "detail": None, "warnings": []}
 
 
 class _Tiles:
@@ -454,3 +455,114 @@ def test_holes_reads_windows_and_never_a_whole_raster(tmp_path, monkeypatch):
     assert len(results) == 1 and results[0].passed
     assert reads and all(window is not None for window, _ in reads)
     assert max(size for _, size in reads) <= 512 * 512
+
+
+# ---------- check 7, second half: the distinct-area invariant ----------
+
+def _areas_rasters(tmp_path, dist, land=None):
+    """A frame carrying the three rasters `poles.areas` reads: the scenario's coarse distance, the
+    all-touched land of the candidate rule, and the big water it subtracts."""
+    dist = np.asarray(dist, dtype="float32")
+    h, w = dist.shape
+    frame = Frame("EPSG:3035", 250.0, 5_000_000.0, 3_600_000.0, w, h)
+    land = np.ones((h, w), bool) if land is None else np.asarray(land, bool)
+    dist_tif = tmp_path / "dist_A.tif"
+    create_raster(frame, dist_tif, "float32", None)
+    with rasterio.open(dist_tif, "r+") as ds:
+        ds.write(dist, 1)
+    units_tif = tmp_path / "units.tif"
+    for path, arr, dtype in ((units_tif, np.ones((h, w)), "int16"), (low_tif(units_tif), np.zeros((h, w)), "int16"),
+                             (land_tif(units_tif), land, "uint8"), (water_tif(units_tif), np.zeros((h, w)), "uint8")):
+        create_raster(frame, path, dtype, None)
+        with rasterio.open(path, "r+") as ds:
+            ds.write(np.asarray(arr).astype(dtype), 1)
+    return frame, units_tif, {"A": dist_tif}
+
+
+def _cell_pole(frame, row, col, dist_m, rank):
+    to_ll = Transformer.from_crs(frame.crs, "EPSG:4326", always_xy=True)
+    lon, lat = to_ll.transform(frame.x0 + (col + 0.5) * frame.res, frame.y1 - (row + 0.5) * frame.res)
+    return _pole(round(lat, 6), round(lon, 6), dist_m, rank=rank)
+
+
+def _ridge(valley: bool):
+    """A 40 x 40 field with a three row plateau at 5,000 m and a peak at each end of it; `valley` cuts a
+    road through the middle of the plateau, down to 1,000 m."""
+    dist = np.full((40, 40), 100.0)
+    dist[19:22, 5:35] = 5000.0
+    dist[20, 6], dist[20, 33] = 6000.0, 5900.0
+    if valley:
+        dist[19:22, 20] = 1000.0
+    return dist
+
+
+def _ridge_case(tmp_path, regions_dir, valley: bool):
+    cfg = _cfg(regions_dir, expected_units=1, top_n=2, dedup_m=1000)
+    frame, units_tif, dist_tifs = _areas_rasters(tmp_path, _ridge(valley))
+    unit = Unit("uu", "U", "U", 1, "uu", MultiPolygon([box(-10, 30, 40, 70)]), False, 1)
+    poles = {"A": [{"unit": "uu", "reason": None,
+                    "poles": [_cell_pole(frame, 20, 6, 6000.0, 1), _cell_pole(frame, 20, 33, 5900.0, 2)]}]}
+    return distinct_areas(poles, [unit], cfg, frame, units_tif, dist_tifs, {"uu": (0, 0, 40, 40)})
+
+
+def test_check_7_reports_two_poles_connected_above_the_col_threshold(tmp_path, regions_dir):
+    """Both ends of one plateau: every route between them stays above half of the nearer one's distance, so
+    they are one place and a file publishing both disagrees with the rule the search ran."""
+    results = _ridge_case(tmp_path, regions_dir, valley=False)
+    assert len(results) == 1 and not results[0].passed and results[0].blocking
+    assert results[0].details["name"] == "distinct_areas" and results[0].details["fraction"] == 0.5
+    assert results[0].details["connected_pairs"] == [[1, 2]]
+
+
+def test_check_7_passes_when_every_pair_is_separated_over_land(tmp_path, regions_dir):
+    """The same two peaks with a road through the middle: the col is 1,000 m, well under the threshold."""
+    results = _ridge_case(tmp_path, regions_dir, valley=True)
+    assert results[0].passed and results[0].details["connected_pairs"] == []
+
+
+def test_check_7_says_nothing_about_a_unit_with_fewer_than_two_poles(tmp_path, regions_dir):
+    cfg = _cfg(regions_dir, expected_units=1, top_n=2)
+    frame, units_tif, dist_tifs = _areas_rasters(tmp_path, _ridge(valley=True))
+    unit = Unit("uu", "U", "U", 1, "uu", MultiPolygon([box(-10, 30, 40, 70)]), False, 1)
+    poles = {"A": [{"unit": "uu", "poles": [_cell_pole(frame, 20, 6, 6000.0, 1)], "reason": None},
+                   {"unit": "uu", "poles": [], "reason": "no pole"}]}
+    results = distinct_areas(poles, [unit], cfg, frame, units_tif, dist_tifs, {"uu": (0, 0, 40, 40)})
+    assert [r.passed for r in results] == [True, True]
+    assert [r.details["poles"] for r in results] == [1, 0]
+
+
+def test_check_7_still_fails_a_pair_closer_than_the_config_floor(regions_dir):
+    """The floor is kept beside the distinct-area rule, for a plateau where the col test alone would tile
+    one flat: two poles 3.3 km apart fail it whatever the ground between them looks like."""
+    cfg = _cfg(regions_dir, expected_units=1, top_n=2, dedup_m=10_000)
+    unit = Unit("lt", "LT", "Lithuania", 1, "lt", MultiPolygon([box(20, 53, 27, 57)]), False, 1)
+    close = {"unit": "lt", "poles": [_pole(54.0, 24.0, 5000, rank=1), _pole(54.03, 24.0, 4900, rank=2)], "reason": None}
+    results = [r for r in invariants({"A": [close], "B": [close]}, [unit], cfg, {"a_le_b_violations": 0})
+               if r.details["name"] == "separation"]
+    assert not any(r.passed for r in results)
+
+
+def test_check_7_reads_the_floor_from_the_region_config_not_a_constant(regions_dir):
+    """The same pair passes under a region whose floor is lower: the number is `dedup_m`, not a constant."""
+    unit = Unit("lt", "LT", "Lithuania", 1, "lt", MultiPolygon([box(20, 53, 27, 57)]), False, 1)
+    close = {"unit": "lt", "poles": [_pole(54.0, 24.0, 5000, rank=1), _pole(54.03, 24.0, 4900, rank=2)], "reason": None}
+    lenient = _cfg(regions_dir, expected_units=1, top_n=2, dedup_m=1000)
+    results = [r for r in invariants({"A": [close], "B": [close]}, [unit], lenient, {"a_le_b_violations": 0})
+               if r.details["name"] == "separation"]
+    assert all(r.passed for r in results)
+
+
+def test_check_7_counts_mainland_poles_for_top_n_or_reason(regions_dir):
+    """Two poles is not two mainland poles: a unit whose top pole is on an island has to say so."""
+    cfg = _cfg(regions_dir, expected_units=1, top_n=2)
+    unit = Unit("lt", "LT", "Lithuania", 1, "lt", MultiPolygon([box(20, 53, 27, 57)]), False, 1)
+    poles = [_pole(54.0, 24.0, 9000, rank=1, island_km2=3.0), _pole(55.5, 25.0, 8000, rank=2)]
+    silent = {"unit": "lt", "poles": poles, "reason": None}
+    bad = {r.details["name"]: r for r in invariants({"A": [silent], "B": [silent]}, [unit], cfg,
+                                                    {"a_le_b_violations": 0})}
+    assert not bad["top_n_or_reason"].passed
+    assert bad["top_n_or_reason"].details == {"name": "top_n_or_reason", "count": 2, "mainland": 1, "reason": None}
+    spoken = {"unit": "lt", "poles": poles, "reason": "only 1 mainland pole(s)"}
+    ok = {r.details["name"]: r for r in invariants({"A": [spoken], "B": [spoken]}, [unit], cfg,
+                                                   {"a_le_b_violations": 0})}
+    assert ok["top_n_or_reason"].passed

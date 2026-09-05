@@ -3,7 +3,7 @@ import logging
 import numpy as np
 import pytest
 
-from poles.candidates import Refined, Search, Verdict, half_diag, pad_fn_for
+from poles.candidates import CountQuota, Refined, Search, Verdict, half_diag, pad_fn_for
 from poles.errors import PolesError
 
 
@@ -345,3 +345,96 @@ def test_refined_carries_the_sorted_index_it_came_from():
     assert [p.cell for p in r.accepted] == [0, 1, 2]
     assert [int(s.order[p.cell]) for p in r.accepted] == [1, 2, 0]      # back to the caller's own indices
     assert [p.dist_m for p in r.accepted] == [300.0, 200.0, 100.0]
+
+
+# ---------- the quota: the published superset (issue #30) ----------
+
+class _Quota:
+    """A quota built from three plain answers, so each test states its own rule and nothing else."""
+
+    def __init__(self, want, ok=lambda p: True, dead=None, dead_after=1):
+        self.want, self.ok, self.dead, self.dead_after = want, ok, dead, dead_after
+        self.count = 0
+
+    def wants_more(self):
+        return self.count < self.want
+
+    def accepts(self, p):
+        return self.ok(p)
+
+    def taken(self, p):
+        self.count += 1
+        return self.dead if self.count == self.dead_after else None
+
+
+def test_the_default_quota_is_the_old_top_n_count():
+    """A search built without one gets `CountQuota(top_n)`, which is what every test above describes."""
+    xs = np.arange(4) * 5000.0; ys = np.zeros(4)
+    coarse = np.array([4000.0, 3000.0, 2000.0, 1000.0]); pads = np.full(4, 0.002)
+    s = Search(xs, ys, coarse, pads, 250.0, top_n=2, dedup_m=0.0,
+               refiner=lambda i: Refined(float(s.xs[i]), 0.0, float(s.coarse[i]), None))
+    assert isinstance(s.quota, CountQuota)
+    r = s.run()
+    assert [p.dist_m for p in r.accepted] == [4000.0, 3000.0] and not r.exhausted
+
+
+def test_a_quota_that_refuses_a_pole_leaves_the_search_running():
+    """A refusal is not the end of the search: the quota is full of that kind of pole, not of poles."""
+    xs = np.arange(4) * 5000.0; ys = np.zeros(4)
+    coarse = np.array([4000.0, 3000.0, 2000.0, 1000.0]); pads = np.full(4, 0.002)
+    quota = _Quota(2, ok=lambda p: p.dist_m != 3000.0)
+    s = Search(xs, ys, coarse, pads, 250.0, top_n=2, dedup_m=0.0, quota=quota,
+               refiner=lambda i: Refined(float(s.xs[i]), 0.0, float(s.coarse[i]), None))
+    r = s.run()
+    assert [p.dist_m for p in r.accepted] == [4000.0, 2000.0] and not r.exhausted
+
+
+def test_a_pole_the_quota_refuses_never_reaches_the_distinct_callback():
+    """Both cheap tests come before the one that reads a raster, and a refused pole retires nothing."""
+    xs = np.arange(3) * 5000.0; ys = np.zeros(3)
+    coarse = np.array([4000.0, 3000.0, 2000.0]); pads = np.full(3, 0.002)
+    asked = []
+
+    def distinct(p, accepted):
+        asked.append(p.dist_m)
+        return Verdict(True, None)
+
+    quota = _Quota(2, ok=lambda p: p.dist_m != 3000.0)
+    s = Search(xs, ys, coarse, pads, 250.0, top_n=2, dedup_m=0.0, quota=quota, distinct=distinct,
+               refiner=lambda i: Refined(float(s.xs[i]), 0.0, float(s.coarse[i]), None))
+    s.run()
+    assert asked == [4000.0, 2000.0]
+
+
+def test_the_cells_a_quota_retires_are_never_refined_again():
+    """One retirement covers every cell the quota can no longer take: the island cap's whole point."""
+    n = 6
+    xs = np.arange(n) * 5000.0; ys = np.zeros(n)
+    coarse = np.linspace(5000.0, 1000.0, n); pads = np.full(n, 0.002)
+    refined = []
+
+    def refiner(i):
+        refined.append(i)
+        return Refined(float(xs[i]), 0.0, float(coarse[i]), None)
+
+    rest = np.zeros(n, dtype=bool)
+    rest[2:] = True
+    r = Search(xs, ys, coarse, pads, 250.0, top_n=5, refiner=refiner, dedup_m=0.0,
+               quota=_Quota(5, dead=rest)).run()
+    assert refined == [0, 1] and r.refinements == 2
+    assert [p.dist_m for p in r.accepted] == [5000.0, 4200.0] and r.exhausted
+
+
+def test_wants_more_ends_the_search_even_with_candidates_left():
+    """The loop condition is the quota's answer, not the length of the accepted list."""
+    n = 5
+    xs = np.arange(n) * 5000.0; ys = np.zeros(n)
+    coarse = np.linspace(5000.0, 1000.0, n); pads = np.full(n, 0.002)
+    refined = []
+
+    def refiner(i):
+        refined.append(i)
+        return Refined(float(xs[i]), 0.0, float(coarse[i]), None)
+
+    r = Search(xs, ys, coarse, pads, 250.0, top_n=4, refiner=refiner, dedup_m=0.0, quota=_Quota(1)).run()
+    assert len(r.accepted) == 1 and not r.exhausted and refined == [0]

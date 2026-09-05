@@ -25,6 +25,7 @@ from concurrent.futures.process import BrokenProcessPool
 from dataclasses import dataclass, replace
 from functools import lru_cache
 from pathlib import Path
+from typing import Callable
 
 import numpy as np
 import rasterio
@@ -39,7 +40,7 @@ from .antimeridian import split_bbox, wrapped_bounds
 from .areas import AreaField, col_threshold
 from .attrib import Countries, Places, clean_text, nearest_way, pole_record
 from .boundaries import AdminArea, load_admin_areas
-from .candidates import Refined, Search, Verdict, half_diag, pad_fn_for
+from .candidates import Quota, Refined, Search, Verdict, half_diag, pad_fn_for
 from .classify import where_clause
 from .config import RegionConfig
 from .errors import PolesError
@@ -347,8 +348,8 @@ def refine_cell(x: float, y: float, frame_crs: str, roads: UtmRoads, half_m: flo
     return Refined(float(fx), float(fy), r.dist_m, (r, nearest_way(roads, r, countries)))
 
 
-def _padded_window(window: Window, pad_cells: int, frame: Frame) -> Window:
-    """The unit's window grown by `pad_cells` each way and clamped to the frame.
+def padded_window(window: Window, pad_cells: int, frame: Frame) -> Window:
+    """The unit's window grown by `pad_cells` each way and clamped to the frame. Shared with check 7.
 
     The margin is what the connectivity question needs: a path joining two areas may leave the unit's own
     box. **Stated assumption:** it does not leave it by more than the candidate's own distance to a road,
@@ -384,6 +385,39 @@ def _island_cells(field: AreaField, rows: np.ndarray, cols: np.ndarray,
     return keep, island_km2, is_main
 
 
+class IslandQuota(Quota):
+    """The published superset: `top_n` poles on the unit's main landmass, plus the islands above the last one.
+
+    The search keeps going until it holds `top_n` mainland poles, and takes the island poles it meets on the
+    way up to a cap of `top_n`, so a unit and scenario publish at most `2 * top_n` and the site can offer
+    both readings out of one document. Ranks are the overall order of that set; nothing is renumbered.
+
+    Island-ness is a property of the candidate's **cell** and so is known before the cell is refined, which
+    is what makes the cap's retirement exact: the moment the island count reaches `top_n` every remaining
+    island cell is retired in one operation. Without it an archipelago unit would go on refining skerries it
+    can no longer take, all the way down to its tenth mainland pole. The count never falls, so retiring on
+    it loses nothing, which is the same monotonicity argument the distinct-area rule's retirement rests on.
+    """
+
+    def __init__(self, top_n: int, is_island: Callable[[Refined], bool], island_cells: np.ndarray):
+        self.top_n = int(top_n)
+        self.is_island, self.island_cells = is_island, island_cells
+        self.mainland = self.islands = 0
+
+    def wants_more(self) -> bool:
+        return self.mainland < self.top_n
+
+    def accepts(self, p: Refined) -> bool:
+        return not self.is_island(p) or self.islands < self.top_n
+
+    def taken(self, p: Refined) -> np.ndarray | None:
+        if not self.is_island(p):
+            self.mainland += 1
+            return None
+        self.islands += 1
+        return self.island_cells if self.islands == self.top_n else None
+
+
 def search_unit(job: UnitJob) -> dict:
     """One unit and one scenario: coarse cells, branch-and-bound, exact refinement, attribution."""
     t0 = time.monotonic()
@@ -407,10 +441,10 @@ def search_unit(job: UnitJob) -> dict:
 
     # The island floor, before anything is searched. The field is built once here and the search's
     # distinct-area rule reads the same window; the pad comes from the farthest cell the unit has, which is
-    # the widest a joining path can be under the assumption `_padded_window` states. The per-cell island
+    # the widest a joining path can be under the assumption `padded_window` states. The per-cell island
     # area and the main-component flag are what a published pole's `island_km2` is later read from.
     field = AreaField.read(job.dist_tif, land_tif(prep_.units_tif), water_tif(prep_.units_tif), frame,
-                           _padded_window(window, int(math.ceil(float(coarse.max()) / frame.res)), frame),
+                           padded_window(window, int(math.ceil(float(coarse.max()) / frame.res)), frame),
                            float(cfg.max_distance_m))
     keep, cell_island_km2, cell_is_main = _island_cells(field, abs_rows, abs_cols, cfg.min_island_m2)
     dropped = len(np.unique(field.land_components().labels[field.rowcol(abs_rows, abs_cols)][~keep]))
@@ -480,34 +514,53 @@ def search_unit(job: UnitJob) -> dict:
         return Verdict(not same, field.dead_cells(row_sorted, col_sorted, comp, theta))
 
     search = Search(xs, ys, coarse, pads, frame.res, job.top_n, refiner, cfg.dedup_m, distinct=distinct, log=log)
-    # `refiner` and `distinct` read these by name, so they must be bound before search.run(): Search sorts the
-    # cells by their upper bound and both are called with indices into that sorted order, not into the raw
-    # arrays; the road window still comes from the cell's own coarse value, read as coarse_sorted[i].
+    # `refiner`, `distinct` and the quota read these by name, so they must be bound before search.run():
+    # Search sorts the cells by their upper bound and all three are called with indices into that sorted
+    # order, not into the raw arrays; the road window still comes from the cell's own coarse value, read as
+    # coarse_sorted[i].
     coarse_sorted, x_sorted, y_sorted = search.coarse, search.xs, search.ys
     lon_sorted, lat_sorted = np.asarray(lons)[search.order], np.asarray(lats)[search.order]
     row_sorted, col_sorted = abs_rows[search.order], abs_cols[search.order]
+    main_sorted, island_km2_sorted = cell_is_main[search.order], cell_island_km2[search.order]
+    # The quota needs the same sorted order, and the sort happens inside the constructor, so it is set here
+    # rather than passed in; the search reads it only inside run().
+    search.quota = IslandQuota(job.top_n, lambda p: not bool(main_sorted[p.cell]), ~main_sorted)
     result = search.run()
 
     places = _places(str(prep_.places))
     poles = []
     for rank, acc in enumerate(result.accepted, start=1):
         refined, way = acc.payload
-        poles.append(pole_record(rank, refined, way, places.nearest(refined.lon, refined.lat)))
+        island_km2 = None if main_sorted[acc.cell] else round(float(island_km2_sorted[acc.cell]), 1)
+        poles.append(pole_record(rank, refined, way, places.nearest(refined.lon, refined.lat), island_km2))
+    mainland = sum(1 for p in poles if p["island_km2"] is None)
+    log.info("published %d pole(s): %d on the unit's main landmass, %d on smaller components",
+             len(poles), mainland, len(poles) - mainland)
     reason = None
     if result.exhausted:
-        reason = (f"only {len(poles)} pole(s): no further point of the unit is both at least "
-                  f"{cfg.dedup_m / 1000:.0f} km from the accepted poles and on allowed ground"
+        reason = (f"only {mainland} mainland pole(s): no further point of the unit is a distinct area, at "
+                  f"least {cfg.dedup_m / 1000:.0f} km from the accepted poles and on allowed ground"
                   if poles else "no pole: no candidate of the unit refined to an allowed point")
     return {"unit": unit.code, "scenario": scenario, "poles": poles, "reason": reason, "refinements": result.refinements,
             "warnings": result.warnings, "duration_s": round(time.monotonic() - t0, 1), "top_coarse_m": top_coarse}
 
 
 def validate_poles_json(data: list[dict], top_n: int) -> None:
+    """The shape of poles/<scenario>.json, which is a superset: `top_n` mainland poles or a reason, plus the
+    island poles the search met above the last of them, at most `top_n` of those and so at most `2 * top_n`
+    in all. Ranks are the overall order of that set and run 1..N with no gap. The message names which of
+    those failed, because the answer to each is a different bug."""
     for entry in data:
         if set(entry) != {"unit", "poles", "reason"}:
             raise ValueError(f"entry keys {sorted(entry)}")
-        if len(entry["poles"]) < top_n and not entry["reason"]:
-            raise ValueError(f"unit {entry['unit']}: fewer than {top_n} poles without a reason")
+        mainland = sum(1 for p in entry["poles"] if p["island_km2"] is None)
+        islands = len(entry["poles"]) - mainland
+        if mainland < top_n and not entry["reason"]:
+            raise ValueError(f"unit {entry['unit']}: fewer than {top_n} mainland poles ({mainland}) without a reason")
+        if mainland > top_n:
+            raise ValueError(f"unit {entry['unit']}: {mainland} mainland poles, more than top_n ({top_n})")
+        if islands > top_n:
+            raise ValueError(f"unit {entry['unit']}: {islands} island poles, more than the cap of top_n ({top_n})")
         for i, p in enumerate(entry["poles"], start=1):
             if p["rank"] != i:
                 raise ValueError(f"unit {entry['unit']}: rank {p['rank']} at position {i}")

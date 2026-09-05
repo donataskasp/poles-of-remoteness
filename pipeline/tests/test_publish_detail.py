@@ -80,8 +80,9 @@ def test_classify_window_distances_masks_and_bands():
 def test_write_and_read_back(tmp_path):
     g = detail.georef(LAT, LON, 50, 2_000)
     arr = np.arange(1600, dtype=np.uint16).reshape(40, 40).astype(np.uint8)
-    png, js = detail.write_detail(tmp_path, "lt", "A", 3, arr, g)
-    assert png == tmp_path / "lt" / "A-3.png" and js == tmp_path / "lt" / "A-3.json"
+    png, js = detail.write_detail(tmp_path, "lt", "A", LAT, LON, arr, g)
+    assert png == tmp_path / "lt" / "A-55.000000_24.000000.png"
+    assert js == tmp_path / "lt" / "A-55.000000_24.000000.json"
     with rasterio.open(png) as ds:
         assert ds.count == 1 and np.array_equal(ds.read(1), arr)
     assert json.loads(js.read_text()) == g.to_dict()
@@ -211,8 +212,9 @@ def test_classify_window_burns_the_edge_band_on_the_far_side_of_the_line(tmp_pat
 
 def test_write_detail_leaves_no_aux_file(tmp_path):
     g = detail.georef(LAT, LON, 50, 2_000)
-    png, js = detail.write_detail(tmp_path, "lt", "B", 1, np.zeros((40, 40), np.uint8), g)
-    assert sorted(p.name for p in (tmp_path / "lt").iterdir()) == ["B-1.json", "B-1.png"]
+    png, js = detail.write_detail(tmp_path, "lt", "B", LAT, LON, np.zeros((40, 40), np.uint8), g)
+    assert sorted(p.name for p in (tmp_path / "lt").iterdir()) == \
+        ["B-55.000000_24.000000.json", "B-55.000000_24.000000.png"]
     assert json.loads(js.read_text())["width"] == 40
 
 
@@ -226,9 +228,9 @@ def test_the_sidecar_is_written_atomically(tmp_path, monkeypatch):
 
     monkeypatch.setattr(ws_mod.os, "replace", die)
     with pytest.raises(OSError):
-        detail.write_detail(tmp_path, "lt", "B", 1, np.zeros((40, 40), np.uint8), g)
-    assert (tmp_path / "lt" / "B-1.png").exists()
-    assert not (tmp_path / "lt" / "B-1.json").exists()
+        detail.write_detail(tmp_path, "lt", "B", LAT, LON, np.zeros((40, 40), np.uint8), g)
+    assert (tmp_path / "lt" / "B-55.000000_24.000000.png").exists()
+    assert not (tmp_path / "lt" / "B-55.000000_24.000000.json").exists()
 
 
 def _tiles_dir(tmp_path: Path, log) -> Path:
@@ -277,15 +279,15 @@ def test_run_detail_renders_every_published_pole(tmp_path, cfg, log, monkeypatch
     stats = detail.run_detail(small, ws, _published(), ClassTable(), None, log)
     assert stats["count"] == 3 and stats["skipped"] == 0 and stats["seconds"] >= 0
     names = sorted(p.name for p in (out / "aa").iterdir())
-    assert names == ["A-1.json", "A-1.png", "A-2.json", "A-2.png", "B-1.json", "B-1.png"]
+    assert names == ["A-55.000000_24.000000.json", "A-55.000000_24.000000.png", "A-55.100000_24.200000.json", "A-55.100000_24.200000.png", "B-55.000000_24.000000.json", "B-55.000000_24.000000.png"]
     assert not (out / "bb").exists()                     # a unit with no poles is no job
     assert stats["bytes"] == sum(p.stat().st_size for p in (out / "aa").glob("*.png"))
-    a1, b1 = out / "aa" / "A-1.png", out / "aa" / "B-1.png"
+    a1, b1 = out / "aa" / "A-55.000000_24.000000.png", out / "aa" / "B-55.000000_24.000000.png"
     assert _class_at(a1, 20, 20) < _class_at(b1, 20, 20)  # A counts the track 1 km out, B the road 3 km out
     with rasterio.open(a1) as ds:
         arr = ds.read(1)
     assert arr.shape == (40, 40) and (arr == NODATA).any()   # the lake in the middle of the window
-    g = json.loads((out / "aa" / "A-1.json").read_text())
+    g = json.loads((out / "aa" / "A-55.000000_24.000000.json").read_text())
     assert g["width"] == g["height"] == 40 and math.isclose(g["dlat"], 50 / 111_320)
 
 
@@ -295,16 +297,16 @@ def test_run_detail_resumes_and_reruns_when_forced(tmp_path, cfg, log, monkeypat
     small = replace(cfg, detail_window_m=2_000)
     out = ws.dir("publish") / "detail"
     detail.run_detail(small, ws, _published(), ClassTable(), None, log)
-    stamp = (out / "aa" / "A-1.png").stat().st_mtime_ns
+    stamp = (out / "aa" / "A-55.000000_24.000000.png").stat().st_mtime_ns
     again = detail.run_detail(small, ws, _published(), ClassTable(), None, log)
     assert again["skipped"] == 3 and again["count"] == 3 and again["bytes"] > 0
-    assert (out / "aa" / "A-1.png").stat().st_mtime_ns == stamp
-    (out / "aa" / "A-2.json").unlink()                   # a PNG without its sidecar is half a raster
+    assert (out / "aa" / "A-55.000000_24.000000.png").stat().st_mtime_ns == stamp
+    (out / "aa" / "A-55.100000_24.200000.json").unlink()                   # a PNG without its sidecar is half a raster
     third = detail.run_detail(small, ws, _published(), ClassTable(), None, log)
-    assert third["skipped"] == 2 and (out / "aa" / "A-2.json").exists()
+    assert third["skipped"] == 2 and (out / "aa" / "A-55.100000_24.200000.json").exists()
     ws.forced = True
     forced = detail.run_detail(small, ws, _published(), ClassTable(), None, log)
-    assert forced["skipped"] == 0 and (out / "aa" / "A-1.png").stat().st_mtime_ns != stamp
+    assert forced["skipped"] == 0 and (out / "aa" / "A-55.000000_24.000000.png").stat().st_mtime_ns != stamp
 
 
 def test_render_bands_the_pixels_inside_the_edge_band(tmp_path, cfg, log):
@@ -313,7 +315,7 @@ def test_render_bands_the_pixels_inside_the_edge_band(tmp_path, cfg, log):
     stats = detail.run_detail(replace(cfg, detail_window_m=2_000), ws, _published(), ClassTable(),
                               band, log)
     assert stats["count"] == 3
-    with rasterio.open(ws.dir("publish") / "detail" / "aa" / "A-1.png") as ds:
+    with rasterio.open(ws.dir("publish") / "detail" / "aa" / "A-55.000000_24.000000.png") as ds:
         arr = ds.read(1)
     assert arr[20, 20] == EDGE                           # inside the band
     assert arr[0, 0] != EDGE and arr[39, 0] != EDGE       # the western columns are outside it
@@ -342,7 +344,7 @@ def test_run_detail_classes_with_the_region_table(tmp_path, cfg, log, monkeypatc
     assert stats["count"] == 1
     # The pixel is 977 m from the track (1002 m south of the pole, 25 m of that inside the pixel): class 9 of
     # a table in 100 m steps, where the default table in 50 m steps would say 19.
-    assert _class_at(ws.dir("publish") / "detail" / "aa" / "A-1.png", 20, 20) in (9, 10)
+    assert _class_at(ws.dir("publish") / "detail" / "aa" / "A-55.000000_24.000000.png", 20, 20) in (9, 10)
 
 
 def test_render_refuses_a_pole_the_land_index_does_not_know(tmp_path, cfg, log):
@@ -361,7 +363,7 @@ def test_render_refuses_a_pole_the_land_index_does_not_know(tmp_path, cfg, log):
     write_fgb(poles_dir / "land_idx.fgb", "land", [box(23.9995, 54.9997, 24.0005, 55.0003)], {"id": [1]})
     out = detail.render(job)
     assert out["rendered"] == [1] and out["warnings"] == []
-    with rasterio.open(ws.dir("publish") / "detail" / "aa" / "A-1.png") as ds:
+    with rasterio.open(ws.dir("publish") / "detail" / "aa" / "A-55.000000_24.000000.png") as ds:
         arr = ds.read(1)
     assert (arr != NODATA).sum() == 4                    # the four pixel centres inside that sliver
 
@@ -377,7 +379,7 @@ def test_render_publishes_a_sub_pixel_islet_and_warns(tmp_path, cfg, log):
                            ((1, 55.0, 24.0, 1000.0),), 50, 2_000, b"", tuple(default_edges()))
     out = detail.render(job)
     assert out["rendered"] == [1] and len(out["warnings"]) == 1 and "islet" in out["warnings"][0]
-    with rasterio.open(ws.dir("publish") / "detail" / "aa" / "A-1.png") as ds:
+    with rasterio.open(ws.dir("publish") / "detail" / "aa" / "A-55.000000_24.000000.png") as ds:
         assert (ds.read(1) == NODATA).all()
 
 
@@ -424,7 +426,7 @@ def test_run_detail_accepts_a_scenario_with_nothing_published(tmp_path, cfg, log
     only_a = {"A": [{"unit": "aa", "poles": [{"rank": 1, "lat": 55.0, "lon": 24.0, "dist_m": 1000.0}],
                      "reason": None}]}
     stats = detail.run_detail(replace(cfg, detail_window_m=2_000), ws, only_a, ClassTable(), None, log)
-    assert stats["count"] == 1 and (ws.dir("publish") / "detail" / "aa" / "A-1.png").exists()
+    assert stats["count"] == 1 and (ws.dir("publish") / "detail" / "aa" / "A-55.000000_24.000000.png").exists()
     assert detail.run_detail(replace(cfg, detail_window_m=2_000), ws, {}, ClassTable(), None, log)["count"] == 0
 
 
@@ -443,3 +445,31 @@ def test_published_set_fingerprints_the_edge_band():
     assert none["edge_band_sha256"] == hashlib.sha256(b"").hexdigest()
     assert band["edge_band_sha256"] == hashlib.sha256(b"\x01\x03").hexdigest()
     assert none != band and _published_set([job], table, b"\x01\x03") == band
+
+
+# ---------- rasters keyed by the pole, not by its rank (issue #57) ----------
+
+def test_a_raster_is_named_by_its_poles_coordinates_not_its_rank(tmp_path):
+    """A rank moves whenever the search or an exclusion moves; the coordinates are the pole itself."""
+    g = detail.georef(LAT, LON, 50, 2_000)
+    assert detail.detail_stem("A", 60.36157, -172.7349) == "A-60.361570_-172.734900"
+    png, js = detail.write_detail(tmp_path, "us-ak", "A", 60.36157, -172.7349, np.zeros((40, 40), np.uint8), g)
+    assert png.name == "A-60.361570_-172.734900.png" and js.name == "A-60.361570_-172.734900.json"
+
+
+def test_a_pole_that_did_not_move_keeps_its_file_name_across_a_rerun(tmp_path):
+    """The property the whole change exists for: a rerun under an unchanged snapshot writes the same key
+    for the same pole, whatever rank it now holds, so nothing the live site reads is ever rewritten."""
+    g = detail.georef(LAT, LON, 50, 2_000)
+    before = detail.write_detail(tmp_path, "lt", "A", LAT, LON, np.zeros((40, 40), np.uint8), g)[0]
+    after = detail.write_detail(tmp_path, "lt", "A", LAT, LON, np.ones((40, 40), np.uint8), g)[0]
+    assert before == after
+    assert detail.detail_stem("A", LAT, LON) != detail.detail_stem("B", LAT, LON)
+
+
+def test_two_poles_of_one_unit_and_scenario_never_share_a_name(tmp_path):
+    """Two poles of a unit are at least `dedup_m` apart, which is far more than the sixth decimal."""
+    g = detail.georef(LAT, LON, 50, 2_000)
+    names = {detail.write_detail(tmp_path, "lt", "A", lat, lon, np.zeros((40, 40), np.uint8), g)[0].name
+             for lat, lon in ((LAT, LON), (LAT + 0.1, LON), (LAT, LON + 0.1), (-LAT, -LON))}
+    assert len(names) == 4
