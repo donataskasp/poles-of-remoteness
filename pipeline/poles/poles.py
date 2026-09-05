@@ -257,12 +257,6 @@ class UnitJob:
 
 
 @lru_cache(maxsize=1)
-def _places(path: str) -> Places:
-    """One place layer per worker process: 1.8 M points are worth loading once, not once per job."""
-    return Places(Path(path))
-
-
-@lru_cache(maxsize=1)
 def _countries(path: str) -> Countries:
     """One country index per worker process, for the same reason."""
     return Countries(load_countries(Path(path)))
@@ -497,13 +491,17 @@ def search_unit(job: UnitJob) -> dict:
         return refine_cell(x_sorted[i], y_sorted[i], frame.crs, roads, half_m=hd, allowed=allowed, countries=countries, to_frame=to_frame)
 
     fraction = cfg.area_col_fraction
+    retired: set[tuple[int, int]] = set()
 
     def distinct(cand: Refined, accepted: list[Refined]) -> Verdict:
         """The distinct-area rule: is this candidate connected to an accepted pole over high ground?
 
         Candidates are finalised in globally descending distance, so this one is the nearer of every pair it
         is tested against and `col_threshold` collapses to a single number for the whole accepted set: one
-        labelling answers the question for all of them.
+        labelling answers the question for all of them. The retirement of a component is the same mask
+        however many candidates of it are finalised at one rung, so it is handed to the search once per
+        rung and component: a plateau finalises hundreds of candidates against one component, and Turkey
+        asked about 12 M cells each time.
         """
         theta = col_threshold(cand.dist_m, cand.dist_m, fraction)
         comp = field.component_at(row_sorted[cand.cell], col_sorted[cand.cell], theta)
@@ -511,7 +509,11 @@ def search_unit(job: UnitJob) -> dict:
             # Below the threshold or off land: no accepted pole can be joined to it, and nothing to retire.
             return Verdict(True, None)
         same = any(field.component_at(row_sorted[a.cell], col_sorted[a.cell], theta) == comp for a in accepted)
-        return Verdict(not same, field.dead_cells(row_sorted, col_sorted, comp, theta))
+        key = (field.rung(theta), comp)
+        if key in retired:
+            return Verdict(not same, None)
+        retired.add(key)
+        return Verdict(not same, field.dead_mask(comp, theta)[wr_sorted, wc_sorted])
 
     search = Search(xs, ys, coarse, pads, frame.res, job.top_n, refiner, cfg.dedup_m, distinct=distinct, log=log)
     # `refiner`, `distinct` and the quota read these by name, so they must be bound before search.run():
@@ -521,18 +523,20 @@ def search_unit(job: UnitJob) -> dict:
     coarse_sorted, x_sorted, y_sorted = search.coarse, search.xs, search.ys
     lon_sorted, lat_sorted = np.asarray(lons)[search.order], np.asarray(lats)[search.order]
     row_sorted, col_sorted = abs_rows[search.order], abs_cols[search.order]
+    wr_sorted, wc_sorted = field.rowcol(row_sorted, col_sorted)
     main_sorted, island_km2_sorted = cell_is_main[search.order], cell_island_km2[search.order]
     # The quota needs the same sorted order, and the sort happens inside the constructor, so it is set here
     # rather than passed in; the search reads it only inside run().
     search.quota = IslandQuota(job.top_n, lambda p: not bool(main_sorted[p.cell]), ~main_sorted)
     result = search.run()
 
-    places = _places(str(prep_.places))
+    # `nearest_place` stays None here: `run` attributes every result once, in the parent, from the places
+    # layer loaded a single time, so the search neither loads 300 MB per worker nor depends on the layer.
     poles = []
     for rank, acc in enumerate(result.accepted, start=1):
         refined, way = acc.payload
         island_km2 = None if main_sorted[acc.cell] else round(float(island_km2_sorted[acc.cell]), 1)
-        poles.append(pole_record(rank, refined, way, places.nearest(refined.lon, refined.lat), island_km2))
+        poles.append(pole_record(rank, refined, way, None, island_km2))
     mainland = sum(1 for p in poles if p["island_km2"] is None)
     log.info("published %d pole(s): %d on the unit's main landmass, %d on smaller components",
              len(poles), mainland, len(poles) - mainland)
@@ -668,9 +672,31 @@ def _search_pending(pending: list[UnitJob], results_dir: Path, workers: int, log
     return results
 
 
+def attribute_places(results: list[dict], places_vrt: Path, results_dir: Path, log: logging.Logger) -> None:
+    """Fill `nearest_place` of every pole from the places layer, loaded once.
+
+    This runs in the parent after the searches, so a missing layer costs nothing that was paid for: the
+    searched results are cached under `results_dir` and the rerun that follows the layer's return attributes
+    them without searching again. The lookup reads the pole's published coordinates (rounded to six
+    decimals, under a decimetre), which is what a re-attribution from the cache reads too.
+    """
+    if not places_vrt.is_file():
+        raise PolesError(f"poles: {places_vrt} is missing, so the {len(results)} searched job(s) cannot be attributed "
+                         f"to their nearest place; every one of them is cached under {results_dir}, so restore the "
+                         "extract stage's places layer and rerun: the attribution then runs on its own")
+    places = Places(places_vrt)
+    for r in results:
+        for p in r["poles"]:
+            p["nearest_place"] = places.nearest(p["lon"], p["lat"])
+    log.info("attributed %d pole(s) to their nearest place from %s", sum(len(r["poles"]) for r in results), places_vrt.name)
+
+
 def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
     prepared = prepare(cfg, ws, log)
     out, grid_dir = ws.dir(STAGE), ws.dir("grid")
+    if not prepared.places.is_file():
+        log.warning("%s is missing: the searches run and are cached, and the stage stops before writing its "
+                    "output; rerun once the places layer is back", prepared.places)
     workers = int(os.environ.get("POLES_WORKERS", "0")) or 4
     # One file per finished job, so a run that dies on job 59 of 104 keeps the 58 it already paid for. This
     # is the `.ok` marker idea at job granularity; a forced run starts from nothing.
@@ -698,6 +724,7 @@ def run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict:
         fresh = _search_pending(pending, results_dir, workers, log)
         results.extend(fresh)
         searched = len(fresh)
+    attribute_places(results, prepared.places, results_dir, log)
     timing = {}
     for s in SCENARIOS:
         entries = [{"unit": r["unit"], "poles": r["poles"], "reason": r["reason"]} for r in results if r["scenario"] == s]

@@ -76,7 +76,7 @@ flowchart LR
 
 ### poles
 
-`prepare` builds everything the searches share, then one process per unit and scenario runs the branch and bound down to an exact 5 m sweep in the local UTM zone and attributes the nearest road and settlement.
+`prepare` builds everything the searches share, then one process per unit and scenario runs the branch and bound down to an exact 5 m sweep in the local UTM zone and attributes the nearest road. The parent attributes the nearest settlement afterwards, from the places layer loaded once, so a missing layer stops the stage only after every search is cached.
 
 ```mermaid
 flowchart LR
@@ -91,9 +91,10 @@ flowchart LR
     units --> search["search_unit, one unit and scenario per process"]
     dist[("grid/dist_A.tif, dist_B.tif")] --> search
     rtiles --> search
-    places[("extract/places.vrt")] --> search
     search --> res[("poles/results/[unit]-[scenario].json")]
-    res --> ab[("poles/A.json, poles/B.json, poles/timing.json")]
+    res --> attribute["attribute_places, in the parent after the searches"]
+    places[("extract/places.vrt")] --> attribute
+    attribute --> ab[("poles/A.json, poles/B.json, poles/timing.json")]
 ```
 
 ### validate

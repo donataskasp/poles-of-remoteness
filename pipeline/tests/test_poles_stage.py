@@ -220,6 +220,8 @@ def _patch_run(monkeypatch, tmp_path, codes, pool=_SerialPool):
     monkeypatch.setattr(poles_mod, "prepare", lambda cfg, ws, log: prepared)
     monkeypatch.setattr(poles_mod, "search_unit", fake_search)
     monkeypatch.setattr(poles_mod, "ProcessPoolExecutor", pool)
+    monkeypatch.setattr(poles_mod, "Places", lambda path: _StubPlaces())
+    prepared.places.write_text("", encoding="utf-8")        # present; the stub above stands in for its content
     return searched
 
 
@@ -236,6 +238,45 @@ def test_run_reuses_cached_unit_results_and_searches_only_the_rest(tmp_path, cfg
     a = json.loads((ws.dir("poles") / "A.json").read_text(encoding="utf-8"))
     assert [e["unit"] for e in a] == ["aa", "bb"] and a[0]["poles"][0]["dist_m"] == 5000   # the cached one, not a fresh search
     assert (results / "aa-B.json").is_file()                                              # every searched job is cached too
+
+
+def test_run_attributes_every_pole_in_the_parent_from_one_places_layer(tmp_path, cfg, log, monkeypatch):
+    """The workers hand back poles with no place; run() fills them all, cached and fresh alike, from the
+    layer loaded once, so a re-attribution from the cache reads exactly what a fresh search reads."""
+    ws = Workspace(tmp_path / "work", "rr", "2026-01-01")
+    results = ws.dir("poles") / "results"
+    results.mkdir(parents=True, exist_ok=True)
+    (results / "aa-A.json").write_text(json.dumps(_result("aa", "A", 5000)), encoding="utf-8")
+    _patch_run(monkeypatch, tmp_path, ["aa"])
+
+    class _Named:
+        def nearest(self, lon, lat):
+            return {"name": f"near {lat:.1f} {lon:.1f}", "type": "village", "dist_m": 1.0, "lat": lat, "lon": lon}
+
+    monkeypatch.setattr(poles_mod, "Places", lambda path: _Named())
+    poles_mod.run(cfg, ws, log)
+    for s in ("A", "B"):
+        entries = json.loads((ws.dir("poles") / f"{s}.json").read_text(encoding="utf-8"))
+        assert entries[0]["poles"][0]["nearest_place"]["name"] == "near 54.0 24.0"
+    cached = json.loads((results / "aa-A.json").read_text(encoding="utf-8"))
+    assert cached["poles"][0]["nearest_place"] is None       # the cache holds the search, never the attribution
+
+
+def test_a_missing_places_layer_stops_the_stage_after_the_searches_and_a_rerun_attributes_from_the_cache(
+        tmp_path, cfg, log, monkeypatch):
+    """The layer is read only at the end, in the parent: without it every search still runs and is cached,
+    the stage fails naming the file, and the rerun with the file back searches nothing."""
+    ws = Workspace(tmp_path / "work", "rr", "2026-01-01")
+    searched = _patch_run(monkeypatch, tmp_path, ["aa", "bb"])
+    (tmp_path / "places.vrt").unlink()
+    with pytest.raises(PolesError, match=r"places\.vrt is missing.*4 searched job\(s\).*cached under"):
+        poles_mod.run(cfg, ws, log)
+    assert len(searched) == 4 and not (ws.dir("poles") / "A.json").exists()
+    assert sorted(p.name for p in (ws.dir("poles") / "results").glob("*.json")) == ["aa-A.json", "aa-B.json", "bb-A.json", "bb-B.json"]
+    (tmp_path / "places.vrt").write_text("", encoding="utf-8")
+    meta = poles_mod.run(cfg, ws, log)
+    assert len(searched) == 4 and (meta["cached"], meta["searched"]) == (4, 0)
+    assert (ws.dir("poles") / "A.json").is_file() and (ws.dir("poles") / "B.json").is_file()
 
 
 def test_forced_run_clears_the_result_cache(tmp_path, cfg, log, monkeypatch):
@@ -715,7 +756,6 @@ def _field_job(tmp_path, monkeypatch, dist, cfg, *, land=None, unit=None, top_n=
     monkeypatch.setattr(poles_mod, "_allowed_factory",
                         lambda *a, **k: (lambda lons, lats: np.ones(len(lons), bool)))
     monkeypatch.setattr(poles_mod, "_countries", lambda path: None)
-    monkeypatch.setattr(poles_mod, "_places", lambda path: _StubPlaces())
     job = UnitJob(cfg, prepared, unit_obj, scenario, tmp_path / f"dist_{scenario}.tif", top_n,
                   tmp_path / "log.txt")
     return job, refined_at

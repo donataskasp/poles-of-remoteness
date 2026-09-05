@@ -107,6 +107,8 @@ class AreaField:
         self.anchor_m, self.step = float(anchor_m), float(step)
         self._labels: np.ndarray | None = None
         self._labels_k: int | None = None
+        self._dead: np.ndarray | None = None
+        self._dead_key: tuple[int, int] | None = None
         self._land: LandComponents | None = None
 
     # ---------- construction ----------
@@ -163,6 +165,11 @@ class AreaField:
 
     # ---------- superlevel sets ----------
 
+    def rung(self, threshold_m: float) -> int:
+        """The ladder index a threshold is quantised down to: the key of every cached labelling and dead mask.
+        A threshold at or below zero means every land cell the ladder can name, never the ground under a road."""
+        return min(int(ladder_index(threshold_m, self.anchor_m, self.step)), BELOW_LADDER - 1)
+
     def labels_at(self, threshold_m: float) -> np.ndarray:
         """The 8-connected components of `{distance >= threshold}` over land, as int32 over the window.
 
@@ -170,9 +177,7 @@ class AreaField:
         thresholds arrive non-increasing over a search, so a second entry would never be hit. The returned
         array is the cache's own, so a caller that needs two labellings at once must copy one.
         """
-        k = ladder_index(threshold_m, self.anchor_m, self.step)
-        # A threshold at or below zero means every land cell the ladder can name, never the ground under a road.
-        k = min(int(k), BELOW_LADDER - 1)
+        k = self.rung(threshold_m)
         if self._labels_k == k and self._labels is not None:
             return self._labels
         mask = self.level <= k
@@ -191,26 +196,44 @@ class AreaField:
         wr, wc = self.rowcol(row, col)
         return int(self.labels_at(threshold_m)[int(wr), int(wc)])
 
-    def dead_cells(self, rows, cols, component: int, threshold_m: float) -> np.ndarray:
-        """True where the cell **and all eight of its neighbours** carry `component`.
+    def dead_mask(self, component: int, threshold_m: float) -> np.ndarray:
+        """True over the window where the cell **and all eight of its neighbours** carry `component`.
 
         That neighbourhood is what makes the search's pruning lossless: a refined point never leaves its
         cell's eight neighbours, so a point refined from a dead cell lands in a cell of the component and
         would be rejected against it anyway. A cell on the window's edge is never dead, because what lies
-        beyond the window was not read. The neighbourhood is gathered at the given cells rather than eroded
-        over the window: this is called once per finalised candidate, and a full-window erosion per call
-        would cost more than the labelling it reads.
+        beyond the window was not read. The erosion runs over the component's own bounding box with eight
+        shifted ANDs, so its cost is the component's extent and not the number of cells asked about; one
+        mask is cached, keyed by rung and component, because the search asks for the same pair once per
+        finalised candidate of a plateau and a continental unit finalises hundreds.
         """
-        labels = self.labels_at(threshold_m)
-        wr, wc = self.rowcol(rows, cols)
-        h, w = labels.shape
-        dead = np.ones(wr.shape, dtype=bool)
-        for dr in (-1, 0, 1):
-            for dc in (-1, 0, 1):
-                rr, cc = wr + dr, wc + dc
-                inside = (rr >= 0) & (rr < h) & (cc >= 0) & (cc < w)
-                dead &= inside & (labels[np.clip(rr, 0, h - 1), np.clip(cc, 0, w - 1)] == component)
+        key = (self.rung(threshold_m), int(component))
+        if self._dead_key == key and self._dead is not None:
+            return self._dead
+        member = self.labels_at(threshold_m) == int(component)
+        dead = np.zeros(member.shape, dtype=bool)
+        rows_any, cols_any = member.any(axis=1), member.any(axis=0)
+        if rows_any.any():
+            r0, r1 = int(np.argmax(rows_any)), len(rows_any) - int(np.argmax(rows_any[::-1]))
+            c0, c1 = int(np.argmax(cols_any)), len(cols_any) - int(np.argmax(cols_any[::-1]))
+            m = member[r0:r1, c0:c1]
+            h, w = m.shape
+            if h >= 3 and w >= 3:
+                # The crop's own border stays False: a cell there has a neighbour outside the bounding box,
+                # which holds no member by construction, and the window's edge lies at or beyond it.
+                core = m[1:h - 1, 1:w - 1].copy()
+                for dr in (-1, 0, 1):
+                    for dc in (-1, 0, 1):
+                        if dr or dc:
+                            core &= m[1 + dr:h - 1 + dr, 1 + dc:w - 1 + dc]
+                dead[r0 + 1:r1 - 1, c0 + 1:c1 - 1] = core
+        self._dead, self._dead_key = dead, key
         return dead
+
+    def dead_cells(self, rows, cols, component: int, threshold_m: float) -> np.ndarray:
+        """`dead_mask` read at the given frame cells, in their order."""
+        wr, wc = self.rowcol(rows, cols)
+        return self.dead_mask(component, threshold_m)[wr, wc]
 
     # ---------- land ----------
 
