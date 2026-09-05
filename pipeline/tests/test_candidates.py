@@ -3,7 +3,7 @@ import logging
 import numpy as np
 import pytest
 
-from poles.candidates import Refined, Search, half_diag, pad_fn_for
+from poles.candidates import Refined, Search, Verdict, half_diag, pad_fn_for
 from poles.errors import PolesError
 
 
@@ -218,3 +218,130 @@ def test_per_cell_bound_prunes_what_the_unit_wide_pad_would_have_refined():
 def test_mismatched_input_lengths_are_rejected():
     with pytest.raises(ValueError, match="same length"):
         Search(np.zeros(3), np.zeros(3), np.zeros(2), np.zeros(3), 100.0, top_n=1, refiner=lambda i: None)
+
+
+# ---------- the distinct-area rule (issue #56) ----------
+
+def _band(x: float, res: float, width: int = 20) -> int:
+    """A synthetic connectivity for the model tests: two cells are one place when they share a band."""
+    return int(x // (width * res))
+
+
+def test_the_search_matches_a_brute_force_model_of_the_distinct_area_rule():
+    """The rule's two conditions at once, against "refine every cell, sort, accept greedily under both".
+
+    The connectivity is synthetic (three vertical bands) so the expected answer needs no raster, and it is
+    threshold-independent, which is the property the search's retirement argument rests on: a cell in a
+    band already spoken for can never become a new place, whatever is finalised later.
+    """
+    rng = np.random.default_rng(7)
+    res, xs, ys, coarse, pads, true_dist = _truth_field(rng)
+    search = Search(xs, ys, coarse, pads, res, top_n=3, refiner=lambda i: refine(i), dedup_m=800.0,
+                    distinct=lambda p, accepted: distinct(p, accepted))
+    refine = _exact_refiner(search.xs, search.ys, res, true_dist)
+    bands = (search.xs // (20 * res)).astype(int)
+
+    def distinct(p, accepted):
+        band = _band(p.x, res)
+        return Verdict(not any(_band(q.x, res) == band for q in accepted), bands == band)
+
+    r = search.run()
+    pad_max = pads.max()
+    everything = sorted((_exact_refiner(xs, ys, res, true_dist)(i) for i in range(len(xs))), key=lambda p: -p.dist_m)
+    greedy = []
+    for p in everything:
+        if all(np.hypot(p.x - q.x, p.y - q.y) / (1 + pad_max) >= 800.0 for q in greedy) \
+                and all(_band(q.x, res) != _band(p.x, res) for q in greedy):
+            greedy.append(p)
+        if len(greedy) == 3:
+            break
+    assert [round(p.dist_m, 6) for p in r.accepted] == [round(p.dist_m, 6) for p in greedy]
+    assert len(r.accepted) == 3
+
+
+def test_a_candidate_connected_to_an_accepted_pole_is_rejected_even_though_it_clears_the_floor():
+    xs = np.array([0.0, 5000.0]); ys = np.zeros(2)
+    coarse = np.array([1000.0, 900.0]); pads = np.full(2, 0.002)
+    refiner = lambda i: Refined(float(xs[i]), float(ys[i]), float(coarse[i]), None)
+    joined = lambda p, accepted: Verdict(not accepted, None)
+    r = Search(xs, ys, coarse, pads, 250.0, top_n=2, refiner=refiner, dedup_m=1000.0, distinct=joined).run()
+    assert [p.dist_m for p in r.accepted] == [1000.0] and r.exhausted
+    r = Search(xs, ys, coarse, pads, 250.0, top_n=2, refiner=refiner, dedup_m=1000.0).run()
+    assert [p.dist_m for p in r.accepted] == [1000.0, 900.0]      # the floor alone would have taken both
+
+
+def test_a_candidate_the_floor_rejects_never_reaches_the_distinct_callback():
+    """The callback reads a raster; the floor is arithmetic. A candidate the floor refuses is refused there."""
+    xs = np.array([0.0, 500.0]); ys = np.zeros(2)
+    coarse = np.array([1000.0, 900.0]); pads = np.full(2, 0.002)
+    asked = []
+
+    def distinct(p, accepted):
+        asked.append(p.dist_m)
+        return Verdict(True, None)
+
+    r = Search(xs, ys, coarse, pads, 250.0, top_n=2, refiner=lambda i: Refined(float(xs[i]), 0.0, float(coarse[i]), None),
+               dedup_m=1000.0, distinct=distinct).run()
+    assert [p.dist_m for p in r.accepted] == [1000.0]
+    assert asked == [1000.0]                       # the 900 m candidate is 500 m away and never got that far
+
+
+def test_the_verdict_retires_cells_whether_the_candidate_was_accepted_or_rejected():
+    """Monotonicity: a cell connected to a finalised candidate is connected to every later one too, so it
+    can never be a new place, whether that candidate was taken or refused against something already taken."""
+    xs = np.arange(4) * 5000.0; ys = np.zeros(4)
+    coarse = np.array([4000.0, 3000.0, 2000.0, 1000.0]); pads = np.full(4, 0.002)
+    refined = []
+
+    def refiner(i):
+        refined.append(i)
+        return Refined(float(xs[i]), 0.0, float(coarse[i]), None)
+
+    verdicts = [Verdict(True, np.array([False, True, False, False])),      # accepted, retires cell 1
+                Verdict(False, np.array([False, False, False, True]))]     # rejected, retires cell 3
+    r = Search(xs, ys, coarse, pads, 250.0, top_n=3, refiner=refiner, dedup_m=0.0,
+               distinct=lambda p, accepted: verdicts.pop(0)).run()
+    assert refined == [0, 2]
+    assert [p.dist_m for p in r.accepted] == [4000.0] and r.exhausted
+
+
+def test_dead_cells_from_the_verdict_are_never_refined_again():
+    """The whole plateau retired in one operation is what keeps a large flat unit inside its budget."""
+    n = 10
+    xs = np.arange(n) * 5000.0; ys = np.zeros(n)
+    coarse = np.linspace(5000.0, 1000.0, n); pads = np.full(n, 0.002)
+    refined = []
+
+    def refiner(i):
+        refined.append(i)
+        return Refined(float(xs[i]), 0.0, float(coarse[i]), None)
+
+    rest = np.zeros(n, dtype=bool)
+    rest[1:] = True
+    r = Search(xs, ys, coarse, pads, 250.0, top_n=5, refiner=refiner, dedup_m=0.0,
+               distinct=lambda p, accepted: Verdict(True, rest)).run()
+    assert refined == [0] and r.refinements == 1
+    assert [p.dist_m for p in r.accepted] == [5000.0] and r.exhausted
+
+
+def test_a_search_without_a_distinct_callback_behaves_exactly_as_before():
+    rng = np.random.default_rng(3)
+    res, xs, ys, coarse, pads, true_dist = _truth_field(rng)
+    plain = _search(xs, ys, coarse, pads, res, true_dist, top_n=3, dedup_m=800.0).run()
+    with_callback = _search(xs, ys, coarse, pads, res, true_dist, top_n=3, dedup_m=800.0,
+                            distinct=lambda p, accepted: Verdict(True, None)).run()
+    assert [p.dist_m for p in plain.accepted] == [p.dist_m for p in with_callback.accepted]
+    assert plain.refinements == with_callback.refinements and plain.exhausted == with_callback.exhausted
+
+
+def test_refined_carries_the_sorted_index_it_came_from():
+    """The distinct callback has to find the candidate's cell, and the search is the only thing that knows
+    which sorted index it handed the refiner, so it stamps the answer on what comes back."""
+    xs = np.array([0.0, 10.0, 20.0]); ys = np.zeros(3)
+    coarse = np.array([100.0, 300.0, 200.0]); pads = np.full(3, 0.002)
+    s = Search(xs, ys, coarse, pads, 100.0, top_n=3, dedup_m=0.0,
+               refiner=lambda i: Refined(float(s.xs[i]), 0.0, float(s.coarse[i]), None))
+    r = s.run()
+    assert [p.cell for p in r.accepted] == [0, 1, 2]
+    assert [int(s.order[p.cell]) for p in r.accepted] == [1, 2, 0]      # back to the caller's own indices
+    assert [p.dist_m for p in r.accepted] == [300.0, 200.0, 100.0]

@@ -6,12 +6,26 @@ half a diagonal of the road cell centre, so the true distance of any point in th
 (c + 2 * hd) * (1 + pad), where pad bounds the projection's scale error at that cell plus a small safety
 for UTM and the ellipsoid. Cells are visited in descending order of that bound, which is not the same as
 descending c once the pads differ; a refined point is a lower bound on the unit's maximum. A refined point
-becomes final once no unvisited cell can beat it; final points are accepted greedily with the dedup distance,
-measured as a lower bound on the ground separation so that an accepted pair survives the exact geodesic
-recheck the poles stage runs later; every unvisited cell that lies surely within the dedup distance of an
-accepted pole is dominated and skipped. The result equals "refine every cell, sort, accept greedily under
-the same separation rule", checked against a brute-force model on synthetic fields in
-tests/test_candidates.py.
+becomes final once no unvisited cell can beat it.
+
+A final point is accepted when it clears **two** conditions. The floor: it is at least `dedup_m` from every
+accepted pole, measured as a lower bound on the ground separation so that an accepted pair survives the exact
+geodesic recheck the poles stage runs later. And, when the caller passes a `distinct` callback, the
+distinct-area rule: it is not connected to an accepted pole over ground that stays above a fraction of its own
+distance to a road (issue #56). The floor is tested first because it is arithmetic while the callback reads a
+raster. Every unvisited cell that lies surely within the dedup distance of an accepted pole is dominated and
+skipped, and the callback may retire cells of its own through `Verdict.dead`.
+
+That second retirement is what keeps a plateau unit inside its budget, and it is sound for the same reason the
+first one is. Candidates are finalised in globally descending distance, so every later candidate carries a
+threshold no larger than this one's, and the superlevel sets only grow as the threshold falls: a cell joined to
+this candidate's area now is joined to it at every threshold still to come and can never be a new place,
+whether this candidate was accepted or refused. `poles.areas` answers the connectivity question and quantises
+the threshold **down** onto a fixed ladder, which makes the rule slightly stricter than its exact statement
+and never looser.
+
+The result equals "refine every cell, sort, accept greedily under the same rules", checked against a
+brute-force model on synthetic fields in tests/test_candidates.py.
 """
 from __future__ import annotations
 
@@ -52,12 +66,24 @@ def pad_fn_for(crs: str, safety: float = PAD_SAFETY) -> Callable[[np.ndarray, np
     return pad
 
 
+@dataclass(frozen=True)
+class Verdict:
+    """What the `distinct` callback answers about one finalised candidate.
+
+    `separate` is whether it is a new place. `dead` is a boolean over the search's own sorted cell order,
+    naming cells that can never hold a new place and are retired whatever the verdict was."""
+
+    separate: bool
+    dead: np.ndarray | None = None
+
+
 @dataclass
 class Refined:
     x: float
     y: float
     dist_m: float
     payload: object = None
+    cell: int = -1               # the sorted index the point was refined from; the search stamps it
 
 
 @dataclass
@@ -79,7 +105,8 @@ class Search:
     """
 
     def __init__(self, xs, ys, coarse, pads, res_m: float, top_n: int, refiner: Callable[[int], Refined | None],
-                 dedup_m: float = 10_000.0, warn_at: int = 500, fail_at: int = 200_000, log: logging.Logger | None = None):
+                 dedup_m: float = 10_000.0, distinct: Callable[[Refined, list[Refined]], Verdict] | None = None,
+                 warn_at: int = 500, fail_at: int = 200_000, log: logging.Logger | None = None):
         xs, ys, coarse, pads = (np.asarray(a, dtype=float) for a in (xs, ys, coarse, pads))
         if len({xs.size, ys.size, coarse.size, pads.size}) != 1:
             raise ValueError("candidates: xs, ys, coarse and pads must have the same length, got "
@@ -99,7 +126,7 @@ class Search:
         self.order = order
         self.xs, self.ys, self.coarse, self.pads = xs[order], ys[order], coarse[order], pads[order]
         self.uppers = uppers[order]
-        self.top_n, self.refiner, self.dedup_m = top_n, refiner, dedup_m
+        self.top_n, self.refiner, self.dedup_m, self.distinct = top_n, refiner, dedup_m, distinct
         self.warn_at, self.fail_at, self.log = warn_at, fail_at, log
         self.pad_max = float(self.pads.max()) if self.pads.size else 0.0
 
@@ -131,19 +158,31 @@ class Search:
             """Make final every pending point above up_to_value, greedily accept, mask dominated cells."""
             while pending and pending[0].dist_m > up_to_value and len(accepted) < self.top_n:
                 p = pending.pop(0)
-                if all(math.hypot(p.x - q.x, p.y - q.y) / (1 + self.pad_max) >= self.dedup_m for q in accepted):
-                    accepted.append(p)
-                    if self.dedup_m > 0:
-                        # A cell is dominated when even its farthest point is surely within dedup_m of p.
-                        # The acceptance test above measures a separation as hypot / (1 + pad_max), a lower
-                        # bound on the true ground distance, so an accepted pair survives the exact geodesic
-                        # recheck downstream. A point of this cell is at most hd beyond the centre in the
-                        # projection, so its separation from p measures at most (d + hd) / (1 + pad_max).
-                        # Below dedup_m every point of the cell would fail the very test p just passed, so
-                        # masking loses no pole; the same pad_max on both sides is what makes the two exact
-                        # complements, and a per-cell pad here would mask cells acceptance would still take.
-                        d = np.hypot(self.xs - p.x, self.ys - p.y)
-                        alive[(d + self.hd) / (1 + self.pad_max) < self.dedup_m] = False
+                if not all(math.hypot(p.x - q.x, p.y - q.y) / (1 + self.pad_max) >= self.dedup_m for q in accepted):
+                    continue          # the floor is arithmetic and the callback reads a raster: fail cheap first
+                if self.distinct is not None:
+                    verdict = self.distinct(p, accepted)
+                    # Whatever the verdict: candidates are finalised in globally descending distance, so a
+                    # cell joined to this one now is joined to every later candidate too, and can be no new
+                    # place either way. Rejected, it is the same place as whatever p was rejected against.
+                    if verdict.dead is not None:
+                        alive[verdict.dead] = False
+                    if not verdict.separate:
+                        continue
+                accepted.append(p)
+                if self.dedup_m > 0:
+                    # A cell is dominated when even its farthest point is surely within dedup_m of p.
+                    # The acceptance test above measures a separation as hypot / (1 + pad_max), a lower
+                    # bound on the true ground distance, so an accepted pair survives the exact geodesic
+                    # recheck downstream. A point of this cell is at most hd beyond the centre in the
+                    # projection, so its separation from p measures at most (d + hd) / (1 + pad_max).
+                    # Below dedup_m every point of the cell would fail the very test p just passed, so
+                    # masking loses no pole; the same pad_max on both sides is what makes the two exact
+                    # complements, and a per-cell pad here would mask cells acceptance would still take.
+                    # The floor stays a necessary condition under the distinct-area rule, so this mask is
+                    # as sound as it was and retires no cell the rule would have taken.
+                    d = np.hypot(self.xs - p.x, self.ys - p.y)
+                    alive[(d + self.hd) / (1 + self.pad_max) < self.dedup_m] = False
 
         while i < n and len(accepted) < self.top_n:
             if not alive[i]:
@@ -172,6 +211,10 @@ class Search:
                 raise PolesError(f"candidates: branch-and-bound exceeded {self.fail_at} refinements; "
                                  "the bound is not pruning")
             if refined is not None:
+                # The search is the only thing that knows which sorted index it handed the refiner, and the
+                # distinct callback needs the candidate's cell to ask about its component. Stamped here so
+                # every refiner gets it, rather than asked of each one.
+                refined.cell = i
                 k = 0
                 while k < len(pending) and pending[k].dist_m >= refined.dist_m:
                     k += 1

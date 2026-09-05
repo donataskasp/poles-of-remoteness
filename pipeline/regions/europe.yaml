@@ -22,6 +22,8 @@ unit_countries: null          # every country in the extract ...
 unit_exclude: [ru]            # ... except Russia (roads count, no unit)
 unit_code_tag: ISO3166-1
 # Main territory only. Generous lon/lat boxes [west, south, east, north]; stage 2 applies them.
+# These are product calls and stay. The class of abort some of them were added for, a sub-cell rock
+# saturating the distance cap, is handled by min_island_m2 now (DECISIONS 2026-09-05).
 territory_mask:
   - {name: Svalbard, bbox: [10.0, 74.0, 36.0, 81.0]}   # south edge 74.0 so Bjornoya (74.4 N) is in
   - {name: Jan Mayen, bbox: [-9.5, 70.7, -7.5, 71.3]}
@@ -36,6 +38,13 @@ edge_mask_m: 50000
 # below this value and saturates at it; 250 km keeps saturation inside class 253 ("240 km or more").
 max_distance_m: 250000
 top_n: 10
+# Two poles count as one place unless the ground between them drops below this fraction of the
+# nearer one's distance to a road, measured over land on the coarse grid (DECISIONS 2026-09-05).
+area_col_fraction: 0.5
+# The floor under that rule, for a plateau where the col test alone would tile one flat.
+dedup_m: 10000
+# No pole on a land component smaller than this. Same 1 km2 as the water-body threshold (spec 2.3).
+min_island_m2: 1000000
 detail_res_m: 50
 detail_window_m: 20000
 

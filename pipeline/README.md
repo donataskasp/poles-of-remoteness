@@ -43,6 +43,9 @@ Every top-level key of `regions/<region>.yaml`, in the order the file uses. The 
 | `edge_mask_m` | int | the band inside the data edge published as the edge class instead of a distance |
 | `max_distance_m` | int | the cap of the distance transform: the grid saturates here, so it has to stay above the region's true maximum |
 | `top_n` | int | how many poles are kept per unit and scenario |
+| `area_col_fraction` | float | the distinct-area rule: two poles are one place unless the ground between them, over land on the coarse grid, drops below this fraction of the nearer one's distance to a road. Greater than 0 and less than 1. Default 0.5 |
+| `dedup_m` | int | the floor under that rule: two poles are never both kept closer together than this, whatever the ground between them does. Default 10000 |
+| `min_island_m2` | int | no pole on a land component smaller than this; a pole on a component that is not its unit's largest is published with its area. Default 1000000, the same 1 km2 as the water-body threshold |
 | `detail_res_m` | int | the resolution of the per-pole detail raster |
 | `detail_window_m` | int | the width of the window that raster covers |
 | `class_table` | list of ints or null | per-region override of the class edges; null uses the default table of `docs/EUROPE_SPEC.md` 3.4. Default null |

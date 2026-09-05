@@ -10,8 +10,8 @@ from poles.boundaries import AdminArea
 from poles.config import RegionConfig, load_region
 from poles.grid import Frame
 from poles.poles import _units_from_fgb
-from poles.units import (Unit, UnitsError, apply_territory_mask, country_of, inside_fraction, low_tif,
-                         rasterize_units, select_units, unit_cells, write_units)
+from poles.units import (Unit, UnitsError, apply_territory_mask, country_of, inside_fraction, land_tif,
+                         low_tif, rasterize_units, select_units, unit_cells, water_tif, write_units)
 from tests.helpers import write_fgb
 
 
@@ -172,6 +172,18 @@ def test_unit_raster_leaves_out_a_cell_no_land_touches(tmp_path, log):
     counts = rasterize_units(fgb, frame, land, water, tmp_path / "units.tif", log, tmp_path)
     arr = _raster(tmp_path / "units.tif")
     assert counts == {1: 12} and arr[5, 3] == 0 and arr[5, 2] == 1
+
+
+def test_land_and_water_tif_name_what_rasterize_units_writes(tmp_path, log):
+    """`poles.areas` reads the two masks by deriving their paths from the unit raster it was given, which is
+    what makes check 4 inherit the rules: its own `units_shift.tif` carries its own pair beside it."""
+    unit = _unit("aa", box(0, 0, 3, 3), 1)
+    frame, fgb, land, water = _mini(tmp_path, [unit], [box(0, 0, 3, 3)])
+    out = tmp_path / "units_shift.tif"
+    rasterize_units(fgb, frame, land, water, out, log, tmp_path)
+    assert land_tif(out).name == "units_shift_land.tif" and land_tif(out).is_file()
+    assert water_tif(out).name == "units_shift_water.tif" and water_tif(out).is_file()
+    assert low_tif(out).name == "units_shift_low.tif" and low_tif(out).is_file()
 
 
 def test_unit_cells_gives_a_border_cell_to_both_units(tmp_path, log):

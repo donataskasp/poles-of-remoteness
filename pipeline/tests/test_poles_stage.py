@@ -2,6 +2,7 @@ import json
 import logging
 import threading
 import time
+from dataclasses import replace
 from concurrent.futures import Future, ThreadPoolExecutor
 from concurrent.futures.process import BrokenProcessPool
 from pathlib import Path
@@ -15,6 +16,7 @@ from pyproj import Transformer
 from shapely.geometry import LineString, MultiPolygon, Polygon, box
 
 from poles import poles as poles_mod
+from poles.areas import AreaField
 from poles.attrib import Countries
 from poles.boundaries import AdminArea
 from poles.candidates import Refined
@@ -25,7 +27,7 @@ from poles.poles import (Prepared, UnitJob, _allowed_factory, _bbox_window, _sea
 from poles.extract import MARKER
 from poles.refine import RefinedPole, UtmRoads, utm_epsg
 from poles.roads import RoadSet
-from poles.units import Unit, low_tif, write_units
+from poles.units import Unit, land_tif, low_tif, water_tif, write_units
 from poles.workspace import Workspace
 from tests.helpers import write_fgb
 
@@ -267,6 +269,10 @@ def test_a_saturated_candidate_cell_is_a_poles_error_naming_the_unit_and_the_cel
     with rasterio.open(units_tif, "r+") as ds:
         ds.write(np.ones((4, 4), dtype="int16"), 1)
     create_raster(frame, low_tif(units_tif), dtype="int16")
+    # The candidate rule's two masks, which the island floor reads: 16 land cells of 250 m are 1 km2, so
+    # this unit sits exactly on the floor and the saturated cell is on qualifying land.
+    _write_mask(land_tif(units_tif), np.ones((4, 4)), frame, "uint8")
+    _write_mask(water_tif(units_tif), np.zeros((4, 4)), frame, "uint8")
     dist = np.full((4, 4), 1000.0, dtype="float32")
     dist[2, 3] = float(cfg.max_distance_m)
     write_float_tif(tmp_path / "dist_A.tif", dist, frame)
@@ -642,3 +648,198 @@ def test_worker_log_records_name_their_unit_and_scenario(tmp_path, worker_log_pa
     handler = worker_log_parent.handlers[0]
     assert Path(handler.baseFilename) == job.log_path
     assert "%(name)s" in handler.formatter._fmt and log.name == "poles.unit.zz.B"
+
+
+# ---------- the island floor (spec 2.3, issue #30) ----------
+
+_WAY = {"id": 1, "highway": "track", "name": None, "ref": None, "country": "aa"}
+
+
+class _StubPlaces:
+    def nearest(self, lon, lat):
+        return None
+
+
+class _StubCache:
+    """RoadCache's shape, with nothing behind it: the refinement is stubbed out in these tests."""
+
+    def __init__(self, *args, **kwargs):
+        pass
+
+    def get(self, *args, **kwargs):
+        return None
+
+
+def _write_mask(path, arr, frame, dtype):
+    with rasterio.open(path, "w", width=frame.width, height=frame.height, count=1, dtype=dtype,
+                       crs=frame.crs, transform=frame.transform) as ds:
+        ds.write(np.asarray(arr).astype(dtype), 1)
+
+
+def _field_job(tmp_path, monkeypatch, dist, cfg, *, land=None, unit=None, top_n=1, scenario="A"):
+    """One synthetic unit and scenario ready for `search_unit`, with the road machinery stubbed out.
+
+    `dist` is the scenario's coarse raster, `land` the all-touched land mask of the candidate rule (default
+    every cell) and `unit` the unit's own cells (default every land cell). A refinement returns its cell's
+    centre carrying that cell's coarse value, so every expected pole is arithmetic on `dist`. Returns the
+    job and the list the refiner records the (row, col) of every cell it was asked for in.
+    """
+    dist = np.asarray(dist, dtype="float32")
+    h, w = dist.shape
+    frame = Frame("EPSG:3035", 250.0, 5_000_000.0, 3_600_000.0, w, h)
+    land = np.ones((h, w), dtype=bool) if land is None else np.asarray(land, dtype=bool)
+    cells = land if unit is None else (np.asarray(unit, dtype=bool) & land)
+    write_float_tif(tmp_path / f"dist_{scenario}.tif", dist, frame)
+    units_tif = tmp_path / "units.tif"
+    _write_mask(units_tif, np.where(cells, 1, 0), frame, "int16")
+    _write_mask(low_tif(units_tif), np.zeros((h, w)), frame, "int16")
+    _write_mask(land_tif(units_tif), land, frame, "uint8")
+    _write_mask(water_tif(units_tif), np.zeros((h, w)), frame, "uint8")
+    unit_obj = Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([box(0, 0, 1, 1)]), False, 1, cells=int(cells.sum()))
+    prepared = Prepared(frame, [unit_obj], tmp_path / "countries.fgb", tmp_path / "roads", units_tif,
+                        tmp_path / "land_idx.fgb", tmp_path / "water_big.fgb", tmp_path / "places.vrt",
+                        {"aa": (0, 0, h, w)})
+    to_ll = Transformer.from_crs(frame.crs, "EPSG:4326", always_xy=True)
+    refined_at: list[tuple[int, int]] = []
+
+    def fake_refine_cell(x, y, frame_crs, roads, half_m, allowed, countries, to_frame):
+        col = int(round((x - frame.x0) / frame.res - 0.5))
+        row = int(round((frame.y1 - y) / frame.res - 0.5))
+        refined_at.append((row, col))
+        lon, lat = to_ll.transform(x, y)
+        d = float(dist[row, col])
+        return Refined(float(x), float(y), d, (RefinedPole(lat, lon, d, 1, x, y, 32635, 0), _WAY))
+
+    monkeypatch.setattr(poles_mod, "refine_cell", fake_refine_cell)
+    monkeypatch.setattr(poles_mod, "RoadTiles", lambda *a, **k: None)
+    monkeypatch.setattr(poles_mod, "RoadCache", _StubCache)
+    monkeypatch.setattr(poles_mod, "_allowed_factory",
+                        lambda *a, **k: (lambda lons, lats: np.ones(len(lons), bool)))
+    monkeypatch.setattr(poles_mod, "_countries", lambda path: None)
+    monkeypatch.setattr(poles_mod, "_places", lambda path: _StubPlaces())
+    job = UnitJob(cfg, prepared, unit_obj, scenario, tmp_path / f"dist_{scenario}.tif", top_n,
+                  tmp_path / "log.txt")
+    return job, refined_at
+
+
+def test_a_candidate_cell_on_a_land_component_below_the_floor_is_not_searched(tmp_path, cfg, monkeypatch):
+    """The islet is the farthest cell of the unit and it is never refined: the gate is at the cell, before
+    the search, so a rock that rasterises to less than the floor cannot produce a pole (issue #30)."""
+    dist = np.full((20, 20), 100.0)
+    land = np.zeros((20, 20), dtype=bool)
+    land[2:10, 2:10] = True                  # 64 cells of 0.0625 km2 each: 4 km2, above the floor
+    land[15, 15] = True                      # one cell: 0.0625 km2, under it
+    dist[5, 5], dist[15, 15] = 5000.0, 9000.0
+    job, refined_at = _field_job(tmp_path, monkeypatch, dist, cfg, land=land)
+    result = poles_mod.search_unit(job)
+    assert [p["dist_m"] for p in result["poles"]] == [5000.0]
+    assert (15, 15) not in refined_at
+    assert result["top_coarse_m"] == 5000.0   # the cap check sees the unit the floor left behind
+
+
+def test_a_unit_of_nothing_but_small_islets_returns_no_pole_with_a_reason_naming_the_floor(tmp_path, cfg, monkeypatch):
+    dist = np.full((20, 20), 100.0)
+    land = np.zeros((20, 20), dtype=bool)
+    land[3, 3], land[10, 10] = True, True
+    dist[3, 3], dist[10, 10] = 9000.0, 8000.0
+    job, refined_at = _field_job(tmp_path, monkeypatch, dist, cfg, land=land)
+    result = poles_mod.search_unit(job)
+    assert result["poles"] == [] and result["refinements"] == 0 and refined_at == []
+    assert "min_island_m2" in result["reason"] and "land component" in result["reason"]
+
+
+def test_a_saturated_cell_on_a_dropped_islet_no_longer_stops_the_run(tmp_path, cfg, monkeypatch):
+    """A sub-cell rock at the distance cap is what `territory_mask` entries were added for; the floor now
+    removes the cell before the cap is read. A saturated cell on qualifying land still stops the run."""
+    dist = np.full((20, 20), 100.0)
+    land = np.zeros((20, 20), dtype=bool)
+    land[2:10, 2:10] = True
+    land[15, 15] = True
+    dist[5, 5], dist[15, 15] = 5000.0, float(cfg.max_distance_m)
+    job, _ = _field_job(tmp_path, monkeypatch, dist, cfg, land=land)
+    assert [p["dist_m"] for p in poles_mod.search_unit(job)["poles"]] == [5000.0]
+
+
+def test_the_island_gate_keeps_the_largest_component_of_a_unit_whatever_the_window_holds():
+    """"The unit's largest land component" is measured over the unit's own cells, not over the window: an
+    island unit's own mainland is never tagged, however much foreign land the padded window holds."""
+    land = np.zeros((14, 14), dtype=bool)
+    land[1:5, 1:5] = True                    # the unit's island: 16 cells, exactly 1 km2
+    land[7:14, 7:14] = True                  # a bigger landmass the window covers and the unit has no cell in
+    field = AreaField.from_arrays(np.full((14, 14), 1000.0), land, 250.0, 0, 0, 250_000.0)
+    rows, cols = np.nonzero(land)
+    unit_only = rows < 5
+    keep, island_km2, is_main = poles_mod._island_cells(field, rows[unit_only], cols[unit_only], 1_000_000)
+    assert keep.all() and is_main.all()
+    assert island_km2[0] == pytest.approx(1.0)
+
+
+def test_the_island_gate_drops_what_is_under_the_floor_and_tags_the_rest(tmp_path):
+    land = np.zeros((14, 14), dtype=bool)
+    land[1:5, 1:5] = True                    # 16 cells, 1 km2: the unit's largest
+    land[8:11, 8:11] = True                  # 9 cells, 0.5625 km2: over a 0.5 km2 floor, not the largest
+    land[13, 13] = True                      # one cell: under it
+    field = AreaField.from_arrays(np.full((14, 14), 1000.0), land, 250.0, 0, 0, 250_000.0)
+    rows, cols = np.nonzero(land)
+    keep, island_km2, is_main = poles_mod._island_cells(field, rows, cols, 500_000)
+    assert keep.sum() == 25 and not keep[-1]
+    assert is_main.sum() == 16
+    assert sorted(set(np.round(island_km2[keep], 4).tolist())) == [0.5625, 1.0]
+
+
+# ---------- the distinct-area rule, end to end (issue #56) ----------
+
+def _plateau(valley: bool):
+    """A 20 x 20 field with a three row plateau at 5,000 m and a peak at each end of it.
+
+    `valley` cuts the plateau's middle column down to 1,000 m, which is the road running through it.
+    """
+    dist = np.full((20, 20), 100.0)
+    dist[9:12, 4:17] = 5000.0
+    dist[10, 5], dist[10, 15] = 6000.0, 5900.0
+    if valley:
+        dist[9:12, 10] = 1000.0
+    return dist
+
+
+def test_two_peaks_split_by_a_road_valley_both_become_poles(tmp_path, cfg, monkeypatch):
+    """The col between them is 1,000 m, well under half of the nearer peak's 5,900 m, so the two ends of
+    the plateau are two places and both are published."""
+    job, _ = _field_job(tmp_path, monkeypatch, _plateau(valley=True), replace(cfg, dedup_m=1000), top_n=2)
+    result = poles_mod.search_unit(job)
+    assert [p["dist_m"] for p in result["poles"]] == [6000.0, 5900.0] and result["reason"] is None
+
+
+def test_two_peaks_on_one_plateau_yield_one_pole_and_a_reason(tmp_path, cfg, monkeypatch):
+    """The same two peaks with 5,000 m ground between them: every route stays above half of 5,900, so it
+    is one place and the second peak is not a second pole (issue #56, the bunching)."""
+    job, _ = _field_job(tmp_path, monkeypatch, _plateau(valley=False), replace(cfg, dedup_m=1000), top_n=2)
+    result = poles_mod.search_unit(job)
+    assert [p["dist_m"] for p in result["poles"]] == [6000.0]
+    assert result["reason"] and "1 pole(s)" in result["reason"]
+
+
+def _two_blocks():
+    """A high block with a peak at each end; the middle four columns are the gap the tests vary."""
+    dist = np.full((20, 20), 100.0)
+    dist[9:14, 3:17] = 4000.0
+    dist[10, 4], dist[12, 14] = 6000.0, 5900.0
+    land = np.zeros((20, 20), dtype=bool)
+    land[9:14, 3:17] = True
+    return dist, land
+
+
+def test_a_peak_on_an_islet_is_a_separate_place_from_the_mainland_peak(tmp_path, cfg, monkeypatch):
+    """Connectivity is measured over land alone, so water between two peaks makes them two places even
+    though the ground on both sides is high. Both islands clear the floor here (25 cells, 1.56 km2), so the
+    point of the test is the water, not the floor; the same field with a land bridge gives one pole."""
+    dist, land = _two_blocks()
+    land[:, 8:12] = False                       # the strait
+    job, _ = _field_job(tmp_path, monkeypatch, dist, replace(cfg, dedup_m=1000), land=land, top_n=2)
+    result = poles_mod.search_unit(job)
+    assert [p["dist_m"] for p in result["poles"]] == [6000.0, 5900.0]
+
+    bridged, land = _two_blocks()               # the same field, the strait filled in
+    (tmp_path / "bridged").mkdir()
+    job, _ = _field_job(tmp_path / "bridged", monkeypatch, bridged, replace(cfg, dedup_m=1000), land=land, top_n=2)
+    assert [p["dist_m"] for p in poles_mod.search_unit(job)["poles"]] == [6000.0]

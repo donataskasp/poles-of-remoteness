@@ -145,6 +145,20 @@ def low_tif(units_tif: Path) -> Path:
     return units_tif.with_name(units_tif.stem + "_low" + units_tif.suffix)
 
 
+def land_tif(units_tif: Path) -> Path:
+    """The all-touched land of the candidate rule, beside `units_tif`.
+
+    `rasterize_units` writes it, and `poles.areas` reads it back by deriving the path from the unit raster
+    it was handed: that is what makes check 4's half-shifted frame inherit the land mask of its own run,
+    with no naming knowledge of its own."""
+    return units_tif.with_name(units_tif.stem + "_land" + units_tif.suffix)
+
+
+def water_tif(units_tif: Path) -> Path:
+    """The cells big water fills, beside `units_tif`; the other half of the candidate rule."""
+    return units_tif.with_name(units_tif.stem + "_water" + units_tif.suffix)
+
+
 def _done(path: Path) -> bool:
     return path.exists() and path.with_name(path.name + MARKER).exists()
 
@@ -214,16 +228,16 @@ def rasterize_units(units_fgb: Path, frame: Frame, land_src: Path, water_src: Pa
     markers, so a resume rebuilds neither. Counts are of the union, one entry per index in the layer, zero
     included, and they are what units.json publishes as `cells`."""
     tools_log = Path(workdir) / "tools.log"
-    land_tif = _land_touched(land_src, frame, out_tif.with_name(out_tif.stem + "_land.tif"), log, tools_log)
-    water_tif = _water_interior(water_src, frame, out_tif.with_name(out_tif.stem + "_water.tif"), log, tools_log)
+    land = _land_touched(land_src, frame, land_tif(out_tif), log, tools_log)
+    water = _water_interior(water_src, frame, water_tif(out_tif), log, tools_log)
     _burn_units(units_fgb, frame, out_tif, "ASC", log, tools_log)
     _burn_units(units_fgb, frame, low_tif(out_tif), "DESC", log, tools_log)
     _, _, _, fields = read(str(units_fgb), layer="units", columns=["idx"], read_geometry=False)
     counts: dict[int, int] = {int(i): 0 for i in fields[0]}
     with rasterio.open(out_tif, "r+") as hi, rasterio.open(low_tif(out_tif), "r+") as lo, \
-            rasterio.open(land_tif) as land, rasterio.open(water_tif) as water:
+            rasterio.open(land) as land_ds, rasterio.open(water) as water_ds:
         for _, window in hi.block_windows(1):
-            keep = (land.read(1, window=window) > 0) & (water.read(1, window=window) == 0)
+            keep = (land_ds.read(1, window=window) > 0) & (water_ds.read(1, window=window) == 0)
             high, low = hi.read(1, window=window), lo.read(1, window=window)
             high[~keep] = 0
             low[~keep] = 0

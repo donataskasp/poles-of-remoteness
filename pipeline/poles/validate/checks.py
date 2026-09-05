@@ -25,7 +25,7 @@ from ..classify import SET_A, SET_B
 from ..config import RegionConfig
 from ..errors import PolesError
 from ..grid import Frame
-from ..poles import DEDUP_M, validate_poles_json
+from ..poles import validate_poles_json
 from ..units import Unit, low_tif
 
 GEOD = Geod(ellps="WGS84")
@@ -374,7 +374,7 @@ def references(poles, refs: dict) -> list[CheckResult]:
 
 
 def invariants(poles, units: list[Unit], cfg: RegionConfig, grid_meta: dict) -> list[CheckResult]:
-    """Check 7 (the stage-2 part): A <= B, top_n or a reason, 10 km separation, unit count, JSON structure."""
+    """Check 7 (the stage-2 part): A <= B, top_n or a reason, the separation floor, unit count, JSON structure."""
     out = []
     a = {e["unit"]: e for e in poles.get("A", [])}
     b = {e["unit"]: e for e in poles.get("B", [])}
@@ -395,7 +395,7 @@ def invariants(poles, units: list[Unit], cfg: RegionConfig, grid_meta: dict) -> 
             ps = entry["poles"] if entry else []
             worst = min((GEOD.inv(p["lon"], p["lat"], q["lon"], q["lat"])[2]
                          for i, p in enumerate(ps) for q in ps[i + 1:]), default=np.inf)
-            out.append(CheckResult("invariant", u.code, scenario, bool(worst >= DEDUP_M), True,
+            out.append(CheckResult("invariant", u.code, scenario, bool(worst >= cfg.dedup_m), True,
                                    {"name": "separation", "min_m": None if worst == np.inf else round(worst, 1)}))
     expected = cfg.expected_units
     out.append(CheckResult("invariant", "*", "*", expected is None or len(units) == expected, True,

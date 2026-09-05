@@ -24,6 +24,8 @@ unit_code_tag: ISO3166-2
 # Hawaii's Northwestern Hawaiian Islands (Nihoa to Kure, a roadless refuge chain) saturated the 500 km cap on
 # Laysan (lon -171.74, lat 25.78, about 1,100 km from the nearest road on Kauai) on 2026-08-23, see DECISIONS.
 # The east edge at -161.0 keeps Niihau and Kaula (lon -160.5) in and takes Nihoa (lon -161.9) out.
+# The entry is a product call and stays. The class of abort it was added for, a sub-cell rock saturating
+# the distance cap, is handled by min_island_m2 now (DECISIONS 2026-09-05).
 territory_mask:
   - {name: Northwestern Hawaiian Islands, bbox: [-179.0, 22.5, -161.0, 29.0]}
 
@@ -32,6 +34,13 @@ edge_mask_m: 50000
 # 400 km saturated there on 2026-08-23 and the poles stage aborted, see DECISIONS.
 max_distance_m: 500000
 top_n: 10
+# Two poles count as one place unless the ground between them drops below this fraction of the
+# nearer one's distance to a road, measured over land on the coarse grid (DECISIONS 2026-09-05).
+area_col_fraction: 0.5
+# The floor under that rule, for a plateau where the col test alone would tile one flat.
+dedup_m: 10000
+# No pole on a land component smaller than this. Same 1 km2 as the water-body threshold (spec 2.3).
+min_island_m2: 1000000
 detail_res_m: 50
 detail_window_m: 20000
 

@@ -36,9 +36,10 @@ from shapely.ops import unary_union
 from shapely.strtree import STRtree
 
 from .antimeridian import split_bbox, wrapped_bounds
+from .areas import AreaField, col_threshold
 from .attrib import Countries, Places, clean_text, nearest_way, pole_record
 from .boundaries import AdminArea, load_admin_areas
-from .candidates import Refined, Search, half_diag, pad_fn_for
+from .candidates import Refined, Search, Verdict, half_diag, pad_fn_for
 from .classify import where_clause
 from .config import RegionConfig
 from .errors import PolesError
@@ -48,12 +49,12 @@ from .poly import parse_poly
 from .refine import RoadCache, UtmRoads, refine, utm_epsg
 from .roads import RoadTiles, build_tiles
 from .shell import require_tools, run_cmd
-from .units import Unit, low_tif, rasterize_units, select_units, unit_cells, write_units
+from .units import (Unit, land_tif, low_tif, rasterize_units, select_units, unit_cells, water_tif,
+                    write_units)
 from .workspace import Workspace
 
 STAGE = "poles"
 SCENARIOS = ("A", "B")
-DEDUP_M = 10_000.0
 MIN_WATER_M2 = 1_000_000.0
 
 
@@ -346,6 +347,43 @@ def refine_cell(x: float, y: float, frame_crs: str, roads: UtmRoads, half_m: flo
     return Refined(float(fx), float(fy), r.dist_m, (r, nearest_way(roads, r, countries)))
 
 
+def _padded_window(window: Window, pad_cells: int, frame: Frame) -> Window:
+    """The unit's window grown by `pad_cells` each way and clamped to the frame.
+
+    The margin is what the connectivity question needs: a path joining two areas may leave the unit's own
+    box. **Stated assumption:** it does not leave it by more than the candidate's own distance to a road,
+    which is where `pad_cells` comes from. It is an assumption, not a theorem; it scales itself, being a
+    few cells for a microstate and about 1,700 for the largest unit, and the cost of it being wrong is two
+    areas called one place, never a pole in the wrong place.
+    """
+    row_off, col_off = int(window.row_off), int(window.col_off)
+    row_end = min(frame.height, row_off + int(window.height) + pad_cells)
+    col_end = min(frame.width, col_off + int(window.width) + pad_cells)
+    row_off, col_off = max(0, row_off - pad_cells), max(0, col_off - pad_cells)
+    return Window(col_off=col_off, row_off=row_off, width=col_end - col_off, height=row_end - row_off)
+
+
+def _island_cells(field: AreaField, rows: np.ndarray, cols: np.ndarray,
+                  min_island_m2: float) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Per candidate cell: keep it, the area of its land component, and whether that component is the main one.
+
+    A cell on a land component smaller than `min_island_m2` carries no pole (spec 2.3, issue #30): the whole
+    of Kolbeinsey rasterises to one all-touched cell of 0.0625 km2, and a pole there is a pole on a rock.
+    The main component is the one holding the most of this unit's kept cells, which is the unit-relative
+    reading of "the unit's largest land component": an island unit's own mainland is the main component
+    whatever else the padded window happens to contain, which is the point of measuring it here.
+    """
+    comps = field.land_components()
+    wr, wc = field.rowcol(rows, cols)
+    comp = comps.labels[wr, wc]
+    island_km2 = comps.area_km2[comp]
+    keep = island_km2.astype("float64") * 1e6 >= float(min_island_m2)
+    is_main = np.zeros(comp.shape, dtype=bool)
+    if keep.any():
+        is_main = comp == int(np.bincount(comp[keep]).argmax())
+    return keep, island_km2, is_main
+
+
 def search_unit(job: UnitJob) -> dict:
     """One unit and one scenario: coarse cells, branch-and-bound, exact refinement, attribution."""
     t0 = time.monotonic()
@@ -366,6 +404,32 @@ def search_unit(job: UnitJob) -> dict:
     ys = frame.y1 - (abs_rows + 0.5) * frame.res
     to_ll = Transformer.from_crs(frame.crs, "EPSG:4326", always_xy=True)
     lons, lats = to_ll.transform(xs, ys)
+
+    # The island floor, before anything is searched. The field is built once here and the search's
+    # distinct-area rule reads the same window; the pad comes from the farthest cell the unit has, which is
+    # the widest a joining path can be under the assumption `_padded_window` states. The per-cell island
+    # area and the main-component flag are what a published pole's `island_km2` is later read from.
+    field = AreaField.read(job.dist_tif, land_tif(prep_.units_tif), water_tif(prep_.units_tif), frame,
+                           _padded_window(window, int(math.ceil(float(coarse.max()) / frame.res)), frame),
+                           float(cfg.max_distance_m))
+    keep, cell_island_km2, cell_is_main = _island_cells(field, abs_rows, abs_cols, cfg.min_island_m2)
+    dropped = len(np.unique(field.land_components().labels[field.rowcol(abs_rows, abs_cols)][~keep]))
+    if not keep.any():
+        log.info("island floor: none of the %d candidate cells sits on a land component of %.2f km2 or more",
+                 keep.size, cfg.min_island_m2 / 1e6)
+        return {"unit": unit.code, "scenario": scenario, "poles": [], "refinements": 0, "warnings": [],
+                "reason": ("no pole: every candidate cell of the unit lies on a land component smaller than "
+                           f"min_island_m2 ({cfg.min_island_m2 / 1e6:.2f} km2)"),
+                "duration_s": round(time.monotonic() - t0, 1), "top_coarse_m": float(coarse.max())}
+    coarse, xs, ys = coarse[keep], xs[keep], ys[keep]
+    abs_rows, abs_cols = abs_rows[keep], abs_cols[keep]
+    lons, lats = np.asarray(lons)[keep], np.asarray(lats)[keep]
+    cell_island_km2, cell_is_main = cell_island_km2[keep], cell_is_main[keep]
+    off_main = ~cell_is_main
+    log.info("island floor: %d candidate cells, %d kept, %d land component(s) dropped; %d kept cell(s) lie "
+             "off the unit's largest component, the largest of those %.2f km2", keep.size, int(keep.sum()),
+             dropped, int(off_main.sum()), float(cell_island_km2[off_main].max()) if off_main.any() else 0.0)
+
     top_coarse = float(coarse.max())
     if top_coarse >= cfg.max_distance_m:
         # A cell at the cap is a real "at least max_distance_m" answer that the search cannot rank against
@@ -398,12 +462,30 @@ def search_unit(job: UnitJob) -> dict:
         roads = cache.get(lon - dlon, lat - dlat, lon + dlon, lat + dlat, epsg)
         return refine_cell(x_sorted[i], y_sorted[i], frame.crs, roads, half_m=hd, allowed=allowed, countries=countries, to_frame=to_frame)
 
-    search = Search(xs, ys, coarse, pads, frame.res, job.top_n, refiner, DEDUP_M, log=log)
-    # `refiner` reads these by name, so they must be bound before search.run(): Search sorts the cells by
-    # their upper bound and the refiner is called with indices into that sorted order, not into the raw
+    fraction = cfg.area_col_fraction
+
+    def distinct(cand: Refined, accepted: list[Refined]) -> Verdict:
+        """The distinct-area rule: is this candidate connected to an accepted pole over high ground?
+
+        Candidates are finalised in globally descending distance, so this one is the nearer of every pair it
+        is tested against and `col_threshold` collapses to a single number for the whole accepted set: one
+        labelling answers the question for all of them.
+        """
+        theta = col_threshold(cand.dist_m, cand.dist_m, fraction)
+        comp = field.component_at(row_sorted[cand.cell], col_sorted[cand.cell], theta)
+        if comp == 0:
+            # Below the threshold or off land: no accepted pole can be joined to it, and nothing to retire.
+            return Verdict(True, None)
+        same = any(field.component_at(row_sorted[a.cell], col_sorted[a.cell], theta) == comp for a in accepted)
+        return Verdict(not same, field.dead_cells(row_sorted, col_sorted, comp, theta))
+
+    search = Search(xs, ys, coarse, pads, frame.res, job.top_n, refiner, cfg.dedup_m, distinct=distinct, log=log)
+    # `refiner` and `distinct` read these by name, so they must be bound before search.run(): Search sorts the
+    # cells by their upper bound and both are called with indices into that sorted order, not into the raw
     # arrays; the road window still comes from the cell's own coarse value, read as coarse_sorted[i].
     coarse_sorted, x_sorted, y_sorted = search.coarse, search.xs, search.ys
     lon_sorted, lat_sorted = np.asarray(lons)[search.order], np.asarray(lats)[search.order]
+    row_sorted, col_sorted = abs_rows[search.order], abs_cols[search.order]
     result = search.run()
 
     places = _places(str(prep_.places))
@@ -414,7 +496,7 @@ def search_unit(job: UnitJob) -> dict:
     reason = None
     if result.exhausted:
         reason = (f"only {len(poles)} pole(s): no further point of the unit is both at least "
-                  f"{DEDUP_M / 1000:.0f} km from the accepted poles and on allowed ground"
+                  f"{cfg.dedup_m / 1000:.0f} km from the accepted poles and on allowed ground"
                   if poles else "no pole: no candidate of the unit refined to an allowed point")
     return {"unit": unit.code, "scenario": scenario, "poles": poles, "reason": reason, "refinements": result.refinements,
             "warnings": result.warnings, "duration_s": round(time.monotonic() - t0, 1), "top_coarse_m": top_coarse}

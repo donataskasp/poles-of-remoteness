@@ -93,6 +93,40 @@ def test_references_is_optional_and_a_missing_file_names_the_key(tmp_path):
         load_region(_variant(tmp_path, references="nowhere-refs.yaml"))
 
 
+def test_the_new_rule_keys_have_defaults_when_a_config_omits_them(tmp_path):
+    """A region that says nothing about the distinct-area rule gets the values both regions ship today."""
+    cfg = load_region(_variant(tmp_path, drop=["area_col_fraction", "dedup_m", "min_island_m2"]))
+    assert cfg.area_col_fraction == 0.5
+    assert cfg.dedup_m == 10_000
+    assert cfg.min_island_m2 == 1_000_000
+
+
+def test_area_col_fraction_outside_zero_to_one_is_a_config_error_naming_the_key(tmp_path):
+    """0 would make every candidate a new place and 1 would demand a drop to zero between two poles."""
+    for bad in (0.0, 1.0, -0.5, 1.5):
+        with pytest.raises(ConfigError, match="area_col_fraction"):
+            load_region(_variant(tmp_path, area_col_fraction=bad))
+    assert load_region(_variant(tmp_path, area_col_fraction=0.75)).area_col_fraction == 0.75
+
+
+def test_a_negative_dedup_or_island_floor_is_a_config_error_naming_the_key(tmp_path):
+    with pytest.raises(ConfigError, match="dedup_m"):
+        load_region(_variant(tmp_path, dedup_m=-1))
+    with pytest.raises(ConfigError, match="min_island_m2"):
+        load_region(_variant(tmp_path, min_island_m2=-1))
+    zeroed = load_region(_variant(tmp_path, dedup_m=0, min_island_m2=0))   # both floors off is a legal region
+    assert (zeroed.dedup_m, zeroed.min_island_m2) == (0, 0)
+
+
+def test_area_col_fraction_accepts_an_int_but_not_a_bool(tmp_path):
+    """An int is a legal type, so 0 and 1 are refused by the range rather than by the type, while the bool
+    guard in `load_region` refuses `true` before the range is ever reached."""
+    with pytest.raises(ConfigError, match="area_col_fraction.*greater than 0 and less than 1"):
+        load_region(_variant(tmp_path, area_col_fraction=1))
+    with pytest.raises(ConfigError, match="area_col_fraction.*must be float/int, got bool"):
+        load_region(_variant(tmp_path, area_col_fraction=True))
+
+
 def test_missing_required_key_raises_config_error_naming_key(tmp_path):
     with pytest.raises(ConfigError, match="coarse_crs"):
         load_region(_variant(tmp_path, drop=["coarse_crs"]))

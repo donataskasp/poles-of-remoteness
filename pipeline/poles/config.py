@@ -30,6 +30,9 @@ class RegionConfig:
     edge_mask_m: int
     max_distance_m: int
     top_n: int
+    area_col_fraction: float
+    dedup_m: int
+    min_island_m2: int
     detail_res_m: int
     detail_window_m: int
     class_table: list[int] | None
@@ -54,11 +57,13 @@ _TYPES: dict[str, tuple[type, ...]] = {
     "coarse_crs": (str,), "coarse_res_m": (int,), "unit_admin_level": (int,),
     "unit_countries": (list, _NONE), "unit_exclude": (list,), "unit_code_tag": (str,),
     "territory_mask": (list,), "edge_mask_m": (int,), "max_distance_m": (int,), "top_n": (int,),
+    "area_col_fraction": (float, int), "dedup_m": (int,), "min_island_m2": (int,),
     "detail_res_m": (int,), "detail_window_m": (int,), "class_table": (list, _NONE),
     "expected_units": (int, _NONE), "transcontinental": (list,), "references": (str, _NONE),
 }
 _DEFAULTS: dict[str, Any] = {
     "supplement_sources": [], "unit_countries": None, "unit_exclude": [], "territory_mask": [],
+    "area_col_fraction": 0.5, "dedup_m": 10_000, "min_island_m2": 1_000_000,
     "class_table": None, "expected_units": None, "transcontinental": [], "references": None,
 }
 _REQUIRED = tuple(k for k in _TYPES if k not in _DEFAULTS)
@@ -94,6 +99,15 @@ def load_region(path: str | Path) -> RegionConfig:
         raise ConfigError(f"{path}: key 'names' must map two-letter language codes to non-empty names")
     if not values["sources"]:
         raise ConfigError(f"{path}: key 'sources' must list at least one URL")
+    # The distinct-area rule's two numbers and the island floor (DECISIONS 2026-09-05). A fraction of 0
+    # would make every candidate a new place and one of 1 would demand a drop to zero between two poles,
+    # so both ends are out; the two floors may be zero, which switches that floor off.
+    if not 0 < values["area_col_fraction"] < 1:
+        raise ConfigError(f"{path}: key 'area_col_fraction' must be greater than 0 and less than 1, "
+                          f"got {values['area_col_fraction']}")
+    for key in ("dedup_m", "min_island_m2"):
+        if values[key] < 0:
+            raise ConfigError(f"{path}: key '{key}' must be 0 or more, got {values[key]}")
     for mask in values["territory_mask"]:
         ok = isinstance(mask, dict) and isinstance(mask.get("name"), str) \
             and isinstance(mask.get("bbox"), list) and len(mask["bbox"]) == 4 \
