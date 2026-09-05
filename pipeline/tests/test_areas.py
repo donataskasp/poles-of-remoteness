@@ -114,6 +114,29 @@ def test_dead_cells_only_names_cells_whose_whole_neighbourhood_is_in_the_compone
     assert not dead.any()
 
 
+def test_dead_cells_retire_the_whole_component_once_the_threshold_is_a_few_cells_wide():
+    """Above four cells of threshold a member cell next to water or next to a below-threshold cell is dead
+    too: a point refined out of it is joined to the pole at its own threshold (the docstring's argument).
+    The window's outermost ring stays alive either way."""
+    rows, cols = np.mgrid[0:7, 0:7]
+    rows, cols = rows.ravel(), cols.ravel()
+    dist = np.full((7, 7), 5000.0)
+    land = np.ones((7, 7), dtype=bool)
+    land[3, 3] = False                                      # a lake in the middle of the plateau
+    dist[3, 1] = 100.0                                      # and a valley cell beside it
+    f = _field(dist, land=land)
+    comp = f.component_at(1, 1, 2000.0)
+    dead = f.dead_cells(rows, cols, comp, 2000.0)
+    expected = {(r, c) for r in range(1, 6) for c in range(1, 6)} - {(3, 3), (3, 1)}
+    assert {(int(r), int(c)) for r, c, d in zip(rows, cols, dead) if d} == expected
+    # Under a kilometre the conservative neighbourhood reading stays: nothing around the lake or the valley.
+    small = _field(np.where(dist > 200, 900.0, 100.0), land=land)
+    comp = small.component_at(1, 1, 500.0)
+    dead = small.dead_cells(rows, cols, comp, 500.0)
+    around = {(3 + dr, 3 + dc) for dr in (-1, 0, 1) for dc in (-1, 0, 1)} | {(3 + dr, 1 + dc) for dr in (-1, 0, 1) for dc in (-1, 0, 1)}
+    assert {(int(r), int(c)) for r, c, d in zip(rows, cols, dead) if d} == {(r, c) for r in range(1, 6) for c in range(1, 6)} - around
+
+
 def test_rowcol_maps_frame_indices_into_the_window_and_rejects_a_point_outside_it():
     f = _field(np.full((4, 6), 1000.0), row_off=10, col_off=20)
     wr, wc = f.rowcol(np.array([10, 13]), np.array([20, 25]))

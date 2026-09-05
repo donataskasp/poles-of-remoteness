@@ -197,13 +197,26 @@ class AreaField:
         return int(self.labels_at(threshold_m)[int(wr), int(wc)])
 
     def dead_mask(self, component: int, threshold_m: float) -> np.ndarray:
-        """True over the window where the cell **and all eight of its neighbours** carry `component`.
+        """True over the window where a cell of `component` can hold no new place: the whole component,
+        less the window's outermost ring, once the threshold is a few cells wide.
 
-        That neighbourhood is what makes the search's pruning lossless: a refined point never leaves its
-        cell's eight neighbours, so a point refined from a dead cell lands in a cell of the component and
-        would be rejected against it anyway. A cell on the window's edge is never dead, because what lies
-        beyond the window was not read. The erosion runs over the component's own bounding box with eight
-        shifted ANDs, so its cost is the component's extent and not the number of cells asked about; one
+        Why the whole component is lossless. A point refined out of a member cell lands in that cell or
+        one of its eight neighbours. A neighbour in the superlevel set is in the same component, by
+        8-connectivity. A neighbour off land can hold no allowed point. A neighbour below the threshold
+        holds points no farther than its own coarse value plus half a cell diagonal, so the refined point's
+        distance d satisfies coarse(neighbour) >= d - hd; the point is finalised at its own threshold d / 2
+        (the nearer of any pair, `col_threshold`), and coarse(neighbour) >= d / 2 whenever d >= 2 hd, so the
+        neighbour is in that superlevel set, adjacent to the member cell, and the point is joined to the
+        accepted pole it would have been rejected against. A refined point's distance is at least its
+        cell's coarse value, itself at least this threshold, so `threshold_m >= 4 * res_m` covers d >= 2 hd
+        with room for the coarse grid's own error. Below that (a microstate's few hundred metres) the mask
+        keeps the conservative reading: the cell **and all eight of its neighbours** in the component.
+
+        Why it matters: a cell next to water or next to a below-threshold cell fails the neighbourhood test,
+        and the Canadian Shield is lake shore. Under the neighbourhood rule alone, Quebec A refined 35,000
+        cells of one plateau (3,133 under the floor-only search) and was a third of the way down it.
+
+        A cell on the window's edge is never dead, because what lies beyond the window was not read. One
         mask is cached, keyed by rung and component, because the search asks for the same pair once per
         finalised candidate of a plateau and a continental unit finalises hundreds.
         """
@@ -216,17 +229,23 @@ class AreaField:
         if rows_any.any():
             r0, r1 = int(np.argmax(rows_any)), len(rows_any) - int(np.argmax(rows_any[::-1]))
             c0, c1 = int(np.argmax(cols_any)), len(cols_any) - int(np.argmax(cols_any[::-1]))
-            m = member[r0:r1, c0:c1]
-            h, w = m.shape
-            if h >= 3 and w >= 3:
-                # The crop's own border stays False: a cell there has a neighbour outside the bounding box,
-                # which holds no member by construction, and the window's edge lies at or beyond it.
-                core = m[1:h - 1, 1:w - 1].copy()
-                for dr in (-1, 0, 1):
-                    for dc in (-1, 0, 1):
-                        if dr or dc:
-                            core &= m[1 + dr:h - 1 + dr, 1 + dc:w - 1 + dc]
-                dead[r0 + 1:r1 - 1, c0 + 1:c1 - 1] = core
+            if threshold_m >= 4 * self.res_m:
+                dead[r0:r1, c0:c1] = member[r0:r1, c0:c1]
+                h, w = dead.shape
+                dead[0, :] = dead[h - 1, :] = False
+                dead[:, 0] = dead[:, w - 1] = False
+            else:
+                m = member[r0:r1, c0:c1]
+                h, w = m.shape
+                if h >= 3 and w >= 3:
+                    # The crop's own border stays False: a cell there has a neighbour outside the bounding
+                    # box, which holds no member by construction, and the window's edge lies at or beyond it.
+                    core = m[1:h - 1, 1:w - 1].copy()
+                    for dr in (-1, 0, 1):
+                        for dc in (-1, 0, 1):
+                            if dr or dc:
+                                core &= m[1 + dr:h - 1 + dr, 1 + dc:w - 1 + dc]
+                    dead[r0 + 1:r1 - 1, c0 + 1:c1 - 1] = core
         self._dead, self._dead_key = dead, key
         return dead
 
