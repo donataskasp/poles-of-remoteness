@@ -12,8 +12,7 @@
         "type": "object",
         "additionalProperties": false,
         "required": ["id", "name", "names", "snapshot", "unit_level", "units_count", "r2_base", "class_edges",
-                                "max_distance_m", "edge_mask_m", "detail_res_m", "detail_window_m",
-                     "area_col_fraction", "min_island_m2"],
+                                "max_distance_m", "edge_mask_m", "detail_res_m", "detail_window_m"],
         "properties": {
           "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]{0,31}$"},
           "name": {"type": "string"},

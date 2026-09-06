@@ -172,6 +172,20 @@ def test_unit_doc_accepts_an_unnamed_nearest_place():
     sitedata.validate_doc("unit", site.unit_docs["lt"])
 
 
+def test_a_region_published_before_the_rules_still_validates_beside_a_new_one():
+    """`write_site` merges into the regions document on disk, so the other region keeps the entry of its
+    own last publish: without the rule numbers until it is republished. The site hides the rule sentence
+    for such a region, and the schema must not fail the publish over it (Europe's, 2026-09-06)."""
+    site = _build()
+    old = {k: v for k, v in site.regions_entry.items() if k not in ("area_col_fraction", "min_island_m2")}
+    old["id"] = "elsewhere"
+    existing = {"schema_version": 1, "regions": [old]}
+    merged = sitedata.merge_regions(existing, site.regions_entry)
+    sitedata.validate_doc("regions", merged)
+    assert [r["id"] for r in merged["regions"]] == ["elsewhere", site.regions_entry["id"]]
+    assert "area_col_fraction" not in merged["regions"][0] and merged["regions"][1]["area_col_fraction"] == 0.5
+
+
 def test_every_document_validates():
     site = _build()
     sitedata.validate_doc("regions", sitedata.merge_regions(None, site.regions_entry))
