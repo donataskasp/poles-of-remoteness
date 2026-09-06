@@ -40,6 +40,8 @@ from .roads import RoadSet
 # usually allowed, so the first batch normally answers the whole refinement and the mask never sees the
 # other 10,000 points; the batch is still large enough that a mask backed by an index is called in bulk.
 MASK_BATCH = 256
+# The rounding `attrib.pole_record` applies to a published coordinate; the mask is asked about that point.
+PUBLISH_DECIMALS = 6
 
 
 def utm_epsg(lon: float, lat: float) -> int:
@@ -118,7 +120,11 @@ def _best_on_grid(cx: float, cy: float, half: float, step: float, roads: UtmRoad
     for start in range(0, len(order), MASK_BATCH):
         batch = order[start:start + MASK_BATCH]
         lons, lats = roads.to_lonlat.transform(px[batch], py[batch])
-        keep = np.asarray(allowed(np.asarray(lons), np.asarray(lats)), dtype=bool)
+        # The mask sees the coordinates as they will be published, rounded to PUBLISH_DECIMALS: the farthest
+        # point from any road on a shore is the lattice point nearest the water, within a step of the
+        # allowed set's edge, and a few centimetres of rounding put three of North America's poles into
+        # the lake polygon that check 2 then failed them for (2026-09-06).
+        keep = np.asarray(allowed(np.round(np.asarray(lons), PUBLISH_DECIMALS), np.round(np.asarray(lats), PUBLISH_DECIMALS)), dtype=bool)
         if keep.any():
             return result(int(batch[int(np.argmax(keep))]))
     return None

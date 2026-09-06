@@ -300,8 +300,19 @@ def _bbox_window(unit: Unit, frame: Frame, to_frame: Transformer) -> Window:
     return Window(col_off=col_off, row_off=row_off, width=max(1, col_end - col_off), height=max(1, row_end - row_off))
 
 
-def _allowed_factory(unit: Unit, land_idx: Path, water_big: Path):
-    """Point allowed when inside the unit, on a land polygon, and in no water polygon of 1 km2 or more."""
+def _allowed_factory(unit: Unit, land_idx: Path, water_big: Path, to_frame: Transformer | None = None,
+                     min_island_m2: float = 0.0):
+    """Point allowed when inside the unit, on a land polygon, in no water polygon of 1 km2 or more, and,
+    when `min_island_m2` is set, on a body of land of at least that area.
+
+    The body is the land polygon under the point less the big water, as one part of the difference: the
+    grid-independent reading of the island floor. The raster floor of `_island_cells` reads 8-connected
+    cells, and an islet touching the shore's cells is glued to the mainland on one grid and its own
+    component on the next: Illinois's winner sat on 0.04 km2 in Carlyle Lake, mainland on the search's
+    grid and dropped on check 4's. Areas are planar in the coarse CRS (equal-area by the region's choice),
+    so the test needs `to_frame`; without it the floor is not applied. A land piece is a tile of the split
+    dataset, so a small island cut by a degree line is measured in parts, which understates it.
+    """
     w, s, e, n = wrapped_bounds(unit.geometry)
     pad = 0.05
     # A unit split at the antimeridian has plain bounds of -180 to 180, so a single read would pull the
@@ -312,23 +323,104 @@ def _allowed_factory(unit: Unit, land_idx: Path, water_big: Path):
     wwkb = [read(str(water_big), layer="water", bbox=p)[2] for p in parts]
     land_geoms = [g for chunk in lwkb for g in shapely.from_wkb(chunk)]
     water_geoms = [g for chunk in wwkb for g in shapely.from_wkb(chunk)]
-    land_tree = STRtree(land_geoms) if land_geoms else None
-    water_tree = STRtree(water_geoms) if water_geoms else None
     geom = unit.geometry
     shapely.prepare(geom)                      # one prepared geometry, then one vectorised call per batch
 
+    def polygons(polys) -> list:
+        parts = shapely.get_parts(np.asarray(list(polys), dtype=object))
+        keep = (shapely.get_type_id(parts) == 3) & ~shapely.is_empty(parts)      # 3 is Polygon
+        return list(parts[keep])
+
+    class _Cover:
+        """Point-in-any-polygon over a set that may overlap: a bbox tree names the candidates, and each
+        polygon, prepared once, answers for its own points. No dissolving, which on the Great Lakes cost
+        minutes, and no parity trouble from overlapping water. A tree query with a predicate on the raw
+        geometries cost 16 ms a batch on Chesapeake's marshes, forty batches a refinement."""
+
+        def __init__(self, polys):
+            self.polys = np.asarray(polygons(polys), dtype=object)
+            for g in self.polys:
+                shapely.prepare(g)
+            self.tree = STRtree(self.polys) if len(self.polys) else None
+
+        def __call__(self, lons, lats) -> np.ndarray:
+            hit = np.zeros(len(lons), dtype=bool)
+            if self.tree is None:
+                return hit
+            pi, gi = self.tree.query(shapely.points(lons, lats))
+            for g in np.unique(gi):
+                sel = pi[gi == g]
+                hit[sel] |= shapely.contains_xy(self.polys[g], lons[sel], lats[sel])
+            return hit
+
+    on_land = _Cover(land_geoms)
+    in_water = _Cover(water_geoms)
+
+    class _Islet:
+        """Is the point on a body of land under the floor? The body is the part of the point's land piece
+        less the big water that holds the point, and a piece is decomposed only when a point on it is
+        asked about, then kept: a job refines a few hundred windows over a handful of pieces, while
+        Norway's window holds 72,000 pieces and 700 of them meet a lake."""
+
+        def __init__(self, land, water, floor_m2: float):
+            self.land = np.asarray(land, dtype=object)
+            self.water = np.asarray(polygons(water), dtype=object)
+            self.water_tree = STRtree(self.water) if len(self.water) else None
+            self.floor_m2 = floor_m2
+            self.small: dict[int, object] = {}       # piece index -> prepared multipolygon of its small bodies, or None
+
+        def bodies_of(self, i: int):
+            if i not in self.small:
+                piece = self.land[i]
+                if self.water_tree is not None:
+                    hits = self.water[self.water_tree.query(piece, predicate="intersects")]
+                    if len(hits):
+                        # clip_by_rect is not topological and can hand back an invalid polygon (a hole
+                        # left without its shell), which the union then refuses; made valid first, and
+                        # if the union still fails the piece is cut with the whole polygons.
+                        try:
+                            piece = shapely.difference(piece, shapely.union_all(shapely.make_valid(shapely.clip_by_rect(hits, *shapely.bounds(piece)))))
+                        except shapely.errors.GEOSException:
+                            piece = shapely.difference(piece, shapely.union_all(hits))
+                parts = polygons([piece])
+                small = None
+                if parts:
+                    to_xy = lambda xy: np.column_stack(to_frame.transform(xy[:, 0], xy[:, 1]))  # noqa: E731
+                    area = shapely.area(shapely.transform(np.asarray(parts, dtype=object), to_xy))
+                    under = [b for b, a in zip(parts, area) if a < self.floor_m2]
+                    if under:
+                        small = shapely.multipolygons(np.asarray(under, dtype=object))
+                        shapely.prepare(small)
+                self.small[i] = small
+            return self.small[i]
+
+        def __call__(self, lons, lats, sel) -> np.ndarray:
+            """True at the selected points that lie on a small body; the others are not asked about."""
+            hit = np.zeros(len(lons), dtype=bool)
+            idx = np.flatnonzero(sel)
+            if not len(idx):
+                return hit
+            pi, gi = on_land.tree.query(shapely.points(lons[idx], lats[idx]))
+            for g in np.unique(gi):
+                pts = idx[pi[gi == g]]
+                inside = pts[shapely.contains_xy(on_land.polys[g], lons[pts], lats[pts])]
+                if not len(inside):
+                    continue
+                small = self.bodies_of(int(g))
+                if small is not None:
+                    hit[inside] |= shapely.contains_xy(small, lons[inside], lats[inside])
+            return hit
+
+    on_islet = _Islet(on_land.polys, water_geoms, min_island_m2) if min_island_m2 > 0 and to_frame is not None and land_geoms else None
+
     def allowed(lons, lats):
-        pts = shapely.points(lons, lats)
-        if land_tree is None:
-            return np.zeros(len(pts), bool)
-        ok = shapely.contains_xy(geom, lons, lats)
-        on_land = np.zeros(len(pts), bool)
-        on_land[np.unique(land_tree.query(pts, predicate="within")[0])] = True
-        ok &= on_land
-        if water_tree is not None:
-            in_water = np.zeros(len(pts), bool)
-            in_water[np.unique(water_tree.query(pts, predicate="within")[0])] = True
-            ok &= ~in_water
+        lons, lats = np.asarray(lons, dtype=float), np.asarray(lats, dtype=float)
+        if on_land.tree is None:
+            return np.zeros(len(lons), bool)
+        ok = shapely.contains_xy(geom, lons, lats) & on_land(lons, lats)
+        ok &= ~in_water(lons, lats)
+        if on_islet is not None and ok.any():
+            ok &= ~on_islet(lons, lats, ok)
         return ok
 
     return allowed
@@ -376,15 +468,28 @@ VECTOR_AREA_BELOW_KM2 = 5000.0
 
 
 def vector_component_areas(field: AreaField, comps: LandComponents, labels, land_idx: Path, unit: Unit,
-                           frame: Frame, to_frame: Transformer, below_km2: float = VECTOR_AREA_BELOW_KM2) -> dict[int, float]:
-    """The land area, in km2, of the small components among `labels`: the land polygons clipped to the
-    component's cells, measured in the coarse CRS.
+                           frame: Frame, to_frame: Transformer, below_km2: float = VECTOR_AREA_BELOW_KM2,
+                           water_big: Path | None = None) -> tuple[dict[int, float], dict[int, int]]:
+    """The small components among `labels`, measured and sorted: `(areas, merges)`.
+
+    `areas` holds the land area, in km2, of each small island: the land polygons clipped to the component's
+    outline, measured in the coarse CRS. `merges` names the small components that are no island at all but
+    a raster fragment of a bigger body, mapped to that body's label.
 
     The raster area of a component is the count of its all-touched cells, and all-touched rasterisation
     turns a reef into an island: the rocks of Les Minquiers sum to 0.1 km2 of land and touch 19 cells, 1.2
     km2, so the raster floor kept a pole on them and the half-shifted grid of check 4 dropped it. The
     component's outline is traced off the label raster and intersected with the land polygons, so a piece
     is counted for exactly the cells it touches, lakes inside it and degree lines through it notwithstanding.
+
+    The same all-touched rasterisation, of the big water this time, cuts land off: half a cell of shift
+    made a 12-cell fragment of the shore of Carlyle Lake and the floor dropped Illinois's winner with it
+    (check 4, 2026-09-06). A fragment is told from an island by its land: the land polygon under a fragment,
+    less the big water, runs on into the cells of another component, while an island's ends at its shore.
+    Such a component is merged into the largest component its land runs into, and takes that body's area
+    and main-ness. The vertices of the land piece are what is tested, which suffices: a piece that leaves
+    the fragment has vertices in the cells it leaves into.
+
     Only components under `below_km2` of raster area are measured: above it the inflation is a perimeter
     band of a quarter cell against a large area, and tracing a continent for every job would cost more than
     it corrects. A component touching the window's border is not measured either: what lies beyond the
@@ -397,18 +502,41 @@ def vector_component_areas(field: AreaField, comps: LandComponents, labels, land
     edge = set(np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]])).tolist())
     small = sorted(int(v) for v in np.unique(labels) if v and int(v) not in edge and comps.area_km2[int(v)] < below_km2)
     if not small:
-        return {}
-    out = {v: 0.0 for v in small}
+        return {}, {}
+    areas = {v: 0.0 for v in small}
+    merges: dict[int, int] = {}
     w, s, e, n = wrapped_bounds(unit.geometry)
     pad = 1.0    # a small island holding a cell of the unit lies within its own size of the unit's box
     parts = split_bbox(w - pad, s - pad, e + pad, n + pad)
     chunks = [read(str(land_idx), layer="land", bbox=p)[2] for p in parts]
     geoms = [g for chunk in chunks for g in shapely.from_wkb(chunk)]
     if not geoms:
-        return out
-    projected = shapely.transform(np.asarray(geoms, dtype=object),
-                                  lambda xy: np.column_stack(to_frame.transform(xy[:, 0], xy[:, 1])))
+        return areas, merges
+    to_xy = lambda xy: np.column_stack(to_frame.transform(xy[:, 0], xy[:, 1]))  # noqa: E731
+    projected = shapely.transform(np.asarray(geoms, dtype=object), to_xy)
     tree = STRtree(projected)
+    water: np.ndarray | None = None
+    water_tree: STRtree | None = None
+    if water_big is not None:
+        wchunks = [read(str(water_big), layer="water", bbox=p)[2] for p in parts]
+        wgeoms = [g for chunk in wchunks for g in shapely.from_wkb(chunk)]
+        if wgeoms:
+            water = shapely.transform(np.asarray(wgeoms, dtype=object), to_xy)
+            water_tree = STRtree(water)
+    h, wd = lab.shape
+    land_parts: dict[int, list] = {}      # piece index -> its land less the big water, as polygons
+
+    def parts_of(i: int) -> list:
+        if i not in land_parts:
+            piece = projected[i]
+            if water_tree is not None:
+                hits = water_tree.query(piece, predicate="intersects")
+                if len(hits):
+                    piece = shapely.difference(piece, shapely.union_all(water[hits]))
+            parts = shapely.get_parts(piece)
+            land_parts[i] = list(parts[(shapely.get_type_id(parts) == 3) & ~shapely.is_empty(parts)])
+        return land_parts[i]
+
     boxes = find_objects(lab)
     for v in small:
         sl = boxes[v - 1]
@@ -417,12 +545,32 @@ def vector_component_areas(field: AreaField, comps: LandComponents, labels, land
         crop = lab[sl] == v
         origin_x = frame.x0 + (field.col_off + sl[1].start) * frame.res
         origin_y = frame.y1 - (field.row_off + sl[0].start) * frame.res
-        outline = shapely.union_all([shape(g) for g, _ in shapes(crop.astype("uint8"), mask=crop, connectivity=8,
-                                                             transform=from_origin(origin_x, origin_y, frame.res, frame.res))])
+        pieces = [shape(g) for g, _ in shapes(crop.astype("uint8"), mask=crop, connectivity=8,
+                                              transform=from_origin(origin_x, origin_y, frame.res, frame.res))]
+        outline = pieces[0] if len(pieces) == 1 else shapely.union_all(pieces)
         hits = tree.query(outline, predicate="intersects")
-        if len(hits):
-            out[v] = float(shapely.area(shapely.intersection(outline, shapely.union_all(projected[hits]))) / 1e6)
-    return out
+        if not len(hits):
+            continue
+        # Land pieces never overlap, so the clipped areas add up without a union first.
+        areas[v] = float(np.sum(shapely.area(shapely.intersection(projected[hits], outline))) / 1e6)
+        # Where does the land under this component run to? The cells under the vertices of its land parts.
+        touched: dict[int, int] = {}
+        for i in hits:
+            for part in parts_of(int(i)):
+                if not shapely.intersects(part, outline):
+                    continue
+                xy = shapely.get_coordinates(part)
+                r = np.floor((frame.y1 - xy[:, 1]) / frame.res).astype(np.int64) - field.row_off
+                c = np.floor((xy[:, 0] - frame.x0) / frame.res).astype(np.int64) - field.col_off
+                inside = (r >= 0) & (r < h) & (c >= 0) & (c < wd)
+                for other, count in zip(*np.unique(lab[r[inside], c[inside]], return_counts=True)):
+                    if other and int(other) != v:
+                        touched[int(other)] = touched.get(int(other), 0) + int(count)
+        # Only into a bigger body: the mainland's land runs into its fragment too, and must stay put.
+        bigger = {o: n for o, n in touched.items() if comps.area_km2[o] > comps.area_km2[v]}
+        if bigger:
+            merges[v] = max(bigger, key=lambda o: (comps.area_km2[o], bigger[o]))
+    return areas, merges
 
 
 def _island_cells(field: AreaField, rows: np.ndarray, cols: np.ndarray, min_island_m2: float,
@@ -442,8 +590,16 @@ def _island_cells(field: AreaField, rows: np.ndarray, cols: np.ndarray, min_isla
     comp = comps.labels[wr, wc]
     area = comps.area_km2.astype("float64")
     if measure is not None:
-        for label, km2 in measure(comp).items():
+        areas, merges = measure(comp)
+        for label, km2 in areas.items():
             area[label] = km2
+        for label, target in merges.items():
+            # A raster fragment of a bigger body: its cells are that body's, for the floor, the tag and
+            # the main-ness alike. Chains resolve because targets are larger and never fragments themselves
+            # of the same pass in practice; one step is taken and a target that is itself merged is followed.
+            while target in merges and merges[target] != target:
+                target = merges[target]
+            comp[comp == label] = target
     island_km2 = area[comp]
     keep = island_km2.astype("float64") * 1e6 >= float(min_island_m2)
     is_main = np.zeros(comp.shape, dtype=bool)
@@ -515,7 +671,8 @@ def search_unit(job: UnitJob) -> dict:
                            float(cfg.max_distance_m))
     keep, cell_island_km2, cell_is_main = _island_cells(
         field, abs_rows, abs_cols, cfg.min_island_m2,
-        measure=lambda labels: vector_component_areas(field, field.land_components(), labels, prep_.land_idx, unit, frame, to_frame))
+        measure=lambda labels: vector_component_areas(field, field.land_components(), labels, prep_.land_idx, unit, frame, to_frame,
+                                                      water_big=prep_.water_big))
     dropped = len(np.unique(field.land_components().labels[field.rowcol(abs_rows, abs_cols)][~keep]))
     if not keep.any():
         log.info("island floor: none of the %d candidate cells sits on a land component of %.2f km2 or more",
@@ -549,7 +706,7 @@ def search_unit(job: UnitJob) -> dict:
 
     tiles = RoadTiles(prep_.roads_dir)
     cache = RoadCache(tiles, where=where_clause(scenario))
-    allowed = _allowed_factory(unit, prep_.land_idx, prep_.water_big)
+    allowed = _allowed_factory(unit, prep_.land_idx, prep_.water_big, to_frame, cfg.min_island_m2)
     countries = _countries(str(prep_.countries_fgb))
     hd = half_diag(frame.res)
 

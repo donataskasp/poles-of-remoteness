@@ -304,7 +304,7 @@ def test_a_dead_worker_becomes_a_poles_error_naming_the_job_and_the_finished_res
 def test_a_saturated_candidate_cell_is_a_poles_error_naming_the_unit_and_the_cell(tmp_path, cfg, monkeypatch):
     """A cell at the cap is a real "at least max_distance_m" answer the search cannot rank, so it aborts.
     The message has to say which cell it was, or finding it means rerunning the continent."""
-    monkeypatch.setattr(poles_mod, "vector_component_areas", lambda *a, **k: {})
+    monkeypatch.setattr(poles_mod, "vector_component_areas", lambda *a, **k: ({}, {}))
     frame = Frame("EPSG:3035", 250.0, 5_000_000.0, 3_600_000.0, 4, 4)
     unit = Unit("aa", "aa", "aa", 1, "aa", MultiPolygon([box(0, 0, 1, 1)]), False, 1, cells=16)
     units_tif = create_raster(frame, tmp_path / "units.tif", dtype="int16")
@@ -757,7 +757,7 @@ def _field_job(tmp_path, monkeypatch, dist, cfg, *, land=None, unit=None, top_n=
     monkeypatch.setattr(poles_mod, "_allowed_factory",
                         lambda *a, **k: (lambda lons, lats: np.ones(len(lons), bool)))
     monkeypatch.setattr(poles_mod, "_countries", lambda path: None)
-    monkeypatch.setattr(poles_mod, "vector_component_areas", lambda *a, **k: {})   # no land polygons here: raster areas
+    monkeypatch.setattr(poles_mod, "vector_component_areas", lambda *a, **k: ({}, {}))   # no land polygons here: raster areas
     job = UnitJob(cfg, prepared, unit_obj, scenario, tmp_path / f"dist_{scenario}.tif", top_n,
                   tmp_path / "log.txt")
     return job, refined_at
@@ -797,17 +797,91 @@ def test_a_reef_that_rasterises_to_an_island_is_measured_from_its_land_polygons(
     unit = Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([sbox(lons[0], lats[0], lons[1], lats[1])]), False, 1, cells=45)
     rows, cols = np.nonzero(land)
     labels = comps.labels[rows, cols]
-    areas = poles_mod.vector_component_areas(field, comps, labels, tmp_path / "land_idx.fgb", unit, frame, to_frame)
+    areas, merges = poles_mod.vector_component_areas(field, comps, labels, tmp_path / "land_idx.fgb", unit, frame, to_frame)
     reef, isle, strip = int(comps.labels[2, 2]), int(comps.labels[8, 8]), int(comps.labels[0, 9])
     assert areas[reef] == pytest.approx(9 * 0.025 * 0.025, rel=0.05)
     assert areas[isle] == pytest.approx(1.5625, rel=0.02)
     assert strip not in areas                                # on the border: the cell count stands
-    keep, km2, _ = poles_mod._island_cells(field, rows, cols, 1_000_000, measure=lambda lab: areas)
+    assert merges == {}                                      # every land polygon here ends at its own shore
+    keep, km2, _ = poles_mod._island_cells(field, rows, cols, 1_000_000, measure=lambda lab: (areas, merges))
     assert not keep[labels == reef].any() and keep[labels == isle].all()
     assert km2[labels == isle][0] == pytest.approx(1.5625, rel=0.02)
     assert not keep[labels == strip].any()                   # four cells of raster: under the floor as counted
     # A component above the raster cut-off is not measured at all.
-    assert poles_mod.vector_component_areas(field, comps, labels, tmp_path / "land_idx.fgb", unit, frame, to_frame, below_km2=0.1) == {}
+    assert poles_mod.vector_component_areas(field, comps, labels, tmp_path / "land_idx.fgb", unit, frame, to_frame, below_km2=0.1) == ({}, {})
+
+
+def test_a_raster_fragment_of_the_mainland_is_merged_into_it_and_not_dropped_as_an_islet(tmp_path):
+    """All-touched water can cut a shore off from its mainland in the raster (Keyesport, Carlyle Lake,
+    on the half-shifted grid). The land polygon under such a fragment runs on into the mainland's cells,
+    so the fragment is that body, kept and untagged; a true islet's polygon ends at its shore."""
+    from shapely.geometry import box as sbox
+    from tests.helpers import write_fgb
+    from poles.areas import AreaField
+    from poles.units import Unit
+    frame = Frame("EPSG:3035", 250, 4_000_000.0, 3_000_000.0, 12, 12)
+    to_frame = Transformer.from_crs("EPSG:4326", frame.crs, always_xy=True)
+    to_ll = Transformer.from_crs(frame.crs, "EPSG:4326", always_xy=True)
+    land = np.zeros((12, 12), dtype=bool)
+    land[1:11, 1:6] = True                 # the mainland: 50 cells, 3.125 km2
+    land[1:11, 7:11] = True                # cut off by a column of non-land cells (6): 40 cells, 2.5 km2
+    field = AreaField.from_arrays(np.full((12, 12), 1000.0), land, 250.0, 0, 0, 250_000.0)
+    comps = field.land_components()
+
+    def box_of(r0, r1, c0, c1):            # frame cells [r0, r1) x [c0, c1) as a lon/lat polygon
+        x0, x1 = frame.x0 + c0 * frame.res, frame.x0 + c1 * frame.res
+        y0, y1 = frame.y1 - r1 * frame.res, frame.y1 - r0 * frame.res
+        lons, lats = to_ll.transform([x0, x1, x1, x0], [y0, y0, y1, y1])
+        return shapely.Polygon(zip(lons, lats))
+
+    # One land polygon spans the mainland, the column and the fragment; the lake on it covers the column
+    # down to row 8 only, so the land runs on through rows 9 and 10 (all-touched water cut the raster
+    # there, the vector land is whole): a fragment of the mainland, not an island.
+    write_fgb(tmp_path / "land_idx.fgb", "land", [box_of(1, 11, 1, 11)], {"fid": [0]})
+    write_fgb(tmp_path / "water_big.fgb", "water", [box_of(1, 9, 6, 7)], {"fid": [0]})
+    lons, lats = to_ll.transform([frame.x0, frame.x0 + 12 * frame.res], [frame.y1 - 12 * frame.res, frame.y1])
+    unit = Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([sbox(lons[0], lats[0], lons[1], lats[1])]), False, 1, cells=90)
+    rows, cols = np.nonzero(land)
+    labels = comps.labels[rows, cols]
+    main, frag = int(comps.labels[5, 2]), int(comps.labels[5, 8])
+    assert main != frag
+    areas, merges = poles_mod.vector_component_areas(field, comps, labels, tmp_path / "land_idx.fgb", unit, frame, to_frame,
+                                                     water_big=tmp_path / "water_big.fgb")
+    assert merges == {frag: main}
+    keep, km2, is_main = poles_mod._island_cells(field, rows, cols, 1_000_000, measure=lambda lab: (areas, merges))
+    assert keep.all() and is_main.all()                     # one body: nothing dropped, nothing tagged
+    # With the lake running the whole column, the land under the fragment ends at its own shore: an island
+    # of 2.5 km2, kept and tagged (Keyesport's 0.04 km2 in Carlyle Lake was this shape, under the floor).
+    write_fgb(tmp_path / "water2.fgb", "water", [box_of(1, 11, 6, 7)], {"fid": [0]})
+    areas, merges = poles_mod.vector_component_areas(field, comps, labels, tmp_path / "land_idx.fgb", unit, frame, to_frame,
+                                                     water_big=tmp_path / "water2.fgb")
+    assert merges == {} and areas[frag] == pytest.approx(2.5, rel=0.02)
+    keep, km2, is_main = poles_mod._island_cells(field, rows, cols, 1_000_000, measure=lambda lab: (areas, merges))
+    assert keep.all() and not is_main[labels == frag].any() and km2[labels == frag][0] == pytest.approx(2.5, rel=0.02)
+
+
+def test_allowed_refuses_a_point_on_a_body_of_land_under_the_floor(tmp_path):
+    """The grid-independent island floor: a point on a land piece less the big water that is smaller than
+    the floor is refused, whatever the raster made of its cells; a point on the mainland piece, and on an
+    island above the floor, is allowed. Without to_frame the floor is not applied."""
+    from shapely.geometry import box as sbox
+    from tests.helpers import write_fgb
+    from poles.units import Unit
+    to_frame = Transformer.from_crs("EPSG:4326", "EPSG:3035", always_xy=True)
+    mainland = sbox(20.0, 50.0, 20.2, 50.2)                        # about 200 km2
+    islet = sbox(20.30, 50.10, 20.305, 50.105)                      # about 0.2 km2
+    island = sbox(20.40, 50.10, 20.43, 50.13)                       # about 7 km2
+    lake_isle = sbox(20.10, 50.10, 20.103, 50.103)                  # about 0.07 km2, inside a lake on the mainland
+    lake = shapely.Polygon(sbox(20.08, 50.08, 20.12, 50.12).exterior.coords, [lake_isle.exterior.coords])
+    write_fgb(tmp_path / "land.fgb", "land", [mainland, islet, island], {"fid": [0, 1, 2]})
+    write_fgb(tmp_path / "water.fgb", "water", [lake], {"fid": [0]})
+    unit = Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([sbox(19.9, 49.9, 20.5, 50.3)]), False, 1, cells=1)
+    lons = np.array([20.05, 20.3025, 20.415, 20.1015, 20.09])
+    lats = np.array([50.05, 50.1025, 50.115, 50.1015, 50.09])       # mainland, islet, island, lake islet, lake
+    floor = poles_mod._allowed_factory(unit, tmp_path / "land.fgb", tmp_path / "water.fgb", to_frame, 1_000_000)
+    assert floor(lons, lats).tolist() == [True, False, True, False, False]
+    plain = poles_mod._allowed_factory(unit, tmp_path / "land.fgb", tmp_path / "water.fgb")
+    assert plain(lons, lats).tolist() == [True, True, True, True, False]
 
 
 def test_a_candidate_cell_on_a_land_component_below_the_floor_is_not_searched(tmp_path, cfg, monkeypatch):

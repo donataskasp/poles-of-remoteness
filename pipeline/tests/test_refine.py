@@ -39,7 +39,8 @@ def _brute_force(roadset, epsg, cx, cy, allowed=None, half=250.0, step=5.0):
     px, py = gx.ravel(), gy.ravel()
     if allowed is not None:
         lons, lats = to_ll.transform(px, py)
-        keep = np.asarray(allowed(np.asarray(lons), np.asarray(lats)), dtype=bool)
+        # The mask is asked about the published coordinates, rounded like attrib.pole_record rounds them.
+        keep = np.asarray(allowed(np.round(np.asarray(lons), 6), np.round(np.asarray(lats), 6)), dtype=bool)
         px, py = px[keep], py[keep]
     pts = shapely.points(px, py)
     d = np.min(np.stack([shapely.distance(pts, g) for g in geoms]), axis=0)
