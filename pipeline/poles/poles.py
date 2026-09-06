@@ -32,7 +32,11 @@ import rasterio
 import shapely
 from pyogrio.raw import read, write as ogr_write
 from pyproj import Transformer
+from rasterio.features import shapes
+from rasterio.transform import from_origin
 from rasterio.windows import Window
+from scipy.ndimage import find_objects
+from shapely.geometry import shape
 from shapely.ops import unary_union
 from shapely.strtree import STRtree
 
@@ -373,19 +377,25 @@ VECTOR_AREA_BELOW_KM2 = 5000.0
 
 def vector_component_areas(field: AreaField, comps: LandComponents, labels, land_idx: Path, unit: Unit,
                            frame: Frame, to_frame: Transformer, below_km2: float = VECTOR_AREA_BELOW_KM2) -> dict[int, float]:
-    """The land area, in km2, of the small components among `labels`: the geodesic area of every land polygon
-    whose representative point falls in the component, summed.
+    """The land area, in km2, of the small components among `labels`: the land polygons clipped to the
+    component's cells, measured in the coarse CRS.
 
     The raster area of a component is the count of its all-touched cells, and all-touched rasterisation
     turns a reef into an island: the rocks of Les Minquiers sum to 0.1 km2 of land and touch 19 cells, 1.2
-    km2, so the raster floor kept a pole on them and the half-shifted grid of check 4 dropped it. A polygon
-    piece can belong to only one component (every cell it touches is land, so the cell under its
-    representative point is one of its own), and the pieces of the split land dataset sum to the island
-    whatever 1 degree lines cut it. Only components under `below_km2` of raster area are measured this way:
-    above it the inflation is a perimeter band of a quarter cell against a large area, and reading the
-    pieces of a continent for every job would cost more than it corrects.
+    km2, so the raster floor kept a pole on them and the half-shifted grid of check 4 dropped it. The
+    component's outline is traced off the label raster and intersected with the land polygons, so a piece
+    is counted for exactly the cells it touches, lakes inside it and degree lines through it notwithstanding.
+    Only components under `below_km2` of raster area are measured: above it the inflation is a perimeter
+    band of a quarter cell against a large area, and tracing a continent for every job would cost more than
+    it corrects. A component touching the window's border is not measured either: what lies beyond the
+    window was not read, so its land cannot be summed, and the count stands (the District of Columbia's
+    window holds 450 km2 of the mainland, and the Vatican's 1.25 km2 of Rome). Areas are planar in the
+    coarse CRS, which the region makes equal-area (both regions use LAEA), the same assumption the cell
+    count itself rests on.
     """
-    small = sorted(int(v) for v in np.unique(labels) if v and comps.area_km2[int(v)] < below_km2)
+    lab = comps.labels
+    edge = set(np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]])).tolist())
+    small = sorted(int(v) for v in np.unique(labels) if v and int(v) not in edge and comps.area_km2[int(v)] < below_km2)
     if not small:
         return {}
     out = {v: 0.0 for v in small}
@@ -396,16 +406,22 @@ def vector_component_areas(field: AreaField, comps: LandComponents, labels, land
     geoms = [g for chunk in chunks for g in shapely.from_wkb(chunk)]
     if not geoms:
         return out
-    rep = shapely.point_on_surface(np.asarray(geoms, dtype=object))
-    x, y = to_frame.transform(shapely.get_x(rep), shapely.get_y(rep))
-    r = np.floor((frame.y1 - np.asarray(y)) / frame.res).astype(np.int64) - field.row_off
-    c = np.floor((np.asarray(x) - frame.x0) / frame.res).astype(np.int64) - field.col_off
-    h, wd = comps.labels.shape
-    inside = (r >= 0) & (r < h) & (c >= 0) & (c < wd)
-    lab = np.zeros(len(geoms), dtype=np.int64)
-    lab[inside] = comps.labels[r[inside], c[inside]]
-    for i in np.flatnonzero(np.isin(lab, small)):
-        out[int(lab[i])] += abs(GEOD.geometry_area_perimeter(geoms[i])[0]) / 1e6
+    projected = shapely.transform(np.asarray(geoms, dtype=object),
+                                  lambda xy: np.column_stack(to_frame.transform(xy[:, 0], xy[:, 1])))
+    tree = STRtree(projected)
+    boxes = find_objects(lab)
+    for v in small:
+        sl = boxes[v - 1]
+        if sl is None:
+            continue
+        crop = lab[sl] == v
+        origin_x = frame.x0 + (field.col_off + sl[1].start) * frame.res
+        origin_y = frame.y1 - (field.row_off + sl[0].start) * frame.res
+        outline = shapely.union_all([shape(g) for g, _ in shapes(crop.astype("uint8"), mask=crop, connectivity=8,
+                                                             transform=from_origin(origin_x, origin_y, frame.res, frame.res))])
+        hits = tree.query(outline, predicate="intersects")
+        if len(hits):
+            out[v] = float(shapely.area(shapely.intersection(outline, shapely.union_all(projected[hits]))) / 1e6)
     return out
 
 

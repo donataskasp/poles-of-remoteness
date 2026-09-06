@@ -775,7 +775,8 @@ def test_a_reef_that_rasterises_to_an_island_is_measured_from_its_land_polygons(
     to_frame = Transformer.from_crs("EPSG:4326", frame.crs, always_xy=True)
     land = np.zeros((12, 12), dtype=bool)
     land[1:4, 1:4] = True                  # nine cells, 0.5625 km2 of raster: the reef
-    land[6:12, 6:12] = True                # 36 cells, 2.25 km2: an island, also small in raster terms
+    land[6:11, 6:11] = True                # 25 cells, 1.5625 km2: an island, also small in raster terms
+    land[0, 8:12] = True                   # four cells on the window's border: clipped, so never measured
     field = AreaField.from_arrays(np.full((12, 12), 1000.0), land, 250.0, 0, 0, 250_000.0)
     comps = field.land_components()
     to_ll = Transformer.from_crs(frame.crs, "EPSG:4326", always_xy=True)
@@ -789,19 +790,22 @@ def test_a_reef_that_rasterises_to_an_island_is_measured_from_its_land_polygons(
         return shapely.Polygon(zip(lons, lats))
 
     rocks = [cell_box(r, c, 0.45) for r in (1, 2, 3) for c in (1, 2, 3)]     # 9 rocks of 25 x 25 m
-    island = [cell_box(r, c, 0.0) for r in range(6, 12) for c in range(6, 12)]  # whole cells: 2.25 km2
+    island = [cell_box(r, c, 0.0) for r in range(6, 11) for c in range(6, 11)]  # whole cells: 1.5625 km2
+    island.append(cell_box(5, 8, 0.0))     # a whole land cell the raster calls water: outside the outline, not counted
     write_fgb(tmp_path / "land_idx.fgb", "land", rocks + island, {"fid": list(range(len(rocks) + len(island)))})
     lons, lats = to_ll.transform([frame.x0, frame.x0 + 12 * frame.res], [frame.y1 - 12 * frame.res, frame.y1])
     unit = Unit("aa", "Aa", "Aa", 1, "aa", MultiPolygon([sbox(lons[0], lats[0], lons[1], lats[1])]), False, 1, cells=45)
     rows, cols = np.nonzero(land)
     labels = comps.labels[rows, cols]
     areas = poles_mod.vector_component_areas(field, comps, labels, tmp_path / "land_idx.fgb", unit, frame, to_frame)
-    reef, isle = int(comps.labels[2, 2]), int(comps.labels[8, 8])
+    reef, isle, strip = int(comps.labels[2, 2]), int(comps.labels[8, 8]), int(comps.labels[0, 9])
     assert areas[reef] == pytest.approx(9 * 0.025 * 0.025, rel=0.05)
-    assert areas[isle] == pytest.approx(2.25, rel=0.02)
+    assert areas[isle] == pytest.approx(1.5625, rel=0.02)
+    assert strip not in areas                                # on the border: the cell count stands
     keep, km2, _ = poles_mod._island_cells(field, rows, cols, 1_000_000, measure=lambda lab: areas)
     assert not keep[labels == reef].any() and keep[labels == isle].all()
-    assert km2[labels == isle][0] == pytest.approx(2.25, rel=0.02)
+    assert km2[labels == isle][0] == pytest.approx(1.5625, rel=0.02)
+    assert not keep[labels == strip].any()                   # four cells of raster: under the floor as counted
     # A component above the raster cut-off is not measured at all.
     assert poles_mod.vector_component_areas(field, comps, labels, tmp_path / "land_idx.fgb", unit, frame, to_frame, below_km2=0.1) == {}
 
