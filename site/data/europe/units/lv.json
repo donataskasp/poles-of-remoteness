@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 57.802578,
-    "lon": 22.63417,
-    "dist_m": 5322.0,
-    "nearest_way": {
-     "id": 233385325,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "lv"
-    },
-    "nearest_place": {
-     "name": "Ragagals",
-     "type": "isolated_dwelling",
-     "dist_m": 5319.7,
-     "lat": 57.758269,
-     "lon": 22.600777
-    },
-    "detail": "detail/lv/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 56.867668,
     "lon": 26.982256,
     "dist_m": 4708.29,
@@ -57,11 +35,12 @@
      "lat": 56.864096,
      "lon": 27.059463
     },
-    "detail": "detail/lv/A-2",
+    "island_km2": null,
+    "detail": "detail/lv/A-56.867668_26.982256",
     "warnings": []
    },
    {
-    "rank": 3,
+    "rank": 2,
     "lat": 56.59896,
     "lon": 26.530702,
     "dist_m": 4391.18,
@@ -79,11 +58,12 @@
      "lat": 56.63214,
      "lon": 26.485474
     },
-    "detail": "detail/lv/A-3",
+    "island_km2": null,
+    "detail": "detail/lv/A-56.598960_26.530702",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 56.874215,
     "lon": 23.462298,
     "dist_m": 4181.27,
@@ -97,15 +77,16 @@
     "nearest_place": {
      "name": "Tīreļi",
      "type": "isolated_dwelling",
-     "dist_m": 4705.0,
+     "dist_m": 4704.9,
      "lat": 56.916455,
      "lon": 23.464032
     },
-    "detail": "detail/lv/A-4",
+    "island_km2": null,
+    "detail": "detail/lv/A-56.874215_23.462298",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 57.976491,
     "lon": 24.773885,
     "dist_m": 3552.5,
@@ -123,11 +104,12 @@
      "lat": 57.969454,
      "lon": 24.70995
     },
-    "detail": "detail/lv/A-5",
+    "island_km2": null,
+    "detail": "detail/lv/A-57.976491_24.773885",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 56.48463,
     "lon": 26.550675,
     "dist_m": 3289.2,
@@ -145,11 +127,12 @@
      "lat": 56.458333,
      "lon": 26.537778
     },
-    "detail": "detail/lv/A-6",
+    "island_km2": null,
+    "detail": "detail/lv/A-56.484630_26.550675",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 56.677925,
     "lon": 26.435089,
     "dist_m": 3135.38,
@@ -167,11 +150,12 @@
      "lat": 56.690654,
      "lon": 26.400859
     },
-    "detail": "detail/lv/A-7",
+    "island_km2": null,
+    "detail": "detail/lv/A-56.677925_26.435089",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 57.708684,
     "lon": 25.784438,
     "dist_m": 3096.14,
@@ -189,11 +173,12 @@
      "lat": 57.738132,
      "lon": 25.74751
     },
-    "detail": "detail/lv/A-8",
+    "island_km2": null,
+    "detail": "detail/lv/A-57.708684_25.784438",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 56.623074,
     "lon": 28.02357,
     "dist_m": 3076.89,
@@ -207,15 +192,16 @@
     "nearest_place": {
      "name": "Kozusola",
      "type": "hamlet",
-     "dist_m": 2814.8,
+     "dist_m": 2814.9,
      "lat": 56.627222,
      "lon": 27.978333
     },
-    "detail": "detail/lv/A-9",
+    "island_km2": null,
+    "detail": "detail/lv/A-56.623074_28.023570",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 57.228615,
     "lon": 23.105895,
     "dist_m": 2976.2,
@@ -233,12 +219,43 @@
      "lat": 57.214149,
      "lon": 23.076848
     },
-    "detail": "detail/lv/A-10",
+    "island_km2": null,
+    "detail": "detail/lv/A-57.228615_23.105895",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 56.728308,
+    "lon": 27.23361,
+    "dist_m": 2953.38,
+    "nearest_way": {
+     "id": 762741050,
+     "highway": "secondary",
+     "name": null,
+     "ref": "V555",
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Otrās Drankas",
+     "type": "hamlet",
+     "dist_m": 2347.2,
+     "lat": 56.719696,
+     "lon": 27.268603
+    },
+    "island_km2": null,
+    "detail": "detail/lv/A-56.728308_27.233610",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 4708.29,
+  "lat": 56.867668,
+  "lon": 26.982256,
+  "rank": 25,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,33 +278,12 @@
      "lat": 56.87646,
      "lon": 27.058872
     },
-    "detail": "detail/lv/B-1",
+    "island_km2": null,
+    "detail": "detail/lv/B-56.870481_26.962830",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 57.802578,
-    "lon": 22.63417,
-    "dist_m": 5474.19,
-    "nearest_way": {
-     "id": 1315153473,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "lv"
-    },
-    "nearest_place": {
-     "name": "Ragagals",
-     "type": "isolated_dwelling",
-     "dist_m": 5319.7,
-     "lat": 57.758269,
-     "lon": 22.600777
-    },
-    "detail": "detail/lv/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 56.592992,
     "lon": 26.525398,
     "dist_m": 5085.95,
@@ -301,15 +297,16 @@
     "nearest_place": {
      "name": "Jaunpodnieki",
      "type": "isolated_dwelling",
-     "dist_m": 4164.3,
+     "dist_m": 4164.4,
      "lat": 56.567832,
      "lon": 26.475262
     },
-    "detail": "detail/lv/B-3",
+    "island_km2": null,
+    "detail": "detail/lv/B-56.592992_26.525398",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 56.872846,
     "lon": 23.463357,
     "dist_m": 4470.28,
@@ -327,11 +324,12 @@
      "lat": 56.916455,
      "lon": 23.464032
     },
-    "detail": "detail/lv/B-4",
+    "island_km2": null,
+    "detail": "detail/lv/B-56.872846_23.463357",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 57.698287,
     "lon": 25.769895,
     "dist_m": 3982.57,
@@ -349,11 +347,12 @@
      "lat": 57.738132,
      "lon": 25.74751
     },
-    "detail": "detail/lv/B-5",
+    "island_km2": null,
+    "detail": "detail/lv/B-57.698287_25.769895",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 57.979663,
     "lon": 24.780432,
     "dist_m": 3865.9,
@@ -367,15 +366,16 @@
     "nearest_place": {
      "name": "Lanksaare",
      "type": "hamlet",
-     "dist_m": 4050.4,
+     "dist_m": 4050.5,
      "lat": 58.013606,
      "lon": 24.805021
     },
-    "detail": "detail/lv/B-6",
+    "island_km2": null,
+    "detail": "detail/lv/B-57.979663_24.780432",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 56.808307,
     "lon": 21.16005,
     "dist_m": 3820.37,
@@ -393,11 +393,12 @@
      "lat": 56.804016,
      "lon": 21.166577
     },
-    "detail": "detail/lv/B-7",
+    "island_km2": null,
+    "detail": "detail/lv/B-56.808307_21.160050",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 56.209609,
     "lon": 20.986734,
     "dist_m": 3476.46,
@@ -415,11 +416,12 @@
      "lat": 56.186345,
      "lon": 21.015794
     },
-    "detail": "detail/lv/B-8",
+    "island_km2": null,
+    "detail": "detail/lv/B-56.209609_20.986734",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 57.234644,
     "lon": 23.099481,
     "dist_m": 3423.28,
@@ -437,11 +439,12 @@
      "lat": 57.215913,
      "lon": 23.072466
     },
-    "detail": "detail/lv/B-9",
+    "island_km2": null,
+    "detail": "detail/lv/B-57.234644_23.099481",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 56.620143,
     "lon": 28.026321,
     "dist_m": 3330.53,
@@ -459,11 +462,42 @@
      "lat": 56.627222,
      "lon": 27.978333
     },
-    "detail": "detail/lv/B-10",
+    "island_km2": null,
+    "detail": "detail/lv/B-56.620143_28.026321",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 56.48463,
+    "lon": 26.550675,
+    "dist_m": 3289.2,
+    "nearest_way": {
+     "id": 1166071757,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "lv"
+    },
+    "nearest_place": {
+     "name": "Kurčini",
+     "type": "hamlet",
+     "dist_m": 3034.1,
+     "lat": 56.458333,
+     "lon": 26.537778
+    },
+    "island_km2": null,
+    "detail": "detail/lv/B-56.484630_26.550675",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 5910.11,
+  "lat": 56.870481,
+  "lon": 26.96283,
+  "rank": 36,
+  "withheld": 0
  }
 }

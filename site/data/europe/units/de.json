@@ -31,11 +31,12 @@
     "nearest_place": {
      "name": "Cappel-Neufeld",
      "type": "village",
-     "dist_m": 14844.4,
+     "dist_m": 14844.5,
      "lat": 53.762263,
      "lon": 8.53915
     },
-    "detail": "detail/de/A-1",
+    "island_km2": 2.7,
+    "detail": "detail/de/A-53.827827_8.342982",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 54.031618,
      "lon": 8.842596
     },
-    "detail": "detail/de/A-2",
+    "island_km2": 1.9,
+    "detail": "detail/de/A-54.058598_8.680611",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 53.714246,
      "lon": 8.145967
     },
-    "detail": "detail/de/A-3",
+    "island_km2": 4.7,
+    "detail": "detail/de/A-53.723896_8.179525",
     "warnings": []
    },
    {
@@ -97,11 +100,12 @@
     "nearest_place": {
      "name": "Lorenzwarft",
      "type": "hamlet",
-     "dist_m": 8166.5,
+     "dist_m": 8166.6,
      "lat": 54.570119,
      "lon": 8.526954
     },
-    "detail": "detail/de/A-4",
+    "island_km2": 9.5,
+    "detail": "detail/de/A-54.508813_8.457649",
     "warnings": []
    },
    {
@@ -123,33 +127,12 @@
      "lat": 54.379162,
      "lon": 8.651884
     },
-    "detail": "detail/de/A-5",
+    "island_km2": 14.6,
+    "detail": "detail/de/A-54.419975_8.489880",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 53.588843,
-    "lon": 6.869917,
-    "dist_m": 5557.31,
-    "nearest_way": {
-     "id": 136775571,
-     "highway": "track",
-     "name": "Heidenweg",
-     "ref": null,
-     "country": "de"
-    },
-    "nearest_place": {
-     "name": "Vogelwärterhaus Memmert",
-     "type": "isolated_dwelling",
-     "dist_m": 5550.7,
-     "lat": 53.638714,
-     "lon": 6.87045
-    },
-    "detail": "detail/de/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 53.958743,
     "lon": 8.425045,
     "dist_m": 5480.84,
@@ -163,82 +146,346 @@
     "nearest_place": {
      "name": "Cuxhaven",
      "type": "town",
-     "dist_m": 20558.4,
+     "dist_m": 20558.3,
      "lat": 53.86878,
      "lon": 8.698286
     },
-    "detail": "detail/de/A-7",
+    "island_km2": 3.4,
+    "detail": "detail/de/A-53.958743_8.425045",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 47.492834,
+    "lon": 12.926149,
+    "dist_m": 4865.91,
+    "nearest_way": {
+     "id": 91761112,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "St. Bartholomä",
+     "type": "hamlet",
+     "dist_m": 6695.2,
+     "lat": 47.544417,
+     "lon": 12.972017
+    },
+    "island_km2": null,
+    "detail": "detail/de/A-47.492834_12.926149",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 53.530635,
-    "lon": 6.648262,
-    "dist_m": 5114.18,
+    "lat": 53.770697,
+    "lon": 7.797896,
+    "dist_m": 3770.69,
     "nearest_way": {
-     "id": 973570996,
+     "id": 227648255,
      "highway": "track",
-     "name": "Krischan-Wolters-Pfad",
+     "name": null,
      "ref": null,
      "country": "de"
     },
     "nearest_place": {
-     "name": "Borkum",
-     "type": "town",
-     "dist_m": 6770.3,
-     "lat": 53.590295,
-     "lon": 6.668217
+     "name": "Spiekeroog",
+     "type": "village",
+     "dist_m": 6806.8,
+     "lat": 53.771059,
+     "lon": 7.694663
     },
-    "detail": "detail/de/A-8",
+    "island_km2": 18.1,
+    "detail": "detail/de/A-53.770697_7.797896",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 54.169267,
-    "lon": 8.732164,
-    "dist_m": 4978.35,
+    "lat": 47.407853,
+    "lon": 11.028053,
+    "dist_m": 3553.61,
     "nearest_way": {
-     "id": 42696883,
-     "highway": "service",
+     "id": 36388587,
+     "highway": "track",
      "name": null,
-     "ref": null,
+     "ref": "KE 6",
      "country": "de"
     },
     "nearest_place": {
-     "name": "Westerkoog",
-     "type": "hamlet",
-     "dist_m": 5763.1,
-     "lat": 54.179776,
-     "lon": 8.81858
+     "name": "Feldernalm",
+     "type": "isolated_dwelling",
+     "dist_m": 4083.3,
+     "lat": 47.377257,
+     "lon": 10.998133
     },
-    "detail": "detail/de/A-9",
+    "island_km2": null,
+    "detail": "detail/de/A-47.407853_11.028053",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 54.658822,
-    "lon": 8.249811,
-    "dist_m": 4966.61,
+    "lat": 53.72681,
+    "lon": 7.307144,
+    "dist_m": 3509.33,
     "nearest_way": {
-     "id": 1098512725,
+     "id": 23136401,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "de"
     },
     "nearest_place": {
-     "name": "Norddorf auf Amrum",
-     "type": "village",
-     "dist_m": 5906.4,
-     "lat": 54.67957,
-     "lon": 8.334066
+     "name": "Tünnbak",
+     "type": "isolated_dwelling",
+     "dist_m": 4170.0,
+     "lat": 53.713325,
+     "lon": 7.24821
     },
-    "detail": "detail/de/A-10",
+    "island_km2": 27.9,
+    "detail": "detail/de/A-53.726810_7.307144",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 53.647908,
+    "lon": 6.814022,
+    "dist_m": 3474.12,
+    "nearest_way": {
+     "id": 293326653,
+     "highway": "track",
+     "name": "Strandweg",
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Vogelwärterhaus Memmert",
+     "type": "isolated_dwelling",
+     "dist_m": 3869.6,
+     "lat": 53.638714,
+     "lon": 6.87045
+    },
+    "island_km2": 2.7,
+    "detail": "detail/de/A-53.647908_6.814022",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 54.471121,
+    "lon": 13.072389,
+    "dist_m": 3184.36,
+    "nearest_way": {
+     "id": 444970029,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Freesenort",
+     "type": "hamlet",
+     "dist_m": 4589.2,
+     "lat": 54.445103,
+     "lon": 13.12728
+    },
+    "island_km2": 980.6,
+    "detail": "detail/de/A-54.471121_13.072389",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 54.056908,
+    "lon": 11.512977,
+    "dist_m": 3136.37,
+    "nearest_way": {
+     "id": 557874070,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Werder",
+     "type": "hamlet",
+     "dist_m": 3964.6,
+     "lat": 54.024125,
+     "lon": 11.53664
+    },
+    "island_km2": null,
+    "detail": "detail/de/A-54.056908_11.512977",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 47.518751,
+    "lon": 10.927477,
+    "dist_m": 3012.89,
+    "nearest_way": {
+     "id": 30952724,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Griesen",
+     "type": "village",
+     "dist_m": 4710.0,
+     "lat": 47.477578,
+     "lon": 10.942194
+    },
+    "island_km2": null,
+    "detail": "detail/de/A-47.518751_10.927477",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 50.905917,
+    "lon": 6.535638,
+    "dist_m": 2866.54,
+    "nearest_way": {
+     "id": 988844036,
+     "highway": "unclassified",
+     "name": "Nordrandweg",
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Giesendorf",
+     "type": "village",
+     "dist_m": 3731.5,
+     "lat": 50.927699,
+     "lon": 6.57599
+    },
+    "island_km2": null,
+    "detail": "detail/de/A-50.905917_6.535638",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 47.287611,
+    "lon": 10.281282,
+    "dist_m": 2559.77,
+    "nearest_way": {
+     "id": 94098310,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Einödsbach",
+     "type": "hamlet",
+     "dist_m": 3334.1,
+     "lat": 47.315922,
+     "lon": 10.26674
+    },
+    "island_km2": null,
+    "detail": "detail/de/A-47.287611_10.281282",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 47.705125,
+    "lon": 12.976829,
+    "dist_m": 2490.7,
+    "nearest_way": {
+     "id": 39631027,
+     "highway": "track",
+     "name": "Weinsteig",
+     "ref": "AV461",
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Hallthurm",
+     "type": "hamlet",
+     "dist_m": 3246.4,
+     "lat": 47.700993,
+     "lon": 12.934009
+    },
+    "island_km2": null,
+    "detail": "detail/de/A-47.705125_12.976829",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 54.488814,
+    "lon": 12.542301,
+    "dist_m": 2312.93,
+    "nearest_way": {
+     "id": 1321707449,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Darßer Ort",
+     "type": "isolated_dwelling",
+     "dist_m": 3135.8,
+     "lat": 54.472481,
+     "lon": 12.502885
+    },
+    "island_km2": null,
+    "detail": "detail/de/A-54.488814_12.542301",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 51.065815,
+    "lon": 6.446072,
+    "dist_m": 2299.49,
+    "nearest_way": {
+     "id": 755096872,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Alt-Keyenberg",
+     "type": "village",
+     "dist_m": 3023.2,
+     "lat": 51.082354,
+     "lon": 6.411845
+    },
+    "island_km2": null,
+    "detail": "detail/de/A-51.065815_6.446072",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 53.9735,
+    "lon": 8.866935,
+    "dist_m": 2259.26,
+    "nearest_way": {
+     "id": 128869549,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Dieksanderkoog",
+     "type": "village",
+     "dist_m": 2970.5,
+     "lat": 53.973546,
+     "lon": 8.912204
+    },
+    "island_km2": null,
+    "detail": "detail/de/A-53.973500_8.866935",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 4865.91,
+  "lat": 47.492834,
+  "lon": 12.926149,
+  "rank": 24,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,37 +504,16 @@
     "nearest_place": {
      "name": "Cappel-Neufeld",
      "type": "village",
-     "dist_m": 14844.4,
+     "dist_m": 14844.5,
      "lat": 53.762263,
      "lon": 8.53915
     },
-    "detail": "detail/de/B-1",
+    "island_km2": 2.7,
+    "detail": "detail/de/B-53.827827_8.342982",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 54.250484,
-    "lon": 13.924213,
-    "dist_m": 13521.19,
-    "nearest_way": {
-     "id": 177797419,
-     "highway": "unclassified",
-     "name": "Flughafenring",
-     "ref": null,
-     "country": "de"
-    },
-    "nearest_place": {
-     "name": "Thiessow",
-     "type": "village",
-     "dist_m": 13943.0,
-     "lat": 54.275994,
-     "lon": 13.714722
-    },
-    "detail": "detail/de/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 54.433087,
     "lon": 8.458894,
     "dist_m": 12100.32,
@@ -305,11 +531,12 @@
      "lat": 54.503664,
      "lon": 8.610434
     },
-    "detail": "detail/de/B-3",
+    "island_km2": 14.6,
+    "detail": "detail/de/B-54.433087_8.458894",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 54.058598,
     "lon": 8.680611,
     "dist_m": 10805.94,
@@ -327,11 +554,12 @@
      "lat": 54.031618,
      "lon": 8.842596
     },
-    "detail": "detail/de/B-4",
+    "island_km2": 1.9,
+    "detail": "detail/de/B-54.058598_8.680611",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 53.723896,
     "lon": 8.179525,
     "dist_m": 10126.07,
@@ -349,11 +577,12 @@
      "lat": 53.714246,
      "lon": 8.145967
     },
-    "detail": "detail/de/B-5",
+    "island_km2": 4.7,
+    "detail": "detail/de/B-53.723896_8.179525",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 47.5023,
     "lon": 12.965119,
     "dist_m": 9490.62,
@@ -371,33 +600,12 @@
      "lat": 47.544417,
      "lon": 12.972017
     },
-    "detail": "detail/de/B-6",
+    "island_km2": null,
+    "detail": "detail/de/B-47.502300_12.965119",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 53.590666,
-    "lon": 6.871336,
-    "dist_m": 8060.76,
-    "nearest_way": {
-     "id": 1040611072,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "de"
-    },
-    "nearest_place": {
-     "name": "Vogelwärterhaus Memmert",
-     "type": "isolated_dwelling",
-     "dist_m": 5348.0,
-     "lat": 53.638714,
-     "lon": 6.87045
-    },
-    "detail": "detail/de/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 6,
     "lat": 47.44919,
     "lon": 11.376951,
     "dist_m": 7121.84,
@@ -411,15 +619,39 @@
     "nearest_place": {
      "name": "Vereiner Alm",
      "type": "isolated_dwelling",
-     "dist_m": 2597.0,
+     "dist_m": 2596.9,
      "lat": 47.467517,
      "lon": 11.355599
     },
-    "detail": "detail/de/B-8",
+    "island_km2": null,
+    "detail": "detail/de/B-47.449190_11.376951",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 7,
+    "lat": 53.645135,
+    "lon": 6.814723,
+    "dist_m": 6392.07,
+    "nearest_way": {
+     "id": 56699804,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Vogelwärterhaus Memmert",
+     "type": "isolated_dwelling",
+     "dist_m": 3754.3,
+     "lat": 53.638714,
+     "lon": 6.87045
+    },
+    "island_km2": 2.7,
+    "detail": "detail/de/B-53.645135_6.814723",
+    "warnings": []
+   },
+   {
+    "rank": 8,
     "lat": 54.524277,
     "lon": 8.46944,
     "dist_m": 6250.71,
@@ -437,11 +669,12 @@
      "lat": 54.570119,
      "lon": 8.526954
     },
-    "detail": "detail/de/B-9",
+    "island_km2": 9.5,
+    "detail": "detail/de/B-54.524277_8.469440",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 47.584803,
     "lon": 11.813717,
     "dist_m": 6139.93,
@@ -459,11 +692,226 @@
      "lat": 47.576976,
      "lon": 11.794194
     },
-    "detail": "detail/de/B-10",
+    "island_km2": null,
+    "detail": "detail/de/B-47.584803_11.813717",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 53.765123,
+    "lon": 8.01874,
+    "dist_m": 6111.77,
+    "nearest_way": {
+     "id": 263458792,
+     "highway": "service",
+     "name": "Schillighafen",
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Nordergroden",
+     "type": "hamlet",
+     "dist_m": 6363.0,
+     "lat": 53.710564,
+     "lon": 7.989935
+    },
+    "island_km2": 4.2,
+    "detail": "detail/de/B-53.765123_8.018740",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 47.419037,
+    "lon": 11.086914,
+    "dist_m": 5932.29,
+    "nearest_way": {
+     "id": 850852583,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Reintal",
+     "type": "isolated_dwelling",
+     "dist_m": 3594.7,
+     "lat": 47.447759,
+     "lon": 11.108796
+    },
+    "island_km2": null,
+    "detail": "detail/de/B-47.419037_11.086914",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 49.008431,
+    "lon": 13.406494,
+    "dist_m": 5793.92,
+    "nearest_way": {
+     "id": 402967805,
+     "highway": "service",
+     "name": "Schachtenstraße",
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Hirschbach",
+     "type": "isolated_dwelling",
+     "dist_m": 3449.5,
+     "lat": 49.011162,
+     "lon": 13.359525
+    },
+    "island_km2": null,
+    "detail": "detail/de/B-49.008431_13.406494",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 47.613331,
+    "lon": 10.91309,
+    "dist_m": 5613.1,
+    "nearest_way": {
+     "id": 869728497,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Unternogg",
+     "type": "isolated_dwelling",
+     "dist_m": 6031.8,
+     "lat": 47.647402,
+     "lon": 10.975545
+    },
+    "island_km2": null,
+    "detail": "detail/de/B-47.613331_10.913090",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 53.958743,
+    "lon": 8.425045,
+    "dist_m": 5480.84,
+    "nearest_way": {
+     "id": 35417460,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Cuxhaven",
+     "type": "town",
+     "dist_m": 20558.3,
+     "lat": 53.86878,
+     "lon": 8.698286
+    },
+    "island_km2": 3.4,
+    "detail": "detail/de/B-53.958743_8.425045",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 47.51481,
+    "lon": 11.523541,
+    "dist_m": 5194.56,
+    "nearest_way": {
+     "id": 35973970,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Lerchkogel Niederleger",
+     "type": "hamlet",
+     "dist_m": 2254.9,
+     "lat": 47.523455,
+     "lon": 11.550624
+    },
+    "island_km2": null,
+    "detail": "detail/de/B-47.514810_11.523541",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 47.350576,
+    "lon": 10.375724,
+    "dist_m": 5186.55,
+    "nearest_way": {
+     "id": 1299522514,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Gerstruben",
+     "type": "hamlet",
+     "dist_m": 5170.2,
+     "lat": 47.369467,
+     "lon": 10.313185
+    },
+    "island_km2": null,
+    "detail": "detail/de/B-47.350576_10.375724",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 47.668014,
+    "lon": 11.48008,
+    "dist_m": 5139.9,
+    "nearest_way": {
+     "id": 112717254,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Kotalm",
+     "type": "isolated_dwelling",
+     "dist_m": 4448.8,
+     "lat": 47.662854,
+     "lon": 11.538818
+    },
+    "island_km2": null,
+    "detail": "detail/de/B-47.668014_11.480080",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 47.665488,
+    "lon": 11.668672,
+    "dist_m": 5122.38,
+    "nearest_way": {
+     "id": 111547262,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Seekaralm",
+     "type": "isolated_dwelling",
+     "dist_m": 3004.2,
+     "lat": 47.653582,
+     "lon": 11.632769
+    },
+    "island_km2": null,
+    "detail": "detail/de/B-47.665488_11.668672",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 9490.62,
+  "lat": 47.5023,
+  "lon": 12.965119,
+  "rank": 15,
+  "withheld": 0
  }
 }

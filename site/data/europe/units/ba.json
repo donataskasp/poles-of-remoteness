@@ -35,7 +35,8 @@
      "lat": 43.60468,
      "lon": 17.700503
     },
-    "detail": "detail/ba/A-1",
+    "island_km2": null,
+    "detail": "detail/ba/A-43.612899_17.624664",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 43.511239,
      "lon": 17.886612
     },
-    "detail": "detail/ba/A-2",
+    "island_km2": null,
+    "detail": "detail/ba/A-43.530548_17.898211",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 43.362791,
      "lon": 18.390172
     },
-    "detail": "detail/ba/A-3",
+    "island_km2": null,
+    "detail": "detail/ba/A-43.377673_18.441184",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 43.09202,
      "lon": 18.462701
     },
-    "detail": "detail/ba/A-4",
+    "island_km2": null,
+    "detail": "detail/ba/A-43.128225_18.434699",
     "warnings": []
    },
    {
@@ -119,11 +123,12 @@
     "nearest_place": {
      "name": "Kruševljani",
      "type": "hamlet",
-     "dist_m": 4310.4,
+     "dist_m": 4310.3,
      "lat": 43.441159,
      "lon": 18.148569
     },
-    "detail": "detail/ba/A-5",
+    "island_km2": null,
+    "detail": "detail/ba/A-43.423859_18.196219",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 43.643562,
      "lon": 18.564475
     },
-    "detail": "detail/ba/A-6",
+    "island_km2": null,
+    "detail": "detail/ba/A-43.636146_18.517916",
     "warnings": []
    },
    {
@@ -167,7 +173,8 @@
      "lat": 43.290202,
      "lon": 18.095891
     },
-    "detail": "detail/ba/A-7",
+    "island_km2": null,
+    "detail": "detail/ba/A-43.303963_18.051354",
     "warnings": []
    },
    {
@@ -189,7 +196,8 @@
      "lat": 44.127345,
      "lon": 16.844874
     },
-    "detail": "detail/ba/A-8",
+    "island_km2": null,
+    "detail": "detail/ba/A-44.138000_16.884170",
     "warnings": []
    },
    {
@@ -207,11 +215,12 @@
     "nearest_place": {
      "name": "Gvozno",
      "type": "village",
-     "dist_m": 4097.1,
+     "dist_m": 4097.0,
      "lat": 43.566153,
      "lon": 18.4281
     },
-    "detail": "detail/ba/A-9",
+    "island_km2": null,
+    "detail": "detail/ba/A-43.584868_18.384396",
     "warnings": []
    },
    {
@@ -233,12 +242,20 @@
      "lat": 43.64098,
      "lon": 17.512848
     },
-    "detail": "detail/ba/A-10",
+    "island_km2": null,
+    "detail": "detail/ba/A-43.666616_17.489006",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 5097.14,
+  "lat": 43.612899,
+  "lon": 17.624664,
+  "rank": 20,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 44.049242,
      "lon": 17.111843
     },
-    "detail": "detail/ba/B-1",
+    "island_km2": null,
+    "detail": "detail/ba/B-44.027836_17.018453",
     "warnings": []
    },
    {
@@ -279,11 +297,12 @@
     "nearest_place": {
      "name": "Skenderi",
      "type": "isolated_dwelling",
-     "dist_m": 2539.3,
+     "dist_m": 2539.2,
      "lat": 43.737476,
      "lon": 17.423823
     },
-    "detail": "detail/ba/B-2",
+    "island_km2": null,
+    "detail": "detail/ba/B-43.730669_17.393735",
     "warnings": []
    },
    {
@@ -305,33 +324,12 @@
      "lat": 44.051879,
      "lon": 16.32341
     },
-    "detail": "detail/ba/B-3",
+    "island_km2": null,
+    "detail": "detail/ba/B-44.087821_16.374258",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 43.941934,
-    "lon": 17.092616,
-    "dist_m": 7694.49,
-    "nearest_way": {
-     "id": 254820237,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ba"
-    },
-    "nearest_place": {
-     "name": "Dolac",
-     "type": "hamlet",
-     "dist_m": 6668.7,
-     "lat": 43.919671,
-     "lon": 17.015494
-    },
-    "detail": "detail/ba/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 43.408585,
     "lon": 18.443839,
     "dist_m": 6906.58,
@@ -349,33 +347,12 @@
      "lat": 43.362791,
      "lon": 18.390172
     },
-    "detail": "detail/ba/B-5",
+    "island_km2": null,
+    "detail": "detail/ba/B-43.408585_18.443839",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 43.954754,
-    "lon": 16.549818,
-    "dist_m": 6666.51,
-    "nearest_way": {
-     "id": 68961553,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "hr"
-    },
-    "nearest_place": {
-     "name": "Sutina",
-     "type": "hamlet",
-     "dist_m": 4978.6,
-     "lat": 43.923146,
-     "lon": 16.505866
-    },
-    "detail": "detail/ba/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
+    "rank": 5,
     "lat": 43.598422,
     "lon": 17.613577,
     "dist_m": 6395.93,
@@ -389,15 +366,16 @@
     "nearest_place": {
      "name": "Masna Luka",
      "type": "hamlet",
-     "dist_m": 6593.7,
+     "dist_m": 6593.8,
      "lat": 43.636007,
      "lon": 17.55036
     },
-    "detail": "detail/ba/B-7",
+    "island_km2": null,
+    "detail": "detail/ba/B-43.598422_17.613577",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 6,
     "lat": 43.983666,
     "lon": 16.827815,
     "dist_m": 6221.99,
@@ -411,37 +389,16 @@
     "nearest_place": {
      "name": "Barunove košare",
      "type": "isolated_dwelling",
-     "dist_m": 5328.4,
+     "dist_m": 5328.3,
      "lat": 43.936322,
      "lon": 16.817252
     },
-    "detail": "detail/ba/B-8",
+    "island_km2": null,
+    "detail": "detail/ba/B-43.983666_16.827815",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 44.144208,
-    "lon": 16.673269,
-    "dist_m": 6185.03,
-    "nearest_way": {
-     "id": 457158378,
-     "highway": "secondary",
-     "name": null,
-     "ref": "R-408",
-     "country": "ba"
-    },
-    "nearest_place": {
-     "name": "Ivići",
-     "type": "hamlet",
-     "dist_m": 3772.5,
-     "lat": 44.174226,
-     "lon": 16.695304
-    },
-    "detail": "detail/ba/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 7,
     "lat": 43.536265,
     "lon": 17.887673,
     "dist_m": 5728.77,
@@ -455,15 +412,92 @@
     "nearest_place": {
      "name": "Gruci",
      "type": "isolated_dwelling",
-     "dist_m": 2781.7,
+     "dist_m": 2781.8,
      "lat": 43.511239,
      "lon": 17.886612
     },
-    "detail": "detail/ba/B-10",
+    "island_km2": null,
+    "detail": "detail/ba/B-43.536265_17.887673",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.696264,
+    "lon": 16.360746,
+    "dist_m": 5663.85,
+    "nearest_way": {
+     "id": 500370549,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ba"
+    },
+    "nearest_place": {
+     "name": "Skakavac",
+     "type": "isolated_dwelling",
+     "dist_m": 6690.1,
+     "lat": 44.646221,
+     "lon": 16.313842
+    },
+    "island_km2": null,
+    "detail": "detail/ba/B-44.696264_16.360746",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.073552,
+    "lon": 17.285732,
+    "dist_m": 5428.53,
+    "nearest_way": {
+     "id": 509255249,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ba"
+    },
+    "nearest_place": {
+     "name": "Mala Luka",
+     "type": "hamlet",
+     "dist_m": 4867.9,
+     "lat": 44.048861,
+     "lon": 17.335919
+    },
+    "island_km2": null,
+    "detail": "detail/ba/B-44.073552_17.285732",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.969672,
+    "lon": 17.676819,
+    "dist_m": 5417.62,
+    "nearest_way": {
+     "id": 189582404,
+     "highway": "secondary",
+     "name": null,
+     "ref": "R-439",
+     "country": "ba"
+    },
+    "nearest_place": {
+     "name": "Vrse",
+     "type": "village",
+     "dist_m": 6248.5,
+     "lat": 43.935946,
+     "lon": 17.614528
+    },
+    "island_km2": null,
+    "detail": "detail/ba/B-43.969672_17.676819",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 8411.78,
+  "lat": 44.027836,
+  "lon": 17.018453,
+  "rank": 19,
+  "withheld": 0
  }
 }

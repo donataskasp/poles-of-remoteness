@@ -35,210 +35,296 @@
      "lat": 67.319146,
      "lon": 16.697202
     },
-    "detail": "detail/se/A-1",
+    "island_km2": null,
+    "detail": "detail/se/A-67.275662_17.093097",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 67.337258,
-    "lon": 16.919278,
-    "dist_m": 38702.01,
+    "lat": 68.685899,
+    "lon": 20.539948,
+    "dist_m": 26268.77,
     "nearest_way": {
-     "id": 292599750,
+     "id": 1476269721,
      "highway": "track",
      "name": null,
      "ref": null,
-     "country": "se"
+     "country": "no"
     },
     "nearest_place": {
-     "name": "Stáloluokta",
-     "type": "hamlet",
-     "dist_m": 9767.3,
-     "lat": 67.319146,
-     "lon": 16.697202
+     "name": "Kummavuopio",
+     "type": "isolated_dwelling",
+     "dist_m": 27901.4,
+     "lat": 68.906373,
+     "lon": 20.866306
     },
-    "detail": "detail/se/A-2",
+    "island_km2": null,
+    "detail": "detail/se/A-68.685899_20.539948",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 66.870222,
-    "lon": 16.859841,
-    "dist_m": 38567.91,
+    "lat": 67.935289,
+    "lon": 18.268523,
+    "dist_m": 25447.61,
     "nearest_way": {
-     "id": 997276395,
-     "highway": "primary",
+     "id": 156040981,
+     "highway": "track",
      "name": null,
-     "ref": "95",
+     "ref": null,
      "country": "se"
     },
     "nearest_place": {
-     "name": "Västerfjäll",
-     "type": "hamlet",
-     "dist_m": 29323.0,
-     "lat": 66.710526,
-     "lon": 17.389343
+     "name": "Kårtjevuolle sameviste",
+     "type": "isolated_dwelling",
+     "dist_m": 8752.8,
+     "lat": 67.857877,
+     "lon": 18.302724
     },
-    "detail": "detail/se/A-3",
+    "island_km2": null,
+    "detail": "detail/se/A-67.935289_18.268523",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 67.294355,
-    "lon": 17.32689,
-    "dist_m": 38456.32,
+    "lat": 66.110855,
+    "lon": 15.58544,
+    "dist_m": 24194.02,
     "nearest_way": {
-     "id": 292599750,
-     "highway": "track",
+     "id": 904184207,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "se"
     },
     "nearest_place": {
-     "name": "Stáloluokta",
+     "name": "Ältsvattnet",
      "type": "hamlet",
-     "dist_m": 27260.9,
-     "lat": 67.319146,
-     "lon": 16.697202
+     "dist_m": 12276.8,
+     "lat": 66.171217,
+     "lon": 15.358059
     },
-    "detail": "detail/se/A-4",
+    "island_km2": null,
+    "detail": "detail/se/A-66.110855_15.585440",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 67.184911,
-    "lon": 17.037855,
-    "dist_m": 36845.7,
+    "lat": 67.436507,
+    "lon": 19.449688,
+    "dist_m": 21899.67,
     "nearest_way": {
-     "id": 217691417,
+     "id": 439474341,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "se"
     },
     "nearest_place": {
-     "name": "Stáloluokta",
-     "type": "hamlet",
-     "dist_m": 20984.8,
-     "lat": 67.319146,
-     "lon": 16.697202
+     "name": "Liettik",
+     "type": "isolated_dwelling",
+     "dist_m": 21760.4,
+     "lat": 67.628176,
+     "lon": 19.354331
     },
-    "detail": "detail/se/A-5",
+    "island_km2": null,
+    "detail": "detail/se/A-67.436507_19.449688",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 67.412543,
-    "lon": 16.778902,
-    "dist_m": 35598.57,
+    "lat": 66.06029,
+    "lon": 16.714854,
+    "dist_m": 20718.75,
     "nearest_way": {
-     "id": 522870364,
+     "id": 289532105,
      "highway": "service",
      "name": null,
      "ref": null,
-     "country": "no"
+     "country": "se"
     },
     "nearest_place": {
-     "name": "Stáloluokta",
+     "name": "Västra Laisvall",
      "type": "hamlet",
-     "dist_m": 10991.9,
-     "lat": 67.319146,
-     "lon": 16.697202
+     "dist_m": 19765.2,
+     "lat": 66.095645,
+     "lon": 17.142725
     },
-    "detail": "detail/se/A-6",
+    "island_km2": null,
+    "detail": "detail/se/A-66.060290_16.714854",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 67.293968,
-    "lon": 17.56397,
-    "dist_m": 35223.32,
+    "lat": 59.504914,
+    "lon": 19.387575,
+    "dist_m": 19568.4,
     "nearest_way": {
-     "id": 217691417,
+     "id": 434698641,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "se"
     },
     "nearest_place": {
-     "name": "Stáloluokta",
+     "name": "Rödlöga By",
      "type": "hamlet",
-     "dist_m": 37436.8,
-     "lat": 67.319146,
-     "lon": 16.697202
+     "dist_m": 15737.0,
+     "lat": 59.593627,
+     "lon": 19.171041
     },
-    "detail": "detail/se/A-7",
+    "island_km2": 1.1,
+    "detail": "detail/se/A-59.504914_19.387575",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 66.961686,
-    "lon": 16.91394,
-    "dist_m": 34657.53,
+    "lat": 59.442155,
+    "lon": 19.248079,
+    "dist_m": 16547.61,
     "nearest_way": {
-     "id": 781022691,
-     "highway": "service",
-     "name": "Lomiveien",
+     "id": 753396392,
+     "highway": "track",
+     "name": null,
      "ref": null,
-     "country": "no"
+     "country": "se"
     },
     "nearest_place": {
-     "name": "Korsvikhytta",
+     "name": "Lunsen",
      "type": "isolated_dwelling",
-     "dist_m": 33022.2,
-     "lat": 67.110474,
-     "lon": 16.258433
+     "dist_m": 16303.2,
+     "lat": 59.473735,
+     "lon": 18.96737
     },
-    "detail": "detail/se/A-8",
+    "island_km2": 2.8,
+    "detail": "detail/se/A-59.442155_19.248079",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 67.093839,
-    "lon": 16.986352,
-    "dist_m": 33776.12,
+    "lat": 68.1533,
+    "lon": 22.328464,
+    "dist_m": 15909.62,
     "nearest_way": {
-     "id": 217691418,
+     "id": 154488999,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "se"
     },
     "nearest_place": {
-     "name": "Stáloluokta",
-     "type": "hamlet",
-     "dist_m": 28067.2,
-     "lat": 67.319146,
-     "lon": 16.697202
+     "name": "Luongaslompolo",
+     "type": "isolated_dwelling",
+     "dist_m": 15863.2,
+     "lat": 68.235525,
+     "lon": 22.640574
     },
-    "detail": "detail/se/A-9",
+    "island_km2": null,
+    "detail": "detail/se/A-68.153300_22.328464",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 67.362918,
-    "lon": 17.16786,
-    "dist_m": 31930.81,
+    "lat": 65.558633,
+    "lon": 23.761339,
+    "dist_m": 15682.47,
     "nearest_way": {
-     "id": 292599750,
+     "id": 118629429,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "se"
     },
     "nearest_place": {
-     "name": "Stáloluokta",
-     "type": "hamlet",
-     "dist_m": 20822.4,
-     "lat": 67.319146,
-     "lon": 16.697202
+     "name": "Ruutti",
+     "type": "isolated_dwelling",
+     "dist_m": 500.6,
+     "lat": 65.562665,
+     "lon": 23.756572
     },
-    "detail": "detail/se/A-10",
+    "island_km2": 4.9,
+    "detail": "detail/se/A-65.558633_23.761339",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 62.981868,
+    "lon": 12.43188,
+    "dist_m": 15268.6,
+    "nearest_way": {
+     "id": 168837871,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Himmelsrasta",
+     "type": "isolated_dwelling",
+     "dist_m": 15119.4,
+     "lat": 62.890744,
+     "lon": 12.652425
+    },
+    "island_km2": null,
+    "detail": "detail/se/A-62.981868_12.431880",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 62.405669,
+    "lon": 12.201778,
+    "dist_m": 14993.09,
+    "nearest_way": {
+     "id": 218289392,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Fautbua",
+     "type": "isolated_dwelling",
+     "dist_m": 1480.0,
+     "lat": 62.406949,
+     "lon": 12.173285
+    },
+    "island_km2": null,
+    "detail": "detail/se/A-62.405669_12.201778",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 64.085906,
+    "lon": 13.313536,
+    "dist_m": 14457.16,
+    "nearest_way": {
+     "id": 1430613843,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Gjevsjøen",
+     "type": "hamlet",
+     "dist_m": 11374.3,
+     "lat": 64.10426,
+     "lon": 13.084096
+    },
+    "island_km2": null,
+    "detail": "detail/se/A-64.085906_13.313536",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 42167.15,
+  "lat": 67.275662,
+  "lon": 17.093097,
+  "rank": 2,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +347,8 @@
      "lat": 67.319146,
      "lon": 16.697202
     },
-    "detail": "detail/se/B-1",
+    "island_km2": null,
+    "detail": "detail/se/B-67.303850_17.157436",
     "warnings": []
    },
    {
@@ -279,191 +366,322 @@
     "nearest_place": {
      "name": "Fyrplatsen",
      "type": "isolated_dwelling",
-     "dist_m": 1233.1,
+     "dist_m": 1233.2,
      "lat": 58.392549,
      "lon": 19.192977
     },
-    "detail": "detail/se/B-2",
+    "island_km2": 36.8,
+    "detail": "detail/se/B-58.399685_19.176853",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 67.37005,
-    "lon": 16.992417,
-    "dist_m": 43326.39,
+    "lat": 68.641065,
+    "lon": 20.49642,
+    "dist_m": 31513.25,
     "nearest_way": {
-     "id": 129544763,
+     "id": 423928968,
      "highway": "unclassified",
-     "name": "Tverrfjellveien",
+     "name": null,
      "ref": null,
      "country": "no"
     },
     "nearest_place": {
-     "name": "Stáloluokta",
-     "type": "hamlet",
-     "dist_m": 13906.3,
-     "lat": 67.319146,
-     "lon": 16.697202
+     "name": "Gámas-hytta",
+     "type": "isolated_dwelling",
+     "dist_m": 25615.9,
+     "lat": 68.472997,
+     "lon": 20.068708
     },
-    "detail": "detail/se/B-3",
+    "island_km2": null,
+    "detail": "detail/se/B-68.641065_20.496420",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 67.297285,
-    "lon": 17.391215,
-    "dist_m": 40794.83,
+    "lat": 67.572978,
+    "lon": 19.350407,
+    "dist_m": 30562.96,
     "nearest_way": {
-     "id": 220076850,
-     "highway": "service",
-     "name": null,
-     "ref": null,
+     "id": 24900680,
+     "highway": "tertiary",
+     "name": "Länsväg 827",
+     "ref": "BD 827",
      "country": "se"
     },
     "nearest_place": {
-     "name": "Stáloluokta",
-     "type": "hamlet",
-     "dist_m": 29988.2,
-     "lat": 67.319146,
-     "lon": 16.697202
+     "name": "Liettik",
+     "type": "isolated_dwelling",
+     "dist_m": 6158.5,
+     "lat": 67.628176,
+     "lon": 19.354331
     },
-    "detail": "detail/se/B-4",
+    "island_km2": null,
+    "detail": "detail/se/B-67.572978_19.350407",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 67.21471,
-    "lon": 17.091582,
-    "dist_m": 39870.86,
+    "lat": 66.291401,
+    "lon": 15.940229,
+    "dist_m": 30412.83,
     "nearest_way": {
-     "id": 320455690,
-     "highway": "service",
-     "name": null,
+     "id": 230853931,
+     "highway": "unclassified",
+     "name": "Höbäcken (12087) - Biergenis",
      "ref": null,
      "country": "se"
     },
     "nearest_place": {
-     "name": "Stáloluokta",
+     "name": "Vindelkroken",
      "type": "hamlet",
-     "dist_m": 20618.8,
-     "lat": 67.319146,
-     "lon": 16.697202
+     "dist_m": 17266.4,
+     "lat": 66.273386,
+     "lon": 15.558305
     },
-    "detail": "detail/se/B-5",
+    "island_km2": null,
+    "detail": "detail/se/B-66.291401_15.940229",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 66.870219,
-    "lon": 16.860069,
-    "dist_m": 38572.73,
+    "lat": 59.504914,
+    "lon": 19.387575,
+    "dist_m": 19947.76,
     "nearest_way": {
-     "id": 163714446,
+     "id": 244021522,
      "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "se"
     },
     "nearest_place": {
-     "name": "Västerfjäll",
+     "name": "Rödlöga By",
      "type": "hamlet",
-     "dist_m": 29314.8,
-     "lat": 66.710526,
-     "lon": 17.389343
+     "dist_m": 15737.0,
+     "lat": 59.593627,
+     "lon": 19.171041
     },
-    "detail": "detail/se/B-6",
+    "island_km2": 1.1,
+    "detail": "detail/se/B-59.504914_19.387575",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 67.459126,
-    "lon": 16.92666,
-    "dist_m": 36967.46,
+    "lat": 59.441974,
+    "lon": 19.248,
+    "dist_m": 17991.96,
     "nearest_way": {
-     "id": 1103095047,
-     "highway": "service",
+     "id": 244021522,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "se"
     },
     "nearest_place": {
-     "name": "Stáloluokta",
-     "type": "hamlet",
-     "dist_m": 18458.6,
-     "lat": 67.319146,
-     "lon": 16.697202
+     "name": "Lunsen",
+     "type": "isolated_dwelling",
+     "dist_m": 16303.2,
+     "lat": 59.473735,
+     "lon": 18.96737
     },
-    "detail": "detail/se/B-7",
+    "island_km2": 2.8,
+    "detail": "detail/se/B-59.441974_19.248000",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 67.392512,
-    "lon": 17.222997,
-    "dist_m": 36086.92,
+    "lat": 63.017985,
+    "lon": 12.428352,
+    "dist_m": 17035.55,
     "nearest_way": {
-     "id": 179127513,
-     "highway": "unclassified",
-     "name": "Ritsemvägen",
-     "ref": null,
-     "country": "se"
-    },
-    "nearest_place": {
-     "name": "Stáloluokta",
-     "type": "hamlet",
-     "dist_m": 24035.0,
-     "lat": 67.319146,
-     "lon": 16.697202
-    },
-    "detail": "detail/se/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 67.280482,
-    "lon": 16.925907,
-    "dist_m": 35917.27,
-    "nearest_way": {
-     "id": 781024184,
-     "highway": "service",
-     "name": "Lomivatnet",
-     "ref": null,
-     "country": "no"
-    },
-    "nearest_place": {
-     "name": "Stáloluokta",
-     "type": "hamlet",
-     "dist_m": 10755.3,
-     "lat": 67.319146,
-     "lon": 16.697202
-    },
-    "detail": "detail/se/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 67.126035,
-    "lon": 17.029854,
-    "dist_m": 35633.47,
-    "nearest_way": {
-     "id": 320455690,
+     "id": 817811012,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "se"
     },
     "nearest_place": {
-     "name": "Stáloluokta",
-     "type": "hamlet",
-     "dist_m": 25894.7,
-     "lat": 67.319146,
-     "lon": 16.697202
+     "name": "Himmelsrasta",
+     "type": "isolated_dwelling",
+     "dist_m": 18178.7,
+     "lat": 62.890744,
+     "lon": 12.652425
     },
-    "detail": "detail/se/B-10",
+    "island_km2": null,
+    "detail": "detail/se/B-63.017985_12.428352",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 59.708277,
+    "lon": 19.432401,
+    "dist_m": 16479.5,
+    "nearest_way": {
+     "id": 42717146,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Linanäs",
+     "type": "isolated_dwelling",
+     "dist_m": 18109.6,
+     "lat": 59.773234,
+     "lon": 19.137201
+    },
+    "island_km2": 6.9,
+    "detail": "detail/se/B-59.708277_19.432401",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 68.160513,
+    "lon": 22.302255,
+    "dist_m": 16373.58,
+    "nearest_way": {
+     "id": 277758051,
+     "highway": "unclassified",
+     "name": "Viikusjärvivägen",
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Luongaslompolo",
+     "type": "isolated_dwelling",
+     "dist_m": 16333.6,
+     "lat": 68.235525,
+     "lon": 22.640574
+    },
+    "island_km2": null,
+    "detail": "detail/se/B-68.160513_22.302255",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 65.558633,
+    "lon": 23.761339,
+    "dist_m": 16107.46,
+    "nearest_way": {
+     "id": 1281897242,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Ruutti",
+     "type": "isolated_dwelling",
+     "dist_m": 500.6,
+     "lat": 65.562665,
+     "lon": 23.756572
+    },
+    "island_km2": 4.9,
+    "detail": "detail/se/B-65.558633_23.761339",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 65.243171,
+    "lon": 14.699175,
+    "dist_m": 16083.46,
+    "nearest_way": {
+     "id": 971946273,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Statens Fjellstue",
+     "type": "isolated_dwelling",
+     "dist_m": 16032.1,
+     "lat": 65.3268,
+     "lon": 14.419745
+    },
+    "island_km2": null,
+    "detail": "detail/se/B-65.243171_14.699175",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 66.907,
+    "lon": 20.180572,
+    "dist_m": 15276.86,
+    "nearest_way": {
+     "id": 39819430,
+     "highway": "trunk",
+     "name": "Inlandsvägen",
+     "ref": "E 45",
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Porjus",
+     "type": "village",
+     "dist_m": 16754.0,
+     "lat": 66.960081,
+     "lon": 19.822232
+    },
+    "island_km2": null,
+    "detail": "detail/se/B-66.907000_20.180572",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 62.405182,
+    "lon": 12.202114,
+    "dist_m": 15044.17,
+    "nearest_way": {
+     "id": 218289393,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Fautbua",
+     "type": "isolated_dwelling",
+     "dist_m": 1503.4,
+     "lat": 62.406949,
+     "lon": 12.173285
+    },
+    "island_km2": null,
+    "detail": "detail/se/B-62.405182_12.202114",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 64.076046,
+    "lon": 14.65157,
+    "dist_m": 14974.52,
+    "nearest_way": {
+     "id": 291386391,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Almdalen",
+     "type": "isolated_dwelling",
+     "dist_m": 8949.8,
+     "lat": 63.996053,
+     "lon": 14.66712
+    },
+    "island_km2": null,
+    "detail": "detail/se/B-64.076046_14.651570",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 45984.79,
+  "lat": 67.30385,
+  "lon": 17.157436,
+  "rank": 2,
+  "withheld": 0
  }
 }

@@ -35,7 +35,8 @@
      "lat": 47.635442,
      "lon": 16.70046
     },
-    "detail": "detail/hu/A-1",
+    "island_km2": null,
+    "detail": "detail/hu/A-47.692815_16.741410",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 47.484843,
      "lon": 20.927142
     },
-    "detail": "detail/hu/A-2",
+    "island_km2": null,
+    "detail": "detail/hu/A-47.458849_20.999793",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 47.588459,
      "lon": 20.596743
     },
-    "detail": "detail/hu/A-3",
+    "island_km2": null,
+    "detail": "detail/hu/A-47.586479_20.662380",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 47.617543,
      "lon": 20.361984
     },
-    "detail": "detail/hu/A-4",
+    "island_km2": null,
+    "detail": "detail/hu/A-47.638186_20.400025",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 46.606456,
      "lon": 19.084189
     },
-    "detail": "detail/hu/A-5",
+    "island_km2": null,
+    "detail": "detail/hu/A-46.603493_19.117736",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 47.149344,
      "lon": 20.922832
     },
-    "detail": "detail/hu/A-6",
+    "island_km2": null,
+    "detail": "detail/hu/A-47.108645_20.967939",
     "warnings": []
    },
    {
@@ -167,7 +173,8 @@
      "lat": 47.22887,
      "lon": 21.316107
     },
-    "detail": "detail/hu/A-7",
+    "island_km2": null,
+    "detail": "detail/hu/A-47.242388_21.270260",
     "warnings": []
    },
    {
@@ -185,11 +192,12 @@
     "nearest_place": {
      "name": "Dinnyéshát",
      "type": "hamlet",
-     "dist_m": 2548.4,
+     "dist_m": 2548.5,
      "lat": 47.51852,
      "lon": 20.571147
     },
-    "detail": "detail/hu/A-8",
+    "island_km2": null,
+    "detail": "detail/hu/A-47.495691_20.568109",
     "warnings": []
    },
    {
@@ -211,7 +219,8 @@
      "lat": 47.689564,
      "lon": 20.750462
     },
-    "detail": "detail/hu/A-9",
+    "island_km2": null,
+    "detail": "detail/hu/A-47.664951_20.732086",
     "warnings": []
    },
    {
@@ -233,12 +242,20 @@
      "lat": 46.411862,
      "lon": 17.291197
     },
-    "detail": "detail/hu/A-10",
+    "island_km2": null,
+    "detail": "detail/hu/A-46.377973_17.284684",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 4455.24,
+  "lat": 47.692815,
+  "lon": 16.74141,
+  "rank": 27,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 47.484843,
      "lon": 20.927142
     },
-    "detail": "detail/hu/B-1",
+    "island_km2": null,
+    "detail": "detail/hu/B-47.454818_21.003418",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 46.606456,
      "lon": 19.084189
     },
-    "detail": "detail/hu/B-2",
+    "island_km2": null,
+    "detail": "detail/hu/B-46.640035_19.143148",
     "warnings": []
    },
    {
@@ -301,11 +320,12 @@
     "nearest_place": {
      "name": "Fertőújlak",
      "type": "hamlet",
-     "dist_m": 6405.5,
+     "dist_m": 6405.4,
      "lat": 47.692949,
      "lon": 16.845332
     },
-    "detail": "detail/hu/B-3",
+    "island_km2": null,
+    "detail": "detail/hu/B-47.681620_16.761678",
     "warnings": []
    },
    {
@@ -323,11 +343,12 @@
     "nearest_place": {
      "name": "Mezőcsát",
      "type": "town",
-     "dist_m": 6965.9,
+     "dist_m": 6966.0,
      "lat": 47.817536,
      "lon": 20.903168
     },
-    "detail": "detail/hu/B-4",
+    "island_km2": null,
+    "detail": "detail/hu/B-47.765122_20.852236",
     "warnings": []
    },
    {
@@ -349,7 +370,8 @@
      "lat": 47.031346,
      "lon": 20.962097
     },
-    "detail": "detail/hu/B-5",
+    "island_km2": null,
+    "detail": "detail/hu/B-47.086469_21.004633",
     "warnings": []
    },
    {
@@ -371,7 +393,8 @@
      "lat": 47.600926,
      "lon": 20.444099
     },
-    "detail": "detail/hu/B-6",
+    "island_km2": null,
+    "detail": "detail/hu/B-47.630359_20.512106",
     "warnings": []
    },
    {
@@ -393,7 +416,8 @@
      "lat": 46.366325,
      "lon": 19.279396
     },
-    "detail": "detail/hu/B-7",
+    "island_km2": null,
+    "detail": "detail/hu/B-46.408834_19.314697",
     "warnings": []
    },
    {
@@ -415,7 +439,8 @@
      "lat": 46.522576,
      "lon": 17.53338
     },
-    "detail": "detail/hu/B-8",
+    "island_km2": null,
+    "detail": "detail/hu/B-46.482364_17.497843",
     "warnings": []
    },
    {
@@ -433,11 +458,12 @@
     "nearest_place": {
      "name": "Eperjes",
      "type": "village",
-     "dist_m": 5381.3,
+     "dist_m": 5381.4,
      "lat": 46.710084,
      "lon": 20.560903
     },
-    "detail": "detail/hu/B-9",
+    "island_km2": null,
+    "detail": "detail/hu/B-46.742020_20.613807",
     "warnings": []
    },
    {
@@ -459,11 +485,19 @@
      "lat": 46.20646,
      "lon": 19.042176
     },
-    "detail": "detail/hu/B-10",
+    "island_km2": null,
+    "detail": "detail/hu/B-46.253965_19.063646",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 5930.6,
+  "lat": 47.454818,
+  "lon": 21.003418,
+  "rank": 35,
+  "withheld": 0
  }
 }

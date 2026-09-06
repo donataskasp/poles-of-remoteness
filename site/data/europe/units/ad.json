@@ -31,11 +31,12 @@
     "nearest_place": {
      "name": "Bordes de Rigoder",
      "type": "isolated_dwelling",
-     "dist_m": 5808.9,
+     "dist_m": 5808.8,
      "lat": 42.537897,
      "lon": 1.616247
     },
-    "detail": "detail/ad/A-1",
+    "island_km2": null,
+    "detail": "detail/ad/A-42.489360_1.642551",
     "warnings": []
    },
    {
@@ -57,55 +58,35 @@
      "lat": 42.587865,
      "lon": 1.798064
     },
-    "detail": "detail/ad/A-2",
+    "island_km2": null,
+    "detail": "detail/ad/A-42.617788_1.736044",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 42.606185,
-    "lon": 1.597698,
-    "dist_m": 3304.75,
+    "lat": 42.597759,
+    "lon": 1.495577,
+    "dist_m": 2341.96,
     "nearest_way": {
-     "id": 253349907,
+     "id": 371470856,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ad"
     },
     "nearest_place": {
-     "name": "l’Aldosa de Canillo",
-     "type": "hamlet",
-     "dist_m": 3855.0,
-     "lat": 42.579555,
-     "lon": 1.627815
+     "name": "Arans",
+     "type": "village",
+     "dist_m": 2504.0,
+     "lat": 42.582531,
+     "lon": 1.518069
     },
-    "detail": "detail/ad/A-3",
+    "island_km2": null,
+    "detail": "detail/ad/A-42.597759_1.495577",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 42.589531,
-    "lon": 1.433185,
-    "dist_m": 2332.22,
-    "nearest_way": {
-     "id": 387138973,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ad"
-    },
-    "nearest_place": {
-     "name": "Tor",
-     "type": "hamlet",
-     "dist_m": 3568.9,
-     "lat": 42.570596,
-     "lon": 1.398065
-    },
-    "detail": "detail/ad/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 42.501749,
     "lon": 1.475451,
     "dist_m": 1777.74,
@@ -119,16 +100,24 @@
     "nearest_place": {
      "name": "la Margineda",
      "type": "village",
-     "dist_m": 2097.4,
+     "dist_m": 2097.3,
      "lat": 42.48701,
      "lon": 1.491396
     },
-    "detail": "detail/ad/A-5",
+    "island_km2": null,
+    "detail": "detail/ad/A-42.501749_1.475451",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 5 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 4 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "A_mainland": {
+  "dist_m": 4963.65,
+  "lat": 42.48936,
+  "lon": 1.642551,
+  "rank": 22,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -147,11 +136,12 @@
     "nearest_place": {
      "name": "Cal Jan de la Llosa",
      "type": "isolated_dwelling",
-     "dist_m": 5953.5,
+     "dist_m": 5953.6,
      "lat": 42.439595,
      "lon": 1.69999
     },
-    "detail": "detail/ad/B-1",
+    "island_km2": null,
+    "detail": "detail/ad/B-42.484710_1.660912",
     "warnings": []
    },
    {
@@ -173,99 +163,88 @@
      "lat": 42.587865,
      "lon": 1.798064
     },
-    "detail": "detail/ad/B-2",
+    "island_km2": null,
+    "detail": "detail/ad/B-42.617788_1.736044",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 42.628948,
-    "lon": 1.59786,
-    "dist_m": 3778.82,
+    "lat": 42.467098,
+    "lon": 1.466865,
+    "dist_m": 1199.73,
     "nearest_way": {
-     "id": 206379042,
-     "highway": "tertiary",
-     "name": "Carretera de Sorteny",
-     "ref": "CS-370",
+     "id": 547233362,
+     "highway": "primary",
+     "name": null,
+     "ref": "CG-6",
+     "country": "ad"
+    },
+    "nearest_place": {
+     "name": "Fontaneda",
+     "type": "village",
+     "dist_m": 1439.7,
+     "lat": 42.454309,
+     "lon": 1.464024
+    },
+    "island_km2": null,
+    "detail": "detail/ad/B-42.467098_1.466865",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 42.542804,
+    "lon": 1.559912,
+    "dist_m": 1030.87,
+    "nearest_way": {
+     "id": 23924998,
+     "highway": "secondary",
+     "name": null,
+     "ref": "CS-340",
+     "country": "ad"
+    },
+    "nearest_place": {
+     "name": "Vila",
+     "type": "village",
+     "dist_m": 1335.6,
+     "lat": 42.531854,
+     "lon": 1.566625
+    },
+    "island_km2": null,
+    "detail": "detail/ad/B-42.542804_1.559912",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 42.631089,
+    "lon": 1.493444,
+    "dist_m": 172.82,
+    "nearest_way": {
+     "id": 206377994,
+     "highway": "primary",
+     "name": "Carretera General 3",
+     "ref": "CG-3",
      "country": "ad"
     },
     "nearest_place": {
      "name": "El Serrat",
      "type": "village",
-     "dist_m": 4947.8,
+     "dist_m": 3941.9,
      "lat": 42.619578,
      "lon": 1.538898
     },
-    "detail": "detail/ad/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 42.601347,
-    "lon": 1.44288,
-    "dist_m": 3617.38,
-    "nearest_way": {
-     "id": 1529157074,
-     "highway": "service",
-     "name": "Túnel exploratori del port de Rat",
-     "ref": null,
-     "country": "ad"
-    },
-    "nearest_place": {
-     "name": "Arinsal",
-     "type": "village",
-     "dist_m": 4710.1,
-     "lat": 42.572082,
-     "lon": 1.484403
-    },
-    "detail": "detail/ad/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 42.489333,
-    "lon": 1.413066,
-    "dist_m": 2588.69,
-    "nearest_way": {
-     "id": 173178539,
-     "highway": "unclassified",
-     "name": "Carretera de Civís a Asnurri",
-     "ref": null,
-     "country": "es"
-    },
-    "nearest_place": {
-     "name": "Bordes de Servellà",
-     "type": "isolated_dwelling",
-     "dist_m": 1014.5,
-     "lat": 42.49459,
-     "lon": 1.423158
-    },
-    "detail": "detail/ad/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 42.477865,
-    "lon": 1.537835,
-    "dist_m": 2259.83,
-    "nearest_way": {
-     "id": 1056544808,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "ad"
-    },
-    "nearest_place": {
-     "name": "Llumeneres",
-     "type": "village",
-     "dist_m": 2242.3,
-     "lat": 42.472155,
-     "lon": 1.511681
-    },
-    "detail": "detail/ad/B-6",
+    "island_km2": null,
+    "detail": "detail/ad/B-42.631089_1.493444",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 6 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 5 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B_mainland": {
+  "dist_m": 5985.45,
+  "lat": 42.48471,
+  "lon": 1.660912,
+  "rank": 34,
+  "withheld": 0
  }
 }

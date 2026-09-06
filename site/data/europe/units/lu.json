@@ -31,11 +31,12 @@
     "nearest_place": {
      "name": "Ell",
      "type": "village",
-     "dist_m": 1889.7,
+     "dist_m": 1889.8,
      "lat": 49.762846,
      "lon": 5.854027
     },
-    "detail": "detail/lu/A-1",
+    "island_km2": null,
+    "detail": "detail/lu/A-49.751631_5.873729",
     "warnings": []
    },
    {
@@ -53,11 +54,12 @@
     "nearest_place": {
      "name": "Stuppicht",
      "type": "hamlet",
-     "dist_m": 681.1,
+     "dist_m": 681.0,
      "lat": 49.725477,
      "lon": 6.187623
     },
-    "detail": "detail/lu/A-2",
+    "island_km2": null,
+    "detail": "detail/lu/A-49.721266_6.194479",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 49.838462,
      "lon": 5.839242
     },
-    "detail": "detail/lu/A-3",
+    "island_km2": null,
+    "detail": "detail/lu/A-49.843115_5.827904",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 49.754514,
      "lon": 6.054211
     },
-    "detail": "detail/lu/A-4",
+    "island_km2": null,
+    "detail": "detail/lu/A-49.752044_6.049602",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 50.13801,
      "lon": 5.971472
     },
-    "detail": "detail/lu/A-5",
+    "island_km2": null,
+    "detail": "detail/lu/A-50.139894_5.961369",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 49.766564,
      "lon": 6.452293
     },
-    "detail": "detail/lu/A-6",
+    "island_km2": null,
+    "detail": "detail/lu/A-49.772343_6.465177",
     "warnings": []
    },
    {
@@ -167,7 +173,8 @@
      "lat": 49.60564,
      "lon": 5.929936
     },
-    "detail": "detail/lu/A-7",
+    "island_km2": null,
+    "detail": "detail/lu/A-49.594260_5.925034",
     "warnings": []
    },
    {
@@ -185,11 +192,12 @@
     "nearest_place": {
      "name": "Broderbour",
      "type": "hamlet",
-     "dist_m": 1005.0,
+     "dist_m": 1004.9,
      "lat": 49.851748,
      "lon": 6.185541
     },
-    "detail": "detail/lu/A-8",
+    "island_km2": null,
+    "detail": "detail/lu/A-49.842713_6.185574",
     "warnings": []
    },
    {
@@ -211,7 +219,8 @@
      "lat": 50.035643,
      "lon": 5.870152
     },
-    "detail": "detail/lu/A-9",
+    "island_km2": null,
+    "detail": "detail/lu/A-50.036746_5.858128",
     "warnings": []
    },
    {
@@ -229,16 +238,24 @@
     "nearest_place": {
      "name": "Kockelscheuer",
      "type": "hamlet",
-     "dist_m": 1904.3,
+     "dist_m": 1904.2,
      "lat": 49.555386,
      "lon": 6.105688
     },
-    "detail": "detail/lu/A-10",
+    "island_km2": null,
+    "detail": "detail/lu/A-49.570079_6.119201",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 471.61,
+  "lat": 49.751631,
+  "lon": 5.873729,
+  "rank": 49,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 50.093517,
      "lon": 6.125998
     },
-    "detail": "detail/lu/B-1",
+    "island_km2": null,
+    "detail": "detail/lu/B-50.074745_6.109844",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 49.509256,
      "lon": 6.147957
     },
-    "detail": "detail/lu/B-2",
+    "island_km2": null,
+    "detail": "detail/lu/B-49.486871_6.141932",
     "warnings": []
    },
    {
@@ -301,11 +320,12 @@
     "nearest_place": {
      "name": "Sollermillen",
      "type": "isolated_dwelling",
-     "dist_m": 1966.9,
+     "dist_m": 1966.8,
      "lat": 49.961631,
      "lon": 5.827157
     },
-    "detail": "detail/lu/B-3",
+    "island_km2": null,
+    "detail": "detail/lu/B-49.944127_5.831043",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 49.780323,
      "lon": 6.407961
     },
-    "detail": "detail/lu/B-4",
+    "island_km2": null,
+    "detail": "detail/lu/B-49.765598_6.411300",
     "warnings": []
    },
    {
@@ -349,7 +370,8 @@
      "lat": 49.812769,
      "lon": 6.087265
     },
-    "detail": "detail/lu/B-5",
+    "island_km2": null,
+    "detail": "detail/lu/B-49.813715_6.063336",
     "warnings": []
    },
    {
@@ -371,7 +393,8 @@
      "lat": 49.809998,
      "lon": 5.919689
     },
-    "detail": "detail/lu/B-6",
+    "island_km2": null,
+    "detail": "detail/lu/B-49.797922_5.913070",
     "warnings": []
    },
    {
@@ -393,7 +416,8 @@
      "lat": 49.574308,
      "lon": 6.311943
     },
-    "detail": "detail/lu/B-7",
+    "island_km2": null,
+    "detail": "detail/lu/B-49.578971_6.330048",
     "warnings": []
    },
    {
@@ -415,7 +439,8 @@
      "lat": 49.587507,
      "lon": 5.981479
     },
-    "detail": "detail/lu/B-8",
+    "island_km2": null,
+    "detail": "detail/lu/B-49.601544_5.972461",
     "warnings": []
    },
    {
@@ -437,7 +462,8 @@
      "lat": 49.818325,
      "lon": 6.262316
     },
-    "detail": "detail/lu/B-9",
+    "island_km2": null,
+    "detail": "detail/lu/B-49.830408_6.259315",
     "warnings": []
    },
    {
@@ -455,15 +481,23 @@
     "nearest_place": {
      "name": "Eisenborn",
      "type": "village",
-     "dist_m": 1512.1,
+     "dist_m": 1512.2,
      "lat": 49.691221,
      "lon": 6.184524
     },
-    "detail": "detail/lu/B-10",
+    "island_km2": null,
+    "detail": "detail/lu/B-49.680779_6.197943",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 1801.3,
+  "lat": 50.074745,
+  "lon": 6.109844,
+  "rank": 45,
+  "withheld": 0
  }
 }

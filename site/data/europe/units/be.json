@@ -31,11 +31,12 @@
     "nearest_place": {
      "name": "Bath",
      "type": "hamlet",
-     "dist_m": 3487.1,
+     "dist_m": 3487.0,
      "lat": 51.401255,
      "lon": 4.209026
     },
-    "detail": "detail/be/A-1",
+    "island_km2": null,
+    "detail": "detail/be/A-51.371479_4.224662",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 50.135223,
      "lon": 4.674878
     },
-    "detail": "detail/be/A-2",
+    "island_km2": null,
+    "detail": "detail/be/A-50.151414_4.664668",
     "warnings": []
    },
    {
@@ -75,11 +77,12 @@
     "nearest_place": {
      "name": "Mont Rigi",
      "type": "isolated_dwelling",
-     "dist_m": 4088.9,
+     "dist_m": 4088.8,
      "lat": 50.510017,
      "lon": 6.076989
     },
-    "detail": "detail/be/A-3",
+    "island_km2": null,
+    "detail": "detail/be/A-50.537531_6.115222",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 50.110668,
      "lon": 4.448854
     },
-    "detail": "detail/be/A-4",
+    "island_km2": null,
+    "detail": "detail/be/A-50.114439_4.384739",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 51.377181,
      "lon": 3.388391
     },
-    "detail": "detail/be/A-5",
+    "island_km2": null,
+    "detail": "detail/be/A-51.367490_3.358746",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 50.157094,
      "lon": 4.126461
     },
-    "detail": "detail/be/A-6",
+    "island_km2": null,
+    "detail": "detail/be/A-50.154791_4.144471",
     "warnings": []
    },
    {
@@ -163,11 +169,12 @@
     "nearest_place": {
      "name": "Presgaux",
      "type": "village",
-     "dist_m": 1779.8,
+     "dist_m": 1779.9,
      "lat": 50.02479,
      "lon": 4.420617
     },
-    "detail": "detail/be/A-7",
+    "island_km2": null,
+    "detail": "detail/be/A-50.015720_4.400156",
     "warnings": []
    },
    {
@@ -189,7 +196,8 @@
      "lat": 50.505894,
      "lon": 3.355808
     },
-    "detail": "detail/be/A-8",
+    "island_km2": null,
+    "detail": "detail/be/A-50.520855_3.356346",
     "warnings": []
    },
    {
@@ -211,7 +219,8 @@
      "lat": 50.15596,
      "lon": 5.027273
     },
-    "detail": "detail/be/A-9",
+    "island_km2": null,
+    "detail": "detail/be/A-50.159206_5.013514",
     "warnings": []
    },
    {
@@ -229,16 +238,24 @@
     "nearest_place": {
      "name": "Kalmthout",
      "type": "town",
-     "dist_m": 2787.4,
+     "dist_m": 2787.3,
      "lat": 51.382841,
      "lon": 4.4765
     },
-    "detail": "detail/be/A-10",
+    "island_km2": null,
+    "detail": "detail/be/A-51.394032_4.440674",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 1318.12,
+  "lat": 51.371479,
+  "lon": 4.224662,
+  "rank": 44,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 50.574747,
      "lon": 6.156286
     },
-    "detail": "detail/be/B-1",
+    "island_km2": null,
+    "detail": "detail/be/B-50.539567_6.124579",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 50.014507,
      "lon": 4.582225
     },
-    "detail": "detail/be/B-2",
+    "island_km2": null,
+    "detail": "detail/be/B-49.989729_4.592298",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 50.098324,
      "lon": 5.409716
     },
-    "detail": "detail/be/B-3",
+    "island_km2": null,
+    "detail": "detail/be/B-50.075859_5.383461",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 50.168807,
      "lon": 5.764255
     },
-    "detail": "detail/be/B-4",
+    "island_km2": null,
+    "detail": "detail/be/B-50.195368_5.747505",
     "warnings": []
    },
    {
@@ -349,7 +370,8 @@
      "lat": 49.723614,
      "lon": 5.41851
     },
-    "detail": "detail/be/B-5",
+    "island_km2": null,
+    "detail": "detail/be/B-49.738872_5.448170",
     "warnings": []
    },
    {
@@ -371,7 +393,8 @@
      "lat": 51.427007,
      "lon": 4.365707
     },
-    "detail": "detail/be/B-6",
+    "island_km2": null,
+    "detail": "detail/be/B-51.398813_4.403870",
     "warnings": []
    },
    {
@@ -393,7 +416,8 @@
      "lat": 50.012374,
      "lon": 5.035834
     },
-    "detail": "detail/be/B-7",
+    "island_km2": null,
+    "detail": "detail/be/B-50.033133_5.022850",
     "warnings": []
    },
    {
@@ -415,7 +439,8 @@
      "lat": 50.626253,
      "lon": 6.234
     },
-    "detail": "detail/be/B-8",
+    "island_km2": null,
+    "detail": "detail/be/B-50.611425_6.211238",
     "warnings": []
    },
    {
@@ -437,7 +462,8 @@
      "lat": 50.110668,
      "lon": 4.448854
     },
-    "detail": "detail/be/B-9",
+    "island_km2": null,
+    "detail": "detail/be/B-50.142102_4.448384",
     "warnings": []
    },
    {
@@ -459,11 +485,19 @@
      "lat": 49.937055,
      "lon": 5.351724
     },
-    "detail": "detail/be/B-10",
+    "island_km2": null,
+    "detail": "detail/be/B-49.954229_5.318873",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 4486.84,
+  "lat": 50.539567,
+  "lon": 6.124579,
+  "rank": 40,
+  "withheld": 0
  }
 }

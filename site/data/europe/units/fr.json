@@ -18,207 +18,147 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 49.113243,
-    "lon": -2.833563,
-    "dist_m": 29818.09,
+    "lat": 44.881905,
+    "lon": 6.345408,
+    "dist_m": 6734.84,
     "nearest_way": {
-     "id": 146315194,
-     "highway": "track",
+     "id": 577052545,
+     "highway": "tertiary",
      "name": null,
-     "ref": null,
+     "ref": "D 480",
      "country": "fr"
     },
     "nearest_place": {
-     "name": "Crech Rogen",
+     "name": "La Bérarde",
      "type": "hamlet",
-     "dist_m": 30052.6,
-     "lat": 48.86281,
-     "lon": -2.987846
+     "dist_m": 7042.6,
+     "lat": 44.932724,
+     "lon": 6.29213
     },
-    "detail": "detail/fr/A-1",
+    "island_km2": null,
+    "detail": "detail/fr/A-44.881905_6.345408",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 48.05015,
-    "lon": -4.99778,
-    "dist_m": 9724.8,
+    "lat": 42.372298,
+    "lon": 8.534746,
+    "dist_m": 6626.33,
     "nearest_way": {
-     "id": 43040654,
-     "highway": "track",
+     "id": 598410590,
+     "highway": "residential",
      "name": null,
      "ref": null,
      "country": "fr"
     },
     "nearest_place": {
-     "name": "Île-de-Sein",
+     "name": "Girolata",
      "type": "village",
-     "dist_m": 11038.0,
-     "lat": 48.036819,
-     "lon": -4.851083
+     "dist_m": 6876.8,
+     "lat": 42.349687,
+     "lon": 8.612455
     },
-    "detail": "detail/fr/A-2",
+    "island_km2": 8849.4,
+    "detail": "detail/fr/A-42.372298_8.534746",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 48.87796,
-    "lon": -3.648813,
-    "dist_m": 9464.2,
+    "lat": 42.827023,
+    "lon": -0.246604,
+    "dist_m": 6501.51,
     "nearest_way": {
-     "id": 123690713,
-     "highway": "service",
+     "id": 216863419,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "fr"
     },
     "nearest_place": {
-     "name": "Run Losquet",
+     "name": "Baños de Panticosa",
      "type": "hamlet",
-     "dist_m": 10460.8,
-     "lat": 48.795992,
-     "lon": -3.578903
+     "dist_m": 7454.8,
+     "lat": 42.760619,
+     "lon": -0.233448
     },
-    "detail": "detail/fr/A-3",
+    "island_km2": null,
+    "detail": "detail/fr/A-42.827023_-0.246604",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 43.197892,
-    "lon": 5.22897,
-    "dist_m": 8905.81,
+    "lat": 45.900228,
+    "lon": 6.975796,
+    "dist_m": 6341.8,
     "nearest_way": {
-     "id": 268069067,
-     "highway": "service",
-     "name": null,
+     "id": 242518308,
+     "highway": "track",
+     "name": "Sortie Vallée Blanche",
      "ref": null,
      "country": "fr"
     },
     "nearest_place": {
-     "name": "Niolon",
-     "type": "hamlet",
-     "dist_m": 15875.2,
-     "lat": 43.339294,
-     "lon": 5.257153
+     "name": "Frébouge",
+     "type": "isolated_dwelling",
+     "dist_m": 6356.6,
+     "lat": 45.853374,
+     "lon": 7.022746
     },
-    "detail": "detail/fr/A-4",
+    "island_km2": null,
+    "detail": "detail/fr/A-45.900228_6.975796",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 48.90066,
-    "lon": -3.43639,
-    "dist_m": 7834.62,
+    "lat": 42.678432,
+    "lon": 1.571183,
+    "dist_m": 6012.12,
     "nearest_way": {
-     "id": 75720752,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "fr"
-    },
-    "nearest_place": {
-     "name": "Saint-Guirec",
-     "type": "isolated_dwelling",
-     "dist_m": 8309.6,
-     "lat": 48.83348,
-     "lon": -3.485977
-    },
-    "detail": "detail/fr/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 48.303206,
-    "lon": -4.880733,
-    "dist_m": 7823.44,
-    "nearest_way": {
-     "id": 250208257,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "fr"
-    },
-    "nearest_place": {
-     "name": "Saint-Mathieu",
-     "type": "hamlet",
-     "dist_m": 8735.3,
-     "lat": 48.331413,
-     "lon": -4.770808
-    },
-    "detail": "detail/fr/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 48.647206,
-    "lon": -2.629844,
-    "dist_m": 7634.24,
-    "nearest_way": {
-     "id": 176951358,
+     "id": 1093952663,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "fr"
     },
     "nearest_place": {
-     "name": "Piégu",
+     "name": "Bouychet",
      "type": "hamlet",
-     "dist_m": 7799.7,
-     "lat": 48.597715,
-     "lon": -2.554875
+     "dist_m": 6025.7,
+     "lat": 42.730361,
+     "lon": 1.54993
     },
-    "detail": "detail/fr/A-7",
+    "island_km2": null,
+    "detail": "detail/fr/A-42.678432_1.571183",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 49.499419,
-    "lon": -1.14504,
-    "dist_m": 7423.1,
+    "rank": 6,
+    "lat": 42.698284,
+    "lon": 0.448597,
+    "dist_m": 5913.98,
     "nearest_way": {
-     "id": 208422822,
-     "highway": "secondary",
-     "name": null,
-     "ref": "D 421",
-     "country": "fr"
-    },
-    "nearest_place": {
-     "name": "La Moinerie",
-     "type": "isolated_dwelling",
-     "dist_m": 7491.9,
-     "lat": 49.456579,
-     "lon": -1.224821
-    },
-    "detail": "detail/fr/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 45.586396,
-    "lon": -1.173567,
-    "dist_m": 7060.15,
-    "nearest_way": {
-     "id": 270182344,
-     "highway": "track",
+     "id": 121860706,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "fr"
     },
     "nearest_place": {
-     "name": "Le Royannais",
+     "name": "Pont de Prat",
      "type": "hamlet",
-     "dist_m": 8180.8,
-     "lat": 45.541015,
-     "lon": -1.091064
+     "dist_m": 6102.2,
+     "lat": 42.744808,
+     "lon": 0.408988
     },
-    "detail": "detail/fr/A-9",
+    "island_km2": null,
+    "detail": "detail/fr/A-42.698284_0.448597",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 48.881398,
-    "lon": -1.72752,
-    "dist_m": 7050.26,
+    "rank": 7,
+    "lat": 48.88611,
+    "lon": -1.748706,
+    "dist_m": 5669.19,
     "nearest_way": {
      "id": 135709298,
      "highway": "service",
@@ -229,131 +169,144 @@
     "nearest_place": {
      "name": "Granville",
      "type": "town",
-     "dist_m": 10813.9,
+     "dist_m": 12439.7,
      "lat": 48.83763,
      "lon": -1.595918
     },
-    "detail": "detail/fr/A-10",
+    "island_km2": 1.3,
+    "detail": "detail/fr/A-48.886110_-1.748706",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 45.247585,
+    "lon": 7.093355,
+    "dist_m": 5509.76,
+    "nearest_way": {
+     "id": 47933830,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "L'Arcelle",
+     "type": "isolated_dwelling",
+     "dist_m": 5536.3,
+     "lat": 45.259354,
+     "lon": 7.024823
+    },
+    "island_km2": null,
+    "detail": "detail/fr/A-45.247585_7.093355",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.617104,
+    "lon": 6.922388,
+    "dist_m": 5488.96,
+    "nearest_way": {
+     "id": 38822532,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "Grange Gulun",
+     "type": "isolated_dwelling",
+     "dist_m": 4651.6,
+     "lat": 44.580573,
+     "lon": 6.950996
+    },
+    "island_km2": null,
+    "detail": "detail/fr/A-44.617104_6.922388",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 45.811173,
+    "lon": 6.815308,
+    "dist_m": 5156.21,
+    "nearest_way": {
+     "id": 357724972,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Miage d'en Haut",
+     "type": "hamlet",
+     "dist_m": 5166.5,
+     "lat": 45.840301,
+     "lon": 6.763493
+    },
+    "island_km2": null,
+    "detail": "detail/fr/A-45.811173_6.815308",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 42.596967,
+    "lon": 1.958984,
+    "dist_m": 5091.16,
+    "nearest_way": {
+     "id": 40322611,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "Les Angles",
+     "type": "village",
+     "dist_m": 9575.3,
+     "lat": 42.57766,
+     "lon": 2.072672
+    },
+    "island_km2": null,
+    "detail": "detail/fr/A-42.596967_1.958984",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 44.087547,
+    "lon": 6.696823,
+    "dist_m": 5075.52,
+    "nearest_way": {
+     "id": 880945130,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "Lacs de Lignin",
+     "type": "hamlet",
+     "dist_m": 1854.4,
+     "lat": 44.103335,
+     "lon": 6.704329
+    },
+    "island_km2": null,
+    "detail": "detail/fr/A-44.087547_6.696823",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 6734.84,
+  "lat": 44.881905,
+  "lon": 6.345408,
+  "rank": 12,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 49.113243,
-    "lon": -2.833563,
-    "dist_m": 30132.46,
-    "nearest_way": {
-     "id": 26424819,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "fr"
-    },
-    "nearest_place": {
-     "name": "Crech Rogen",
-     "type": "hamlet",
-     "dist_m": 30052.6,
-     "lat": 48.86281,
-     "lon": -2.987846
-    },
-    "detail": "detail/fr/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 48.05015,
-    "lon": -4.99778,
-    "dist_m": 9796.71,
-    "nearest_way": {
-     "id": 109982965,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "fr"
-    },
-    "nearest_place": {
-     "name": "Île-de-Sein",
-     "type": "village",
-     "dist_m": 11038.0,
-     "lat": 48.036819,
-     "lon": -4.851083
-    },
-    "detail": "detail/fr/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 48.87796,
-    "lon": -3.648813,
-    "dist_m": 9464.2,
-    "nearest_way": {
-     "id": 123690713,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "fr"
-    },
-    "nearest_place": {
-     "name": "Run Losquet",
-     "type": "hamlet",
-     "dist_m": 10460.8,
-     "lat": 48.795992,
-     "lon": -3.578903
-    },
-    "detail": "detail/fr/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 48.31642,
-    "lon": -4.895265,
-    "dist_m": 9257.74,
-    "nearest_way": {
-     "id": 105735304,
-     "highway": "tertiary",
-     "name": null,
-     "ref": "D 85",
-     "country": "fr"
-    },
-    "nearest_place": {
-     "name": "Saint-Mathieu",
-     "type": "hamlet",
-     "dist_m": 9378.8,
-     "lat": 48.331413,
-     "lon": -4.770808
-    },
-    "detail": "detail/fr/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 43.197892,
-    "lon": 5.22897,
-    "dist_m": 8905.81,
-    "nearest_way": {
-     "id": 268069067,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "fr"
-    },
-    "nearest_place": {
-     "name": "Niolon",
-     "type": "hamlet",
-     "dist_m": 15875.2,
-     "lat": 43.339294,
-     "lon": 5.257153
-    },
-    "detail": "detail/fr/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
     "lat": 42.779487,
     "lon": -0.139515,
     "dist_m": 7913.6,
@@ -367,37 +320,16 @@
     "nearest_place": {
      "name": "Baños de Panticosa",
      "type": "hamlet",
-     "dist_m": 7968.4,
+     "dist_m": 7968.5,
      "lat": 42.760619,
      "lon": -0.233448
     },
-    "detail": "detail/fr/B-6",
+    "island_km2": null,
+    "detail": "detail/fr/B-42.779487_-0.139515",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 48.90066,
-    "lon": -3.43639,
-    "dist_m": 7878.79,
-    "nearest_way": {
-     "id": 38531021,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "fr"
-    },
-    "nearest_place": {
-     "name": "Saint-Guirec",
-     "type": "isolated_dwelling",
-     "dist_m": 8309.6,
-     "lat": 48.83348,
-     "lon": -3.485977
-    },
-    "detail": "detail/fr/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 2,
     "lat": 42.736707,
     "lon": 9.167384,
     "dist_m": 7869.53,
@@ -411,15 +343,16 @@
     "nearest_place": {
      "name": "Paillers de Ghignu",
      "type": "isolated_dwelling",
-     "dist_m": 3001.6,
+     "dist_m": 3001.5,
      "lat": 42.727704,
      "lon": 9.132827
     },
-    "detail": "detail/fr/B-8",
+    "island_km2": 8849.4,
+    "detail": "detail/fr/B-42.736707_9.167384",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 3,
     "lat": 42.610448,
     "lon": 1.931068,
     "dist_m": 7718.98,
@@ -437,11 +370,12 @@
      "lat": 42.659395,
      "lon": 1.855703
     },
-    "detail": "detail/fr/B-9",
+    "island_km2": null,
+    "detail": "detail/fr/B-42.610448_1.931068",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 4,
     "lat": 44.777217,
     "lon": 6.375007,
     "dist_m": 7651.71,
@@ -459,11 +393,180 @@
      "lat": 44.737447,
      "lon": 6.444506
     },
-    "detail": "detail/fr/B-10",
+    "island_km2": null,
+    "detail": "detail/fr/B-44.777217_6.375007",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 43.4836,
+    "lon": 4.541631,
+    "dist_m": 7544.33,
+    "nearest_way": {
+     "id": 1125927241,
+     "highway": "unclassified",
+     "name": "Chemin du Fangassier",
+     "ref": "C 135",
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "Mas Bardouine",
+     "type": "isolated_dwelling",
+     "dist_m": 8214.1,
+     "lat": 43.524915,
+     "lon": 4.4574
+    },
+    "island_km2": null,
+    "detail": "detail/fr/B-43.483600_4.541631",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 45.92578,
+    "lon": 6.995493,
+    "dist_m": 7427.99,
+    "nearest_way": {
+     "id": 388122168,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Pré de Bar Desot",
+     "type": "hamlet",
+     "dist_m": 7128.9,
+     "lat": 45.884487,
+     "lon": 7.065791
+    },
+    "island_km2": null,
+    "detail": "detail/fr/B-45.925780_6.995493",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 45.125681,
+    "lon": 6.263591,
+    "dist_m": 7370.69,
+    "nearest_way": {
+     "id": 187065132,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "Fardelière",
+     "type": "isolated_dwelling",
+     "dist_m": 3218.4,
+     "lat": 45.152822,
+     "lon": 6.277864
+    },
+    "island_km2": null,
+    "detail": "detail/fr/B-45.125681_6.263591",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 42.70015,
+    "lon": 0.476571,
+    "dist_m": 7232.16,
+    "nearest_way": {
+     "id": 121860706,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "Granges d'Astau",
+     "type": "isolated_dwelling",
+     "dist_m": 7367.6,
+     "lat": 42.763724,
+     "lon": 0.502203
+    },
+    "island_km2": null,
+    "detail": "detail/fr/B-42.700150_0.476571",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 45.120313,
+    "lon": 6.554271,
+    "dist_m": 7138.85,
+    "nearest_way": {
+     "id": 224023521,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "Les Marches",
+     "type": "hamlet",
+     "dist_m": 4411.5,
+     "lat": 45.159259,
+     "lon": 6.565116
+    },
+    "island_km2": null,
+    "detail": "detail/fr/B-45.120313_6.554271",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 45.794313,
+    "lon": 6.813687,
+    "dist_m": 6729.58,
+    "nearest_way": {
+     "id": 672393460,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "Lex Blanche",
+     "type": "hamlet",
+     "dist_m": 3663.9,
+     "lat": 45.766333,
+     "lon": 6.838595
+    },
+    "island_km2": null,
+    "detail": "detail/fr/B-45.794313_6.813687",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 45.243817,
+    "lon": 7.071369,
+    "dist_m": 6641.49,
+    "nearest_way": {
+     "id": 1006285867,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "L'Arcelle",
+     "type": "isolated_dwelling",
+     "dist_m": 4041.3,
+     "lat": 45.259354,
+     "lon": 7.024823
+    },
+    "island_km2": null,
+    "detail": "detail/fr/B-45.243817_7.071369",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 7913.6,
+  "lat": 42.779487,
+  "lon": -0.139515,
+  "rank": 22,
+  "withheld": 0
  }
 }

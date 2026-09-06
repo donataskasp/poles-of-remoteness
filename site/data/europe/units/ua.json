@@ -35,7 +35,8 @@
      "lat": 49.292767,
      "lon": 33.010525
     },
-    "detail": "detail/ua/A-1",
+    "island_km2": 1.2,
+    "detail": "detail/ua/A-49.196656_32.925239",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 46.284861,
      "lon": 32.063969
     },
-    "detail": "detail/ua/A-2",
+    "island_km2": null,
+    "detail": "detail/ua/A-46.182280_31.953077",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 47.633053,
      "lon": 35.065781
     },
-    "detail": "detail/ua/A-3",
+    "island_km2": null,
+    "detail": "detail/ua/A-47.546414_35.149388",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 45.237991,
      "lon": 29.624257
     },
-    "detail": "detail/ua/A-4",
+    "island_km2": null,
+    "detail": "detail/ua/A-45.254759_29.743598",
     "warnings": []
    },
    {
@@ -119,37 +123,16 @@
     "nearest_place": {
      "name": "Balabanka",
      "type": "hamlet",
-     "dist_m": 11404.3,
+     "dist_m": 11404.4,
      "lat": 45.766979,
      "lon": 29.85363
     },
-    "detail": "detail/ua/A-5",
+    "island_km2": null,
+    "detail": "detail/ua/A-45.733794_29.992318",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 47.486842,
-    "lon": 34.964815,
-    "dist_m": 8499.11,
-    "nearest_way": {
-     "id": 29214178,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "ua"
-    },
-    "nearest_place": {
-     "name": "Maiachka",
-     "type": "village",
-     "dist_m": 8708.8,
-     "lat": 47.433811,
-     "lon": 35.04982
-    },
-    "detail": "detail/ua/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 51.745833,
     "lon": 27.203852,
     "dist_m": 8276.2,
@@ -167,11 +150,12 @@
      "lat": 51.648853,
      "lon": 27.227942
     },
-    "detail": "detail/ua/A-7",
+    "island_km2": null,
+    "detail": "detail/ua/A-51.745833_27.203852",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 47.494972,
     "lon": 34.061492,
     "dist_m": 8226.59,
@@ -185,15 +169,16 @@
     "nearest_place": {
      "name": "Pokrovske",
      "type": "village",
-     "dist_m": 9039.5,
+     "dist_m": 9039.6,
      "lat": 47.546421,
      "lon": 34.15443
     },
-    "detail": "detail/ua/A-8",
+    "island_km2": null,
+    "detail": "detail/ua/A-47.494972_34.061492",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 46.099207,
     "lon": 34.408283,
     "dist_m": 8018.36,
@@ -211,11 +196,12 @@
      "lat": 46.041491,
      "lon": 34.496311
     },
-    "detail": "detail/ua/A-9",
+    "island_km2": null,
+    "detail": "detail/ua/A-46.099207_34.408283",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 45.778008,
     "lon": 34.753409,
     "dist_m": 7846.7,
@@ -229,16 +215,70 @@
     "nearest_place": {
      "name": "Stefanivka",
      "type": "village",
-     "dist_m": 8258.2,
+     "dist_m": 8258.3,
      "lat": 45.709977,
      "lon": 34.796076
     },
-    "detail": "detail/ua/A-10",
+    "island_km2": null,
+    "detail": "detail/ua/A-45.778008_34.753409",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.380519,
+    "lon": 31.768946,
+    "dist_m": 6907.49,
+    "nearest_way": {
+     "id": 613781024,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ua"
+    },
+    "nearest_place": {
+     "name": "Pokrovka",
+     "type": "village",
+     "dist_m": 12657.7,
+     "lat": 46.480361,
+     "lon": 31.689762
+    },
+    "island_km2": null,
+    "detail": "detail/ua/A-46.380519_31.768946",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 47.212586,
+    "lon": 34.78788,
+    "dist_m": 6630.7,
+    "nearest_way": {
+     "id": 477428310,
+     "highway": "unclassified",
+     "name": null,
+     "ref": "С080232",
+     "country": "ua"
+    },
+    "nearest_place": {
+     "name": "Piskoshyne",
+     "type": "village",
+     "dist_m": 8428.4,
+     "lat": 47.136806,
+     "lon": 34.784603
+    },
+    "island_km2": null,
+    "detail": "detail/ua/A-47.212586_34.787880",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 11175.43,
+  "lat": 46.18228,
+  "lon": 31.953077,
+  "rank": 8,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,33 +301,12 @@
      "lat": 46.304314,
      "lon": 32.020412
     },
-    "detail": "detail/ua/B-1",
+    "island_km2": null,
+    "detail": "detail/ua/B-46.226650_31.674212",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 46.271061,
-    "lon": 31.555707,
-    "dist_m": 24422.11,
-    "nearest_way": {
-     "id": 756276644,
-     "highway": "residential",
-     "name": "Ковалівська вулиця",
-     "ref": null,
-     "country": "ua"
-    },
-    "nearest_place": {
-     "name": "Pokrovka",
-     "type": "village",
-     "dist_m": 25449.2,
-     "lat": 46.480361,
-     "lon": 31.689762
-    },
-    "detail": "detail/ua/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 46.297234,
     "lon": 31.757215,
     "dist_m": 19781.43,
@@ -305,55 +324,12 @@
      "lat": 46.344452,
      "lon": 32.00729
     },
-    "detail": "detail/ua/B-3",
+    "island_km2": null,
+    "detail": "detail/ua/B-46.297234_31.757215",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 46.204133,
-    "lon": 31.804714,
-    "dist_m": 19340.85,
-    "nearest_way": {
-     "id": 227974208,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "ua"
-    },
-    "nearest_place": {
-     "name": "Oleksandrivka",
-     "type": "village",
-     "dist_m": 20015.7,
-     "lat": 46.304314,
-     "lon": 32.020412
-    },
-    "detail": "detail/ua/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 46.358826,
-    "lon": 31.515281,
-    "dist_m": 17400.48,
-    "nearest_way": {
-     "id": 756278643,
-     "highway": "residential",
-     "name": "Ковалівська вулиця",
-     "ref": null,
-     "country": "ua"
-    },
-    "nearest_place": {
-     "name": "Pokrovka",
-     "type": "village",
-     "dist_m": 19037.7,
-     "lat": 46.480361,
-     "lon": 31.689762
-    },
-    "detail": "detail/ua/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 3,
     "lat": 45.442306,
     "lon": 35.270052,
     "dist_m": 16571.18,
@@ -371,11 +347,12 @@
      "lat": 45.32856,
      "lon": 35.41271
     },
-    "detail": "detail/ua/B-6",
+    "island_km2": null,
+    "detail": "detail/ua/B-45.442306_35.270052",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 4,
     "lat": 45.329226,
     "lon": 29.777812,
     "dist_m": 14373.63,
@@ -393,11 +370,12 @@
      "lat": 45.298247,
      "lon": 29.59575
     },
-    "detail": "detail/ua/B-7",
+    "island_km2": null,
+    "detail": "detail/ua/B-45.329226_29.777812",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 5,
     "lat": 46.110129,
     "lon": 34.22825,
     "dist_m": 14323.37,
@@ -415,33 +393,12 @@
      "lat": 46.232194,
      "lon": 34.306379
     },
-    "detail": "detail/ua/B-8",
+    "island_km2": null,
+    "detail": "detail/ua/B-46.110129_34.228250",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 46.184413,
-    "lon": 31.935558,
-    "dist_m": 14027.45,
-    "nearest_way": {
-     "id": 227974211,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "ua"
-    },
-    "nearest_place": {
-     "name": "Oleksandrivka",
-     "type": "village",
-     "dist_m": 14847.6,
-     "lat": 46.304314,
-     "lon": 32.020412
-    },
-    "detail": "detail/ua/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 6,
     "lat": 47.830646,
     "lon": 24.753192,
     "dist_m": 12817.09,
@@ -459,11 +416,134 @@
      "lat": 47.943684,
      "lon": 24.695358
     },
-    "detail": "detail/ua/B-10",
+    "island_km2": null,
+    "detail": "detail/ua/B-47.830646_24.753192",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.012848,
+    "lon": 33.079753,
+    "dist_m": 12512.92,
+    "nearest_way": {
+     "id": 219443943,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ua"
+    },
+    "nearest_place": {
+     "name": "Tarasivka",
+     "type": "village",
+     "dist_m": 14681.4,
+     "lat": 46.14223,
+     "lon": 33.11794
+    },
+    "island_km2": null,
+    "detail": "detail/ua/B-46.012848_33.079753",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 49.196656,
+    "lon": 32.925239,
+    "dist_m": 11578.84,
+    "nearest_way": {
+     "id": 195801440,
+     "highway": "residential",
+     "name": "вулиця Шевченка",
+     "ref": null,
+     "country": "ua"
+    },
+    "nearest_place": {
+     "name": "Pronozivka",
+     "type": "village",
+     "dist_m": 12361.9,
+     "lat": 49.292767,
+     "lon": 33.010525
+    },
+    "island_km2": 1.2,
+    "detail": "detail/ua/B-49.196656_32.925239",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 47.546587,
+    "lon": 35.149728,
+    "dist_m": 11030.33,
+    "nearest_way": {
+     "id": 640054684,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ua"
+    },
+    "nearest_place": {
+     "name": "Bilenke Pershe",
+     "type": "village",
+     "dist_m": 11501.6,
+     "lat": 47.633053,
+     "lon": 35.065781
+    },
+    "island_km2": null,
+    "detail": "detail/ua/B-47.546587_35.149728",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.388314,
+    "lon": 31.765697,
+    "dist_m": 10730.99,
+    "nearest_way": {
+     "id": 756063080,
+     "highway": "residential",
+     "name": "Бородинівська вулиця",
+     "ref": null,
+     "country": "ua"
+    },
+    "nearest_place": {
+     "name": "Pokrovka",
+     "type": "village",
+     "dist_m": 11779.3,
+     "lat": 46.480361,
+     "lon": 31.689762
+    },
+    "island_km2": null,
+    "detail": "detail/ua/B-46.388314_31.765697",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 48.203745,
+    "lon": 24.109771,
+    "dist_m": 10562.09,
+    "nearest_way": {
+     "id": 93227825,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ua"
+    },
+    "nearest_place": {
+     "name": "Trostianets",
+     "type": "village",
+     "dist_m": 12674.2,
+     "lat": 48.166769,
+     "lon": 24.271001
+    },
+    "island_km2": null,
+    "detail": "detail/ua/B-48.203745_24.109771",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 27499.78,
+  "lat": 46.22665,
+  "lon": 31.674212,
+  "rank": 5,
+  "withheld": 0
  }
 }

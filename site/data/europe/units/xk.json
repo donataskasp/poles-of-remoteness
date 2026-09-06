@@ -35,7 +35,8 @@
      "lat": 42.182195,
      "lon": 21.03356
     },
-    "detail": "detail/xk/A-1",
+    "island_km2": null,
+    "detail": "detail/xk/A-42.149603_21.008310",
     "warnings": []
    },
    {
@@ -57,55 +58,12 @@
      "lat": 41.809043,
      "lon": 20.788842
     },
-    "detail": "detail/xk/A-2",
+    "island_km2": null,
+    "detail": "detail/xk/A-41.866517_20.721427",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 42.097527,
-    "lon": 20.870674,
-    "dist_m": 3366.55,
-    "nearest_way": {
-     "id": 219245288,
-     "highway": "track",
-     "name": null,
-     "ref": "High Scardus Trail",
-     "country": "xk"
-    },
-    "nearest_place": {
-     "name": "Lubinjë e Poshtme",
-     "type": "village",
-     "dist_m": 4295.7,
-     "lat": 42.134994,
-     "lon": 20.857797
-    },
-    "detail": "detail/xk/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 41.983653,
-    "lon": 20.749234,
-    "dist_m": 3227.97,
-    "nearest_way": {
-     "id": 1005998815,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "mk"
-    },
-    "nearest_place": {
-     "name": "Brod",
-     "type": "village",
-     "dist_m": 3689.3,
-     "lat": 41.991686,
-     "lon": 20.706036
-    },
-    "detail": "detail/xk/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 42.83602,
     "lon": 20.315539,
     "dist_m": 2691.93,
@@ -119,15 +77,16 @@
     "nearest_place": {
      "name": "Česmina livada",
      "type": "hamlet",
-     "dist_m": 1530.4,
+     "dist_m": 1530.5,
      "lat": 42.845379,
      "lon": 20.301801
     },
-    "detail": "detail/xk/A-5",
+    "island_km2": null,
+    "detail": "detail/xk/A-42.836020_20.315539",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 4,
     "lat": 43.057351,
     "lon": 20.972089,
     "dist_m": 2584.01,
@@ -141,15 +100,16 @@
     "nearest_place": {
      "name": "Brzance",
      "type": "village",
-     "dist_m": 2793.3,
+     "dist_m": 2793.2,
      "lat": 43.057388,
      "lon": 20.937801
     },
-    "detail": "detail/xk/A-6",
+    "island_km2": null,
+    "detail": "detail/xk/A-43.057351_20.972089",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 5,
     "lat": 42.560191,
     "lon": 20.670611,
     "dist_m": 2527.63,
@@ -167,11 +127,12 @@
      "lat": 42.567677,
      "lon": 20.633691
     },
-    "detail": "detail/xk/A-7",
+    "island_km2": null,
+    "detail": "detail/xk/A-42.560191_20.670611",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 6,
     "lat": 42.757229,
     "lon": 20.252749,
     "dist_m": 2493.86,
@@ -189,11 +150,12 @@
      "lat": 42.752276,
      "lon": 20.220399
     },
-    "detail": "detail/xk/A-8",
+    "island_km2": null,
+    "detail": "detail/xk/A-42.757229_20.252749",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 7,
     "lat": 42.236962,
     "lon": 20.927202,
     "dist_m": 2453.17,
@@ -207,15 +169,16 @@
     "nearest_place": {
      "name": "Sevce",
      "type": "village",
-     "dist_m": 2950.1,
+     "dist_m": 2950.0,
      "lat": 42.212293,
      "lon": 20.940437
     },
-    "detail": "detail/xk/A-9",
+    "island_km2": null,
+    "detail": "detail/xk/A-42.236962_20.927202",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 8,
     "lat": 42.618733,
     "lon": 20.077057,
     "dist_m": 2377.47,
@@ -233,12 +196,66 @@
      "lat": 42.60836,
      "lon": 20.061379
     },
-    "detail": "detail/xk/A-10",
+    "island_km2": null,
+    "detail": "detail/xk/A-42.618733_20.077057",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 42.273298,
+    "lon": 21.303736,
+    "dist_m": 2334.34,
+    "nearest_way": {
+     "id": 394957985,
+     "highway": "residential",
+     "name": "Avdi Brruti",
+     "ref": null,
+     "country": "xk"
+    },
+    "nearest_place": {
+     "name": "Drenogllavë",
+     "type": "village",
+     "dist_m": 2538.4,
+     "lat": 42.250872,
+     "lon": 21.30965
+    },
+    "island_km2": null,
+    "detail": "detail/xk/A-42.273298_21.303736",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 42.848933,
+    "lon": 20.713184,
+    "dist_m": 2179.27,
+    "nearest_way": {
+     "id": 1454259083,
+     "highway": "unclassified",
+     "name": "Mića Orlovića",
+     "ref": null,
+     "country": "xk"
+    },
+    "nearest_place": {
+     "name": "Kërligatë",
+     "type": "village",
+     "dist_m": 2701.4,
+     "lat": 42.829489,
+     "lon": 20.733028
+    },
+    "island_km2": null,
+    "detail": "detail/xk/A-42.848933_20.713184",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 3530.85,
+  "lat": 42.149603,
+  "lon": 21.00831,
+  "rank": 36,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,77 +278,12 @@
      "lat": 41.895859,
      "lon": 20.832955
     },
-    "detail": "detail/xk/B-1",
+    "island_km2": null,
+    "detail": "detail/xk/B-41.878457_20.736014",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 42.040759,
-    "lon": 20.763414,
-    "dist_m": 5360.21,
-    "nearest_way": {
-     "id": 243346256,
-     "highway": "residential",
-     "name": "Livadica",
-     "ref": null,
-     "country": "xk"
-    },
-    "nearest_place": {
-     "name": "Bozovce",
-     "type": "village",
-     "dist_m": 5488.2,
-     "lat": 42.053569,
-     "lon": 20.827438
-    },
-    "detail": "detail/xk/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 42.200806,
-    "lon": 21.096393,
-    "dist_m": 5335.99,
-    "nearest_way": {
-     "id": 1200664908,
-     "highway": "residential",
-     "name": "Shaban Islami",
-     "ref": null,
-     "country": "xk"
-    },
-    "nearest_place": {
-     "name": "Brezovicë - Brezovica",
-     "type": "hamlet",
-     "dist_m": 5586.7,
-     "lat": 42.182195,
-     "lon": 21.03356
-    },
-    "detail": "detail/xk/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 42.131173,
-    "lon": 20.933617,
-    "dist_m": 4986.44,
-    "nearest_way": {
-     "id": 204272107,
-     "highway": "residential",
-     "name": "Sanëza",
-     "ref": null,
-     "country": "xk"
-    },
-    "nearest_place": {
-     "name": "Gornje Selo - Gornjasellë",
-     "type": "village",
-     "dist_m": 5301.8,
-     "lat": 42.178785,
-     "lon": 20.929087
-    },
-    "detail": "detail/xk/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 43.11322,
     "lon": 20.95225,
     "dist_m": 4517.64,
@@ -349,11 +301,12 @@
      "lat": 43.137887,
      "lon": 20.908232
     },
-    "detail": "detail/xk/B-5",
+    "island_km2": null,
+    "detail": "detail/xk/B-43.113220_20.952250",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 3,
     "lat": 42.246661,
     "lon": 20.898259,
     "dist_m": 4178.7,
@@ -367,15 +320,16 @@
     "nearest_place": {
      "name": "Delloc",
      "type": "village",
-     "dist_m": 4491.1,
+     "dist_m": 4491.2,
      "lat": 42.283907,
      "lon": 20.919441
     },
-    "detail": "detail/xk/B-6",
+    "island_km2": null,
+    "detail": "detail/xk/B-42.246661_20.898259",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 4,
     "lat": 42.113965,
     "lon": 20.570708,
     "dist_m": 4141.16,
@@ -393,11 +347,12 @@
      "lat": 42.091964,
      "lon": 20.613945
     },
-    "detail": "detail/xk/B-7",
+    "island_km2": null,
+    "detail": "detail/xk/B-42.113965_20.570708",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 5,
     "lat": 42.554891,
     "lon": 20.123542,
     "dist_m": 3992.54,
@@ -415,11 +370,12 @@
      "lat": 42.586044,
      "lon": 20.13952
     },
-    "detail": "detail/xk/B-8",
+    "island_km2": null,
+    "detail": "detail/xk/B-42.554891_20.123542",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 6,
     "lat": 41.908411,
     "lon": 20.580275,
     "dist_m": 3726.54,
@@ -437,11 +393,12 @@
      "lat": 41.94283,
      "lon": 20.549021
     },
-    "detail": "detail/xk/B-9",
+    "island_km2": null,
+    "detail": "detail/xk/B-41.908411_20.580275",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 7,
     "lat": 42.745799,
     "lon": 20.245462,
     "dist_m": 3596.41,
@@ -459,11 +416,88 @@
      "lat": 42.752276,
      "lon": 20.220399
     },
-    "detail": "detail/xk/B-10",
+    "island_km2": null,
+    "detail": "detail/xk/B-42.745799_20.245462",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 42.83363,
+    "lon": 20.33103,
+    "dist_m": 3571.69,
+    "nearest_way": {
+     "id": 544759450,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "xk"
+    },
+    "nearest_place": {
+     "name": "Зогића станови",
+     "type": "hamlet",
+     "dist_m": 1894.8,
+     "lat": 42.843238,
+     "lon": 20.35018
+    },
+    "island_km2": null,
+    "detail": "detail/xk/B-42.833630_20.331030",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 42.370624,
+    "lon": 20.255963,
+    "dist_m": 3427.82,
+    "nearest_way": {
+     "id": 242461340,
+     "highway": "residential",
+     "name": "Kukaj",
+     "ref": null,
+     "country": "xk"
+    },
+    "nearest_place": {
+     "name": "Pitaminë e Epërme (Viçidol)",
+     "type": "hamlet",
+     "dist_m": 3274.3,
+     "lat": 42.369662,
+     "lon": 20.216233
+    },
+    "island_km2": null,
+    "detail": "detail/xk/B-42.370624_20.255963",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 42.620627,
+    "lon": 20.231306,
+    "dist_m": 3416.46,
+    "nearest_way": {
+     "id": 970096371,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "xk"
+    },
+    "nearest_place": {
+     "name": "Belle",
+     "type": "hamlet",
+     "dist_m": 4112.2,
+     "lat": 42.58379,
+     "lon": 20.236262
+    },
+    "island_km2": null,
+    "detail": "detail/xk/B-42.620627_20.231306",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 8159.97,
+  "lat": 41.878457,
+  "lon": 20.736014,
+  "rank": 20,
+  "withheld": 0
  }
 }

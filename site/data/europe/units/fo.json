@@ -18,50 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 61.628703,
-    "lon": -6.702045,
-    "dist_m": 6573.87,
-    "nearest_way": {
-     "id": 850807207,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "fo"
-    },
-    "nearest_place": {
-     "name": "Stóra Dímun",
-     "type": "village",
-     "dist_m": 6894.4,
-     "lat": 61.685322,
-     "lon": -6.754486
-    },
-    "detail": "detail/fo/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 61.337925,
-    "lon": -6.671067,
-    "dist_m": 6361.97,
-    "nearest_way": {
-     "id": 850965769,
-     "highway": "service",
-     "name": "Akrabergsvegur",
-     "ref": null,
-     "country": "fo"
-    },
-    "nearest_place": {
-     "name": "Akraberg",
-     "type": "hamlet",
-     "dist_m": 6417.2,
-     "lat": 61.39532,
-     "lon": -6.680835
-    },
-    "detail": "detail/fo/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 61.949694,
     "lon": -6.623515,
     "dist_m": 6201.93,
@@ -79,11 +35,12 @@
      "lat": 62.009703,
      "lon": -6.673581
     },
-    "detail": "detail/fo/A-3",
+    "island_km2": 10.3,
+    "detail": "detail/fo/A-61.949694_-6.623515",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 2,
     "lat": 62.366461,
     "lon": -6.682321,
     "dist_m": 5389.47,
@@ -101,11 +58,12 @@
      "lat": 62.323952,
      "lon": -6.648483
     },
-    "detail": "detail/fo/A-4",
+    "island_km2": 171.4,
+    "detail": "detail/fo/A-62.366461_-6.682321",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 3,
     "lat": 62.093382,
     "lon": -7.530653,
     "dist_m": 4962.82,
@@ -119,15 +77,16 @@
     "nearest_place": {
      "name": "Gásadalur",
      "type": "village",
-     "dist_m": 5268.0,
+     "dist_m": 5268.1,
      "lat": 62.109738,
      "lon": -7.436009
     },
-    "detail": "detail/fo/A-5",
+    "island_km2": 10.2,
+    "detail": "detail/fo/A-62.093382_-7.530653",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 4,
     "lat": 62.183531,
     "lon": -6.442516,
     "dist_m": 4957.29,
@@ -145,11 +104,12 @@
      "lat": 62.213384,
      "lon": -6.543578
     },
-    "detail": "detail/fo/A-6",
+    "island_km2": 171.4,
+    "detail": "detail/fo/A-62.183531_-6.442516",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 5,
     "lat": 62.211579,
     "lon": -7.236156,
     "dist_m": 4557.98,
@@ -167,11 +127,12 @@
      "lat": 62.24423,
      "lon": -7.171247
     },
-    "detail": "detail/fo/A-7",
+    "island_km2": null,
+    "detail": "detail/fo/A-62.211579_-7.236156",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 6,
     "lat": 62.312014,
     "lon": -6.428145,
     "dist_m": 4341.72,
@@ -189,33 +150,12 @@
      "lat": 62.297938,
      "lon": -6.520132
     },
-    "detail": "detail/fo/A-8",
+    "island_km2": 171.4,
+    "detail": "detail/fo/A-62.312014_-6.428145",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 62.304364,
-    "lon": -7.21949,
-    "dist_m": 3898.85,
-    "nearest_way": {
-     "id": 972959152,
-     "highway": "service",
-     "name": "Bakkagøta",
-     "ref": null,
-     "country": "fo"
-    },
-    "nearest_place": {
-     "name": "Tjørnuvík",
-     "type": "village",
-     "dist_m": 4006.8,
-     "lat": 62.289509,
-     "lon": -7.14917
-    },
-    "detail": "detail/fo/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 7,
     "lat": 62.068297,
     "lon": -7.075067,
     "dist_m": 3673.28,
@@ -233,35 +173,274 @@
      "lat": 62.054477,
      "lon": -7.151071
     },
-    "detail": "detail/fo/A-10",
+    "island_km2": 175.6,
+    "detail": "detail/fo/A-62.068297_-7.075067",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 61.598986,
+    "lon": -6.85358,
+    "dist_m": 3487.31,
+    "nearest_way": {
+     "id": 588506371,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Trongisvágur",
+     "type": "village",
+     "dist_m": 3966.1,
+     "lat": 61.564028,
+     "lon": -6.839568
+    },
+    "island_km2": 165.3,
+    "detail": "detail/fo/A-61.598986_-6.853580",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 62.329926,
+    "lon": -7.022079,
+    "dist_m": 3346.6,
+    "nearest_way": {
+     "id": 724522417,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Gjógv",
+     "type": "village",
+     "dist_m": 4123.9,
+     "lat": 62.325743,
+     "lon": -6.943029
+    },
+    "island_km2": null,
+    "detail": "detail/fo/A-62.329926_-7.022079",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 62.131553,
+    "lon": -6.600575,
+    "dist_m": 3168.79,
+    "nearest_way": {
+     "id": 740021499,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Rituvík",
+     "type": "village",
+     "dist_m": 5030.5,
+     "lat": 62.107444,
+     "lon": -6.682058
+    },
+    "island_km2": null,
+    "detail": "detail/fo/A-62.131553_-6.600575",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 62.188128,
+    "lon": -6.912834,
+    "dist_m": 2882.52,
+    "nearest_way": {
+     "id": 1226723920,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Skálafjørður",
+     "type": "village",
+     "dist_m": 3011.5,
+     "lat": 62.195721,
+     "lon": -6.857326
+    },
+    "island_km2": null,
+    "detail": "detail/fo/A-62.188128_-6.912834",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 62.098701,
+    "lon": -6.84391,
+    "dist_m": 2859.5,
+    "nearest_way": {
+     "id": 690899143,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Kolbeinagjógv",
+     "type": "village",
+     "dist_m": 3279.1,
+     "lat": 62.110038,
+     "lon": -6.785964
+    },
+    "island_km2": null,
+    "detail": "detail/fo/A-62.098701_-6.843910",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 62.120543,
+    "lon": -7.236537,
+    "dist_m": 2852.3,
+    "nearest_way": {
+     "id": 729270833,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Slættanes",
+     "type": "hamlet",
+     "dist_m": 3867.0,
+     "lat": 62.155042,
+     "lon": -7.24446
+    },
+    "island_km2": 175.6,
+    "detail": "detail/fo/A-62.120543_-7.236537",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 61.920165,
+    "lon": -6.963336,
+    "dist_m": 2756.69,
+    "nearest_way": {
+     "id": 839885689,
+     "highway": "track",
+     "name": "Høvdarhagavegur",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Skopun",
+     "type": "village",
+     "dist_m": 4513.2,
+     "lat": 61.903942,
+     "lon": -6.884644
+    },
+    "island_km2": 111.4,
+    "detail": "detail/fo/A-61.920165_-6.963336",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 62.262757,
+    "lon": -6.774512,
+    "dist_m": 2583.21,
+    "nearest_way": {
+     "id": 771127471,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Fuglafjørður",
+     "type": "town",
+     "dist_m": 2917.1,
+     "lat": 62.243845,
+     "lon": -6.813322
+    },
+    "island_km2": null,
+    "detail": "detail/fo/A-62.262757_-6.774512",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 62.030703,
+    "lon": -7.257697,
+    "dist_m": 2556.16,
+    "nearest_way": {
+     "id": 1418535185,
+     "highway": "service",
+     "name": "Úti í Nipu",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Gróthústangi",
+     "type": "isolated_dwelling",
+     "dist_m": 2622.6,
+     "lat": 62.044959,
+     "lon": -7.217827
+    },
+    "island_km2": 175.6,
+    "detail": "detail/fo/A-62.030703_-7.257697",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 61.982425,
+    "lon": -6.804718,
+    "dist_m": 1362.5,
+    "nearest_way": {
+     "id": 352945910,
+     "highway": "primary",
+     "name": "Kirkjubøarvegur",
+     "ref": "12",
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Argir",
+     "type": "village",
+     "dist_m": 2296.8,
+     "lat": 61.995842,
+     "lon": -6.771456
+    },
+    "island_km2": null,
+    "detail": "detail/fo/A-61.982425_-6.804718",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": null
+  "reason": "only 7 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "A_mainland": {
+  "dist_m": 4557.98,
+  "lat": 62.211579,
+  "lon": -7.236156,
+  "rank": 26,
+  "withheld": 0
  },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 61.637663,
-    "lon": -6.705598,
-    "dist_m": 10377.36,
+    "lat": 61.682085,
+    "lon": -6.74122,
+    "dist_m": 10260.67,
     "nearest_way": {
-     "id": 588483760,
-     "highway": "residential",
-     "name": "Ovari Vegur",
+     "id": 779604956,
+     "highway": "service",
+     "name": "Sigmundarvegur",
      "ref": null,
      "country": "fo"
     },
     "nearest_place": {
      "name": "Stóra Dímun",
      "type": "village",
-     "dist_m": 5909.0,
+     "dist_m": 789.6,
      "lat": 61.685322,
      "lon": -6.754486
     },
-    "detail": "detail/fo/B-1",
+    "island_km2": 2.7,
+    "detail": "detail/fo/B-61.682085_-6.741220",
     "warnings": []
    },
    {
@@ -279,11 +458,12 @@
     "nearest_place": {
      "name": "Slættanes",
      "type": "hamlet",
-     "dist_m": 3839.0,
+     "dist_m": 3839.1,
      "lat": 62.155042,
      "lon": -7.24446
     },
-    "detail": "detail/fo/B-2",
+    "island_km2": 175.6,
+    "detail": "detail/fo/B-62.144994_-7.314887",
     "warnings": []
    },
    {
@@ -305,33 +485,12 @@
      "lat": 62.009703,
      "lon": -6.673581
     },
-    "detail": "detail/fo/B-3",
+    "island_km2": 10.3,
+    "detail": "detail/fo/B-61.949694_-6.623515",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 61.337925,
-    "lon": -6.671067,
-    "dist_m": 6361.97,
-    "nearest_way": {
-     "id": 850965769,
-     "highway": "service",
-     "name": "Akrabergsvegur",
-     "ref": null,
-     "country": "fo"
-    },
-    "nearest_place": {
-     "name": "Akraberg",
-     "type": "hamlet",
-     "dist_m": 6417.2,
-     "lat": 61.39532,
-     "lon": -6.680835
-    },
-    "detail": "detail/fo/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 62.093949,
     "lon": -7.539363,
     "dist_m": 5504.46,
@@ -345,15 +504,16 @@
     "nearest_place": {
      "name": "Gásadalur",
      "type": "village",
-     "dist_m": 5677.0,
+     "dist_m": 5677.1,
      "lat": 62.109738,
      "lon": -7.436009
     },
-    "detail": "detail/fo/B-5",
+    "island_km2": 10.2,
+    "detail": "detail/fo/B-62.093949_-7.539363",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 62.183531,
     "lon": -6.442516,
     "dist_m": 5467.72,
@@ -371,11 +531,12 @@
      "lat": 62.213384,
      "lon": -6.543578
     },
-    "detail": "detail/fo/B-6",
+    "island_km2": 171.4,
+    "detail": "detail/fo/B-62.183531_-6.442516",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 62.366394,
     "lon": -6.682232,
     "dist_m": 5428.37,
@@ -393,11 +554,12 @@
      "lat": 62.323952,
      "lon": -6.648483
     },
-    "detail": "detail/fo/B-7",
+    "island_km2": 171.4,
+    "detail": "detail/fo/B-62.366394_-6.682232",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 61.995225,
     "lon": -7.007912,
     "dist_m": 5331.19,
@@ -411,15 +573,16 @@
     "nearest_place": {
      "name": "Koltur",
      "type": "village",
-     "dist_m": 2336.8,
+     "dist_m": 2336.7,
      "lat": 61.986176,
      "lon": -6.967695
     },
-    "detail": "detail/fo/B-8",
+    "island_km2": 2.3,
+    "detail": "detail/fo/B-61.995225_-7.007912",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 62.311825,
     "lon": -6.42633,
     "dist_m": 4431.34,
@@ -437,11 +600,12 @@
      "lat": 62.297938,
      "lon": -6.520132
     },
-    "detail": "detail/fo/B-9",
+    "island_km2": 171.4,
+    "detail": "detail/fo/B-62.311825_-6.426330",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 62.280699,
     "lon": -7.231441,
     "dist_m": 4335.4,
@@ -459,11 +623,226 @@
      "lat": 62.289509,
      "lon": -7.14917
     },
-    "detail": "detail/fo/B-10",
+    "island_km2": null,
+    "detail": "detail/fo/B-62.280699_-7.231441",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 61.872161,
+    "lon": -6.749219,
+    "dist_m": 4226.96,
+    "nearest_way": {
+     "id": 841345528,
+     "highway": "residential",
+     "name": "Í Trøðum",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Sandur",
+     "type": "village",
+     "dist_m": 5469.8,
+     "lat": 61.83485,
+     "lon": -6.816719
+    },
+    "island_km2": 111.4,
+    "detail": "detail/fo/B-61.872161_-6.749219",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 61.599177,
+    "lon": -6.854321,
+    "dist_m": 3517.19,
+    "nearest_way": {
+     "id": 588506371,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Trongisvágur",
+     "type": "village",
+     "dist_m": 3994.6,
+     "lat": 61.564028,
+     "lon": -6.839568
+    },
+    "island_km2": 165.3,
+    "detail": "detail/fo/B-61.599177_-6.854321",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 62.330393,
+    "lon": -7.020214,
+    "dist_m": 3498.62,
+    "nearest_way": {
+     "id": 973299895,
+     "highway": "tertiary",
+     "name": "Gjáarvegur",
+     "ref": "60",
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Gjógv",
+     "type": "village",
+     "dist_m": 4034.2,
+     "lat": 62.325743,
+     "lon": -6.943029
+    },
+    "island_km2": null,
+    "detail": "detail/fo/B-62.330393_-7.020214",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 62.093617,
+    "lon": -6.845163,
+    "dist_m": 3321.62,
+    "nearest_way": {
+     "id": 44008226,
+     "highway": "service",
+     "name": "Við Á",
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Kolbeinagjógv",
+     "type": "village",
+     "dist_m": 3592.6,
+     "lat": 62.110038,
+     "lon": -6.785964
+    },
+    "island_km2": null,
+    "detail": "detail/fo/B-62.093617_-6.845163",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 62.131553,
+    "lon": -6.600575,
+    "dist_m": 3168.79,
+    "nearest_way": {
+     "id": 740021499,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Rituvík",
+     "type": "village",
+     "dist_m": 5030.5,
+     "lat": 62.107444,
+     "lon": -6.682058
+    },
+    "island_km2": null,
+    "detail": "detail/fo/B-62.131553_-6.600575",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 62.19022,
+    "lon": -6.918789,
+    "dist_m": 3161.59,
+    "nearest_way": {
+     "id": 1134236245,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Skálafjørður",
+     "type": "village",
+     "dist_m": 3258.3,
+     "lat": 62.195721,
+     "lon": -6.857326
+    },
+    "island_km2": null,
+    "detail": "detail/fo/B-62.190220_-6.918789",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 62.262757,
+    "lon": -6.774512,
+    "dist_m": 2597.73,
+    "nearest_way": {
+     "id": 771127469,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Fuglafjørður",
+     "type": "town",
+     "dist_m": 2917.1,
+     "lat": 62.243845,
+     "lon": -6.813322
+    },
+    "island_km2": null,
+    "detail": "detail/fo/B-62.262757_-6.774512",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 61.982425,
+    "lon": -6.804718,
+    "dist_m": 1362.5,
+    "nearest_way": {
+     "id": 352945910,
+     "highway": "primary",
+     "name": "Kirkjubøarvegur",
+     "ref": "12",
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Argir",
+     "type": "village",
+     "dist_m": 2296.8,
+     "lat": 61.995842,
+     "lon": -6.771456
+    },
+    "island_km2": null,
+    "detail": "detail/fo/B-61.982425_-6.804718",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 62.113648,
+    "lon": -7.1273,
+    "dist_m": 770.83,
+    "nearest_way": {
+     "id": 695795766,
+     "highway": "primary",
+     "name": "Vestmannavegurin",
+     "ref": "21",
+     "country": "fo"
+    },
+    "nearest_place": {
+     "name": "Kvívík",
+     "type": "village",
+     "dist_m": 2739.7,
+     "lat": 62.119616,
+     "lon": -7.076384
+    },
+    "island_km2": null,
+    "detail": "detail/fo/B-62.113648_-7.127300",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": null
+  "reason": "only 8 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B_mainland": {
+  "dist_m": 4335.4,
+  "lat": 62.280699,
+  "lon": -7.231441,
+  "rank": 41,
+  "withheld": 0
  }
 }

@@ -18,204 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 53.872152,
-    "lon": -10.207875,
-    "dist_m": 10620.59,
-    "nearest_way": {
-     "id": 232891250,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Dooagh",
-     "type": "village",
-     "dist_m": 12590.3,
-     "lat": 53.974965,
-     "lon": -10.127958
-    },
-    "detail": "detail/ie/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 54.060105,
-    "lon": -10.350685,
-    "dist_m": 9817.36,
-    "nearest_way": {
-     "id": 395255822,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Innishkea North Village",
-     "type": "hamlet",
-     "dist_m": 12746.1,
-     "lat": 54.1315,
-     "lon": -10.198365
-    },
-    "detail": "detail/ie/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 53.256419,
-    "lon": -10.010111,
-    "dist_m": 9127.36,
-    "nearest_way": {
-     "id": 248817154,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Dooyeher",
-     "type": "hamlet",
-     "dist_m": 11815.1,
-     "lat": 53.335758,
-     "lon": -9.892373
-    },
-    "detail": "detail/ie/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 52.202778,
-    "lon": -6.206135,
-    "dist_m": 8575.02,
-    "nearest_way": {
-     "id": 300030574,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Rosslare Harbour",
-     "type": "village",
-     "dist_m": 10541.0,
-     "lat": 52.249733,
-     "lon": -6.340115
-    },
-    "detail": "detail/ie/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 51.388969,
-    "lon": -9.603111,
-    "dist_m": 7440.35,
-    "nearest_way": {
-     "id": 328680046,
-     "highway": "track",
-     "name": "Baile Iarthach Theas",
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Gunpoint",
-     "type": "hamlet",
-     "dist_m": 12133.7,
-     "lat": 51.497516,
-     "lon": -9.586183
-    },
-    "detail": "detail/ie/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 52.074954,
-    "lon": -10.662306,
-    "dist_m": 7181.01,
-    "nearest_way": {
-     "id": 71506749,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Old Town",
-     "type": "hamlet",
-     "dist_m": 10860.0,
-     "lat": 52.104917,
-     "lon": -10.511511
-    },
-    "detail": "detail/ie/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 54.43575,
-    "lon": -8.665133,
-    "dist_m": 7042.32,
-    "nearest_way": {
-     "id": 179201925,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Streedagh",
-     "type": "hamlet",
-     "dist_m": 7346.5,
-     "lat": 54.403442,
-     "lon": -8.566448
-    },
-    "detail": "detail/ie/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 51.799863,
-    "lon": -10.451946,
-    "dist_m": 7024.82,
-    "nearest_way": {
-     "id": 533217895,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Portmagee",
-     "type": "village",
-     "dist_m": 11238.2,
-     "lat": 51.885716,
-     "lon": -10.366044
-    },
-    "detail": "detail/ie/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 53.598141,
-    "lon": -6.001816,
-    "dist_m": 6687.53,
-    "nearest_way": {
-     "id": 518585387,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Skerries",
-     "type": "town",
-     "dist_m": 7212.5,
-     "lat": 53.580638,
-     "lon": -6.106687
-    },
-    "detail": "detail/ie/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
     "lat": 51.725713,
     "lon": -10.263877,
     "dist_m": 6579.63,
@@ -233,42 +35,304 @@
      "lat": 51.824917,
      "lon": -10.274236
     },
-    "detail": "detail/ie/A-10",
+    "island_km2": 1.5,
+    "detail": "detail/ie/A-51.725713_-10.263877",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 52.036592,
+    "lon": -10.607683,
+    "dist_m": 6493.69,
+    "nearest_way": {
+     "id": 71506749,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Old Town",
+     "type": "hamlet",
+     "dist_m": 10064.0,
+     "lat": 52.104917,
+     "lon": -10.511511
+    },
+    "island_km2": 1.3,
+    "detail": "detail/ie/A-52.036592_-10.607683",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 54.015706,
+    "lon": -10.188646,
+    "dist_m": 4022.38,
+    "nearest_way": {
+     "id": 129809702,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Dooagh",
+     "type": "village",
+     "dist_m": 6033.6,
+     "lat": 53.974965,
+     "lon": -10.127958
+    },
+    "island_km2": null,
+    "detail": "detail/ie/A-54.015706_-10.188646",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 53.988865,
+    "lon": -9.676525,
+    "dist_m": 3757.2,
+    "nearest_way": {
+     "id": 351716255,
+     "highway": "track",
+     "name": "Bangor Trail",
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Ballycroy",
+     "type": "village",
+     "dist_m": 10604.6,
+     "lat": 54.02496,
+     "lon": -9.82621
+    },
+    "island_km2": null,
+    "detail": "detail/ie/A-53.988865_-9.676525",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 54.983852,
+    "lon": -8.15015,
+    "dist_m": 3712.31,
+    "nearest_way": {
+     "id": 483040476,
+     "highway": "secondary",
+     "name": null,
+     "ref": "R254",
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "The Poisoned Glen",
+     "type": "hamlet",
+     "dist_m": 4407.2,
+     "lat": 55.001204,
+     "lon": -8.08826
+    },
+    "island_km2": null,
+    "detail": "detail/ie/A-54.983852_-8.150150",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 54.756202,
+    "lon": -8.001455,
+    "dist_m": 3688.6,
+    "nearest_way": {
+     "id": 1095273798,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Commeen",
+     "type": "hamlet",
+     "dist_m": 7208.7,
+     "lat": 54.819167,
+     "lon": -7.975278
+    },
+    "island_km2": null,
+    "detail": "detail/ie/A-54.756202_-8.001455",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 53.61757,
+    "lon": -9.555893,
+    "dist_m": 3500.88,
+    "nearest_way": {
+     "id": 224798763,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Killateeaun",
+     "type": "hamlet",
+     "dist_m": 7725.0,
+     "lat": 53.610439,
+     "lon": -9.439786
+    },
+    "island_km2": null,
+    "detail": "detail/ie/A-53.617570_-9.555893",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 54.779703,
+    "lon": -8.602444,
+    "dist_m": 3443.13,
+    "nearest_way": {
+     "id": 310459734,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Mín an Aoire",
+     "type": "hamlet",
+     "dist_m": 8780.4,
+     "lat": 54.700935,
+     "lon": -8.609588
+    },
+    "island_km2": null,
+    "detail": "detail/ie/A-54.779703_-8.602444",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 51.969059,
+    "lon": -9.473421,
+    "dist_m": 3435.92,
+    "nearest_way": {
+     "id": 448228498,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Cummeenduasig",
+     "type": "hamlet",
+     "dist_m": 3579.4,
+     "lat": 51.939133,
+     "lon": -9.492527
+    },
+    "island_km2": null,
+    "detail": "detail/ie/A-51.969059_-9.473421",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 54.09648,
+    "lon": -9.671084,
+    "dist_m": 3307.97,
+    "nearest_way": {
+     "id": 351715815,
+     "highway": "track",
+     "name": "Bangor Trail",
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Bangor Erris",
+     "type": "town",
+     "dist_m": 7098.9,
+     "lat": 54.1444,
+     "lon": -9.742728
+    },
+    "island_km2": null,
+    "detail": "detail/ie/A-54.096480_-9.671084",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 53.48632,
+    "lon": -9.302292,
+    "dist_m": 3305.56,
+    "nearest_way": {
+     "id": 234794267,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Cong",
+     "type": "village",
+     "dist_m": 6159.3,
+     "lat": 53.540796,
+     "lon": -9.285937
+    },
+    "island_km2": 1.6,
+    "detail": "detail/ie/A-53.486320_-9.302292",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 54.154859,
+    "lon": -8.795677,
+    "dist_m": 3142.71,
+    "nearest_way": {
+     "id": 188283301,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Cloonacool",
+     "type": "village",
+     "dist_m": 6152.4,
+     "lat": 54.100604,
+     "lon": -8.777693
+    },
+    "island_km2": null,
+    "detail": "detail/ie/A-54.154859_-8.795677",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 52.210967,
+    "lon": -9.804126,
+    "dist_m": 3140.36,
+    "nearest_way": {
+     "id": 219151272,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Boolteens",
+     "type": "village",
+     "dist_m": 5062.4,
+     "lat": 52.176597,
+     "lon": -9.755621
+    },
+    "island_km2": null,
+    "detail": "detail/ie/A-52.210967_-9.804126",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 4022.38,
+  "lat": 54.015706,
+  "lon": -10.188646,
+  "rank": 33,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 54.067328,
-    "lon": -10.343328,
-    "dist_m": 14525.26,
-    "nearest_way": {
-     "id": 288335473,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Innishkea North Village",
-     "type": "hamlet",
-     "dist_m": 11872.4,
-     "lat": 54.1315,
-     "lon": -10.198365
-    },
-    "detail": "detail/ie/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 52.074954,
-    "lon": -10.662306,
-    "dist_m": 13918.75,
+    "lat": 52.045334,
+    "lon": -10.622655,
+    "dist_m": 12828.97,
     "nearest_way": {
      "id": 25192979,
      "highway": "unclassified",
@@ -279,42 +343,182 @@
     "nearest_place": {
      "name": "Old Town",
      "type": "hamlet",
-     "dist_m": 10860.0,
+     "dist_m": 10100.7,
      "lat": 52.104917,
      "lon": -10.511511
     },
-    "detail": "detail/ie/B-2",
+    "island_km2": 1.3,
+    "detail": "detail/ie/B-52.045334_-10.622655",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 54.10564,
+    "lon": -10.239432,
+    "dist_m": 7110.93,
+    "nearest_way": {
+     "id": 178269846,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Innishkea North Village",
+     "type": "hamlet",
+     "dist_m": 3936.6,
+     "lat": 54.1315,
+     "lon": -10.198365
+    },
+    "island_km2": 4.2,
+    "detail": "detail/ie/B-54.105640_-10.239432",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 52.06926,
-    "lon": -6.642916,
-    "dist_m": 11900.35,
+    "lat": 51.725713,
+    "lon": -10.263877,
+    "dist_m": 6579.63,
     "nearest_way": {
-     "id": 26168165,
+     "id": 113818137,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Ballinskelligs",
+     "type": "village",
+     "dist_m": 11060.8,
+     "lat": 51.824917,
+     "lon": -10.274236
+    },
+    "island_km2": 1.5,
+    "detail": "detail/ie/B-51.725713_-10.263877",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 54.043798,
+    "lon": -9.661376,
+    "dist_m": 6495.71,
+    "nearest_way": {
+     "id": 224104534,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Ballycroy",
+     "type": "village",
+     "dist_m": 11001.8,
+     "lat": 54.02496,
+     "lon": -9.82621
+    },
+    "island_km2": null,
+    "detail": "detail/ie/B-54.043798_-9.661376",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 53.602533,
+    "lon": -10.303581,
+    "dist_m": 4720.07,
+    "nearest_way": {
+     "id": 119386413,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Claddaghduff",
+     "type": "village",
+     "dist_m": 12523.7,
+     "lat": 53.544444,
+     "lon": -10.141667
+    },
+    "island_km2": 2.7,
+    "detail": "detail/ie/B-53.602533_-10.303581",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 53.008256,
+    "lon": -6.472705,
+    "dist_m": 4575.25,
+    "nearest_way": {
+     "id": 320560446,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Snugborough Bridge",
+     "type": "hamlet",
+     "dist_m": 7392.2,
+     "lat": 53.010264,
+     "lon": -6.582784
+    },
+    "island_km2": null,
+    "detail": "detail/ie/B-53.008256_-6.472705",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 52.272562,
+    "lon": -10.253804,
+    "dist_m": 4341.88,
+    "nearest_way": {
+     "id": 666991009,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "ie"
     },
     "nearest_place": {
-     "name": "Kilmore Quay",
+     "name": "Brandon",
      "type": "village",
-     "dist_m": 12114.3,
-     "lat": 52.172965,
-     "lon": -6.589066
+     "dist_m": 6281.1,
+     "lat": 52.267392,
+     "lon": -10.162178
     },
-    "detail": "detail/ie/B-3",
+    "island_km2": null,
+    "detail": "detail/ie/B-52.272562_-10.253804",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 53.872152,
-    "lon": -10.207875,
-    "dist_m": 10620.59,
+    "rank": 8,
+    "lat": 52.36788,
+    "lon": -8.10119,
+    "dist_m": 4197.87,
     "nearest_way": {
-     "id": 232891250,
+     "id": 27222382,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Rossadrehid",
+     "type": "hamlet",
+     "dist_m": 5310.7,
+     "lat": 52.415366,
+     "lon": -8.108993
+    },
+    "island_km2": null,
+    "detail": "detail/ie/B-52.367880_-8.101190",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 53.974701,
+    "lon": -10.258695,
+    "dist_m": 4111.36,
+    "nearest_way": {
+     "id": 288335473,
      "highway": "service",
      "name": null,
      "ref": null,
@@ -323,147 +527,161 @@
     "nearest_place": {
      "name": "Dooagh",
      "type": "village",
-     "dist_m": 12590.3,
+     "dist_m": 8578.4,
      "lat": 53.974965,
      "lon": -10.127958
     },
-    "detail": "detail/ie/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 53.256419,
-    "lon": -10.010111,
-    "dist_m": 10545.24,
-    "nearest_way": {
-     "id": 1164423549,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Dooyeher",
-     "type": "hamlet",
-     "dist_m": 11815.1,
-     "lat": 53.335758,
-     "lon": -9.892373
-    },
-    "detail": "detail/ie/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 55.45099,
-    "lon": -7.24316,
-    "dist_m": 10270.77,
-    "nearest_way": {
-     "id": 209194160,
-     "highway": "unclassified",
-     "name": null,
-     "ref": "L10311",
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Portahack",
-     "type": "village",
-     "dist_m": 17521.5,
-     "lat": 55.300774,
-     "lon": -7.160706
-    },
-    "detail": "detail/ie/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 52.202778,
-    "lon": -6.206135,
-    "dist_m": 8575.02,
-    "nearest_way": {
-     "id": 300030574,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Rosslare Harbour",
-     "type": "village",
-     "dist_m": 10541.0,
-     "lat": 52.249733,
-     "lon": -6.340115
-    },
-    "detail": "detail/ie/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 51.388969,
-    "lon": -9.603111,
-    "dist_m": 7830.95,
-    "nearest_way": {
-     "id": 172838310,
-     "highway": "unclassified",
-     "name": "Baile Iarthach Theas",
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Gunpoint",
-     "type": "hamlet",
-     "dist_m": 12133.7,
-     "lat": 51.497516,
-     "lon": -9.586183
-    },
-    "detail": "detail/ie/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 54.436063,
-    "lon": -8.664171,
-    "dist_m": 7045.35,
-    "nearest_way": {
-     "id": 179201925,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Streedagh",
-     "type": "hamlet",
-     "dist_m": 7309.4,
-     "lat": 54.403442,
-     "lon": -8.566448
-    },
-    "detail": "detail/ie/B-9",
+    "island_km2": null,
+    "detail": "detail/ie/B-53.974701_-10.258695",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 51.799858,
-    "lon": -10.452121,
-    "dist_m": 7033.64,
+    "lat": 53.105676,
+    "lon": -6.408006,
+    "dist_m": 4076.15,
     "nearest_way": {
-     "id": 533217895,
+     "id": 1377898528,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "ie"
     },
     "nearest_place": {
-     "name": "Portmagee",
+     "name": "Ballyknockan",
      "type": "village",
-     "dist_m": 11245.1,
-     "lat": 51.885716,
-     "lon": -10.366044
+     "dist_m": 6077.4,
+     "lat": 53.105978,
+     "lon": -6.498749
     },
-    "detail": "detail/ie/B-10",
+    "island_km2": null,
+    "detail": "detail/ie/B-53.105676_-6.408006",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 52.113939,
+    "lon": -10.525581,
+    "dist_m": 4041.97,
+    "nearest_way": {
+     "id": 25192979,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Old Town",
+     "type": "hamlet",
+     "dist_m": 1391.8,
+     "lat": 52.104917,
+     "lon": -10.511511
+    },
+    "island_km2": 4.7,
+    "detail": "detail/ie/B-52.113939_-10.525581",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 53.631133,
+    "lon": -9.526883,
+    "dist_m": 3837.13,
+    "nearest_way": {
+     "id": 183213366,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Killateeaun",
+     "type": "hamlet",
+     "dist_m": 6206.4,
+     "lat": 53.610439,
+     "lon": -9.439786
+    },
+    "island_km2": null,
+    "detail": "detail/ie/B-53.631133_-9.526883",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 54.94642,
+    "lon": -8.045024,
+    "dist_m": 3747.34,
+    "nearest_way": {
+     "id": 178608074,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "The Poisoned Glen",
+     "type": "hamlet",
+     "dist_m": 6697.8,
+     "lat": 55.001204,
+     "lon": -8.08826
+    },
+    "island_km2": null,
+    "detail": "detail/ie/B-54.946420_-8.045024",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 54.779705,
+    "lon": -8.602411,
+    "dist_m": 3739.17,
+    "nearest_way": {
+     "id": 310013336,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Mín an Aoire",
+     "type": "hamlet",
+     "dist_m": 8780.7,
+     "lat": 54.700935,
+     "lon": -8.609588
+    },
+    "island_km2": null,
+    "detail": "detail/ie/B-54.779705_-8.602411",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 54.755669,
+    "lon": -8.002323,
+    "dist_m": 3734.1,
+    "nearest_way": {
+     "id": 856101114,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Commeen",
+     "type": "hamlet",
+     "dist_m": 7279.5,
+     "lat": 54.819167,
+     "lon": -7.975278
+    },
+    "island_km2": null,
+    "detail": "detail/ie/B-54.755669_-8.002323",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 6495.71,
+  "lat": 54.043798,
+  "lon": -9.661376,
+  "rank": 32,
+  "withheld": 0
  }
 }

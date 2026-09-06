@@ -35,33 +35,12 @@
      "lat": 46.358252,
      "lon": 13.792426
     },
-    "detail": "detail/si/A-1",
+    "island_km2": null,
+    "detail": "detail/si/A-46.372365_13.853877",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 46.316458,
-    "lon": 13.750461,
-    "dist_m": 3311.57,
-    "nearest_way": {
-     "id": 379814530,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "si"
-    },
-    "nearest_place": {
-     "name": "Pod Zjabci",
-     "type": "isolated_dwelling",
-     "dist_m": 4141.7,
-     "lat": 46.326141,
-     "lon": 13.69853
-    },
-    "detail": "detail/si/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 46.391117,
     "lon": 13.662418,
     "dist_m": 3072.29,
@@ -79,11 +58,12 @@
      "lat": 46.375024,
      "lon": 13.634493
     },
-    "detail": "detail/si/A-3",
+    "island_km2": null,
+    "detail": "detail/si/A-46.391117_13.662418",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 46.353556,
     "lon": 14.63745,
     "dist_m": 2895.25,
@@ -97,15 +77,16 @@
     "nearest_place": {
      "name": "Planina Rzenik",
      "type": "hamlet",
-     "dist_m": 3140.3,
+     "dist_m": 3140.4,
      "lat": 46.325306,
      "lon": 14.637867
     },
-    "detail": "detail/si/A-4",
+    "island_km2": null,
+    "detail": "detail/si/A-46.353556_14.637450",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 46.375158,
     "lon": 13.527567,
     "dist_m": 2869.52,
@@ -123,55 +104,12 @@
      "lat": 46.352486,
      "lon": 13.508781
     },
-    "detail": "detail/si/A-5",
+    "island_km2": null,
+    "detail": "detail/si/A-46.375158_13.527567",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 46.462268,
-    "lon": 13.746509,
-    "dist_m": 1875.8,
-    "nearest_way": {
-     "id": 576245093,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "si"
-    },
-    "nearest_place": {
-     "name": "Jasna",
-     "type": "hamlet",
-     "dist_m": 3199.5,
-     "lat": 46.47612,
-     "lon": 13.783025
-    },
-    "detail": "detail/si/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 46.234861,
-    "lon": 13.852052,
-    "dist_m": 1799.35,
-    "nearest_way": {
-     "id": 967093127,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "si"
-    },
-    "nearest_place": {
-     "name": "Planina Zadnji Vogel",
-     "type": "isolated_dwelling",
-     "dist_m": 2587.6,
-     "lat": 46.250147,
-     "lon": 13.826748
-    },
-    "detail": "detail/si/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 5,
     "lat": 46.494713,
     "lon": 13.955778,
     "dist_m": 1793.6,
@@ -189,11 +127,12 @@
      "lat": 46.472975,
      "lon": 13.93559
     },
-    "detail": "detail/si/A-8",
+    "island_km2": null,
+    "detail": "detail/si/A-46.494713_13.955778",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 6,
     "lat": 45.484765,
     "lon": 15.115563,
     "dist_m": 1661.13,
@@ -211,11 +150,12 @@
      "lat": 45.477384,
      "lon": 15.088283
     },
-    "detail": "detail/si/A-9",
+    "island_km2": null,
+    "detail": "detail/si/A-45.484765_15.115563",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 7,
     "lat": 46.290939,
     "lon": 13.389005,
     "dist_m": 1530.62,
@@ -229,16 +169,93 @@
     "nearest_place": {
      "name": "Uccea / Učja",
      "type": "hamlet",
-     "dist_m": 1966.0,
+     "dist_m": 1965.9,
      "lat": 46.307578,
      "lon": 13.397656
     },
-    "detail": "detail/si/A-10",
+    "island_km2": null,
+    "detail": "detail/si/A-46.290939_13.389005",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.432337,
+    "lon": 14.184959,
+    "dist_m": 1477.9,
+    "nearest_way": {
+     "id": 783696154,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Doslovče",
+     "type": "village",
+     "dist_m": 4664.3,
+     "lat": 46.3934,
+     "lon": 14.162351
+    },
+    "island_km2": null,
+    "detail": "detail/si/A-46.432337_14.184959",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.217228,
+    "lon": 13.518803,
+    "dist_m": 1376.07,
+    "nearest_way": {
+     "id": 121230626,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Oballa / Obali",
+     "type": "hamlet",
+     "dist_m": 2626.5,
+     "lat": 46.198516,
+     "lon": 13.49802
+    },
+    "island_km2": null,
+    "detail": "detail/si/A-46.217228_13.518803",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.500979,
+    "lon": 14.775091,
+    "dist_m": 1360.13,
+    "nearest_way": {
+     "id": 139309403,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Fajmut",
+     "type": "isolated_dwelling",
+     "dist_m": 2049.3,
+     "lat": 46.483586,
+     "lon": 14.766242
+    },
+    "island_km2": null,
+    "detail": "detail/si/A-46.500979_14.775091",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 4182.54,
+  "lat": 46.372365,
+  "lon": 13.853877,
+  "rank": 31,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,37 +274,16 @@
     "nearest_place": {
      "name": "Planina v Lazu",
      "type": "isolated_dwelling",
-     "dist_m": 2266.4,
+     "dist_m": 2266.5,
      "lat": 46.328507,
      "lon": 13.825551
     },
-    "detail": "detail/si/B-1",
+    "island_km2": null,
+    "detail": "detail/si/B-46.332932_13.796818",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 46.270402,
-    "lon": 13.700631,
-    "dist_m": 3982.91,
-    "nearest_way": {
-     "id": 16775243,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "si"
-    },
-    "nearest_place": {
-     "name": "Planina Sleme",
-     "type": "hamlet",
-     "dist_m": 3107.0,
-     "lat": 46.243111,
-     "lon": 13.691927
-    },
-    "detail": "detail/si/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 46.430062,
     "lon": 14.429253,
     "dist_m": 3813.26,
@@ -305,11 +301,12 @@
      "lat": 46.463469,
      "lon": 14.426701
     },
-    "detail": "detail/si/B-3",
+    "island_km2": null,
+    "detail": "detail/si/B-46.430062_14.429253",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 46.342008,
     "lon": 14.636544,
     "dist_m": 3779.4,
@@ -327,11 +324,12 @@
      "lat": 46.325306,
      "lon": 14.637867
     },
-    "detail": "detail/si/B-4",
+    "island_km2": null,
+    "detail": "detail/si/B-46.342008_14.636544",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 46.443723,
     "lon": 13.696194,
     "dist_m": 3777.11,
@@ -349,33 +347,12 @@
      "lat": 46.404007,
      "lon": 13.707105
     },
-    "detail": "detail/si/B-5",
+    "island_km2": null,
+    "detail": "detail/si/B-46.443723_13.696194",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 46.447544,
-    "lon": 13.827872,
-    "dist_m": 3754.14,
-    "nearest_way": {
-     "id": 1159923966,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "si"
-    },
-    "nearest_place": {
-     "name": "Gozd Martuljek",
-     "type": "village",
-     "dist_m": 4150.8,
-     "lat": 46.484123,
-     "lon": 13.838727
-    },
-    "detail": "detail/si/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
+    "rank": 5,
     "lat": 46.355401,
     "lon": 13.459036,
     "dist_m": 3672.9,
@@ -393,11 +370,12 @@
      "lat": 46.337307,
      "lon": 13.501259
     },
-    "detail": "detail/si/B-7",
+    "island_km2": null,
+    "detail": "detail/si/B-46.355401_13.459036",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 6,
     "lat": 46.438533,
     "lon": 14.199512,
     "dist_m": 3463.05,
@@ -415,11 +393,35 @@
      "lat": 46.44405,
      "lon": 14.249827
     },
-    "detail": "detail/si/B-8",
+    "island_km2": null,
+    "detail": "detail/si/B-46.438533_14.199512",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 7,
+    "lat": 46.509988,
+    "lon": 13.882365,
+    "dist_m": 3416.22,
+    "nearest_way": {
+     "id": 30357316,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Vavčar",
+     "type": "isolated_dwelling",
+     "dist_m": 3348.6,
+     "lat": 46.488105,
+     "lon": 13.852388
+    },
+    "island_km2": null,
+    "detail": "detail/si/B-46.509988_13.882365",
+    "warnings": []
+   },
+   {
+    "rank": 8,
     "lat": 45.710545,
     "lon": 14.129031,
     "dist_m": 3048.51,
@@ -433,15 +435,16 @@
     "nearest_place": {
      "name": "Čermelice",
      "type": "isolated_dwelling",
-     "dist_m": 3101.2,
+     "dist_m": 3101.3,
      "lat": 45.737336,
      "lon": 14.140163
     },
-    "detail": "detail/si/B-9",
+    "island_km2": null,
+    "detail": "detail/si/B-45.710545_14.129031",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 45.49303,
     "lon": 14.134039,
     "dist_m": 2997.62,
@@ -459,11 +462,42 @@
      "lat": 45.505407,
      "lon": 14.098941
     },
-    "detail": "detail/si/B-10",
+    "island_km2": null,
+    "detail": "detail/si/B-45.493030_14.134039",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.258092,
+    "lon": 14.075225,
+    "dist_m": 2844.05,
+    "nearest_way": {
+     "id": 25311601,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "si"
+    },
+    "nearest_place": {
+     "name": "Zabrdo",
+     "type": "village",
+     "dist_m": 3003.5,
+     "lat": 46.231797,
+     "lon": 14.066256
+    },
+    "island_km2": null,
+    "detail": "detail/si/B-46.258092_14.075225",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 4728.72,
+  "lat": 46.332932,
+  "lon": 13.796818,
+  "rank": 38,
+  "withheld": 0
  }
 }

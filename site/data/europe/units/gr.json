@@ -18,75 +18,9 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 35.925229,
-    "lon": 26.509093,
-    "dist_m": 61797.96,
-    "nearest_way": {
-     "id": 600175199,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Sokastro",
-     "type": "hamlet",
-     "dist_m": 61584.7,
-     "lat": 35.596458,
-     "lon": 27.057758
-    },
-    "detail": "detail/gr/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 35.865141,
-    "lon": 26.228151,
-    "dist_m": 61389.19,
-    "nearest_way": {
-     "id": 890073308,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Kyriamadi",
-     "type": "hamlet",
-     "dist_m": 62394.6,
-     "lat": 35.305623,
-     "lon": 26.297269
-    },
-    "detail": "detail/gr/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 35.828484,
-    "lon": 26.463318,
-    "dist_m": 58526.18,
-    "nearest_way": {
-     "id": 890073308,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Sokastro",
-     "type": "hamlet",
-     "dist_m": 59633.8,
-     "lat": 35.596458,
-     "lon": 27.057758
-    },
-    "detail": "detail/gr/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 35.99987,
-    "lon": 26.434907,
-    "dist_m": 57981.77,
+    "lat": 36.064369,
+    "lon": 26.406112,
+    "dist_m": 50490.93,
     "nearest_way": {
      "id": 124910061,
      "highway": "unclassified",
@@ -97,37 +31,16 @@
     "nearest_place": {
      "name": "Livadia",
      "type": "village",
-     "dist_m": 60939.7,
+     "dist_m": 53518.5,
      "lat": 36.543852,
      "lon": 26.341779
     },
-    "detail": "detail/gr/A-4",
+    "island_km2": 1.3,
+    "detail": "detail/gr/A-36.064369_26.406112",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 36.77018,
-    "lon": 23.603551,
-    "dist_m": 45289.53,
-    "nearest_way": {
-     "id": 273191187,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Geraka Port",
-     "type": "hamlet",
-     "dist_m": 46197.4,
-     "lat": 36.785723,
-     "lon": 23.086409
-    },
-    "detail": "detail/gr/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 2,
     "lat": 36.846179,
     "lon": 23.87362,
     "dist_m": 43284.29,
@@ -145,11 +58,12 @@
      "lat": 36.699494,
      "lon": 24.378379
     },
-    "detail": "detail/gr/A-6",
+    "island_km2": 1.1,
+    "detail": "detail/gr/A-36.846179_23.873620",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 3,
     "lat": 36.282035,
     "lon": 26.752949,
     "dist_m": 43105.23,
@@ -167,33 +81,12 @@
      "lat": 36.577192,
      "lon": 26.384774
     },
-    "detail": "detail/gr/A-7",
+    "island_km2": 1.1,
+    "detail": "detail/gr/A-36.282035_26.752949",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 38.169014,
-    "lon": 25.300091,
-    "dist_m": 42670.19,
-    "nearest_way": {
-     "id": 355301677,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Psara",
-     "type": "village",
-     "dist_m": 47169.1,
-     "lat": 38.539912,
-     "lon": 25.563447
-    },
-    "detail": "detail/gr/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 4,
     "lat": 36.913546,
     "lon": 23.469202,
     "dist_m": 36362.39,
@@ -211,11 +104,12 @@
      "lat": 36.785723,
      "lon": 23.086409
     },
-    "detail": "detail/gr/A-9",
+    "island_km2": 1.6,
+    "detail": "detail/gr/A-36.913546_23.469202",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 5,
     "lat": 35.893744,
     "lon": 26.814684,
     "dist_m": 35100.03,
@@ -233,86 +127,373 @@
      "lat": 35.774237,
      "lon": 27.181269
     },
-    "detail": "detail/gr/A-10",
+    "island_km2": 1.1,
+    "detail": "detail/gr/A-35.893744_26.814684",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 39.369023,
+    "lon": 24.332115,
+    "dist_m": 33471.51,
+    "nearest_way": {
+     "id": 669523458,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Gerakas",
+     "type": "hamlet",
+     "dist_m": 35198.2,
+     "lat": 39.270926,
+     "lon": 23.943978
+    },
+    "island_km2": 4.1,
+    "detail": "detail/gr/A-39.369023_24.332115",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 36.340011,
+    "lon": 26.662839,
+    "dist_m": 33150.7,
+    "nearest_way": {
+     "id": 307592845,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Astypalea",
+     "type": "village",
+     "dist_m": 36179.0,
+     "lat": 36.547865,
+     "lon": 26.351944
+    },
+    "island_km2": 8.3,
+    "detail": "detail/gr/A-36.340011_26.662839",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 39.431391,
+    "lon": 24.17657,
+    "dist_m": 26021.97,
+    "nearest_way": {
+     "id": 669523458,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Gerakas",
+     "type": "hamlet",
+     "dist_m": 26820.3,
+     "lat": 39.270926,
+     "lon": 23.943978
+    },
+    "island_km2": 11.1,
+    "detail": "detail/gr/A-39.431391_24.176570",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 37.607741,
+    "lon": 24.679468,
+    "dist_m": 24283.25,
+    "nearest_way": {
+     "id": 1232849295,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Kampos",
+     "type": "hamlet",
+     "dist_m": 24374.5,
+     "lat": 37.493821,
+     "lon": 24.915293
+    },
+    "island_km2": 17.7,
+    "detail": "detail/gr/A-37.607741_24.679468",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 39.059686,
+    "lon": 24.122902,
+    "dist_m": 21958.94,
+    "nearest_way": {
+     "id": 959976512,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Agios Petros",
+     "type": "hamlet",
+     "dist_m": 22390.0,
+     "lat": 39.188896,
+     "lon": 23.924099
+    },
+    "island_km2": 6.7,
+    "detail": "detail/gr/A-39.059686_24.122902",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 38.325709,
+    "lon": 21.346275,
+    "dist_m": 5664.72,
+    "nearest_way": {
+     "id": 962794185,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Τουρλίδα",
+     "type": "hamlet",
+     "dist_m": 6302.8,
+     "lat": 38.328743,
+     "lon": 21.418253
+    },
+    "island_km2": null,
+    "detail": "detail/gr/A-38.325709_21.346275",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 39.967873,
+    "lon": 20.78966,
+    "dist_m": 5108.78,
+    "nearest_way": {
+     "id": 437649365,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Μικρό Πάπιγκο",
+     "type": "village",
+     "dist_m": 5176.7,
+     "lat": 39.968366,
+     "lon": 20.72907
+    },
+    "island_km2": null,
+    "detail": "detail/gr/A-39.967873_20.789660",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 41.40666,
+    "lon": 24.393423,
+    "dist_m": 4668.6,
+    "nearest_way": {
+     "id": 554307207,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Λουτρά Θέρμιων",
+     "type": "hamlet",
+     "dist_m": 8133.3,
+     "lat": 41.465694,
+     "lon": 24.451009
+    },
+    "island_km2": null,
+    "detail": "detail/gr/A-41.406660_24.393423",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 40.118526,
+    "lon": 24.330571,
+    "dist_m": 4483.6,
+    "nearest_way": {
+     "id": 523582883,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Κερασιά",
+     "type": "hamlet",
+     "dist_m": 2027.8,
+     "lat": 40.134019,
+     "lon": 24.317976
+    },
+    "island_km2": null,
+    "detail": "detail/gr/A-40.118526_24.330571",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 40.10625,
+    "lon": 22.372278,
+    "dist_m": 3689.11,
+    "nearest_way": {
+     "id": 306538370,
+     "highway": "tertiary",
+     "name": "Λιτόχωρο - Πριόνια",
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Παλαιά Βροντού (ερείπια)",
+     "type": "hamlet",
+     "dist_m": 7798.7,
+     "lat": 40.174936,
+     "lon": 22.391394
+    },
+    "island_km2": null,
+    "detail": "detail/gr/A-40.106250_22.372278",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 40.09722,
+    "lon": 20.93893,
+    "dist_m": 3473.93,
+    "nearest_way": {
+     "id": 454282052,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Αγία Παρασκευή",
+     "type": "village",
+     "dist_m": 6547.8,
+     "lat": 40.145488,
+     "lon": 20.894802
+    },
+    "island_km2": null,
+    "detail": "detail/gr/A-40.097220_20.938930",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 36.932622,
+    "lon": 22.311617,
+    "dist_m": 3444.06,
+    "nearest_way": {
+     "id": 506288399,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Γιατραίικα",
+     "type": "hamlet",
+     "dist_m": 4091.9,
+     "lat": 36.913505,
+     "lon": 22.272347
+    },
+    "island_km2": null,
+    "detail": "detail/gr/A-36.932622_22.311617",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 41.316908,
+    "lon": 24.818752,
+    "dist_m": 3438.81,
+    "nearest_way": {
+     "id": 1449619614,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Revma",
+     "type": "village",
+     "dist_m": 3576.8,
+     "lat": 41.28918,
+     "lon": 24.797028
+    },
+    "island_km2": null,
+    "detail": "detail/gr/A-41.316908_24.818752",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 37.979187,
+    "lon": 21.847877,
+    "dist_m": 3067.57,
+    "nearest_way": {
+     "id": 384174444,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Τσουρούμπλι",
+     "type": "hamlet",
+     "dist_m": 3168.5,
+     "lat": 37.951025,
+     "lon": 21.853766
+    },
+    "island_km2": null,
+    "detail": "detail/gr/A-37.979187_21.847877",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 36.450329,
+    "lon": 23.202081,
+    "dist_m": 2916.52,
+    "nearest_way": {
+     "id": 884119391,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Agios Mamas",
+     "type": "hamlet",
+     "dist_m": 3738.3,
+     "lat": 36.464128,
+     "lon": 23.164037
+    },
+    "island_km2": null,
+    "detail": "detail/gr/A-36.450329_23.202081",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 5664.72,
+  "lat": 38.325709,
+  "lon": 21.346275,
+  "rank": 19,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 35.925229,
-    "lon": 26.509093,
-    "dist_m": 62615.9,
-    "nearest_way": {
-     "id": 273492874,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Sokastro",
-     "type": "hamlet",
-     "dist_m": 61584.7,
-     "lat": 35.596458,
-     "lon": 27.057758
-    },
-    "detail": "detail/gr/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 35.865141,
-    "lon": 26.228151,
-    "dist_m": 61389.19,
-    "nearest_way": {
-     "id": 890073308,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Kyriamadi",
-     "type": "hamlet",
-     "dist_m": 62394.6,
-     "lat": 35.305623,
-     "lon": 26.297269
-    },
-    "detail": "detail/gr/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 35.828484,
-    "lon": 26.463318,
-    "dist_m": 58526.18,
-    "nearest_way": {
-     "id": 890073308,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Sokastro",
-     "type": "hamlet",
-     "dist_m": 59633.8,
-     "lat": 35.596458,
-     "lon": 27.057758
-    },
-    "detail": "detail/gr/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 35.99987,
-    "lon": 26.434907,
-    "dist_m": 57981.77,
+    "lat": 36.064369,
+    "lon": 26.406112,
+    "dist_m": 50490.93,
     "nearest_way": {
      "id": 124910061,
      "highway": "unclassified",
@@ -323,15 +504,16 @@
     "nearest_place": {
      "name": "Livadia",
      "type": "village",
-     "dist_m": 60939.7,
+     "dist_m": 53518.5,
      "lat": 36.543852,
      "lon": 26.341779
     },
-    "detail": "detail/gr/B-4",
+    "island_km2": 1.3,
+    "detail": "detail/gr/B-36.064369_26.406112",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 2,
     "lat": 36.846179,
     "lon": 23.87362,
     "dist_m": 48082.35,
@@ -349,55 +531,12 @@
      "lat": 36.699494,
      "lon": 24.378379
     },
-    "detail": "detail/gr/B-5",
+    "island_km2": 1.1,
+    "detail": "detail/gr/B-36.846179_23.873620",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 38.169014,
-    "lon": 25.300091,
-    "dist_m": 46555.53,
-    "nearest_way": {
-     "id": 444241638,
-     "highway": "secondary",
-     "name": "Αποίκια - Μπατσί",
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Psara",
-     "type": "village",
-     "dist_m": 47169.1,
-     "lat": 38.539912,
-     "lon": 25.563447
-    },
-    "detail": "detail/gr/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 36.77018,
-    "lon": 23.603551,
-    "dist_m": 46046.0,
-    "nearest_way": {
-     "id": 229479595,
-     "highway": "tertiary",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Geraka Port",
-     "type": "hamlet",
-     "dist_m": 46197.4,
-     "lat": 36.785723,
-     "lon": 23.086409
-    },
-    "detail": "detail/gr/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 3,
     "lat": 36.282035,
     "lon": 26.752949,
     "dist_m": 44860.34,
@@ -415,11 +554,12 @@
      "lat": 36.577192,
      "lon": 26.384774
     },
-    "detail": "detail/gr/B-8",
+    "island_km2": 1.1,
+    "detail": "detail/gr/B-36.282035_26.752949",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 4,
     "lat": 36.913546,
     "lon": 23.469202,
     "dist_m": 36556.11,
@@ -437,11 +577,12 @@
      "lat": 36.785723,
      "lon": 23.086409
     },
-    "detail": "detail/gr/B-9",
+    "island_km2": 1.6,
+    "detail": "detail/gr/B-36.913546_23.469202",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 5,
     "lat": 35.893744,
     "lon": 26.814684,
     "dist_m": 35287.45,
@@ -459,11 +600,364 @@
      "lat": 35.774237,
      "lon": 27.181269
     },
-    "detail": "detail/gr/B-10",
+    "island_km2": 1.1,
+    "detail": "detail/gr/B-35.893744_26.814684",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 39.369023,
+    "lon": 24.332115,
+    "dist_m": 35087.72,
+    "nearest_way": {
+     "id": 166969282,
+     "highway": "secondary",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Gerakas",
+     "type": "hamlet",
+     "dist_m": 35198.2,
+     "lat": 39.270926,
+     "lon": 23.943978
+    },
+    "island_km2": 4.1,
+    "detail": "detail/gr/B-39.369023_24.332115",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 36.34961,
+    "lon": 26.67363,
+    "dist_m": 34575.42,
+    "nearest_way": {
+     "id": 307592841,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Analipsi",
+     "type": "village",
+     "dist_m": 36168.0,
+     "lat": 36.577192,
+     "lon": 26.384774
+    },
+    "island_km2": 8.3,
+    "detail": "detail/gr/B-36.349610_26.673630",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 39.431391,
+    "lon": 24.17657,
+    "dist_m": 26711.12,
+    "nearest_way": {
+     "id": 166969282,
+     "highway": "secondary",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Gerakas",
+     "type": "hamlet",
+     "dist_m": 26820.3,
+     "lat": 39.270926,
+     "lon": 23.943978
+    },
+    "island_km2": 11.1,
+    "detail": "detail/gr/B-39.431391_24.176570",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 37.607741,
+    "lon": 24.679468,
+    "dist_m": 24283.25,
+    "nearest_way": {
+     "id": 1232849295,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Kampos",
+     "type": "hamlet",
+     "dist_m": 24374.5,
+     "lat": 37.493821,
+     "lon": 24.915293
+    },
+    "island_km2": 17.7,
+    "detail": "detail/gr/B-37.607741_24.679468",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 39.059686,
+    "lon": 24.122902,
+    "dist_m": 21958.94,
+    "nearest_way": {
+     "id": 959976512,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Agios Petros",
+     "type": "hamlet",
+     "dist_m": 22390.0,
+     "lat": 39.188896,
+     "lon": 23.924099
+    },
+    "island_km2": 6.7,
+    "detail": "detail/gr/B-39.059686_24.122902",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 41.078088,
+    "lon": 21.90767,
+    "dist_m": 8809.45,
+    "nearest_way": {
+     "id": 692731497,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Majden",
+     "type": "village",
+     "dist_m": 8910.7,
+     "lat": 41.153734,
+     "lon": 21.943038
+    },
+    "island_km2": null,
+    "detail": "detail/gr/B-41.078088_21.907670",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 40.529526,
+    "lon": 23.931207,
+    "dist_m": 8618.38,
+    "nearest_way": {
+     "id": 27404099,
+     "highway": "secondary",
+     "name": "Σταυρού - Ιερισσού",
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Stratoni",
+     "type": "village",
+     "dist_m": 9136.6,
+     "lat": 40.513774,
+     "lon": 23.825383
+    },
+    "island_km2": null,
+    "detail": "detail/gr/B-40.529526_23.931207",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 40.456415,
+    "lon": 24.008746,
+    "dist_m": 8104.43,
+    "nearest_way": {
+     "id": 388044809,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Koumitsa",
+     "type": "hamlet",
+     "dist_m": 9114.1,
+     "lat": 40.377181,
+     "lon": 23.980725
+    },
+    "island_km2": null,
+    "detail": "detail/gr/B-40.456415_24.008746",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 40.1278,
+    "lon": 24.288109,
+    "dist_m": 7911.27,
+    "nearest_way": {
+     "id": 813475380,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Καρούλια",
+     "type": "hamlet",
+     "dist_m": 991.2,
+     "lat": 40.122565,
+     "lon": 24.297528
+    },
+    "island_km2": null,
+    "detail": "detail/gr/B-40.127800_24.288109",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 39.906893,
+    "lon": 21.164354,
+    "dist_m": 7535.69,
+    "nearest_way": {
+     "id": 25995142,
+     "highway": "secondary",
+     "name": "Μετσόβου - Γρεβενών",
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Mikrilivado",
+     "type": "village",
+     "dist_m": 7855.5,
+     "lat": 39.948376,
+     "lon": 21.238795
+    },
+    "island_km2": null,
+    "detail": "detail/gr/B-39.906893_21.164354",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 40.116681,
+    "lon": 22.337711,
+    "dist_m": 6791.41,
+    "nearest_way": {
+     "id": 259358766,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Petra",
+     "type": "village",
+     "dist_m": 7176.3,
+     "lat": 40.181055,
+     "lon": 22.330223
+    },
+    "island_km2": null,
+    "detail": "detail/gr/B-40.116681_22.337711",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 38.808907,
+    "lon": 22.290301,
+    "dist_m": 6786.96,
+    "nearest_way": {
+     "id": 85703080,
+     "highway": "secondary",
+     "name": "Συκάς - Νεοχώρι",
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Pyra",
+     "type": "village",
+     "dist_m": 7540.8,
+     "lat": 38.742615,
+     "lon": 22.271373
+    },
+    "island_km2": null,
+    "detail": "detail/gr/B-38.808907_22.290301",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 38.325045,
+    "lon": 21.3362,
+    "dist_m": 6548.43,
+    "nearest_way": {
+     "id": 867837742,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Τουρλίδα",
+     "type": "hamlet",
+     "dist_m": 7186.5,
+     "lat": 38.328743,
+     "lon": 21.418253
+    },
+    "island_km2": null,
+    "detail": "detail/gr/B-38.325045_21.336200",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 40.792938,
+    "lon": 23.658055,
+    "dist_m": 6488.82,
+    "nearest_way": {
+     "id": 182032771,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Στεφανινά",
+     "type": "village",
+     "dist_m": 6801.3,
+     "lat": 40.760677,
+     "lon": 23.589572
+    },
+    "island_km2": null,
+    "detail": "detail/gr/B-40.792938_23.658055",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 41.244372,
+    "lon": 25.168795,
+    "dist_m": 6482.44,
+    "nearest_way": {
+     "id": 713181951,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "bg"
+    },
+    "nearest_place": {
+     "name": "Astraia",
+     "type": "hamlet",
+     "dist_m": 2997.7,
+     "lat": 41.220856,
+     "lon": 25.151243
+    },
+    "island_km2": null,
+    "detail": "detail/gr/B-41.244372_25.168795",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 8809.45,
+  "lat": 41.078088,
+  "lon": 21.90767,
+  "rank": 18,
+  "withheld": 0
  }
 }

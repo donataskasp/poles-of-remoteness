@@ -35,7 +35,8 @@
      "lat": 54.472361,
      "lon": 23.516414
     },
-    "detail": "detail/lt/A-1",
+    "island_km2": null,
+    "detail": "detail/lt/A-54.441478_23.537029",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 53.99291,
      "lon": 24.58918
     },
-    "detail": "detail/lt/A-2",
+    "island_km2": null,
+    "detail": "detail/lt/A-54.010639_24.529369",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 56.273865,
      "lon": 22.578179
     },
-    "detail": "detail/lt/A-3",
+    "island_km2": null,
+    "detail": "detail/lt/A-56.282599_22.641875",
     "warnings": []
    },
    {
@@ -97,11 +100,12 @@
     "nearest_place": {
      "name": "Мысовка",
      "type": "town",
-     "dist_m": 6376.0,
+     "dist_m": 6375.9,
      "lat": 55.191493,
      "lon": 21.270691
     },
-    "detail": "detail/lt/A-4",
+    "island_km2": null,
+    "detail": "detail/lt/A-55.248552_21.262059",
     "warnings": []
    },
    {
@@ -119,11 +123,12 @@
     "nearest_place": {
      "name": "Juodeikiai",
      "type": "village",
-     "dist_m": 2830.3,
+     "dist_m": 2830.4,
      "lat": 56.240646,
      "lon": 23.219101
     },
-    "detail": "detail/lt/A-5",
+    "island_km2": null,
+    "detail": "detail/lt/A-56.215814_23.228859",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 55.785641,
      "lon": 24.980711
     },
-    "detail": "detail/lt/A-6",
+    "island_km2": null,
+    "detail": "detail/lt/A-55.781048_25.014570",
     "warnings": []
    },
    {
@@ -167,7 +173,8 @@
      "lat": 54.956086,
      "lon": 25.88941
     },
-    "detail": "detail/lt/A-7",
+    "island_km2": null,
+    "detail": "detail/lt/A-54.931449_25.908169",
     "warnings": []
    },
    {
@@ -189,7 +196,8 @@
      "lat": 55.832054,
      "lon": 23.262967
     },
-    "detail": "detail/lt/A-8",
+    "island_km2": null,
+    "detail": "detail/lt/A-55.854864_23.283978",
     "warnings": []
    },
    {
@@ -211,7 +219,8 @@
      "lat": 55.49815,
      "lon": 23.470434
     },
-    "detail": "detail/lt/A-9",
+    "island_km2": null,
+    "detail": "detail/lt/A-55.512872_23.453296",
     "warnings": []
    },
    {
@@ -233,12 +242,20 @@
      "lat": 55.71814,
      "lon": 23.368487
     },
-    "detail": "detail/lt/A-10",
+    "island_km2": null,
+    "detail": "detail/lt/A-55.723794_23.405312",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 3426.0,
+  "lat": 54.441478,
+  "lon": 23.537029,
+  "rank": 37,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,33 +278,12 @@
      "lat": 53.999876,
      "lon": 24.362082
     },
-    "detail": "detail/lt/B-1",
+    "island_km2": null,
+    "detail": "detail/lt/B-53.995841_24.463029",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 53.910158,
-    "lon": 24.40707,
-    "dist_m": 4941.18,
-    "nearest_way": {
-     "id": 258480241,
-     "highway": "residential",
-     "name": "Gandrų g.",
-     "ref": null,
-     "country": "lt"
-    },
-    "nearest_place": {
-     "name": "Зубрава",
-     "type": "hamlet",
-     "dist_m": 5047.7,
-     "lat": 53.927173,
-     "lon": 24.478283
-    },
-    "detail": "detail/lt/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 55.128047,
     "lon": 22.4353,
     "dist_m": 4829.66,
@@ -305,11 +301,12 @@
      "lat": 55.105548,
      "lon": 22.455487
     },
-    "detail": "detail/lt/B-3",
+    "island_km2": null,
+    "detail": "detail/lt/B-55.128047_22.435300",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 54.355505,
     "lon": 25.032999,
     "dist_m": 4688.35,
@@ -327,11 +324,12 @@
      "lat": 54.330604,
      "lon": 25.083761
     },
-    "detail": "detail/lt/B-4",
+    "island_km2": null,
+    "detail": "detail/lt/B-54.355505_25.032999",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 55.205421,
     "lon": 22.571984,
     "dist_m": 3894.05,
@@ -345,15 +343,16 @@
     "nearest_place": {
      "name": "Globiai",
      "type": "village",
-     "dist_m": 2900.8,
+     "dist_m": 2900.7,
      "lat": 55.193555,
      "lon": 22.61254
     },
-    "detail": "detail/lt/B-5",
+    "island_km2": null,
+    "detail": "detail/lt/B-55.205421_22.571984",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 54.138315,
     "lon": 24.543308,
     "dist_m": 3886.23,
@@ -371,11 +370,12 @@
      "lat": 54.110305,
      "lon": 24.497734
     },
-    "detail": "detail/lt/B-6",
+    "island_km2": null,
+    "detail": "detail/lt/B-54.138315_24.543308",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 55.09677,
     "lon": 25.822451,
     "dist_m": 3694.91,
@@ -393,11 +393,12 @@
      "lat": 55.12879,
      "lon": 25.839427
     },
-    "detail": "detail/lt/B-7",
+    "island_km2": null,
+    "detail": "detail/lt/B-55.096770_25.822451",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 56.24967,
     "lon": 24.983172,
     "dist_m": 3693.13,
@@ -415,11 +416,12 @@
      "lat": 56.27326,
      "lon": 25.02236
     },
-    "detail": "detail/lt/B-8",
+    "island_km2": null,
+    "detail": "detail/lt/B-56.249670_24.983172",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 54.439818,
     "lon": 23.533801,
     "dist_m": 3595.62,
@@ -437,11 +439,12 @@
      "lat": 54.472361,
      "lon": 23.516414
     },
-    "detail": "detail/lt/B-9",
+    "island_km2": null,
+    "detail": "detail/lt/B-54.439818_23.533801",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 53.930043,
     "lon": 23.626556,
     "dist_m": 3541.38,
@@ -459,11 +462,42 @@
      "lat": 53.950843,
      "lon": 23.628427
     },
-    "detail": "detail/lt/B-10",
+    "island_km2": null,
+    "detail": "detail/lt/B-53.930043_23.626556",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 54.026162,
+    "lon": 24.241139,
+    "dist_m": 3464.42,
+    "nearest_way": {
+     "id": 127212932,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "lt"
+    },
+    "nearest_place": {
+     "name": "Kapiniškiai",
+     "type": "village",
+     "dist_m": 3570.7,
+     "lat": 54.013106,
+     "lon": 24.290901
+    },
+    "island_km2": null,
+    "detail": "detail/lt/B-54.026162_24.241139",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 6675.91,
+  "lat": 53.995841,
+  "lon": 24.463029,
+  "rank": 30,
+  "withheld": 0
  }
 }

@@ -35,7 +35,8 @@
      "lat": 44.635421,
      "lon": 21.908014
     },
-    "detail": "detail/rs/A-1",
+    "island_km2": null,
+    "detail": "detail/rs/A-44.581617_21.923261",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 44.368063,
      "lon": 21.908969
     },
-    "detail": "detail/rs/A-2",
+    "island_km2": null,
+    "detail": "detail/rs/A-44.357246_21.858426",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 42.854929,
      "lon": 22.027178
     },
-    "detail": "detail/rs/A-3",
+    "island_km2": null,
+    "detail": "detail/rs/A-42.812448_22.003933",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 42.634722,
      "lon": 22.120278
     },
-    "detail": "detail/rs/A-4",
+    "island_km2": null,
+    "detail": "detail/rs/A-42.613174_22.164447",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 43.178456,
      "lon": 20.193343
     },
-    "detail": "detail/rs/A-5",
+    "island_km2": null,
+    "detail": "detail/rs/A-43.156308_20.214857",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 43.152162,
      "lon": 19.891574
     },
-    "detail": "detail/rs/A-6",
+    "island_km2": null,
+    "detail": "detail/rs/A-43.165824_19.947913",
     "warnings": []
    },
    {
@@ -163,11 +169,12 @@
     "nearest_place": {
      "name": "Suvi Do",
      "type": "village",
-     "dist_m": 6030.5,
+     "dist_m": 6030.4,
      "lat": 44.207948,
      "lon": 21.728792
     },
-    "detail": "detail/rs/A-7",
+    "island_km2": null,
+    "detail": "detail/rs/A-44.165989_21.680954",
     "warnings": []
    },
    {
@@ -185,11 +192,12 @@
     "nearest_place": {
      "name": "Шебет",
      "type": "village",
-     "dist_m": 3239.8,
+     "dist_m": 3239.7,
      "lat": 43.141974,
      "lon": 22.173015
     },
-    "detail": "detail/rs/A-8",
+    "island_km2": null,
+    "detail": "detail/rs/A-43.152901_22.209940",
     "warnings": []
    },
    {
@@ -207,11 +215,12 @@
     "nearest_place": {
      "name": "Kolunica",
      "type": "hamlet",
-     "dist_m": 955.0,
+     "dist_m": 955.1,
      "lat": 42.681944,
      "lon": 22.426111
     },
-    "detail": "detail/rs/A-9",
+    "island_km2": null,
+    "detail": "detail/rs/A-42.673424_22.427668",
     "warnings": []
    },
    {
@@ -233,12 +242,20 @@
      "lat": 42.843238,
      "lon": 20.35018
     },
-    "detail": "detail/rs/A-10",
+    "island_km2": null,
+    "detail": "detail/rs/A-42.844737_20.356471",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 3860.4,
+  "lat": 44.581617,
+  "lon": 21.923261,
+  "rank": 34,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,11 +274,12 @@
     "nearest_place": {
      "name": "Topli Do",
      "type": "village",
-     "dist_m": 7956.6,
+     "dist_m": 7956.5,
      "lat": 43.34039,
      "lon": 22.679765
     },
-    "detail": "detail/rs/B-1",
+    "island_km2": null,
+    "detail": "detail/rs/B-43.306656_22.766295",
     "warnings": []
    },
    {
@@ -279,37 +297,16 @@
     "nearest_place": {
      "name": "Padina",
      "type": "village",
-     "dist_m": 7758.1,
+     "dist_m": 7758.0,
      "lat": 45.118103,
      "lon": 20.72679
     },
-    "detail": "detail/rs/B-2",
+    "island_km2": null,
+    "detail": "detail/rs/B-45.101317_20.822480",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 43.184182,
-    "lon": 22.991823,
-    "dist_m": 6548.17,
-    "nearest_way": {
-     "id": 487436287,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "bg"
-    },
-    "nearest_place": {
-     "name": "Senokos",
-     "type": "hamlet",
-     "dist_m": 6894.3,
-     "lat": 43.144652,
-     "lon": 22.926472
-    },
-    "detail": "detail/rs/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 44.135488,
     "lon": 21.70327,
     "dist_m": 6037.99,
@@ -323,15 +320,16 @@
     "nearest_place": {
      "name": "Мечја леска",
      "type": "isolated_dwelling",
-     "dist_m": 5579.5,
+     "dist_m": 5579.6,
      "lat": 44.093106,
      "lon": 21.665889
     },
-    "detail": "detail/rs/B-4",
+    "island_km2": null,
+    "detail": "detail/rs/B-44.135488_21.703270",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 44.871996,
     "lon": 21.164963,
     "dist_m": 5609.48,
@@ -345,15 +343,16 @@
     "nearest_place": {
      "name": "Sumarak",
      "type": "village",
-     "dist_m": 5957.4,
+     "dist_m": 5957.5,
      "lat": 44.82127,
      "lon": 21.140586
     },
-    "detail": "detail/rs/B-5",
+    "island_km2": null,
+    "detail": "detail/rs/B-44.871996_21.164963",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 43.12086,
     "lon": 22.748397,
     "dist_m": 5379.45,
@@ -367,15 +366,16 @@
     "nearest_place": {
      "name": "Visocki Odorovci",
      "type": "village",
-     "dist_m": 5902.5,
+     "dist_m": 5902.4,
      "lat": 43.102487,
      "lon": 22.81644
     },
-    "detail": "detail/rs/B-6",
+    "island_km2": null,
+    "detail": "detail/rs/B-43.120860_22.748397",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 45.609415,
     "lon": 18.899285,
     "dist_m": 5344.71,
@@ -393,11 +393,12 @@
      "lat": 45.577212,
      "lon": 18.914289
     },
-    "detail": "detail/rs/B-7",
+    "island_km2": null,
+    "detail": "detail/rs/B-45.609415_18.899285",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 45.355308,
     "lon": 20.964515,
     "dist_m": 5210.0,
@@ -415,33 +416,12 @@
      "lat": 45.316352,
      "lon": 20.913825
     },
-    "detail": "detail/rs/B-8",
+    "island_km2": null,
+    "detail": "detail/rs/B-45.355308_20.964515",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 45.059933,
-    "lon": 20.704751,
-    "dist_m": 5099.47,
-    "nearest_way": {
-     "id": 244696270,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "rs"
-    },
-    "nearest_place": {
-     "name": "Padina",
-     "type": "village",
-     "dist_m": 6693.4,
-     "lat": 45.118103,
-     "lon": 20.72679
-    },
-    "detail": "detail/rs/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 8,
     "lat": 43.144581,
     "lon": 22.252253,
     "dist_m": 5076.65,
@@ -455,15 +435,69 @@
     "nearest_place": {
      "name": "Donja Koritnica",
      "type": "village",
-     "dist_m": 5205.8,
+     "dist_m": 5205.9,
      "lat": 43.154196,
      "lon": 22.314891
     },
-    "detail": "detail/rs/B-10",
+    "island_km2": null,
+    "detail": "detail/rs/B-43.144581_22.252253",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 45.103846,
+    "lon": 21.084364,
+    "dist_m": 5013.18,
+    "nearest_way": {
+     "id": 125373509,
+     "highway": "residential",
+     "name": "Виноградарска",
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Nikolinci",
+     "type": "village",
+     "dist_m": 5812.6,
+     "lat": 45.05315,
+     "lon": 21.066206
+    },
+    "island_km2": null,
+    "detail": "detail/rs/B-45.103846_21.084364",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.579759,
+    "lon": 21.985557,
+    "dist_m": 4955.3,
+    "nearest_way": {
+     "id": 236871054,
+     "highway": "residential",
+     "name": "Атарска",
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Radenkovac",
+     "type": "village",
+     "dist_m": 5416.8,
+     "lat": 43.5488,
+     "lon": 21.933763
+    },
+    "island_km2": null,
+    "detail": "detail/rs/B-43.579759_21.985557",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 7517.42,
+  "lat": 43.306656,
+  "lon": 22.766295,
+  "rank": 25,
+  "withheld": 0
  }
 }

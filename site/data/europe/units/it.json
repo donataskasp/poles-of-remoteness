@@ -18,204 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 42.225924,
-    "lon": 15.751619,
-    "dist_m": 22056.18,
-    "nearest_way": {
-     "id": 183698183,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "San Nicola di Tremiti",
-     "type": "village",
-     "dist_m": 23532.5,
-     "lat": 42.120845,
-     "lon": 15.50431
-    },
-    "detail": "detail/it/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 42.359032,
-    "lon": 10.064109,
-    "dist_m": 19124.79,
-    "nearest_way": {
-     "id": 89697962,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Pianosa",
-     "type": "village",
-     "dist_m": 25509.6,
-     "lat": 42.587257,
-     "lon": 10.098551
-    },
-    "detail": "detail/it/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 35.551475,
-    "lon": 12.320159,
-    "dist_m": 18329.63,
-    "nearest_way": {
-     "id": 87000804,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Lampedusa",
-     "type": "village",
-     "dist_m": 26526.7,
-     "lat": 35.503526,
-     "lon": 12.606689
-    },
-    "detail": "detail/it/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 42.556222,
-    "lon": 10.900437,
-    "dist_m": 14732.69,
-    "nearest_way": {
-     "id": 781930131,
-     "highway": "track",
-     "name": "A7",
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Casa Pinottolai",
-     "type": "isolated_dwelling",
-     "dist_m": 16703.8,
-     "lat": 42.663471,
-     "lon": 11.043123
-    },
-    "detail": "detail/it/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 40.839787,
-    "lon": 13.102929,
-    "dist_m": 12772.7,
-    "nearest_way": {
-     "id": 39394664,
-     "highway": "residential",
-     "name": "Via Madonna",
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Ponza",
-     "type": "village",
-     "dist_m": 13201.1,
-     "lat": 40.893237,
-     "lon": 12.963062
-    },
-    "detail": "detail/it/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 39.881743,
-    "lon": 8.274977,
-    "dist_m": 11124.67,
-    "nearest_way": {
-     "id": 547430947,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Funtana Meiga",
-     "type": "hamlet",
-     "dist_m": 12787.5,
-     "lat": 39.896145,
-     "lon": 8.423308
-    },
-    "detail": "detail/it/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 38.859095,
-    "lon": 8.40834,
-    "dist_m": 10722.15,
-    "nearest_way": {
-     "id": 523639489,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "La Fazenda",
-     "type": "hamlet",
-     "dist_m": 11158.7,
-     "lat": 38.959525,
-     "lon": 8.413675
-    },
-    "detail": "detail/it/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 39.982804,
-    "lon": 8.295947,
-    "dist_m": 8244.62,
-    "nearest_way": {
-     "id": 547446594,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Mandriola",
-     "type": "hamlet",
-     "dist_m": 10365.6,
-     "lat": 40.034191,
-     "lon": 8.397302
-    },
-    "detail": "detail/it/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 42.855667,
-    "lon": 10.546996,
-    "dist_m": 7278.99,
-    "nearest_way": {
-     "id": 95305702,
-     "highway": "residential",
-     "name": "Via Pietro Gori",
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Piombino",
-     "type": "town",
-     "dist_m": 7677.5,
-     "lat": 42.923166,
-     "lon": 10.526819
-    },
-    "detail": "detail/it/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
     "lat": 46.369779,
     "lon": 9.906329,
     "dist_m": 6622.2,
@@ -233,39 +35,232 @@
      "lat": 46.31415,
      "lon": 9.901962
     },
-    "detail": "detail/it/A-10",
+    "island_km2": null,
+    "detail": "detail/it/A-46.369779_9.906329",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 46.135676,
+    "lon": 10.581024,
+    "dist_m": 6273.3,
+    "nearest_way": {
+     "id": 1307747056,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Casina Muta",
+     "type": "isolated_dwelling",
+     "dist_m": 6254.3,
+     "lat": 46.176688,
+     "lon": 10.636457
+    },
+    "island_km2": null,
+    "detail": "detail/it/A-46.135676_10.581024",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 45.513765,
+    "lon": 7.286451,
+    "dist_m": 6220.71,
+    "nearest_way": {
+     "id": 554024690,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Money",
+     "type": "isolated_dwelling",
+     "dist_m": 5056.6,
+     "lat": 45.547605,
+     "lon": 7.32972
+    },
+    "island_km2": null,
+    "detail": "detail/it/A-45.513765_7.286451",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 45.987176,
+    "lon": 7.570895,
+    "dist_m": 6176.46,
+    "nearest_way": {
+     "id": 1535872445,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Crot de Labies",
+     "type": "hamlet",
+     "dist_m": 6142.2,
+     "lat": 45.951582,
+     "lon": 7.631515
+    },
+    "island_km2": null,
+    "detail": "detail/it/A-45.987176_7.570895",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 45.926129,
+    "lon": 7.825847,
+    "dist_m": 6103.76,
+    "nearest_way": {
+     "id": 115331167,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Salza Superiore",
+     "type": "hamlet",
+     "dist_m": 5304.9,
+     "lat": 45.878805,
+     "lon": 7.816974
+    },
+    "island_km2": null,
+    "detail": "detail/it/A-45.926129_7.825847",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 45.827075,
+    "lon": 6.846719,
+    "dist_m": 5876.91,
+    "nearest_way": {
+     "id": 375928186,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "Freney",
+     "type": "hamlet",
+     "dist_m": 5885.0,
+     "lat": 45.793156,
+     "lon": 6.904856
+    },
+    "island_km2": null,
+    "detail": "detail/it/A-45.827075_6.846719",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.050101,
+    "lon": 8.414931,
+    "dist_m": 5708.23,
+    "nearest_way": {
+     "id": 447919517,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Alpe la Colma",
+     "type": "isolated_dwelling",
+     "dist_m": 3610.6,
+     "lat": 46.031145,
+     "lon": 8.377053
+    },
+    "island_km2": null,
+    "detail": "detail/it/A-46.050101_8.414931",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.092454,
+    "lon": 8.038728,
+    "dist_m": 5528.16,
+    "nearest_way": {
+     "id": 1062897176,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Alpe Corone inf. - La Balma",
+     "type": "hamlet",
+     "dist_m": 1076.5,
+     "lat": 46.087349,
+     "lon": 8.050557
+    },
+    "island_km2": null,
+    "detail": "detail/it/A-46.092454_8.038728",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 45.697488,
+    "lon": 13.30024,
+    "dist_m": 5464.55,
+    "nearest_way": {
+     "id": 105346013,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Mandragole",
+     "type": "isolated_dwelling",
+     "dist_m": 5196.9,
+     "lat": 45.744161,
+     "lon": 13.304261
+    },
+    "island_km2": null,
+    "detail": "detail/it/A-45.697488_13.300240",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.950379,
+    "lon": 11.177573,
+    "dist_m": 5428.97,
+    "nearest_way": {
+     "id": 237410227,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Moareralm - Malga del Massaro",
+     "type": "isolated_dwelling",
+     "dist_m": 6669.3,
+     "lat": 46.906788,
+     "lon": 11.23774
+    },
+    "island_km2": null,
+    "detail": "detail/it/A-46.950379_11.177573",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 6622.2,
+  "lat": 46.369779,
+  "lon": 9.906329,
+  "rank": 15,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 42.225924,
-    "lon": 15.751619,
-    "dist_m": 23709.25,
-    "nearest_way": {
-     "id": 1389282110,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "San Nicola di Tremiti",
-     "type": "village",
-     "dist_m": 23532.5,
-     "lat": 42.120845,
-     "lon": 15.50431
-    },
-    "detail": "detail/it/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 38.541147,
     "lon": 14.339262,
     "dist_m": 19160.1,
@@ -283,165 +278,12 @@
      "lat": 38.537426,
      "lon": 14.355083
     },
-    "detail": "detail/it/B-2",
+    "island_km2": 5.0,
+    "detail": "detail/it/B-38.541147_14.339262",
     "warnings": []
    },
    {
-    "rank": 3,
-    "lat": 42.359032,
-    "lon": 10.064109,
-    "dist_m": 19124.79,
-    "nearest_way": {
-     "id": 89697962,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Pianosa",
-     "type": "village",
-     "dist_m": 25509.6,
-     "lat": 42.587257,
-     "lon": 10.098551
-    },
-    "detail": "detail/it/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 35.551475,
-    "lon": 12.320159,
-    "dist_m": 18886.23,
-    "nearest_way": {
-     "id": 390054329,
-     "highway": "tertiary",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Lampedusa",
-     "type": "village",
-     "dist_m": 26526.7,
-     "lat": 35.503526,
-     "lon": 12.606689
-    },
-    "detail": "detail/it/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 42.556222,
-    "lon": 10.900437,
-    "dist_m": 15103.81,
-    "nearest_way": {
-     "id": 175253596,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Casa Pinottolai",
-     "type": "isolated_dwelling",
-     "dist_m": 16703.8,
-     "lat": 42.663471,
-     "lon": 11.043123
-    },
-    "detail": "detail/it/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 40.839787,
-    "lon": 13.102929,
-    "dist_m": 12772.7,
-    "nearest_way": {
-     "id": 39394664,
-     "highway": "residential",
-     "name": "Via Madonna",
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Ponza",
-     "type": "village",
-     "dist_m": 13201.1,
-     "lat": 40.893237,
-     "lon": 12.963062
-    },
-    "detail": "detail/it/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 39.881743,
-    "lon": 8.274977,
-    "dist_m": 11426.74,
-    "nearest_way": {
-     "id": 1159694505,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Funtana Meiga",
-     "type": "hamlet",
-     "dist_m": 12787.5,
-     "lat": 39.896145,
-     "lon": 8.423308
-    },
-    "detail": "detail/it/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 38.859095,
-    "lon": 8.40834,
-    "dist_m": 10773.93,
-    "nearest_way": {
-     "id": 523639494,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "La Fazenda",
-     "type": "hamlet",
-     "dist_m": 11158.7,
-     "lat": 38.959525,
-     "lon": 8.413675
-    },
-    "detail": "detail/it/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 39.982804,
-    "lon": 8.295947,
-    "dist_m": 9069.26,
-    "nearest_way": {
-     "id": 1340350197,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Mandriola",
-     "type": "hamlet",
-     "dist_m": 10365.6,
-     "lat": 40.034191,
-     "lon": 8.397302
-    },
-    "detail": "detail/it/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 2,
     "lat": 41.310058,
     "lon": 9.335731,
     "dist_m": 8205.43,
@@ -459,11 +301,295 @@
      "lat": 41.295073,
      "lon": 9.372554
     },
-    "detail": "detail/it/B-10",
+    "island_km2": 5.6,
+    "detail": "detail/it/B-41.310058_9.335731",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 45.932538,
+    "lon": 7.775291,
+    "dist_m": 8094.7,
+    "nearest_way": {
+     "id": 61941890,
+     "highway": "residential",
+     "name": "Chemin de Verra",
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Verraz-Dessus",
+     "type": "isolated_dwelling",
+     "dist_m": 4309.7,
+     "lat": 45.895196,
+     "lon": 7.760333
+    },
+    "island_km2": null,
+    "detail": "detail/it/B-45.932538_7.775291",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 40.969733,
+    "lon": 13.062908,
+    "dist_m": 7889.18,
+    "nearest_way": {
+     "id": 869949361,
+     "highway": "unclassified",
+     "name": "Via Punta Incenso",
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Le Forna",
+     "type": "hamlet",
+     "dist_m": 9642.2,
+     "lat": 40.922638,
+     "lon": 12.966706
+    },
+    "island_km2": 1.1,
+    "detail": "detail/it/B-40.969733_13.062908",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 46.148835,
+    "lon": 10.532158,
+    "dist_m": 7885.55,
+    "nearest_way": {
+     "id": 181199534,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Malga Miller",
+     "type": "isolated_dwelling",
+     "dist_m": 6755.3,
+     "lat": 46.130727,
+     "lon": 10.448702
+    },
+    "island_km2": null,
+    "detail": "detail/it/B-46.148835_10.532158",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 46.369994,
+    "lon": 9.881925,
+    "dist_m": 7611.62,
+    "nearest_way": {
+     "id": 1084427881,
+     "highway": "unclassified",
+     "name": "Giro lago - rif. Bignami",
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Alpe Sasso Nero",
+     "type": "isolated_dwelling",
+     "dist_m": 6339.2,
+     "lat": 46.315601,
+     "lon": 9.857178
+    },
+    "island_km2": null,
+    "detail": "detail/it/B-46.369994_9.881925",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.398177,
+    "lon": 9.466805,
+    "dist_m": 7255.89,
+    "nearest_way": {
+     "id": 232206580,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Avero",
+     "type": "hamlet",
+     "dist_m": 6635.3,
+     "lat": 46.365495,
+     "lon": 9.39463
+    },
+    "island_km2": null,
+    "detail": "detail/it/B-46.398177_9.466805",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 45.607766,
+    "lon": 7.49945,
+    "dist_m": 7141.98,
+    "nearest_way": {
+     "id": 386189858,
+     "highway": "unclassified",
+     "name": "Località Clavalitè",
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Ponton",
+     "type": "hamlet",
+     "dist_m": 1758.7,
+     "lat": 45.605689,
+     "lon": 7.477101
+    },
+    "island_km2": null,
+    "detail": "detail/it/B-45.607766_7.499450",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.950654,
+    "lon": 11.184716,
+    "dist_m": 7010.08,
+    "nearest_way": {
+     "id": 233143873,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Moareralm - Malga del Massaro",
+     "type": "isolated_dwelling",
+     "dist_m": 6331.5,
+     "lat": 46.906788,
+     "lon": 11.23774
+    },
+    "island_km2": null,
+    "detail": "detail/it/B-46.950654_11.184716",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 45.32413,
+    "lon": 12.223912,
+    "dist_m": 6916.31,
+    "nearest_way": {
+     "id": 1217731664,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "San Pietro in Volta",
+     "type": "village",
+     "dist_m": 7302.7,
+     "lat": 45.318449,
+     "lon": 12.316705
+    },
+    "island_km2": null,
+    "detail": "detail/it/B-45.324130_12.223912",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 45.818169,
+    "lon": 6.824675,
+    "dist_m": 6847.29,
+    "nearest_way": {
+     "id": 1324453485,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "Miage d'en Haut",
+     "type": "hamlet",
+     "dist_m": 5352.7,
+     "lat": 45.840301,
+     "lon": 6.763493
+    },
+    "island_km2": null,
+    "detail": "detail/it/B-45.818169_6.824675",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 46.754723,
+    "lon": 11.010085,
+    "dist_m": 6733.8,
+    "nearest_way": {
+     "id": 493594662,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Lazins",
+     "type": "isolated_dwelling",
+     "dist_m": 5446.9,
+     "lat": 46.784003,
+     "lon": 11.067263
+    },
+    "island_km2": null,
+    "detail": "detail/it/B-46.754723_11.010085",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 37.775827,
+    "lon": 14.963613,
+    "dist_m": 6716.57,
+    "nearest_way": {
+     "id": 23654668,
+     "highway": "unclassified",
+     "name": "Strada di bonifica Salto del Cavallo-Monte Albano",
+     "ref": "SB",
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Nicolosi Nord",
+     "type": "hamlet",
+     "dist_m": 8929.8,
+     "lat": 37.700219,
+     "lon": 14.998245
+    },
+    "island_km2": 25617.9,
+    "detail": "detail/it/B-37.775827_14.963613",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 47.069174,
+    "lon": 12.240744,
+    "dist_m": 6618.72,
+    "nearest_way": {
+     "id": 316057477,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Innerkeesalm",
+     "type": "hamlet",
+     "dist_m": 3419.7,
+     "lat": 47.098374,
+     "lon": 12.226584
+    },
+    "island_km2": null,
+    "detail": "detail/it/B-47.069174_12.240744",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 8094.7,
+  "lat": 45.932538,
+  "lon": 7.775291,
+  "rank": 21,
+  "withheld": 0
  }
 }

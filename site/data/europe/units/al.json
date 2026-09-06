@@ -35,7 +35,8 @@
      "lat": 40.27233,
      "lon": 19.506041
     },
-    "detail": "detail/al/A-1",
+    "island_km2": null,
+    "detail": "detail/al/A-40.213932_19.473161",
     "warnings": []
    },
    {
@@ -53,11 +54,12 @@
     "nearest_place": {
      "name": "Qerec-Mulaj",
      "type": "village",
-     "dist_m": 3816.2,
+     "dist_m": 3816.1,
      "lat": 42.356763,
      "lon": 19.926918
     },
-    "detail": "detail/al/A-2",
+    "island_km2": null,
+    "detail": "detail/al/A-42.385957_19.951340",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 40.009366,
      "lon": 20.076812
     },
-    "detail": "detail/al/A-3",
+    "island_km2": null,
+    "detail": "detail/al/A-40.056358_20.071757",
     "warnings": []
    },
    {
@@ -97,11 +100,12 @@
     "nearest_place": {
      "name": "Perperan",
      "type": "hamlet",
-     "dist_m": 2327.5,
+     "dist_m": 2327.4,
      "lat": 42.476482,
      "lon": 19.775757
     },
-    "detail": "detail/al/A-4",
+    "island_km2": null,
+    "detail": "detail/al/A-42.463505_19.753537",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 40.861243,
      "lon": 20.82101
     },
-    "detail": "detail/al/A-5",
+    "island_km2": null,
+    "detail": "detail/al/A-40.857298_20.855191",
     "warnings": []
    },
    {
@@ -141,11 +146,12 @@
     "nearest_place": {
      "name": "Nënplep (Pepsumaj)",
      "type": "hamlet",
-     "dist_m": 803.5,
+     "dist_m": 803.4,
      "lat": 42.193584,
      "lon": 19.8347
     },
-    "detail": "detail/al/A-6",
+    "island_km2": null,
+    "detail": "detail/al/A-42.196108_19.825584",
     "warnings": []
    },
    {
@@ -167,7 +173,8 @@
      "lat": 42.466299,
      "lon": 20.109935
     },
-    "detail": "detail/al/A-7",
+    "island_km2": null,
+    "detail": "detail/al/A-42.466508_20.099793",
     "warnings": []
    },
    {
@@ -189,7 +196,8 @@
      "lat": 41.825211,
      "lon": 20.502861
     },
-    "detail": "detail/al/A-8",
+    "island_km2": null,
+    "detail": "detail/al/A-41.817535_20.559013",
     "warnings": []
    },
    {
@@ -211,7 +219,8 @@
      "lat": 42.63187,
      "lon": 19.703555
     },
-    "detail": "detail/al/A-9",
+    "island_km2": null,
+    "detail": "detail/al/A-42.628604_19.715011",
     "warnings": []
    },
    {
@@ -229,16 +238,24 @@
     "nearest_place": {
      "name": "Manastir (Vermik)",
      "type": "hamlet",
-     "dist_m": 4377.9,
+     "dist_m": 4377.8,
      "lat": 40.307359,
      "lon": 19.771677
     },
-    "detail": "detail/al/A-10",
+    "island_km2": null,
+    "detail": "detail/al/A-40.345772_19.783274",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 6704.39,
+  "lat": 40.213932,
+  "lon": 19.473161,
+  "rank": 13,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 42.20526,
      "lon": 19.881531
     },
-    "detail": "detail/al/B-1",
+    "island_km2": null,
+    "detail": "detail/al/B-42.202101_19.877022",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 40.508057,
      "lon": 19.408138
     },
-    "detail": "detail/al/B-2",
+    "island_km2": null,
+    "detail": "detail/al/B-40.421849_19.288659",
     "warnings": []
    },
    {
@@ -301,11 +320,12 @@
     "nearest_place": {
      "name": "Qerec-Mulaj",
      "type": "village",
-     "dist_m": 2136.3,
+     "dist_m": 2136.4,
      "lat": 42.356763,
      "lon": 19.926918
     },
-    "detail": "detail/al/B-3",
+    "island_km2": null,
+    "detail": "detail/al/B-42.375959_19.928514",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 41.225175,
      "lon": 20.556439
     },
-    "detail": "detail/al/B-4",
+    "island_km2": null,
+    "detail": "detail/al/B-41.201507_20.476689",
     "warnings": []
    },
    {
@@ -349,33 +370,12 @@
      "lat": 40.27233,
      "lon": 19.506041
     },
-    "detail": "detail/al/B-5",
+    "island_km2": null,
+    "detail": "detail/al/B-40.213932_19.473161",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 42.464898,
-    "lon": 19.787448,
-    "dist_m": 6286.59,
-    "nearest_way": {
-     "id": 1517600116,
-     "highway": "service",
-     "name": "Villa Prela road",
-     "ref": null,
-     "country": "al"
-    },
-    "nearest_place": {
-     "name": "Perperan",
-     "type": "hamlet",
-     "dist_m": 1606.3,
-     "lat": 42.476482,
-     "lon": 19.775757
-    },
-    "detail": "detail/al/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 41.762815,
     "lon": 20.520388,
     "dist_m": 6244.65,
@@ -393,11 +393,12 @@
      "lat": 41.722548,
      "lon": 20.572446
     },
-    "detail": "detail/al/B-7",
+    "island_km2": null,
+    "detail": "detail/al/B-41.762815_20.520388",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 40.961286,
     "lon": 20.358361,
     "dist_m": 6152.96,
@@ -415,11 +416,12 @@
      "lat": 40.935412,
      "lon": 20.333564
     },
-    "detail": "detail/al/B-8",
+    "island_km2": null,
+    "detail": "detail/al/B-40.961286_20.358361",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 40.834503,
     "lon": 20.476075,
     "dist_m": 5667.7,
@@ -433,15 +435,16 @@
     "nearest_place": {
      "name": "Llëngë",
      "type": "village",
-     "dist_m": 6128.6,
+     "dist_m": 6128.5,
      "lat": 40.886416,
      "lon": 20.500739
     },
-    "detail": "detail/al/B-9",
+    "island_km2": null,
+    "detail": "detail/al/B-40.834503_20.476075",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 40.039909,
     "lon": 20.069707,
     "dist_m": 5611.42,
@@ -459,11 +462,42 @@
      "lat": 40.009366,
      "lon": 20.076812
     },
-    "detail": "detail/al/B-10",
+    "island_km2": null,
+    "detail": "detail/al/B-40.039909_20.069707",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.689049,
+    "lon": 20.223982,
+    "dist_m": 5498.73,
+    "nearest_way": {
+     "id": 43655886,
+     "highway": "secondary",
+     "name": null,
+     "ref": "SH36",
+     "country": "al"
+    },
+    "nearest_place": {
+     "name": "Sinë e Sipërme",
+     "type": "village",
+     "dist_m": 4492.0,
+     "lat": 41.726704,
+     "lon": 20.243678
+    },
+    "island_km2": null,
+    "detail": "detail/al/B-41.689049_20.223982",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 9098.77,
+  "lat": 42.202101,
+  "lon": 19.877022,
+  "rank": 17,
+  "withheld": 0
  }
 }

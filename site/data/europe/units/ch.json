@@ -31,37 +31,16 @@
     "nearest_place": {
      "name": "Märjelewang",
      "type": "isolated_dwelling",
-     "dist_m": 10047.5,
+     "dist_m": 10047.6,
      "lat": 46.446067,
      "lon": 8.114305
     },
-    "detail": "detail/ch/A-1",
+    "island_km2": null,
+    "detail": "detail/ch/A-46.536424_8.110933",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 46.466624,
-    "lon": 7.987271,
-    "dist_m": 9135.21,
-    "nearest_way": {
-     "id": 127204388,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ch"
-    },
-    "nearest_place": {
-     "name": "Hanalpetli",
-     "type": "isolated_dwelling",
-     "dist_m": 8788.0,
-     "lat": 46.520134,
-     "lon": 7.903008
-    },
-    "detail": "detail/ch/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 46.649131,
     "lon": 8.40078,
     "dist_m": 7213.31,
@@ -75,15 +54,16 @@
     "nearest_place": {
      "name": "Tiefenbach",
      "type": "hamlet",
-     "dist_m": 7790.8,
+     "dist_m": 7790.9,
      "lat": 46.593032,
      "lon": 8.461752
     },
-    "detail": "detail/ch/A-3",
+    "island_km2": null,
+    "detail": "detail/ch/A-46.649131_8.400780",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 45.936149,
     "lon": 7.844075,
     "dist_m": 6704.34,
@@ -101,33 +81,12 @@
      "lat": 45.953711,
      "lon": 7.91788
     },
-    "detail": "detail/ch/A-4",
+    "island_km2": null,
+    "detail": "detail/ch/A-45.936149_7.844075",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 46.603613,
-    "lon": 8.199751,
-    "dist_m": 6448.89,
-    "nearest_way": {
-     "id": 1317944178,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ch"
-    },
-    "nearest_place": {
-     "name": "Rohrmatten",
-     "type": "isolated_dwelling",
-     "dist_m": 6497.8,
-     "lat": 46.661946,
-     "lon": 8.205175
-    },
-    "detail": "detail/ch/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 4,
     "lat": 46.375688,
     "lon": 9.894007,
     "dist_m": 6388.72,
@@ -141,15 +100,16 @@
     "nearest_place": {
      "name": "Alpe Musella",
      "type": "hamlet",
-     "dist_m": 6867.7,
+     "dist_m": 6867.8,
      "lat": 46.31415,
      "lon": 9.901962
     },
-    "detail": "detail/ch/A-6",
+    "island_km2": null,
+    "detail": "detail/ch/A-46.375688_9.894007",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 5,
     "lat": 45.989265,
     "lon": 7.572219,
     "dist_m": 6222.52,
@@ -167,11 +127,12 @@
      "lat": 45.951582,
      "lon": 7.631515
     },
-    "detail": "detail/ch/A-7",
+    "island_km2": null,
+    "detail": "detail/ch/A-45.989265_7.572219",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 6,
     "lat": 46.31309,
     "lon": 8.878924,
     "dist_m": 5777.01,
@@ -189,56 +150,112 @@
      "lat": 46.307906,
      "lon": 8.870645
     },
-    "detail": "detail/ch/A-8",
+    "island_km2": null,
+    "detail": "detail/ch/A-46.313090_8.878924",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.621787,
+    "lon": 10.107467,
+    "dist_m": 5448.47,
+    "nearest_way": {
+     "id": 1103764164,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Brail",
+     "type": "hamlet",
+     "dist_m": 6657.2,
+     "lat": 46.654606,
+     "lon": 10.034741
+    },
+    "island_km2": null,
+    "detail": "detail/ch/A-46.621787_10.107467",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.505199,
+    "lon": 9.067448,
+    "dist_m": 5269.49,
+    "nearest_way": {
+     "id": 407653740,
+     "highway": "track",
+     "name": "Rheinquellweg",
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Alpe di Quarnei",
+     "type": "isolated_dwelling",
+     "dist_m": 4698.6,
+     "lat": 46.477759,
+     "lon": 9.020897
+    },
+    "island_km2": null,
+    "detail": "detail/ch/A-46.505199_9.067448",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 46.063452,
-    "lon": 7.696157,
-    "dist_m": 5662.15,
+    "lat": 46.09891,
+    "lon": 8.033534,
+    "dist_m": 5247.38,
     "nearest_way": {
-     "id": 1526480548,
+     "id": 127871367,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ch"
     },
     "nearest_place": {
-     "name": "Berggasthaus Trift",
-     "type": "isolated_dwelling",
-     "dist_m": 4184.7,
-     "lat": 46.030039,
-     "lon": 7.721071
+     "name": "Alpe Corone inf. - La Balma",
+     "type": "hamlet",
+     "dist_m": 1839.6,
+     "lat": 46.087349,
+     "lon": 8.050557
     },
-    "detail": "detail/ch/A-9",
+    "island_km2": null,
+    "detail": "detail/ch/A-46.098910_8.033534",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 46.477076,
-    "lon": 7.794935,
-    "dist_m": 5538.92,
+    "lat": 45.987839,
+    "lon": 7.024957,
+    "dist_m": 5217.41,
     "nearest_way": {
-     "id": 506254737,
+     "id": 289335961,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ch"
     },
     "nearest_place": {
-     "name": "Tellialp",
-     "type": "hamlet",
-     "dist_m": 5613.2,
-     "lat": 46.429117,
-     "lon": 7.817804
+     "name": "Les Herbagères",
+     "type": "isolated_dwelling",
+     "dist_m": 5974.6,
+     "lat": 46.02998,
+     "lon": 6.977071
     },
-    "detail": "detail/ch/A-10",
+    "island_km2": null,
+    "detail": "detail/ch/A-45.987839_7.024957",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 9843.45,
+  "lat": 46.536424,
+  "lon": 8.110933,
+  "rank": 10,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,33 +278,12 @@
      "lat": 46.446067,
      "lon": 8.114305
     },
-    "detail": "detail/ch/B-1",
+    "island_km2": null,
+    "detail": "detail/ch/B-46.498558_8.028826",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 46.548515,
-    "lon": 8.139594,
-    "dist_m": 10059.91,
-    "nearest_way": {
-     "id": 228279336,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ch"
-    },
-    "nearest_place": {
-     "name": "Oberaar",
-     "type": "isolated_dwelling",
-     "dist_m": 10528.6,
-     "lat": 46.548708,
-     "lon": 8.276874
-    },
-    "detail": "detail/ch/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 45.94631,
     "lon": 7.833134,
     "dist_m": 9584.36,
@@ -305,11 +301,12 @@
      "lat": 45.953711,
      "lon": 7.91788
     },
-    "detail": "detail/ch/B-3",
+    "island_km2": null,
+    "detail": "detail/ch/B-45.946310_7.833134",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 46.892932,
     "lon": 10.240059,
     "dist_m": 8569.57,
@@ -327,33 +324,12 @@
      "lat": 46.879917,
      "lon": 10.331789
     },
-    "detail": "detail/ch/B-4",
+    "island_km2": null,
+    "detail": "detail/ch/B-46.892932_10.240059",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 46.839876,
-    "lon": 10.066426,
-    "dist_m": 8309.94,
-    "nearest_way": {
-     "id": 1267517015,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "at"
-    },
-    "nearest_place": {
-     "name": "Spärra",
-     "type": "isolated_dwelling",
-     "dist_m": 6330.4,
-     "lat": 46.858054,
-     "lon": 9.987769
-    },
-    "detail": "detail/ch/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 4,
     "lat": 46.52499,
     "lon": 10.016264,
     "dist_m": 7967.46,
@@ -365,17 +341,18 @@
      "country": "ch"
     },
     "nearest_place": {
-     "name": "Chamues-ch",
+     "name": "Florin",
      "type": "hamlet",
-     "dist_m": 8237.9,
-     "lat": 46.573156,
-     "lon": 9.934633
+     "dist_m": 8097.0,
+     "lat": 46.513567,
+     "lon": 10.120477
     },
-    "detail": "detail/ch/B-6",
+    "island_km2": null,
+    "detail": "detail/ch/B-46.524990_10.016264",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 5,
     "lat": 46.784607,
     "lon": 8.816608,
     "dist_m": 7911.66,
@@ -393,11 +370,12 @@
      "lat": 46.782214,
      "lon": 8.772714
     },
-    "detail": "detail/ch/B-7",
+    "island_km2": null,
+    "detail": "detail/ch/B-46.784607_8.816608",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 6,
     "lat": 46.401944,
     "lon": 9.47368,
     "dist_m": 7756.97,
@@ -415,11 +393,12 @@
      "lat": 46.365495,
      "lon": 9.39463
     },
-    "detail": "detail/ch/B-8",
+    "island_km2": null,
+    "detail": "detail/ch/B-46.401944_9.473680",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 7,
     "lat": 46.369557,
     "lon": 9.880009,
     "dist_m": 7662.71,
@@ -433,37 +412,92 @@
     "nearest_place": {
      "name": "Alpe Sasso Nero",
      "type": "isolated_dwelling",
-     "dist_m": 6249.9,
+     "dist_m": 6249.8,
      "lat": 46.315601,
      "lon": 9.857178
     },
-    "detail": "detail/ch/B-9",
+    "island_km2": null,
+    "detail": "detail/ch/B-46.369557_9.880009",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.520093,
+    "lon": 9.051333,
+    "dist_m": 7361.55,
+    "nearest_way": {
+     "id": 387066494,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Lampertschalp",
+     "type": "isolated_dwelling",
+     "dist_m": 4832.3,
+     "lat": 46.563561,
+     "lon": 9.051989
+    },
+    "island_km2": null,
+    "detail": "detail/ch/B-46.520093_9.051333",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.648901,
+    "lon": 8.39739,
+    "dist_m": 7284.4,
+    "nearest_way": {
+     "id": 813356861,
+     "highway": "primary",
+     "name": "Furkastrasse",
+     "ref": "19",
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Tiefenbach",
+     "type": "hamlet",
+     "dist_m": 7929.2,
+     "lat": 46.593032,
+     "lon": 8.461752
+    },
+    "island_km2": null,
+    "detail": "detail/ch/B-46.648901_8.397390",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 45.956265,
-    "lon": 7.42609,
-    "dist_m": 7562.67,
+    "lat": 46.755599,
+    "lon": 10.410313,
+    "dist_m": 7111.26,
     "nearest_way": {
-     "id": 959106546,
-     "highway": "unclassified",
-     "name": "Strada Comunale per Place Moulin",
-     "ref": "SC",
-     "country": "it"
+     "id": 25933402,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ch"
     },
     "nearest_place": {
-     "name": "La Bouetta",
+     "name": "Uina Dadaint",
      "type": "isolated_dwelling",
-     "dist_m": 5746.6,
-     "lat": 45.906401,
-     "lon": 7.445665
+     "dist_m": 2578.5,
+     "lat": 46.778784,
+     "lon": 10.409342
     },
-    "detail": "detail/ch/B-10",
+    "island_km2": null,
+    "detail": "detail/ch/B-46.755599_10.410313",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 10805.62,
+  "lat": 46.498558,
+  "lon": 8.028826,
+  "rank": 13,
+  "withheld": 0
  }
 }

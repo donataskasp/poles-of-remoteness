@@ -31,16 +31,24 @@
     "nearest_place": {
      "name": "Rome",
      "type": "city",
-     "dist_m": 2361.1,
+     "dist_m": 2361.2,
      "lat": 41.89332,
      "lon": 12.482932
     },
-    "detail": "detail/va/A-1",
+    "island_km2": null,
+    "detail": "detail/va/A-41.902473_12.457251",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 1 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 1 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "A_mainland": {
+  "dist_m": 126.34,
+  "lat": 41.902473,
+  "lon": 12.457251,
+  "rank": 52,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -59,15 +67,23 @@
     "nearest_place": {
      "name": "Rome",
      "type": "city",
-     "dist_m": 2361.1,
+     "dist_m": 2361.2,
      "lat": 41.89332,
      "lon": 12.482932
     },
-    "detail": "detail/va/B-1",
+    "island_km2": null,
+    "detail": "detail/va/B-41.902473_12.457251",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 1 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 1 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B_mainland": {
+  "dist_m": 126.34,
+  "lat": 41.902473,
+  "lon": 12.457251,
+  "rank": 52,
+  "withheld": 0
  }
 }

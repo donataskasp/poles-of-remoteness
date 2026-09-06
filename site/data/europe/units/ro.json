@@ -35,7 +35,8 @@
      "lat": 44.896507,
      "lon": 29.592905
     },
-    "detail": "detail/ro/A-1",
+    "island_km2": null,
+    "detail": "detail/ro/A-44.768840_29.475778",
     "warnings": []
    },
    {
@@ -53,192 +54,208 @@
     "nearest_place": {
      "name": "Dranov",
      "type": "isolated_dwelling",
-     "dist_m": 14633.1,
+     "dist_m": 14633.2,
      "lat": 44.860352,
      "lon": 29.218629
     },
-    "detail": "detail/ro/A-2",
+    "island_km2": null,
+    "detail": "detail/ro/A-44.892587_29.398186",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 44.969727,
-    "lon": 29.46489,
-    "dist_m": 11870.38,
+    "lat": 45.121101,
+    "lon": 29.282342,
+    "dist_m": 6083.57,
     "nearest_way": {
-     "id": 641660014,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ro"
-    },
-    "nearest_place": {
-     "name": "Sfântu Gheorghe",
-     "type": "village",
-     "dist_m": 12974.1,
-     "lat": 44.896507,
-     "lon": 29.592905
-    },
-    "detail": "detail/ro/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 44.891929,
-    "lon": 29.059812,
-    "dist_m": 11295.05,
-    "nearest_way": {
-     "id": 1117939255,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ro"
-    },
-    "nearest_place": {
-     "name": "Dranov",
-     "type": "isolated_dwelling",
-     "dist_m": 13030.5,
-     "lat": 44.860352,
-     "lon": 29.218629
-    },
-    "detail": "detail/ro/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 45.090844,
-    "lon": 29.516618,
-    "dist_m": 9330.17,
-    "nearest_way": {
-     "id": 27746354,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ro"
-    },
-    "nearest_place": {
-     "name": "Sulina",
-     "type": "town",
-     "dist_m": 13066.6,
-     "lat": 45.155824,
-     "lon": 29.655027
-    },
-    "detail": "detail/ro/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 45.282405,
-    "lon": 29.401735,
-    "dist_m": 8340.04,
-    "nearest_way": {
-     "id": 552016052,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ro"
-    },
-    "nearest_place": {
-     "name": "Letea",
-     "type": "village",
-     "dist_m": 9625.7,
-     "lat": 45.28407,
-     "lon": 29.524399
-    },
-    "detail": "detail/ro/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 45.2024,
-    "lon": 29.52586,
-    "dist_m": 7815.46,
-    "nearest_way": {
-     "id": 158830807,
+     "id": 523292475,
      "highway": "tertiary",
-     "name": "Strada Principală",
+     "name": null,
      "ref": "DC2",
      "country": "ro"
     },
     "nearest_place": {
-     "name": "Cardon",
+     "name": "Uzlina",
      "type": "hamlet",
-     "dist_m": 8681.9,
-     "lat": 45.237991,
-     "lon": 29.624257
+     "dist_m": 6782.5,
+     "lat": 45.075505,
+     "lon": 29.225067
     },
-    "detail": "detail/ro/A-7",
+    "island_km2": null,
+    "detail": "detail/ro/A-45.121101_29.282342",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 43.833838,
+    "lon": 25.586407,
+    "dist_m": 5778.31,
+    "nearest_way": {
+     "id": 1424860464,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Drăghiceanu",
+     "type": "village",
+     "dist_m": 8078.3,
+     "lat": 43.86497,
+     "lon": 25.677196
+    },
+    "island_km2": null,
+    "detail": "detail/ro/A-43.833838_25.586407",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 45.339681,
+    "lon": 29.646586,
+    "dist_m": 5761.36,
+    "nearest_way": {
+     "id": 309049396,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Sfiștofca",
+     "type": "hamlet",
+     "dist_m": 6090.4,
+     "lat": 45.298247,
+     "lon": 29.59575
+    },
+    "island_km2": null,
+    "detail": "detail/ro/A-45.339681_29.646586",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 44.460926,
+    "lon": 28.027583,
+    "dist_m": 5711.7,
+    "nearest_way": {
+     "id": 217550944,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Capidava",
+     "type": "village",
+     "dist_m": 6429.9,
+     "lat": 44.496653,
+     "lon": 28.091157
+    },
+    "island_km2": null,
+    "detail": "detail/ro/A-44.460926_28.027583",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 45.359191,
+    "lon": 22.826718,
+    "dist_m": 5404.1,
+    "nearest_way": {
+     "id": 116346148,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Râușor",
+     "type": "village",
+     "dist_m": 6741.3,
+     "lat": 45.418679,
+     "lon": 22.843532
+    },
+    "island_km2": null,
+    "detail": "detail/ro/A-45.359191_22.826718",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 44.82048,
-    "lon": 29.580178,
-    "dist_m": 7647.77,
+    "lat": 45.731621,
+    "lon": 26.600802,
+    "dist_m": 5346.96,
     "nearest_way": {
-     "id": 24162746,
+     "id": 389147064,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ro"
     },
     "nearest_place": {
-     "name": "Sfântu Gheorghe",
+     "name": "Păvălari",
      "type": "village",
-     "dist_m": 8508.5,
-     "lat": 44.896507,
-     "lon": 29.592905
+     "dist_m": 6434.0,
+     "lat": 45.73826,
+     "lon": 26.682922
     },
-    "detail": "detail/ro/A-8",
+    "island_km2": null,
+    "detail": "detail/ro/A-45.731621_26.600802",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 44.922583,
-    "lon": 29.182659,
-    "dist_m": 6926.77,
+    "lat": 45.189656,
+    "lon": 23.065196,
+    "dist_m": 5258.62,
     "nearest_way": {
-     "id": 239853172,
-     "highway": "track",
+     "id": 341161712,
+     "highway": "tertiary",
      "name": null,
-     "ref": null,
+     "ref": "DJ672C",
      "country": "ro"
     },
     "nearest_place": {
-     "name": "Dunavățu de Jos",
+     "name": "Bâlta",
      "type": "village",
-     "dist_m": 7424.8,
-     "lat": 44.982809,
-     "lon": 29.223392
+     "dist_m": 8466.3,
+     "lat": 45.118053,
+     "lon": 23.101957
     },
-    "detail": "detail/ro/A-9",
+    "island_km2": null,
+    "detail": "detail/ro/A-45.189656_23.065196",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 45.387384,
-    "lon": 29.44226,
-    "dist_m": 6438.97,
+    "lat": 43.917068,
+    "lon": 24.781995,
+    "dist_m": 5178.23,
     "nearest_way": {
-     "id": 640466966,
+     "id": 289277496,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ro"
     },
     "nearest_place": {
-     "name": "Periprava",
+     "name": "Uda-Paciurea",
      "type": "village",
-     "dist_m": 8370.3,
-     "lat": 45.401781,
-     "lon": 29.547184
+     "dist_m": 6246.9,
+     "lat": 43.879793,
+     "lon": 24.723788
     },
-    "detail": "detail/ro/A-10",
+    "island_km2": null,
+    "detail": "detail/ro/A-43.917068_24.781995",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 16637.28,
+  "lat": 44.76884,
+  "lon": 29.475778,
+  "rank": 5,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,33 +278,12 @@
      "lat": 44.860352,
      "lon": 29.218629
     },
-    "detail": "detail/ro/B-1",
+    "island_km2": null,
+    "detail": "detail/ro/B-44.808831_29.346821",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 44.794103,
-    "lon": 29.220308,
-    "dist_m": 20548.21,
-    "nearest_way": {
-     "id": 61958749,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "ro"
-    },
-    "nearest_place": {
-     "name": "Dranov",
-     "type": "isolated_dwelling",
-     "dist_m": 7363.4,
-     "lat": 44.860352,
-     "lon": 29.218629
-    },
-    "detail": "detail/ro/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 44.771559,
     "lon": 29.465397,
     "dist_m": 16809.13,
@@ -305,55 +301,12 @@
      "lat": 44.896507,
      "lon": 29.592905
     },
-    "detail": "detail/ro/B-3",
+    "island_km2": null,
+    "detail": "detail/ro/B-44.771559_29.465397",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 44.852475,
-    "lon": 29.117164,
-    "dist_m": 16371.94,
-    "nearest_way": {
-     "id": 295293868,
-     "highway": "residential",
-     "name": "Strada Gropeni",
-     "ref": null,
-     "country": "ro"
-    },
-    "nearest_place": {
-     "name": "Dranov",
-     "type": "isolated_dwelling",
-     "dist_m": 8067.7,
-     "lat": 44.860352,
-     "lon": 29.218629
-    },
-    "detail": "detail/ro/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 44.894775,
-    "lon": 29.385933,
-    "dist_m": 15327.15,
-    "nearest_way": {
-     "id": 24162294,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ro"
-    },
-    "nearest_place": {
-     "name": "Dranov",
-     "type": "isolated_dwelling",
-     "dist_m": 13761.8,
-     "lat": 44.860352,
-     "lon": 29.218629
-    },
-    "detail": "detail/ro/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 3,
     "lat": 45.243511,
     "lon": 22.596198,
     "dist_m": 13571.85,
@@ -371,11 +324,12 @@
      "lat": 45.238203,
      "lon": 22.422327
     },
-    "detail": "detail/ro/B-6",
+    "island_km2": null,
+    "detail": "detail/ro/B-45.243511_22.596198",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 4,
     "lat": 45.713259,
     "lon": 26.478198,
     "dist_m": 13361.39,
@@ -393,11 +347,12 @@
      "lat": 45.612832,
      "lon": 26.505368
     },
-    "detail": "detail/ro/B-7",
+    "island_km2": null,
+    "detail": "detail/ro/B-45.713259_26.478198",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 5,
     "lat": 47.824309,
     "lon": 24.680071,
     "dist_m": 12883.47,
@@ -415,11 +370,12 @@
      "lat": 47.943684,
      "lon": 24.695358
     },
-    "detail": "detail/ro/B-8",
+    "island_km2": null,
+    "detail": "detail/ro/B-47.824309_24.680071",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 6,
     "lat": 45.552465,
     "lon": 24.930685,
     "dist_m": 12568.77,
@@ -437,11 +393,12 @@
      "lat": 45.677214,
      "lon": 24.920876
     },
-    "detail": "detail/ro/B-9",
+    "island_km2": null,
+    "detail": "detail/ro/B-45.552465_24.930685",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 7,
     "lat": 44.758551,
     "lon": 22.194252,
     "dist_m": 12499.22,
@@ -459,11 +416,88 @@
      "lat": 44.664886,
      "lon": 22.103314
     },
-    "detail": "detail/ro/B-10",
+    "island_km2": null,
+    "detail": "detail/ro/B-44.758551_22.194252",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 45.517743,
+    "lon": 24.096978,
+    "dist_m": 10346.12,
+    "nearest_way": {
+     "id": 900470430,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Lotrioara",
+     "type": "village",
+     "dist_m": 11643.4,
+     "lat": 45.574814,
+     "lon": 24.222007
+    },
+    "island_km2": null,
+    "detail": "detail/ro/B-45.517743_24.096978",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 45.084821,
+    "lon": 22.052136,
+    "dist_m": 10114.11,
+    "nearest_way": {
+     "id": 181027793,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Poneasca",
+     "type": "village",
+     "dist_m": 9762.3,
+     "lat": 45.034533,
+     "lon": 21.950513
+    },
+    "island_km2": null,
+    "detail": "detail/ro/B-45.084821_22.052136",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 47.54111,
+    "lon": 24.249171,
+    "dist_m": 10063.75,
+    "nearest_way": {
+     "id": 88810649,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ro"
+    },
+    "nearest_place": {
+     "name": "Suplai",
+     "type": "village",
+     "dist_m": 11461.8,
+     "lat": 47.438168,
+     "lon": 24.25739
+    },
+    "island_km2": null,
+    "detail": "detail/ro/B-47.541110_24.249171",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 20976.56,
+  "lat": 44.808831,
+  "lon": 29.346821,
+  "rank": 7,
+  "withheld": 0
  }
 }

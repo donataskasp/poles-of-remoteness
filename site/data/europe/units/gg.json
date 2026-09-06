@@ -18,33 +18,34 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 49.719964,
-    "lon": -2.384948,
-    "dist_m": 11030.49,
+    "lat": 49.695871,
+    "lon": -2.235614,
+    "dist_m": 1302.34,
     "nearest_way": {
-     "id": 4066366,
+     "id": 180047729,
      "highway": "track",
-     "name": "Clonque Causeway",
+     "name": null,
      "ref": null,
      "country": "gg"
     },
     "nearest_place": {
-     "name": "Crabby",
-     "type": "hamlet",
-     "dist_m": 12756.5,
-     "lat": 49.719879,
-     "lon": -2.208048
+     "name": "Saint Anne",
+     "type": "town",
+     "dist_m": 3007.1,
+     "lat": 49.714378,
+     "lon": -2.205223
     },
-    "detail": "detail/gg/A-1",
+    "island_km2": 8.3,
+    "detail": "detail/gg/A-49.695871_-2.235614",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 49.509847,
-    "lon": -2.409562,
-    "dist_m": 4525.23,
+    "lat": 49.483118,
+    "lon": -2.472849,
+    "dist_m": 1280.77,
     "nearest_way": {
-     "id": 196968043,
+     "id": 196968039,
      "highway": "track",
      "name": null,
      "ref": null,
@@ -53,42 +54,21 @@
     "nearest_place": {
      "name": "Manor Village",
      "type": "hamlet",
-     "dist_m": 5096.9,
+     "dist_m": 2153.5,
      "lat": 49.471789,
      "lon": -2.448751
     },
-    "detail": "detail/gg/A-2",
+    "island_km2": 1.3,
+    "detail": "detail/gg/A-49.483118_-2.472849",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 49.737766,
-    "lon": -2.246263,
-    "dist_m": 2685.09,
+    "lat": 49.404087,
+    "lon": -2.381754,
+    "dist_m": 1043.51,
     "nearest_way": {
-     "id": 4066368,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "gg"
-    },
-    "nearest_place": {
-     "name": "Crabby",
-     "type": "hamlet",
-     "dist_m": 3398.4,
-     "lat": 49.719879,
-     "lon": -2.208048
-    },
-    "detail": "detail/gg/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 49.400093,
-    "lon": -2.367936,
-    "dist_m": 1345.16,
-    "nearest_way": {
-     "id": 185844268,
+     "id": 1441827558,
      "highway": "service",
      "name": null,
      "ref": null,
@@ -97,15 +77,16 @@
     "nearest_place": {
      "name": "Sark",
      "type": "village",
-     "dist_m": 3947.2,
+     "dist_m": 3811.9,
      "lat": 49.435165,
      "lon": -2.359599
     },
-    "detail": "detail/gg/A-4",
+    "island_km2": 5.8,
+    "detail": "detail/gg/A-49.404087_-2.381754",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 49.461425,
     "lon": -2.676106,
     "dist_m": 773.85,
@@ -123,64 +104,28 @@
      "lat": 49.430281,
      "lon": -2.652507
     },
-    "detail": "detail/gg/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 49.417316,
-    "lon": -2.54081,
-    "dist_m": 579.42,
-    "nearest_way": {
-     "id": 37958166,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "gg"
-    },
-    "nearest_place": {
-     "name": "St Martin",
-     "type": "village",
-     "dist_m": 2470.5,
-     "lat": 49.437349,
-     "lon": -2.555524
-    },
-    "detail": "detail/gg/A-6",
+    "island_km2": null,
+    "detail": "detail/gg/A-49.461425_-2.676106",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 6 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 1 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "A_mainland": {
+  "dist_m": 773.85,
+  "lat": 49.461425,
+  "lon": -2.676106,
+  "rank": 47,
+  "withheld": 0
  },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 49.719964,
-    "lon": -2.384948,
-    "dist_m": 11532.09,
-    "nearest_way": {
-     "id": 29385585,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "gg"
-    },
-    "nearest_place": {
-     "name": "Crabby",
-     "type": "hamlet",
-     "dist_m": 12756.5,
-     "lat": 49.719879,
-     "lon": -2.208048
-    },
-    "detail": "detail/gg/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 49.509847,
-    "lon": -2.409562,
-    "dist_m": 6530.92,
+    "lat": 49.482885,
+    "lon": -2.448099,
+    "dist_m": 2541.4,
     "nearest_way": {
      "id": 185848724,
      "highway": "service",
@@ -191,37 +136,39 @@
     "nearest_place": {
      "name": "Manor Village",
      "type": "hamlet",
-     "dist_m": 5096.9,
+     "dist_m": 1235.0,
      "lat": 49.471789,
      "lon": -2.448751
     },
-    "detail": "detail/gg/B-2",
+    "island_km2": 1.3,
+    "detail": "detail/gg/B-49.482885_-2.448099",
     "warnings": []
    },
    {
-    "rank": 3,
-    "lat": 49.737766,
-    "lon": -2.246263,
-    "dist_m": 2685.09,
+    "rank": 2,
+    "lat": 49.695871,
+    "lon": -2.235614,
+    "dist_m": 1558.61,
     "nearest_way": {
-     "id": 4066368,
+     "id": 29385585,
      "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "gg"
     },
     "nearest_place": {
-     "name": "Crabby",
-     "type": "hamlet",
-     "dist_m": 3398.4,
-     "lat": 49.719879,
-     "lon": -2.208048
+     "name": "Saint Anne",
+     "type": "town",
+     "dist_m": 3007.1,
+     "lat": 49.714378,
+     "lon": -2.205223
     },
-    "detail": "detail/gg/B-3",
+    "island_km2": 8.3,
+    "detail": "detail/gg/B-49.695871_-2.235614",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 49.461425,
     "lon": -2.676106,
     "dist_m": 1410.52,
@@ -239,16 +186,17 @@
      "lat": 49.430281,
      "lon": -2.652507
     },
-    "detail": "detail/gg/B-4",
+    "island_km2": null,
+    "detail": "detail/gg/B-49.461425_-2.676106",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 49.400093,
-    "lon": -2.367936,
-    "dist_m": 1345.16,
+    "rank": 4,
+    "lat": 49.413712,
+    "lon": -2.358038,
+    "dist_m": 901.19,
     "nearest_way": {
-     "id": 185844268,
+     "id": 1446756639,
      "highway": "service",
      "name": null,
      "ref": null,
@@ -257,37 +205,23 @@
     "nearest_place": {
      "name": "Sark",
      "type": "village",
-     "dist_m": 3947.2,
+     "dist_m": 2388.6,
      "lat": 49.435165,
      "lon": -2.359599
     },
-    "detail": "detail/gg/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 49.417357,
-    "lon": -2.540902,
-    "dist_m": 649.21,
-    "nearest_way": {
-     "id": 25468596,
-     "highway": "residential",
-     "name": "La Moye",
-     "ref": null,
-     "country": "gg"
-    },
-    "nearest_place": {
-     "name": "St Martin",
-     "type": "village",
-     "dist_m": 2463.5,
-     "lat": 49.437349,
-     "lon": -2.555524
-    },
-    "detail": "detail/gg/B-6",
+    "island_km2": 5.8,
+    "detail": "detail/gg/B-49.413712_-2.358038",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 6 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 1 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B_mainland": {
+  "dist_m": 1410.52,
+  "lat": 49.461425,
+  "lon": -2.676106,
+  "rank": 47,
+  "withheld": 0
  }
 }

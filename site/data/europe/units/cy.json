@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 35.711796,
-    "lon": 34.60776,
-    "dist_m": 2607.15,
-    "nearest_way": {
-     "id": 188376171,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "cy"
-    },
-    "nearest_place": {
-     "name": "Rizokarpaso",
-     "type": "town",
-     "dist_m": 24145.9,
-     "lat": 35.59774,
-     "lon": 34.380671
-    },
-    "detail": "detail/cy/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 35.442,
     "lon": 34.111951,
     "dist_m": 1846.8,
@@ -57,11 +35,12 @@
      "lat": 35.427658,
      "lon": 34.13164
     },
-    "detail": "detail/cy/A-2",
+    "island_km2": null,
+    "detail": "detail/cy/A-35.442000_34.111951",
     "warnings": []
    },
    {
-    "rank": 3,
+    "rank": 2,
     "lat": 35.304243,
     "lon": 33.662416,
     "dist_m": 1695.24,
@@ -79,11 +58,12 @@
      "lat": 35.310068,
      "lon": 33.634115
     },
-    "detail": "detail/cy/A-3",
+    "island_km2": null,
+    "detail": "detail/cy/A-35.304243_33.662416",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 35.256459,
     "lon": 33.36177,
     "dist_m": 1578.65,
@@ -97,15 +77,16 @@
     "nearest_place": {
      "name": "Sichari",
      "type": "village",
-     "dist_m": 2893.3,
+     "dist_m": 2893.2,
      "lat": 35.279032,
      "lon": 33.377693
     },
-    "detail": "detail/cy/A-4",
+    "island_km2": null,
+    "detail": "detail/cy/A-35.256459_33.361770",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 34.799679,
     "lon": 33.109377,
     "dist_m": 1566.53,
@@ -119,15 +100,16 @@
     "nearest_place": {
      "name": "Prastio",
      "type": "village",
-     "dist_m": 3347.3,
+     "dist_m": 3347.2,
      "lat": 34.81153,
      "lon": 33.143018
     },
-    "detail": "detail/cy/A-5",
+    "island_km2": null,
+    "detail": "detail/cy/A-34.799679_33.109377",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 35.223528,
     "lon": 33.583393,
     "dist_m": 1541.9,
@@ -141,15 +123,16 @@
     "nearest_place": {
      "name": "Angastina",
      "type": "village",
-     "dist_m": 2192.3,
+     "dist_m": 2192.2,
      "lat": 35.204358,
      "lon": 33.589232
     },
-    "detail": "detail/cy/A-6",
+    "island_km2": null,
+    "detail": "detail/cy/A-35.223528_33.583393",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 35.195214,
     "lon": 33.802036,
     "dist_m": 1519.88,
@@ -167,11 +150,12 @@
      "lat": 35.212057,
      "lon": 33.799184
     },
-    "detail": "detail/cy/A-7",
+    "island_km2": null,
+    "detail": "detail/cy/A-35.195214_33.802036",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 34.969651,
     "lon": 32.7074,
     "dist_m": 1504.88,
@@ -189,11 +173,12 @@
      "lat": 34.983238,
      "lon": 32.741914
     },
-    "detail": "detail/cy/A-8",
+    "island_km2": null,
+    "detail": "detail/cy/A-34.969651_32.707400",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 35.339545,
     "lon": 34.02839,
     "dist_m": 1500.72,
@@ -207,46 +192,78 @@
     "nearest_place": {
      "name": "Gastria",
      "type": "village",
-     "dist_m": 2618.7,
+     "dist_m": 2618.6,
      "lat": 35.342474,
      "lon": 33.999807
     },
-    "detail": "detail/cy/A-9",
+    "island_km2": null,
+    "detail": "detail/cy/A-35.339545_34.028390",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 35.181103,
+    "lon": 33.458574,
+    "dist_m": 1433.16,
+    "nearest_way": {
+     "id": 1284959095,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "cy"
+    },
+    "nearest_place": {
+     "name": "Palaikythro",
+     "type": "village",
+     "dist_m": 4394.5,
+     "lat": 35.208488,
+     "lon": 33.493437
+    },
+    "island_km2": null,
+    "detail": "detail/cy/A-35.181103_33.458574",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 34.722066,
-    "lon": 32.437079,
-    "dist_m": 1469.22,
+    "lat": 35.385351,
+    "lon": 33.922478,
+    "dist_m": 1428.51,
     "nearest_way": {
-     "id": 462819151,
+     "id": 409864342,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "cy"
     },
     "nearest_place": {
-     "name": "Neapolis",
-     "type": "hamlet",
-     "dist_m": 3525.8,
-     "lat": 34.753848,
-     "lon": 32.43726
+     "name": "Kantara",
+     "type": "village",
+     "dist_m": 2191.2,
+     "lat": 35.387272,
+     "lon": 33.898476
     },
-    "detail": "detail/cy/A-10",
+    "island_km2": null,
+    "detail": "detail/cy/A-35.385351_33.922478",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 1846.8,
+  "lat": 35.442,
+  "lon": 34.111951,
+  "rank": 42,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 35.112433,
-    "lon": 32.281917,
-    "dist_m": 7761.09,
+    "lat": 35.105317,
+    "lon": 32.287223,
+    "dist_m": 7018.51,
     "nearest_way": {
      "id": 190924544,
      "highway": "unclassified",
@@ -257,11 +274,12 @@
     "nearest_place": {
      "name": "Neo Chorio",
      "type": "village",
-     "dist_m": 12087.2,
+     "dist_m": 11167.7,
      "lat": 35.026539,
      "lon": 32.363441
     },
-    "detail": "detail/cy/B-1",
+    "island_km2": null,
+    "detail": "detail/cy/B-35.105317_32.287223",
     "warnings": []
    },
    {
@@ -279,11 +297,12 @@
     "nearest_place": {
      "name": "Anadiou",
      "type": "hamlet",
-     "dist_m": 4714.9,
+     "dist_m": 4714.8,
      "lat": 34.944471,
      "lon": 32.566024
     },
-    "detail": "detail/cy/B-2",
+    "island_km2": null,
+    "detail": "detail/cy/B-34.976953_32.599313",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 35.298681,
      "lon": 32.963554
     },
-    "detail": "detail/cy/B-3",
+    "island_km2": null,
+    "detail": "detail/cy/B-35.334762_32.935192",
     "warnings": []
    },
    {
@@ -314,7 +334,7 @@
     "lon": 32.687558,
     "dist_m": 4205.83,
     "nearest_way": {
-     "id": 706637056,
+     "id": 706637057,
      "highway": "tertiary",
      "name": null,
      "ref": null,
@@ -323,11 +343,12 @@
     "nearest_place": {
      "name": "Vroisha",
      "type": "hamlet",
-     "dist_m": 2597.1,
+     "dist_m": 2597.2,
      "lat": 35.06641,
      "lon": 32.660693
     },
-    "detail": "detail/cy/B-4",
+    "island_km2": null,
+    "detail": "detail/cy/B-35.058658_32.687558",
     "warnings": []
    },
    {
@@ -349,7 +370,8 @@
      "lat": 35.59774,
      "lon": 34.380671
     },
-    "detail": "detail/cy/B-5",
+    "island_km2": null,
+    "detail": "detail/cy/B-35.675837_34.504858",
     "warnings": []
    },
    {
@@ -371,7 +393,8 @@
      "lat": 34.962104,
      "lon": 32.750769
     },
-    "detail": "detail/cy/B-6",
+    "island_km2": null,
+    "detail": "detail/cy/B-34.946124_32.708321",
     "warnings": []
    },
    {
@@ -393,7 +416,8 @@
      "lat": 35.260167,
      "lon": 33.786164
     },
-    "detail": "detail/cy/B-7",
+    "island_km2": null,
+    "detail": "detail/cy/B-35.292732_33.780856",
     "warnings": []
    },
    {
@@ -415,7 +439,8 @@
      "lat": 35.510862,
      "lon": 34.274135
     },
-    "detail": "detail/cy/B-8",
+    "island_km2": null,
+    "detail": "detail/cy/B-35.478205_34.273534",
     "warnings": []
    },
    {
@@ -437,7 +462,8 @@
      "lat": 34.983561,
      "lon": 32.976925
     },
-    "detail": "detail/cy/B-9",
+    "island_km2": null,
+    "detail": "detail/cy/B-35.017531_32.967459",
     "warnings": []
    },
    {
@@ -459,11 +485,19 @@
      "lat": 34.940367,
      "lon": 32.402744
     },
-    "detail": "detail/cy/B-10",
+    "island_km2": null,
+    "detail": "detail/cy/B-34.928043_32.367945",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 7018.51,
+  "lat": 35.105317,
+  "lon": 32.287223,
+  "rank": 28,
+  "withheld": 0
  }
 }

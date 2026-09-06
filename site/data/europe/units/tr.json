@@ -35,7 +35,8 @@
      "lat": 38.694268,
      "lon": 33.722664
     },
-    "detail": "detail/tr/A-1",
+    "island_km2": null,
+    "detail": "detail/tr/A-38.622216_33.536430",
     "warnings": []
    },
    {
@@ -57,77 +58,12 @@
      "lat": 39.501918,
      "lon": 38.916102
     },
-    "detail": "detail/tr/A-2",
+    "island_km2": null,
+    "detail": "detail/tr/A-39.441958_39.030160",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 39.399822,
-    "lon": 38.924728,
-    "dist_m": 11267.53,
-    "nearest_way": {
-     "id": 282766696,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "tr"
-    },
-    "nearest_place": {
-     "name": "Yücebelen",
-     "type": "village",
-     "dist_m": 11359.4,
-     "lat": 39.501918,
-     "lon": 38.916102
-    },
-    "detail": "detail/tr/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 38.540824,
-    "lon": 33.600263,
-    "dist_m": 11057.78,
-    "nearest_way": {
-     "id": 1118934742,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "tr"
-    },
-    "nearest_place": {
-     "name": "Ulukışla",
-     "type": "village",
-     "dist_m": 14626.1,
-     "lat": 38.497181,
-     "lon": 33.758507
-    },
-    "detail": "detail/tr/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 39.470748,
-    "lon": 39.143558,
-    "dist_m": 10253.53,
-    "nearest_way": {
-     "id": 1475538839,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "tr"
-    },
-    "nearest_place": {
-     "name": "Köseler",
-     "type": "village",
-     "dist_m": 10349.2,
-     "lat": 39.379093,
-     "lon": 39.165467
-    },
-    "detail": "detail/tr/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
     "lat": 38.068594,
     "lon": 43.898096,
     "dist_m": 9286.45,
@@ -141,15 +77,16 @@
     "nearest_place": {
      "name": "Barış",
      "type": "village",
-     "dist_m": 9357.9,
+     "dist_m": 9357.8,
      "lat": 38.019995,
      "lon": 43.985207
     },
-    "detail": "detail/tr/A-6",
+    "island_km2": null,
+    "detail": "detail/tr/A-38.068594_43.898096",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 4,
     "lat": 36.927925,
     "lon": 39.751782,
     "dist_m": 9266.95,
@@ -167,11 +104,12 @@
      "lat": 37.038542,
      "lon": 39.732485
     },
-    "detail": "detail/tr/A-7",
+    "island_km2": null,
+    "detail": "detail/tr/A-36.927925_39.751782",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 5,
     "lat": 39.367791,
     "lon": 41.34851,
     "dist_m": 8935.66,
@@ -185,15 +123,16 @@
     "nearest_place": {
      "name": "Şekerli",
      "type": "hamlet",
-     "dist_m": 6479.0,
+     "dist_m": 6478.9,
      "lat": 39.425959,
      "lon": 41.354553
     },
-    "detail": "detail/tr/A-8",
+    "island_km2": null,
+    "detail": "detail/tr/A-39.367791_41.348510",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 6,
     "lat": 37.955238,
     "lon": 33.007481,
     "dist_m": 8823.68,
@@ -211,34 +150,112 @@
      "lat": 37.981601,
      "lon": 32.906973
     },
-    "detail": "detail/tr/A-9",
+    "island_km2": null,
+    "detail": "detail/tr/A-37.955238_33.007481",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 39.930291,
-    "lon": 26.050611,
-    "dist_m": 8814.73,
+    "rank": 7,
+    "lat": 40.969663,
+    "lon": 43.097936,
+    "dist_m": 8750.91,
     "nearest_way": {
-     "id": 757752030,
+     "id": 120224591,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "tr"
+    },
+    "nearest_place": {
+     "name": "Kiziroğlu",
+     "type": "village",
+     "dist_m": 8716.4,
+     "lat": 40.907164,
+     "lon": 43.035324
+    },
+    "island_km2": null,
+    "detail": "detail/tr/A-40.969663_43.097936",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 39.305525,
+    "lon": 39.660933,
+    "dist_m": 8698.21,
+    "nearest_way": {
+     "id": 540482747,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "tr"
     },
     "nearest_place": {
-     "name": "Yeniköy",
+     "name": "Sarıgül",
      "type": "village",
-     "dist_m": 9804.4,
-     "lat": 39.933794,
-     "lon": 26.165221
+     "dist_m": 9758.3,
+     "lat": 39.392245,
+     "lon": 39.679384
     },
-    "detail": "detail/tr/A-10",
+    "island_km2": null,
+    "detail": "detail/tr/A-39.305525_39.660933",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 37.447456,
+    "lon": 43.950233,
+    "dist_m": 8564.44,
+    "nearest_way": {
+     "id": 1541012493,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "tr"
+    },
+    "nearest_place": {
+     "name": "Yazılı",
+     "type": "isolated_dwelling",
+     "dist_m": 1364.5,
+     "lat": 37.440391,
+     "lon": 43.962852
+    },
+    "island_km2": null,
+    "detail": "detail/tr/A-37.447456_43.950233",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 39.30747,
+    "lon": 43.860633,
+    "dist_m": 8412.59,
+    "nearest_way": {
+     "id": 1482226897,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "tr"
+    },
+    "nearest_place": {
+     "name": "Atadamı",
+     "type": "village",
+     "dist_m": 8473.9,
+     "lat": 39.300045,
+     "lon": 43.762857
+    },
+    "island_km2": null,
+    "detail": "detail/tr/A-39.307470_43.860633",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 15366.91,
+  "lat": 38.622216,
+  "lon": 33.53643,
+  "rank": 6,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,33 +278,12 @@
      "lat": 38.563453,
      "lon": 33.264428
     },
-    "detail": "detail/tr/B-1",
+    "island_km2": null,
+    "detail": "detail/tr/B-38.649989_33.480917",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 38.589198,
-    "lon": 33.575889,
-    "dist_m": 14565.76,
-    "nearest_way": {
-     "id": 877503489,
-     "highway": "unclassified",
-     "name": "Tuzgölü",
-     "ref": null,
-     "country": "tr"
-    },
-    "nearest_place": {
-     "name": "Çokyatan Yaylası",
-     "type": "hamlet",
-     "dist_m": 17131.4,
-     "lat": 38.669785,
-     "lon": 33.743675
-    },
-    "detail": "detail/tr/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 37.727808,
     "lon": 43.045527,
     "dist_m": 14512.97,
@@ -305,55 +301,12 @@
      "lat": 37.766954,
      "lon": 43.05212
     },
-    "detail": "detail/tr/B-3",
+    "island_km2": null,
+    "detail": "detail/tr/B-37.727808_43.045527",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 37.780076,
-    "lon": 42.582271,
-    "dist_m": 13102.45,
-    "nearest_way": {
-     "id": 137085307,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "tr"
-    },
-    "nearest_place": {
-     "name": "Kovanağzı",
-     "type": "village",
-     "dist_m": 10082.8,
-     "lat": 37.771465,
-     "lon": 42.468338
-    },
-    "detail": "detail/tr/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 37.666101,
-    "lon": 42.691529,
-    "dist_m": 12904.51,
-    "nearest_way": {
-     "id": 244450632,
-     "highway": "tertiary",
-     "name": null,
-     "ref": null,
-     "country": "tr"
-    },
-    "nearest_place": {
-     "name": "Dereler",
-     "type": "village",
-     "dist_m": 8348.3,
-     "lat": 37.606624,
-     "lon": 42.749429
-    },
-    "detail": "detail/tr/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 3,
     "lat": 37.247092,
     "lon": 34.450528,
     "dist_m": 12675.1,
@@ -367,15 +320,16 @@
     "nearest_place": {
      "name": "Çamlıyayla",
      "type": "town",
-     "dist_m": 15520.0,
+     "dist_m": 15519.9,
      "lat": 37.16654,
      "lon": 34.593443
     },
-    "detail": "detail/tr/B-6",
+    "island_km2": null,
+    "detail": "detail/tr/B-37.247092_34.450528",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 4,
     "lat": 39.390576,
     "lon": 38.911069,
     "dist_m": 12289.44,
@@ -393,33 +347,12 @@
      "lat": 39.397681,
      "lon": 38.785916
     },
-    "detail": "detail/tr/B-7",
+    "island_km2": null,
+    "detail": "detail/tr/B-39.390576_38.911069",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 39.441837,
-    "lon": 39.035236,
-    "dist_m": 12187.59,
-    "nearest_way": {
-     "id": 354376887,
-     "highway": "tertiary",
-     "name": null,
-     "ref": null,
-     "country": "tr"
-    },
-    "nearest_place": {
-     "name": "Yücebelen",
-     "type": "village",
-     "dist_m": 12230.4,
-     "lat": 39.501918,
-     "lon": 38.916102
-    },
-    "detail": "detail/tr/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 5,
     "lat": 37.433966,
     "lon": 43.895732,
     "dist_m": 12152.84,
@@ -437,33 +370,134 @@
      "lat": 37.440391,
      "lon": 43.962852
     },
-    "detail": "detail/tr/B-9",
+    "island_km2": null,
+    "detail": "detail/tr/B-37.433966_43.895732",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 40.173489,
+    "lon": 41.230343,
+    "dist_m": 12006.21,
+    "nearest_way": {
+     "id": 256089986,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "tr"
+    },
+    "nearest_place": {
+     "name": "Güngörmez",
+     "type": "village",
+     "dist_m": 11892.7,
+     "lat": 40.154934,
+     "lon": 41.367836
+    },
+    "island_km2": null,
+    "detail": "detail/tr/B-40.173489_41.230343",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 37.983022,
+    "lon": 31.142567,
+    "dist_m": 11543.45,
+    "nearest_way": {
+     "id": 575038064,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "tr"
+    },
+    "nearest_place": {
+     "name": "Yenicekale",
+     "type": "village",
+     "dist_m": 11934.5,
+     "lat": 38.086369,
+     "lon": 31.180075
+    },
+    "island_km2": null,
+    "detail": "detail/tr/B-37.983022_31.142567",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.311958,
+    "lon": 36.611359,
+    "dist_m": 11476.14,
+    "nearest_way": {
+     "id": 678870301,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "tr"
+    },
+    "nearest_place": {
+     "name": "Binboğa",
+     "type": "village",
+     "dist_m": 11666.5,
+     "lat": 38.289012,
+     "lon": 36.741515
+    },
+    "island_km2": null,
+    "detail": "detail/tr/B-38.311958_36.611359",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 39.745065,
+    "lon": 26.98001,
+    "dist_m": 11112.34,
+    "nearest_way": {
+     "id": 191877550,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "tr"
+    },
+    "nearest_place": {
+     "name": "Yaşyer",
+     "type": "village",
+     "dist_m": 11279.8,
+     "lat": 39.662762,
+     "lon": 27.057119
+    },
+    "island_km2": null,
+    "detail": "detail/tr/B-39.745065_26.980010",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 37.640749,
-    "lon": 42.975394,
-    "dist_m": 12125.55,
+    "lat": 39.337593,
+    "lon": 43.877671,
+    "dist_m": 10690.58,
     "nearest_way": {
-     "id": 95187923,
+     "id": 362256284,
      "highway": "residential",
      "name": null,
      "ref": null,
      "country": "tr"
     },
     "nearest_place": {
-     "name": "Tuzluca",
+     "name": "Atadamı",
      "type": "village",
-     "dist_m": 4917.6,
-     "lat": 37.635892,
-     "lon": 43.030774
+     "dist_m": 10742.9,
+     "lat": 39.300045,
+     "lon": 43.762857
     },
-    "detail": "detail/tr/B-10",
+    "island_km2": null,
+    "detail": "detail/tr/B-39.337593_43.877671",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 18437.44,
+  "lat": 38.649989,
+  "lon": 33.480917,
+  "rank": 8,
+  "withheld": 0
  }
 }

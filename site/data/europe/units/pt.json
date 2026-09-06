@@ -18,50 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 30.028847,
-    "lon": -16.051646,
-    "dist_m": 21477.37,
-    "nearest_way": {
-     "id": 194849031,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "pt"
-    },
-    "nearest_place": {
-     "name": "Caniço",
-     "type": "city",
-     "dist_m": 300423.6,
-     "lat": 32.65238,
-     "lon": -16.84097
-    },
-    "detail": "detail/pt/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 39.480139,
-    "lon": -9.545049,
-    "dist_m": 7831.04,
-    "nearest_way": {
-     "id": 441503021,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "pt"
-    },
-    "nearest_place": {
-     "name": "Peniche",
-     "type": "city",
-     "dist_m": 19812.4,
-     "lat": 39.356875,
-     "lon": -9.378684
-    },
-    "detail": "detail/pt/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 36.964697,
     "lon": -7.910538,
     "dist_m": 4229.45,
@@ -79,11 +35,12 @@
      "lat": 36.975902,
      "lon": -7.864976
     },
-    "detail": "detail/pt/A-3",
+    "island_km2": null,
+    "detail": "detail/pt/A-36.964697_-7.910538",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 2,
     "lat": 41.782454,
     "lon": -8.095161,
     "dist_m": 3454.55,
@@ -101,11 +58,12 @@
      "lat": 41.767608,
      "lon": -8.146743
     },
-    "detail": "detail/pt/A-4",
+    "island_km2": null,
+    "detail": "detail/pt/A-41.782454_-8.095161",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 3,
     "lat": 40.687845,
     "lon": -8.679356,
     "dist_m": 3366.76,
@@ -123,11 +81,12 @@
      "lat": 40.680063,
      "lon": -8.627608
     },
-    "detail": "detail/pt/A-5",
+    "island_km2": null,
+    "detail": "detail/pt/A-40.687845_-8.679356",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 4,
     "lat": 38.880203,
     "lon": -7.777054,
     "dist_m": 2947.67,
@@ -141,15 +100,16 @@
     "nearest_place": {
      "name": "Aldeia do Reboxo",
      "type": "hamlet",
-     "dist_m": 3816.2,
+     "dist_m": 3816.1,
      "lat": 38.845857,
      "lon": -7.778865
     },
-    "detail": "detail/pt/A-6",
+    "island_km2": null,
+    "detail": "detail/pt/A-38.880203_-7.777054",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 5,
     "lat": 39.129925,
     "lon": -8.038287,
     "dist_m": 2762.33,
@@ -167,33 +127,12 @@
      "lat": 39.094181,
      "lon": -8.032858
     },
-    "detail": "detail/pt/A-7",
+    "island_km2": null,
+    "detail": "detail/pt/A-39.129925_-8.038287",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 41.857989,
-    "lon": -7.995544,
-    "dist_m": 2474.08,
-    "nearest_way": {
-     "id": 865625646,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "pt"
-    },
-    "nearest_place": {
-     "name": "Bouzas",
-     "type": "hamlet",
-     "dist_m": 3925.0,
-     "lat": 41.879528,
-     "lon": -8.033024
-    },
-    "detail": "detail/pt/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 6,
     "lat": 38.939905,
     "lon": -8.281468,
     "dist_m": 2466.76,
@@ -211,11 +150,12 @@
      "lat": 38.912098,
      "lon": -8.289573
     },
-    "detail": "detail/pt/A-9",
+    "island_km2": null,
+    "detail": "detail/pt/A-38.939905_-8.281468",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 7,
     "lat": 37.591566,
     "lon": -7.49917,
     "dist_m": 2431.05,
@@ -233,61 +173,94 @@
      "lat": 37.605133,
      "lon": -7.532094
     },
-    "detail": "detail/pt/A-10",
+    "island_km2": null,
+    "detail": "detail/pt/A-37.591566_-7.499170",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.25945,
+    "lon": -8.589509,
+    "dist_m": 2334.16,
+    "nearest_way": {
+     "id": 755902011,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Aldeia do Pico",
+     "type": "hamlet",
+     "dist_m": 3608.6,
+     "lat": 38.231148,
+     "lon": -8.569225
+    },
+    "island_km2": null,
+    "detail": "detail/pt/A-38.259450_-8.589509",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 38.678209,
+    "lon": -8.807694,
+    "dist_m": 2318.65,
+    "nearest_way": {
+     "id": 253238370,
+     "highway": "track",
+     "name": "Aceiro dos Caramelos",
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Forninho",
+     "type": "hamlet",
+     "dist_m": 3423.5,
+     "lat": 38.658596,
+     "lon": -8.777336
+    },
+    "island_km2": null,
+    "detail": "detail/pt/A-38.678209_-8.807694",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 40.317596,
+    "lon": -7.650837,
+    "dist_m": 2278.34,
+    "nearest_way": {
+     "id": 232005499,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Chão da Ribeira",
+     "type": "isolated_dwelling",
+     "dist_m": 2583.9,
+     "lat": 40.328411,
+     "lon": -7.677756
+    },
+    "island_km2": null,
+    "detail": "detail/pt/A-40.317596_-7.650837",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 4229.45,
+  "lat": 36.964697,
+  "lon": -7.910538,
+  "rank": 30,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 30.028847,
-    "lon": -16.051646,
-    "dist_m": 21477.37,
-    "nearest_way": {
-     "id": 194849031,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "pt"
-    },
-    "nearest_place": {
-     "name": "Caniço",
-     "type": "city",
-     "dist_m": 300423.6,
-     "lat": 32.65238,
-     "lon": -16.84097
-    },
-    "detail": "detail/pt/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 39.480139,
-    "lon": -9.545049,
-    "dist_m": 7831.04,
-    "nearest_way": {
-     "id": 441503021,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "pt"
-    },
-    "nearest_place": {
-     "name": "Peniche",
-     "type": "city",
-     "dist_m": 19812.4,
-     "lat": 39.356875,
-     "lon": -9.378684
-    },
-    "detail": "detail/pt/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 40.240585,
     "lon": -6.999896,
     "dist_m": 6739.42,
@@ -305,11 +278,12 @@
      "lat": 40.298137,
      "lon": -6.950001
     },
-    "detail": "detail/pt/B-3",
+    "island_km2": null,
+    "detail": "detail/pt/B-40.240585_-6.999896",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 2,
     "lat": 40.063022,
     "lon": -6.907314,
     "dist_m": 6272.34,
@@ -327,11 +301,12 @@
      "lat": 40.003329,
      "lon": -6.916466
     },
-    "detail": "detail/pt/B-4",
+    "island_km2": null,
+    "detail": "detail/pt/B-40.063022_-6.907314",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 3,
     "lat": 38.857938,
     "lon": -8.312385,
     "dist_m": 6152.28,
@@ -345,15 +320,16 @@
     "nearest_place": {
      "name": "Marco",
      "type": "isolated_dwelling",
-     "dist_m": 5199.6,
+     "dist_m": 5199.5,
      "lat": 38.866587,
      "lon": -8.371261
     },
-    "detail": "detail/pt/B-5",
+    "island_km2": null,
+    "detail": "detail/pt/B-38.857938_-8.312385",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 4,
     "lat": 38.21086,
     "lon": -6.956461,
     "dist_m": 6077.43,
@@ -365,17 +341,18 @@
      "country": "pt"
     },
     "nearest_place": {
-     "name": "Monte do Braga",
+     "name": "Cortijo del Guarda",
      "type": "isolated_dwelling",
-     "dist_m": 6417.6,
-     "lat": 38.153075,
-     "lon": -6.954062
+     "dist_m": 3392.2,
+     "lat": 38.181402,
+     "lon": -6.946156
     },
-    "detail": "detail/pt/B-6",
+    "island_km2": null,
+    "detail": "detail/pt/B-38.210860_-6.956461",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 5,
     "lat": 41.821474,
     "lon": -8.040776,
     "dist_m": 6014.04,
@@ -393,11 +370,12 @@
      "lat": 41.823092,
      "lon": -8.059501
     },
-    "detail": "detail/pt/B-7",
+    "island_km2": null,
+    "detail": "detail/pt/B-41.821474_-8.040776",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 6,
     "lat": 38.324217,
     "lon": -8.343474,
     "dist_m": 5956.24,
@@ -415,11 +393,12 @@
      "lat": 38.333054,
      "lon": -8.329127
     },
-    "detail": "detail/pt/B-8",
+    "island_km2": null,
+    "detail": "detail/pt/B-38.324217_-8.343474",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 7,
     "lat": 38.822156,
     "lon": -8.104701,
     "dist_m": 5939.98,
@@ -433,15 +412,16 @@
     "nearest_place": {
      "name": "Monte Novo",
      "type": "isolated_dwelling",
-     "dist_m": 3634.6,
+     "dist_m": 3634.7,
      "lat": 38.844615,
      "lon": -8.074242
     },
-    "detail": "detail/pt/B-9",
+    "island_km2": null,
+    "detail": "detail/pt/B-38.822156_-8.104701",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 8,
     "lat": 37.833212,
     "lon": -7.791779,
     "dist_m": 5699.02,
@@ -459,11 +439,65 @@
      "lat": 37.863471,
      "lon": -7.758004
     },
-    "detail": "detail/pt/B-10",
+    "island_km2": null,
+    "detail": "detail/pt/B-37.833212_-7.791779",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 39.684339,
+    "lon": -7.236394,
+    "dist_m": 5425.95,
+    "nearest_way": {
+     "id": 342216459,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Soalheiras",
+     "type": "hamlet",
+     "dist_m": 5648.2,
+     "lat": 39.702403,
+     "lon": -7.174836
+    },
+    "island_km2": null,
+    "detail": "detail/pt/B-39.684339_-7.236394",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 38.19249,
+    "lon": -8.242197,
+    "dist_m": 5279.3,
+    "nearest_way": {
+     "id": 253097366,
+     "highway": "primary",
+     "name": null,
+     "ref": "ER 2",
+     "country": "pt"
+    },
+    "nearest_place": {
+     "name": "Várzea Redonda",
+     "type": "isolated_dwelling",
+     "dist_m": 7245.0,
+     "lat": 38.198992,
+     "lon": -8.324492
+    },
+    "island_km2": null,
+    "detail": "detail/pt/B-38.192490_-8.242197",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 6739.42,
+  "lat": 40.240585,
+  "lon": -6.999896,
+  "rank": 29,
+  "withheld": 0
  }
 }

@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 53.250061,
-    "lon": 5.258749,
-    "dist_m": 11913.89,
-    "nearest_way": {
-     "id": 54848898,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "nl"
-    },
-    "nearest_place": {
-     "name": "West-Terschelling",
-     "type": "village",
-     "dist_m": 12703.4,
-     "lat": 53.361303,
-     "lon": 5.216042
-    },
-    "detail": "detail/nl/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 53.466453,
     "lon": 6.029396,
     "dist_m": 6994.12,
@@ -57,33 +35,35 @@
      "lat": 53.401344,
      "lon": 6.015071
     },
-    "detail": "detail/nl/A-2",
+    "island_km2": 2.8,
+    "detail": "detail/nl/A-53.466453_6.029396",
     "warnings": []
    },
    {
-    "rank": 3,
-    "lat": 53.522105,
-    "lon": 6.603311,
-    "dist_m": 6571.48,
+    "rank": 2,
+    "lat": 53.536272,
+    "lon": 6.601543,
+    "dist_m": 6313.3,
     "nearest_way": {
-     "id": 87332657,
-     "highway": "track",
-     "name": "Jan Brandspad",
+     "id": 612158430,
+     "highway": "residential",
+     "name": "Süderstraße",
      "ref": null,
-     "country": "nl"
+     "country": "de"
     },
     "nearest_place": {
      "name": "Borkum",
      "type": "town",
-     "dist_m": 8723.5,
+     "dist_m": 7461.1,
      "lat": 53.590295,
      "lon": 6.668217
     },
-    "detail": "detail/nl/A-3",
+    "island_km2": 2.3,
+    "detail": "detail/nl/A-53.536272_6.601543",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 52.805472,
     "lon": 5.221838,
     "dist_m": 5721.63,
@@ -101,11 +81,12 @@
      "lat": 52.753901,
      "lon": 5.212763
     },
-    "detail": "detail/nl/A-4",
+    "island_km2": 1.6,
+    "detail": "detail/nl/A-52.805472_5.221838",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 53.519086,
     "lon": 6.40001,
     "dist_m": 4949.39,
@@ -123,7 +104,31 @@
      "lat": 53.402321,
      "lon": 6.425865
     },
-    "detail": "detail/nl/A-5",
+    "island_km2": 43.9,
+    "detail": "detail/nl/A-53.519086_6.400010",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 53.292683,
+    "lon": 5.160917,
+    "dist_m": 4562.8,
+    "nearest_way": {
+     "id": 6541259,
+     "highway": "unclassified",
+     "name": "Fortweg",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Oost-Vlieland",
+     "type": "village",
+     "dist_m": 6410.3,
+     "lat": 53.295485,
+     "lon": 5.064896
+    },
+    "island_km2": 3.5,
+    "detail": "detail/nl/A-53.292683_5.160917",
     "warnings": []
    },
    {
@@ -145,33 +150,12 @@
      "lat": 52.95308,
      "lon": 4.724993
     },
-    "detail": "detail/nl/A-6",
+    "island_km2": 4.9,
+    "detail": "detail/nl/A-52.978322_4.668604",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 53.341028,
-    "lon": 5.128538,
-    "dist_m": 4212.07,
-    "nearest_way": {
-     "id": 390521777,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "nl"
-    },
-    "nearest_place": {
-     "name": "West-Terschelling",
-     "type": "village",
-     "dist_m": 6248.6,
-     "lat": 53.361303,
-     "lon": 5.216042
-    },
-    "detail": "detail/nl/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
     "lat": 51.365515,
     "lon": 4.155132,
     "dist_m": 3318.5,
@@ -189,33 +173,12 @@
      "lat": 51.353325,
      "lon": 4.10833
     },
-    "detail": "detail/nl/A-8",
+    "island_km2": null,
+    "detail": "detail/nl/A-51.365515_4.155132",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 53.418063,
-    "lon": 5.587018,
-    "dist_m": 3243.19,
-    "nearest_way": {
-     "id": 6540245,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "nl"
-    },
-    "nearest_place": {
-     "name": "Hollum",
-     "type": "village",
-     "dist_m": 4245.2,
-     "lat": 53.441217,
-     "lon": 5.637772
-    },
-    "detail": "detail/nl/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 8,
     "lat": 52.5897,
     "lon": 5.411198,
     "dist_m": 2742.1,
@@ -233,12 +196,296 @@
      "lat": 52.515095,
      "lon": 5.476891
     },
-    "detail": "detail/nl/A-10",
+    "island_km2": 12.0,
+    "detail": "detail/nl/A-52.589700_5.411198",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 53.352595,
+    "lon": 6.205687,
+    "dist_m": 2733.65,
+    "nearest_way": {
+     "id": 792885859,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Ezumazijl",
+     "type": "hamlet",
+     "dist_m": 3814.3,
+     "lat": 53.360119,
+     "lon": 6.149799
+    },
+    "island_km2": null,
+    "detail": "detail/nl/A-53.352595_6.205687",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 53.352654,
+    "lon": 5.755686,
+    "dist_m": 2491.1,
+    "nearest_way": {
+     "id": 39522965,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Westernijtsjerk",
+     "type": "hamlet",
+     "dist_m": 3876.1,
+     "lat": 53.326831,
+     "lon": 5.794735
+    },
+    "island_km2": null,
+    "detail": "detail/nl/A-53.352654_5.755686",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 53.477571,
+    "lon": 6.257409,
+    "dist_m": 2472.29,
+    "nearest_way": {
+     "id": 39048303,
+     "highway": "track",
+     "name": "Waterstaatpad",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Schiermonnikoog",
+     "type": "village",
+     "dist_m": 6400.9,
+     "lat": 53.478284,
+     "lon": 6.161008
+    },
+    "island_km2": 43.9,
+    "detail": "detail/nl/A-53.477571_6.257409",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 51.401438,
+    "lon": 3.627861,
+    "dist_m": 2466.33,
+    "nearest_way": {
+     "id": 388112372,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Nummer Een",
+     "type": "hamlet",
+     "dist_m": 3083.0,
+     "lat": 51.382454,
+     "lon": 3.595594
+    },
+    "island_km2": 2.8,
+    "detail": "detail/nl/A-51.401438_3.627861",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 51.739589,
+    "lon": 4.802186,
+    "dist_m": 2149.14,
+    "nearest_way": {
+     "id": 367101524,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Drimmelen",
+     "type": "village",
+     "dist_m": 3510.9,
+     "lat": 51.708069,
+     "lon": 4.80459
+    },
+    "island_km2": null,
+    "detail": "detail/nl/A-51.739589_4.802186",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 52.78361,
+    "lon": 5.915712,
+    "dist_m": 2011.88,
+    "nearest_way": {
+     "id": 885090938,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Blankenham",
+     "type": "village",
+     "dist_m": 2418.0,
+     "lat": 52.765438,
+     "lon": 5.896067
+    },
+    "island_km2": null,
+    "detail": "detail/nl/A-52.783610_5.915712",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 52.481033,
+    "lon": 5.09762,
+    "dist_m": 1968.12,
+    "nearest_way": {
+     "id": 430040607,
+     "highway": "residential",
+     "name": "Havendijkje",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Minnebuurt",
+     "type": "hamlet",
+     "dist_m": 2181.2,
+     "lat": 52.463073,
+     "lon": 5.110477
+    },
+    "island_km2": null,
+    "detail": "detail/nl/A-52.481033_5.097620",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 51.659115,
+    "lon": 4.210658,
+    "dist_m": 1946.56,
+    "nearest_way": {
+     "id": 1079029570,
+     "highway": "service",
+     "name": "Veerweg",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Oude-Tonge",
+     "type": "village",
+     "dist_m": 3512.6,
+     "lat": 51.690667,
+     "lon": 4.212408
+    },
+    "island_km2": null,
+    "detail": "detail/nl/A-51.659115_4.210658",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 51.804818,
+    "lon": 4.147303,
+    "dist_m": 1934.64,
+    "nearest_way": {
+     "id": 660410883,
+     "highway": "unclassified",
+     "name": "Zeedijk",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Hellevoetsluis",
+     "type": "town",
+     "dist_m": 3247.8,
+     "lat": 51.833921,
+     "lon": 4.143674
+    },
+    "island_km2": 1.9,
+    "detail": "detail/nl/A-51.804818_4.147303",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 52.594074,
+    "lon": 4.614871,
+    "dist_m": 1835.93,
+    "nearest_way": {
+     "id": 893972465,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Egmond-Binnen",
+     "type": "village",
+     "dist_m": 2772.6,
+     "lat": 52.597371,
+     "lon": 4.655427
+    },
+    "island_km2": null,
+    "detail": "detail/nl/A-52.594074_4.614871",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 52.449859,
+    "lon": 5.337859,
+    "dist_m": 1779.5,
+    "nearest_way": {
+     "id": 1040061757,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Buitenvaart",
+     "type": "hamlet",
+     "dist_m": 5683.5,
+     "lat": 52.41986,
+     "lon": 5.270224
+    },
+    "island_km2": null,
+    "detail": "detail/nl/A-52.449859_5.337859",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 52.705675,
+    "lon": 6.034261,
+    "dist_m": 1761.84,
+    "nearest_way": {
+     "id": 6515881,
+     "highway": "unclassified",
+     "name": "Hevenweg",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Jonen",
+     "type": "hamlet",
+     "dist_m": 1843.6,
+     "lat": 52.718947,
+     "lon": 6.017934
+    },
+    "island_km2": null,
+    "detail": "detail/nl/A-52.705675_6.034261",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 3318.5,
+  "lat": 51.365515,
+  "lon": 4.155132,
+  "rank": 38,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,37 +504,16 @@
     "nearest_place": {
      "name": "Borkum",
      "type": "town",
-     "dist_m": 14283.9,
+     "dist_m": 14284.0,
      "lat": 53.590295,
      "lon": 6.668217
     },
-    "detail": "detail/nl/B-1",
+    "island_km2": 8.3,
+    "detail": "detail/nl/B-53.544073_6.467091",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 53.250061,
-    "lon": 5.258749,
-    "dist_m": 11913.89,
-    "nearest_way": {
-     "id": 54848898,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "nl"
-    },
-    "nearest_place": {
-     "name": "West-Terschelling",
-     "type": "village",
-     "dist_m": 12703.4,
-     "lat": 53.361303,
-     "lon": 5.216042
-    },
-    "detail": "detail/nl/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 53.512452,
     "lon": 6.325101,
     "dist_m": 8518.02,
@@ -305,11 +531,12 @@
      "lat": 53.478284,
      "lon": 6.161008
     },
-    "detail": "detail/nl/B-3",
+    "island_km2": 43.9,
+    "detail": "detail/nl/B-53.512452_6.325101",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 53.443029,
     "lon": 5.500348,
     "dist_m": 7739.18,
@@ -327,11 +554,12 @@
      "lat": 53.404387,
      "lon": 5.380692
     },
-    "detail": "detail/nl/B-4",
+    "island_km2": 85.4,
+    "detail": "detail/nl/B-53.443029_5.500348",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 53.470211,
     "lon": 6.033528,
     "dist_m": 7354.23,
@@ -349,11 +577,12 @@
      "lat": 53.401344,
      "lon": 6.015071
     },
-    "detail": "detail/nl/B-5",
+    "island_km2": 2.8,
+    "detail": "detail/nl/B-53.470211_6.033528",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 52.584457,
     "lon": 5.358958,
     "dist_m": 6119.79,
@@ -371,11 +600,12 @@
      "lat": 52.515095,
      "lon": 5.476891
     },
-    "detail": "detail/nl/B-6",
+    "island_km2": 12.0,
+    "detail": "detail/nl/B-52.584457_5.358958",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 52.805472,
     "lon": 5.221838,
     "dist_m": 5728.04,
@@ -393,11 +623,12 @@
      "lat": 52.753901,
      "lon": 5.212763
     },
-    "detail": "detail/nl/B-7",
+    "island_km2": 1.6,
+    "detail": "detail/nl/B-52.805472_5.221838",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 53.228951,
     "lon": 4.870132,
     "dist_m": 5323.71,
@@ -415,16 +646,178 @@
      "lat": 53.1561,
      "lon": 4.871109
     },
-    "detail": "detail/nl/B-8",
+    "island_km2": 38.8,
+    "detail": "detail/nl/B-53.228951_4.870132",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 52.984769,
+    "lon": 4.671464,
+    "dist_m": 4711.94,
+    "nearest_way": {
+     "id": 23308470,
+     "highway": "service",
+     "name": "Zeepromenade",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Huisduinen",
+     "type": "hamlet",
+     "dist_m": 5036.9,
+     "lat": 52.95308,
+     "lon": 4.724993
+    },
+    "island_km2": 4.9,
+    "detail": "detail/nl/B-52.984769_4.671464",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 53.34607,
-    "lon": 5.133974,
-    "dist_m": 5291.21,
+    "lat": 53.292683,
+    "lon": 5.160917,
+    "dist_m": 4562.8,
     "nearest_way": {
-     "id": 481919179,
+     "id": 6541259,
+     "highway": "unclassified",
+     "name": "Fortweg",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Oost-Vlieland",
+     "type": "village",
+     "dist_m": 6410.3,
+     "lat": 53.295485,
+     "lon": 5.064896
+    },
+    "island_km2": 3.5,
+    "detail": "detail/nl/B-53.292683_5.160917",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 51.368527,
+    "lon": 4.189114,
+    "dist_m": 3712.39,
+    "nearest_way": {
+     "id": 89013694,
+     "highway": "service",
+     "name": "Buitendijks",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Bath",
+     "type": "hamlet",
+     "dist_m": 3896.2,
+     "lat": 51.401255,
+     "lon": 4.209026
+    },
+    "island_km2": null,
+    "detail": "detail/nl/B-51.368527_4.189114",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 52.329887,
+    "lon": 4.504692,
+    "dist_m": 3601.23,
+    "nearest_way": {
+     "id": 1241143017,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "De Zilk",
+     "type": "village",
+     "dist_m": 4033.3,
+     "lat": 52.302371,
+     "lon": 4.543193
+    },
+    "island_km2": null,
+    "detail": "detail/nl/B-52.329887_4.504692",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 51.765984,
+    "lon": 3.945108,
+    "dist_m": 3580.79,
+    "nearest_way": {
+     "id": 7587587,
+     "highway": "service",
+     "name": "Ouddorpse haven",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Dijkhuisjes",
+     "type": "isolated_dwelling",
+     "dist_m": 4433.9,
+     "lat": 51.726146,
+     "lon": 3.946738
+    },
+    "island_km2": null,
+    "detail": "detail/nl/B-51.765984_3.945108",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 52.268517,
+    "lon": 5.856247,
+    "dist_m": 3379.33,
+    "nearest_way": {
+     "id": 165402677,
+     "highway": "unclassified",
+     "name": "Elspeterweg",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Niersen",
+     "type": "hamlet",
+     "dist_m": 4014.2,
+     "lat": 52.288187,
+     "lon": 5.905549
+    },
+    "island_km2": null,
+    "detail": "detail/nl/B-52.268517_5.856247",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 52.444377,
+    "lon": 5.359506,
+    "dist_m": 3104.1,
+    "nearest_way": {
+     "id": 164859840,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Buitenvaart",
+     "type": "hamlet",
+     "dist_m": 6657.2,
+     "lat": 52.41986,
+     "lon": 5.270224
+    },
+    "island_km2": null,
+    "detail": "detail/nl/B-52.444377_5.359506",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 53.384171,
+    "lon": 5.179017,
+    "dist_m": 2829.77,
+    "nearest_way": {
+     "id": 525173531,
      "highway": "service",
      "name": null,
      "ref": null,
@@ -433,37 +826,138 @@
     "nearest_place": {
      "name": "West-Terschelling",
      "type": "village",
-     "dist_m": 5721.6,
+     "dist_m": 3542.6,
      "lat": 53.361303,
      "lon": 5.216042
     },
-    "detail": "detail/nl/B-9",
+    "island_km2": 85.4,
+    "detail": "detail/nl/B-53.384171_5.179017",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 53.530635,
-    "lon": 6.648262,
-    "dist_m": 5228.88,
+    "rank": 16,
+    "lat": 53.353427,
+    "lon": 6.204054,
+    "dist_m": 2775.48,
     "nearest_way": {
-     "id": 338039368,
+     "id": 6531071,
+     "highway": "unclassified",
+     "name": "Strandweg",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Ezumazijl",
+     "type": "hamlet",
+     "dist_m": 3688.4,
+     "lat": 53.360119,
+     "lon": 6.149799
+    },
+    "island_km2": null,
+    "detail": "detail/nl/B-53.353427_6.204054",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 53.350042,
+    "lon": 5.747644,
+    "dist_m": 2739.43,
+    "nearest_way": {
+     "id": 707268978,
      "highway": "service",
      "name": null,
      "ref": null,
-     "country": "de"
+     "country": "nl"
     },
     "nearest_place": {
-     "name": "Borkum",
-     "type": "town",
-     "dist_m": 6770.3,
-     "lat": 53.590295,
-     "lon": 6.668217
+     "name": "Westernijtsjerk",
+     "type": "hamlet",
+     "dist_m": 4063.5,
+     "lat": 53.326831,
+     "lon": 5.794735
     },
-    "detail": "detail/nl/B-10",
+    "island_km2": null,
+    "detail": "detail/nl/B-53.350042_5.747644",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 51.737778,
+    "lon": 4.813638,
+    "dist_m": 2667.15,
+    "nearest_way": {
+     "id": 415619961,
+     "highway": "service",
+     "name": "Petrusplaat",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Drimmelen",
+     "type": "village",
+     "dist_m": 3364.1,
+     "lat": 51.708069,
+     "lon": 4.80459
+    },
+    "island_km2": null,
+    "detail": "detail/nl/B-51.737778_4.813638",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 52.046923,
+    "lon": 5.973623,
+    "dist_m": 2470.58,
+    "nearest_way": {
+     "id": 1499373970,
+     "highway": "service",
+     "name": "Imbosch",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Terlet",
+     "type": "hamlet",
+     "dist_m": 2591.8,
+     "lat": 52.058972,
+     "lon": 5.941288
+    },
+    "island_km2": null,
+    "detail": "detail/nl/B-52.046923_5.973623",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 51.400247,
+    "lon": 5.623881,
+    "dist_m": 2286.91,
+    "nearest_way": {
+     "id": 7136297,
+     "highway": "secondary",
+     "name": "Somerenseweg",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Moorsel",
+     "type": "hamlet",
+     "dist_m": 2677.4,
+     "lat": 51.415147,
+     "lon": 5.654098
+    },
+    "island_km2": null,
+    "detail": "detail/nl/B-51.400247_5.623881",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 3712.39,
+  "lat": 51.368527,
+  "lon": 4.189114,
+  "rank": 42,
+  "withheld": 0
  }
 }

@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 67.15042,
-    "lon": -18.683029,
-    "dist_m": 71375.38,
-    "nearest_way": {
-     "id": 103478056,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "is"
-    },
-    "nearest_place": {
-     "name": "Grímsey",
-     "type": "hamlet",
-     "dist_m": 74155.3,
-     "lat": 66.539604,
-     "lon": -18.015328
-    },
-    "detail": "detail/is/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 64.400468,
     "lon": -17.113665,
     "dist_m": 42370.41,
@@ -57,215 +35,255 @@
      "lat": 63.90687,
      "lon": -16.707139
     },
-    "detail": "detail/is/A-2",
+    "island_km2": null,
+    "detail": "detail/is/A-64.400468_-17.113665",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 66.448878,
+    "lon": -22.535443,
+    "dist_m": 21356.36,
+    "nearest_way": {
+     "id": 626745670,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Bolungarvík",
+     "type": "isolated_dwelling",
+     "dist_m": 21558.6,
+     "lat": 66.302236,
+     "lon": -22.221402
+    },
+    "island_km2": null,
+    "detail": "detail/is/A-66.448878_-22.535443",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 64.377138,
-    "lon": -16.905697,
-    "dist_m": 39598.08,
+    "lat": 64.793781,
+    "lon": -18.820678,
+    "dist_m": 20161.42,
     "nearest_way": {
-     "id": 289693129,
-     "highway": "service",
-     "name": "Hæðir",
+     "id": 1046540942,
+     "highway": "track",
+     "name": null,
      "ref": null,
      "country": "is"
     },
     "nearest_place": {
-     "name": "Hof",
-     "type": "hamlet",
-     "dist_m": 53309.0,
-     "lat": 63.90687,
-     "lon": -16.707139
+     "name": "Silfrastaðir",
+     "type": "isolated_dwelling",
+     "dist_m": 74096.5,
+     "lat": 65.441013,
+     "lon": -19.178768
     },
-    "detail": "detail/is/A-3",
+    "island_km2": null,
+    "detail": "detail/is/A-64.793781_-18.820678",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 64.348026,
-    "lon": -17.285199,
-    "dist_m": 38802.6,
+    "lat": 63.779873,
+    "lon": -17.076676,
+    "dist_m": 20066.09,
     "nearest_way": {
-     "id": 289693129,
-     "highway": "service",
-     "name": "Hæðir",
-     "ref": null,
+     "id": 7726907,
+     "highway": "trunk",
+     "name": "Suðurlandsvegur",
+     "ref": "1",
      "country": "is"
     },
     "nearest_place": {
      "name": "Hof",
      "type": "hamlet",
-     "dist_m": 56669.1,
+     "dist_m": 23044.5,
      "lat": 63.90687,
      "lon": -16.707139
     },
-    "detail": "detail/is/A-4",
+    "island_km2": null,
+    "detail": "detail/is/A-63.779873_-17.076676",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 64.376191,
-    "lon": -16.69078,
-    "dist_m": 36084.65,
+    "lat": 64.739336,
+    "lon": -20.056038,
+    "dist_m": 19356.62,
     "nearest_way": {
-     "id": 309150310,
+     "id": 1054565116,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "is"
     },
     "nearest_place": {
-     "name": "Hof",
-     "type": "hamlet",
-     "dist_m": 52325.8,
-     "lat": 63.90687,
-     "lon": -16.707139
+     "name": "Brattholt",
+     "type": "isolated_dwelling",
+     "dist_m": 49208.1,
+     "lat": 64.300534,
+     "lon": -20.166775
     },
-    "detail": "detail/is/A-5",
+    "island_km2": null,
+    "detail": "detail/is/A-64.739336_-20.056038",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 64.595463,
-    "lon": -13.273488,
-    "dist_m": 35652.53,
+    "lat": 63.300495,
+    "lon": -20.61402,
+    "dist_m": 17438.61,
     "nearest_way": {
-     "id": 48325001,
-     "highway": "service",
-     "name": "Heyklif",
-     "ref": "9599",
-     "country": "is"
-    },
-    "nearest_place": {
-     "name": "Stöðvarfjörður",
-     "type": "village",
-     "dist_m": 39052.3,
-     "lat": 64.833803,
-     "lon": -13.873733
-    },
-    "detail": "detail/is/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 64.439032,
-    "lon": -17.319925,
-    "dist_m": 35464.86,
-    "nearest_way": {
-     "id": 556458824,
+     "id": 1133932397,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "is"
     },
     "nearest_place": {
-     "name": "Hof",
-     "type": "hamlet",
-     "dist_m": 66388.3,
-     "lat": 63.90687,
-     "lon": -16.707139
+     "name": "Vestmannaeyjar",
+     "type": "town",
+     "dist_m": 22886.2,
+     "lat": 63.440101,
+     "lon": -20.27859
     },
-    "detail": "detail/is/A-7",
+    "island_km2": 1.3,
+    "detail": "detail/is/A-63.300495_-20.614020",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 65.325066,
+    "lon": -16.495177,
+    "dist_m": 16700.08,
+    "nearest_way": {
+     "id": 492666258,
+     "highway": "track",
+     "name": "Heilagsdalsskáli",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Vogar",
+     "type": "hamlet",
+     "dist_m": 38632.7,
+     "lat": 65.623597,
+     "lon": -16.918371
+    },
+    "island_km2": null,
+    "detail": "detail/is/A-65.325066_-16.495177",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 64.291197,
-    "lon": -17.449025,
-    "dist_m": 33843.4,
+    "lat": 63.683899,
+    "lon": -19.084511,
+    "dist_m": 14320.25,
     "nearest_way": {
-     "id": 1227242972,
+     "id": 1412262159,
      "highway": "track",
-     "name": "Hamarsskryki",
+     "name": null,
      "ref": null,
      "country": "is"
     },
     "nearest_place": {
-     "name": "Hof",
+     "name": "Sólheimaskáli",
      "type": "hamlet",
-     "dist_m": 56071.9,
-     "lat": 63.90687,
-     "lon": -16.707139
+     "dist_m": 16742.2,
+     "lat": 63.553564,
+     "lon": -19.252258
     },
-    "detail": "detail/is/A-8",
+    "island_km2": null,
+    "detail": "detail/is/A-63.683899_-19.084511",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 64.395071,
-    "lon": -16.482881,
-    "dist_m": 33066.77,
+    "lat": 65.353309,
+    "lon": -18.588085,
+    "dist_m": 13606.95,
     "nearest_way": {
-     "id": 231869200,
-     "highway": "tertiary",
-     "name": "Jökulvegur",
-     "ref": "F985",
-     "country": "is"
-    },
-    "nearest_place": {
-     "name": "Hof",
-     "type": "hamlet",
-     "dist_m": 55507.9,
-     "lat": 63.90687,
-     "lon": -16.707139
-    },
-    "detail": "detail/is/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 64.489426,
-    "lon": -17.070809,
-    "dist_m": 32999.15,
-    "nearest_way": {
-     "id": 556458828,
+     "id": 236783235,
      "highway": "track",
-     "name": "Dyngjujokull",
+     "name": null,
      "ref": null,
      "country": "is"
     },
     "nearest_place": {
-     "name": "Hof",
-     "type": "hamlet",
-     "dist_m": 67303.9,
-     "lat": 63.90687,
-     "lon": -16.707139
+     "name": "Silfrastaðir",
+     "type": "isolated_dwelling",
+     "dist_m": 29141.0,
+     "lat": 65.441013,
+     "lon": -19.178768
     },
-    "detail": "detail/is/A-10",
+    "island_km2": null,
+    "detail": "detail/is/A-65.353309_-18.588085",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 65.458,
+    "lon": -15.172015,
+    "dist_m": 13067.17,
+    "nearest_way": {
+     "id": 48324638,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Vopnafjörður",
+     "type": "town",
+     "dist_m": 36593.7,
+     "lat": 65.754058,
+     "lon": -14.829489
+    },
+    "island_km2": null,
+    "detail": "detail/is/A-65.458000_-15.172015",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 65.224322,
+    "lon": -14.927911,
+    "dist_m": 12625.32,
+    "nearest_way": {
+     "id": 545653696,
+     "highway": "unclassified",
+     "name": "Teigaból",
+     "ref": "9326",
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hallormsstaður",
+     "type": "hamlet",
+     "dist_m": 16976.8,
+     "lat": 65.09323,
+     "lon": -14.743756
+    },
+    "island_km2": null,
+    "detail": "detail/is/A-65.224322_-14.927911",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 42370.41,
+  "lat": 64.400468,
+  "lon": -17.113665,
+  "rank": 1,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 67.15042,
-    "lon": -18.683029,
-    "dist_m": 73176.62,
-    "nearest_way": {
-     "id": 103478049,
-     "highway": "secondary",
-     "name": "Grímseyjarvegur",
-     "ref": "8005",
-     "country": "is"
-    },
-    "nearest_place": {
-     "name": "Grímsey",
-     "type": "hamlet",
-     "dist_m": 74155.3,
-     "lat": 66.539604,
-     "lon": -18.015328
-    },
-    "detail": "detail/is/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 64.417533,
     "lon": -17.308698,
     "dist_m": 46458.69,
@@ -283,55 +301,12 @@
      "lat": 63.90687,
      "lon": -16.707139
     },
-    "detail": "detail/is/B-2",
+    "island_km2": null,
+    "detail": "detail/is/B-64.417533_-17.308698",
     "warnings": []
    },
    {
-    "rank": 3,
-    "lat": 64.399068,
-    "lon": -17.097511,
-    "dist_m": 42114.73,
-    "nearest_way": {
-     "id": 289693129,
-     "highway": "service",
-     "name": "Hæðir",
-     "ref": null,
-     "country": "is"
-    },
-    "nearest_place": {
-     "name": "Hof",
-     "type": "hamlet",
-     "dist_m": 58065.3,
-     "lat": 63.90687,
-     "lon": -16.707139
-    },
-    "detail": "detail/is/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 64.336812,
-    "lon": -17.407918,
-    "dist_m": 40269.61,
-    "nearest_way": {
-     "id": 289693129,
-     "highway": "service",
-     "name": "Hæðir",
-     "ref": null,
-     "country": "is"
-    },
-    "nearest_place": {
-     "name": "Hof",
-     "type": "hamlet",
-     "dist_m": 58845.3,
-     "lat": 63.90687,
-     "lon": -16.707139
-    },
-    "detail": "detail/is/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
+    "rank": 2,
     "lat": 66.465657,
     "lon": -22.46595,
     "dist_m": 40078.33,
@@ -349,99 +324,226 @@
      "lat": 66.302236,
      "lon": -22.221402
     },
-    "detail": "detail/is/B-5",
+    "island_km2": null,
+    "detail": "detail/is/B-66.465657_-22.465950",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 65.861565,
+    "lon": -15.554831,
+    "dist_m": 26725.22,
+    "nearest_way": {
+     "id": 556297589,
+     "highway": "service",
+     "name": "Víðirhóll",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Holt",
+     "type": "isolated_dwelling",
+     "dist_m": 32788.2,
+     "lat": 66.154518,
+     "lon": -15.492633
+    },
+    "island_km2": null,
+    "detail": "detail/is/B-65.861565_-15.554831",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 64.85065,
+    "lon": -18.812656,
+    "dist_m": 25981.34,
+    "nearest_way": {
+     "id": 319374906,
+     "highway": "tertiary",
+     "name": "Skagafjarðarleið",
+     "ref": "F752",
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Silfrastaðir",
+     "type": "isolated_dwelling",
+     "dist_m": 68026.5,
+     "lat": 65.441013,
+     "lon": -19.178768
+    },
+    "island_km2": null,
+    "detail": "detail/is/B-64.850650_-18.812656",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 65.315151,
+    "lon": -16.698371,
+    "dist_m": 25634.24,
+    "nearest_way": {
+     "id": 680353657,
+     "highway": "service",
+     "name": "Öskjuvegur-Svartakot",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Vogar",
+     "type": "hamlet",
+     "dist_m": 35871.1,
+     "lat": 65.623597,
+     "lon": -16.918371
+    },
+    "island_km2": null,
+    "detail": "detail/is/B-65.315151_-16.698371",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 64.380175,
-    "lon": -16.886676,
-    "dist_m": 40043.78,
+    "lat": 64.744147,
+    "lon": -20.114257,
+    "dist_m": 21639.56,
     "nearest_way": {
-     "id": 289693129,
-     "highway": "service",
-     "name": "Hæðir",
-     "ref": null,
+     "id": 41224111,
+     "highway": "tertiary",
+     "name": "Arnarvatnsvegur",
+     "ref": "F578",
      "country": "is"
     },
     "nearest_place": {
-     "name": "Hof",
-     "type": "hamlet",
-     "dist_m": 53482.8,
-     "lat": 63.90687,
-     "lon": -16.707139
+     "name": "Brattholt",
+     "type": "isolated_dwelling",
+     "dist_m": 49520.6,
+     "lat": 64.300534,
+     "lon": -20.166775
     },
-    "detail": "detail/is/B-6",
+    "island_km2": null,
+    "detail": "detail/is/B-64.744147_-20.114257",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 64.466691,
-    "lon": -17.493602,
-    "dist_m": 39941.96,
+    "lat": 63.779841,
+    "lon": -17.05401,
+    "dist_m": 20570.01,
     "nearest_way": {
-     "id": 319955779,
-     "highway": "secondary",
-     "name": "Sprengisandsleið",
-     "ref": "F26",
+     "id": 261284839,
+     "highway": "trunk",
+     "name": "Suðurlandsvegur",
+     "ref": "1",
      "country": "is"
     },
     "nearest_place": {
      "name": "Hof",
      "type": "hamlet",
-     "dist_m": 73184.2,
+     "dist_m": 22177.3,
      "lat": 63.90687,
      "lon": -16.707139
     },
-    "detail": "detail/is/B-7",
+    "island_km2": null,
+    "detail": "detail/is/B-63.779841_-17.054010",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 64.509046,
-    "lon": -17.300808,
-    "dist_m": 39043.81,
+    "lat": 63.300495,
+    "lon": -20.61402,
+    "dist_m": 19681.63,
     "nearest_way": {
-     "id": 391112727,
-     "highway": "unclassified",
-     "name": "Austurleið",
-     "ref": "F910",
-     "country": "is"
-    },
-    "nearest_place": {
-     "name": "Hof",
-     "type": "hamlet",
-     "dist_m": 73060.2,
-     "lat": 63.90687,
-     "lon": -16.707139
-    },
-    "detail": "detail/is/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 64.389002,
-    "lon": -16.670395,
-    "dist_m": 37475.29,
-    "nearest_way": {
-     "id": 1490500379,
-     "highway": "unclassified",
-     "name": "Breiðalónsvegur",
+     "id": 39656042,
+     "highway": "service",
+     "name": null,
      "ref": null,
      "country": "is"
     },
     "nearest_place": {
-     "name": "Hof",
-     "type": "hamlet",
-     "dist_m": 53777.7,
-     "lat": 63.90687,
-     "lon": -16.707139
+     "name": "Vestmannaeyjar",
+     "type": "town",
+     "dist_m": 22886.2,
+     "lat": 63.440101,
+     "lon": -20.27859
     },
-    "detail": "detail/is/B-9",
+    "island_km2": 1.3,
+    "detail": "detail/is/B-63.300495_-20.614020",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 65.243799,
+    "lon": -17.827334,
+    "dist_m": 18219.99,
+    "nearest_way": {
+     "id": 978187364,
+     "highway": "service",
+     "name": "Bleikur",
+     "ref": null,
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Hrafnagil",
+     "type": "village",
+     "dist_m": 38805.1,
+     "lat": 65.573547,
+     "lon": -18.09453
+    },
+    "island_km2": null,
+    "detail": "detail/is/B-65.243799_-17.827334",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 63.675261,
+    "lon": -19.101422,
+    "dist_m": 15546.1,
+    "nearest_way": {
+     "id": 444736611,
+     "highway": "tertiary",
+     "name": "Fjallabaksleið syðri",
+     "ref": "F210",
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Sólheimaskáli",
+     "type": "hamlet",
+     "dist_m": 15492.4,
+     "lat": 63.553564,
+     "lon": -19.252258
+    },
+    "island_km2": null,
+    "detail": "detail/is/B-63.675261_-19.101422",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 65.465969,
+    "lon": -15.163561,
+    "dist_m": 13799.53,
+    "nearest_way": {
+     "id": 680161525,
+     "highway": "trunk",
+     "name": "Norðurlandsvegur",
+     "ref": "1",
+     "country": "is"
+    },
+    "nearest_place": {
+     "name": "Vopnafjörður",
+     "type": "town",
+     "dist_m": 35623.0,
+     "lat": 65.754058,
+     "lon": -14.829489
+    },
+    "island_km2": null,
+    "detail": "detail/is/B-65.465969_-15.163561",
     "warnings": []
    }
   ],
-  "withheld": 1,
+  "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 46458.69,
+  "lat": 64.417533,
+  "lon": -17.308698,
+  "rank": 1,
+  "withheld": 0
  }
 }

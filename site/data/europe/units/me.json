@@ -35,7 +35,8 @@
      "lat": 43.250985,
      "lon": 18.756773
     },
-    "detail": "detail/me/A-1",
+    "island_km2": null,
+    "detail": "detail/me/A-43.228336_18.745505",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 42.243909,
      "lon": 19.376102
     },
-    "detail": "detail/me/A-2",
+    "island_km2": null,
+    "detail": "detail/me/A-42.239620_19.320395",
     "warnings": []
    },
    {
@@ -75,11 +77,12 @@
     "nearest_place": {
      "name": "Pivski Katuni",
      "type": "hamlet",
-     "dist_m": 2183.1,
+     "dist_m": 2183.0,
      "lat": 43.118819,
      "lon": 18.699186
     },
-    "detail": "detail/me/A-3",
+    "island_km2": null,
+    "detail": "detail/me/A-43.112715_18.673691",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 43.137313,
      "lon": 19.039652
     },
-    "detail": "detail/me/A-4",
+    "island_km2": null,
+    "detail": "detail/me/A-43.147014_19.023671",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 42.508651,
      "lon": 19.860289
     },
-    "detail": "detail/me/A-5",
+    "island_km2": null,
+    "detail": "detail/me/A-42.488307_19.863243",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 42.982649,
      "lon": 19.023856
     },
-    "detail": "detail/me/A-6",
+    "island_km2": null,
+    "detail": "detail/me/A-42.949320_19.022842",
     "warnings": []
    },
    {
@@ -167,7 +173,8 @@
      "lat": 43.074913,
      "lon": 18.928557
     },
-    "detail": "detail/me/A-7",
+    "island_km2": null,
+    "detail": "detail/me/A-43.069383_18.953991",
     "warnings": []
    },
    {
@@ -183,13 +190,14 @@
      "country": "me"
     },
     "nearest_place": {
-     "name": "Tunjevo",
+     "name": "Tvorilo",
      "type": "hamlet",
-     "dist_m": 7669.5,
-     "lat": 42.629019,
-     "lon": 19.018404
+     "dist_m": 6717.8,
+     "lat": 42.598544,
+     "lon": 19.060992
     },
-    "detail": "detail/me/A-8",
+    "island_km2": null,
+    "detail": "detail/me/A-42.647874_19.108360",
     "warnings": []
    },
    {
@@ -207,11 +215,12 @@
     "nearest_place": {
      "name": "Zlato",
      "type": "hamlet",
-     "dist_m": 3678.9,
+     "dist_m": 3678.8,
      "lat": 42.878291,
      "lon": 18.68639
     },
-    "detail": "detail/me/A-9",
+    "island_km2": null,
+    "detail": "detail/me/A-42.903813_18.715088",
     "warnings": []
    },
    {
@@ -233,12 +242,20 @@
      "lat": 42.750103,
      "lon": 19.301939
     },
-    "detail": "detail/me/A-10",
+    "island_km2": null,
+    "detail": "detail/me/A-42.749503_19.290665",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 4912.16,
+  "lat": 43.228336,
+  "lon": 18.745505,
+  "rank": 23,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,11 +274,12 @@
     "nearest_place": {
      "name": "Zlostup",
      "type": "hamlet",
-     "dist_m": 6390.8,
+     "dist_m": 6390.9,
      "lat": 42.997383,
      "lon": 18.745969
     },
-    "detail": "detail/me/B-1",
+    "island_km2": null,
+    "detail": "detail/me/B-42.969494_18.814500",
     "warnings": []
    },
    {
@@ -279,11 +297,12 @@
     "nearest_place": {
      "name": "Rudinske kolibe",
      "type": "hamlet",
-     "dist_m": 2572.9,
+     "dist_m": 2573.0,
      "lat": 43.246972,
      "lon": 18.71105
     },
-    "detail": "detail/me/B-2",
+    "island_km2": null,
+    "detail": "detail/me/B-43.228118_18.729445",
     "warnings": []
    },
    {
@@ -305,33 +324,12 @@
      "lat": 42.243909,
      "lon": 19.376102
     },
-    "detail": "detail/me/B-3",
+    "island_km2": null,
+    "detail": "detail/me/B-42.245283_19.294974",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 43.078024,
-    "lon": 18.721929,
-    "dist_m": 5558.52,
-    "nearest_way": {
-     "id": 1221703192,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "me"
-    },
-    "nearest_place": {
-     "name": "Komanske Kolibe",
-     "type": "hamlet",
-     "dist_m": 2347.3,
-     "lat": 43.096097,
-     "lon": 18.736862
-    },
-    "detail": "detail/me/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 43.06083,
     "lon": 18.994299,
     "dist_m": 5008.01,
@@ -349,11 +347,12 @@
      "lat": 43.069961,
      "lon": 18.986128
     },
-    "detail": "detail/me/B-5",
+    "island_km2": null,
+    "detail": "detail/me/B-43.060830_18.994299",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 42.605382,
     "lon": 18.585928,
     "dist_m": 4880.14,
@@ -367,15 +366,16 @@
     "nearest_place": {
      "name": "Jarčišta",
      "type": "hamlet",
-     "dist_m": 2739.8,
+     "dist_m": 2739.9,
      "lat": 42.628331,
      "lon": 18.573689
     },
-    "detail": "detail/me/B-6",
+    "island_km2": null,
+    "detail": "detail/me/B-42.605382_18.585928",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 42.671992,
     "lon": 19.100681,
     "dist_m": 4781.84,
@@ -393,11 +393,12 @@
      "lat": 42.717621,
      "lon": 19.115904
     },
-    "detail": "detail/me/B-7",
+    "island_km2": null,
+    "detail": "detail/me/B-42.671992_19.100681",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 42.468138,
     "lon": 19.822483,
     "dist_m": 4726.78,
@@ -415,33 +416,12 @@
      "lat": 42.466766,
      "lon": 19.814656
     },
-    "detail": "detail/me/B-8",
+    "island_km2": null,
+    "detail": "detail/me/B-42.468138_19.822483",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 42.675308,
-    "lon": 19.265109,
-    "dist_m": 4691.84,
-    "nearest_way": {
-     "id": 686090219,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "me"
-    },
-    "nearest_place": {
-     "name": "Suva Ponikvica",
-     "type": "hamlet",
-     "dist_m": 982.7,
-     "lat": 42.671805,
-     "lon": 19.2541
-    },
-    "detail": "detail/me/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 8,
     "lat": 42.858788,
     "lon": 19.215151,
     "dist_m": 4653.26,
@@ -455,15 +435,69 @@
     "nearest_place": {
      "name": "Crveno Zdrijelo",
      "type": "hamlet",
-     "dist_m": 1217.9,
+     "dist_m": 1217.8,
      "lat": 42.857661,
      "lon": 19.200329
     },
-    "detail": "detail/me/B-10",
+    "island_km2": null,
+    "detail": "detail/me/B-42.858788_19.215151",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 43.010422,
+    "lon": 18.587636,
+    "dist_m": 4201.87,
+    "nearest_way": {
+     "id": 344320489,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Luka",
+     "type": "hamlet",
+     "dist_m": 3263.5,
+     "lat": 42.981888,
+     "lon": 18.578122
+    },
+    "island_km2": null,
+    "detail": "detail/me/B-43.010422_18.587636",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 42.905904,
+    "lon": 18.714118,
+    "dist_m": 4072.29,
+    "nearest_way": {
+     "id": 374525021,
+     "highway": "secondary",
+     "name": "Vir - Krstac (MNE) - Avtovac (BIH)",
+     "ref": "R-7",
+     "country": "me"
+    },
+    "nearest_place": {
+     "name": "Zlato",
+     "type": "hamlet",
+     "dist_m": 3813.1,
+     "lat": 42.878291,
+     "lon": 18.68639
+    },
+    "island_km2": null,
+    "detail": "detail/me/B-42.905904_18.714118",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 6635.72,
+  "lat": 42.969494,
+  "lon": 18.8145,
+  "rank": 31,
+  "withheld": 0
  }
 }

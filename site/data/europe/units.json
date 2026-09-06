@@ -20,14 +20,28 @@
     "dist_m": 4963.65,
     "lat": 42.48936,
     "lon": 1.642551,
-    "rank": 33,
+    "rank": 28,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 4963.65,
+    "lat": 42.48936,
+    "lon": 1.642551,
+    "rank": 22,
     "withheld": 0
    },
    "B": {
     "dist_m": 5985.45,
     "lat": 42.48471,
     "lon": 1.660912,
-    "rank": 39,
+    "rank": 37,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 5985.45,
+    "lat": 42.48471,
+    "lon": 1.660912,
+    "rank": 34,
     "withheld": 0
    }
   },
@@ -49,14 +63,28 @@
     "dist_m": 6704.39,
     "lat": 40.213932,
     "lon": 19.473161,
-    "rank": 24,
+    "rank": 17,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 6704.39,
+    "lat": 40.213932,
+    "lon": 19.473161,
+    "rank": 13,
     "withheld": 0
    },
    "B": {
     "dist_m": 9098.77,
     "lat": 42.202101,
     "lon": 19.877022,
-    "rank": 29,
+    "rank": 23,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 9098.77,
+    "lat": 42.202101,
+    "lon": 19.877022,
+    "rank": 17,
     "withheld": 0
    }
   },
@@ -78,14 +106,28 @@
     "dist_m": 6182.93,
     "lat": 46.843473,
     "lon": 10.791113,
-    "rank": 27,
+    "rank": 23,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 6182.93,
+    "lat": 46.843473,
+    "lon": 10.791113,
+    "rank": 17,
     "withheld": 0
    },
    "B": {
     "dist_m": 11385.53,
     "lat": 47.12693,
     "lon": 12.346776,
-    "rank": 24,
+    "rank": 17,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 11385.53,
+    "lat": 47.12693,
+    "lon": 12.346776,
+    "rank": 11,
     "withheld": 0
    }
   },
@@ -107,14 +149,28 @@
     "dist_m": 5097.14,
     "lat": 43.612899,
     "lon": 17.624664,
-    "rank": 30,
+    "rank": 26,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 5097.14,
+    "lat": 43.612899,
+    "lon": 17.624664,
+    "rank": 20,
     "withheld": 0
    },
    "B": {
     "dist_m": 8411.78,
     "lat": 44.027836,
     "lon": 17.018453,
-    "rank": 30,
+    "rank": 24,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 8411.78,
+    "lat": 44.027836,
+    "lon": 17.018453,
+    "rank": 19,
     "withheld": 0
    }
   },
@@ -136,14 +192,28 @@
     "dist_m": 1318.12,
     "lat": 51.371479,
     "lon": 4.224662,
-    "rank": 47,
+    "rank": 44,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 1318.12,
+    "lat": 51.371479,
+    "lon": 4.224662,
+    "rank": 44,
     "withheld": 0
    },
    "B": {
     "dist_m": 4486.84,
     "lat": 50.539567,
     "lon": 6.124579,
-    "rank": 46,
+    "rank": 43,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 4486.84,
+    "lat": 50.539567,
+    "lon": 6.124579,
+    "rank": 40,
     "withheld": 0
    }
   },
@@ -165,14 +235,28 @@
     "dist_m": 6125.23,
     "lat": 42.701781,
     "lon": 24.843998,
-    "rank": 28,
+    "rank": 24,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 6125.23,
+    "lat": 42.701781,
+    "lon": 24.843998,
+    "rank": 18,
     "withheld": 0
    },
    "B": {
     "dist_m": 9137.17,
     "lat": 42.189462,
     "lon": 23.666834,
-    "rank": 28,
+    "rank": 22,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 9137.17,
+    "lat": 42.189462,
+    "lon": 23.666834,
+    "rank": 16,
     "withheld": 0
    }
   },
@@ -194,14 +278,28 @@
     "dist_m": 10077.98,
     "lat": 51.767439,
     "lon": 27.243773,
-    "rank": 22,
+    "rank": 13,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 10077.98,
+    "lat": 51.767439,
+    "lon": 27.243773,
+    "rank": 9,
     "withheld": 0
    },
    "B": {
     "dist_m": 11669.56,
     "lat": 51.77562,
     "lon": 27.233481,
-    "rank": 22,
+    "rank": 16,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 11669.56,
+    "lat": 51.77562,
+    "lon": 27.233481,
+    "rank": 10,
     "withheld": 0
    }
   },
@@ -223,14 +321,28 @@
     "dist_m": 9843.45,
     "lat": 46.536424,
     "lon": 8.110933,
-    "rank": 23,
+    "rank": 14,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 9843.45,
+    "lat": 46.536424,
+    "lon": 8.110933,
+    "rank": 10,
     "withheld": 0
    },
    "B": {
     "dist_m": 10805.62,
     "lat": 46.498558,
     "lon": 8.028826,
-    "rank": 25,
+    "rank": 19,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 10805.62,
+    "lat": 46.498558,
+    "lon": 8.028826,
+    "rank": 13,
     "withheld": 0
    }
   },
@@ -249,17 +361,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 2607.15,
-    "lat": 35.711796,
-    "lon": 34.60776,
-    "rank": 43,
+    "dist_m": 1846.8,
+    "lat": 35.442,
+    "lon": 34.111951,
+    "rank": 42,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 1846.8,
+    "lat": 35.442,
+    "lon": 34.111951,
+    "rank": 42,
     "withheld": 0
    },
    "B": {
-    "dist_m": 7761.09,
-    "lat": 35.112433,
-    "lon": 32.281917,
+    "dist_m": 7018.51,
+    "lat": 35.105317,
+    "lon": 32.287223,
     "rank": 32,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 7018.51,
+    "lat": 35.105317,
+    "lon": 32.287223,
+    "rank": 28,
     "withheld": 0
    }
   },
@@ -281,14 +407,28 @@
     "dist_m": 2062.74,
     "lat": 50.569538,
     "lon": 13.713002,
-    "rank": 44,
+    "rank": 40,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 2062.74,
+    "lat": 50.569538,
+    "lon": 13.713002,
+    "rank": 40,
     "withheld": 0
    },
    "B": {
     "dist_m": 5771.29,
     "lat": 49.009186,
     "lon": 13.406218,
-    "rank": 42,
+    "rank": 40,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 5771.29,
+    "lat": 49.009186,
+    "lon": 13.406218,
+    "rank": 37,
     "withheld": 0
    }
   },
@@ -310,14 +450,28 @@
     "dist_m": 13533.64,
     "lat": 53.827827,
     "lon": 8.342982,
-    "rank": 16,
+    "rank": 10,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 4865.91,
+    "lat": 47.492834,
+    "lon": 12.926149,
+    "rank": 24,
     "withheld": 0
    },
    "B": {
     "dist_m": 13533.64,
     "lat": 53.827827,
     "lon": 8.342982,
-    "rank": 20,
+    "rank": 13,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 9490.62,
+    "lat": 47.5023,
+    "lon": 12.965119,
+    "rank": 15,
     "withheld": 0
    }
   },
@@ -336,17 +490,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 18573.48,
-    "lat": 55.32316,
-    "lon": 15.191408,
-    "rank": 13,
+    "dist_m": 5402.67,
+    "lat": 55.224013,
+    "lon": 8.456961,
+    "rank": 25,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 3300.18,
+    "lat": 55.885636,
+    "lon": 8.27578,
+    "rank": 39,
     "withheld": 0
    },
    "B": {
-    "dist_m": 25545.22,
-    "lat": 56.199816,
-    "lon": 11.697212,
-    "rank": 12,
+    "dist_m": 7675.06,
+    "lat": 56.736687,
+    "lon": 11.662932,
+    "rank": 28,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 3584.83,
+    "lat": 56.841635,
+    "lon": 10.208439,
+    "rank": 43,
     "withheld": 0
    }
   },
@@ -365,17 +533,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 26802.86,
-    "lat": 59.821992,
-    "lon": 26.358829,
-    "rank": 9,
+    "dist_m": 6648.31,
+    "lat": 58.841514,
+    "lon": 23.374664,
+    "rank": 18,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 6648.31,
+    "lat": 58.841514,
+    "lon": 23.374664,
+    "rank": 14,
     "withheld": 0
    },
    "B": {
-    "dist_m": 26802.86,
-    "lat": 59.821992,
-    "lon": 26.358829,
-    "rank": 11,
+    "dist_m": 8135.63,
+    "lat": 59.350613,
+    "lon": 23.898615,
+    "rank": 26,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 7023.69,
+    "lat": 59.0854,
+    "lon": 27.52399,
+    "rank": 27,
     "withheld": 0
    }
   },
@@ -397,15 +579,29 @@
     "dist_m": 6432.56,
     "lat": 42.823085,
     "lon": -0.244579,
-    "rank": 26,
+    "rank": 21,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 6432.56,
+    "lat": 42.823085,
+    "lon": -0.244579,
+    "rank": 16,
     "withheld": 0
    },
    "B": {
-    "dist_m": 52314.12,
-    "lat": 39.850337,
-    "lon": 0.678837,
-    "rank": 6,
-    "withheld": 1
+    "dist_m": 11233.49,
+    "lat": 36.889263,
+    "lon": -6.438569,
+    "rank": 18,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 11233.49,
+    "lat": 36.889263,
+    "lon": -6.438569,
+    "rank": 12,
+    "withheld": 0
    }
   },
   {
@@ -423,17 +619,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 52846.2,
-    "lat": 59.503955,
-    "lon": 20.348039,
-    "rank": 3,
+    "dist_m": 21034.26,
+    "lat": 69.749708,
+    "lon": 28.416035,
+    "rank": 6,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 21034.26,
+    "lat": 69.749708,
+    "lon": 28.416035,
+    "rank": 4,
     "withheld": 0
    },
    "B": {
-    "dist_m": 52846.2,
-    "lat": 59.503955,
-    "lon": 20.348039,
-    "rank": 5,
+    "dist_m": 34967.78,
+    "lat": 69.078503,
+    "lon": 21.761583,
+    "rank": 6,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 34967.78,
+    "lat": 69.078503,
+    "lon": 21.761583,
+    "rank": 4,
     "withheld": 0
    }
   },
@@ -452,17 +662,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 6573.87,
-    "lat": 61.628703,
-    "lon": -6.702045,
-    "rank": 25,
+    "dist_m": 6201.93,
+    "lat": 61.949694,
+    "lon": -6.623515,
+    "rank": 22,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 4557.98,
+    "lat": 62.211579,
+    "lon": -7.236156,
+    "rank": 26,
     "withheld": 0
    },
    "B": {
-    "dist_m": 10377.36,
-    "lat": 61.637663,
-    "lon": -6.705598,
-    "rank": 26,
+    "dist_m": 10260.67,
+    "lat": 61.682085,
+    "lon": -6.74122,
+    "rank": 20,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 4335.4,
+    "lat": 62.280699,
+    "lon": -7.231441,
+    "rank": 41,
     "withheld": 0
    }
   },
@@ -481,17 +705,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 29818.09,
-    "lat": 49.113243,
-    "lon": -2.833563,
-    "rank": 8,
+    "dist_m": 6734.84,
+    "lat": 44.881905,
+    "lon": 6.345408,
+    "rank": 16,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 6734.84,
+    "lat": 44.881905,
+    "lon": 6.345408,
+    "rank": 12,
     "withheld": 0
    },
    "B": {
-    "dist_m": 30132.46,
-    "lat": 49.113243,
-    "lon": -2.833563,
-    "rank": 9,
+    "dist_m": 7913.6,
+    "lat": 42.779487,
+    "lon": -0.139515,
+    "rank": 27,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 7913.6,
+    "lat": 42.779487,
+    "lon": -0.139515,
+    "rank": 22,
     "withheld": 0
    }
   },
@@ -510,10 +748,17 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 34442.15,
-    "lat": 58.281513,
-    "lon": -7.6558,
-    "rank": 6,
+    "dist_m": 15366.24,
+    "lat": 57.879389,
+    "lon": -6.353427,
+    "rank": 9,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 7145.53,
+    "lat": 58.529852,
+    "lon": -4.959295,
+    "rank": 11,
     "withheld": 0
    },
    "B": {
@@ -521,6 +766,13 @@
     "lat": 59.134181,
     "lon": -5.825207,
     "rank": 1,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 12268.37,
+    "lat": 57.374023,
+    "lon": -5.225577,
+    "rank": 9,
     "withheld": 0
    }
   },
@@ -542,15 +794,29 @@
     "dist_m": 12544.71,
     "lat": 43.345383,
     "lon": 41.08534,
-    "rank": 17,
-    "withheld": 3
+    "rank": 11,
+    "withheld": 1
+   },
+   "A_mainland": {
+    "dist_m": 12544.71,
+    "lat": 43.345383,
+    "lon": 41.08534,
+    "rank": 7,
+    "withheld": 1
    },
    "B": {
     "dist_m": 21052.13,
     "lat": 43.322716,
     "lon": 41.227155,
-    "rank": 16,
-    "withheld": 4
+    "rank": 9,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 21052.13,
+    "lat": 43.322716,
+    "lon": 41.227155,
+    "rank": 6,
+    "withheld": 0
    }
   },
   {
@@ -568,17 +834,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 11030.49,
-    "lat": 49.719964,
-    "lon": -2.384948,
-    "rank": 20,
+    "dist_m": 1302.34,
+    "lat": 49.695871,
+    "lon": -2.235614,
+    "rank": 45,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 773.85,
+    "lat": 49.461425,
+    "lon": -2.676106,
+    "rank": 47,
     "withheld": 0
    },
    "B": {
-    "dist_m": 11532.09,
-    "lat": 49.719964,
-    "lon": -2.384948,
-    "rank": 23,
+    "dist_m": 2541.4,
+    "lat": 49.482885,
+    "lon": -2.448099,
+    "rank": 44,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 1410.52,
+    "lat": 49.461425,
+    "lon": -2.676106,
+    "rank": 47,
     "withheld": 0
    }
   },
@@ -603,7 +883,21 @@
     "rank": 48,
     "withheld": 0
    },
+   "A_mainland": {
+    "dist_m": 627.13,
+    "lat": 36.133049,
+    "lon": -5.363689,
+    "rank": 48,
+    "withheld": 0
+   },
    "B": {
+    "dist_m": 627.13,
+    "lat": 36.133049,
+    "lon": -5.363689,
+    "rank": 49,
+    "withheld": 0
+   },
+   "B_mainland": {
     "dist_m": 627.13,
     "lat": 36.133049,
     "lon": -5.363689,
@@ -626,17 +920,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 61797.96,
-    "lat": 35.925229,
-    "lon": 26.509093,
-    "rank": 2,
+    "dist_m": 50490.93,
+    "lat": 36.064369,
+    "lon": 26.406112,
+    "rank": 1,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 5664.72,
+    "lat": 38.325709,
+    "lon": 21.346275,
+    "rank": 19,
     "withheld": 0
    },
    "B": {
-    "dist_m": 62615.9,
-    "lat": 35.925229,
-    "lon": 26.509093,
-    "rank": 3,
+    "dist_m": 50490.93,
+    "lat": 36.064369,
+    "lon": 26.406112,
+    "rank": 2,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 8809.45,
+    "lat": 41.078088,
+    "lon": 21.90767,
+    "rank": 18,
     "withheld": 0
    }
   },
@@ -655,17 +963,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 45675.96,
-    "lat": 43.091719,
-    "lon": 15.458659,
-    "rank": 4,
+    "dist_m": 22843.96,
+    "lat": 43.023203,
+    "lon": 15.725263,
+    "rank": 5,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 4287.26,
+    "lat": 44.326631,
+    "lon": 15.514433,
+    "rank": 29,
     "withheld": 0
    },
    "B": {
-    "dist_m": 53039.04,
-    "lat": 42.378177,
-    "lon": 16.339236,
-    "rank": 4,
+    "dist_m": 24680.92,
+    "lat": 42.748979,
+    "lon": 16.48775,
+    "rank": 8,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 7678.03,
+    "lat": 44.090472,
+    "lon": 16.364249,
+    "rank": 23,
     "withheld": 0
    }
   },
@@ -687,14 +1009,28 @@
     "dist_m": 4455.24,
     "lat": 47.692815,
     "lon": 16.74141,
-    "rank": 36,
+    "rank": 31,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 4455.24,
+    "lat": 47.692815,
+    "lon": 16.74141,
+    "rank": 27,
     "withheld": 0
    },
    "B": {
     "dist_m": 5930.6,
     "lat": 47.454818,
     "lon": 21.003418,
-    "rank": 40,
+    "rank": 38,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 5930.6,
+    "lat": 47.454818,
+    "lon": 21.003418,
+    "rank": 35,
     "withheld": 0
    }
   },
@@ -713,17 +1049,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 10620.59,
-    "lat": 53.872152,
-    "lon": -10.207875,
-    "rank": 21,
+    "dist_m": 6579.63,
+    "lat": 51.725713,
+    "lon": -10.263877,
+    "rank": 20,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 4022.38,
+    "lat": 54.015706,
+    "lon": -10.188646,
+    "rank": 33,
     "withheld": 0
    },
    "B": {
-    "dist_m": 14525.26,
-    "lat": 54.067328,
-    "lon": -10.343328,
-    "rank": 19,
+    "dist_m": 12828.97,
+    "lat": 52.045334,
+    "lon": -10.622655,
+    "rank": 15,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 6495.71,
+    "lat": 54.043798,
+    "lon": -9.661376,
+    "rank": 32,
     "withheld": 0
    }
   },
@@ -742,17 +1092,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 1558.22,
-    "lat": 54.037825,
-    "lon": -4.837683,
-    "rank": 46,
+    "dist_m": 1340.18,
+    "lat": 54.286344,
+    "lon": -4.458341,
+    "rank": 43,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 1340.18,
+    "lat": 54.286344,
+    "lon": -4.458341,
+    "rank": 43,
     "withheld": 0
    },
    "B": {
     "dist_m": 2113.24,
     "lat": 54.226614,
     "lon": -4.560718,
-    "rank": 47,
+    "rank": 45,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 2113.24,
+    "lat": 54.226614,
+    "lon": -4.560718,
+    "rank": 44,
     "withheld": 0
    }
   },
@@ -771,18 +1135,32 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 71375.38,
-    "lat": 67.15042,
-    "lon": -18.683029,
+    "dist_m": 42370.41,
+    "lat": 64.400468,
+    "lon": -17.113665,
+    "rank": 2,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 42370.41,
+    "lat": 64.400468,
+    "lon": -17.113665,
     "rank": 1,
     "withheld": 0
    },
    "B": {
-    "dist_m": 73176.62,
-    "lat": 67.15042,
-    "lon": -18.683029,
-    "rank": 2,
-    "withheld": 1
+    "dist_m": 46458.69,
+    "lat": 64.417533,
+    "lon": -17.308698,
+    "rank": 3,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 46458.69,
+    "lat": 64.417533,
+    "lon": -17.308698,
+    "rank": 1,
+    "withheld": 0
    }
   },
   {
@@ -800,17 +1178,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 22056.18,
-    "lat": 42.225924,
-    "lon": 15.751619,
-    "rank": 11,
+    "dist_m": 6622.2,
+    "lat": 46.369779,
+    "lon": 9.906329,
+    "rank": 19,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 6622.2,
+    "lat": 46.369779,
+    "lon": 9.906329,
+    "rank": 15,
     "withheld": 0
    },
    "B": {
-    "dist_m": 23709.25,
-    "lat": 42.225924,
-    "lon": 15.751619,
-    "rank": 13,
+    "dist_m": 19160.1,
+    "lat": 38.541147,
+    "lon": 14.339262,
+    "rank": 11,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 8094.7,
+    "lat": 45.932538,
+    "lon": 7.775291,
+    "rank": 21,
     "withheld": 0
    }
   },
@@ -829,17 +1221,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 23533.69,
-    "lat": 48.956112,
-    "lon": -2.145596,
-    "rank": 10,
+    "dist_m": 896.14,
+    "lat": 49.170649,
+    "lon": -2.193244,
+    "rank": 47,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 896.14,
+    "lat": 49.170649,
+    "lon": -2.193244,
+    "rank": 46,
     "withheld": 0
    },
    "B": {
-    "dist_m": 23533.69,
-    "lat": 48.956112,
-    "lon": -2.145596,
-    "rank": 14,
+    "dist_m": 896.14,
+    "lat": 49.170649,
+    "lon": -2.193244,
+    "rank": 48,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 896.14,
+    "lat": 49.170649,
+    "lon": -2.193244,
+    "rank": 48,
     "withheld": 0
    }
   },
@@ -861,14 +1267,28 @@
     "dist_m": 2035.9,
     "lat": 47.162613,
     "lon": 9.564951,
-    "rank": 45,
+    "rank": 41,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 2035.9,
+    "lat": 47.162613,
+    "lon": 9.564951,
+    "rank": 41,
     "withheld": 0
    },
    "B": {
     "dist_m": 4664.33,
     "lat": 47.054861,
     "lon": 9.588006,
-    "rank": 45,
+    "rank": 42,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 4664.33,
+    "lat": 47.054861,
+    "lon": 9.588006,
+    "rank": 39,
     "withheld": 0
    }
   },
@@ -890,14 +1310,28 @@
     "dist_m": 3426.0,
     "lat": 54.441478,
     "lon": 23.537029,
-    "rank": 42,
+    "rank": 39,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 3426.0,
+    "lat": 54.441478,
+    "lon": 23.537029,
+    "rank": 37,
     "withheld": 0
    },
    "B": {
     "dist_m": 6675.91,
     "lat": 53.995841,
     "lon": 24.463029,
-    "rank": 36,
+    "rank": 34,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 6675.91,
+    "lat": 53.995841,
+    "lon": 24.463029,
+    "rank": 30,
     "withheld": 0
    }
   },
@@ -922,11 +1356,25 @@
     "rank": 49,
     "withheld": 0
    },
+   "A_mainland": {
+    "dist_m": 471.61,
+    "lat": 49.751631,
+    "lon": 5.873729,
+    "rank": 49,
+    "withheld": 0
+   },
    "B": {
     "dist_m": 1801.3,
     "lat": 50.074745,
     "lon": 6.109844,
-    "rank": 48,
+    "rank": 46,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 1801.3,
+    "lat": 50.074745,
+    "lon": 6.109844,
+    "rank": 45,
     "withheld": 0
    }
   },
@@ -945,17 +1393,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 5322.0,
-    "lat": 57.802578,
-    "lon": 22.63417,
-    "rank": 29,
+    "dist_m": 4708.29,
+    "lat": 56.867668,
+    "lon": 26.982256,
+    "rank": 30,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 4708.29,
+    "lat": 56.867668,
+    "lon": 26.982256,
+    "rank": 25,
     "withheld": 0
    },
    "B": {
     "dist_m": 5910.11,
     "lat": 56.870481,
     "lon": 26.96283,
-    "rank": 41,
+    "rank": 39,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 5910.11,
+    "lat": 56.870481,
+    "lon": 26.96283,
+    "rank": 36,
     "withheld": 0
    }
   },
@@ -980,7 +1442,21 @@
     "rank": 51,
     "withheld": 0
    },
+   "A_mainland": {
+    "dist_m": 242.96,
+    "lat": 43.742605,
+    "lon": 7.433766,
+    "rank": 51,
+    "withheld": 0
+   },
    "B": {
+    "dist_m": 242.96,
+    "lat": 43.742605,
+    "lon": 7.433766,
+    "rank": 51,
+    "withheld": 0
+   },
+   "B_mainland": {
     "dist_m": 242.96,
     "lat": 43.742605,
     "lon": 7.433766,
@@ -1006,14 +1482,28 @@
     "dist_m": 3571.83,
     "lat": 47.942551,
     "lon": 27.782582,
-    "rank": 40,
+    "rank": 37,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 3571.83,
+    "lat": 47.942551,
+    "lon": 27.782582,
+    "rank": 35,
     "withheld": 0
    },
    "B": {
     "dist_m": 6392.47,
     "lat": 45.762662,
     "lon": 28.266625,
-    "rank": 38,
+    "rank": 36,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 6392.47,
+    "lat": 45.762662,
+    "lon": 28.266625,
+    "rank": 33,
     "withheld": 0
    }
   },
@@ -1035,14 +1525,28 @@
     "dist_m": 4912.16,
     "lat": 43.228336,
     "lon": 18.745505,
-    "rank": 34,
+    "rank": 29,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 4912.16,
+    "lat": 43.228336,
+    "lon": 18.745505,
+    "rank": 23,
     "withheld": 0
    },
    "B": {
     "dist_m": 6635.72,
     "lat": 42.969494,
     "lon": 18.8145,
-    "rank": 37,
+    "rank": 35,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 6635.72,
+    "lat": 42.969494,
+    "lon": 18.8145,
+    "rank": 31,
     "withheld": 0
    }
   },
@@ -1064,14 +1568,28 @@
     "dist_m": 4983.31,
     "lat": 41.283876,
     "lon": 21.896498,
-    "rank": 31,
+    "rank": 27,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 4983.31,
+    "lat": 41.283876,
+    "lon": 21.896498,
+    "rank": 21,
     "withheld": 0
    },
    "B": {
     "dist_m": 9760.59,
     "lat": 41.068841,
     "lon": 21.884256,
-    "rank": 27,
+    "rank": 21,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 9760.59,
+    "lat": 41.068841,
+    "lon": 21.884256,
+    "rank": 14,
     "withheld": 0
    }
   },
@@ -1090,17 +1608,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 4760.9,
-    "lat": 35.786359,
-    "lon": 14.406833,
-    "rank": 35,
+    "dist_m": 1049.39,
+    "lat": 35.966768,
+    "lon": 14.407674,
+    "rank": 46,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 1049.39,
+    "lat": 35.966768,
+    "lon": 14.407674,
+    "rank": 45,
     "withheld": 0
    },
    "B": {
-    "dist_m": 4760.9,
-    "lat": 35.786359,
-    "lon": 14.406833,
-    "rank": 43,
+    "dist_m": 1477.36,
+    "lat": 35.967414,
+    "lon": 14.407492,
+    "rank": 47,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 1477.36,
+    "lat": 35.967414,
+    "lon": 14.407492,
+    "rank": 46,
     "withheld": 0
    }
   },
@@ -1119,17 +1651,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 11913.89,
-    "lat": 53.250061,
-    "lon": 5.258749,
-    "rank": 18,
+    "dist_m": 6994.12,
+    "lat": 53.466453,
+    "lon": 6.029396,
+    "rank": 15,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 3318.5,
+    "lat": 51.365515,
+    "lon": 4.155132,
+    "rank": 38,
     "withheld": 0
    },
    "B": {
     "dist_m": 13464.35,
     "lat": 53.544073,
     "lon": 6.467091,
-    "rank": 21,
+    "rank": 14,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 3712.39,
+    "lat": 51.368527,
+    "lon": 4.189114,
+    "rank": 42,
     "withheld": 0
    }
   },
@@ -1148,17 +1694,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 30288.1,
-    "lat": 66.176083,
-    "lon": 11.610525,
-    "rank": 7,
+    "dist_m": 24905.42,
+    "lat": 68.877509,
+    "lon": 24.81942,
+    "rank": 4,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 24905.42,
+    "lat": 68.877509,
+    "lon": 24.81942,
+    "rank": 3,
     "withheld": 0
    },
    "B": {
     "dist_m": 44155.87,
     "lat": 68.92277,
     "lon": 24.533259,
-    "rank": 8,
+    "rank": 5,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 44155.87,
+    "lat": 68.92277,
+    "lon": 24.533259,
+    "rank": 3,
     "withheld": 0
    }
   },
@@ -1177,17 +1737,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 4978.62,
-    "lat": 54.691322,
-    "lon": 18.548518,
+    "dist_m": 4293.55,
+    "lat": 54.751183,
+    "lon": 17.373363,
     "rank": 32,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 4293.55,
+    "lat": 54.751183,
+    "lon": 17.373363,
+    "rank": 28,
     "withheld": 0
    },
    "B": {
     "dist_m": 7119.91,
     "lat": 54.750113,
     "lon": 17.356355,
-    "rank": 35,
+    "rank": 31,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 7119.91,
+    "lat": 54.750113,
+    "lon": 17.356355,
+    "rank": 26,
     "withheld": 0
    }
   },
@@ -1206,17 +1780,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 21477.37,
-    "lat": 30.028847,
-    "lon": -16.051646,
-    "rank": 12,
+    "dist_m": 4229.45,
+    "lat": 36.964697,
+    "lon": -7.910538,
+    "rank": 33,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 4229.45,
+    "lat": 36.964697,
+    "lon": -7.910538,
+    "rank": 30,
     "withheld": 0
    },
    "B": {
-    "dist_m": 21477.37,
-    "lat": 30.028847,
-    "lon": -16.051646,
-    "rank": 15,
+    "dist_m": 6739.42,
+    "lat": 40.240585,
+    "lon": -6.999896,
+    "rank": 33,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 6739.42,
+    "lat": 40.240585,
+    "lon": -6.999896,
+    "rank": 29,
     "withheld": 0
    }
   },
@@ -1238,14 +1826,28 @@
     "dist_m": 16637.28,
     "lat": 44.76884,
     "lon": 29.475778,
-    "rank": 14,
+    "rank": 7,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 16637.28,
+    "lat": 44.76884,
+    "lon": 29.475778,
+    "rank": 5,
     "withheld": 0
    },
    "B": {
     "dist_m": 20976.56,
     "lat": 44.808831,
     "lon": 29.346821,
-    "rank": 17,
+    "rank": 10,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 20976.56,
+    "lat": 44.808831,
+    "lon": 29.346821,
+    "rank": 7,
     "withheld": 0
    }
   },
@@ -1267,14 +1869,28 @@
     "dist_m": 3860.4,
     "lat": 44.581617,
     "lon": 21.923261,
-    "rank": 39,
+    "rank": 36,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 3860.4,
+    "lat": 44.581617,
+    "lon": 21.923261,
+    "rank": 34,
     "withheld": 0
    },
    "B": {
     "dist_m": 7517.42,
     "lat": 43.306656,
     "lon": 22.766295,
-    "rank": 34,
+    "rank": 30,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 7517.42,
+    "lat": 43.306656,
+    "lon": 22.766295,
+    "rank": 25,
     "withheld": 0
    }
   },
@@ -1296,14 +1912,28 @@
     "dist_m": 42167.15,
     "lat": 67.275662,
     "lon": 17.093097,
-    "rank": 5,
+    "rank": 3,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 42167.15,
+    "lat": 67.275662,
+    "lon": 17.093097,
+    "rank": 2,
     "withheld": 0
    },
    "B": {
     "dist_m": 45984.79,
     "lat": 67.30385,
     "lon": 17.157436,
-    "rank": 7,
+    "rank": 4,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 45984.79,
+    "lat": 67.30385,
+    "lon": 17.157436,
+    "rank": 2,
     "withheld": 0
    }
   },
@@ -1325,14 +1955,28 @@
     "dist_m": 4182.54,
     "lat": 46.372365,
     "lon": 13.853877,
-    "rank": 37,
+    "rank": 34,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 4182.54,
+    "lat": 46.372365,
+    "lon": 13.853877,
+    "rank": 31,
     "withheld": 0
    },
    "B": {
     "dist_m": 4728.72,
     "lat": 46.332932,
     "lon": 13.796818,
-    "rank": 44,
+    "rank": 41,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 4728.72,
+    "lat": 46.332932,
+    "lon": 13.796818,
+    "rank": 38,
     "withheld": 0
    }
   },
@@ -1354,14 +1998,28 @@
     "dist_m": 4080.4,
     "lat": 49.191399,
     "lon": 20.172912,
-    "rank": 38,
+    "rank": 35,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 4080.4,
+    "lat": 49.191399,
+    "lon": 20.172912,
+    "rank": 32,
     "withheld": 0
    },
    "B": {
     "dist_m": 7599.01,
     "lat": 48.946241,
     "lon": 19.066164,
-    "rank": 33,
+    "rank": 29,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 7599.01,
+    "lat": 48.946241,
+    "lon": 19.066164,
+    "rank": 24,
     "withheld": 0
    }
   },
@@ -1386,7 +2044,21 @@
     "rank": 50,
     "withheld": 0
    },
+   "A_mainland": {
+    "dist_m": 421.82,
+    "lat": 43.937559,
+    "lon": 12.42422,
+    "rank": 50,
+    "withheld": 0
+   },
    "B": {
+    "dist_m": 546.07,
+    "lat": 43.914921,
+    "lon": 12.49343,
+    "rank": 50,
+    "withheld": 0
+   },
+   "B_mainland": {
     "dist_m": 546.07,
     "lat": 43.914921,
     "lon": 12.49343,
@@ -1412,14 +2084,28 @@
     "dist_m": 15366.91,
     "lat": 38.622216,
     "lon": 33.53643,
-    "rank": 15,
+    "rank": 8,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 15366.91,
+    "lat": 38.622216,
+    "lon": 33.53643,
+    "rank": 6,
     "withheld": 0
    },
    "B": {
     "dist_m": 18437.44,
     "lat": 38.649989,
     "lon": 33.480917,
-    "rank": 18,
+    "rank": 12,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 18437.44,
+    "lat": 38.649989,
+    "lon": 33.480917,
+    "rank": 8,
     "withheld": 0
    }
   },
@@ -1441,14 +2127,28 @@
     "dist_m": 11491.67,
     "lat": 49.196656,
     "lon": 32.925239,
-    "rank": 19,
+    "rank": 12,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 11175.43,
+    "lat": 46.18228,
+    "lon": 31.953077,
+    "rank": 8,
     "withheld": 0
    },
    "B": {
     "dist_m": 27499.78,
     "lat": 46.22665,
     "lon": 31.674212,
-    "rank": 10,
+    "rank": 7,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 27499.78,
+    "lat": 46.22665,
+    "lon": 31.674212,
+    "rank": 5,
     "withheld": 0
    }
   },
@@ -1473,7 +2173,21 @@
     "rank": 52,
     "withheld": 0
    },
+   "A_mainland": {
+    "dist_m": 126.34,
+    "lat": 41.902473,
+    "lon": 12.457251,
+    "rank": 52,
+    "withheld": 0
+   },
    "B": {
+    "dist_m": 126.34,
+    "lat": 41.902473,
+    "lon": 12.457251,
+    "rank": 52,
+    "withheld": 0
+   },
+   "B_mainland": {
     "dist_m": 126.34,
     "lat": 41.902473,
     "lon": 12.457251,
@@ -1499,14 +2213,28 @@
     "dist_m": 3530.85,
     "lat": 42.149603,
     "lon": 21.00831,
-    "rank": 41,
+    "rank": 38,
+    "withheld": 0
+   },
+   "A_mainland": {
+    "dist_m": 3530.85,
+    "lat": 42.149603,
+    "lon": 21.00831,
+    "rank": 36,
     "withheld": 0
    },
    "B": {
     "dist_m": 8159.97,
     "lat": 41.878457,
     "lon": 20.736014,
-    "rank": 31,
+    "rank": 25,
+    "withheld": 0
+   },
+   "B_mainland": {
+    "dist_m": 8159.97,
+    "lat": 41.878457,
+    "lon": 20.736014,
+    "rank": 20,
     "withheld": 0
    }
   }

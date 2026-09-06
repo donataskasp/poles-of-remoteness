@@ -18,72 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 66.176083,
-    "lon": 11.610525,
-    "dist_m": 30288.1,
-    "nearest_way": {
-     "id": 781826021,
-     "highway": "secondary",
-     "name": "Vandveveien",
-     "ref": "7298",
-     "country": "no"
-    },
-    "nearest_place": {
-     "name": "Sandsundvær",
-     "type": "isolated_dwelling",
-     "dist_m": 16553.7,
-     "lat": 66.128536,
-     "lon": 11.957974
-    },
-    "detail": "detail/no/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 65.352531,
-    "lon": 11.423274,
-    "dist_m": 26150.25,
-    "nearest_way": {
-     "id": 1192775894,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "no"
-    },
-    "nearest_place": {
-     "name": "Nordhorsvær",
-     "type": "hamlet",
-     "dist_m": 10240.5,
-     "lat": 65.324212,
-     "lon": 11.63242
-    },
-    "detail": "detail/no/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 65.597806,
-    "lon": 11.259121,
-    "dist_m": 25386.27,
-    "nearest_way": {
-     "id": 425942392,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "no"
-    },
-    "nearest_place": {
-     "name": "Bremsteinen",
-     "type": "hamlet",
-     "dist_m": 6613.0,
-     "lat": 65.62389,
-     "lon": 11.387965
-    },
-    "detail": "detail/no/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 68.877509,
     "lon": 24.81942,
     "dist_m": 24905.42,
@@ -101,33 +35,12 @@
      "lat": 68.904969,
      "lon": 25.491226
     },
-    "detail": "detail/no/A-4",
+    "island_km2": null,
+    "detail": "detail/no/A-68.877509_24.819420",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 68.912681,
-    "lon": 24.587403,
-    "dist_m": 22477.34,
-    "nearest_way": {
-     "id": 1424531997,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "no"
-    },
-    "nearest_place": {
-     "name": "Áhkkanasnjálbmi",
-     "type": "isolated_dwelling",
-     "dist_m": 21035.8,
-     "lat": 69.037878,
-     "lon": 24.194666
-    },
-    "detail": "detail/no/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 2,
     "lat": 65.144918,
     "lon": 13.916825,
     "dist_m": 22253.57,
@@ -145,11 +58,12 @@
      "lat": 65.283528,
      "lon": 14.110775
     },
-    "detail": "detail/no/A-6",
+    "island_km2": null,
+    "detail": "detail/no/A-65.144918_13.916825",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 3,
     "lat": 69.872316,
     "lon": 28.666035,
     "dist_m": 21774.95,
@@ -167,78 +81,204 @@
      "lat": 70.072003,
      "lon": 28.847819
     },
-    "detail": "detail/no/A-7",
+    "island_km2": null,
+    "detail": "detail/no/A-69.872316_28.666035",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 65.334559,
+    "lon": 11.596599,
+    "dist_m": 21754.93,
+    "nearest_way": {
+     "id": 236168128,
+     "highway": "unclassified",
+     "name": "Kvaløyveien",
+     "ref": null,
+     "country": "no"
+    },
+    "nearest_place": {
+     "name": "Nordhorsvær",
+     "type": "hamlet",
+     "dist_m": 2028.9,
+     "lat": 65.324212,
+     "lon": 11.63242
+    },
+    "island_km2": 1.2,
+    "detail": "detail/no/A-65.334559_11.596599",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 70.090085,
+    "lon": 25.997624,
+    "dist_m": 20728.24,
+    "nearest_way": {
+     "id": 1520497527,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "no"
+    },
+    "nearest_place": {
+     "name": "Leavvajohka - Levajok",
+     "type": "hamlet",
+     "dist_m": 24695.4,
+     "lat": 69.932862,
+     "lon": 26.45312
+    },
+    "island_km2": null,
+    "detail": "detail/no/A-70.090085_25.997624",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 68.494072,
+    "lon": 19.373295,
+    "dist_m": 20142.74,
+    "nearest_way": {
+     "id": 37388294,
+     "highway": "trunk",
+     "name": null,
+     "ref": "E 10",
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Sørdalshytta",
+     "type": "isolated_dwelling",
+     "dist_m": 10627.9,
+     "lat": 68.588467,
+     "lon": 19.337892
+    },
+    "island_km2": null,
+    "detail": "detail/no/A-68.494072_19.373295",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 69.458955,
+    "lon": 22.691577,
+    "dist_m": 19569.14,
+    "nearest_way": {
+     "id": 1412734966,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "no"
+    },
+    "nearest_place": {
+     "name": "Sætra",
+     "type": "isolated_dwelling",
+     "dist_m": 36690.3,
+     "lat": 69.733717,
+     "lon": 22.173483
+    },
+    "island_km2": null,
+    "detail": "detail/no/A-69.458955_22.691577",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 68.969344,
-    "lon": 24.389213,
-    "dist_m": 21708.56,
+    "lat": 66.682671,
+    "lon": 14.964252,
+    "dist_m": 19295.03,
     "nearest_way": {
-     "id": 1424531997,
-     "highway": "track",
+     "id": 394106793,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "no"
     },
     "nearest_place": {
-     "name": "Áhkkanasnjálbmi",
+     "name": "Tespahytta",
      "type": "isolated_dwelling",
-     "dist_m": 10909.3,
-     "lat": 69.037878,
-     "lon": 24.194666
+     "dist_m": 8547.4,
+     "lat": 66.606025,
+     "lon": 14.965225
     },
-    "detail": "detail/no/A-8",
+    "island_km2": null,
+    "detail": "detail/no/A-66.682671_14.964252",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 65.394722,
-    "lon": 11.023948,
-    "dist_m": 21468.91,
+    "lat": 70.330443,
+    "lon": 29.774466,
+    "dist_m": 18910.23,
     "nearest_way": {
-     "id": 1192775894,
+     "id": 482824270,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "no"
     },
     "nearest_place": {
-     "name": "Sklinna",
-     "type": "hamlet",
-     "dist_m": 21553.8,
-     "lat": 65.201819,
-     "lon": 10.993911
+     "name": "Ragnarokk",
+     "type": "isolated_dwelling",
+     "dist_m": 4095.7,
+     "lat": 70.367045,
+     "lon": 29.76606
     },
-    "detail": "detail/no/A-9",
+    "island_km2": null,
+    "detail": "detail/no/A-70.330443_29.774466",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 65.493918,
-    "lon": 11.456567,
-    "dist_m": 21031.39,
+    "lat": 67.53402,
+    "lon": 16.407372,
+    "dist_m": 17503.51,
     "nearest_way": {
-     "id": 425942392,
+     "id": 629635825,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "no"
+    },
+    "nearest_place": {
+     "name": "Ragohytta",
+     "type": "isolated_dwelling",
+     "dist_m": 17274.9,
+     "lat": 67.450106,
+     "lon": 16.067614
+    },
+    "island_km2": null,
+    "detail": "detail/no/A-67.534020_16.407372",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 60.228075,
+    "lon": 6.979153,
+    "dist_m": 17341.66,
+    "nearest_way": {
+     "id": 760709920,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "no"
     },
     "nearest_place": {
-     "name": "Muddværet",
-     "type": "hamlet",
-     "dist_m": 14690.0,
-     "lat": 65.580231,
-     "lon": 11.696658
+     "name": "Kinsekvelv",
+     "type": "isolated_dwelling",
+     "dist_m": 741.5,
+     "lat": 60.233848,
+     "lon": 6.985811
     },
-    "detail": "detail/no/A-10",
+    "island_km2": null,
+    "detail": "detail/no/A-60.228075_6.979153",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 24905.42,
+  "lat": 68.877509,
+  "lon": 24.81942,
+  "rank": 3,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,209 +301,249 @@
      "lat": 69.037878,
      "lon": 24.194666
     },
-    "detail": "detail/no/B-1",
+    "island_km2": null,
+    "detail": "detail/no/B-68.922770_24.533259",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 65.394383,
-    "lon": 11.021319,
-    "dist_m": 42004.47,
+    "lat": 69.179726,
+    "lon": 21.784284,
+    "dist_m": 29444.51,
     "nearest_way": {
-     "id": 359507615,
-     "highway": "service",
-     "name": "Steinsveien",
-     "ref": null,
-     "country": "no"
-    },
-    "nearest_place": {
-     "name": "Sklinna",
-     "type": "hamlet",
-     "dist_m": 21508.4,
-     "lat": 65.201819,
-     "lon": 10.993911
-    },
-    "detail": "detail/no/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 69.007679,
-    "lon": 24.640447,
-    "dist_m": 40944.48,
-    "nearest_way": {
-     "id": 707642475,
-     "highway": "service",
-     "name": "Anárjohgeaidnu",
-     "ref": null,
-     "country": "no"
-    },
-    "nearest_place": {
-     "name": "Šuorbmu",
-     "type": "isolated_dwelling",
-     "dist_m": 11601.2,
-     "lat": 69.10044,
-     "lon": 24.509017
-    },
-    "detail": "detail/no/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 68.845841,
-    "lon": 24.674371,
-    "dist_m": 39452.39,
-    "nearest_way": {
-     "id": 707642475,
-     "highway": "service",
-     "name": "Anárjohgeaidnu",
-     "ref": null,
-     "country": "no"
-    },
-    "nearest_place": {
-     "name": "Kalkujärvi",
-     "type": "hamlet",
-     "dist_m": 27102.6,
-     "lat": 68.716538,
-     "lon": 24.106502
-    },
-    "detail": "detail/no/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 68.808981,
-    "lon": 24.441616,
-    "dist_m": 36931.2,
-    "nearest_way": {
-     "id": 24450301,
-     "highway": "service",
-     "name": "Kalmantie",
-     "ref": null,
-     "country": "fi"
-    },
-    "nearest_place": {
-     "name": "Kalkujärvi",
-     "type": "hamlet",
-     "dist_m": 17029.2,
-     "lat": 68.716538,
-     "lon": 24.106502
-    },
-    "detail": "detail/no/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 68.940047,
-    "lon": 24.282999,
-    "dist_m": 36307.11,
-    "nearest_way": {
-     "id": 338845166,
+     "id": 706859019,
      "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "no"
     },
     "nearest_place": {
-     "name": "Áhkkanasnjálbmi",
-     "type": "isolated_dwelling",
-     "dist_m": 11471.5,
-     "lat": 69.037878,
-     "lon": 24.194666
+     "name": "Raittijärvi",
+     "type": "hamlet",
+     "dist_m": 18294.7,
+     "lat": 69.016882,
+     "lon": 21.729754
     },
-    "detail": "detail/no/B-6",
+    "island_km2": null,
+    "detail": "detail/no/B-69.179726_21.784284",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 68.931707,
-    "lon": 24.786322,
-    "dist_m": 34014.85,
+    "rank": 3,
+    "lat": 60.053092,
+    "lon": 7.425812,
+    "dist_m": 26657.66,
     "nearest_way": {
-     "id": 707642475,
-     "highway": "service",
-     "name": "Anárjohgeaidnu",
-     "ref": null,
-     "country": "no"
-    },
-    "nearest_place": {
-     "name": "Šuorbmu",
-     "type": "isolated_dwelling",
-     "dist_m": 21844.6,
-     "lat": 69.10044,
-     "lon": 24.509017
-    },
-    "detail": "detail/no/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 68.78881,
-    "lon": 24.869586,
-    "dist_m": 33731.24,
-    "nearest_way": {
-     "id": 24450301,
-     "highway": "service",
-     "name": "Kalmantie",
-     "ref": null,
-     "country": "fi"
-    },
-    "nearest_place": {
-     "name": "Andreas-Nilsen-hytta",
-     "type": "isolated_dwelling",
-     "dist_m": 28197.9,
-     "lat": 68.904969,
-     "lon": 25.491226
-    },
-    "detail": "detail/no/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 69.042651,
-    "lon": 24.879416,
-    "dist_m": 33104.38,
-    "nearest_way": {
-     "id": 707642475,
-     "highway": "service",
-     "name": "Anárjohgeaidnu",
-     "ref": null,
-     "country": "no"
-    },
-    "nearest_place": {
-     "name": "Šuorbmu",
-     "type": "isolated_dwelling",
-     "dist_m": 16116.9,
-     "lat": 69.10044,
-     "lon": 24.509017
-    },
-    "detail": "detail/no/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 69.02575,
-    "lon": 24.389716,
-    "dist_m": 32102.98,
-    "nearest_way": {
-     "id": 675398984,
-     "highway": "service",
+     "id": 73589249,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "no"
     },
     "nearest_place": {
-     "name": "Áhkkanasnjálbmi",
+     "name": "Jakobsbu",
      "type": "isolated_dwelling",
-     "dist_m": 7909.3,
-     "lat": 69.037878,
-     "lon": 24.194666
+     "dist_m": 495.1,
+     "lat": 60.051353,
+     "lon": 7.417633
     },
-    "detail": "detail/no/B-10",
+    "island_km2": null,
+    "detail": "detail/no/B-60.053092_7.425812",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 69.639862,
+    "lon": 24.476677,
+    "dist_m": 26446.47,
+    "nearest_way": {
+     "id": 363504322,
+     "highway": "unclassified",
+     "name": "Savgŋojárgeaidnu",
+     "ref": null,
+     "country": "no"
+    },
+    "nearest_place": {
+     "name": "Mollisjok",
+     "type": "isolated_dwelling",
+     "dist_m": 8906.4,
+     "lat": 69.566076,
+     "lon": 24.389262
+    },
+    "island_km2": null,
+    "detail": "detail/no/B-69.639862_24.476677",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 69.841619,
+    "lon": 28.648978,
+    "dist_m": 25404.75,
+    "nearest_way": {
+     "id": 24641585,
+     "highway": "unclassified",
+     "name": "Pulmankijärventie",
+     "ref": null,
+     "country": "fi"
+    },
+    "nearest_place": {
+     "name": "Juvravuonna - Gandvik",
+     "type": "hamlet",
+     "dist_m": 26189.2,
+     "lat": 70.010346,
+     "lon": 29.124131
+    },
+    "island_km2": null,
+    "detail": "detail/no/B-69.841619_28.648978",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 68.516315,
+    "lon": 19.506395,
+    "dist_m": 25301.33,
+    "nearest_way": {
+     "id": 37388294,
+     "highway": "trunk",
+     "name": null,
+     "ref": "E 10",
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Golmenstua",
+     "type": "isolated_dwelling",
+     "dist_m": 9766.0,
+     "lat": 68.481478,
+     "lon": 19.725353
+    },
+    "island_km2": null,
+    "detail": "detail/no/B-68.516315_19.506395",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 70.075701,
+    "lon": 25.923476,
+    "dist_m": 25149.59,
+    "nearest_way": {
+     "id": 515531521,
+     "highway": "service",
+     "name": "Leavvajohnjálmmi bartaguovlu",
+     "ref": null,
+     "country": "no"
+    },
+    "nearest_place": {
+     "name": "Leavvajohka - Levajok",
+     "type": "hamlet",
+     "dist_m": 25745.4,
+     "lat": 69.932862,
+     "lon": 26.45312
+    },
+    "island_km2": null,
+    "detail": "detail/no/B-70.075701_25.923476",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 70.878222,
+    "lon": 26.589823,
+    "dist_m": 22931.78,
+    "nearest_way": {
+     "id": 289229858,
+     "highway": "secondary",
+     "name": "Holmbuktveien",
+     "ref": "8060",
+     "country": "no"
+    },
+    "nearest_place": {
+     "name": "Hellervik",
+     "type": "isolated_dwelling",
+     "dist_m": 4763.6,
+     "lat": 70.893744,
+     "lon": 26.711199
+    },
+    "island_km2": null,
+    "detail": "detail/no/B-70.878222_26.589823",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 65.142097,
+    "lon": 13.909446,
+    "dist_m": 22270.75,
+    "nearest_way": {
+     "id": 1471424665,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "se"
+    },
+    "nearest_place": {
+     "name": "Rokstad",
+     "type": "isolated_dwelling",
+     "dist_m": 17560.3,
+     "lat": 64.998417,
+     "lon": 13.756567
+    },
+    "island_km2": null,
+    "detail": "detail/no/B-65.142097_13.909446",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 65.334559,
+    "lon": 11.596599,
+    "dist_m": 21754.93,
+    "nearest_way": {
+     "id": 236168128,
+     "highway": "unclassified",
+     "name": "Kvaløyveien",
+     "ref": null,
+     "country": "no"
+    },
+    "nearest_place": {
+     "name": "Nordhorsvær",
+     "type": "hamlet",
+     "dist_m": 2028.9,
+     "lat": 65.324212,
+     "lon": 11.63242
+    },
+    "island_km2": 1.2,
+    "detail": "detail/no/B-65.334559_11.596599",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 67.808563,
+    "lon": 16.667589,
+    "dist_m": 20890.68,
+    "nearest_way": {
+     "id": 421759423,
+     "highway": "residential",
+     "name": "Sis-Måsske",
+     "ref": null,
+     "country": "no"
+    },
+    "nearest_place": {
+     "name": "Vuodnabahta - Hellmobotn",
+     "type": "hamlet",
+     "dist_m": 6415.9,
+     "lat": 67.814058,
+     "lon": 16.516111
+    },
+    "island_km2": null,
+    "detail": "detail/no/B-67.808563_16.667589",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 44155.87,
+  "lat": 68.92277,
+  "lon": 24.533259,
+  "rank": 3,
+  "withheld": 0
  }
 }

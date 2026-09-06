@@ -31,37 +31,16 @@
     "nearest_place": {
      "name": "Baños de Panticosa",
      "type": "hamlet",
-     "dist_m": 6998.7,
+     "dist_m": 6998.8,
      "lat": 42.760619,
      "lon": -0.233448
     },
-    "detail": "detail/es/A-1",
+    "island_km2": null,
+    "detail": "detail/es/A-42.823085_-0.244579",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 38.161028,
-    "lon": -0.459136,
-    "dist_m": 6294.58,
-    "nearest_way": {
-     "id": 155169093,
-     "highway": "tertiary",
-     "name": "Camí del Carabassí",
-     "ref": null,
-     "country": "es"
-    },
-    "nearest_place": {
-     "name": "Tabarca",
-     "type": "hamlet",
-     "dist_m": 2103.2,
-     "lat": 38.16649,
-     "lon": -0.482116
-    },
-    "detail": "detail/es/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 40.25173,
     "lon": -5.302645,
     "dist_m": 5941.24,
@@ -79,33 +58,12 @@
      "lat": 40.170512,
      "lon": -5.339583
     },
-    "detail": "detail/es/A-3",
+    "island_km2": null,
+    "detail": "detail/es/A-40.251730_-5.302645",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 39.207612,
-    "lon": 2.978645,
-    "dist_m": 5617.7,
-    "nearest_way": {
-     "id": 691422810,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "es"
-    },
-    "nearest_place": {
-     "name": "sa Vall",
-     "type": "hamlet",
-     "dist_m": 12319.4,
-     "lat": 39.310017,
-     "lon": 3.033621
-    },
-    "detail": "detail/es/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
+    "rank": 3,
     "lat": 37.084336,
     "lon": -3.273594,
     "dist_m": 5561.23,
@@ -123,11 +81,12 @@
      "lat": 37.002398,
      "lon": -3.266599
     },
-    "detail": "detail/es/A-5",
+    "island_km2": null,
+    "detail": "detail/es/A-37.084336_-3.273594",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 4,
     "lat": 42.692372,
     "lon": 0.449157,
     "dist_m": 5531.99,
@@ -145,11 +104,12 @@
      "lat": 42.66039,
      "lon": 0.382303
     },
-    "detail": "detail/es/A-6",
+    "island_km2": null,
+    "detail": "detail/es/A-42.692372_0.449157",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 5,
     "lat": 42.630119,
     "lon": 0.690822,
     "dist_m": 5285.62,
@@ -163,37 +123,16 @@
     "nearest_place": {
      "name": "Espitau de Vielha",
      "type": "isolated_dwelling",
-     "dist_m": 5951.7,
-     "lat": 42.627339,
-     "lon": 0.763278
+     "dist_m": 5971.5,
+     "lat": 42.627142,
+     "lon": 0.763506
     },
-    "detail": "detail/es/A-7",
+    "island_km2": null,
+    "detail": "detail/es/A-42.630119_0.690822",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 38.78711,
-    "lon": 1.484416,
-    "dist_m": 5021.19,
-    "nearest_way": {
-     "id": 74760911,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "es"
-    },
-    "nearest_place": {
-     "name": "Pujol de n'Adolf",
-     "type": "isolated_dwelling",
-     "dist_m": 5464.4,
-     "lat": 38.756407,
-     "lon": 1.435267
-    },
-    "detail": "detail/es/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 6,
     "lat": 40.196722,
     "lon": -5.535756,
     "dist_m": 4994.71,
@@ -207,65 +146,121 @@
     "nearest_place": {
      "name": "Navalguijo",
      "type": "hamlet",
-     "dist_m": 6941.0,
+     "dist_m": 6940.9,
      "lat": 40.258386,
      "lon": -5.522391
     },
-    "detail": "detail/es/A-9",
+    "island_km2": null,
+    "detail": "detail/es/A-40.196722_-5.535756",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 39.850518,
-    "lon": 0.673463,
-    "dist_m": 4933.07,
+    "rank": 7,
+    "lat": 38.399197,
+    "lon": -3.143473,
+    "dist_m": 4779.03,
     "nearest_way": {
-     "id": 138567233,
+     "id": 591271373,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "es"
     },
     "nearest_place": {
-     "name": "Orpesa",
+     "name": "Montizón",
      "type": "village",
-     "dist_m": 53251.9,
-     "lat": 40.093208,
-     "lon": 0.135812
+     "dist_m": 7223.2,
+     "lat": 38.342195,
+     "lon": -3.103604
     },
-    "detail": "detail/es/A-10",
+    "island_km2": null,
+    "detail": "detail/es/A-38.399197_-3.143473",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 42.665092,
+    "lon": 0.016294,
+    "dist_m": 4752.84,
+    "nearest_way": {
+     "id": 978252167,
+     "highway": "track",
+     "name": "Senda a la Cola de Caballo",
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Gavarnie",
+     "type": "village",
+     "dist_m": 7745.7,
+     "lat": 42.732204,
+     "lon": -0.009352
+    },
+    "island_km2": null,
+    "detail": "detail/es/A-42.665092_0.016294",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 39.329036,
+    "lon": -6.865327,
+    "dist_m": 4697.76,
+    "nearest_way": {
+     "id": 209973376,
+     "highway": "tertiary",
+     "name": "Carretera de Aliseda a Alburquerque",
+     "ref": "EX-303",
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Tejarejo",
+     "type": "hamlet",
+     "dist_m": 4821.2,
+     "lat": 39.361726,
+     "lon": -6.828511
+    },
+    "island_km2": null,
+    "detail": "detail/es/A-39.329036_-6.865327",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.259686,
+    "lon": -4.903962,
+    "dist_m": 4696.57,
+    "nearest_way": {
+     "id": 988629764,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Caín de Valdeón",
+     "type": "hamlet",
+     "dist_m": 5146.7,
+     "lat": 43.213369,
+     "lon": -4.905235
+    },
+    "island_km2": null,
+    "detail": "detail/es/A-43.259686_-4.903962",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 6432.56,
+  "lat": 42.823085,
+  "lon": -0.244579,
+  "rank": 16,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 39.850337,
-    "lon": 0.678837,
-    "dist_m": 52314.12,
-    "nearest_way": {
-     "id": 23425682,
-     "highway": "residential",
-     "name": "Passeig Marítim de la Torre del Rei",
-     "ref": null,
-     "country": "es"
-    },
-    "nearest_place": {
-     "name": "Orpesa",
-     "type": "village",
-     "dist_m": 53658.5,
-     "lat": 40.093208,
-     "lon": 0.135812
-    },
-    "detail": "detail/es/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 36.889263,
     "lon": -6.438569,
     "dist_m": 11233.49,
@@ -279,37 +274,16 @@
     "nearest_place": {
      "name": "Sanlúcar de Barrameda",
      "type": "town",
-     "dist_m": 14670.3,
+     "dist_m": 14670.2,
      "lat": 36.776139,
      "lon": -6.353479
     },
-    "detail": "detail/es/B-2",
+    "island_km2": null,
+    "detail": "detail/es/B-36.889263_-6.438569",
     "warnings": []
    },
    {
-    "rank": 3,
-    "lat": 36.997215,
-    "lon": -6.30241,
-    "dist_m": 10783.84,
-    "nearest_way": {
-     "id": 168654547,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "es"
-    },
-    "nearest_place": {
-     "name": "Trebujena",
-     "type": "village",
-     "dist_m": 18080.3,
-     "lat": 36.869314,
-     "lon": -6.176702
-    },
-    "detail": "detail/es/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
+    "rank": 2,
     "lat": 37.103286,
     "lon": -3.260733,
     "dist_m": 10517.63,
@@ -327,11 +301,12 @@
      "lat": 37.156918,
      "lon": -3.190651
     },
-    "detail": "detail/es/B-4",
+    "island_km2": null,
+    "detail": "detail/es/B-37.103286_-3.260733",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 3,
     "lat": 41.858592,
     "lon": -1.033331,
     "dist_m": 10458.67,
@@ -349,11 +324,12 @@
      "lat": 41.796983,
      "lon": -1.084368
     },
-    "detail": "detail/es/B-5",
+    "island_km2": null,
+    "detail": "detail/es/B-41.858592_-1.033331",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 4,
     "lat": 37.983973,
     "lon": -2.75355,
     "dist_m": 10191.91,
@@ -367,15 +343,16 @@
     "nearest_place": {
      "name": "Los Centenares",
      "type": "hamlet",
-     "dist_m": 10010.6,
+     "dist_m": 10010.7,
      "lat": 38.073426,
      "lon": -2.739018
     },
-    "detail": "detail/es/B-6",
+    "island_km2": null,
+    "detail": "detail/es/B-37.983973_-2.753550",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 5,
     "lat": 37.835026,
     "lon": -2.076051,
     "dist_m": 9514.53,
@@ -389,15 +366,16 @@
     "nearest_place": {
      "name": "Alcoluche",
      "type": "hamlet",
-     "dist_m": 3983.1,
+     "dist_m": 3983.0,
      "lat": 37.805981,
      "lon": -2.049483
     },
-    "detail": "detail/es/B-7",
+    "island_km2": null,
+    "detail": "detail/es/B-37.835026_-2.076051",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 6,
     "lat": 38.315396,
     "lon": -3.968444,
     "dist_m": 9448.49,
@@ -415,11 +393,12 @@
      "lat": 38.408425,
      "lon": -3.920384
     },
-    "detail": "detail/es/B-8",
+    "island_km2": null,
+    "detail": "detail/es/B-38.315396_-3.968444",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 7,
     "lat": 41.890792,
     "lon": -0.621936,
     "dist_m": 9350.4,
@@ -433,15 +412,92 @@
     "nearest_place": {
      "name": "Leciñena",
      "type": "village",
-     "dist_m": 10225.7,
+     "dist_m": 10225.6,
      "lat": 41.799063,
      "lon": -0.611426
     },
-    "detail": "detail/es/B-9",
+    "island_km2": null,
+    "detail": "detail/es/B-41.890792_-0.621936",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 39.779998,
+    "lon": -5.89708,
+    "dist_m": 8785.7,
+    "nearest_way": {
+     "id": 34186397,
+     "highway": "residential",
+     "name": "Calle Larga",
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Serrejón",
+     "type": "village",
+     "dist_m": 9095.3,
+     "lat": 39.817002,
+     "lon": -5.802334
+    },
+    "island_km2": null,
+    "detail": "detail/es/B-39.779998_-5.897080",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 39.367295,
+    "lon": -4.378022,
+    "dist_m": 8389.25,
+    "nearest_way": {
+     "id": 81164226,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "Retuerta del Bullaque",
+     "type": "village",
+     "dist_m": 10879.1,
+     "lat": 39.462095,
+     "lon": -4.40999
+    },
+    "island_km2": null,
+    "detail": "detail/es/B-39.367295_-4.378022",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 37.548607,
+    "lon": -6.43386,
+    "dist_m": 8298.16,
+    "nearest_way": {
+     "id": 377117290,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "HU-4103",
+     "country": "es"
+    },
+    "nearest_place": {
+     "name": "La Caba",
+     "type": "hamlet",
+     "dist_m": 4230.9,
+     "lat": 37.551384,
+     "lon": -6.481611
+    },
+    "island_km2": null,
+    "detail": "detail/es/B-37.548607_-6.433860",
     "warnings": []
    }
   ],
-  "withheld": 1,
+  "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 11233.49,
+  "lat": 36.889263,
+  "lon": -6.438569,
+  "rank": 12,
+  "withheld": 0
  }
 }

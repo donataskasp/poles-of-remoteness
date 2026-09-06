@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 54.037825,
-    "lon": -4.837683,
-    "dist_m": 1558.22,
-    "nearest_way": {
-     "id": 167489832,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "im"
-    },
-    "nearest_place": {
-     "name": "Cregneash",
-     "type": "hamlet",
-     "dist_m": 5769.1,
-     "lat": 54.069676,
-     "lon": -4.76819
-    },
-    "detail": "detail/im/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 54.286344,
     "lon": -4.458341,
     "dist_m": 1340.18,
@@ -57,11 +35,12 @@
      "lat": 54.279821,
      "lon": -4.483199
     },
-    "detail": "detail/im/A-2",
+    "island_km2": null,
+    "detail": "detail/im/A-54.286344_-4.458341",
     "warnings": []
    },
    {
-    "rank": 3,
+    "rank": 2,
     "lat": 54.138434,
     "lon": -4.731382,
     "dist_m": 1166.3,
@@ -79,11 +58,12 @@
      "lat": 54.163854,
      "lon": -4.740051
     },
-    "detail": "detail/im/A-3",
+    "island_km2": null,
+    "detail": "detail/im/A-54.138434_-4.731382",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 54.403655,
     "lon": -4.4293,
     "dist_m": 1090.03,
@@ -101,11 +81,12 @@
      "lat": 54.382077,
      "lon": -4.388857
     },
-    "detail": "detail/im/A-4",
+    "island_km2": null,
+    "detail": "detail/im/A-54.403655_-4.429300",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 54.204322,
     "lon": -4.578426,
     "dist_m": 1082.6,
@@ -119,15 +100,16 @@
     "nearest_place": {
      "name": "Crosby",
      "type": "village",
-     "dist_m": 2355.9,
+     "dist_m": 2356.0,
      "lat": 54.184373,
      "lon": -4.566361
     },
-    "detail": "detail/im/A-5",
+    "island_km2": null,
+    "detail": "detail/im/A-54.204322_-4.578426",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 54.113003,
     "lon": -4.537594,
     "dist_m": 654.85,
@@ -145,7 +127,31 @@
      "lat": 54.123205,
      "lon": -4.550263
     },
-    "detail": "detail/im/A-6",
+    "island_km2": null,
+    "detail": "detail/im/A-54.113003_-4.537594",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 54.05881,
+    "lon": -4.822632,
+    "dist_m": 538.1,
+    "nearest_way": {
+     "id": 103548709,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Cregneash",
+     "type": "hamlet",
+     "dist_m": 3764.2,
+     "lat": 54.069676,
+     "lon": -4.76819
+    },
+    "island_km2": null,
+    "detail": "detail/im/A-54.058810_-4.822632",
     "warnings": []
    },
    {
@@ -163,16 +169,24 @@
     "nearest_place": {
      "name": "Baldrine",
      "type": "village",
-     "dist_m": 2159.1,
+     "dist_m": 2159.0,
      "lat": 54.203441,
      "lon": -4.407758
     },
-    "detail": "detail/im/A-7",
+    "island_km2": null,
+    "detail": "detail/im/A-54.184413_-4.401334",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 7 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 7 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "A_mainland": {
+  "dist_m": 1340.18,
+  "lat": 54.286344,
+  "lon": -4.458341,
+  "rank": 43,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -195,7 +209,8 @@
      "lat": 54.244135,
      "lon": -4.57642
     },
-    "detail": "detail/im/B-1",
+    "island_km2": null,
+    "detail": "detail/im/B-54.226614_-4.560718",
     "warnings": []
    },
    {
@@ -217,33 +232,12 @@
      "lat": 54.246023,
      "lon": -4.40954
     },
-    "detail": "detail/im/B-2",
+    "island_km2": null,
+    "detail": "detail/im/B-54.266584_-4.411089",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 54.038044,
-    "lon": -4.837998,
-    "dist_m": 1871.38,
-    "nearest_way": {
-     "id": 104685752,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "im"
-    },
-    "nearest_place": {
-     "name": "Cregneash",
-     "type": "hamlet",
-     "dist_m": 5770.4,
-     "lat": 54.069676,
-     "lon": -4.76819
-    },
-    "detail": "detail/im/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 54.143648,
     "lon": -4.731284,
     "dist_m": 1644.89,
@@ -261,7 +255,31 @@
      "lat": 54.163854,
      "lon": -4.740051
     },
-    "detail": "detail/im/B-4",
+    "island_km2": null,
+    "detail": "detail/im/B-54.143648_-4.731284",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 54.054354,
+    "lon": -4.832427,
+    "dist_m": 1570.44,
+    "nearest_way": {
+     "id": 104685752,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "im"
+    },
+    "nearest_place": {
+     "name": "Cregneash",
+     "type": "hamlet",
+     "dist_m": 4538.7,
+     "lat": 54.069676,
+     "lon": -4.76819
+    },
+    "island_km2": null,
+    "detail": "detail/im/B-54.054354_-4.832427",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 54.39264,
      "lon": -4.37156
     },
-    "detail": "detail/im/B-5",
+    "island_km2": null,
+    "detail": "detail/im/B-54.411816_-4.393849",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 54.346216,
      "lon": -4.503185
     },
-    "detail": "detail/im/B-6",
+    "island_km2": null,
+    "detail": "detail/im/B-54.337859_-4.514098",
     "warnings": []
    },
    {
@@ -323,11 +343,12 @@
     "nearest_place": {
      "name": "Crogga",
      "type": "hamlet",
-     "dist_m": 1413.9,
+     "dist_m": 1413.8,
      "lat": 54.123205,
      "lon": -4.550263
     },
-    "detail": "detail/im/B-7",
+    "island_km2": null,
+    "detail": "detail/im/B-54.112266_-4.539273",
     "warnings": []
    },
    {
@@ -345,15 +366,23 @@
     "nearest_place": {
      "name": "Onchan",
      "type": "town",
-     "dist_m": 2283.6,
+     "dist_m": 2283.7,
      "lat": 54.174926,
      "lon": -4.45545
     },
-    "detail": "detail/im/B-8",
+    "island_km2": null,
+    "detail": "detail/im/B-54.173366_-4.420580",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 8 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 8 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B_mainland": {
+  "dist_m": 2113.24,
+  "lat": 54.226614,
+  "lon": -4.560718,
+  "rank": 44,
+  "withheld": 0
  }
 }

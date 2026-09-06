@@ -35,7 +35,8 @@
      "lat": 46.856163,
      "lon": 10.892135
     },
-    "detail": "detail/at/A-1",
+    "island_km2": null,
+    "detail": "detail/at/A-46.843473_10.791113",
     "warnings": []
    },
    {
@@ -53,11 +54,12 @@
     "nearest_place": {
      "name": "Pifang-Alm",
      "type": "isolated_dwelling",
-     "dist_m": 8019.5,
+     "dist_m": 8019.6,
      "lat": 47.043797,
      "lon": 12.670022
     },
-    "detail": "detail/at/A-2",
+    "island_km2": null,
+    "detail": "detail/at/A-47.113126_12.699195",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 47.123941,
      "lon": 12.451228
     },
-    "detail": "detail/at/A-3",
+    "island_km2": null,
+    "detail": "detail/at/A-47.115450_12.352791",
     "warnings": []
    },
    {
@@ -97,37 +100,16 @@
     "nearest_place": {
      "name": "Mutterberg",
      "type": "hamlet",
-     "dist_m": 5427.1,
+     "dist_m": 5427.0,
      "lat": 47.011798,
      "lon": 11.156192
     },
-    "detail": "detail/at/A-4",
+    "island_km2": null,
+    "detail": "detail/at/A-47.059391_11.140301",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 47.051114,
-    "lon": 12.241032,
-    "dist_m": 5060.78,
-    "nearest_way": {
-     "id": 25460139,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "at"
-    },
-    "nearest_place": {
-     "name": "Innerkeesalm",
-     "type": "hamlet",
-     "dist_m": 5367.3,
-     "lat": 47.098374,
-     "lon": 12.226584
-    },
-    "detail": "detail/at/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
     "lat": 46.969853,
     "lon": 11.194187,
     "dist_m": 4944.07,
@@ -145,11 +127,12 @@
      "lat": 47.011798,
      "lon": 11.156192
     },
-    "detail": "detail/at/A-6",
+    "island_km2": null,
+    "detail": "detail/at/A-46.969853_11.194187",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 47.491574,
     "lon": 12.922673,
     "dist_m": 4668.86,
@@ -163,37 +146,16 @@
     "nearest_place": {
      "name": "St. Bartholomä",
      "type": "hamlet",
-     "dist_m": 6951.9,
+     "dist_m": 6952.0,
      "lat": 47.544417,
      "lon": 12.972017
     },
-    "detail": "detail/at/A-7",
+    "island_km2": null,
+    "detail": "detail/at/A-47.491574_12.922673",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 46.796112,
-    "lon": 10.953167,
-    "dist_m": 4667.94,
-    "nearest_way": {
-     "id": 231454743,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Vent",
-     "type": "village",
-     "dist_m": 7686.8,
-     "lat": 46.860011,
-     "lon": 10.91467
-    },
-    "detail": "detail/at/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 7,
     "lat": 47.690235,
     "lon": 16.747427,
     "dist_m": 4661.36,
@@ -211,34 +173,89 @@
      "lat": 47.635442,
      "lon": 16.70046
     },
-    "detail": "detail/at/A-9",
+    "island_km2": null,
+    "detail": "detail/at/A-47.690235_16.747427",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 47.526171,
-    "lon": 13.066126,
-    "dist_m": 4647.06,
+    "rank": 8,
+    "lat": 47.67521,
+    "lon": 14.006847,
+    "dist_m": 4597.87,
     "nearest_way": {
-     "id": 180636191,
+     "id": 418588972,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "at"
     },
     "nearest_place": {
-     "name": "Unterjochalm",
+     "name": "Gössler Alm",
      "type": "isolated_dwelling",
-     "dist_m": 4881.8,
-     "lat": 47.569679,
-     "lon": 13.074859
+     "dist_m": 7230.4,
+     "lat": 47.660639,
+     "lon": 13.913021
     },
-    "detail": "detail/at/A-10",
+    "island_km2": null,
+    "detail": "detail/at/A-47.675210_14.006847",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.87511,
+    "lon": 10.23175,
+    "dist_m": 4374.64,
+    "nearest_way": {
+     "id": 307633935,
+     "highway": "track",
+     "name": "Via da Champatsch",
+     "ref": null,
+     "country": "ch"
+    },
+    "nearest_place": {
+     "name": "Zuort",
+     "type": "isolated_dwelling",
+     "dist_m": 7554.9,
+     "lat": 46.871048,
+     "lon": 10.330672
+    },
+    "island_km2": null,
+    "detail": "detail/at/A-46.875110_10.231750",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 47.01666,
+    "lon": 11.860815,
+    "dist_m": 4058.16,
+    "nearest_way": {
+     "id": 460289564,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "Mitterbach Alm - Malga Rio di Mezzo di sotto",
+     "type": "isolated_dwelling",
+     "dist_m": 5937.0,
+     "lat": 46.963446,
+     "lon": 11.867403
+    },
+    "island_km2": null,
+    "detail": "detail/at/A-47.016660_11.860815",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 6182.93,
+  "lat": 46.843473,
+  "lon": 10.791113,
+  "rank": 17,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,11 +274,12 @@
     "nearest_place": {
      "name": "Kesselkaralm",
      "type": "hamlet",
-     "dist_m": 7105.0,
+     "dist_m": 7105.1,
      "lat": 47.190828,
      "lon": 12.344971
     },
-    "detail": "detail/at/B-1",
+    "island_km2": null,
+    "detail": "detail/at/B-47.126930_12.346776",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 47.358503,
      "lon": 11.431587
     },
-    "detail": "detail/at/B-2",
+    "island_km2": null,
+    "detail": "detail/at/B-47.396620_11.411960",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 46.929163,
      "lon": 12.759145
     },
-    "detail": "detail/at/B-3",
+    "island_km2": null,
+    "detail": "detail/at/B-46.951430_12.759287",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 46.879917,
      "lon": 10.331789
     },
-    "detail": "detail/at/B-4",
+    "island_km2": null,
+    "detail": "detail/at/B-46.891068_10.227079",
     "warnings": []
    },
    {
@@ -345,11 +366,12 @@
     "nearest_place": {
      "name": "Gstanshütte",
      "type": "isolated_dwelling",
-     "dist_m": 4080.3,
+     "dist_m": 4080.4,
      "lat": 47.077051,
      "lon": 10.165913
     },
-    "detail": "detail/at/B-5",
+    "island_km2": null,
+    "detail": "detail/at/B-47.052020_10.126628",
     "warnings": []
    },
    {
@@ -367,37 +389,16 @@
     "nearest_place": {
      "name": "Lazins",
      "type": "isolated_dwelling",
-     "dist_m": 7237.8,
+     "dist_m": 7237.9,
      "lat": 46.784003,
      "lon": 11.067263
     },
-    "detail": "detail/at/B-6",
+    "island_km2": null,
+    "detail": "detail/at/B-46.798826_10.974956",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 47.024773,
-    "lon": 11.838836,
-    "dist_m": 7813.06,
-    "nearest_way": {
-     "id": 463392577,
-     "highway": "unclassified",
-     "name": "Rohrberg",
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "Mitterbach Alm - Malga Rio di Mezzo di sotto",
-     "type": "isolated_dwelling",
-     "dist_m": 7155.7,
-     "lat": 46.963446,
-     "lon": 11.867403
-    },
-    "detail": "detail/at/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
     "lat": 47.101961,
     "lon": 12.656348,
     "dist_m": 7809.94,
@@ -411,59 +412,92 @@
     "nearest_place": {
      "name": "Pifang-Alm",
      "type": "isolated_dwelling",
-     "dist_m": 6549.0,
+     "dist_m": 6549.1,
      "lat": 47.043797,
      "lon": 12.670022
     },
-    "detail": "detail/at/B-8",
+    "island_km2": null,
+    "detail": "detail/at/B-47.101961_12.656348",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 47.682244,
+    "lon": 14.002695,
+    "dist_m": 7694.33,
+    "nearest_way": {
+     "id": 25159705,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "at"
+    },
+    "nearest_place": {
+     "name": "Gössler Alm",
+     "type": "isolated_dwelling",
+     "dist_m": 7149.9,
+     "lat": 47.660639,
+     "lon": 13.913021
+    },
+    "island_km2": null,
+    "detail": "detail/at/B-47.682244_14.002695",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 46.840975,
-    "lon": 10.105239,
-    "dist_m": 7791.66,
+    "lat": 47.485056,
+    "lon": 12.975249,
+    "dist_m": 7496.36,
     "nearest_way": {
-     "id": 1267517015,
+     "id": 92796911,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "at"
     },
     "nearest_place": {
-     "name": "Guarda",
-     "type": "village",
-     "dist_m": 8114.6,
-     "lat": 46.775385,
-     "lon": 10.151893
+     "name": "St. Bartholomä",
+     "type": "hamlet",
+     "dist_m": 6604.3,
+     "lat": 47.544417,
+     "lon": 12.972017
     },
-    "detail": "detail/at/B-9",
+    "island_km2": null,
+    "detail": "detail/at/B-47.485056_12.975249",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 46.826634,
-    "lon": 10.799066,
-    "dist_m": 7697.62,
+    "lat": 46.833375,
+    "lon": 13.106597,
+    "dist_m": 7483.21,
     "nearest_way": {
-     "id": 752696763,
-     "highway": "service",
+     "id": 1147656983,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "at"
     },
     "nearest_place": {
-     "name": "Rofen",
+     "name": "Wöllatratten",
      "type": "hamlet",
-     "dist_m": 7821.6,
-     "lat": 46.856163,
-     "lon": 10.892135
+     "dist_m": 7793.1,
+     "lat": 46.897494,
+     "lon": 13.065281
     },
-    "detail": "detail/at/B-10",
+    "island_km2": null,
+    "detail": "detail/at/B-46.833375_13.106597",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 11385.53,
+  "lat": 47.12693,
+  "lon": 12.346776,
+  "rank": 11,
+  "withheld": 0
  }
 }

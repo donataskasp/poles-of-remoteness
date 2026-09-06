@@ -35,7 +35,8 @@
      "lat": 42.635816,
      "lon": 24.804823
     },
-    "detail": "detail/bg/A-1",
+    "island_km2": null,
+    "detail": "detail/bg/A-42.701781_24.843998",
     "warnings": []
    },
    {
@@ -53,11 +54,12 @@
     "nearest_place": {
      "name": "Туричка черква",
      "type": "hamlet",
-     "dist_m": 7898.3,
+     "dist_m": 7898.2,
      "lat": 41.66621,
      "lon": 23.400286
     },
-    "detail": "detail/bg/A-2",
+    "island_km2": null,
+    "detail": "detail/bg/A-41.680119_23.493301",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 41.96955,
      "lon": 23.476672
     },
-    "detail": "detail/bg/A-3",
+    "island_km2": null,
+    "detail": "detail/bg/A-41.997608_23.373849",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 42.114594,
      "lon": 23.308506
     },
-    "detail": "detail/bg/A-4",
+    "island_km2": null,
+    "detail": "detail/bg/A-42.176441_23.320100",
     "warnings": []
    },
    {
@@ -119,11 +123,12 @@
     "nearest_place": {
      "name": "Мумджидам",
      "type": "hamlet",
-     "dist_m": 2717.5,
+     "dist_m": 2717.4,
      "lat": 41.79758,
      "lon": 25.081639
     },
-    "detail": "detail/bg/A-5",
+    "island_km2": null,
+    "detail": "detail/bg/A-41.780514_25.058215",
     "warnings": []
    },
    {
@@ -145,33 +150,12 @@
      "lat": 42.26217,
      "lon": 23.509477
     },
-    "detail": "detail/bg/A-6",
+    "island_km2": null,
+    "detail": "detail/bg/A-42.169051_23.504471",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 41.786367,
-    "lon": 23.378761,
-    "dist_m": 4129.6,
-    "nearest_way": {
-     "id": 72664183,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "bg"
-    },
-    "nearest_place": {
-     "name": "Bansko",
-     "type": "town",
-     "dist_m": 10256.4,
-     "lat": 41.834409,
-     "lon": 23.48417
-    },
-    "detail": "detail/bg/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
     "lat": 43.649467,
     "lon": 23.640252,
     "dist_m": 4078.03,
@@ -189,11 +173,12 @@
      "lat": 43.604415,
      "lon": 23.659933
     },
-    "detail": "detail/bg/A-8",
+    "island_km2": null,
+    "detail": "detail/bg/A-43.649467_23.640252",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 43.61295,
     "lon": 24.202744,
     "dist_m": 3933.87,
@@ -211,11 +196,12 @@
      "lat": 43.564999,
      "lon": 24.224576
     },
-    "detail": "detail/bg/A-9",
+    "island_km2": null,
+    "detail": "detail/bg/A-43.612950_24.202744",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 42.09343,
     "lon": 27.331876,
     "dist_m": 3907.44,
@@ -233,12 +219,43 @@
      "lat": 42.070321,
      "lon": 27.287249
     },
-    "detail": "detail/bg/A-10",
+    "island_km2": null,
+    "detail": "detail/bg/A-42.093430_27.331876",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.565086,
+    "lon": 27.448839,
+    "dist_m": 3834.29,
+    "nearest_way": {
+     "id": 531304923,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "bg"
+    },
+    "nearest_place": {
+     "name": "Cherventsi",
+     "type": "village",
+     "dist_m": 4536.8,
+     "lat": 43.524517,
+     "lon": 27.442444
+    },
+    "island_km2": null,
+    "detail": "detail/bg/A-43.565086_27.448839",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 6125.23,
+  "lat": 42.701781,
+  "lon": 24.843998,
+  "rank": 18,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 42.26683,
      "lon": 23.607432
     },
-    "detail": "detail/bg/B-1",
+    "island_km2": null,
+    "detail": "detail/bg/B-42.189462_23.666834",
     "warnings": []
    },
    {
@@ -279,11 +297,12 @@
     "nearest_place": {
      "name": "Жидов дол",
      "type": "isolated_dwelling",
-     "dist_m": 7389.9,
+     "dist_m": 7390.0,
      "lat": 42.771096,
      "lon": 24.742335
     },
-    "detail": "detail/bg/B-2",
+    "island_km2": null,
+    "detail": "detail/bg/B-42.726858_24.809747",
     "warnings": []
    },
    {
@@ -301,37 +320,16 @@
     "nearest_place": {
      "name": "Туричка черква",
      "type": "hamlet",
-     "dist_m": 10494.5,
+     "dist_m": 10494.4,
      "lat": 41.66621,
      "lon": 23.400286
     },
-    "detail": "detail/bg/B-3",
+    "island_km2": null,
+    "detail": "detail/bg/B-41.688617_23.522723",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 42.734769,
-    "lon": 25.06019,
-    "dist_m": 7698.25,
-    "nearest_way": {
-     "id": 194422785,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "bg"
-    },
-    "nearest_place": {
-     "name": "Tazha",
-     "type": "village",
-     "dist_m": 8994.8,
-     "lat": 42.65581,
-     "lon": 25.08451
-    },
-    "detail": "detail/bg/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 43.679986,
     "lon": 23.628142,
     "dist_m": 7570.1,
@@ -349,11 +347,12 @@
      "lat": 43.63694,
      "lon": 23.7038
     },
-    "detail": "detail/bg/B-5",
+    "island_km2": null,
+    "detail": "detail/bg/B-43.679986_23.628142",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 41.975448,
     "lon": 23.362066,
     "dist_m": 7530.7,
@@ -367,15 +366,16 @@
     "nearest_place": {
      "name": "Gorno Osenovo",
      "type": "hamlet",
-     "dist_m": 8319.7,
+     "dist_m": 8319.8,
      "lat": 41.9926,
      "lon": 23.26434
     },
-    "detail": "detail/bg/B-6",
+    "island_km2": null,
+    "detail": "detail/bg/B-41.975448_23.362066",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 41.83762,
     "lon": 24.026888,
     "dist_m": 7431.61,
@@ -389,37 +389,16 @@
     "nearest_place": {
      "name": "Sarnitsa",
      "type": "town",
-     "dist_m": 11022.3,
+     "dist_m": 11022.2,
      "lat": 41.738403,
      "lon": 24.024161
     },
-    "detail": "detail/bg/B-7",
+    "island_km2": null,
+    "detail": "detail/bg/B-41.837620_24.026888",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 42.143917,
-    "lon": 23.480249,
-    "dist_m": 6898.58,
-    "nearest_way": {
-     "id": 231214766,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "bg"
-    },
-    "nearest_place": {
-     "name": "Semkovo",
-     "type": "village",
-     "dist_m": 11646.8,
-     "lat": 42.045014,
-     "lon": 23.527007
-    },
-    "detail": "detail/bg/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 7,
     "lat": 42.57308,
     "lon": 24.589885,
     "dist_m": 6810.44,
@@ -437,11 +416,12 @@
      "lat": 42.50956,
      "lon": 24.61236
     },
-    "detail": "detail/bg/B-9",
+    "island_km2": null,
+    "detail": "detail/bg/B-42.573080_24.589885",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 8,
     "lat": 43.614937,
     "lon": 23.940945,
     "dist_m": 6565.92,
@@ -455,15 +435,69 @@
     "nearest_place": {
      "name": "Bardarski Geran",
      "type": "village",
-     "dist_m": 7574.6,
+     "dist_m": 7574.5,
      "lat": 43.547379,
      "lon": 23.953532
     },
-    "detail": "detail/bg/B-10",
+    "island_km2": null,
+    "detail": "detail/bg/B-43.614937_23.940945",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 43.178018,
+    "lon": 22.997331,
+    "dist_m": 6538.46,
+    "nearest_way": {
+     "id": 824771574,
+     "highway": "unclassified",
+     "name": "Сенокос",
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Senokos",
+     "type": "hamlet",
+     "dist_m": 6852.0,
+     "lat": 43.144652,
+     "lon": 22.926472
+    },
+    "island_km2": null,
+    "detail": "detail/bg/B-43.178018_22.997331",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.775949,
+    "lon": 23.34094,
+    "dist_m": 6522.36,
+    "nearest_way": {
+     "id": 72664183,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "bg"
+    },
+    "nearest_place": {
+     "name": "Ezerets",
+     "type": "hamlet",
+     "dist_m": 7807.5,
+     "lat": 41.794527,
+     "lon": 23.250359
+    },
+    "island_km2": null,
+    "detail": "detail/bg/B-41.775949_23.340940",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 9137.17,
+  "lat": 42.189462,
+  "lon": 23.666834,
+  "rank": 16,
+  "withheld": 0
  }
 }

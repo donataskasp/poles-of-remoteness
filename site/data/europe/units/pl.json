@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 54.691322,
-    "lon": 18.548518,
-    "dist_m": 4978.62,
-    "nearest_way": {
-     "id": 724706497,
-     "highway": "service",
-     "name": "Nad Zatoką",
-     "ref": null,
-     "country": "pl"
-    },
-    "nearest_place": {
-     "name": "Kuźnica",
-     "type": "village",
-     "dist_m": 5267.3,
-     "lat": 54.734476,
-     "lon": 18.582038
-    },
-    "detail": "detail/pl/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 54.751183,
     "lon": 17.373363,
     "dist_m": 4293.55,
@@ -57,11 +35,12 @@
      "lat": 54.682645,
      "lon": 17.336315
     },
-    "detail": "detail/pl/A-2",
+    "island_km2": null,
+    "detail": "detail/pl/A-54.751183_17.373363",
     "warnings": []
    },
    {
-    "rank": 3,
+    "rank": 2,
     "lat": 49.196115,
     "lon": 19.850338,
     "dist_m": 3705.75,
@@ -79,11 +58,12 @@
      "lat": 49.229292,
      "lon": 19.858511
     },
-    "detail": "detail/pl/A-3",
+    "island_km2": null,
+    "detail": "detail/pl/A-49.196115_19.850338",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 54.32695,
     "lon": 19.391995,
     "dist_m": 3684.92,
@@ -101,11 +81,12 @@
      "lat": 54.284519,
      "lon": 19.437772
     },
-    "detail": "detail/pl/A-4",
+    "island_km2": 1.5,
+    "detail": "detail/pl/A-54.326950_19.391995",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 53.273883,
     "lon": 22.557815,
     "dist_m": 3281.88,
@@ -123,11 +104,12 @@
      "lat": 53.239072,
      "lon": 22.53634
     },
-    "detail": "detail/pl/A-5",
+    "island_km2": null,
+    "detail": "detail/pl/A-53.273883_22.557815",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 53.458611,
     "lon": 14.646561,
     "dist_m": 3173.75,
@@ -145,33 +127,12 @@
      "lat": 53.461941,
      "lon": 14.71331
     },
-    "detail": "detail/pl/A-6",
+    "island_km2": null,
+    "detail": "detail/pl/A-53.458611_14.646561",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 49.181888,
-    "lon": 20.068005,
-    "dist_m": 3080.97,
-    "nearest_way": {
-     "id": 1203753687,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "pl"
-    },
-    "nearest_place": {
-     "name": "Štrbské Pleso",
-     "type": "hamlet",
-     "dist_m": 6836.7,
-     "lat": 49.120666,
-     "lon": 20.076495
-    },
-    "detail": "detail/pl/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 6,
     "lat": 53.641271,
     "lon": 22.832342,
     "dist_m": 2793.77,
@@ -185,15 +146,16 @@
     "nearest_place": {
      "name": "Choszczewo",
      "type": "isolated_dwelling",
-     "dist_m": 3986.0,
+     "dist_m": 3985.9,
      "lat": 53.632193,
      "lon": 22.77405
     },
-    "detail": "detail/pl/A-8",
+    "island_km2": null,
+    "detail": "detail/pl/A-53.641271_22.832342",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 7,
     "lat": 49.099036,
     "lon": 22.70855,
     "dist_m": 2703.78,
@@ -211,11 +173,12 @@
      "lat": 49.129275,
      "lon": 22.744103
     },
-    "detail": "detail/pl/A-9",
+    "island_km2": null,
+    "detail": "detail/pl/A-49.099036_22.708550",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 8,
     "lat": 51.499317,
     "lon": 15.474969,
     "dist_m": 2480.41,
@@ -233,12 +196,89 @@
      "lat": 51.526619,
      "lon": 15.467231
     },
-    "detail": "detail/pl/A-10",
+    "island_km2": null,
+    "detail": "detail/pl/A-51.499317_15.474969",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 53.400323,
+    "lon": 22.528571,
+    "dist_m": 2406.02,
+    "nearest_way": {
+     "id": 1285987707,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Budy",
+     "type": "village",
+     "dist_m": 3159.8,
+     "lat": 53.383043,
+     "lon": 22.566257
+    },
+    "island_km2": null,
+    "detail": "detail/pl/A-53.400323_22.528571",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 53.612726,
+    "lon": 23.03607,
+    "dist_m": 2292.49,
+    "nearest_way": {
+     "id": 231028642,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Rogowo",
+     "type": "isolated_dwelling",
+     "dist_m": 3082.1,
+     "lat": 53.640278,
+     "lon": 23.031389
+    },
+    "island_km2": null,
+    "detail": "detail/pl/A-53.612726_23.036070",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 49.57758,
+    "lon": 19.54431,
+    "dist_m": 2240.05,
+    "nearest_way": {
+     "id": 220375078,
+     "highway": "track",
+     "name": "Ścieżka Partyzancka",
+     "ref": null,
+     "country": "pl"
+    },
+    "nearest_place": {
+     "name": "Stonów",
+     "type": "isolated_dwelling",
+     "dist_m": 2524.5,
+     "lat": 49.600278,
+     "lon": 19.544444
+    },
+    "island_km2": null,
+    "detail": "detail/pl/A-49.577580_19.544310",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 4293.55,
+  "lat": 54.751183,
+  "lon": 17.373363,
+  "rank": 28,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,11 +297,12 @@
     "nearest_place": {
      "name": "Przybynin",
      "type": "village",
-     "dist_m": 7541.5,
+     "dist_m": 7541.6,
      "lat": 54.699942,
      "lon": 17.277699
     },
-    "detail": "detail/pl/B-1",
+    "island_km2": null,
+    "detail": "detail/pl/B-54.750113_17.356355",
     "warnings": []
    },
    {
@@ -279,11 +320,12 @@
     "nearest_place": {
      "name": "Grzędy",
      "type": "hamlet",
-     "dist_m": 6386.8,
+     "dist_m": 6386.9,
      "lat": 53.631462,
      "lon": 22.77359
     },
-    "detail": "detail/pl/B-2",
+    "island_km2": null,
+    "detail": "detail/pl/B-53.574498_22.785260",
     "warnings": []
    },
    {
@@ -305,7 +347,8 @@
      "lat": 51.484548,
      "lon": 15.646791
     },
-    "detail": "detail/pl/B-3",
+    "island_km2": null,
+    "detail": "detail/pl/B-51.457737_15.732876",
     "warnings": []
    },
    {
@@ -327,7 +370,8 @@
      "lat": 52.722127,
      "lon": 23.907224
     },
-    "detail": "detail/pl/B-4",
+    "island_km2": null,
+    "detail": "detail/pl/B-52.766284_23.878743",
     "warnings": []
    },
    {
@@ -349,7 +393,8 @@
      "lat": 53.480815,
      "lon": 16.694609
     },
-    "detail": "detail/pl/B-5",
+    "island_km2": null,
+    "detail": "detail/pl/B-53.530372_16.719455",
     "warnings": []
    },
    {
@@ -371,7 +416,8 @@
      "lat": 49.111097,
      "lon": 22.521115
     },
-    "detail": "detail/pl/B-6",
+    "island_km2": null,
+    "detail": "detail/pl/B-49.095777_22.473313",
     "warnings": []
    },
    {
@@ -393,7 +439,8 @@
      "lat": 54.664829,
      "lon": 17.195163
     },
-    "detail": "detail/pl/B-7",
+    "island_km2": null,
+    "detail": "detail/pl/B-54.692181_17.127375",
     "warnings": []
    },
    {
@@ -415,7 +462,8 @@
      "lat": 49.125801,
      "lon": 22.7941
     },
-    "detail": "detail/pl/B-8",
+    "island_km2": null,
+    "detail": "detail/pl/B-49.072600_22.772794",
     "warnings": []
    },
    {
@@ -437,33 +485,42 @@
      "lat": 53.283331,
      "lon": 22.45695
     },
-    "detail": "detail/pl/B-9",
+    "island_km2": null,
+    "detail": "detail/pl/B-53.286883_22.532781",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 54.691322,
-    "lon": 18.548518,
-    "dist_m": 4978.62,
+    "lat": 53.149773,
+    "lon": 15.981985,
+    "dist_m": 4920.82,
     "nearest_way": {
-     "id": 724706497,
-     "highway": "service",
-     "name": "Nad Zatoką",
+     "id": 223139525,
+     "highway": "unclassified",
+     "name": null,
      "ref": null,
      "country": "pl"
     },
     "nearest_place": {
-     "name": "Kuźnica",
+     "name": "Jelenie",
      "type": "village",
-     "dist_m": 5267.3,
-     "lat": 54.734476,
-     "lon": 18.582038
+     "dist_m": 674.1,
+     "lat": 53.153986,
+     "lon": 15.989225
     },
-    "detail": "detail/pl/B-10",
+    "island_km2": null,
+    "detail": "detail/pl/B-53.149773_15.981985",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 7119.91,
+  "lat": 54.750113,
+  "lon": 17.356355,
+  "rank": 26,
+  "withheld": 0
  }
 }

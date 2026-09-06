@@ -35,7 +35,8 @@
      "lat": 43.267505,
      "lon": 40.897745
     },
-    "detail": "detail/ge/A-1",
+    "island_km2": null,
+    "detail": "detail/ge/A-43.345383_41.085340",
     "warnings": []
    },
    {
@@ -53,59 +54,16 @@
     "nearest_place": {
      "name": "Gudisi",
      "type": "hamlet",
-     "dist_m": 7225.4,
+     "dist_m": 7225.3,
      "lat": 42.388151,
      "lon": 44.112377
     },
-    "detail": "detail/ge/A-2",
+    "island_km2": null,
+    "detail": "detail/ge/A-42.409358_44.195341",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 43.243299,
-    "lon": 41.167189,
-    "dist_m": 11186.31,
-    "nearest_way": {
-     "id": 1354135603,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ge"
-    },
-    "nearest_place": {
-     "name": "Kialasur",
-     "type": "hamlet",
-     "dist_m": 14224.4,
-     "lat": 43.120736,
-     "lon": 41.217798
-    },
-    "detail": "detail/ge/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 42.390854,
-    "lon": 44.320304,
-    "dist_m": 10829.57,
-    "nearest_way": {
-     "id": 635335885,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ge"
-    },
-    "nearest_place": {
-     "name": "Isroliskhevi",
-     "type": "isolated_dwelling",
-     "dist_m": 12027.2,
-     "lat": 42.282602,
-     "lon": 44.317263
-    },
-    "detail": "detail/ge/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 42.70688,
     "lon": 44.460957,
     "dist_m": 10333.55,
@@ -123,56 +81,158 @@
      "lat": 42.630643,
      "lon": 44.382165
     },
-    "detail": "detail/ge/A-5",
+    "island_km2": null,
+    "detail": "detail/ge/A-42.706880_44.460957",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 43.140681,
+    "lon": 42.88372,
+    "dist_m": 10077.05,
+    "nearest_way": {
+     "id": 292609900,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ru"
+    },
+    "nearest_place": {
+     "name": "Zhabeshi",
+     "type": "hamlet",
+     "dist_m": 10533.4,
+     "lat": 43.046633,
+     "lon": 42.867297
+    },
+    "island_km2": null,
+    "detail": "detail/ge/A-43.140681_42.883720",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 43.014562,
+    "lon": 41.829809,
+    "dist_m": 9350.35,
+    "nearest_way": {
+     "id": 196955672,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Arma-Giantswysh",
+     "type": "village",
+     "dist_m": 9582.0,
+     "lat": 43.100629,
+     "lon": 41.822118
+    },
+    "island_km2": null,
+    "detail": "detail/ge/A-43.014562_41.829809",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 42.372949,
-    "lon": 45.361411,
-    "dist_m": 10259.65,
+    "lat": 42.794113,
+    "lon": 42.34678,
+    "dist_m": 9345.3,
     "nearest_way": {
-     "id": 567279385,
+     "id": 1309931894,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ge"
     },
     "nearest_place": {
-     "name": "Indurta",
+     "name": "Bavari",
      "type": "village",
-     "dist_m": 10314.6,
-     "lat": 42.447532,
-     "lon": 45.436053
+     "dist_m": 12695.4,
+     "lat": 42.826403,
+     "lon": 42.495672
     },
-    "detail": "detail/ge/A-6",
+    "island_km2": null,
+    "detail": "detail/ge/A-42.794113_42.346780",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 43.226956,
-    "lon": 41.295094,
-    "dist_m": 10213.34,
+    "lat": 42.687242,
+    "lon": 43.009437,
+    "dist_m": 7800.0,
     "nearest_way": {
-     "id": 1350405561,
-     "highway": "track",
+     "id": 102152298,
+     "highway": "residential",
      "name": null,
      "ref": null,
      "country": "ge"
     },
     "nearest_place": {
-     "name": "Kialasur",
+     "name": "Kheria",
      "type": "hamlet",
-     "dist_m": 13370.0,
-     "lat": 43.120736,
-     "lon": 41.217798
+     "dist_m": 11336.3,
+     "lat": 42.788394,
+     "lon": 43.027743
     },
-    "detail": "detail/ge/A-7",
+    "island_km2": null,
+    "detail": "detail/ge/A-42.687242_43.009437",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 42.510478,
+    "lon": 44.62763,
+    "dist_m": 7758.56,
+    "nearest_way": {
+     "id": 523765517,
+     "highway": "track",
+     "name": "ხევი - გუდამაყრის ( სნო-კარკუჩა-ჩოხი) საოფროუდო გზა",
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Boseli",
+     "type": "isolated_dwelling",
+     "dist_m": 7464.9,
+     "lat": 42.465953,
+     "lon": 44.695638
+    },
+    "island_km2": null,
+    "detail": "detail/ge/A-42.510478_44.627630",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 42.551955,
+    "lon": 43.979423,
+    "dist_m": 7750.57,
+    "nearest_way": {
+     "id": 559061570,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Keshelta",
+     "type": "hamlet",
+     "dist_m": 9543.7,
+     "lat": 42.475873,
+     "lon": 43.925475
+    },
+    "island_km2": null,
+    "detail": "detail/ge/A-42.551955_43.979423",
     "warnings": []
    }
   ],
-  "withheld": 3,
+  "withheld": 1,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 12544.71,
+  "lat": 43.345383,
+  "lon": 41.08534,
+  "rank": 7,
+  "withheld": 1
  },
  "B": {
   "poles": [
@@ -191,37 +251,16 @@
     "nearest_place": {
      "name": "Kialasur",
      "type": "hamlet",
-     "dist_m": 22452.4,
+     "dist_m": 22452.3,
      "lat": 43.120736,
      "lon": 41.217798
     },
-    "detail": "detail/ge/B-1",
+    "island_km2": null,
+    "detail": "detail/ge/B-43.322716_41.227155",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 43.351662,
-    "lon": 41.103596,
-    "dist_m": 19185.66,
-    "nearest_way": {
-     "id": 202654804,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ge"
-    },
-    "nearest_place": {
-     "name": "Dou",
-     "type": "isolated_dwelling",
-     "dist_m": 19139.8,
-     "lat": 43.267505,
-     "lon": 40.897745
-    },
-    "detail": "detail/ge/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 42.405365,
     "lon": 45.281039,
     "dist_m": 17423.98,
@@ -239,55 +278,12 @@
      "lat": 42.401856,
      "lon": 45.14281
     },
-    "detail": "detail/ge/B-3",
+    "island_km2": null,
+    "detail": "detail/ge/B-42.405365_45.281039",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 43.258764,
-    "lon": 41.322941,
-    "dist_m": 17396.14,
-    "nearest_way": {
-     "id": 1148033193,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ge"
-    },
-    "nearest_place": {
-     "name": "Kialasur",
-     "type": "hamlet",
-     "dist_m": 17555.6,
-     "lat": 43.120736,
-     "lon": 41.217798
-    },
-    "detail": "detail/ge/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 43.206521,
-    "lon": 41.431805,
-    "dist_m": 15255.72,
-    "nearest_way": {
-     "id": 87112873,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ge"
-    },
-    "nearest_place": {
-     "name": "Qwarash",
-     "type": "hamlet",
-     "dist_m": 9569.1,
-     "lat": 43.199236,
-     "lon": 41.549124
-    },
-    "detail": "detail/ge/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 3,
     "lat": 41.862553,
     "lon": 43.095491,
     "dist_m": 14759.64,
@@ -301,15 +297,184 @@
     "nearest_place": {
      "name": "Shepherds settlement",
      "type": "hamlet",
-     "dist_m": 5203.5,
+     "dist_m": 5203.6,
      "lat": 41.815857,
      "lon": 43.10055
     },
-    "detail": "detail/ge/B-6",
+    "island_km2": null,
+    "detail": "detail/ge/B-41.862553_43.095491",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 43.213572,
+    "lon": 42.318133,
+    "dist_m": 14099.04,
+    "nearest_way": {
+     "id": 756757035,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Lenkvashi",
+     "type": "hamlet",
+     "dist_m": 13549.8,
+     "lat": 43.10407,
+     "lon": 42.391499
+    },
+    "island_km2": null,
+    "detail": "detail/ge/B-43.213572_42.318133",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 43.346339,
+    "lon": 40.650716,
+    "dist_m": 13627.79,
+    "nearest_way": {
+     "id": 1269325018,
+     "highway": "secondary",
+     "name": null,
+     "ref": "შ 11",
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Ryghdza",
+     "type": "isolated_dwelling",
+     "dist_m": 12291.7,
+     "lat": 43.385198,
+     "lon": 40.7927
+    },
+    "island_km2": null,
+    "detail": "detail/ge/B-43.346339_40.650716",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 41.228162,
+    "lon": 43.960463,
+    "dist_m": 13465.02,
+    "nearest_way": {
+     "id": 103501639,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Paghaghbyur",
+     "type": "village",
+     "dist_m": 13843.7,
+     "lat": 41.178233,
+     "lon": 44.111694
+    },
+    "island_km2": null,
+    "detail": "detail/ge/B-41.228162_43.960463",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 42.409975,
+    "lon": 44.325776,
+    "dist_m": 12879.24,
+    "nearest_way": {
+     "id": 170416034,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Kareltkari",
+     "type": "hamlet",
+     "dist_m": 12865.2,
+     "lat": 42.368587,
+     "lon": 44.471697
+    },
+    "island_km2": null,
+    "detail": "detail/ge/B-42.409975_44.325776",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 42.832606,
+    "lon": 42.323187,
+    "dist_m": 12764.43,
+    "nearest_way": {
+     "id": 1536485984,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Zeda Vedi",
+     "type": "village",
+     "dist_m": 8403.9,
+     "lat": 42.892273,
+     "lon": 42.25997
+    },
+    "island_km2": null,
+    "detail": "detail/ge/B-42.832606_42.323187",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 42.981677,
+    "lon": 41.689172,
+    "dist_m": 11161.82,
+    "nearest_way": {
+     "id": 86961398,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Kwabchara",
+     "type": "hamlet",
+     "dist_m": 11492.0,
+     "lat": 43.067429,
+     "lon": 41.610317
+    },
+    "island_km2": null,
+    "detail": "detail/ge/B-42.981677_41.689172",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.918201,
+    "lon": 42.616788,
+    "dist_m": 10578.21,
+    "nearest_way": {
+     "id": 99292323,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ge"
+    },
+    "nearest_place": {
+     "name": "Shua Gora",
+     "type": "hamlet",
+     "dist_m": 2877.1,
+     "lat": 41.901187,
+     "lon": 42.59064
+    },
+    "island_km2": null,
+    "detail": "detail/ge/B-41.918201_42.616788",
     "warnings": []
    }
   ],
-  "withheld": 4,
+  "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 21052.13,
+  "lat": 43.322716,
+  "lon": 41.227155,
+  "rank": 6,
+  "withheld": 0
  }
 }

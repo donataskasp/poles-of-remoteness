@@ -35,7 +35,8 @@
      "lat": 51.648853,
      "lon": 27.227942
     },
-    "detail": "detail/by/A-1",
+    "island_km2": null,
+    "detail": "detail/by/A-51.767439_27.243773",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 52.608975,
      "lon": 25.771688
     },
-    "detail": "detail/by/A-2",
+    "island_km2": null,
+    "detail": "detail/by/A-52.693094_25.753709",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 51.885124,
      "lon": 27.715755
     },
-    "detail": "detail/by/A-3",
+    "island_km2": null,
+    "detail": "detail/by/A-51.873721_27.600709",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 51.89624,
      "lon": 27.977539
     },
-    "detail": "detail/by/A-4",
+    "island_km2": null,
+    "detail": "detail/by/A-51.955963_28.002836",
     "warnings": []
    },
    {
@@ -119,37 +123,16 @@
     "nearest_place": {
      "name": "Уборак",
      "type": "hamlet",
-     "dist_m": 6471.6,
+     "dist_m": 6471.5,
      "lat": 54.560434,
      "lon": 28.285695
     },
-    "detail": "detail/by/A-5",
+    "island_km2": null,
+    "detail": "detail/by/A-54.579675_28.380116",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 51.937823,
-    "lon": 27.71153,
-    "dist_m": 5777.71,
-    "nearest_way": {
-     "id": 106229580,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "by"
-    },
-    "nearest_place": {
-     "name": "Тонежская Рудня",
-     "type": "hamlet",
-     "dist_m": 5870.8,
-     "lat": 51.885124,
-     "lon": 27.715755
-    },
-    "detail": "detail/by/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 54.71203,
     "lon": 28.431574,
     "dist_m": 5461.21,
@@ -167,33 +150,12 @@
      "lat": 54.740418,
      "lon": 28.525864
     },
-    "detail": "detail/by/A-7",
+    "island_km2": null,
+    "detail": "detail/by/A-54.712030_28.431574",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 52.682334,
-    "lon": 26.038929,
-    "dist_m": 5175.56,
-    "nearest_way": {
-     "id": 777579499,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "by"
-    },
-    "nearest_place": {
-     "name": "Свяціца",
-     "type": "village",
-     "dist_m": 8533.4,
-     "lat": 52.75901,
-     "lon": 26.0406
-    },
-    "detail": "detail/by/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 7,
     "lat": 55.599679,
     "lon": 27.913882,
     "dist_m": 5065.71,
@@ -211,11 +173,12 @@
      "lat": 55.604428,
      "lon": 27.993887
     },
-    "detail": "detail/by/A-9",
+    "island_km2": null,
+    "detail": "detail/by/A-55.599679_27.913882",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 8,
     "lat": 52.045136,
     "lon": 24.924769,
     "dist_m": 4758.19,
@@ -233,12 +196,66 @@
      "lat": 52.087959,
      "lon": 24.939183
     },
-    "detail": "detail/by/A-10",
+    "island_km2": null,
+    "detail": "detail/by/A-52.045136_24.924769",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 52.789226,
+    "lon": 24.229841,
+    "dist_m": 4674.54,
+    "nearest_way": {
+     "id": 596929881,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Borki",
+     "type": "hamlet",
+     "dist_m": 5045.1,
+     "lat": 52.791104,
+     "lon": 24.155121
+    },
+    "island_km2": null,
+    "detail": "detail/by/A-52.789226_24.229841",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 53.298508,
+    "lon": 29.821741,
+    "dist_m": 4578.64,
+    "nearest_way": {
+     "id": 374549709,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Дубцы",
+     "type": "hamlet",
+     "dist_m": 4992.3,
+     "lat": 53.334972,
+     "lon": 29.865369
+    },
+    "island_km2": null,
+    "detail": "detail/by/A-53.298508_29.821741",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 10077.98,
+  "lat": 51.767439,
+  "lon": 27.243773,
+  "rank": 9,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,37 +274,16 @@
     "nearest_place": {
      "name": "Альманы",
      "type": "village",
-     "dist_m": 12353.0,
+     "dist_m": 12352.9,
      "lat": 51.808846,
      "lon": 27.062647
     },
-    "detail": "detail/by/B-1",
+    "island_km2": null,
+    "detail": "detail/by/B-51.775620_27.233481",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 51.872104,
-    "lon": 27.22815,
-    "dist_m": 11239.9,
-    "nearest_way": {
-     "id": 119553488,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "by"
-    },
-    "nearest_place": {
-     "name": "Старына",
-     "type": "hamlet",
-     "dist_m": 11437.9,
-     "lat": 51.974,
-     "lon": 27.20618
-    },
-    "detail": "detail/by/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 52.735922,
     "lon": 25.837265,
     "dist_m": 10434.51,
@@ -305,11 +301,12 @@
      "lat": 52.809101,
      "lon": 25.965984
     },
-    "detail": "detail/by/B-3",
+    "island_km2": null,
+    "detail": "detail/by/B-52.735922_25.837265",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 51.678558,
     "lon": 30.085888,
     "dist_m": 10311.99,
@@ -327,11 +324,12 @@
      "lat": 51.798164,
      "lon": 30.109669
     },
-    "detail": "detail/by/B-4",
+    "island_km2": null,
+    "detail": "detail/by/B-51.678558_30.085888",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 54.616774,
     "lon": 28.41408,
     "dist_m": 10129.44,
@@ -349,33 +347,12 @@
      "lat": 54.560434,
      "lon": 28.285695
     },
-    "detail": "detail/by/B-5",
+    "island_km2": null,
+    "detail": "detail/by/B-54.616774_28.414080",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 52.681702,
-    "lon": 25.677518,
-    "dist_m": 10079.8,
-    "nearest_way": {
-     "id": 420092513,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "by"
-    },
-    "nearest_place": {
-     "name": "Бабровічы",
-     "type": "hamlet",
-     "dist_m": 10301.7,
-     "lat": 52.608975,
-     "lon": 25.771688
-    },
-    "detail": "detail/by/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
+    "rank": 5,
     "lat": 51.912798,
     "lon": 27.585832,
     "dist_m": 9181.45,
@@ -393,33 +370,12 @@
      "lat": 51.885124,
      "lon": 27.715755
     },
-    "detail": "detail/by/B-7",
+    "island_km2": null,
+    "detail": "detail/by/B-51.912798_27.585832",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 51.544031,
-    "lon": 30.241464,
-    "dist_m": 8936.95,
-    "nearest_way": {
-     "id": 206224038,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ua"
-    },
-    "nearest_place": {
-     "name": "Савічы",
-     "type": "hamlet",
-     "dist_m": 9803.8,
-     "lat": 51.62201,
-     "lon": 30.30733
-    },
-    "detail": "detail/by/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 6,
     "lat": 51.966583,
     "lon": 28.02251,
     "dist_m": 8230.28,
@@ -433,15 +389,16 @@
     "nearest_place": {
      "name": "Сіманіцкі Млынок",
      "type": "hamlet",
-     "dist_m": 8415.8,
+     "dist_m": 8415.9,
      "lat": 51.89624,
      "lon": 27.977539
     },
-    "detail": "detail/by/B-9",
+    "island_km2": null,
+    "detail": "detail/by/B-51.966583_28.022510",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 7,
     "lat": 52.767705,
     "lon": 31.037248,
     "dist_m": 8182.51,
@@ -455,15 +412,92 @@
     "nearest_place": {
      "name": "Навілаўка",
      "type": "hamlet",
-     "dist_m": 8569.9,
+     "dist_m": 8570.0,
      "lat": 52.829559,
      "lon": 31.11294
     },
-    "detail": "detail/by/B-10",
+    "island_km2": null,
+    "detail": "detail/by/B-52.767705_31.037248",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 51.466197,
+    "lon": 29.593175,
+    "dist_m": 7532.13,
+    "nearest_way": {
+     "id": 1169439553,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Alyaxandrawka",
+     "type": "hamlet",
+     "dist_m": 8436.4,
+     "lat": 51.430012,
+     "lon": 29.48653
+    },
+    "island_km2": null,
+    "detail": "detail/by/B-51.466197_29.593175",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 52.626396,
+    "lon": 26.735067,
+    "dist_m": 7531.01,
+    "nearest_way": {
+     "id": 25277709,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Ліпск",
+     "type": "hamlet",
+     "dist_m": 8769.9,
+     "lat": 52.551142,
+     "lon": 26.696631
+    },
+    "island_km2": null,
+    "detail": "detail/by/B-52.626396_26.735067",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 55.55972,
+    "lon": 29.345857,
+    "dist_m": 7349.01,
+    "nearest_way": {
+     "id": 224961101,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "by"
+    },
+    "nearest_place": {
+     "name": "Жэльцы",
+     "type": "hamlet",
+     "dist_m": 7713.1,
+     "lat": 55.6255,
+     "lon": 29.384243
+    },
+    "island_km2": null,
+    "detail": "detail/by/B-55.559720_29.345857",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 11669.56,
+  "lat": 51.77562,
+  "lon": 27.233481,
+  "rank": 10,
+  "withheld": 0
  }
 }

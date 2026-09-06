@@ -35,12 +35,20 @@
      "lat": 43.936679,
      "lon": 12.429845
     },
-    "detail": "detail/sm/A-1",
+    "island_km2": null,
+    "detail": "detail/sm/A-43.937559_12.424220",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 1 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 1 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "A_mainland": {
+  "dist_m": 421.82,
+  "lat": 43.937559,
+  "lon": 12.42422,
+  "rank": 50,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -59,15 +67,23 @@
     "nearest_place": {
      "name": "Crete",
      "type": "hamlet",
-     "dist_m": 230.9,
+     "dist_m": 230.8,
      "lat": 43.913223,
      "lon": 12.491774
     },
-    "detail": "detail/sm/B-1",
+    "island_km2": null,
+    "detail": "detail/sm/B-43.914921_12.493430",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 1 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 1 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B_mainland": {
+  "dist_m": 546.07,
+  "lat": 43.914921,
+  "lon": 12.49343,
+  "rank": 50,
+  "withheld": 0
  }
 }

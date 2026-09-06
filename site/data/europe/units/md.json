@@ -35,7 +35,8 @@
      "lat": 47.974751,
      "lon": 27.800691
     },
-    "detail": "detail/md/A-1",
+    "island_km2": null,
+    "detail": "detail/md/A-47.942551_27.782582",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 48.038118,
      "lon": 28.422757
     },
-    "detail": "detail/md/A-2",
+    "island_km2": null,
+    "detail": "detail/md/A-48.023391_28.464677",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 46.592422,
      "lon": 29.242936
     },
-    "detail": "detail/md/A-3",
+    "island_km2": null,
+    "detail": "detail/md/A-46.555216_29.202038",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 46.958874,
      "lon": 29.697804
     },
-    "detail": "detail/md/A-4",
+    "island_km2": null,
+    "detail": "detail/md/A-46.955158_29.639605",
     "warnings": []
    },
    {
@@ -119,11 +123,12 @@
     "nearest_place": {
      "name": "Brătianovca",
      "type": "village",
-     "dist_m": 3784.5,
+     "dist_m": 3784.6,
      "lat": 46.741099,
      "lon": 28.46271
     },
-    "detail": "detail/md/A-5",
+    "island_km2": null,
+    "detail": "detail/md/A-46.774415_28.452519",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 45.860416,
      "lon": 28.298531
     },
-    "detail": "detail/md/A-6",
+    "island_km2": null,
+    "detail": "detail/md/A-45.898000_28.309580",
     "warnings": []
    },
    {
@@ -167,7 +173,8 @@
      "lat": 46.270796,
      "lon": 28.52085
     },
-    "detail": "detail/md/A-7",
+    "island_km2": null,
+    "detail": "detail/md/A-46.250423_28.556985",
     "warnings": []
    },
    {
@@ -189,7 +196,8 @@
      "lat": 47.497803,
      "lon": 27.459251
     },
-    "detail": "detail/md/A-8",
+    "island_km2": null,
+    "detail": "detail/md/A-47.504997_27.498375",
     "warnings": []
    },
    {
@@ -211,7 +219,8 @@
      "lat": 46.426998,
      "lon": 28.615969
     },
-    "detail": "detail/md/A-9",
+    "island_km2": null,
+    "detail": "detail/md/A-46.459281_28.570027",
     "warnings": []
    },
    {
@@ -233,12 +242,20 @@
      "lat": 47.430402,
      "lon": 28.820932
     },
-    "detail": "detail/md/A-10",
+    "island_km2": null,
+    "detail": "detail/md/A-47.467968_28.837757",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 3571.83,
+  "lat": 47.942551,
+  "lon": 27.782582,
+  "rank": 35,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 45.764137,
      "lon": 28.169216
     },
-    "detail": "detail/md/B-1",
+    "island_km2": null,
+    "detail": "detail/md/B-45.762662_28.266625",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 46.270796,
      "lon": 28.52085
     },
-    "detail": "detail/md/B-2",
+    "island_km2": null,
+    "detail": "detail/md/B-46.247949_28.579400",
     "warnings": []
    },
    {
@@ -301,11 +320,12 @@
     "nearest_place": {
      "name": "Yaroslavove",
      "type": "village",
-     "dist_m": 5493.8,
+     "dist_m": 5493.9,
      "lat": 46.156705,
      "lon": 29.084798
     },
-    "detail": "detail/md/B-3",
+    "island_km2": null,
+    "detail": "detail/md/B-46.191952_29.034923",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 46.534712,
      "lon": 28.61851
     },
-    "detail": "detail/md/B-4",
+    "island_km2": null,
+    "detail": "detail/md/B-46.545327_28.685017",
     "warnings": []
    },
    {
@@ -349,7 +370,8 @@
      "lat": 46.731629,
      "lon": 29.954471
     },
-    "detail": "detail/md/B-5",
+    "island_km2": null,
+    "detail": "detail/md/B-46.740280_29.863052",
     "warnings": []
    },
    {
@@ -371,7 +393,8 @@
      "lat": 45.854547,
      "lon": 28.693306
     },
-    "detail": "detail/md/B-6",
+    "island_km2": null,
+    "detail": "detail/md/B-45.862965_28.764819",
     "warnings": []
    },
    {
@@ -393,7 +416,8 @@
      "lat": 45.879606,
      "lon": 28.412312
     },
-    "detail": "detail/md/B-7",
+    "island_km2": null,
+    "detail": "detail/md/B-45.843349_28.384861",
     "warnings": []
    },
    {
@@ -415,7 +439,8 @@
      "lat": 46.173064,
      "lon": 28.648468
     },
-    "detail": "detail/md/B-8",
+    "island_km2": null,
+    "detail": "detail/md/B-46.147725_28.708761",
     "warnings": []
    },
    {
@@ -437,7 +462,8 @@
      "lat": 46.332491,
      "lon": 28.976094
     },
-    "detail": "detail/md/B-9",
+    "island_km2": null,
+    "detail": "detail/md/B-46.309879_28.905486",
     "warnings": []
    },
    {
@@ -455,15 +481,23 @@
     "nearest_place": {
      "name": "Marianca de Sus",
      "type": "village",
-     "dist_m": 4824.2,
+     "dist_m": 4824.1,
      "lat": 46.645766,
      "lon": 29.314346
     },
-    "detail": "detail/md/B-10",
+    "island_km2": null,
+    "detail": "detail/md/B-46.651764_29.251934",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 6392.47,
+  "lat": 45.762662,
+  "lon": 28.266625,
+  "rank": 33,
+  "withheld": 0
  }
 }

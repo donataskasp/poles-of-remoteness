@@ -35,7 +35,8 @@
      "lat": 41.320142,
      "lon": 21.864542
     },
-    "detail": "detail/mk/A-1",
+    "island_km2": null,
+    "detail": "detail/mk/A-41.283876_21.896498",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 41.677089,
      "lon": 21.305411
     },
-    "detail": "detail/mk/A-2",
+    "island_km2": null,
+    "detail": "detail/mk/A-41.732476_21.338207",
     "warnings": []
    },
    {
@@ -75,11 +77,12 @@
     "nearest_place": {
      "name": "Bekirlija",
      "type": "hamlet",
-     "dist_m": 5712.6,
+     "dist_m": 5712.5,
      "lat": 41.680234,
      "lon": 21.94065
     },
-    "detail": "detail/mk/A-3",
+    "island_km2": null,
+    "detail": "detail/mk/A-41.677979_22.009190",
     "warnings": []
    },
    {
@@ -101,33 +104,12 @@
      "lat": 41.09501,
      "lon": 22.175334
     },
-    "detail": "detail/mk/A-4",
+    "island_km2": null,
+    "detail": "detail/mk/A-41.173593_22.135905",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 41.618856,
-    "lon": 21.353265,
-    "dist_m": 4432.72,
-    "nearest_way": {
-     "id": 399605790,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "mk"
-    },
-    "nearest_place": {
-     "name": "Oreshe",
-     "type": "village",
-     "dist_m": 5430.4,
-     "lat": 41.619326,
-     "lon": 21.418419
-    },
-    "detail": "detail/mk/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
     "lat": 41.574331,
     "lon": 22.733276,
     "dist_m": 4339.09,
@@ -145,33 +127,12 @@
      "lat": 41.555413,
      "lon": 22.68484
     },
-    "detail": "detail/mk/A-6",
+    "island_km2": null,
+    "detail": "detail/mk/A-41.574331_22.733276",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 41.60584,
-    "lon": 22.61362,
-    "dist_m": 4311.54,
-    "nearest_way": {
-     "id": 711097363,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "mk"
-    },
-    "nearest_place": {
-     "name": "Jargulica",
-     "type": "village",
-     "dist_m": 4726.6,
-     "lat": 41.587828,
-     "lon": 22.562255
-    },
-    "detail": "detail/mk/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 6,
     "lat": 41.49249,
     "lon": 21.59983,
     "dist_m": 4261.86,
@@ -189,11 +150,12 @@
      "lat": 41.49493,
      "lon": 21.651165
     },
-    "detail": "detail/mk/A-8",
+    "island_km2": null,
+    "detail": "detail/mk/A-41.492490_21.599830",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 7,
     "lat": 41.593912,
     "lon": 22.061724,
     "dist_m": 4183.14,
@@ -207,15 +169,16 @@
     "nearest_place": {
      "name": "Dzhidimirci",
      "type": "village",
-     "dist_m": 4921.3,
+     "dist_m": 4921.4,
      "lat": 41.549655,
      "lon": 22.05882
     },
-    "detail": "detail/mk/A-9",
+    "island_km2": null,
+    "detail": "detail/mk/A-41.593912_22.061724",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 8,
     "lat": 41.796115,
     "lon": 22.589768,
     "dist_m": 4024.24,
@@ -233,12 +196,66 @@
      "lat": 41.836796,
      "lon": 22.57875
     },
-    "detail": "detail/mk/A-10",
+    "island_km2": null,
+    "detail": "detail/mk/A-41.796115_22.589768",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.512221,
+    "lon": 22.826271,
+    "dist_m": 3909.5,
+    "nearest_way": {
+     "id": 1356457454,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Ilovica",
+     "type": "village",
+     "dist_m": 4735.6,
+     "lat": 41.472984,
+     "lon": 22.804077
+    },
+    "island_km2": null,
+    "detail": "detail/mk/A-41.512221_22.826271",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.754596,
+    "lon": 20.557708,
+    "dist_m": 3801.14,
+    "nearest_way": {
+     "id": 1286912513,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Tanushe",
+     "type": "village",
+     "dist_m": 3764.7,
+     "lat": 41.722548,
+     "lon": 20.572446
+    },
+    "island_km2": null,
+    "detail": "detail/mk/A-41.754596_20.557708",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 4983.31,
+  "lat": 41.283876,
+  "lon": 21.896498,
+  "rank": 21,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,11 +274,12 @@
     "nearest_place": {
      "name": "Polchishte",
      "type": "village",
-     "dist_m": 10098.4,
+     "dist_m": 10098.5,
      "lat": 41.147723,
      "lon": 21.82445
     },
-    "detail": "detail/mk/B-1",
+    "island_km2": null,
+    "detail": "detail/mk/B-41.068841_21.884256",
     "warnings": []
    },
    {
@@ -283,55 +301,12 @@
      "lat": 41.611996,
      "lon": 22.755894
     },
-    "detail": "detail/mk/B-2",
+    "island_km2": null,
+    "detail": "detail/mk/B-41.638065_22.714859",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 41.730219,
-    "lon": 22.606886,
-    "dist_m": 8646.8,
-    "nearest_way": {
-     "id": 187313438,
-     "highway": "secondary",
-     "name": null,
-     "ref": "R1310",
-     "country": "mk"
-    },
-    "nearest_place": {
-     "name": "Smilanci",
-     "type": "village",
-     "dist_m": 3738.2,
-     "lat": 41.696586,
-     "lon": 22.605181
-    },
-    "detail": "detail/mk/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 40.999571,
-    "lon": 21.804359,
-    "dist_m": 8316.44,
-    "nearest_way": {
-     "id": 229682162,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "mk"
-    },
-    "nearest_place": {
-     "name": "Budimirci",
-     "type": "village",
-     "dist_m": 8944.7,
-     "lat": 41.056239,
-     "lon": 21.728778
-    },
-    "detail": "detail/mk/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 41.878278,
     "lon": 20.736738,
     "dist_m": 8210.18,
@@ -349,77 +324,12 @@
      "lat": 41.895859,
      "lon": 20.832955
     },
-    "detail": "detail/mk/B-5",
+    "island_km2": null,
+    "detail": "detail/mk/B-41.878278_20.736738",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 41.306155,
-    "lon": 21.873048,
-    "dist_m": 7907.1,
-    "nearest_way": {
-     "id": 1396642981,
-     "highway": "living_street",
-     "name": "10.",
-     "ref": null,
-     "country": "mk"
-    },
-    "nearest_place": {
-     "name": "Galishte",
-     "type": "village",
-     "dist_m": 1708.8,
-     "lat": 41.320142,
-     "lon": 21.864542
-    },
-    "detail": "detail/mk/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 41.989139,
-    "lon": 20.798035,
-    "dist_m": 7136.69,
-    "nearest_way": {
-     "id": 197653798,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "mk"
-    },
-    "nearest_place": {
-     "name": "Novo Selo",
-     "type": "village",
-     "dist_m": 7254.3,
-     "lat": 41.944411,
-     "lon": 20.861805
-    },
-    "detail": "detail/mk/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 41.134529,
-    "lon": 22.110775,
-    "dist_m": 6741.53,
-    "nearest_way": {
-     "id": 665268751,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "mk"
-    },
-    "nearest_place": {
-     "name": "Aetochori",
-     "type": "village",
-     "dist_m": 6975.9,
-     "lat": 41.09501,
-     "lon": 22.175334
-    },
-    "detail": "detail/mk/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 4,
     "lat": 41.52634,
     "lon": 22.912333,
     "dist_m": 6522.89,
@@ -437,11 +347,12 @@
      "lat": 41.49812,
      "lon": 22.938457
     },
-    "detail": "detail/mk/B-9",
+    "island_km2": null,
+    "detail": "detail/mk/B-41.526340_22.912333",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 5,
     "lat": 41.778302,
     "lon": 20.550755,
     "dist_m": 6490.72,
@@ -459,11 +370,134 @@
      "lat": 41.731026,
      "lon": 20.59121
     },
-    "detail": "detail/mk/B-10",
+    "island_km2": null,
+    "detail": "detail/mk/B-41.778302_20.550755",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 41.714433,
+    "lon": 22.009045,
+    "dist_m": 6479.55,
+    "nearest_way": {
+     "id": 1470051053,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Dobroshani",
+     "type": "village",
+     "dist_m": 6421.2,
+     "lat": 41.74158,
+     "lon": 22.077183
+    },
+    "island_km2": null,
+    "detail": "detail/mk/B-41.714433_22.009045",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 41.573628,
+    "lon": 20.800454,
+    "dist_m": 6402.42,
+    "nearest_way": {
+     "id": 937762394,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Tresonche",
+     "type": "village",
+     "dist_m": 6656.4,
+     "lat": 41.562568,
+     "lon": 20.722019
+    },
+    "island_km2": null,
+    "detail": "detail/mk/B-41.573628_20.800454",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 41.444784,
+    "lon": 20.693676,
+    "dist_m": 6111.62,
+    "nearest_way": {
+     "id": 266787215,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Ehloec",
+     "type": "village",
+     "dist_m": 6141.6,
+     "lat": 41.458992,
+     "lon": 20.764709
+    },
+    "island_km2": null,
+    "detail": "detail/mk/B-41.444784_20.693676",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.438874,
+    "lon": 22.40273,
+    "dist_m": 6048.15,
+    "nearest_way": {
+     "id": 252592193,
+     "highway": "secondary",
+     "name": null,
+     "ref": "R1102",
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Konče",
+     "type": "village",
+     "dist_m": 6468.7,
+     "lat": 41.495653,
+     "lon": 22.385473
+    },
+    "island_km2": null,
+    "detail": "detail/mk/B-41.438874_22.402730",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.042156,
+    "lon": 21.626891,
+    "dist_m": 6033.46,
+    "nearest_way": {
+     "id": 884213411,
+     "highway": "secondary",
+     "name": null,
+     "ref": "R2338",
+     "country": "mk"
+    },
+    "nearest_place": {
+     "name": "Iveni",
+     "type": "village",
+     "dist_m": 1348.9,
+     "lat": 41.043505,
+     "lon": 21.642835
+    },
+    "island_km2": null,
+    "detail": "detail/mk/B-41.042156_21.626891",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 9760.59,
+  "lat": 41.068841,
+  "lon": 21.884256,
+  "rank": 14,
+  "withheld": 0
  }
 }

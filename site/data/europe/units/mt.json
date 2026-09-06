@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 35.786359,
-    "lon": 14.406833,
-    "dist_m": 4760.9,
-    "nearest_way": {
-     "id": 1360758220,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "mt"
-    },
-    "nearest_place": {
-     "name": "Għar Lapsi",
-     "type": "hamlet",
-     "dist_m": 4755.6,
-     "lat": 35.827096,
-     "lon": 14.423186
-    },
-    "detail": "detail/mt/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 35.966768,
     "lon": 14.407674,
     "dist_m": 1049.39,
@@ -57,7 +35,31 @@
      "lat": 35.954129,
      "lon": 14.419808
     },
-    "detail": "detail/mt/A-2",
+    "island_km2": null,
+    "detail": "detail/mt/A-35.966768_14.407674",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 35.821608,
+    "lon": 14.444415,
+    "dist_m": 573.52,
+    "nearest_way": {
+     "id": 386421921,
+     "highway": "secondary",
+     "name": "Triq il-Panorama",
+     "ref": "117",
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Wied iż-Żurrieq",
+     "type": "hamlet",
+     "dist_m": 804.4,
+     "lat": 35.819672,
+     "lon": 14.452994
+    },
+    "island_km2": null,
+    "detail": "detail/mt/A-35.821608_14.444415",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 36.048784,
      "lon": 14.316634
     },
-    "detail": "detail/mt/A-3",
+    "island_km2": 66.0,
+    "detail": "detail/mt/A-36.058218_14.311113",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 36.055301,
      "lon": 14.20395
     },
-    "detail": "detail/mt/A-4",
+    "island_km2": 66.0,
+    "detail": "detail/mt/A-36.046912_14.188155",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 35.894711,
      "lon": 14.348194
     },
-    "detail": "detail/mt/A-5",
+    "island_km2": null,
+    "detail": "detail/mt/A-35.900417_14.330501",
     "warnings": []
    },
    {
@@ -141,65 +146,29 @@
     "nearest_place": {
      "name": "Marsascala",
      "type": "town",
-     "dist_m": 1884.3,
+     "dist_m": 1884.4,
      "lat": 35.862916,
      "lon": 14.559188
     },
-    "detail": "detail/mt/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 35.878236,
-    "lon": 14.444772,
-    "dist_m": 151.95,
-    "nearest_way": {
-     "id": 1328350072,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "mt"
-    },
-    "nearest_place": {
-     "name": "Ħaż-Żebbuġ",
-     "type": "town",
-     "dist_m": 767.1,
-     "lat": 35.872596,
-     "lon": 14.439859
-    },
-    "detail": "detail/mt/A-7",
+    "island_km2": null,
+    "detail": "detail/mt/A-35.849632_14.572185",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 7 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 4 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "A_mainland": {
+  "dist_m": 1049.39,
+  "lat": 35.966768,
+  "lon": 14.407674,
+  "rank": 45,
+  "withheld": 0
  },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 35.786359,
-    "lon": 14.406833,
-    "dist_m": 4760.9,
-    "nearest_way": {
-     "id": 1360758220,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "mt"
-    },
-    "nearest_place": {
-     "name": "Għar Lapsi",
-     "type": "hamlet",
-     "dist_m": 4755.6,
-     "lat": 35.827096,
-     "lon": 14.423186
-    },
-    "detail": "detail/mt/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 35.967414,
     "lon": 14.407492,
     "dist_m": 1477.36,
@@ -217,11 +186,12 @@
      "lat": 35.954129,
      "lon": 14.419808
     },
-    "detail": "detail/mt/B-2",
+    "island_km2": null,
+    "detail": "detail/mt/B-35.967414_14.407492",
     "warnings": []
    },
    {
-    "rank": 3,
+    "rank": 2,
     "lat": 36.074139,
     "lon": 14.184748,
     "dist_m": 927.38,
@@ -239,11 +209,12 @@
      "lat": 36.059818,
      "lon": 14.209081
     },
-    "detail": "detail/mt/B-3",
+    "island_km2": 66.0,
+    "detail": "detail/mt/B-36.074139_14.184748",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 35.897643,
     "lon": 14.32904,
     "dist_m": 766.12,
@@ -261,11 +232,12 @@
      "lat": 35.894711,
      "lon": 14.348194
     },
-    "detail": "detail/mt/B-4",
+    "island_km2": null,
+    "detail": "detail/mt/B-35.897643_14.329040",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 36.046499,
     "lon": 14.323827,
     "dist_m": 671.62,
@@ -283,11 +255,12 @@
      "lat": 36.048784,
      "lon": 14.316634
     },
-    "detail": "detail/mt/B-5",
+    "island_km2": 66.0,
+    "detail": "detail/mt/B-36.046499_14.323827",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 35.849729,
     "lon": 14.572197,
     "dist_m": 660.94,
@@ -305,33 +278,42 @@
      "lat": 35.862916,
      "lon": 14.559188
     },
-    "detail": "detail/mt/B-6",
+    "island_km2": null,
+    "detail": "detail/mt/B-35.849729_14.572197",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 35.875981,
-    "lon": 14.455308,
-    "dist_m": 179.71,
+    "rank": 6,
+    "lat": 35.822453,
+    "lon": 14.438217,
+    "dist_m": 638.66,
     "nearest_way": {
-     "id": 595190872,
-     "highway": "unclassified",
-     "name": "Triq Tal-Ħlas",
+     "id": 263080420,
+     "highway": "service",
+     "name": null,
      "ref": null,
      "country": "mt"
     },
     "nearest_place": {
-     "name": "Ħaż-Żebbuġ",
-     "type": "town",
-     "dist_m": 1444.8,
-     "lat": 35.872596,
-     "lon": 14.439859
+     "name": "Wied iż-Żurrieq",
+     "type": "hamlet",
+     "dist_m": 1370.5,
+     "lat": 35.819672,
+     "lon": 14.452994
     },
-    "detail": "detail/mt/B-7",
+    "island_km2": null,
+    "detail": "detail/mt/B-35.822453_14.438217",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 7 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 4 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B_mainland": {
+  "dist_m": 1477.36,
+  "lat": 35.967414,
+  "lon": 14.407492,
+  "rank": 46,
+  "withheld": 0
  }
 }

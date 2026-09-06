@@ -18,138 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 58.281513,
-    "lon": -7.6558,
-    "dist_m": 34442.15,
-    "nearest_way": {
-     "id": 292771514,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "Mangersta",
-     "type": "village",
-     "dist_m": 35471.2,
-     "lat": 58.171186,
-     "lon": -7.08951
-    },
-    "detail": "detail/gb/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 51.720918,
-    "lon": -5.670077,
-    "dist_m": 25728.81,
-    "nearest_way": {
-     "id": 172083141,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "Treginnis-isaf",
-     "type": "hamlet",
-     "dist_m": 29942.6,
-     "lat": 51.867918,
-     "lon": -5.306543
-    },
-    "detail": "detail/gb/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 56.131305,
-    "lon": -6.643553,
-    "dist_m": 25076.94,
-    "nearest_way": {
-     "id": 268770435,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "Ardskenish",
-     "type": "isolated_dwelling",
-     "dist_m": 25599.2,
-     "lat": 56.041822,
-     "lon": -6.264765
-    },
-    "detail": "detail/gb/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 59.100871,
-    "lon": -6.171922,
-    "dist_m": 19746.54,
-    "nearest_way": {
-     "id": 96119246,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "Eoropie",
-     "type": "village",
-     "dist_m": 66902.9,
-     "lat": 58.502103,
-     "lon": -6.262474
-    },
-    "detail": "detail/gb/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 56.321138,
-    "lon": -7.118337,
-    "dist_m": 17918.18,
-    "nearest_way": {
-     "id": 162202018,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "West Hynish",
-     "type": "hamlet",
-     "dist_m": 18379.7,
-     "lat": 56.451102,
-     "lon": -6.934897
-    },
-    "detail": "detail/gb/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 56.434172,
-    "lon": -2.387261,
-    "dist_m": 17546.32,
-    "nearest_way": {
-     "id": 26175245,
-     "highway": "unclassified",
-     "name": "King's Drive",
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "West Seaton",
-     "type": "isolated_dwelling",
-     "dist_m": 17974.6,
-     "lat": 56.565629,
-     "lon": -2.556646
-    },
-    "detail": "detail/gb/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 57.879389,
     "lon": -6.353427,
     "dist_m": 15366.24,
@@ -163,62 +31,19 @@
     "nearest_place": {
      "name": "Lemreway",
      "type": "village",
-     "dist_m": 16469.0,
+     "dist_m": 16469.1,
      "lat": 58.019814,
      "lon": -6.440557
     },
-    "detail": "detail/gb/A-7",
+    "island_km2": 1.4,
+    "detail": "detail/gb/A-57.879389_-6.353427",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 50.183371,
-    "lon": -4.268321,
-    "dist_m": 15291.89,
-    "nearest_way": {
-     "id": 187201946,
-     "highway": "unclassified",
-     "name": "Ramehead Lane",
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "Rame",
-     "type": "hamlet",
-     "dist_m": 15971.1,
-     "lat": 50.322383,
-     "lon": -4.212273
-    },
-    "detail": "detail/gb/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 57.687453,
-    "lon": -7.719568,
-    "dist_m": 14162.98,
-    "nearest_way": {
-     "id": 592502095,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "Scolpaig",
-     "type": "hamlet",
-     "dist_m": 14573.7,
-     "lat": 57.648581,
-     "lon": -7.486389
-    },
-    "detail": "detail/gb/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 57.516876,
-    "lon": -7.691668,
-    "dist_m": 12951.95,
+    "rank": 2,
+    "lat": 57.520409,
+    "lon": -7.677892,
+    "dist_m": 12069.37,
     "nearest_way": {
      "id": 358796969,
      "highway": "track",
@@ -229,16 +54,438 @@
     "nearest_place": {
      "name": "Hougharry",
      "type": "village",
-     "dist_m": 14739.8,
+     "dist_m": 13877.5,
      "lat": 57.609256,
      "lon": -7.515314
     },
-    "detail": "detail/gb/A-10",
+    "island_km2": 3.5,
+    "detail": "detail/gb/A-57.520409_-7.677892",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 57.919707,
+    "lon": -6.537046,
+    "dist_m": 8485.85,
+    "nearest_way": {
+     "id": 672126784,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Rhenigidale",
+     "type": "hamlet",
+     "dist_m": 8682.1,
+     "lat": 57.918631,
+     "lon": -6.683525
+    },
+    "island_km2": 2198.8,
+    "detail": "detail/gb/A-57.919707_-6.537046",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 57.132704,
+    "lon": -6.23887,
+    "dist_m": 8054.41,
+    "nearest_way": {
+     "id": 241789835,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Mol-chlach",
+     "type": "hamlet",
+     "dist_m": 2112.2,
+     "lat": 57.143296,
+     "lon": -6.20993
+    },
+    "island_km2": 10.1,
+    "detail": "detail/gb/A-57.132704_-6.238870",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 56.215221,
+    "lon": -5.820216,
+    "dist_m": 7724.33,
+    "nearest_way": {
+     "id": 416909238,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Blackmill Bay",
+     "type": "hamlet",
+     "dist_m": 10039.4,
+     "lat": 56.213334,
+     "lon": -5.658448
+    },
+    "island_km2": 2.3,
+    "detail": "detail/gb/A-56.215221_-5.820216",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 56.854696,
+    "lon": -7.596177,
+    "dist_m": 7690.75,
+    "nearest_way": {
+     "id": 207637134,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Vatersay",
+     "type": "village",
+     "dist_m": 7999.2,
+     "lat": 56.918841,
+     "lon": -7.537109
+    },
+    "island_km2": 2.5,
+    "detail": "detail/gb/A-56.854696_-7.596177",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 57.967133,
+    "lon": -5.510734,
+    "dist_m": 7201.26,
+    "nearest_way": {
+     "id": 1092175306,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Opinan",
+     "type": "hamlet",
+     "dist_m": 7795.4,
+     "lat": 57.909517,
+     "lon": -5.585453
+    },
+    "island_km2": 1.2,
+    "detail": "detail/gb/A-57.967133_-5.510734",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 58.529852,
+    "lon": -4.959295,
+    "dist_m": 7145.53,
+    "nearest_way": {
+     "id": 113999820,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "An Innis Odhar",
+     "type": "hamlet",
+     "dist_m": 7256.6,
+     "lat": 58.580861,
+     "lon": -4.881756
+    },
+    "island_km2": null,
+    "detail": "detail/gb/A-58.529852_-4.959295",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 57.78059,
+    "lon": -7.258989,
+    "dist_m": 6635.45,
+    "nearest_way": {
+     "id": 535321512,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Brusda",
+     "type": "isolated_dwelling",
+     "dist_m": 7803.9,
+     "lat": 57.728337,
+     "lon": -7.171659
+    },
+    "island_km2": 7.9,
+    "detail": "detail/gb/A-57.780590_-7.258989",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 57.894019,
+    "lon": -7.085565,
+    "dist_m": 6546.53,
+    "nearest_way": {
+     "id": 837359144,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Pàirc Niseaboist",
+     "type": "hamlet",
+     "dist_m": 6723.2,
+     "lat": 57.85794,
+     "lon": -6.994724
+    },
+    "island_km2": 14.0,
+    "detail": "detail/gb/A-57.894019_-7.085565",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 56.917322,
+    "lon": -3.827911,
+    "dist_m": 6154.59,
+    "nearest_way": {
+     "id": 450215818,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Bruar Lodge",
+     "type": "isolated_dwelling",
+     "dist_m": 8207.6,
+     "lat": 56.861832,
+     "lon": -3.916538
+    },
+    "island_km2": null,
+    "detail": "detail/gb/A-56.917322_-3.827911",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 57.0562,
+    "lon": -3.690222,
+    "dist_m": 6149.14,
+    "nearest_way": {
+     "id": 1008219034,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Achlean",
+     "type": "isolated_dwelling",
+     "dist_m": 12417.4,
+     "lat": 57.055633,
+     "lon": -3.894853
+    },
+    "island_km2": null,
+    "detail": "detail/gb/A-57.056200_-3.690222",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 57.801936,
+    "lon": -4.90945,
+    "dist_m": 6148.86,
+    "nearest_way": {
+     "id": 365543441,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Lubachlaggan",
+     "type": "isolated_dwelling",
+     "dist_m": 9076.4,
+     "lat": 57.763137,
+     "lon": -4.775283
+    },
+    "island_km2": null,
+    "detail": "detail/gb/A-57.801936_-4.909450",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 56.954582,
+    "lon": -6.274704,
+    "dist_m": 6069.87,
+    "nearest_way": {
+     "id": 69695670,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Kinloch",
+     "type": "village",
+     "dist_m": 6650.0,
+     "lat": 57.014207,
+     "lon": -6.280748
+    },
+    "island_km2": 107.2,
+    "detail": "detail/gb/A-56.954582_-6.274704",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 56.946181,
+    "lon": -5.528007,
+    "dist_m": 6015.79,
+    "nearest_way": {
+     "id": 1125220974,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Meoble",
+     "type": "hamlet",
+     "dist_m": 5932.5,
+     "lat": 56.928229,
+     "lon": -5.619761
+    },
+    "island_km2": null,
+    "detail": "detail/gb/A-56.946181_-5.528007",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 57.232527,
+    "lon": -6.182784,
+    "dist_m": 5752.27,
+    "nearest_way": {
+     "id": 42435786,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Sligachan",
+     "type": "hamlet",
+     "dist_m": 6426.8,
+     "lat": 57.290059,
+     "lon": -6.174426
+    },
+    "island_km2": null,
+    "detail": "detail/gb/A-57.232527_-6.182784",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 57.628742,
+    "lon": -5.63535,
+    "dist_m": 5592.75,
+    "nearest_way": {
+     "id": 300319786,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Upper Diabaig",
+     "type": "isolated_dwelling",
+     "dist_m": 5938.8,
+     "lat": 57.577491,
+     "lon": -5.662785
+    },
+    "island_km2": null,
+    "detail": "detail/gb/A-57.628742_-5.635350",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 57.357359,
+    "lon": -6.663058,
+    "dist_m": 5476.71,
+    "nearest_way": {
+     "id": 22725939,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Ramasaig",
+     "type": "hamlet",
+     "dist_m": 5938.7,
+     "lat": 57.39991,
+     "lon": -6.722562
+    },
+    "island_km2": null,
+    "detail": "detail/gb/A-57.357359_-6.663058",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 57.959503,
+    "lon": -4.940015,
+    "dist_m": 5414.14,
+    "nearest_way": {
+     "id": 1034882612,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Drumrunie",
+     "type": "hamlet",
+     "dist_m": 10457.1,
+     "lat": 57.996649,
+     "lon": -5.102328
+    },
+    "island_km2": null,
+    "detail": "detail/gb/A-57.959503_-4.940015",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 58.347021,
+    "lon": -3.498125,
+    "dist_m": 5253.3,
+    "nearest_way": {
+     "id": 231639485,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Thulachan",
+     "type": "isolated_dwelling",
+     "dist_m": 1389.0,
+     "lat": 58.347032,
+     "lon": -3.521844
+    },
+    "island_km2": null,
+    "detail": "detail/gb/A-58.347021_-3.498125",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 7145.53,
+  "lat": 58.529852,
+  "lon": -4.959295,
+  "rank": 11,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,147 +504,16 @@
     "nearest_place": {
      "name": "Fivepenny",
      "type": "village",
-     "dist_m": 74741.4,
+     "dist_m": 74741.3,
      "lat": 58.500404,
      "lon": -6.249953
     },
-    "detail": "detail/gb/B-1",
+    "island_km2": 1.1,
+    "detail": "detail/gb/B-59.134181_-5.825207",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 59.10109,
-    "lon": -6.171642,
-    "dist_m": 65450.37,
-    "nearest_way": {
-     "id": 205823838,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "Eoropie",
-     "type": "village",
-     "dist_m": 66928.4,
-     "lat": 58.502103,
-     "lon": -6.262474
-    },
-    "detail": "detail/gb/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 58.281513,
-    "lon": -7.6558,
-    "dist_m": 34442.15,
-    "nearest_way": {
-     "id": 292771514,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "Mangersta",
-     "type": "village",
-     "dist_m": 35471.2,
-     "lat": 58.171186,
-     "lon": -7.08951
-    },
-    "detail": "detail/gb/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 51.72083,
-    "lon": -5.669999,
-    "dist_m": 28149.02,
-    "nearest_way": {
-     "id": 1210811462,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "Treginnis-isaf",
-     "type": "hamlet",
-     "dist_m": 29943.5,
-     "lat": 51.867918,
-     "lon": -5.306543
-    },
-    "detail": "detail/gb/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 56.132668,
-    "lon": -6.646996,
-    "dist_m": 25370.27,
-    "nearest_way": {
-     "id": 1470370165,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "Ardskenish",
-     "type": "isolated_dwelling",
-     "dist_m": 25855.4,
-     "lat": 56.041822,
-     "lon": -6.264765
-    },
-    "detail": "detail/gb/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 56.321138,
-    "lon": -7.118337,
-    "dist_m": 18063.7,
-    "nearest_way": {
-     "id": 145555080,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "West Hynish",
-     "type": "hamlet",
-     "dist_m": 18379.7,
-     "lat": 56.451102,
-     "lon": -6.934897
-    },
-    "detail": "detail/gb/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 56.434172,
-    "lon": -2.387261,
-    "dist_m": 17546.32,
-    "nearest_way": {
-     "id": 26175245,
-     "highway": "unclassified",
-     "name": "King's Drive",
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "West Seaton",
-     "type": "isolated_dwelling",
-     "dist_m": 17974.6,
-     "lat": 56.565629,
-     "lon": -2.556646
-    },
-    "detail": "detail/gb/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
     "lat": 56.77817,
     "lon": -7.637107,
     "dist_m": 16613.21,
@@ -415,33 +531,12 @@
      "lat": 56.918841,
      "lon": -7.537109
     },
-    "detail": "detail/gb/B-8",
+    "island_km2": 2.1,
+    "detail": "detail/gb/B-56.778170_-7.637107",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 51.730774,
-    "lon": -5.482611,
-    "dist_m": 16426.96,
-    "nearest_way": {
-     "id": 59194062,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "Treginnis-isaf",
-     "type": "hamlet",
-     "dist_m": 19503.0,
-     "lat": 51.867918,
-     "lon": -5.306543
-    },
-    "detail": "detail/gb/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 3,
     "lat": 57.879389,
     "lon": -6.353427,
     "dist_m": 15415.3,
@@ -455,15 +550,345 @@
     "nearest_place": {
      "name": "Lemreway",
      "type": "village",
-     "dist_m": 16469.0,
+     "dist_m": 16469.1,
      "lat": 58.019814,
      "lon": -6.440557
     },
-    "detail": "detail/gb/B-10",
+    "island_km2": 1.4,
+    "detail": "detail/gb/B-57.879389_-6.353427",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 57.520409,
+    "lon": -7.677892,
+    "dist_m": 13208.22,
+    "nearest_way": {
+     "id": 354359832,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Hougharry",
+     "type": "village",
+     "dist_m": 13877.5,
+     "lat": 57.609256,
+     "lon": -7.515314
+    },
+    "island_km2": 3.5,
+    "detail": "detail/gb/B-57.520409_-7.677892",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 57.374023,
+    "lon": -5.225577,
+    "dist_m": 12268.37,
+    "nearest_way": {
+     "id": 97723685,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Iron Lodge",
+     "type": "isolated_dwelling",
+     "dist_m": 7019.1,
+     "lat": 57.312523,
+     "lon": -5.251086
+    },
+    "island_km2": null,
+    "detail": "detail/gb/B-57.374023_-5.225577",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 57.837266,
+    "lon": -4.815587,
+    "dist_m": 11603.42,
+    "nearest_way": {
+     "id": 995931020,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Lubachlaggan",
+     "type": "isolated_dwelling",
+     "dist_m": 8596.9,
+     "lat": 57.763137,
+     "lon": -4.775283
+    },
+    "island_km2": null,
+    "detail": "detail/gb/B-57.837266_-4.815587",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 57.757056,
+    "lon": -5.348278,
+    "dist_m": 11352.11,
+    "nearest_way": {
+     "id": 349239913,
+     "highway": "primary",
+     "name": null,
+     "ref": "A832",
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Letterewe",
+     "type": "hamlet",
+     "dist_m": 9461.1,
+     "lat": 57.685998,
+     "lon": -5.435285
+    },
+    "island_km2": null,
+    "detail": "detail/gb/B-57.757056_-5.348278",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 57.034803,
+    "lon": -3.711813,
+    "dist_m": 11255.63,
+    "nearest_way": {
+     "id": 101980352,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "C1M",
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Achlean",
+     "type": "isolated_dwelling",
+     "dist_m": 11349.8,
+     "lat": 57.055633,
+     "lon": -3.894853
+    },
+    "island_km2": null,
+    "detail": "detail/gb/B-57.034803_-3.711813",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 58.326109,
+    "lon": -3.712585,
+    "dist_m": 11216.41,
+    "nearest_way": {
+     "id": 397787610,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "C1021",
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Glutt Lodge",
+     "type": "hamlet",
+     "dist_m": 1937.6,
+     "lat": 58.308813,
+     "lon": -3.709046
+    },
+    "island_km2": null,
+    "detail": "detail/gb/B-58.326109_-3.712585",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 58.168668,
+    "lon": -4.190658,
+    "dist_m": 10283.45,
+    "nearest_way": {
+     "id": 236132177,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Ben Armine Lodge",
+     "type": "isolated_dwelling",
+     "dist_m": 2767.8,
+     "lat": 58.144596,
+     "lon": -4.202331
+    },
+    "island_km2": null,
+    "detail": "detail/gb/B-58.168668_-4.190658",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 55.983625,
+    "lon": -6.003199,
+    "dist_m": 10220.97,
+    "nearest_way": {
+     "id": 191976924,
+     "highway": "primary",
+     "name": "The Long Road",
+     "ref": "A846",
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Ruantallain",
+     "type": "hamlet",
+     "dist_m": 724.0,
+     "lat": 55.977334,
+     "lon": -6.000265
+    },
+    "island_km2": 365.7,
+    "detail": "detail/gb/B-55.983625_-6.003199",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 56.215221,
+    "lon": -5.820216,
+    "dist_m": 9992.17,
+    "nearest_way": {
+     "id": 50741688,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Blackmill Bay",
+     "type": "hamlet",
+     "dist_m": 10039.4,
+     "lat": 56.213334,
+     "lon": -5.658448
+    },
+    "island_km2": 2.3,
+    "detail": "detail/gb/B-56.215221_-5.820216",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 57.038386,
+    "lon": -5.500232,
+    "dist_m": 9798.58,
+    "nearest_way": {
+     "id": 684344155,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Ambraigh",
+     "type": "isolated_dwelling",
+     "dist_m": 4100.6,
+     "lat": 57.074347,
+     "lon": -5.514767
+    },
+    "island_km2": null,
+    "detail": "detail/gb/B-57.038386_-5.500232",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 57.927568,
+    "lon": -6.5168,
+    "dist_m": 9731.1,
+    "nearest_way": {
+     "id": 672126784,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Eishken",
+     "type": "hamlet",
+     "dist_m": 9907.6,
+     "lat": 58.016246,
+     "lon": -6.530016
+    },
+    "island_km2": 2198.8,
+    "detail": "detail/gb/B-57.927568_-6.516800",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 57.150144,
+    "lon": -4.203895,
+    "dist_m": 9242.05,
+    "nearest_way": {
+     "id": 801789362,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Ballachroan",
+     "type": "isolated_dwelling",
+     "dist_m": 10698.1,
+     "lat": 57.075908,
+     "lon": -4.091825
+    },
+    "island_km2": null,
+    "detail": "detail/gb/B-57.150144_-4.203895",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 56.500353,
+    "lon": -4.971477,
+    "dist_m": 9148.07,
+    "nearest_way": {
+     "id": 170015973,
+     "highway": "secondary",
+     "name": null,
+     "ref": "B8077",
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Glenkinglass Lodge",
+     "type": "hamlet",
+     "dist_m": 792.4,
+     "lat": 56.499147,
+     "lon": -4.984157
+    },
+    "island_km2": null,
+    "detail": "detail/gb/B-56.500353_-4.971477",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 56.77623,
+    "lon": -5.403889,
+    "dist_m": 9075.53,
+    "nearest_way": {
+     "id": 1056070088,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Guesachan",
+     "type": "isolated_dwelling",
+     "dist_m": 8596.1,
+     "lat": 56.844563,
+     "lon": -5.46936
+    },
+    "island_km2": null,
+    "detail": "detail/gb/B-56.776230_-5.403889",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 12268.37,
+  "lat": 57.374023,
+  "lon": -5.225577,
+  "rank": 9,
+  "withheld": 0
  }
 }
