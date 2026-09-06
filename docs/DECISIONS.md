@@ -228,3 +228,11 @@ Made while turning `docs/EUROPE_PLAN.md` Stage 4 into the step-level plan (`docs
 **Addendum, at the Europe publish.** The site JSON step failed on the regions document: `write_site` merges the region's entry into the `regions.json` on disk, so the other region's entry is the one it was last published with, and the new schema required `area_col_fraction` and `min_island_m2` of every entry. The two keys are optional in the schema now, matching the site, which hides the rule sentence for a region without them; the numbers arrive with each region's own publish.
 
 **Alternatives.** Making check 4 tolerate a floor flip on a near-threshold island would have published a reef as Jersey's headline, which is what the floor exists to stop. A centre-sampled land raster for the floor would need a second raster through prepare and the shifted grid, and would understate islands by the same band the all-touched one overstates them.
+
+## 2026-09-06: The preview environment owns no route
+
+**Context.** The first preview deploy since the custom domains were added to the top-level `routes` (a manual dispatch of the deploy workflow from `distinct-areas`) inherited them: wrangler warned that `env.preview` inherits the top-level routes, and the preview worker answered polesofremoteness.com with the branch's code and data from 10:09 to 10:11 local, until a dispatch from `main` redeployed production and took the domains back.
+
+**Decision.** `env.preview` carries `"routes": []`, so a preview deploy binds nothing but its workers.dev name; the comment in `wrangler.jsonc` says why the line must stay. A deploy log line about inherited routes is a deploy to abort.
+
+**Alternatives.** Moving the domains out of the top level into a `production` environment would make `wrangler deploy` with no `--env` bind nothing, which is what the manual fallback in CLAUDE.md relies on.

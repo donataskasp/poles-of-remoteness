@@ -24,10 +24,13 @@
     { "binding": "SITE_VIEWS", "dataset": "poles_views" }
   ],
   "env": {
-    // Preview (branch europe). Same worker, its own name and its own analytics dataset.
+    // Preview (any branch but main). Same worker, its own name and its own analytics dataset.
+    // "routes" MUST stay an explicit empty list: an environment inherits the top-level routes, and on
+    // 2026-09-06 a preview deploy without this line took over polesofremoteness.com for two minutes.
     "preview": {
       "name": "atokiausia-lietuva-preview",
       "workers_dev": true,
+      "routes": [],
       "assets": {
         "directory": "./site",
         "binding": "ASSETS",
