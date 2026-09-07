@@ -64,29 +64,6 @@
    },
    {
     "rank": 3,
-    "lat": 54.32695,
-    "lon": 19.391995,
-    "dist_m": 3684.92,
-    "nearest_way": {
-     "id": 1205225660,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "pl"
-    },
-    "nearest_place": {
-     "name": "Suchacz",
-     "type": "village",
-     "dist_m": 5584.5,
-     "lat": 54.284519,
-     "lon": 19.437772
-    },
-    "island_km2": 1.5,
-    "detail": "detail/pl/A-54.326950_19.391995",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 53.273883,
     "lon": 22.557815,
     "dist_m": 3281.88,
@@ -109,7 +86,7 @@
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 53.458611,
     "lon": 14.646561,
     "dist_m": 3173.75,
@@ -132,7 +109,7 @@
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 53.641271,
     "lon": 22.832342,
     "dist_m": 2793.77,
@@ -155,7 +132,7 @@
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 49.099036,
     "lon": 22.70855,
     "dist_m": 2703.78,
@@ -178,7 +155,7 @@
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 51.499317,
     "lon": 15.474969,
     "dist_m": 2480.41,
@@ -201,7 +178,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 53.400323,
     "lon": 22.528571,
     "dist_m": 2406.02,
@@ -224,7 +201,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 53.612726,
     "lon": 23.03607,
     "dist_m": 2292.49,
@@ -247,7 +224,7 @@
     "warnings": []
    },
    {
-    "rank": 11,
+    "rank": 10,
     "lat": 49.57758,
     "lon": 19.54431,
     "dist_m": 2240.05,

@@ -41,75 +41,29 @@
    },
    {
     "rank": 2,
-    "lat": 55.933137,
-    "lon": 10.714259,
-    "dist_m": 4803.48,
+    "lat": 55.883625,
+    "lon": 8.275183,
+    "dist_m": 3189.16,
     "nearest_way": {
-     "id": 38982196,
-     "highway": "service",
-     "name": "Langørevej",
-     "ref": null,
-     "country": "dk"
-    },
-    "nearest_place": {
-     "name": "Stauns",
-     "type": "hamlet",
-     "dist_m": 7507.0,
-     "lat": 55.897834,
-     "lon": 10.611975
-    },
-    "island_km2": 113.9,
-    "detail": "detail/dk/A-55.933137_10.714259",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 55.614182,
-    "lon": 12.817753,
-    "dist_m": 3726.97,
-    "nearest_way": {
-     "id": 304383858,
-     "highway": "motorway",
-     "name": "Øresundsmotorvejen",
-     "ref": "E 20",
-     "country": "dk"
-    },
-    "nearest_place": {
-     "name": "Sibbarp",
-     "type": "hamlet",
-     "dist_m": 7392.6,
-     "lat": 55.574512,
-     "lon": 12.911786
-    },
-    "island_km2": 17.2,
-    "detail": "detail/dk/A-55.614182_12.817753",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 55.885636,
-    "lon": 8.27578,
-    "dist_m": 3300.18,
-    "nearest_way": {
-     "id": 819108129,
-     "highway": "unclassified",
-     "name": "Tippervej",
+     "id": 297328575,
+     "highway": "track",
+     "name": null,
      "ref": null,
      "country": "dk"
     },
     "nearest_place": {
      "name": "Fælled",
      "type": "hamlet",
-     "dist_m": 4062.6,
+     "dist_m": 3848.7,
      "lat": 55.84965,
      "lon": 8.28651
     },
     "island_km2": null,
-    "detail": "detail/dk/A-55.885636_8.275780",
+    "detail": "detail/dk/A-55.883625_8.275183",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 3,
     "lat": 55.081373,
     "lon": 11.616555,
     "dist_m": 3132.57,
@@ -132,7 +86,7 @@
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 4,
     "lat": 56.860206,
     "lon": 9.132474,
     "dist_m": 2987.05,
@@ -155,30 +109,53 @@
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 57.217809,
-    "lon": 10.950056,
-    "dist_m": 2642.78,
+    "rank": 5,
+    "lat": 55.615879,
+    "lon": 12.786836,
+    "dist_m": 2733.82,
     "nearest_way": {
-     "id": 146454778,
-     "highway": "track",
+     "id": 344368022,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "dk"
     },
     "nearest_place": {
-     "name": "Byrum",
-     "type": "village",
-     "dist_m": 5151.1,
-     "lat": 57.255466,
-     "lon": 10.99959
+     "name": "Dragør",
+     "type": "town",
+     "dist_m": 7692.6,
+     "lat": 55.592487,
+     "lon": 12.671995
     },
-    "island_km2": 119.4,
-    "detail": "detail/dk/A-57.217809_10.950056",
+    "island_km2": 17.2,
+    "detail": "detail/dk/A-55.615879_12.786836",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 6,
+    "lat": 55.905899,
+    "lon": 10.684431,
+    "dist_m": 2604.33,
+    "nearest_way": {
+     "id": 154734374,
+     "highway": "unclassified",
+     "name": "Sildeballe",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Stauns",
+     "type": "hamlet",
+     "dist_m": 4620.3,
+     "lat": 55.897834,
+     "lon": 10.611975
+    },
+    "island_km2": 113.9,
+    "detail": "detail/dk/A-55.905899_10.684431",
+    "warnings": []
+   },
+   {
+    "rank": 7,
     "lat": 55.307771,
     "lon": 8.52102,
     "dist_m": 2513.17,
@@ -201,30 +178,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 57.278138,
-    "lon": 11.172062,
-    "dist_m": 2415.62,
-    "nearest_way": {
-     "id": 148370889,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "dk"
-    },
-    "nearest_place": {
-     "name": "Tyvhullerne",
-     "type": "hamlet",
-     "dist_m": 5146.4,
-     "lat": 57.320703,
-     "lon": 11.138822
-    },
-    "island_km2": 119.4,
-    "detail": "detail/dk/A-57.278138_11.172062",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 8,
     "lat": 55.454559,
     "lon": 8.327597,
     "dist_m": 2024.77,
@@ -247,7 +201,7 @@
     "warnings": []
    },
    {
-    "rank": 11,
+    "rank": 9,
     "lat": 55.094502,
     "lon": 8.464268,
     "dist_m": 1931.57,
@@ -270,7 +224,7 @@
     "warnings": []
    },
    {
-    "rank": 12,
+    "rank": 10,
     "lat": 56.82773,
     "lon": 10.202131,
     "dist_m": 1847.4,
@@ -293,53 +247,30 @@
     "warnings": []
    },
    {
-    "rank": 13,
-    "lat": 54.852491,
-    "lon": 10.5792,
-    "dist_m": 1835.81,
+    "rank": 11,
+    "lat": 55.191439,
+    "lon": 11.347929,
+    "dist_m": 1657.77,
     "nearest_way": {
-     "id": 232703641,
+     "id": 542007638,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "dk"
     },
     "nearest_place": {
-     "name": "Marstal",
-     "type": "town",
-     "dist_m": 3986.2,
-     "lat": 54.855833,
-     "lon": 10.517406
+     "name": "Kokkehuse",
+     "type": "hamlet",
+     "dist_m": 3449.8,
+     "lat": 55.211984,
+     "lon": 11.307367
     },
-    "island_km2": 283.7,
-    "detail": "detail/dk/A-54.852491_10.579200",
+    "island_km2": 7282.5,
+    "detail": "detail/dk/A-55.191439_11.347929",
     "warnings": []
    },
    {
-    "rank": 14,
-    "lat": 56.343647,
-    "lon": 8.192279,
-    "dist_m": 1644.13,
-    "nearest_way": {
-     "id": 1143840974,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "dk"
-    },
-    "nearest_place": {
-     "name": "Neder Torup",
-     "type": "isolated_dwelling",
-     "dist_m": 2719.2,
-     "lat": 56.319614,
-     "lon": 8.184473
-    },
-    "island_km2": null,
-    "detail": "detail/dk/A-56.343647_8.192279",
-    "warnings": []
-   },
-   {
-    "rank": 15,
+    "rank": 12,
     "lat": 57.056953,
     "lon": 8.59069,
     "dist_m": 1633.35,
@@ -362,7 +293,7 @@
     "warnings": []
    },
    {
-    "rank": 16,
+    "rank": 13,
     "lat": 57.007057,
     "lon": 9.034551,
     "dist_m": 1590.2,
@@ -385,7 +316,30 @@
     "warnings": []
    },
    {
-    "rank": 17,
+    "rank": 14,
+    "lat": 57.285139,
+    "lon": 11.184639,
+    "dist_m": 1582.38,
+    "nearest_way": {
+     "id": 813668983,
+     "highway": "track",
+     "name": "Danzigmannvej",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Tyvhullerne",
+     "type": "hamlet",
+     "dist_m": 4828.4,
+     "lat": 57.320703,
+     "lon": 11.138822
+    },
+    "island_km2": 120.7,
+    "detail": "detail/dk/A-57.285139_11.184639",
+    "warnings": []
+   },
+   {
+    "rank": 15,
     "lat": 57.640666,
     "lon": 10.374248,
     "dist_m": 1563.32,
@@ -408,7 +362,7 @@
     "warnings": []
    },
    {
-    "rank": 18,
+    "rank": 16,
     "lat": 56.860872,
     "lon": 8.884732,
     "dist_m": 1517.91,
@@ -431,49 +385,95 @@
     "warnings": []
    },
    {
-    "rank": 19,
-    "lat": 57.012863,
-    "lon": 9.555862,
-    "dist_m": 1379.3,
+    "rank": 17,
+    "lat": 57.228353,
+    "lon": 11.037326,
+    "dist_m": 1499.79,
     "nearest_way": {
-     "id": 151217893,
+     "id": 136517418,
+     "highway": "track",
+     "name": "Ellevej",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Byrum",
+     "type": "village",
+     "dist_m": 3782.6,
+     "lat": 57.255466,
+     "lon": 10.99959
+    },
+    "island_km2": 120.7,
+    "detail": "detail/dk/A-57.228353_11.037326",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 57.135532,
+    "lon": 8.917944,
+    "dist_m": 1303.97,
+    "nearest_way": {
+     "id": 100019548,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "dk"
     },
     "nearest_place": {
-     "name": "Barmer",
+     "name": "Lild Strand",
      "type": "hamlet",
-     "dist_m": 3747.8,
-     "lat": 56.980379,
-     "lon": 9.539741
+     "dist_m": 3295.9,
+     "lat": 57.152356,
+     "lon": 8.962736
     },
     "island_km2": null,
-    "detail": "detail/dk/A-57.012863_9.555862",
+    "detail": "detail/dk/A-57.135532_8.917944",
     "warnings": []
    },
    {
-    "rank": 20,
-    "lat": 57.212926,
-    "lon": 10.538507,
-    "dist_m": 1356.43,
+    "rank": 19,
+    "lat": 56.691455,
+    "lon": 8.584223,
+    "dist_m": 1290.61,
     "nearest_way": {
-     "id": 159800174,
-     "highway": "service",
-     "name": null,
+     "id": 106808880,
+     "highway": "unclassified",
+     "name": "Hindselsvej",
      "ref": null,
      "country": "dk"
     },
     "nearest_place": {
-     "name": "Sibirien",
+     "name": "Sønderby",
      "type": "hamlet",
-     "dist_m": 1598.3,
-     "lat": 57.215335,
-     "lon": 10.51243
+     "dist_m": 2042.1,
+     "lat": 56.708956,
+     "lon": 8.574261
     },
     "island_km2": null,
-    "detail": "detail/dk/A-57.212926_10.538507",
+    "detail": "detail/dk/A-56.691455_8.584223",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 55.524255,
+    "lon": 8.199208,
+    "dist_m": 1262.03,
+    "nearest_way": {
+     "id": 164373338,
+     "highway": "residential",
+     "name": "Grønningen",
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Sønderballe",
+     "type": "hamlet",
+     "dist_m": 2718.0,
+     "lat": 55.542965,
+     "lon": 8.226859
+    },
+    "island_km2": null,
+    "detail": "detail/dk/A-55.524255_8.199208",
     "warnings": []
    }
   ],
@@ -481,9 +481,9 @@
   "reason": null
  },
  "A_mainland": {
-  "dist_m": 3300.18,
-  "lat": 55.885636,
-  "lon": 8.27578,
+  "dist_m": 3189.16,
+  "lat": 55.883625,
+  "lon": 8.275183,
   "rank": 39,
   "withheld": 0
  },
@@ -583,52 +583,29 @@
    },
    {
     "rank": 5,
-    "lat": 55.369082,
-    "lon": 9.713509,
-    "dist_m": 5255.78,
+    "lat": 55.358179,
+    "lon": 9.72179,
+    "dist_m": 5124.15,
     "nearest_way": {
-     "id": 165545850,
-     "highway": "service",
-     "name": "Kystvejen",
+     "id": 1147613050,
+     "highway": "residential",
+     "name": "Sandersvig Strandvej",
      "ref": null,
      "country": "dk"
     },
     "nearest_place": {
      "name": "Sandersvig",
      "type": "hamlet",
-     "dist_m": 5779.7,
+     "dist_m": 5514.4,
      "lat": 55.334674,
      "lon": 9.64528
     },
     "island_km2": 2.1,
-    "detail": "detail/dk/B-55.369082_9.713509",
+    "detail": "detail/dk/B-55.358179_9.721790",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 55.933137,
-    "lon": 10.714259,
-    "dist_m": 4803.48,
-    "nearest_way": {
-     "id": 38982196,
-     "highway": "service",
-     "name": "Langørevej",
-     "ref": null,
-     "country": "dk"
-    },
-    "nearest_place": {
-     "name": "Stauns",
-     "type": "hamlet",
-     "dist_m": 7507.0,
-     "lat": 55.897834,
-     "lon": 10.611975
-    },
-    "island_km2": 113.9,
-    "detail": "detail/dk/B-55.933137_10.714259",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 54.595126,
     "lon": 11.528967,
     "dist_m": 4728.75,
@@ -646,12 +623,12 @@
      "lat": 54.641348,
      "lon": 11.531106
     },
-    "island_km2": 1757.7,
+    "island_km2": 1760.4,
     "detail": "detail/dk/B-54.595126_11.528967",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 57.204304,
     "lon": 11.034114,
     "dist_m": 4679.35,
@@ -669,12 +646,12 @@
      "lat": 57.255466,
      "lon": 10.99959
     },
-    "island_km2": 119.4,
+    "island_km2": 120.7,
     "detail": "detail/dk/B-57.204304_11.034114",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 55.514519,
     "lon": 10.799067,
     "dist_m": 4409.23,
@@ -697,30 +674,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 55.619361,
-    "lon": 12.815107,
-    "dist_m": 4097.3,
-    "nearest_way": {
-     "id": 344368022,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "dk"
-    },
-    "nearest_place": {
-     "name": "Sibbarp",
-     "type": "hamlet",
-     "dist_m": 7878.9,
-     "lat": 55.574512,
-     "lon": 12.911786
-    },
-    "island_km2": 17.2,
-    "detail": "detail/dk/B-55.619361_12.815107",
-    "warnings": []
-   },
-   {
-    "rank": 11,
+    "rank": 9,
     "lat": 56.841635,
     "lon": 10.208439,
     "dist_m": 3584.83,
@@ -743,7 +697,30 @@
     "warnings": []
    },
    {
-    "rank": 12,
+    "rank": 10,
+    "lat": 56.860206,
+    "lon": 9.132474,
+    "dist_m": 3530.47,
+    "nearest_way": {
+     "id": 1009670477,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Rønbjerg Huse",
+     "type": "hamlet",
+     "dist_m": 4002.6,
+     "lat": 56.890234,
+     "lon": 9.168552
+    },
+    "island_km2": 3.3,
+    "detail": "detail/dk/B-56.860206_9.132474",
+    "warnings": []
+   },
+   {
+    "rank": 11,
     "lat": 55.480663,
     "lon": 8.306486,
     "dist_m": 3514.07,
@@ -766,12 +743,35 @@
     "warnings": []
    },
    {
-    "rank": 13,
-    "lat": 55.885636,
-    "lon": 8.27578,
-    "dist_m": 3300.18,
+    "rank": 12,
+    "lat": 55.622313,
+    "lon": 12.787835,
+    "dist_m": 3258.06,
     "nearest_way": {
-     "id": 819108129,
+     "id": 23283555,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "dk"
+    },
+    "nearest_place": {
+     "name": "Dragør",
+     "type": "town",
+     "dist_m": 8020.4,
+     "lat": 55.592487,
+     "lon": 12.671995
+    },
+    "island_km2": 17.2,
+    "detail": "detail/dk/B-55.622313_12.787835",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 55.883536,
+    "lon": 8.275424,
+    "dist_m": 3200.36,
+    "nearest_way": {
+     "id": 38144117,
      "highway": "unclassified",
      "name": "Tippervej",
      "ref": null,
@@ -780,12 +780,12 @@
     "nearest_place": {
      "name": "Fælled",
      "type": "hamlet",
-     "dist_m": 4062.6,
+     "dist_m": 3836.2,
      "lat": 55.84965,
      "lon": 8.28651
     },
     "island_km2": null,
-    "detail": "detail/dk/B-55.885636_8.275780",
+    "detail": "detail/dk/B-55.883536_8.275424",
     "warnings": []
    },
    {

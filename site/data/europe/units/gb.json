@@ -18,9 +18,9 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 57.879389,
-    "lon": -6.353427,
-    "dist_m": 15366.24,
+    "lat": 57.880135,
+    "lon": -6.352528,
+    "dist_m": 15301.92,
     "nearest_way": {
      "id": 840336802,
      "highway": "track",
@@ -31,12 +31,12 @@
     "nearest_place": {
      "name": "Lemreway",
      "type": "village",
-     "dist_m": 16469.1,
+     "dist_m": 16407.0,
      "lat": 58.019814,
      "lon": -6.440557
     },
     "island_km2": 1.4,
-    "detail": "detail/gb/A-57.879389_-6.353427",
+    "detail": "detail/gb/A-57.880135_-6.352528",
     "warnings": []
    },
    {
@@ -64,9 +64,9 @@
    },
    {
     "rank": 3,
-    "lat": 57.919707,
-    "lon": -6.537046,
-    "dist_m": 8485.85,
+    "lat": 57.919016,
+    "lon": -6.537832,
+    "dist_m": 8438.96,
     "nearest_way": {
      "id": 672126784,
      "highway": "service",
@@ -77,12 +77,12 @@
     "nearest_place": {
      "name": "Rhenigidale",
      "type": "hamlet",
-     "dist_m": 8682.1,
+     "dist_m": 8634.8,
      "lat": 57.918631,
      "lon": -6.683525
     },
-    "island_km2": 2198.8,
-    "detail": "detail/gb/A-57.919707_-6.537046",
+    "island_km2": 2207.5,
+    "detail": "detail/gb/A-57.919016_-6.537832",
     "warnings": []
    },
    {
@@ -110,34 +110,11 @@
    },
    {
     "rank": 5,
-    "lat": 56.215221,
-    "lon": -5.820216,
-    "dist_m": 7724.33,
+    "lat": 56.854126,
+    "lon": -7.59341,
+    "dist_m": 7671.28,
     "nearest_way": {
-     "id": 416909238,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "Blackmill Bay",
-     "type": "hamlet",
-     "dist_m": 10039.4,
-     "lat": 56.213334,
-     "lon": -5.658448
-    },
-    "island_km2": 2.3,
-    "detail": "detail/gb/A-56.215221_-5.820216",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 56.854696,
-    "lon": -7.596177,
-    "dist_m": 7690.75,
-    "nearest_way": {
-     "id": 207637134,
+     "id": 208470570,
      "highway": "track",
      "name": null,
      "ref": null,
@@ -146,16 +123,16 @@
     "nearest_place": {
      "name": "Vatersay",
      "type": "village",
-     "dist_m": 7999.2,
+     "dist_m": 7982.0,
      "lat": 56.918841,
      "lon": -7.537109
     },
     "island_km2": 2.5,
-    "detail": "detail/gb/A-56.854696_-7.596177",
+    "detail": "detail/gb/A-56.854126_-7.593410",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 57.967133,
     "lon": -5.510734,
     "dist_m": 7201.26,
@@ -178,7 +155,7 @@
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 58.529852,
     "lon": -4.959295,
     "dist_m": 7145.53,
@@ -201,7 +178,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 57.78059,
     "lon": -7.258989,
     "dist_m": 6635.45,
@@ -224,7 +201,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 57.894019,
     "lon": -7.085565,
     "dist_m": 6546.53,
@@ -242,12 +219,12 @@
      "lat": 57.85794,
      "lon": -6.994724
     },
-    "island_km2": 14.0,
+    "island_km2": 14.4,
     "detail": "detail/gb/A-57.894019_-7.085565",
     "warnings": []
    },
    {
-    "rank": 11,
+    "rank": 10,
     "lat": 56.917322,
     "lon": -3.827911,
     "dist_m": 6154.59,
@@ -270,7 +247,7 @@
     "warnings": []
    },
    {
-    "rank": 12,
+    "rank": 11,
     "lat": 57.0562,
     "lon": -3.690222,
     "dist_m": 6149.14,
@@ -293,7 +270,7 @@
     "warnings": []
    },
    {
-    "rank": 13,
+    "rank": 12,
     "lat": 57.801936,
     "lon": -4.90945,
     "dist_m": 6148.86,
@@ -316,7 +293,7 @@
     "warnings": []
    },
    {
-    "rank": 14,
+    "rank": 13,
     "lat": 56.954582,
     "lon": -6.274704,
     "dist_m": 6069.87,
@@ -334,12 +311,12 @@
      "lat": 57.014207,
      "lon": -6.280748
     },
-    "island_km2": 107.2,
+    "island_km2": 108.5,
     "detail": "detail/gb/A-56.954582_-6.274704",
     "warnings": []
    },
    {
-    "rank": 15,
+    "rank": 14,
     "lat": 56.946181,
     "lon": -5.528007,
     "dist_m": 6015.79,
@@ -362,7 +339,7 @@
     "warnings": []
    },
    {
-    "rank": 16,
+    "rank": 15,
     "lat": 57.232527,
     "lon": -6.182784,
     "dist_m": 5752.27,
@@ -382,6 +359,29 @@
     },
     "island_km2": null,
     "detail": "detail/gb/A-57.232527_-6.182784",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 56.236875,
+    "lon": -5.778105,
+    "dist_m": 5678.45,
+    "nearest_way": {
+     "id": 587449013,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gb"
+    },
+    "nearest_place": {
+     "name": "Blackmill Bay",
+     "type": "hamlet",
+     "dist_m": 7871.5,
+     "lat": 56.213334,
+     "lon": -5.658448
+    },
+    "island_km2": 2.3,
+    "detail": "detail/gb/A-56.236875_-5.778105",
     "warnings": []
    },
    {
@@ -491,9 +491,9 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 59.134181,
-    "lon": -5.825207,
-    "dist_m": 73387.3,
+    "lat": 59.133255,
+    "lon": -5.824432,
+    "dist_m": 73305.86,
     "nearest_way": {
      "id": 205823838,
      "highway": "service",
@@ -504,12 +504,12 @@
     "nearest_place": {
      "name": "Fivepenny",
      "type": "village",
-     "dist_m": 74741.3,
+     "dist_m": 74658.8,
      "lat": 58.500404,
      "lon": -6.249953
     },
     "island_km2": 1.1,
-    "detail": "detail/gb/B-59.134181_-5.825207",
+    "detail": "detail/gb/B-59.133255_-5.824432",
     "warnings": []
    },
    {
@@ -537,9 +537,9 @@
    },
    {
     "rank": 3,
-    "lat": 57.879389,
-    "lon": -6.353427,
-    "dist_m": 15415.3,
+    "lat": 57.880135,
+    "lon": -6.352528,
+    "dist_m": 15351.13,
     "nearest_way": {
      "id": 840336798,
      "highway": "service",
@@ -550,12 +550,12 @@
     "nearest_place": {
      "name": "Lemreway",
      "type": "village",
-     "dist_m": 16469.1,
+     "dist_m": 16407.0,
      "lat": 58.019814,
      "lon": -6.440557
     },
     "island_km2": 1.4,
-    "detail": "detail/gb/B-57.879389_-6.353427",
+    "detail": "detail/gb/B-57.880135_-6.352528",
     "warnings": []
    },
    {
@@ -721,9 +721,9 @@
    },
    {
     "rank": 11,
-    "lat": 55.983625,
-    "lon": -6.003199,
-    "dist_m": 10220.97,
+    "lat": 55.990912,
+    "lon": -5.999111,
+    "dist_m": 10038.84,
     "nearest_way": {
      "id": 191976924,
      "highway": "primary",
@@ -734,39 +734,16 @@
     "nearest_place": {
      "name": "Ruantallain",
      "type": "hamlet",
-     "dist_m": 724.0,
+     "dist_m": 1513.5,
      "lat": 55.977334,
      "lon": -6.000265
     },
-    "island_km2": 365.7,
-    "detail": "detail/gb/B-55.983625_-6.003199",
+    "island_km2": 369.1,
+    "detail": "detail/gb/B-55.990912_-5.999111",
     "warnings": []
    },
    {
     "rank": 12,
-    "lat": 56.215221,
-    "lon": -5.820216,
-    "dist_m": 9992.17,
-    "nearest_way": {
-     "id": 50741688,
-     "highway": "tertiary",
-     "name": null,
-     "ref": null,
-     "country": "gb"
-    },
-    "nearest_place": {
-     "name": "Blackmill Bay",
-     "type": "hamlet",
-     "dist_m": 10039.4,
-     "lat": 56.213334,
-     "lon": -5.658448
-    },
-    "island_km2": 2.3,
-    "detail": "detail/gb/B-56.215221_-5.820216",
-    "warnings": []
-   },
-   {
-    "rank": 13,
     "lat": 57.038386,
     "lon": -5.500232,
     "dist_m": 9798.58,
@@ -789,7 +766,7 @@
     "warnings": []
    },
    {
-    "rank": 14,
+    "rank": 13,
     "lat": 57.927568,
     "lon": -6.5168,
     "dist_m": 9731.1,
@@ -807,12 +784,12 @@
      "lat": 58.016246,
      "lon": -6.530016
     },
-    "island_km2": 2198.8,
+    "island_km2": 2207.5,
     "detail": "detail/gb/B-57.927568_-6.516800",
     "warnings": []
    },
    {
-    "rank": 15,
+    "rank": 14,
     "lat": 57.150144,
     "lon": -4.203895,
     "dist_m": 9242.05,
@@ -835,7 +812,7 @@
     "warnings": []
    },
    {
-    "rank": 16,
+    "rank": 15,
     "lat": 56.500353,
     "lon": -4.971477,
     "dist_m": 9148.07,
@@ -858,7 +835,7 @@
     "warnings": []
    },
    {
-    "rank": 17,
+    "rank": 16,
     "lat": 56.77623,
     "lon": -5.403889,
     "dist_m": 9075.53,

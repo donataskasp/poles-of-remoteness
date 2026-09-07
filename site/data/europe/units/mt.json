@@ -18,25 +18,25 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 35.966768,
-    "lon": 14.407674,
-    "dist_m": 1049.39,
+    "lat": 35.940581,
+    "lon": 14.328506,
+    "dist_m": 988.56,
     "nearest_way": {
-     "id": 123727816,
+     "id": 204143006,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "mt"
     },
     "nearest_place": {
-     "name": "Qawra",
+     "name": "Manikata",
      "type": "village",
-     "dist_m": 1779.0,
-     "lat": 35.954129,
-     "lon": 14.419808
+     "dist_m": 2279.2,
+     "lat": 35.940721,
+     "lon": 14.353765
     },
     "island_km2": null,
-    "detail": "detail/mt/A-35.966768_14.407674",
+    "detail": "detail/mt/A-35.940581_14.328506",
     "warnings": []
    },
    {
@@ -87,52 +87,29 @@
    },
    {
     "rank": 4,
-    "lat": 36.046912,
-    "lon": 14.188155,
-    "dist_m": 418.91,
+    "lat": 36.074167,
+    "lon": 14.18988,
+    "dist_m": 329.43,
     "nearest_way": {
-     "id": 968605955,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "mt"
-    },
-    "nearest_place": {
-     "name": "Saint Lawrence",
-     "type": "village",
-     "dist_m": 1700.6,
-     "lat": 36.055301,
-     "lon": 14.20395
-    },
-    "island_km2": 66.0,
-    "detail": "detail/mt/A-36.046912_14.188155",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 35.900417,
-    "lon": 14.330501,
-    "dist_m": 339.08,
-    "nearest_way": {
-     "id": 1422132631,
+     "id": 580158599,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "mt"
     },
     "nearest_place": {
-     "name": "Baħrija",
+     "name": "Għarb",
      "type": "village",
-     "dist_m": 1718.2,
-     "lat": 35.894711,
-     "lon": 14.348194
+     "dist_m": 2351.0,
+     "lat": 36.059818,
+     "lon": 14.209081
     },
-    "island_km2": null,
-    "detail": "detail/mt/A-35.900417_14.330501",
+    "island_km2": 66.0,
+    "detail": "detail/mt/A-36.074167_14.189880",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 35.849632,
     "lon": 14.572185,
     "dist_m": 314.56,
@@ -153,15 +130,38 @@
     "island_km2": null,
     "detail": "detail/mt/A-35.849632_14.572185",
     "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 35.93616,
+    "lon": 14.470562,
+    "dist_m": 291.0,
+    "nearest_way": {
+     "id": 15554949,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Pembroke",
+     "type": "town",
+     "dist_m": 1206.1,
+     "lat": 35.928131,
+     "lon": 14.479572
+    },
+    "island_km2": null,
+    "detail": "detail/mt/A-35.936160_14.470562",
+    "warnings": []
    }
   ],
   "withheld": 0,
   "reason": "only 4 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
  },
  "A_mainland": {
-  "dist_m": 1049.39,
-  "lat": 35.966768,
-  "lon": 14.407674,
+  "dist_m": 988.56,
+  "lat": 35.940581,
+  "lon": 14.328506,
   "rank": 45,
   "withheld": 0
  },
@@ -169,25 +169,25 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 35.967414,
-    "lon": 14.407492,
-    "dist_m": 1477.36,
+    "lat": 35.943232,
+    "lon": 14.329238,
+    "dist_m": 1410.38,
     "nearest_way": {
-     "id": 25378945,
-     "highway": "tertiary",
-     "name": "Triq il-Mistra",
+     "id": 1448713475,
+     "highway": "service",
+     "name": null,
      "ref": null,
      "country": "mt"
     },
     "nearest_place": {
-     "name": "Qawra",
+     "name": "Manikata",
      "type": "village",
-     "dist_m": 1845.9,
-     "lat": 35.954129,
-     "lon": 14.419808
+     "dist_m": 2230.5,
+     "lat": 35.940721,
+     "lon": 14.353765
     },
     "island_km2": null,
-    "detail": "detail/mt/B-35.967414_14.407492",
+    "detail": "detail/mt/B-35.943232_14.329238",
     "warnings": []
    },
    {
@@ -215,29 +215,6 @@
    },
    {
     "rank": 3,
-    "lat": 35.897643,
-    "lon": 14.32904,
-    "dist_m": 766.12,
-    "nearest_way": {
-     "id": 441709215,
-     "highway": "secondary",
-     "name": "Fomm ir-Riħ, Limiti tar-Rabat",
-     "ref": "125",
-     "country": "mt"
-    },
-    "nearest_place": {
-     "name": "Baħrija",
-     "type": "village",
-     "dist_m": 1759.6,
-     "lat": 35.894711,
-     "lon": 14.348194
-    },
-    "island_km2": null,
-    "detail": "detail/mt/B-35.897643_14.329040",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 36.046499,
     "lon": 14.323827,
     "dist_m": 671.62,
@@ -260,7 +237,7 @@
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 35.849729,
     "lon": 14.572197,
     "dist_m": 660.94,
@@ -283,7 +260,7 @@
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 35.822453,
     "lon": 14.438217,
     "dist_m": 638.66,
@@ -304,15 +281,38 @@
     "island_km2": null,
     "detail": "detail/mt/B-35.822453_14.438217",
     "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 35.937044,
+    "lon": 14.479043,
+    "dist_m": 567.22,
+    "nearest_way": {
+     "id": 1454944892,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "mt"
+    },
+    "nearest_place": {
+     "name": "Pembroke",
+     "type": "town",
+     "dist_m": 990.1,
+     "lat": 35.928131,
+     "lon": 14.479572
+    },
+    "island_km2": null,
+    "detail": "detail/mt/B-35.937044_14.479043",
+    "warnings": []
    }
   ],
   "withheld": 0,
   "reason": "only 4 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
  },
  "B_mainland": {
-  "dist_m": 1477.36,
-  "lat": 35.967414,
-  "lon": 14.407492,
+  "dist_m": 1410.38,
+  "lat": 35.943232,
+  "lon": 14.329238,
   "rank": 46,
   "withheld": 0
  }

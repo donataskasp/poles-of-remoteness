@@ -156,29 +156,6 @@
    },
    {
     "rank": 7,
-    "lat": 47.690235,
-    "lon": 16.747427,
-    "dist_m": 4661.36,
-    "nearest_way": {
-     "id": 172010799,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "hu"
-    },
-    "nearest_place": {
-     "name": "Fertőboz",
-     "type": "village",
-     "dist_m": 7039.7,
-     "lat": 47.635442,
-     "lon": 16.70046
-    },
-    "island_km2": null,
-    "detail": "detail/at/A-47.690235_16.747427",
-    "warnings": []
-   },
-   {
-    "rank": 8,
     "lat": 47.67521,
     "lon": 14.006847,
     "dist_m": 4597.87,
@@ -201,7 +178,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 46.87511,
     "lon": 10.23175,
     "dist_m": 4374.64,
@@ -221,6 +198,29 @@
     },
     "island_km2": null,
     "detail": "detail/at/A-46.875110_10.231750",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 47.682695,
+    "lon": 16.757011,
+    "dist_m": 4324.8,
+    "nearest_way": {
+     "id": 425225041,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "hu"
+    },
+    "nearest_place": {
+     "name": "Hidegség",
+     "type": "village",
+     "dist_m": 6499.5,
+     "lat": 47.625199,
+     "lon": 16.741383
+    },
+    "island_km2": null,
+    "detail": "detail/at/A-47.682695_16.757011",
     "warnings": []
    },
    {
@@ -254,7 +254,7 @@
   "dist_m": 6182.93,
   "lat": 46.843473,
   "lon": 10.791113,
-  "rank": 17,
+  "rank": 16,
   "withheld": 0
  },
  "B": {

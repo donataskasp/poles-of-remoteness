@@ -41,29 +41,6 @@
    },
    {
     "rank": 2,
-    "lat": 42.372298,
-    "lon": 8.534746,
-    "dist_m": 6626.33,
-    "nearest_way": {
-     "id": 598410590,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "fr"
-    },
-    "nearest_place": {
-     "name": "Girolata",
-     "type": "village",
-     "dist_m": 6876.8,
-     "lat": 42.349687,
-     "lon": 8.612455
-    },
-    "island_km2": 8849.4,
-    "detail": "detail/fr/A-42.372298_8.534746",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 42.827023,
     "lon": -0.246604,
     "dist_m": 6501.51,
@@ -86,7 +63,7 @@
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 45.900228,
     "lon": 6.975796,
     "dist_m": 6341.8,
@@ -106,6 +83,29 @@
     },
     "island_km2": null,
     "detail": "detail/fr/A-45.900228_6.975796",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 42.377847,
+    "lon": 8.545902,
+    "dist_m": 6070.54,
+    "nearest_way": {
+     "id": 598410590,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "fr"
+    },
+    "nearest_place": {
+     "name": "Girolata",
+     "type": "village",
+     "dist_m": 6312.0,
+     "lat": 42.349687,
+     "lon": 8.612455
+    },
+    "island_km2": 8849.4,
+    "detail": "detail/fr/A-42.377847_8.545902",
     "warnings": []
    },
    {
@@ -156,29 +156,6 @@
    },
    {
     "rank": 7,
-    "lat": 48.88611,
-    "lon": -1.748706,
-    "dist_m": 5669.19,
-    "nearest_way": {
-     "id": 135709298,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "fr"
-    },
-    "nearest_place": {
-     "name": "Granville",
-     "type": "town",
-     "dist_m": 12439.7,
-     "lat": 48.83763,
-     "lon": -1.595918
-    },
-    "island_km2": 1.3,
-    "detail": "detail/fr/A-48.886110_-1.748706",
-    "warnings": []
-   },
-   {
-    "rank": 8,
     "lat": 45.247585,
     "lon": 7.093355,
     "dist_m": 5509.76,
@@ -201,7 +178,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 44.617104,
     "lon": 6.922388,
     "dist_m": 5488.96,
@@ -224,7 +201,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 45.811173,
     "lon": 6.815308,
     "dist_m": 5156.21,
@@ -247,7 +224,7 @@
     "warnings": []
    },
    {
-    "rank": 11,
+    "rank": 10,
     "lat": 42.596967,
     "lon": 1.958984,
     "dist_m": 5091.16,
@@ -270,7 +247,7 @@
     "warnings": []
    },
    {
-    "rank": 12,
+    "rank": 11,
     "lat": 44.087547,
     "lon": 6.696823,
     "dist_m": 5075.52,

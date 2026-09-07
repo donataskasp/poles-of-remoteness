@@ -1,12 +1,12 @@
 {
  "schema_version": 1,
- "generated_at": "2026-09-06T07:07:39+00:00",
+ "generated_at": "2026-09-07T01:04:46+00:00",
  "regions": {
   "europe": {
    "snapshot": "2026-08-19",
-   "published_at": "2026-09-06T07:07:39+00:00",
+   "published_at": "2026-09-07T01:04:46+00:00",
    "r2_base": "https://data.polesofremoteness.com",
-   "pipeline_commit": "743afabb47ba833380a7e62dbae25411359920ca",
+   "pipeline_commit": "33093035145acf3a714e3f88ada7873bc7796101",
    "sources": [
     {
      "url": "https://download.geofabrik.de/europe-latest.osm.pbf",
@@ -86,8 +86,8 @@
     }
    },
    "detail": {
-    "count": 1087,
-    "bytes": 19091236
+    "count": 1061,
+    "bytes": 18921314
    },
    "validation": {
     "report": "europe/2026-08-19/validation/report.json",
@@ -95,8 +95,8 @@
     "contact_sheet": "europe/2026-08-19/validation/contact-sheet.html"
    },
    "verified": {
-    "at": "2026-09-06T07:07:39+00:00",
-    "keys": 2179,
+    "at": "2026-09-07T01:04:46+00:00",
+    "keys": 2127,
     "range_ok": 2
    }
   },

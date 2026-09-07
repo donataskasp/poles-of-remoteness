@@ -87,29 +87,6 @@
    },
    {
     "rank": 4,
-    "lat": 48.898665,
-    "lon": 16.612352,
-    "dist_m": 1359.26,
-    "nearest_way": {
-     "id": 46888189,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "cz"
-    },
-    "nearest_place": {
-     "name": "Dolní Věstonice",
-     "type": "village",
-     "dist_m": 2629.4,
-     "lat": 48.888174,
-     "lon": 16.644487
-    },
-    "island_km2": null,
-    "detail": "detail/cz/A-48.898665_16.612352",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 50.496652,
     "lon": 13.545535,
     "dist_m": 1350.74,
@@ -132,7 +109,7 @@
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 48.958016,
     "lon": 13.506109,
     "dist_m": 1343.25,
@@ -155,7 +132,7 @@
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 50.243972,
     "lon": 13.290006,
     "dist_m": 1293.5,
@@ -178,7 +155,7 @@
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 48.706907,
     "lon": 14.050121,
     "dist_m": 1280.12,
@@ -201,7 +178,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 48.817042,
     "lon": 16.718104,
     "dist_m": 1242.62,
@@ -224,7 +201,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 50.332466,
     "lon": 14.100166,
     "dist_m": 1220.05,
@@ -244,6 +221,29 @@
     },
     "island_km2": null,
     "detail": "detail/cz/A-50.332466_14.100166",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 49.992117,
+    "lon": 12.781432,
+    "dist_m": 1219.96,
+    "nearest_way": {
+     "id": 159313607,
+     "highway": "secondary",
+     "name": null,
+     "ref": "230",
+     "country": "cz"
+    },
+    "nearest_place": {
+     "name": "Služetín",
+     "type": "hamlet",
+     "dist_m": 1327.2,
+     "lat": 49.989947,
+     "lon": 12.799632
+    },
+    "island_km2": null,
+    "detail": "detail/cz/A-49.992117_12.781432",
     "warnings": []
    }
   ],

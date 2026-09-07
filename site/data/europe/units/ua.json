@@ -18,29 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 49.196656,
-    "lon": 32.925239,
-    "dist_m": 11491.67,
-    "nearest_way": {
-     "id": 1146512179,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ua"
-    },
-    "nearest_place": {
-     "name": "Pronozivka",
-     "type": "village",
-     "dist_m": 12361.9,
-     "lat": 49.292767,
-     "lon": 33.010525
-    },
-    "island_km2": 1.2,
-    "detail": "detail/ua/A-49.196656_32.925239",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 46.18228,
     "lon": 31.953077,
     "dist_m": 11175.43,
@@ -63,7 +40,7 @@
     "warnings": []
    },
    {
-    "rank": 3,
+    "rank": 2,
     "lat": 47.546414,
     "lon": 35.149388,
     "dist_m": 11020.86,
@@ -86,7 +63,7 @@
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 45.254759,
     "lon": 29.743598,
     "dist_m": 9108.97,
@@ -109,7 +86,7 @@
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 45.733794,
     "lon": 29.992318,
     "dist_m": 8951.75,
@@ -132,7 +109,7 @@
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 51.745833,
     "lon": 27.203852,
     "dist_m": 8276.2,
@@ -155,7 +132,7 @@
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 47.494972,
     "lon": 34.061492,
     "dist_m": 8226.59,
@@ -178,7 +155,7 @@
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 46.099207,
     "lon": 34.408283,
     "dist_m": 8018.36,
@@ -201,7 +178,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 45.778008,
     "lon": 34.753409,
     "dist_m": 7846.7,
@@ -224,12 +201,12 @@
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 46.380519,
-    "lon": 31.768946,
-    "dist_m": 6907.49,
+    "rank": 9,
+    "lat": 46.379344,
+    "lon": 31.765742,
+    "dist_m": 6852.94,
     "nearest_way": {
-     "id": 613781024,
+     "id": 574356160,
      "highway": "track",
      "name": null,
      "ref": null,
@@ -238,16 +215,16 @@
     "nearest_place": {
      "name": "Pokrovka",
      "type": "village",
-     "dist_m": 12657.7,
+     "dist_m": 12656.9,
      "lat": 46.480361,
      "lon": 31.689762
     },
     "island_km2": null,
-    "detail": "detail/ua/A-46.380519_31.768946",
+    "detail": "detail/ua/A-46.379344_31.765742",
     "warnings": []
    },
    {
-    "rank": 11,
+    "rank": 10,
     "lat": 47.212586,
     "lon": 34.78788,
     "dist_m": 6630.7,
@@ -445,29 +422,6 @@
    },
    {
     "rank": 8,
-    "lat": 49.196656,
-    "lon": 32.925239,
-    "dist_m": 11578.84,
-    "nearest_way": {
-     "id": 195801440,
-     "highway": "residential",
-     "name": "вулиця Шевченка",
-     "ref": null,
-     "country": "ua"
-    },
-    "nearest_place": {
-     "name": "Pronozivka",
-     "type": "village",
-     "dist_m": 12361.9,
-     "lat": 49.292767,
-     "lon": 33.010525
-    },
-    "island_km2": 1.2,
-    "detail": "detail/ua/B-49.196656_32.925239",
-    "warnings": []
-   },
-   {
-    "rank": 9,
     "lat": 47.546587,
     "lon": 35.149728,
     "dist_m": 11030.33,
@@ -490,7 +444,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 46.388314,
     "lon": 31.765697,
     "dist_m": 10730.99,
@@ -513,7 +467,7 @@
     "warnings": []
    },
    {
-    "rank": 11,
+    "rank": 10,
     "lat": 48.203745,
     "lon": 24.109771,
     "dist_m": 10562.09,

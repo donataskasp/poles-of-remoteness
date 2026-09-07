@@ -64,32 +64,9 @@
    },
    {
     "rank": 3,
-    "lat": 52.805472,
-    "lon": 5.221838,
-    "dist_m": 5721.63,
-    "nearest_way": {
-     "id": 395344759,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "nl"
-    },
-    "nearest_place": {
-     "name": "Broekoord",
-     "type": "hamlet",
-     "dist_m": 5771.6,
-     "lat": 52.753901,
-     "lon": 5.212763
-    },
-    "island_km2": 1.6,
-    "detail": "detail/nl/A-52.805472_5.221838",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 53.519086,
-    "lon": 6.40001,
-    "dist_m": 4949.39,
+    "lat": 53.516313,
+    "lon": 6.39993,
+    "dist_m": 4857.66,
     "nearest_way": {
      "id": 1164607884,
      "highway": "track",
@@ -100,16 +77,16 @@
     "nearest_place": {
      "name": "Wierhuizen",
      "type": "hamlet",
-     "dist_m": 13108.4,
+     "dist_m": 12803.2,
      "lat": 53.402321,
      "lon": 6.425865
     },
     "island_km2": 43.9,
-    "detail": "detail/nl/A-53.519086_6.400010",
+    "detail": "detail/nl/A-53.516313_6.399930",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 53.292683,
     "lon": 5.160917,
     "dist_m": 4562.8,
@@ -132,7 +109,7 @@
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 52.978322,
     "lon": 4.668604,
     "dist_m": 4492.52,
@@ -155,7 +132,7 @@
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 51.365515,
     "lon": 4.155132,
     "dist_m": 3318.5,
@@ -178,7 +155,7 @@
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 52.5897,
     "lon": 5.411198,
     "dist_m": 2742.1,
@@ -201,7 +178,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 53.352595,
     "lon": 6.205687,
     "dist_m": 2733.65,
@@ -224,7 +201,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 53.352654,
     "lon": 5.755686,
     "dist_m": 2491.1,
@@ -247,7 +224,7 @@
     "warnings": []
    },
    {
-    "rank": 11,
+    "rank": 10,
     "lat": 53.477571,
     "lon": 6.257409,
     "dist_m": 2472.29,
@@ -270,7 +247,7 @@
     "warnings": []
    },
    {
-    "rank": 12,
+    "rank": 11,
     "lat": 51.401438,
     "lon": 3.627861,
     "dist_m": 2466.33,
@@ -293,7 +270,7 @@
     "warnings": []
    },
    {
-    "rank": 13,
+    "rank": 12,
     "lat": 51.739589,
     "lon": 4.802186,
     "dist_m": 2149.14,
@@ -316,7 +293,7 @@
     "warnings": []
    },
    {
-    "rank": 14,
+    "rank": 13,
     "lat": 52.78361,
     "lon": 5.915712,
     "dist_m": 2011.88,
@@ -339,7 +316,7 @@
     "warnings": []
    },
    {
-    "rank": 15,
+    "rank": 14,
     "lat": 52.481033,
     "lon": 5.09762,
     "dist_m": 1968.12,
@@ -362,53 +339,30 @@
     "warnings": []
    },
    {
+    "rank": 15,
+    "lat": 53.396698,
+    "lon": 5.216834,
+    "dist_m": 1922.38,
+    "nearest_way": {
+     "id": 896168920,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "West aan Zee",
+     "type": "hamlet",
+     "dist_m": 2879.1,
+     "lat": 53.399048,
+     "lon": 5.259938
+    },
+    "island_km2": 85.4,
+    "detail": "detail/nl/A-53.396698_5.216834",
+    "warnings": []
+   },
+   {
     "rank": 16,
-    "lat": 51.659115,
-    "lon": 4.210658,
-    "dist_m": 1946.56,
-    "nearest_way": {
-     "id": 1079029570,
-     "highway": "service",
-     "name": "Veerweg",
-     "ref": null,
-     "country": "nl"
-    },
-    "nearest_place": {
-     "name": "Oude-Tonge",
-     "type": "village",
-     "dist_m": 3512.6,
-     "lat": 51.690667,
-     "lon": 4.212408
-    },
-    "island_km2": null,
-    "detail": "detail/nl/A-51.659115_4.210658",
-    "warnings": []
-   },
-   {
-    "rank": 17,
-    "lat": 51.804818,
-    "lon": 4.147303,
-    "dist_m": 1934.64,
-    "nearest_way": {
-     "id": 660410883,
-     "highway": "unclassified",
-     "name": "Zeedijk",
-     "ref": null,
-     "country": "nl"
-    },
-    "nearest_place": {
-     "name": "Hellevoetsluis",
-     "type": "town",
-     "dist_m": 3247.8,
-     "lat": 51.833921,
-     "lon": 4.143674
-    },
-    "island_km2": 1.9,
-    "detail": "detail/nl/A-51.804818_4.147303",
-    "warnings": []
-   },
-   {
-    "rank": 18,
     "lat": 52.594074,
     "lon": 4.614871,
     "dist_m": 1835.93,
@@ -431,7 +385,30 @@
     "warnings": []
    },
    {
-    "rank": 19,
+    "rank": 17,
+    "lat": 53.431075,
+    "lon": 5.548315,
+    "dist_m": 1835.05,
+    "nearest_way": {
+     "id": 838949342,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Hollum",
+     "type": "village",
+     "dist_m": 6051.4,
+     "lat": 53.441217,
+     "lon": 5.637772
+    },
+    "island_km2": 85.4,
+    "detail": "detail/nl/A-53.431075_5.548315",
+    "warnings": []
+   },
+   {
+    "rank": 18,
     "lat": 52.449859,
     "lon": 5.337859,
     "dist_m": 1779.5,
@@ -454,7 +431,7 @@
     "warnings": []
    },
    {
-    "rank": 20,
+    "rank": 19,
     "lat": 52.705675,
     "lon": 6.034261,
     "dist_m": 1761.84,
@@ -474,6 +451,29 @@
     },
     "island_km2": null,
     "detail": "detail/nl/A-52.705675_6.034261",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 52.825077,
+    "lon": 5.580191,
+    "dist_m": 1737.14,
+    "nearest_way": {
+     "id": 1070647837,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Nijemardum",
+     "type": "village",
+     "dist_m": 3509.2,
+     "lat": 52.855574,
+     "lon": 5.566946
+    },
+    "island_km2": null,
+    "detail": "detail/nl/A-52.825077_5.580191",
     "warnings": []
    }
   ],
@@ -606,29 +606,6 @@
    },
    {
     "rank": 6,
-    "lat": 52.805472,
-    "lon": 5.221838,
-    "dist_m": 5728.04,
-    "nearest_way": {
-     "id": 6574540,
-     "highway": "tertiary",
-     "name": "Dijkweg",
-     "ref": null,
-     "country": "nl"
-    },
-    "nearest_place": {
-     "name": "Broekoord",
-     "type": "hamlet",
-     "dist_m": 5771.6,
-     "lat": 52.753901,
-     "lon": 5.212763
-    },
-    "island_km2": 1.6,
-    "detail": "detail/nl/B-52.805472_5.221838",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 53.228951,
     "lon": 4.870132,
     "dist_m": 5323.71,
@@ -646,12 +623,12 @@
      "lat": 53.1561,
      "lon": 4.871109
     },
-    "island_km2": 38.8,
+    "island_km2": 38.9,
     "detail": "detail/nl/B-53.228951_4.870132",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 52.984769,
     "lon": 4.671464,
     "dist_m": 4711.94,
@@ -674,7 +651,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 53.292683,
     "lon": 5.160917,
     "dist_m": 4562.8,
@@ -697,7 +674,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 51.368527,
     "lon": 4.189114,
     "dist_m": 3712.39,
@@ -720,7 +697,7 @@
     "warnings": []
    },
    {
-    "rank": 11,
+    "rank": 10,
     "lat": 52.329887,
     "lon": 4.504692,
     "dist_m": 3601.23,
@@ -743,30 +720,7 @@
     "warnings": []
    },
    {
-    "rank": 12,
-    "lat": 51.765984,
-    "lon": 3.945108,
-    "dist_m": 3580.79,
-    "nearest_way": {
-     "id": 7587587,
-     "highway": "service",
-     "name": "Ouddorpse haven",
-     "ref": null,
-     "country": "nl"
-    },
-    "nearest_place": {
-     "name": "Dijkhuisjes",
-     "type": "isolated_dwelling",
-     "dist_m": 4433.9,
-     "lat": 51.726146,
-     "lon": 3.946738
-    },
-    "island_km2": null,
-    "detail": "detail/nl/B-51.765984_3.945108",
-    "warnings": []
-   },
-   {
-    "rank": 13,
+    "rank": 11,
     "lat": 52.268517,
     "lon": 5.856247,
     "dist_m": 3379.33,
@@ -789,7 +743,7 @@
     "warnings": []
    },
    {
-    "rank": 14,
+    "rank": 12,
     "lat": 52.444377,
     "lon": 5.359506,
     "dist_m": 3104.1,
@@ -812,7 +766,7 @@
     "warnings": []
    },
    {
-    "rank": 15,
+    "rank": 13,
     "lat": 53.384171,
     "lon": 5.179017,
     "dist_m": 2829.77,
@@ -835,7 +789,30 @@
     "warnings": []
    },
    {
-    "rank": 16,
+    "rank": 14,
+    "lat": 53.465778,
+    "lon": 5.879393,
+    "dist_m": 2780.06,
+    "nearest_way": {
+     "id": 1324191906,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Kooiplaats",
+     "type": "hamlet",
+     "dist_m": 3397.9,
+     "lat": 53.44895,
+     "lon": 5.836711
+    },
+    "island_km2": 57.4,
+    "detail": "detail/nl/B-53.465778_5.879393",
+    "warnings": []
+   },
+   {
+    "rank": 15,
     "lat": 53.353427,
     "lon": 6.204054,
     "dist_m": 2775.48,
@@ -858,7 +835,7 @@
     "warnings": []
    },
    {
-    "rank": 17,
+    "rank": 16,
     "lat": 53.350042,
     "lon": 5.747644,
     "dist_m": 2739.43,
@@ -881,7 +858,7 @@
     "warnings": []
    },
    {
-    "rank": 18,
+    "rank": 17,
     "lat": 51.737778,
     "lon": 4.813638,
     "dist_m": 2667.15,
@@ -904,7 +881,7 @@
     "warnings": []
    },
    {
-    "rank": 19,
+    "rank": 18,
     "lat": 52.046923,
     "lon": 5.973623,
     "dist_m": 2470.58,
@@ -927,7 +904,7 @@
     "warnings": []
    },
    {
-    "rank": 20,
+    "rank": 19,
     "lat": 51.400247,
     "lon": 5.623881,
     "dist_m": 2286.91,
@@ -947,6 +924,29 @@
     },
     "island_km2": null,
     "detail": "detail/nl/B-51.400247_5.623881",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 52.585526,
+    "lon": 4.612827,
+    "dist_m": 2285.83,
+    "nearest_way": {
+     "id": 6636562,
+     "highway": "service",
+     "name": "Mooyeveld",
+     "ref": null,
+     "country": "nl"
+    },
+    "nearest_place": {
+     "name": "Egmond-Binnen",
+     "type": "village",
+     "dist_m": 3173.6,
+     "lat": 52.597371,
+     "lon": 4.655427
+    },
+    "island_km2": null,
+    "detail": "detail/nl/B-52.585526_4.612827",
     "warnings": []
    }
   ],

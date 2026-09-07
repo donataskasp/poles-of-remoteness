@@ -87,29 +87,6 @@
    },
    {
     "rank": 4,
-    "lat": 65.334559,
-    "lon": 11.596599,
-    "dist_m": 21754.93,
-    "nearest_way": {
-     "id": 236168128,
-     "highway": "unclassified",
-     "name": "Kvaløyveien",
-     "ref": null,
-     "country": "no"
-    },
-    "nearest_place": {
-     "name": "Nordhorsvær",
-     "type": "hamlet",
-     "dist_m": 2028.9,
-     "lat": 65.324212,
-     "lon": 11.63242
-    },
-    "island_km2": 1.2,
-    "detail": "detail/no/A-65.334559_11.596599",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 70.090085,
     "lon": 25.997624,
     "dist_m": 20728.24,
@@ -132,7 +109,7 @@
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 68.494072,
     "lon": 19.373295,
     "dist_m": 20142.74,
@@ -155,7 +132,7 @@
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 69.458955,
     "lon": 22.691577,
     "dist_m": 19569.14,
@@ -178,7 +155,7 @@
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 66.682671,
     "lon": 14.964252,
     "dist_m": 19295.03,
@@ -201,7 +178,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 70.330443,
     "lon": 29.774466,
     "dist_m": 18910.23,
@@ -224,7 +201,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 67.53402,
     "lon": 16.407372,
     "dist_m": 17503.51,
@@ -247,7 +224,7 @@
     "warnings": []
    },
    {
-    "rank": 11,
+    "rank": 10,
     "lat": 60.228075,
     "lon": 6.979153,
     "dist_m": 17341.66,
@@ -491,29 +468,6 @@
    },
    {
     "rank": 10,
-    "lat": 65.334559,
-    "lon": 11.596599,
-    "dist_m": 21754.93,
-    "nearest_way": {
-     "id": 236168128,
-     "highway": "unclassified",
-     "name": "Kvaløyveien",
-     "ref": null,
-     "country": "no"
-    },
-    "nearest_place": {
-     "name": "Nordhorsvær",
-     "type": "hamlet",
-     "dist_m": 2028.9,
-     "lat": 65.324212,
-     "lon": 11.63242
-    },
-    "island_km2": 1.2,
-    "detail": "detail/no/B-65.334559_11.596599",
-    "warnings": []
-   },
-   {
-    "rank": 11,
     "lat": 67.808563,
     "lon": 16.667589,
     "dist_m": 20890.68,

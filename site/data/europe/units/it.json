@@ -254,7 +254,7 @@
   "dist_m": 6622.2,
   "lat": 46.369779,
   "lon": 9.906329,
-  "rank": 15,
+  "rank": 14,
   "withheld": 0
  },
  "B": {
@@ -284,29 +284,6 @@
    },
    {
     "rank": 2,
-    "lat": 41.310058,
-    "lon": 9.335731,
-    "dist_m": 8205.43,
-    "nearest_way": {
-     "id": 1414282136,
-     "highway": "service",
-     "name": "Strada Abbatoggia",
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": null,
-     "type": "hamlet",
-     "dist_m": 3504.3,
-     "lat": 41.295073,
-     "lon": 9.372554
-    },
-    "island_km2": 5.6,
-    "detail": "detail/it/B-41.310058_9.335731",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 45.932538,
     "lon": 7.775291,
     "dist_m": 8094.7,
@@ -326,6 +303,29 @@
     },
     "island_km2": null,
     "detail": "detail/it/B-45.932538_7.775291",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 41.305632,
+    "lon": 9.334227,
+    "dist_m": 7953.45,
+    "nearest_way": {
+     "id": 1414282136,
+     "highway": "service",
+     "name": "Strada Abbatoggia",
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "hamlet",
+     "dist_m": 3417.5,
+     "lat": 41.295073,
+     "lon": 9.372554
+    },
+    "island_km2": 5.6,
+    "detail": "detail/it/B-41.305632_9.334227",
     "warnings": []
    },
    {
@@ -468,29 +468,6 @@
    },
    {
     "rank": 10,
-    "lat": 45.32413,
-    "lon": 12.223912,
-    "dist_m": 6916.31,
-    "nearest_way": {
-     "id": 1217731664,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "it"
-    },
-    "nearest_place": {
-     "name": "San Pietro in Volta",
-     "type": "village",
-     "dist_m": 7302.7,
-     "lat": 45.318449,
-     "lon": 12.316705
-    },
-    "island_km2": null,
-    "detail": "detail/it/B-45.324130_12.223912",
-    "warnings": []
-   },
-   {
-    "rank": 11,
     "lat": 45.818169,
     "lon": 6.824675,
     "dist_m": 6847.29,
@@ -513,7 +490,7 @@
     "warnings": []
    },
    {
-    "rank": 12,
+    "rank": 11,
     "lat": 46.754723,
     "lon": 11.010085,
     "dist_m": 6733.8,
@@ -536,7 +513,7 @@
     "warnings": []
    },
    {
-    "rank": 13,
+    "rank": 12,
     "lat": 37.775827,
     "lon": 14.963613,
     "dist_m": 6716.57,
@@ -559,7 +536,7 @@
     "warnings": []
    },
    {
-    "rank": 14,
+    "rank": 13,
     "lat": 47.069174,
     "lon": 12.240744,
     "dist_m": 6618.72,
@@ -579,6 +556,29 @@
     },
     "island_km2": null,
     "detail": "detail/it/B-47.069174_12.240744",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 46.080763,
+    "lon": 10.14027,
+    "dist_m": 6609.16,
+    "nearest_way": {
+     "id": 1059799011,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "it"
+    },
+    "nearest_place": {
+     "name": "San Paolo",
+     "type": "hamlet",
+     "dist_m": 3626.0,
+     "lat": 46.113223,
+     "lon": 10.135605
+    },
+    "island_km2": null,
+    "detail": "detail/it/B-46.080763_10.140270",
     "warnings": []
    }
   ],

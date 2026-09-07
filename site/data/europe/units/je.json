@@ -18,12 +18,12 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 49.170649,
-    "lon": -2.193244,
-    "dist_m": 896.14,
+    "lat": 49.169348,
+    "lon": -2.189496,
+    "dist_m": 815.58,
     "nearest_way": {
-     "id": 1112104492,
-     "highway": "service",
+     "id": 179412072,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "je"
@@ -31,12 +31,12 @@
     "nearest_place": {
      "name": "Portelet",
      "type": "hamlet",
-     "dist_m": 1209.8,
+     "dist_m": 972.9,
      "lat": 49.171999,
      "lon": -2.176782
     },
     "island_km2": null,
-    "detail": "detail/je/A-49.170649_-2.193244",
+    "detail": "detail/je/A-49.169348_-2.189496",
     "warnings": []
    },
    {
@@ -64,9 +64,9 @@
    },
    {
     "rank": 3,
-    "lat": 49.251975,
-    "lon": -2.253998,
-    "dist_m": 431.93,
+    "lat": 49.249494,
+    "lon": -2.254498,
+    "dist_m": 487.83,
     "nearest_way": {
      "id": 227363314,
      "highway": "track",
@@ -77,12 +77,12 @@
     "nearest_place": {
      "name": "Les Landes",
      "type": "hamlet",
-     "dist_m": 680.2,
+     "dist_m": 531.0,
      "lat": 49.247256,
      "lon": -2.248054
     },
     "island_km2": null,
-    "detail": "detail/je/A-49.251975_-2.253998",
+    "detail": "detail/je/A-49.249494_-2.254498",
     "warnings": []
    }
   ],
@@ -90,9 +90,9 @@
   "reason": "only 3 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
  },
  "A_mainland": {
-  "dist_m": 896.14,
-  "lat": 49.170649,
-  "lon": -2.193244,
+  "dist_m": 815.58,
+  "lat": 49.169348,
+  "lon": -2.189496,
   "rank": 46,
   "withheld": 0
  },
@@ -100,25 +100,25 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 49.170649,
-    "lon": -2.193244,
-    "dist_m": 896.14,
+    "lat": 49.169348,
+    "lon": -2.189496,
+    "dist_m": 820.95,
     "nearest_way": {
-     "id": 1112104492,
+     "id": 167171209,
      "highway": "service",
-     "name": null,
+     "name": "Portelet Bay and Apts",
      "ref": null,
      "country": "je"
     },
     "nearest_place": {
      "name": "Portelet",
      "type": "hamlet",
-     "dist_m": 1209.8,
+     "dist_m": 972.9,
      "lat": 49.171999,
      "lon": -2.176782
     },
     "island_km2": null,
-    "detail": "detail/je/B-49.170649_-2.193244",
+    "detail": "detail/je/B-49.169348_-2.189496",
     "warnings": []
    },
    {
@@ -146,59 +146,36 @@
    },
    {
     "rank": 3,
-    "lat": 49.254328,
-    "lon": -2.104435,
-    "dist_m": 666.52,
+    "lat": 49.222186,
+    "lon": -2.010437,
+    "dist_m": 619.28,
     "nearest_way": {
-     "id": 256196780,
-     "highway": "unclassified",
-     "name": "Rue d'Égypte",
-     "ref": null,
-     "country": "je"
-    },
-    "nearest_place": {
-     "name": "Égypte",
-     "type": "hamlet",
-     "dist_m": 1041.0,
-     "lat": 49.247284,
-     "lon": -2.095018
-    },
-    "island_km2": null,
-    "detail": "detail/je/B-49.254328_-2.104435",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 49.162558,
-    "lon": -2.0323,
-    "dist_m": 228.93,
-    "nearest_way": {
-     "id": 167456167,
+     "id": 170333854,
      "highway": "service",
-     "name": null,
+     "name": "Verlcut Slipway",
      "ref": null,
      "country": "je"
     },
     "nearest_place": {
-     "name": "Le Bourg",
-     "type": "hamlet",
-     "dist_m": 1086.3,
-     "lat": 49.168987,
-     "lon": -2.043513
+     "name": "Gorey",
+     "type": "village",
+     "dist_m": 3027.1,
+     "lat": 49.198828,
+     "lon": -2.031765
     },
     "island_km2": null,
-    "detail": "detail/je/B-49.162558_-2.032300",
+    "detail": "detail/je/B-49.222186_-2.010437",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 4 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 3 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
  },
  "B_mainland": {
-  "dist_m": 896.14,
-  "lat": 49.170649,
-  "lon": -2.193244,
-  "rank": 48,
+  "dist_m": 820.95,
+  "lat": 49.169348,
+  "lon": -2.189496,
+  "rank": 47,
   "withheld": 0
  }
 }

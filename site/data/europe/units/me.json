@@ -41,25 +41,25 @@
    },
    {
     "rank": 2,
-    "lat": 42.23962,
-    "lon": 19.320395,
-    "dist_m": 3818.95,
+    "lat": 42.24462,
+    "lon": 19.29584,
+    "dist_m": 3745.59,
     "nearest_way": {
-     "id": 760400360,
+     "id": 234483129,
      "highway": "track",
      "name": null,
      "ref": null,
-     "country": "al"
+     "country": "me"
     },
     "nearest_place": {
      "name": "Flakë (Kamicë-Flakë)",
      "type": "hamlet",
-     "dist_m": 4622.5,
+     "dist_m": 6624.8,
      "lat": 42.243909,
      "lon": 19.376102
     },
     "island_km2": null,
-    "detail": "detail/me/A-42.239620_19.320395",
+    "detail": "detail/me/A-42.244620_19.295840",
     "warnings": []
    },
    {

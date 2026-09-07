@@ -77,7 +77,7 @@
     "dist_m": 9098.77,
     "lat": 42.202101,
     "lon": 19.877022,
-    "rank": 23,
+    "rank": 22,
     "withheld": 0
    },
    "B_mainland": {
@@ -106,21 +106,21 @@
     "dist_m": 6182.93,
     "lat": 46.843473,
     "lon": 10.791113,
-    "rank": 23,
+    "rank": 22,
     "withheld": 0
    },
    "A_mainland": {
     "dist_m": 6182.93,
     "lat": 46.843473,
     "lon": 10.791113,
-    "rank": 17,
+    "rank": 16,
     "withheld": 0
    },
    "B": {
     "dist_m": 11385.53,
     "lat": 47.12693,
     "lon": 12.346776,
-    "rank": 17,
+    "rank": 16,
     "withheld": 0
    },
    "B_mainland": {
@@ -235,21 +235,21 @@
     "dist_m": 6125.23,
     "lat": 42.701781,
     "lon": 24.843998,
-    "rank": 24,
+    "rank": 23,
     "withheld": 0
    },
    "A_mainland": {
     "dist_m": 6125.23,
     "lat": 42.701781,
     "lon": 24.843998,
-    "rank": 18,
+    "rank": 17,
     "withheld": 0
    },
    "B": {
     "dist_m": 9137.17,
     "lat": 42.189462,
     "lon": 23.666834,
-    "rank": 22,
+    "rank": 21,
     "withheld": 0
    },
    "B_mainland": {
@@ -292,7 +292,7 @@
     "dist_m": 11669.56,
     "lat": 51.77562,
     "lon": 27.233481,
-    "rank": 16,
+    "rank": 15,
     "withheld": 0
    },
    "B_mainland": {
@@ -335,7 +335,7 @@
     "dist_m": 10805.62,
     "lat": 46.498558,
     "lon": 8.028826,
-    "rank": 19,
+    "rank": 18,
     "withheld": 0
    },
    "B_mainland": {
@@ -497,9 +497,9 @@
     "withheld": 0
    },
    "A_mainland": {
-    "dist_m": 3300.18,
-    "lat": 55.885636,
-    "lon": 8.27578,
+    "dist_m": 3189.16,
+    "lat": 55.883625,
+    "lon": 8.275183,
     "rank": 39,
     "withheld": 0
    },
@@ -533,17 +533,17 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 6648.31,
-    "lat": 58.841514,
-    "lon": 23.374664,
-    "rank": 18,
+    "dist_m": 5436.26,
+    "lat": 58.411337,
+    "lon": 27.215686,
+    "rank": 24,
     "withheld": 0
    },
    "A_mainland": {
-    "dist_m": 6648.31,
-    "lat": 58.841514,
-    "lon": 23.374664,
-    "rank": 14,
+    "dist_m": 5436.26,
+    "lat": 58.411337,
+    "lon": 27.215686,
+    "rank": 18,
     "withheld": 0
    },
    "B": {
@@ -576,24 +576,24 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 6432.56,
-    "lat": 42.823085,
-    "lon": -0.244579,
-    "rank": 21,
+    "dist_m": 6430.81,
+    "lat": 42.822993,
+    "lon": -0.244522,
+    "rank": 20,
     "withheld": 0
    },
    "A_mainland": {
-    "dist_m": 6432.56,
-    "lat": 42.823085,
-    "lon": -0.244579,
-    "rank": 16,
+    "dist_m": 6430.81,
+    "lat": 42.822993,
+    "lon": -0.244522,
+    "rank": 15,
     "withheld": 0
    },
    "B": {
     "dist_m": 11233.49,
     "lat": 36.889263,
     "lon": -6.438569,
-    "rank": 18,
+    "rank": 17,
     "withheld": 0
    },
    "B_mainland": {
@@ -665,7 +665,7 @@
     "dist_m": 6201.93,
     "lat": 61.949694,
     "lon": -6.623515,
-    "rank": 22,
+    "rank": 21,
     "withheld": 0
    },
    "A_mainland": {
@@ -679,7 +679,7 @@
     "dist_m": 10260.67,
     "lat": 61.682085,
     "lon": -6.74122,
-    "rank": 20,
+    "rank": 19,
     "withheld": 0
    },
    "B_mainland": {
@@ -748,9 +748,9 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 15366.24,
-    "lat": 57.879389,
-    "lon": -6.353427,
+    "dist_m": 15301.92,
+    "lat": 57.880135,
+    "lon": -6.352528,
     "rank": 9,
     "withheld": 0
    },
@@ -762,9 +762,9 @@
     "withheld": 0
    },
    "B": {
-    "dist_m": 73387.3,
-    "lat": 59.134181,
-    "lon": -5.825207,
+    "dist_m": 73305.86,
+    "lat": 59.133255,
+    "lon": -5.824432,
     "rank": 1,
     "withheld": 0
    },
@@ -834,17 +834,17 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 1302.34,
-    "lat": 49.695871,
-    "lon": -2.235614,
-    "rank": 45,
+    "dist_m": 670.11,
+    "lat": 49.730384,
+    "lon": -2.194582,
+    "rank": 47,
     "withheld": 0
    },
    "A_mainland": {
-    "dist_m": 773.85,
-    "lat": 49.461425,
-    "lon": -2.676106,
-    "rank": 47,
+    "dist_m": 515.78,
+    "lat": 49.415568,
+    "lon": -2.563157,
+    "rank": 48,
     "withheld": 0
    },
    "B": {
@@ -855,10 +855,10 @@
     "withheld": 0
    },
    "B_mainland": {
-    "dist_m": 1410.52,
-    "lat": 49.461425,
-    "lon": -2.676106,
-    "rank": 47,
+    "dist_m": 600.33,
+    "lat": 49.415568,
+    "lon": -2.563019,
+    "rank": 49,
     "withheld": 0
    }
   },
@@ -887,7 +887,7 @@
     "dist_m": 627.13,
     "lat": 36.133049,
     "lon": -5.363689,
-    "rank": 48,
+    "rank": 47,
     "withheld": 0
    },
    "B": {
@@ -901,7 +901,7 @@
     "dist_m": 627.13,
     "lat": 36.133049,
     "lon": -5.363689,
-    "rank": 49,
+    "rank": 48,
     "withheld": 0
    }
   },
@@ -927,9 +927,9 @@
     "withheld": 0
    },
    "A_mainland": {
-    "dist_m": 5664.72,
-    "lat": 38.325709,
-    "lon": 21.346275,
+    "dist_m": 5108.78,
+    "lat": 39.967873,
+    "lon": 20.78966,
     "rank": 19,
     "withheld": 0
    },
@@ -1006,16 +1006,16 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 4455.24,
-    "lat": 47.692815,
-    "lon": 16.74141,
+    "dist_m": 4326.94,
+    "lat": 47.677043,
+    "lon": 16.750782,
     "rank": 31,
     "withheld": 0
    },
    "A_mainland": {
-    "dist_m": 4455.24,
-    "lat": 47.692815,
-    "lon": 16.74141,
+    "dist_m": 4326.94,
+    "lat": 47.677043,
+    "lon": 16.750782,
     "rank": 27,
     "withheld": 0
    },
@@ -1052,7 +1052,7 @@
     "dist_m": 6579.63,
     "lat": 51.725713,
     "lon": -10.263877,
-    "rank": 20,
+    "rank": 19,
     "withheld": 0
    },
    "A_mainland": {
@@ -1063,10 +1063,10 @@
     "withheld": 0
    },
    "B": {
-    "dist_m": 12828.97,
-    "lat": 52.045334,
-    "lon": -10.622655,
-    "rank": 15,
+    "dist_m": 8786.85,
+    "lat": 52.072427,
+    "lon": -10.580342,
+    "rank": 23,
     "withheld": 0
    },
    "B_mainland": {
@@ -1181,14 +1181,14 @@
     "dist_m": 6622.2,
     "lat": 46.369779,
     "lon": 9.906329,
-    "rank": 19,
+    "rank": 18,
     "withheld": 0
    },
    "A_mainland": {
     "dist_m": 6622.2,
     "lat": 46.369779,
     "lon": 9.906329,
-    "rank": 15,
+    "rank": 14,
     "withheld": 0
    },
    "B": {
@@ -1221,31 +1221,31 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 896.14,
-    "lat": 49.170649,
-    "lon": -2.193244,
-    "rank": 47,
+    "dist_m": 815.58,
+    "lat": 49.169348,
+    "lon": -2.189496,
+    "rank": 46,
     "withheld": 0
    },
    "A_mainland": {
-    "dist_m": 896.14,
-    "lat": 49.170649,
-    "lon": -2.193244,
+    "dist_m": 815.58,
+    "lat": 49.169348,
+    "lon": -2.189496,
     "rank": 46,
     "withheld": 0
    },
    "B": {
-    "dist_m": 896.14,
-    "lat": 49.170649,
-    "lon": -2.193244,
+    "dist_m": 820.95,
+    "lat": 49.169348,
+    "lon": -2.189496,
     "rank": 48,
     "withheld": 0
    },
    "B_mainland": {
-    "dist_m": 896.14,
-    "lat": 49.170649,
-    "lon": -2.193244,
-    "rank": 48,
+    "dist_m": 820.95,
+    "lat": 49.169348,
+    "lon": -2.189496,
+    "rank": 47,
     "withheld": 0
    }
   },
@@ -1582,7 +1582,7 @@
     "dist_m": 9760.59,
     "lat": 41.068841,
     "lon": 21.884256,
-    "rank": 21,
+    "rank": 20,
     "withheld": 0
    },
    "B_mainland": {
@@ -1608,30 +1608,30 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 1049.39,
-    "lat": 35.966768,
-    "lon": 14.407674,
-    "rank": 46,
+    "dist_m": 988.56,
+    "lat": 35.940581,
+    "lon": 14.328506,
+    "rank": 45,
     "withheld": 0
    },
    "A_mainland": {
-    "dist_m": 1049.39,
-    "lat": 35.966768,
-    "lon": 14.407674,
+    "dist_m": 988.56,
+    "lat": 35.940581,
+    "lon": 14.328506,
     "rank": 45,
     "withheld": 0
    },
    "B": {
-    "dist_m": 1477.36,
-    "lat": 35.967414,
-    "lon": 14.407492,
+    "dist_m": 1410.38,
+    "lat": 35.943232,
+    "lon": 14.329238,
     "rank": 47,
     "withheld": 0
    },
    "B_mainland": {
-    "dist_m": 1477.36,
-    "lat": 35.967414,
-    "lon": 14.407492,
+    "dist_m": 1410.38,
+    "lat": 35.943232,
+    "lon": 14.329238,
     "rank": 46,
     "withheld": 0
    }
@@ -2124,9 +2124,9 @@
    "transcontinental": false,
    "closed_by_edge": false,
    "A": {
-    "dist_m": 11491.67,
-    "lat": 49.196656,
-    "lon": 32.925239,
+    "dist_m": 11175.43,
+    "lat": 46.18228,
+    "lon": 31.953077,
     "rank": 12,
     "withheld": 0
    },

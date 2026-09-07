@@ -156,52 +156,6 @@
    },
    {
     "rank": 7,
-    "lat": 59.504914,
-    "lon": 19.387575,
-    "dist_m": 19568.4,
-    "nearest_way": {
-     "id": 434698641,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "se"
-    },
-    "nearest_place": {
-     "name": "Rödlöga By",
-     "type": "hamlet",
-     "dist_m": 15737.0,
-     "lat": 59.593627,
-     "lon": 19.171041
-    },
-    "island_km2": 1.1,
-    "detail": "detail/se/A-59.504914_19.387575",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 59.442155,
-    "lon": 19.248079,
-    "dist_m": 16547.61,
-    "nearest_way": {
-     "id": 753396392,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "se"
-    },
-    "nearest_place": {
-     "name": "Lunsen",
-     "type": "isolated_dwelling",
-     "dist_m": 16303.2,
-     "lat": 59.473735,
-     "lon": 18.96737
-    },
-    "island_km2": 2.8,
-    "detail": "detail/se/A-59.442155_19.248079",
-    "warnings": []
-   },
-   {
-    "rank": 9,
     "lat": 68.1533,
     "lon": 22.328464,
     "dist_m": 15909.62,
@@ -224,7 +178,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 8,
     "lat": 65.558633,
     "lon": 23.761339,
     "dist_m": 15682.47,
@@ -247,7 +201,7 @@
     "warnings": []
    },
    {
-    "rank": 11,
+    "rank": 9,
     "lat": 62.981868,
     "lon": 12.43188,
     "dist_m": 15268.6,
@@ -270,7 +224,7 @@
     "warnings": []
    },
    {
-    "rank": 12,
+    "rank": 10,
     "lat": 62.405669,
     "lon": 12.201778,
     "dist_m": 14993.09,
@@ -293,7 +247,7 @@
     "warnings": []
    },
    {
-    "rank": 13,
+    "rank": 11,
     "lat": 64.085906,
     "lon": 13.313536,
     "dist_m": 14457.16,
@@ -353,9 +307,9 @@
    },
    {
     "rank": 2,
-    "lat": 58.399685,
-    "lon": 19.176853,
-    "dist_m": 44968.26,
+    "lat": 58.399705,
+    "lon": 19.175883,
+    "dist_m": 44970.83,
     "nearest_way": {
      "id": 35897133,
      "highway": "unclassified",
@@ -366,12 +320,12 @@
     "nearest_place": {
      "name": "Fyrplatsen",
      "type": "isolated_dwelling",
-     "dist_m": 1233.2,
+     "dist_m": 1278.5,
      "lat": 58.392549,
      "lon": 19.192977
     },
     "island_km2": 36.8,
-    "detail": "detail/se/B-58.399685_19.176853",
+    "detail": "detail/se/B-58.399705_19.175883",
     "warnings": []
    },
    {
@@ -445,52 +399,6 @@
    },
    {
     "rank": 6,
-    "lat": 59.504914,
-    "lon": 19.387575,
-    "dist_m": 19947.76,
-    "nearest_way": {
-     "id": 244021522,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "se"
-    },
-    "nearest_place": {
-     "name": "Rödlöga By",
-     "type": "hamlet",
-     "dist_m": 15737.0,
-     "lat": 59.593627,
-     "lon": 19.171041
-    },
-    "island_km2": 1.1,
-    "detail": "detail/se/B-59.504914_19.387575",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 59.441974,
-    "lon": 19.248,
-    "dist_m": 17991.96,
-    "nearest_way": {
-     "id": 244021522,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "se"
-    },
-    "nearest_place": {
-     "name": "Lunsen",
-     "type": "isolated_dwelling",
-     "dist_m": 16303.2,
-     "lat": 59.473735,
-     "lon": 18.96737
-    },
-    "island_km2": 2.8,
-    "detail": "detail/se/B-59.441974_19.248000",
-    "warnings": []
-   },
-   {
-    "rank": 8,
     "lat": 63.017985,
     "lon": 12.428352,
     "dist_m": 17035.55,
@@ -513,30 +421,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 59.708277,
-    "lon": 19.432401,
-    "dist_m": 16479.5,
-    "nearest_way": {
-     "id": 42717146,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "se"
-    },
-    "nearest_place": {
-     "name": "Linanäs",
-     "type": "isolated_dwelling",
-     "dist_m": 18109.6,
-     "lat": 59.773234,
-     "lon": 19.137201
-    },
-    "island_km2": 6.9,
-    "detail": "detail/se/B-59.708277_19.432401",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 7,
     "lat": 68.160513,
     "lon": 22.302255,
     "dist_m": 16373.58,
@@ -559,7 +444,7 @@
     "warnings": []
    },
    {
-    "rank": 11,
+    "rank": 8,
     "lat": 65.558633,
     "lon": 23.761339,
     "dist_m": 16107.46,
@@ -582,7 +467,7 @@
     "warnings": []
    },
    {
-    "rank": 12,
+    "rank": 9,
     "lat": 65.243171,
     "lon": 14.699175,
     "dist_m": 16083.46,
@@ -605,7 +490,7 @@
     "warnings": []
    },
    {
-    "rank": 13,
+    "rank": 10,
     "lat": 66.907,
     "lon": 20.180572,
     "dist_m": 15276.86,
@@ -628,7 +513,7 @@
     "warnings": []
    },
    {
-    "rank": 14,
+    "rank": 11,
     "lat": 62.405182,
     "lon": 12.202114,
     "dist_m": 15044.17,
@@ -651,7 +536,7 @@
     "warnings": []
    },
    {
-    "rank": 15,
+    "rank": 12,
     "lat": 64.076046,
     "lon": 14.65157,
     "dist_m": 14974.52,

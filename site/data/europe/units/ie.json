@@ -41,29 +41,6 @@
    },
    {
     "rank": 2,
-    "lat": 52.036592,
-    "lon": -10.607683,
-    "dist_m": 6493.69,
-    "nearest_way": {
-     "id": 71506749,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Old Town",
-     "type": "hamlet",
-     "dist_m": 10064.0,
-     "lat": 52.104917,
-     "lon": -10.511511
-    },
-    "island_km2": 1.3,
-    "detail": "detail/ie/A-52.036592_-10.607683",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 54.015706,
     "lon": -10.188646,
     "dist_m": 4022.38,
@@ -86,7 +63,7 @@
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 53.988865,
     "lon": -9.676525,
     "dist_m": 3757.2,
@@ -109,7 +86,7 @@
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 54.983852,
     "lon": -8.15015,
     "dist_m": 3712.31,
@@ -132,7 +109,7 @@
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 54.756202,
     "lon": -8.001455,
     "dist_m": 3688.6,
@@ -155,7 +132,7 @@
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 53.61757,
     "lon": -9.555893,
     "dist_m": 3500.88,
@@ -178,30 +155,7 @@
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 54.779703,
-    "lon": -8.602444,
-    "dist_m": 3443.13,
-    "nearest_way": {
-     "id": 310459734,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Mín an Aoire",
-     "type": "hamlet",
-     "dist_m": 8780.4,
-     "lat": 54.700935,
-     "lon": -8.609588
-    },
-    "island_km2": null,
-    "detail": "detail/ie/A-54.779703_-8.602444",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 7,
     "lat": 51.969059,
     "lon": -9.473421,
     "dist_m": 3435.92,
@@ -224,7 +178,30 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 8,
+    "lat": 54.779143,
+    "lon": -8.594163,
+    "dist_m": 3347.41,
+    "nearest_way": {
+     "id": 310459734,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Mín an Aoire",
+     "type": "hamlet",
+     "dist_m": 8762.5,
+     "lat": 54.700935,
+     "lon": -8.609588
+    },
+    "island_km2": null,
+    "detail": "detail/ie/A-54.779143_-8.594163",
+    "warnings": []
+   },
+   {
+    "rank": 9,
     "lat": 54.09648,
     "lon": -9.671084,
     "dist_m": 3307.97,
@@ -247,30 +224,7 @@
     "warnings": []
    },
    {
-    "rank": 11,
-    "lat": 53.48632,
-    "lon": -9.302292,
-    "dist_m": 3305.56,
-    "nearest_way": {
-     "id": 234794267,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Cong",
-     "type": "village",
-     "dist_m": 6159.3,
-     "lat": 53.540796,
-     "lon": -9.285937
-    },
-    "island_km2": 1.6,
-    "detail": "detail/ie/A-53.486320_-9.302292",
-    "warnings": []
-   },
-   {
-    "rank": 12,
+    "rank": 10,
     "lat": 54.154859,
     "lon": -8.795677,
     "dist_m": 3142.71,
@@ -293,7 +247,7 @@
     "warnings": []
    },
    {
-    "rank": 13,
+    "rank": 11,
     "lat": 52.210967,
     "lon": -9.804126,
     "dist_m": 3140.36,
@@ -330,9 +284,9 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 52.045334,
-    "lon": -10.622655,
-    "dist_m": 12828.97,
+    "lat": 52.072427,
+    "lon": -10.580342,
+    "dist_m": 8786.85,
     "nearest_way": {
      "id": 25192979,
      "highway": "unclassified",
@@ -343,12 +297,12 @@
     "nearest_place": {
      "name": "Old Town",
      "type": "hamlet",
-     "dist_m": 10100.7,
+     "dist_m": 5943.7,
      "lat": 52.104917,
      "lon": -10.511511
     },
-    "island_km2": 1.3,
-    "detail": "detail/ie/B-52.045334_-10.622655",
+    "island_km2": 4.7,
+    "detail": "detail/ie/B-52.072427_-10.580342",
     "warnings": []
    },
    {
@@ -560,29 +514,6 @@
    },
    {
     "rank": 11,
-    "lat": 52.113939,
-    "lon": -10.525581,
-    "dist_m": 4041.97,
-    "nearest_way": {
-     "id": 25192979,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Old Town",
-     "type": "hamlet",
-     "dist_m": 1391.8,
-     "lat": 52.104917,
-     "lon": -10.511511
-    },
-    "island_km2": 4.7,
-    "detail": "detail/ie/B-52.113939_-10.525581",
-    "warnings": []
-   },
-   {
-    "rank": 12,
     "lat": 53.631133,
     "lon": -9.526883,
     "dist_m": 3837.13,
@@ -605,7 +536,7 @@
     "warnings": []
    },
    {
-    "rank": 13,
+    "rank": 12,
     "lat": 54.94642,
     "lon": -8.045024,
     "dist_m": 3747.34,
@@ -628,30 +559,7 @@
     "warnings": []
    },
    {
-    "rank": 14,
-    "lat": 54.779705,
-    "lon": -8.602411,
-    "dist_m": 3739.17,
-    "nearest_way": {
-     "id": 310013336,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ie"
-    },
-    "nearest_place": {
-     "name": "Mín an Aoire",
-     "type": "hamlet",
-     "dist_m": 8780.7,
-     "lat": 54.700935,
-     "lon": -8.609588
-    },
-    "island_km2": null,
-    "detail": "detail/ie/B-54.779705_-8.602411",
-    "warnings": []
-   },
-   {
-    "rank": 15,
+    "rank": 13,
     "lat": 54.755669,
     "lon": -8.002323,
     "dist_m": 3734.1,
@@ -671,6 +579,29 @@
     },
     "island_km2": null,
     "detail": "detail/ie/B-54.755669_-8.002323",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 51.972016,
+    "lon": -9.476902,
+    "dist_m": 3708.46,
+    "nearest_way": {
+     "id": 177555592,
+     "highway": "unclassified",
+     "name": null,
+     "ref": "L11201",
+     "country": "ie"
+    },
+    "nearest_place": {
+     "name": "Cummeenduasig",
+     "type": "hamlet",
+     "dist_m": 3813.2,
+     "lat": 51.939133,
+     "lon": -9.492527
+    },
+    "island_km2": null,
+    "detail": "detail/ie/B-51.972016_-9.476902",
     "warnings": []
    }
   ],

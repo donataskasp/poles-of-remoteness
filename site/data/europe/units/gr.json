@@ -41,9 +41,9 @@
    },
    {
     "rank": 2,
-    "lat": 36.846179,
-    "lon": 23.87362,
-    "dist_m": 43284.29,
+    "lat": 36.845095,
+    "lon": 23.874226,
+    "dist_m": 43199.76,
     "nearest_way": {
      "id": 203623403,
      "highway": "track",
@@ -54,39 +54,16 @@
     "nearest_place": {
      "name": "Ραλάκι Χάλακος",
      "type": "isolated_dwelling",
-     "dist_m": 47912.6,
+     "dist_m": 47821.3,
      "lat": 36.699494,
      "lon": 24.378379
     },
     "island_km2": 1.1,
-    "detail": "detail/gr/A-36.846179_23.873620",
+    "detail": "detail/gr/A-36.845095_23.874226",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 36.282035,
-    "lon": 26.752949,
-    "dist_m": 43105.23,
-    "nearest_way": {
-     "id": 307592845,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Analipsi",
-     "type": "village",
-     "dist_m": 46505.1,
-     "lat": 36.577192,
-     "lon": 26.384774
-    },
-    "island_km2": 1.1,
-    "detail": "detail/gr/A-36.282035_26.752949",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 36.913546,
     "lon": 23.469202,
     "dist_m": 36362.39,
@@ -109,30 +86,30 @@
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 35.893744,
-    "lon": 26.814684,
-    "dist_m": 35100.03,
+    "rank": 4,
+    "lat": 36.324753,
+    "lon": 26.683483,
+    "dist_m": 35591.97,
     "nearest_way": {
-     "id": 484628253,
+     "id": 307592845,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "gr"
     },
     "nearest_place": {
-     "name": "Avlona",
+     "name": "Astypalea",
      "type": "village",
-     "dist_m": 35677.4,
-     "lat": 35.774237,
-     "lon": 27.181269
+     "dist_m": 38686.8,
+     "lat": 36.547865,
+     "lon": 26.351944
     },
-    "island_km2": 1.1,
-    "detail": "detail/gr/A-35.893744_26.814684",
+    "island_km2": 8.3,
+    "detail": "detail/gr/A-36.324753_26.683483",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 39.369023,
     "lon": 24.332115,
     "dist_m": 33471.51,
@@ -155,30 +132,7 @@
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 36.340011,
-    "lon": 26.662839,
-    "dist_m": 33150.7,
-    "nearest_way": {
-     "id": 307592845,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Astypalea",
-     "type": "village",
-     "dist_m": 36179.0,
-     "lat": 36.547865,
-     "lon": 26.351944
-    },
-    "island_km2": 8.3,
-    "detail": "detail/gr/A-36.340011_26.662839",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 6,
     "lat": 39.431391,
     "lon": 24.17657,
     "dist_m": 26021.97,
@@ -201,7 +155,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 7,
     "lat": 37.607741,
     "lon": 24.679468,
     "dist_m": 24283.25,
@@ -224,7 +178,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 8,
     "lat": 39.059686,
     "lon": 24.122902,
     "dist_m": 21958.94,
@@ -247,30 +201,53 @@
     "warnings": []
    },
    {
-    "rank": 11,
-    "lat": 38.325709,
-    "lon": 21.346275,
-    "dist_m": 5664.72,
+    "rank": 9,
+    "lat": 36.618941,
+    "lon": 25.684203,
+    "dist_m": 19282.32,
     "nearest_way": {
-     "id": 962794185,
+     "id": 1314105763,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "gr"
     },
     "nearest_place": {
-     "name": "Τουρλίδα",
+     "name": "Kalotaritissa",
      "type": "hamlet",
-     "dist_m": 6302.8,
-     "lat": 38.328743,
-     "lon": 21.418253
+     "dist_m": 20346.8,
+     "lat": 36.789455,
+     "lon": 25.767903
     },
-    "island_km2": null,
-    "detail": "detail/gr/A-38.325709_21.346275",
+    "island_km2": 1.1,
+    "detail": "detail/gr/A-36.618941_25.684203",
     "warnings": []
    },
    {
-    "rank": 12,
+    "rank": 10,
+    "lat": 36.245191,
+    "lon": 25.196056,
+    "dist_m": 19140.06,
+    "nearest_way": {
+     "id": 1221989633,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Akrotiri",
+     "type": "village",
+     "dist_m": 21929.4,
+     "lat": 36.358086,
+     "lon": 25.396448
+    },
+    "island_km2": 1.1,
+    "detail": "detail/gr/A-36.245191_25.196056",
+    "warnings": []
+   },
+   {
+    "rank": 11,
     "lat": 39.967873,
     "lon": 20.78966,
     "dist_m": 5108.78,
@@ -293,7 +270,7 @@
     "warnings": []
    },
    {
-    "rank": 13,
+    "rank": 12,
     "lat": 41.40666,
     "lon": 24.393423,
     "dist_m": 4668.6,
@@ -316,10 +293,10 @@
     "warnings": []
    },
    {
-    "rank": 14,
-    "lat": 40.118526,
-    "lon": 24.330571,
-    "dist_m": 4483.6,
+    "rank": 13,
+    "lat": 40.123124,
+    "lon": 24.334613,
+    "dist_m": 4354.03,
     "nearest_way": {
      "id": 523582883,
      "highway": "track",
@@ -330,16 +307,16 @@
     "nearest_place": {
      "name": "Κερασιά",
      "type": "hamlet",
-     "dist_m": 2027.8,
+     "dist_m": 1864.0,
      "lat": 40.134019,
      "lon": 24.317976
     },
     "island_km2": null,
-    "detail": "detail/gr/A-40.118526_24.330571",
+    "detail": "detail/gr/A-40.123124_24.334613",
     "warnings": []
    },
    {
-    "rank": 15,
+    "rank": 14,
     "lat": 40.10625,
     "lon": 22.372278,
     "dist_m": 3689.11,
@@ -362,7 +339,7 @@
     "warnings": []
    },
    {
-    "rank": 16,
+    "rank": 15,
     "lat": 40.09722,
     "lon": 20.93893,
     "dist_m": 3473.93,
@@ -385,7 +362,7 @@
     "warnings": []
    },
    {
-    "rank": 17,
+    "rank": 16,
     "lat": 36.932622,
     "lon": 22.311617,
     "dist_m": 3444.06,
@@ -408,7 +385,7 @@
     "warnings": []
    },
    {
-    "rank": 18,
+    "rank": 17,
     "lat": 41.316908,
     "lon": 24.818752,
     "dist_m": 3438.81,
@@ -428,6 +405,29 @@
     },
     "island_km2": null,
     "detail": "detail/gr/A-41.316908_24.818752",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 38.313299,
+    "lon": 21.321311,
+    "dist_m": 3265.56,
+    "nearest_way": {
+     "id": 962794185,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Τουρλίδα",
+     "type": "hamlet",
+     "dist_m": 8649.0,
+     "lat": 38.328743,
+     "lon": 21.418253
+    },
+    "island_km2": null,
+    "detail": "detail/gr/A-38.313299_21.321311",
     "warnings": []
    },
    {
@@ -481,9 +481,9 @@
   "reason": null
  },
  "A_mainland": {
-  "dist_m": 5664.72,
-  "lat": 38.325709,
-  "lon": 21.346275,
+  "dist_m": 5108.78,
+  "lat": 39.967873,
+  "lon": 20.78966,
   "rank": 19,
   "withheld": 0
  },
@@ -514,9 +514,9 @@
    },
    {
     "rank": 2,
-    "lat": 36.846179,
-    "lon": 23.87362,
-    "dist_m": 48082.35,
+    "lat": 36.845095,
+    "lon": 23.874226,
+    "dist_m": 47982.15,
     "nearest_way": {
      "id": 71897670,
      "highway": "unclassified",
@@ -527,22 +527,22 @@
     "nearest_place": {
      "name": "Ραλάκι Χάλακος",
      "type": "isolated_dwelling",
-     "dist_m": 47912.6,
+     "dist_m": 47821.3,
      "lat": 36.699494,
      "lon": 24.378379
     },
     "island_km2": 1.1,
-    "detail": "detail/gr/B-36.846179_23.873620",
+    "detail": "detail/gr/B-36.845095_23.874226",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 36.282035,
-    "lon": 26.752949,
-    "dist_m": 44860.34,
+    "lat": 36.328693,
+    "lon": 26.689079,
+    "dist_m": 37192.76,
     "nearest_way": {
-     "id": 307592841,
-     "highway": "service",
+     "id": 124910077,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "gr"
@@ -550,12 +550,12 @@
     "nearest_place": {
      "name": "Analipsi",
      "type": "village",
-     "dist_m": 46505.1,
+     "dist_m": 38788.8,
      "lat": 36.577192,
      "lon": 26.384774
     },
-    "island_km2": 1.1,
-    "detail": "detail/gr/B-36.282035_26.752949",
+    "island_km2": 8.3,
+    "detail": "detail/gr/B-36.328693_26.689079",
     "warnings": []
    },
    {
@@ -583,29 +583,6 @@
    },
    {
     "rank": 5,
-    "lat": 35.893744,
-    "lon": 26.814684,
-    "dist_m": 35287.45,
-    "nearest_way": {
-     "id": 273492874,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Avlona",
-     "type": "village",
-     "dist_m": 35677.4,
-     "lat": 35.774237,
-     "lon": 27.181269
-    },
-    "island_km2": 1.1,
-    "detail": "detail/gr/B-35.893744_26.814684",
-    "warnings": []
-   },
-   {
-    "rank": 6,
     "lat": 39.369023,
     "lon": 24.332115,
     "dist_m": 35087.72,
@@ -628,30 +605,7 @@
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 36.34961,
-    "lon": 26.67363,
-    "dist_m": 34575.42,
-    "nearest_way": {
-     "id": 307592841,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Analipsi",
-     "type": "village",
-     "dist_m": 36168.0,
-     "lat": 36.577192,
-     "lon": 26.384774
-    },
-    "island_km2": 8.3,
-    "detail": "detail/gr/B-36.349610_26.673630",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 6,
     "lat": 39.431391,
     "lon": 24.17657,
     "dist_m": 26711.12,
@@ -674,7 +628,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 7,
     "lat": 37.607741,
     "lon": 24.679468,
     "dist_m": 24283.25,
@@ -697,7 +651,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 8,
     "lat": 39.059686,
     "lon": 24.122902,
     "dist_m": 21958.94,
@@ -717,6 +671,52 @@
     },
     "island_km2": 6.7,
     "detail": "detail/gr/B-39.059686_24.122902",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 36.618941,
+    "lon": 25.684203,
+    "dist_m": 19422.91,
+    "nearest_way": {
+     "id": 27353951,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Kalotaritissa",
+     "type": "hamlet",
+     "dist_m": 20346.8,
+     "lat": 36.789455,
+     "lon": 25.767903
+    },
+    "island_km2": 1.1,
+    "detail": "detail/gr/B-36.618941_25.684203",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 36.245191,
+    "lon": 25.196056,
+    "dist_m": 19140.06,
+    "nearest_way": {
+     "id": 1221989633,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Akrotiri",
+     "type": "village",
+     "dist_m": 21929.4,
+     "lat": 36.358086,
+     "lon": 25.396448
+    },
+    "island_km2": 1.1,
+    "detail": "detail/gr/B-36.245191_25.196056",
     "warnings": []
    },
    {
@@ -744,55 +744,9 @@
    },
    {
     "rank": 12,
-    "lat": 40.529526,
-    "lon": 23.931207,
-    "dist_m": 8618.38,
-    "nearest_way": {
-     "id": 27404099,
-     "highway": "secondary",
-     "name": "Σταυρού - Ιερισσού",
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Stratoni",
-     "type": "village",
-     "dist_m": 9136.6,
-     "lat": 40.513774,
-     "lon": 23.825383
-    },
-    "island_km2": null,
-    "detail": "detail/gr/B-40.529526_23.931207",
-    "warnings": []
-   },
-   {
-    "rank": 13,
-    "lat": 40.456415,
-    "lon": 24.008746,
-    "dist_m": 8104.43,
-    "nearest_way": {
-     "id": 388044809,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Koumitsa",
-     "type": "hamlet",
-     "dist_m": 9114.1,
-     "lat": 40.377181,
-     "lon": 23.980725
-    },
-    "island_km2": null,
-    "detail": "detail/gr/B-40.456415_24.008746",
-    "warnings": []
-   },
-   {
-    "rank": 14,
-    "lat": 40.1278,
-    "lon": 24.288109,
-    "dist_m": 7911.27,
+    "lat": 40.128044,
+    "lon": 24.288923,
+    "dist_m": 7836.95,
     "nearest_way": {
      "id": 813475380,
      "highway": "unclassified",
@@ -803,12 +757,58 @@
     "nearest_place": {
      "name": "Καρούλια",
      "type": "hamlet",
-     "dist_m": 991.2,
+     "dist_m": 953.0,
      "lat": 40.122565,
      "lon": 24.297528
     },
     "island_km2": null,
-    "detail": "detail/gr/B-40.127800_24.288109",
+    "detail": "detail/gr/B-40.128044_24.288923",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 40.533431,
+    "lon": 23.919892,
+    "dist_m": 7658.37,
+    "nearest_way": {
+     "id": 27404099,
+     "highway": "secondary",
+     "name": "Σταυρού - Ιερισσού",
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Stratoni",
+     "type": "village",
+     "dist_m": 8300.6,
+     "lat": 40.513774,
+     "lon": 23.825383
+    },
+    "island_km2": null,
+    "detail": "detail/gr/B-40.533431_23.919892",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 40.451702,
+    "lon": 24.007531,
+    "dist_m": 7575.65,
+    "nearest_way": {
+     "id": 388044809,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Koumitsa",
+     "type": "hamlet",
+     "dist_m": 8582.0,
+     "lat": 40.377181,
+     "lon": 23.980725
+    },
+    "island_km2": null,
+    "detail": "detail/gr/B-40.451702_24.007531",
     "warnings": []
    },
    {
@@ -882,29 +882,6 @@
    },
    {
     "rank": 18,
-    "lat": 38.325045,
-    "lon": 21.3362,
-    "dist_m": 6548.43,
-    "nearest_way": {
-     "id": 867837742,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "gr"
-    },
-    "nearest_place": {
-     "name": "Τουρλίδα",
-     "type": "hamlet",
-     "dist_m": 7186.5,
-     "lat": 38.328743,
-     "lon": 21.418253
-    },
-    "island_km2": null,
-    "detail": "detail/gr/B-38.325045_21.336200",
-    "warnings": []
-   },
-   {
-    "rank": 19,
     "lat": 40.792938,
     "lon": 23.658055,
     "dist_m": 6488.82,
@@ -927,7 +904,7 @@
     "warnings": []
    },
    {
-    "rank": 20,
+    "rank": 19,
     "lat": 41.244372,
     "lon": 25.168795,
     "dist_m": 6482.44,
@@ -947,6 +924,29 @@
     },
     "island_km2": null,
     "detail": "detail/gr/B-41.244372_25.168795",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 40.528525,
+    "lon": 21.921007,
+    "dist_m": 6471.58,
+    "nearest_way": {
+     "id": 178631713,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "gr"
+    },
+    "nearest_place": {
+     "name": "Άνω Σέλι",
+     "type": "hamlet",
+     "dist_m": 6669.4,
+     "lat": 40.587659,
+     "lon": 21.934783
+    },
+    "island_km2": null,
+    "detail": "detail/gr/B-40.528525_21.921007",
     "warnings": []
    }
   ],

@@ -294,29 +294,6 @@
    },
    {
     "rank": 13,
-    "lat": 54.056908,
-    "lon": 11.512977,
-    "dist_m": 3136.37,
-    "nearest_way": {
-     "id": 557874070,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "de"
-    },
-    "nearest_place": {
-     "name": "Werder",
-     "type": "hamlet",
-     "dist_m": 3964.6,
-     "lat": 54.024125,
-     "lon": 11.53664
-    },
-    "island_km2": null,
-    "detail": "detail/de/A-54.056908_11.512977",
-    "warnings": []
-   },
-   {
-    "rank": 14,
     "lat": 47.518751,
     "lon": 10.927477,
     "dist_m": 3012.89,
@@ -339,7 +316,7 @@
     "warnings": []
    },
    {
-    "rank": 15,
+    "rank": 14,
     "lat": 50.905917,
     "lon": 6.535638,
     "dist_m": 2866.54,
@@ -359,6 +336,29 @@
     },
     "island_km2": null,
     "detail": "detail/de/A-50.905917_6.535638",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 54.053307,
+    "lon": 11.531732,
+    "dist_m": 2695.86,
+    "nearest_way": {
+     "id": 557874071,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Werder",
+     "type": "hamlet",
+     "dist_m": 3264.0,
+     "lat": 54.024125,
+     "lon": 11.53664
+    },
+    "island_km2": null,
+    "detail": "detail/de/A-54.053307_11.531732",
     "warnings": []
    },
    {
@@ -409,29 +409,6 @@
    },
    {
     "rank": 18,
-    "lat": 54.488814,
-    "lon": 12.542301,
-    "dist_m": 2312.93,
-    "nearest_way": {
-     "id": 1321707449,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "de"
-    },
-    "nearest_place": {
-     "name": "Darßer Ort",
-     "type": "isolated_dwelling",
-     "dist_m": 3135.8,
-     "lat": 54.472481,
-     "lon": 12.502885
-    },
-    "island_km2": null,
-    "detail": "detail/de/A-54.488814_12.542301",
-    "warnings": []
-   },
-   {
-    "rank": 19,
     "lat": 51.065815,
     "lon": 6.446072,
     "dist_m": 2299.49,
@@ -454,7 +431,7 @@
     "warnings": []
    },
    {
-    "rank": 20,
+    "rank": 19,
     "lat": 53.9735,
     "lon": 8.866935,
     "dist_m": 2259.26,
@@ -474,6 +451,29 @@
     },
     "island_km2": null,
     "detail": "detail/de/A-53.973500_8.866935",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 54.29638,
+    "lon": 8.585783,
+    "dist_m": 2172.17,
+    "nearest_way": {
+     "id": 222444810,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "de"
+    },
+    "nearest_place": {
+     "name": "Sankt Peter-Bad",
+     "type": "village",
+     "dist_m": 2502.0,
+     "lat": 54.314682,
+     "lon": 8.608098
+    },
+    "island_km2": null,
+    "detail": "detail/de/A-54.296380_8.585783",
     "warnings": []
    }
   ],
@@ -629,9 +629,9 @@
    },
    {
     "rank": 7,
-    "lat": 53.645135,
-    "lon": 6.814723,
-    "dist_m": 6392.07,
+    "lat": 53.645224,
+    "lon": 6.814667,
+    "dist_m": 6391.52,
     "nearest_way": {
      "id": 56699804,
      "highway": "service",
@@ -642,12 +642,12 @@
     "nearest_place": {
      "name": "Vogelwärterhaus Memmert",
      "type": "isolated_dwelling",
-     "dist_m": 3754.3,
+     "dist_m": 3759.8,
      "lat": 53.638714,
      "lon": 6.87045
     },
     "island_km2": 2.7,
-    "detail": "detail/de/B-53.645135_6.814723",
+    "detail": "detail/de/B-53.645224_6.814667",
     "warnings": []
    },
    {
@@ -715,7 +715,7 @@
      "lat": 53.710564,
      "lon": 7.989935
     },
-    "island_km2": 4.2,
+    "island_km2": 4.3,
     "detail": "detail/de/B-53.765123_8.018740",
     "warnings": []
    },

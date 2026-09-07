@@ -18,58 +18,35 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 49.695871,
-    "lon": -2.235614,
-    "dist_m": 1302.34,
+    "lat": 49.730384,
+    "lon": -2.194582,
+    "dist_m": 670.11,
     "nearest_way": {
-     "id": 180047729,
-     "highway": "track",
+     "id": 628753384,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "gg"
     },
     "nearest_place": {
-     "name": "Saint Anne",
-     "type": "town",
-     "dist_m": 3007.1,
-     "lat": 49.714378,
-     "lon": -2.205223
+     "name": "Braye",
+     "type": "hamlet",
+     "dist_m": 931.8,
+     "lat": 49.72304,
+     "lon": -2.2008
     },
     "island_km2": 8.3,
-    "detail": "detail/gg/A-49.695871_-2.235614",
+    "detail": "detail/gg/A-49.730384_-2.194582",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 49.483118,
-    "lon": -2.472849,
-    "dist_m": 1280.77,
+    "lat": 49.449192,
+    "lon": -2.367473,
+    "dist_m": 599.69,
     "nearest_way": {
-     "id": 196968039,
+     "id": 979779176,
      "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "gg"
-    },
-    "nearest_place": {
-     "name": "Manor Village",
-     "type": "hamlet",
-     "dist_m": 2153.5,
-     "lat": 49.471789,
-     "lon": -2.448751
-    },
-    "island_km2": 1.3,
-    "detail": "detail/gg/A-49.483118_-2.472849",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 49.404087,
-    "lon": -2.381754,
-    "dist_m": 1043.51,
-    "nearest_way": {
-     "id": 1441827558,
-     "highway": "service",
      "name": null,
      "ref": null,
      "country": "gg"
@@ -77,46 +54,69 @@
     "nearest_place": {
      "name": "Sark",
      "type": "village",
-     "dist_m": 3811.9,
+     "dist_m": 1661.3,
      "lat": 49.435165,
      "lon": -2.359599
     },
     "island_km2": 5.8,
-    "detail": "detail/gg/A-49.404087_-2.381754",
+    "detail": "detail/gg/A-49.449192_-2.367473",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 49.461425,
-    "lon": -2.676106,
-    "dist_m": 773.85,
+    "rank": 3,
+    "lat": 49.415568,
+    "lon": -2.563157,
+    "dist_m": 515.78,
     "nearest_way": {
-     "id": 126881734,
+     "id": 303204601,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "gg"
     },
     "nearest_place": {
-     "name": "Torteval",
-     "type": "hamlet",
-     "dist_m": 3863.4,
-     "lat": 49.430281,
-     "lon": -2.652507
+     "name": "St Martin",
+     "type": "village",
+     "dist_m": 2484.9,
+     "lat": 49.437349,
+     "lon": -2.555524
     },
     "island_km2": null,
-    "detail": "detail/gg/A-49.461425_-2.676106",
+    "detail": "detail/gg/A-49.415568_-2.563157",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 49.507901,
+    "lon": -2.531157,
+    "dist_m": 299.92,
+    "nearest_way": {
+     "id": 237434381,
+     "highway": "tertiary",
+     "name": "Les Hurles",
+     "ref": null,
+     "country": "gg"
+    },
+    "nearest_place": {
+     "name": "The Vale",
+     "type": "hamlet",
+     "dist_m": 1435.6,
+     "lat": 49.495641,
+     "lon": -2.524955
+    },
+    "island_km2": null,
+    "detail": "detail/gg/A-49.507901_-2.531157",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 1 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 2 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
  },
  "A_mainland": {
-  "dist_m": 773.85,
-  "lat": 49.461425,
-  "lon": -2.676106,
-  "rank": 47,
+  "dist_m": 515.78,
+  "lat": 49.415568,
+  "lon": -2.563157,
+  "rank": 48,
   "withheld": 0
  },
  "B": {
@@ -146,9 +146,9 @@
    },
    {
     "rank": 2,
-    "lat": 49.695871,
-    "lon": -2.235614,
-    "dist_m": 1558.61,
+    "lat": 49.70122,
+    "lon": -2.22026,
+    "dist_m": 900.58,
     "nearest_way": {
      "id": 29385585,
      "highway": "unclassified",
@@ -159,58 +159,35 @@
     "nearest_place": {
      "name": "Saint Anne",
      "type": "town",
-     "dist_m": 3007.1,
+     "dist_m": 1821.5,
      "lat": 49.714378,
      "lon": -2.205223
     },
     "island_km2": 8.3,
-    "detail": "detail/gg/B-49.695871_-2.235614",
+    "detail": "detail/gg/B-49.701220_-2.220260",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 49.461425,
-    "lon": -2.676106,
-    "dist_m": 1410.52,
+    "lat": 49.415568,
+    "lon": -2.563019,
+    "dist_m": 600.33,
     "nearest_way": {
-     "id": 186002404,
-     "highway": "service",
-     "name": null,
+     "id": 367616548,
+     "highway": "tertiary",
+     "name": "Icart Road",
      "ref": null,
      "country": "gg"
     },
     "nearest_place": {
-     "name": "Torteval",
-     "type": "hamlet",
-     "dist_m": 3863.4,
-     "lat": 49.430281,
-     "lon": -2.652507
+     "name": "St Martin",
+     "type": "village",
+     "dist_m": 2482.7,
+     "lat": 49.437349,
+     "lon": -2.555524
     },
     "island_km2": null,
-    "detail": "detail/gg/B-49.461425_-2.676106",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 49.413712,
-    "lon": -2.358038,
-    "dist_m": 901.19,
-    "nearest_way": {
-     "id": 1446756639,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "gg"
-    },
-    "nearest_place": {
-     "name": "Sark",
-     "type": "village",
-     "dist_m": 2388.6,
-     "lat": 49.435165,
-     "lon": -2.359599
-    },
-    "island_km2": 5.8,
-    "detail": "detail/gg/B-49.413712_-2.358038",
+    "detail": "detail/gg/B-49.415568_-2.563019",
     "warnings": []
    }
   ],
@@ -218,10 +195,10 @@
   "reason": "only 1 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
  },
  "B_mainland": {
-  "dist_m": 1410.52,
-  "lat": 49.461425,
-  "lon": -2.676106,
-  "rank": 47,
+  "dist_m": 600.33,
+  "lat": 49.415568,
+  "lon": -2.563019,
+  "rank": 49,
   "withheld": 0
  }
 }

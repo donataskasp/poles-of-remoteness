@@ -261,9 +261,9 @@
    },
    {
     "rank": 4,
-    "lat": 54.054354,
-    "lon": -4.832427,
-    "dist_m": 1570.44,
+    "lat": 54.058905,
+    "lon": -4.822425,
+    "dist_m": 1551.33,
     "nearest_way": {
      "id": 104685752,
      "highway": "service",
@@ -274,12 +274,12 @@
     "nearest_place": {
      "name": "Cregneash",
      "type": "hamlet",
-     "dist_m": 4538.7,
+     "dist_m": 3748.0,
      "lat": 54.069676,
      "lon": -4.76819
     },
     "island_km2": null,
-    "detail": "detail/im/B-54.054354_-4.832427",
+    "detail": "detail/im/B-54.058905_-4.822425",
     "warnings": []
    },
    {

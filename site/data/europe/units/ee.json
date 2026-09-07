@@ -18,29 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 58.841514,
-    "lon": 23.374664,
-    "dist_m": 6648.31,
-    "nearest_way": {
-     "id": 145396836,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ee"
-    },
-    "nearest_place": {
-     "name": "Põgari-Sassi",
-     "type": "hamlet",
-     "dist_m": 5605.4,
-     "lat": 58.819162,
-     "lon": 23.461614
-    },
-    "island_km2": null,
-    "detail": "detail/ee/A-58.841514_23.374664",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 58.411337,
     "lon": 27.215686,
     "dist_m": 5436.26,
@@ -63,7 +40,7 @@
     "warnings": []
    },
    {
-    "rank": 3,
+    "rank": 2,
     "lat": 58.334519,
     "lon": 21.772578,
     "dist_m": 5192.59,
@@ -86,7 +63,7 @@
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 59.143236,
     "lon": 23.98921,
     "dist_m": 4704.03,
@@ -109,7 +86,7 @@
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 58.522548,
     "lon": 26.096081,
     "dist_m": 4484.04,
@@ -132,7 +109,7 @@
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 58.523791,
     "lon": 24.265884,
     "dist_m": 4473.46,
@@ -155,7 +132,7 @@
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 58.663845,
     "lon": 23.942537,
     "dist_m": 4334.19,
@@ -178,7 +155,7 @@
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 58.500178,
     "lon": 25.174345,
     "dist_m": 4217.41,
@@ -201,7 +178,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 58.454091,
     "lon": 24.104379,
     "dist_m": 4187.31,
@@ -224,7 +201,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 59.182102,
     "lon": 27.712443,
     "dist_m": 4136.16,
@@ -247,30 +224,30 @@
     "warnings": []
    },
    {
-    "rank": 11,
-    "lat": 58.190333,
-    "lon": 22.581151,
-    "dist_m": 4062.08,
+    "rank": 10,
+    "lat": 58.830166,
+    "lon": 23.434165,
+    "dist_m": 4090.35,
     "nearest_way": {
-     "id": 1544918038,
-     "highway": "unclassified",
-     "name": null,
+     "id": 1157890918,
+     "highway": "track",
+     "name": "Tauksi saare tee",
      "ref": null,
      "country": "ee"
     },
     "nearest_place": {
-     "name": "Muratsi",
+     "name": "Põgari-Sassi",
      "type": "hamlet",
-     "dist_m": 5881.9,
-     "lat": 58.242818,
-     "lon": 22.570102
+     "dist_m": 2004.2,
+     "lat": 58.819162,
+     "lon": 23.461614
     },
-    "island_km2": 2906.0,
-    "detail": "detail/ee/A-58.190333_22.581151",
+    "island_km2": null,
+    "detail": "detail/ee/A-58.830166_23.434165",
     "warnings": []
    },
    {
-    "rank": 12,
+    "rank": 11,
     "lat": 59.138445,
     "lon": 27.070577,
     "dist_m": 4035.83,
@@ -297,10 +274,10 @@
   "reason": null
  },
  "A_mainland": {
-  "dist_m": 6648.31,
-  "lat": 58.841514,
-  "lon": 23.374664,
-  "rank": 14,
+  "dist_m": 5436.26,
+  "lat": 58.411337,
+  "lon": 27.215686,
+  "rank": 18,
   "withheld": 0
  },
  "B": {
@@ -324,7 +301,7 @@
      "lat": 59.270586,
      "lon": 23.853344
     },
-    "island_km2": 26.7,
+    "island_km2": 27.1,
     "detail": "detail/ee/B-59.350613_23.898615",
     "warnings": []
    },
@@ -376,29 +353,6 @@
    },
    {
     "rank": 4,
-    "lat": 58.841514,
-    "lon": 23.374664,
-    "dist_m": 6648.31,
-    "nearest_way": {
-     "id": 145396836,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ee"
-    },
-    "nearest_place": {
-     "name": "Põgari-Sassi",
-     "type": "hamlet",
-     "dist_m": 5605.4,
-     "lat": 58.819162,
-     "lon": 23.461614
-    },
-    "island_km2": null,
-    "detail": "detail/ee/B-58.841514_23.374664",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 58.485833,
     "lon": 26.206154,
     "dist_m": 6383.47,
@@ -421,7 +375,7 @@
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 59.14115,
     "lon": 23.949274,
     "dist_m": 5636.59,
@@ -444,7 +398,7 @@
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 58.336245,
     "lon": 21.772103,
     "dist_m": 5626.53,
@@ -467,7 +421,7 @@
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 58.645542,
     "lon": 23.025104,
     "dist_m": 5285.15,
@@ -485,12 +439,12 @@
      "lat": 58.637078,
      "lon": 23.02141
     },
-    "island_km2": 2906.0,
+    "island_km2": 2913.7,
     "detail": "detail/ee/B-58.645542_23.025104",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 58.664962,
     "lon": 23.937991,
     "dist_m": 5194.37,
@@ -513,7 +467,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 58.873285,
     "lon": 26.168451,
     "dist_m": 5086.32,
@@ -536,7 +490,7 @@
     "warnings": []
    },
    {
-    "rank": 11,
+    "rank": 10,
     "lat": 58.767765,
     "lon": 23.763569,
     "dist_m": 4906.12,
@@ -559,7 +513,7 @@
     "warnings": []
    },
    {
-    "rank": 12,
+    "rank": 11,
     "lat": 58.828815,
     "lon": 23.141082,
     "dist_m": 4813.73,
@@ -582,7 +536,7 @@
     "warnings": []
    },
    {
-    "rank": 13,
+    "rank": 12,
     "lat": 59.15506,
     "lon": 27.079243,
     "dist_m": 4715.04,
@@ -605,30 +559,7 @@
     "warnings": []
    },
    {
-    "rank": 14,
-    "lat": 58.112981,
-    "lon": 22.506886,
-    "dist_m": 4656.91,
-    "nearest_way": {
-     "id": 38303665,
-     "highway": "residential",
-     "name": "Surnuaia tee",
-     "ref": null,
-     "country": "ee"
-    },
-    "nearest_place": {
-     "name": "Nasva",
-     "type": "village",
-     "dist_m": 14828.4,
-     "lat": 58.228459,
-     "lon": 22.381502
-    },
-    "island_km2": 10.8,
-    "detail": "detail/ee/B-58.112981_22.506886",
-    "warnings": []
-   },
-   {
-    "rank": 15,
+    "rank": 13,
     "lat": 59.265988,
     "lon": 26.819817,
     "dist_m": 4632.71,
@@ -648,6 +579,29 @@
     },
     "island_km2": null,
     "detail": "detail/ee/B-59.265988_26.819817",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 58.384355,
+    "lon": 25.171024,
+    "dist_m": 4572.86,
+    "nearest_way": {
+     "id": 341005297,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ee"
+    },
+    "nearest_place": {
+     "name": "Sandra",
+     "type": "hamlet",
+     "dist_m": 4524.5,
+     "lat": 58.424294,
+     "lon": 25.156909
+    },
+    "island_km2": null,
+    "detail": "detail/ee/B-58.384355_25.171024",
     "warnings": []
    }
   ],

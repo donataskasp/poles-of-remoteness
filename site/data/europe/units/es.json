@@ -18,25 +18,25 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 42.823085,
-    "lon": -0.244579,
-    "dist_m": 6432.56,
+    "lat": 42.822993,
+    "lon": -0.244522,
+    "dist_m": 6430.81,
     "nearest_way": {
-     "id": 329290075,
+     "id": 216863423,
      "highway": "track",
      "name": null,
      "ref": null,
-     "country": "es"
+     "country": "fr"
     },
     "nearest_place": {
      "name": "Baños de Panticosa",
      "type": "hamlet",
-     "dist_m": 6998.8,
+     "dist_m": 6988.0,
      "lat": 42.760619,
      "lon": -0.233448
     },
     "island_km2": null,
-    "detail": "detail/es/A-42.823085_-0.244579",
+    "detail": "detail/es/A-42.822993_-0.244522",
     "warnings": []
    },
    {
@@ -251,10 +251,10 @@
   "reason": null
  },
  "A_mainland": {
-  "dist_m": 6432.56,
-  "lat": 42.823085,
-  "lon": -0.244579,
-  "rank": 16,
+  "dist_m": 6430.81,
+  "lat": 42.822993,
+  "lon": -0.244522,
+  "rank": 15,
   "withheld": 0
  },
  "B": {

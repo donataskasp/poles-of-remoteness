@@ -41,9 +41,9 @@
    },
    {
     "rank": 2,
-    "lat": 69.174925,
-    "lon": 28.487,
-    "dist_m": 19003.97,
+    "lat": 69.168125,
+    "lon": 28.463543,
+    "dist_m": 18763.14,
     "nearest_way": {
      "id": 980378872,
      "highway": "track",
@@ -54,12 +54,12 @@
     "nearest_place": {
      "name": "Hemingkoia",
      "type": "isolated_dwelling",
-     "dist_m": 13958.6,
+     "dist_m": 14969.8,
      "lat": 69.185886,
      "lon": 28.837408
     },
     "island_km2": null,
-    "detail": "detail/fi/A-69.174925_28.487000",
+    "detail": "detail/fi/A-69.168125_28.463543",
     "warnings": []
    },
    {
@@ -87,29 +87,6 @@
    },
    {
     "rank": 4,
-    "lat": 59.977048,
-    "lon": 21.306245,
-    "dist_m": 16951.96,
-    "nearest_way": {
-     "id": 467422538,
-     "highway": "residential",
-     "name": "Aspövägen",
-     "ref": null,
-     "country": "fi"
-    },
-    "nearest_place": {
-     "name": "Hellsö",
-     "type": "village",
-     "dist_m": 20061.9,
-     "lat": 59.950184,
-     "lon": 20.951126
-    },
-    "island_km2": 3.4,
-    "detail": "detail/fi/A-59.977048_21.306245",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 68.753324,
     "lon": 25.124822,
     "dist_m": 16907.57,
@@ -132,10 +109,10 @@
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 63.121113,
-    "lon": 20.830031,
-    "dist_m": 16484.71,
+    "rank": 5,
+    "lat": 63.120435,
+    "lon": 20.811543,
+    "dist_m": 16177.24,
     "nearest_way": {
      "id": 259627959,
      "highway": "track",
@@ -144,18 +121,18 @@
      "country": "fi"
     },
     "nearest_place": {
-     "name": "Sommarö sund",
+     "name": "Karlsö",
      "type": "hamlet",
-     "dist_m": 22194.2,
-     "lat": 63.166984,
-     "lon": 21.258354
+     "dist_m": 23032.6,
+     "lat": 63.235947,
+     "lon": 21.190741
     },
     "island_km2": 1.7,
-    "detail": "detail/fi/A-63.121113_20.830031",
+    "detail": "detail/fi/A-63.120435_20.811543",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 69.137863,
     "lon": 26.512644,
     "dist_m": 16089.79,
@@ -178,33 +155,10 @@
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 59.834987,
-    "lon": 21.966933,
-    "dist_m": 15858.57,
-    "nearest_way": {
-     "id": 979779357,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "fi"
-    },
-    "nearest_place": {
-     "name": "Borstö",
-     "type": "village",
-     "dist_m": 3135.9,
-     "lat": 59.863117,
-     "lon": 21.968863
-    },
-    "island_km2": 2.0,
-    "detail": "detail/fi/A-59.834987_21.966933",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 65.368756,
-    "lon": 24.826448,
-    "dist_m": 14807.65,
+    "rank": 7,
+    "lat": 65.370762,
+    "lon": 24.839459,
+    "dist_m": 14565.57,
     "nearest_way": {
      "id": 796674033,
      "highway": "service",
@@ -215,39 +169,16 @@
     "nearest_place": {
      "name": "Ii",
      "type": "town",
-     "dist_m": 25918.9,
+     "dist_m": 25371.9,
      "lat": 65.321876,
      "lon": 25.371622
     },
     "island_km2": 2.4,
-    "detail": "detail/fi/A-65.368756_24.826448",
+    "detail": "detail/fi/A-65.370762_24.839459",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 63.465141,
-    "lon": 21.760734,
-    "dist_m": 14463.7,
-    "nearest_way": {
-     "id": 317054986,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "fi"
-    },
-    "nearest_place": {
-     "name": "Västerö",
-     "type": "village",
-     "dist_m": 16979.5,
-     "lat": 63.356519,
-     "lon": 21.999005
-    },
-    "island_km2": 12.4,
-    "detail": "detail/fi/A-63.465141_21.760734",
-    "warnings": []
-   },
-   {
-    "rank": 11,
+    "rank": 8,
     "lat": 68.603091,
     "lon": 26.779192,
     "dist_m": 14408.92,
@@ -270,7 +201,7 @@
     "warnings": []
    },
    {
-    "rank": 12,
+    "rank": 9,
     "lat": 68.55254,
     "lon": 24.388655,
     "dist_m": 14333.27,
@@ -293,35 +224,35 @@
     "warnings": []
    },
    {
-    "rank": 13,
-    "lat": 69.11746,
-    "lon": 28.272334,
-    "dist_m": 14178.82,
+    "rank": 10,
+    "lat": 63.455925,
+    "lon": 21.751591,
+    "dist_m": 14053.59,
     "nearest_way": {
-     "id": 268664504,
-     "highway": "track",
-     "name": "Märkävaarantie",
+     "id": 837647829,
+     "highway": "service",
+     "name": null,
      "ref": null,
      "country": "fi"
     },
     "nearest_place": {
-     "name": "Partakko",
+     "name": "Norrskat",
      "type": "hamlet",
-     "dist_m": 17169.4,
-     "lat": 69.184876,
-     "lon": 27.883893
+     "dist_m": 15967.7,
+     "lat": 63.317574,
+     "lon": 21.668789
     },
-    "island_km2": 2.2,
-    "detail": "detail/fi/A-69.117460_28.272334",
+    "island_km2": 12.4,
+    "detail": "detail/fi/A-63.455925_21.751591",
     "warnings": []
    },
    {
-    "rank": 14,
-    "lat": 68.964578,
-    "lon": 27.8042,
-    "dist_m": 13241.21,
+    "rank": 11,
+    "lat": 68.984883,
+    "lon": 27.861371,
+    "dist_m": 12895.24,
     "nearest_way": {
-     "id": 710438510,
+     "id": 407448871,
      "highway": "track",
      "name": null,
      "ref": null,
@@ -330,19 +261,19 @@
     "nearest_place": {
      "name": "Väylä",
      "type": "hamlet",
-     "dist_m": 17486.9,
+     "dist_m": 17682.4,
      "lat": 69.079094,
      "lon": 27.50543
     },
     "island_km2": null,
-    "detail": "detail/fi/A-68.964578_27.804200",
+    "detail": "detail/fi/A-68.984883_27.861371",
     "warnings": []
    },
    {
-    "rank": 15,
-    "lat": 60.466705,
-    "lon": 20.236794,
-    "dist_m": 12930.11,
+    "rank": 12,
+    "lat": 60.464239,
+    "lon": 20.232836,
+    "dist_m": 12585.34,
     "nearest_way": {
      "id": 1231781967,
      "highway": "service",
@@ -353,39 +284,16 @@
     "nearest_place": {
      "name": "Hamnsundet",
      "type": "hamlet",
-     "dist_m": 13311.5,
+     "dist_m": 12961.0,
      "lat": 60.37385,
      "lon": 20.08475
     },
-    "island_km2": 1115.5,
-    "detail": "detail/fi/A-60.466705_20.236794",
+    "island_km2": 1119.7,
+    "detail": "detail/fi/A-60.464239_20.232836",
     "warnings": []
    },
    {
-    "rank": 16,
-    "lat": 65.420605,
-    "lon": 25.008947,
-    "dist_m": 11687.73,
-    "nearest_way": {
-     "id": 615222354,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "fi"
-    },
-    "nearest_place": {
-     "name": "Nyby",
-     "type": "hamlet",
-     "dist_m": 16578.5,
-     "lat": 65.485713,
-     "lon": 25.330341
-    },
-    "island_km2": 2.1,
-    "detail": "detail/fi/A-65.420605_25.008947",
-    "warnings": []
-   },
-   {
-    "rank": 17,
+    "rank": 13,
     "lat": 68.299515,
     "lon": 28.199927,
     "dist_m": 11535.48,
@@ -408,72 +316,26 @@
     "warnings": []
    },
    {
-    "rank": 18,
-    "lat": 60.550363,
-    "lon": 20.836462,
-    "dist_m": 11260.03,
+    "rank": 14,
+    "lat": 69.090094,
+    "lon": 28.270397,
+    "dist_m": 11203.44,
     "nearest_way": {
-     "id": 1195379351,
+     "id": 268664504,
      "highway": "track",
-     "name": null,
+     "name": "Märkävaarantie",
      "ref": null,
      "country": "fi"
     },
     "nearest_place": {
-     "name": "Jurmo",
-     "type": "village",
-     "dist_m": 13700.0,
-     "lat": 60.51694,
-     "lon": 21.076615
-    },
-    "island_km2": 3.4,
-    "detail": "detail/fi/A-60.550363_20.836462",
-    "warnings": []
-   },
-   {
-    "rank": 19,
-    "lat": 59.781063,
-    "lon": 22.113812,
-    "dist_m": 11213.21,
-    "nearest_way": {
-     "id": 1393435530,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "fi"
-    },
-    "nearest_place": {
-     "name": "Vänö",
-     "type": "village",
-     "dist_m": 11130.2,
-     "lat": 59.871487,
-     "lon": 22.198176
-    },
-    "island_km2": 13.7,
-    "detail": "detail/fi/A-59.781063_22.113812",
-    "warnings": []
-   },
-   {
-    "rank": 20,
-    "lat": 69.92811,
-    "lon": 27.617562,
-    "dist_m": 10509.3,
-    "nearest_way": {
-     "id": 24666397,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "fi"
-    },
-    "nearest_place": {
-     "name": "Suveguolbba",
+     "name": "Partakko",
      "type": "hamlet",
-     "dist_m": 12386.1,
-     "lat": 70.00434,
-     "lon": 27.382123
+     "dist_m": 18653.3,
+     "lat": 69.184876,
+     "lon": 27.883893
     },
     "island_km2": null,
-    "detail": "detail/fi/A-69.928110_27.617562",
+    "detail": "detail/fi/A-69.090094_28.270397",
     "warnings": []
    }
   ],
@@ -606,29 +468,6 @@
    },
    {
     "rank": 6,
-    "lat": 63.22602,
-    "lon": 20.659012,
-    "dist_m": 22498.64,
-    "nearest_way": {
-     "id": 304853350,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "fi"
-    },
-    "nearest_place": {
-     "name": "Klobbskat",
-     "type": "hamlet",
-     "dist_m": 23494.8,
-     "lat": 63.305829,
-     "lon": 21.092092
-    },
-    "island_km2": 1.0,
-    "detail": "detail/fi/B-63.226020_20.659012",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 68.205773,
     "lon": 28.016173,
     "dist_m": 21049.01,
@@ -651,7 +490,7 @@
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 63.109212,
     "lon": 20.790654,
     "dist_m": 20633.54,
@@ -674,13 +513,13 @@
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 69.176755,
-    "lon": 28.478945,
-    "dist_m": 19766.12,
+    "rank": 8,
+    "lat": 69.168065,
+    "lon": 28.435369,
+    "dist_m": 19572.8,
     "nearest_way": {
-     "id": 268664543,
-     "highway": "unclassified",
+     "id": 392792167,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "fi"
@@ -688,16 +527,16 @@
     "nearest_place": {
      "name": "Hemingkoia",
      "type": "isolated_dwelling",
-     "dist_m": 14260.4,
+     "dist_m": 16079.6,
      "lat": 69.185886,
      "lon": 28.837408
     },
     "island_km2": null,
-    "detail": "detail/fi/B-69.176755_28.478945",
+    "detail": "detail/fi/B-69.168065_28.435369",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 68.618771,
     "lon": 26.747981,
     "dist_m": 17479.46,
@@ -720,76 +559,7 @@
     "warnings": []
    },
    {
-    "rank": 11,
-    "lat": 59.977048,
-    "lon": 21.306245,
-    "dist_m": 16951.96,
-    "nearest_way": {
-     "id": 467422538,
-     "highway": "residential",
-     "name": "Aspövägen",
-     "ref": null,
-     "country": "fi"
-    },
-    "nearest_place": {
-     "name": "Hellsö",
-     "type": "village",
-     "dist_m": 20061.9,
-     "lat": 59.950184,
-     "lon": 20.951126
-    },
-    "island_km2": 3.4,
-    "detail": "detail/fi/B-59.977048_21.306245",
-    "warnings": []
-   },
-   {
-    "rank": 12,
-    "lat": 59.834987,
-    "lon": 21.966933,
-    "dist_m": 15962.41,
-    "nearest_way": {
-     "id": 979779359,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "fi"
-    },
-    "nearest_place": {
-     "name": "Borstö",
-     "type": "village",
-     "dist_m": 3135.9,
-     "lat": 59.863117,
-     "lon": 21.968863
-    },
-    "island_km2": 2.0,
-    "detail": "detail/fi/B-59.834987_21.966933",
-    "warnings": []
-   },
-   {
-    "rank": 13,
-    "lat": 62.982795,
-    "lon": 20.80531,
-    "dist_m": 15660.01,
-    "nearest_way": {
-     "id": 256335752,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "fi"
-    },
-    "nearest_place": {
-     "name": "Bredhällan",
-     "type": "village",
-     "dist_m": 18088.4,
-     "lat": 62.972062,
-     "lon": 21.161218
-    },
-    "island_km2": 7.3,
-    "detail": "detail/fi/B-62.982795_20.805310",
-    "warnings": []
-   },
-   {
-    "rank": 14,
+    "rank": 10,
     "lat": 68.232809,
     "lon": 26.228224,
     "dist_m": 15374.45,
@@ -812,49 +582,118 @@
     "warnings": []
    },
    {
-    "rank": 15,
-    "lat": 60.267839,
-    "lon": 27.226895,
-    "dist_m": 15019.55,
+    "rank": 11,
+    "lat": 62.986183,
+    "lon": 20.812094,
+    "dist_m": 15331.7,
     "nearest_way": {
-     "id": 252830435,
+     "id": 256335752,
      "highway": "service",
-     "name": "Ampumaradantie",
+     "name": null,
      "ref": null,
      "country": "fi"
     },
     "nearest_place": {
-     "name": "Haapasaari",
-     "type": "town",
-     "dist_m": 3098.6,
-     "lat": 60.28836,
-     "lon": 27.189097
+     "name": "Bredhällan",
+     "type": "village",
+     "dist_m": 17773.6,
+     "lat": 62.972062,
+     "lon": 21.161218
     },
-    "island_km2": 3.0,
-    "detail": "detail/fi/B-60.267839_27.226895",
+    "island_km2": 7.3,
+    "detail": "detail/fi/B-62.986183_20.812094",
     "warnings": []
    },
    {
-    "rank": 16,
-    "lat": 68.966715,
-    "lon": 27.847109,
-    "dist_m": 14954.01,
+    "rank": 12,
+    "lat": 60.725405,
+    "lon": 21.005764,
+    "dist_m": 14799.22,
     "nearest_way": {
-     "id": 268664532,
+     "id": 993436350,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fi"
+    },
+    "nearest_place": {
+     "name": "Kiparluoto",
+     "type": "hamlet",
+     "dist_m": 17308.3,
+     "lat": 60.660627,
+     "lon": 21.293735
+    },
+    "island_km2": 1.9,
+    "detail": "detail/fi/B-60.725405_21.005764",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 65.370762,
+    "lon": 24.839459,
+    "dist_m": 14565.57,
+    "nearest_way": {
+     "id": 796674033,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fi"
+    },
+    "nearest_place": {
+     "name": "Ii",
+     "type": "town",
+     "dist_m": 25371.9,
+     "lat": 65.321876,
+     "lon": 25.371622
+    },
+    "island_km2": 2.4,
+    "detail": "detail/fi/B-65.370762_24.839459",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 63.455925,
+    "lon": 21.751591,
+    "dist_m": 14053.59,
+    "nearest_way": {
+     "id": 837647829,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "fi"
+    },
+    "nearest_place": {
+     "name": "Norrskat",
+     "type": "hamlet",
+     "dist_m": 15967.7,
+     "lat": 63.317574,
+     "lon": 21.668789
+    },
+    "island_km2": 12.4,
+    "detail": "detail/fi/B-63.455925_21.751591",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 68.985101,
+    "lon": 27.866168,
+    "dist_m": 13924.76,
+    "nearest_way": {
+     "id": 616453894,
      "highway": "unclassified",
-     "name": "Märkävaarantie",
+     "name": null,
      "ref": null,
      "country": "fi"
     },
     "nearest_place": {
      "name": "Väylä",
      "type": "hamlet",
-     "dist_m": 18537.6,
+     "dist_m": 17822.5,
      "lat": 69.079094,
      "lon": 27.50543
     },
     "island_km2": null,
-    "detail": "detail/fi/B-68.966715_27.847109",
+    "detail": "detail/fi/B-68.985101_27.866168",
     "warnings": []
    }
   ],

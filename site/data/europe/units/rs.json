@@ -376,29 +376,6 @@
    },
    {
     "rank": 6,
-    "lat": 45.609415,
-    "lon": 18.899285,
-    "dist_m": 5344.71,
-    "nearest_way": {
-     "id": 38767102,
-     "highway": "unclassified",
-     "name": "Омладинска",
-     "ref": null,
-     "country": "rs"
-    },
-    "nearest_place": {
-     "name": "Месарске ливаде",
-     "type": "isolated_dwelling",
-     "dist_m": 3765.8,
-     "lat": 45.577212,
-     "lon": 18.914289
-    },
-    "island_km2": null,
-    "detail": "detail/rs/B-45.609415_18.899285",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 45.355308,
     "lon": 20.964515,
     "dist_m": 5210.0,
@@ -421,7 +398,7 @@
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 43.144581,
     "lon": 22.252253,
     "dist_m": 5076.65,
@@ -444,7 +421,7 @@
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 45.103846,
     "lon": 21.084364,
     "dist_m": 5013.18,
@@ -467,7 +444,7 @@
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 43.579759,
     "lon": 21.985557,
     "dist_m": 4955.3,
@@ -487,6 +464,29 @@
     },
     "island_km2": null,
     "detail": "detail/rs/B-43.579759_21.985557",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 45.432944,
+    "lon": 20.135416,
+    "dist_m": 4856.12,
+    "nearest_way": {
+     "id": 724099333,
+     "highway": "service",
+     "name": "Младичњак",
+     "ref": null,
+     "country": "rs"
+    },
+    "nearest_place": {
+     "name": "Taras",
+     "type": "village",
+     "dist_m": 6008.0,
+     "lat": 45.467038,
+     "lon": 20.195015
+    },
+    "island_km2": null,
+    "detail": "detail/rs/B-45.432944_20.135416",
     "warnings": []
    }
   ],

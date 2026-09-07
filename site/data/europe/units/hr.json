@@ -202,29 +202,6 @@
    },
    {
     "rank": 9,
-    "lat": 43.920978,
-    "lon": 15.273804,
-    "dist_m": 4900.6,
-    "nearest_way": {
-     "id": 805953274,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "hr"
-    },
-    "nearest_place": {
-     "name": "Donji Statival",
-     "type": "hamlet",
-     "dist_m": 6694.8,
-     "lat": 43.863085,
-     "lon": 15.250707
-    },
-    "island_km2": 2.5,
-    "detail": "detail/hr/A-43.920978_15.273804",
-    "warnings": []
-   },
-   {
-    "rank": 10,
     "lat": 42.744422,
     "lon": 17.80045,
     "dist_m": 4790.8,
@@ -244,6 +221,29 @@
     },
     "island_km2": 19.3,
     "detail": "detail/hr/A-42.744422_17.800450",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.889647,
+    "lon": 15.279478,
+    "dist_m": 4720.75,
+    "nearest_way": {
+     "id": 585947470,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "hr"
+    },
+    "nearest_place": {
+     "name": "Donji Statival",
+     "type": "hamlet",
+     "dist_m": 3749.3,
+     "lat": 43.863085,
+     "lon": 15.250707
+    },
+    "island_km2": 16.0,
+    "detail": "detail/hr/A-43.889647_15.279478",
     "warnings": []
    },
    {
@@ -537,9 +537,9 @@
    },
    {
     "rank": 3,
-    "lat": 43.720487,
-    "lon": 15.410061,
-    "dist_m": 16522.23,
+    "lat": 43.739608,
+    "lon": 15.445823,
+    "dist_m": 13432.74,
     "nearest_way": {
      "id": 1088162233,
      "highway": "residential",
@@ -548,14 +548,14 @@
      "country": "hr"
     },
     "nearest_place": {
-     "name": "Koromasinija",
+     "name": "Opat",
      "type": "hamlet",
-     "dist_m": 3611.0,
-     "lat": 43.744351,
-     "lon": 15.440487
+     "dist_m": 612.5,
+     "lat": 43.739474,
+     "lon": 15.453424
     },
-    "island_km2": 4.8,
-    "detail": "detail/hr/B-43.720487_15.410061",
+    "island_km2": 158.5,
+    "detail": "detail/hr/B-43.739608_15.445823",
     "warnings": []
    },
    {
@@ -606,9 +606,9 @@
    },
    {
     "rank": 6,
-    "lat": 43.172031,
-    "lon": 16.32452,
-    "dist_m": 8113.77,
+    "lat": 43.163679,
+    "lon": 16.331165,
+    "dist_m": 7718.1,
     "nearest_way": {
      "id": 163556985,
      "highway": "service",
@@ -619,12 +619,12 @@
     "nearest_place": {
      "name": "Vlaka",
      "type": "hamlet",
-     "dist_m": 3336.6,
+     "dist_m": 2710.2,
      "lat": 43.165077,
      "lon": 16.364437
     },
-    "island_km2": 304.6,
-    "detail": "detail/hr/B-43.172031_16.324520",
+    "island_km2": 304.9,
+    "detail": "detail/hr/B-43.163679_16.331165",
     "warnings": []
    },
    {
