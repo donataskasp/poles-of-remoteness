@@ -18,72 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 41.210739,
-    "lon": -72.654188,
-    "dist_m": 5135.53,
-    "nearest_way": {
-     "id": 17222182,
-     "highway": "residential",
-     "name": "Sachems Avenue",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Sachem Head",
-     "type": "hamlet",
-     "dist_m": 5702.0,
-     "lat": 41.245931,
-     "lon": -72.703707
-    },
-    "detail": "detail/us-ct/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 41.068754,
-    "lon": -73.37265,
-    "dist_m": 2417.55,
-    "nearest_way": {
-     "id": 288582737,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Round Beach",
-     "type": "hamlet",
-     "dist_m": 2264.1,
-     "lat": 41.078986,
-     "lon": -73.395952
-    },
-    "detail": "detail/us-ct/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 40.980769,
-    "lon": -73.629027,
-    "dist_m": 2359.92,
-    "nearest_way": {
-     "id": 793837773,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Belle Haven",
-     "type": "hamlet",
-     "dist_m": 3140.6,
-     "lat": 41.008986,
-     "lon": -73.631515
-    },
-    "detail": "detail/us-ct/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 41.990088,
     "lon": -73.295893,
     "dist_m": 2224.85,
@@ -97,37 +31,16 @@
     "nearest_place": {
      "name": "East Canaan",
      "type": "village",
-     "dist_m": 2784.7,
+     "dist_m": 2784.6,
      "lat": 42.013544,
      "lon": -73.284029
     },
-    "detail": "detail/us-ct/A-4",
+    "island_km2": null,
+    "detail": "detail/us-ct/A-41.990088_-73.295893",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 41.117055,
-    "lon": -73.221917,
-    "dist_m": 2159.34,
-    "nearest_way": {
-     "id": 10166529,
-     "highway": "residential",
-     "name": "College Place",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Little Danbury",
-     "type": "hamlet",
-     "dist_m": 2241.6,
-     "lat": 41.128986,
-     "lon": -73.243447
-    },
-    "detail": "detail/us-ct/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 2,
     "lat": 41.766732,
     "lon": -73.317993,
     "dist_m": 1618.33,
@@ -145,33 +58,12 @@
      "lat": 41.742873,
      "lon": -73.34873
     },
-    "detail": "detail/us-ct/A-6",
+    "island_km2": null,
+    "detail": "detail/us-ct/A-41.766732_-73.317993",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 41.255637,
-    "lon": -72.474572,
-    "dist_m": 1590.23,
-    "nearest_way": {
-     "id": 17202235,
-     "highway": "residential",
-     "name": "Old Mail Trail",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Hawks Nest",
-     "type": "hamlet",
-     "dist_m": 1679.9,
-     "lat": 41.270099,
-     "lon": -72.468699
-    },
-    "detail": "detail/us-ct/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 3,
     "lat": 42.040497,
     "lon": -73.449773,
     "dist_m": 1489.42,
@@ -189,11 +81,12 @@
      "lat": 42.048703,
      "lon": -73.425675
     },
-    "detail": "detail/us-ct/A-8",
+    "island_km2": null,
+    "detail": "detail/us-ct/A-42.040497_-73.449773",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 4,
     "lat": 41.935165,
     "lon": -72.866438,
     "dist_m": 1462.51,
@@ -211,11 +104,12 @@
      "lat": 41.956373,
      "lon": -72.842596
     },
-    "detail": "detail/us-ct/A-9",
+    "island_km2": null,
+    "detail": "detail/us-ct/A-41.935165_-72.866438",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 5,
     "lat": 41.899555,
     "lon": -73.194696,
     "dist_m": 1448.01,
@@ -233,83 +127,140 @@
      "lat": 41.898706,
      "lon": -73.212336
     },
-    "detail": "detail/us-ct/A-10",
+    "island_km2": null,
+    "detail": "detail/us-ct/A-41.899555_-73.194696",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 41.369284,
+    "lon": -72.269868,
+    "dist_m": 1420.45,
+    "nearest_way": {
+     "id": 880971792,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Laysville",
+     "type": "hamlet",
+     "dist_m": 3305.7,
+     "lat": 41.348709,
+     "lon": -72.298415
+    },
+    "island_km2": null,
+    "detail": "detail/us-ct/A-41.369284_-72.269868",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 41.624147,
+    "lon": -72.534108,
+    "dist_m": 1397.99,
+    "nearest_way": {
+     "id": 146993937,
+     "highway": "track",
+     "name": "Del Reeves Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lake Pocotopaug",
+     "type": "hamlet",
+     "dist_m": 3474.7,
+     "lat": 41.598433,
+     "lon": -72.510365
+    },
+    "island_km2": null,
+    "detail": "detail/us-ct/A-41.624147_-72.534108",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 41.880377,
+    "lon": -71.799933,
+    "dist_m": 1364.89,
+    "nearest_way": {
+     "id": 17171434,
+     "highway": "residential",
+     "name": "Tucker District Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "East Killingly",
+     "type": "hamlet",
+     "dist_m": 3790.0,
+     "lat": 41.849265,
+     "lon": -71.818682
+    },
+    "island_km2": null,
+    "detail": "detail/us-ct/A-41.880377_-71.799933",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.705412,
+    "lon": -73.512651,
+    "dist_m": 1323.03,
+    "nearest_way": {
+     "id": 1304900413,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bulls Bridge",
+     "type": "hamlet",
+     "dist_m": 3299.0,
+     "lat": 41.675932,
+     "lon": -73.507805
+    },
+    "island_km2": null,
+    "detail": "detail/us-ct/A-41.705412_-73.512651",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.248038,
+    "lon": -73.397271,
+    "dist_m": 1139.48,
+    "nearest_way": {
+     "id": 791627016,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Godfrey Corner",
+     "type": "hamlet",
+     "dist_m": 1754.2,
+     "lat": 41.235652,
+     "lon": -73.384286
+    },
+    "island_km2": null,
+    "detail": "detail/us-ct/A-41.248038_-73.397271",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 2224.85,
+  "lat": 41.990088,
+  "lon": -73.295893,
+  "rank": 60,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 41.210739,
-    "lon": -72.654188,
-    "dist_m": 5135.53,
-    "nearest_way": {
-     "id": 17222182,
-     "highway": "residential",
-     "name": "Sachems Avenue",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Sachem Head",
-     "type": "hamlet",
-     "dist_m": 5702.0,
-     "lat": 41.245931,
-     "lon": -72.703707
-    },
-    "detail": "detail/us-ct/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 41.068754,
-    "lon": -73.37265,
-    "dist_m": 2417.55,
-    "nearest_way": {
-     "id": 288582737,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Round Beach",
-     "type": "hamlet",
-     "dist_m": 2264.1,
-     "lat": 41.078986,
-     "lon": -73.395952
-    },
-    "detail": "detail/us-ct/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 40.980769,
-    "lon": -73.629027,
-    "dist_m": 2359.92,
-    "nearest_way": {
-     "id": 793837773,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Belle Haven",
-     "type": "hamlet",
-     "dist_m": 3140.6,
-     "lat": 41.008986,
-     "lon": -73.631515
-    },
-    "detail": "detail/us-ct/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 41.969811,
     "lon": -72.951768,
     "dist_m": 2349.33,
@@ -327,11 +278,12 @@
      "lat": 41.996206,
      "lon": -72.979549
     },
-    "detail": "detail/us-ct/B-4",
+    "island_km2": null,
+    "detail": "detail/us-ct/B-41.969811_-72.951768",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 2,
     "lat": 41.930349,
     "lon": -73.248658,
     "dist_m": 2247.55,
@@ -349,33 +301,12 @@
      "lat": 41.924317,
      "lon": -73.275864
     },
-    "detail": "detail/us-ct/B-5",
+    "island_km2": null,
+    "detail": "detail/us-ct/B-41.930349_-73.248658",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 41.117055,
-    "lon": -73.221917,
-    "dist_m": 2159.34,
-    "nearest_way": {
-     "id": 10166529,
-     "highway": "residential",
-     "name": "College Place",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Little Danbury",
-     "type": "hamlet",
-     "dist_m": 2241.6,
-     "lat": 41.128986,
-     "lon": -73.243447
-    },
-    "detail": "detail/us-ct/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
+    "rank": 3,
     "lat": 42.028406,
     "lon": -72.09988,
     "dist_m": 2064.19,
@@ -389,15 +320,16 @@
     "nearest_place": {
      "name": "Mashapaug",
      "type": "hamlet",
-     "dist_m": 3170.1,
+     "dist_m": 3170.2,
      "lat": 42.027318,
      "lon": -72.138132
     },
-    "detail": "detail/us-ct/B-7",
+    "island_km2": null,
+    "detail": "detail/us-ct/B-42.028406_-72.099880",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 4,
     "lat": 41.618867,
     "lon": -72.546051,
     "dist_m": 1985.11,
@@ -415,11 +347,12 @@
      "lat": 41.598433,
      "lon": -72.510365
     },
-    "detail": "detail/us-ct/B-8",
+    "island_km2": null,
+    "detail": "detail/us-ct/B-41.618867_-72.546051",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 5,
     "lat": 41.715078,
     "lon": -73.511514,
     "dist_m": 1768.32,
@@ -437,11 +370,12 @@
      "lat": 41.724689,
      "lon": -73.476921
     },
-    "detail": "detail/us-ct/B-9",
+    "island_km2": null,
+    "detail": "detail/us-ct/B-41.715078_-73.511514",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 6,
     "lat": 41.733236,
     "lon": -72.483964,
     "dist_m": 1683.55,
@@ -459,11 +393,111 @@
      "lat": 41.712178,
      "lon": -72.526573
     },
-    "detail": "detail/us-ct/B-10",
+    "island_km2": null,
+    "detail": "detail/us-ct/B-41.733236_-72.483964",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 41.387568,
+    "lon": -72.669204,
+    "dist_m": 1681.97,
+    "nearest_way": {
+     "id": 837941051,
+     "highway": "residential",
+     "name": "Rockland Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rockland",
+     "type": "hamlet",
+     "dist_m": 2907.7,
+     "lat": 41.411765,
+     "lon": -72.655927
+    },
+    "island_km2": null,
+    "detail": "detail/us-ct/B-41.387568_-72.669204",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 42.049514,
+    "lon": -73.487159,
+    "dist_m": 1648.13,
+    "nearest_way": {
+     "id": 17198806,
+     "highway": "residential",
+     "name": "Mount Washington Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Alander",
+     "type": "isolated_dwelling",
+     "dist_m": 1885.0,
+     "lat": 42.056202,
+     "lon": -73.466231
+    },
+    "island_km2": null,
+    "detail": "detail/us-ct/B-42.049514_-73.487159",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.766191,
+    "lon": -73.317946,
+    "dist_m": 1639.93,
+    "nearest_way": {
+     "id": 17195062,
+     "highway": "residential",
+     "name": "Melius Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Warren",
+     "type": "village",
+     "dist_m": 3641.8,
+     "lat": 41.742873,
+     "lon": -73.34873
+    },
+    "island_km2": null,
+    "detail": "detail/us-ct/B-41.766191_-73.317946",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.690065,
+    "lon": -72.627583,
+    "dist_m": 1580.72,
+    "nearest_way": {
+     "id": 721945880,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "South Wethersfield",
+     "type": "hamlet",
+     "dist_m": 2336.7,
+     "lat": 41.690377,
+     "lon": -72.655648
+    },
+    "island_km2": null,
+    "detail": "detail/us-ct/B-41.690065_-72.627583",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 2349.33,
+  "lat": 41.969811,
+  "lon": -72.951768,
+  "rank": 61,
+  "withheld": 0
  }
 }

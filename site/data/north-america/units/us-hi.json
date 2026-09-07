@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 21.65146,
-    "lon": -160.544472,
-    "dist_m": 35777.79,
-    "nearest_way": {
-     "id": 248437546,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Kiekie",
-     "type": "isolated_dwelling",
-     "dist_m": 42284.8,
-     "lat": 21.885503,
-     "lon": -160.221419
-    },
-    "detail": "detail/us-hi/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 19.392897,
     "lon": -155.637794,
     "dist_m": 11115.8,
@@ -57,77 +35,12 @@
      "lat": 19.397778,
      "lon": -155.776111
     },
-    "detail": "detail/us-hi/A-2",
+    "island_km2": null,
+    "detail": "detail/us-hi/A-19.392897_-155.637794",
     "warnings": []
    },
    {
-    "rank": 3,
-    "lat": 19.462345,
-    "lon": -155.477328,
-    "dist_m": 9938.58,
-    "nearest_way": {
-     "id": 218797425,
-     "highway": "service",
-     "name": "Mauna Loa Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Volcano",
-     "type": "town",
-     "dist_m": 25806.4,
-     "lat": 19.429768,
-     "lon": -155.233984
-    },
-    "detail": "detail/us-hi/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 19.531106,
-    "lon": -155.713761,
-    "dist_m": 9577.22,
-    "nearest_way": {
-     "id": 587286955,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Keanapa‘akai",
-     "type": "hamlet",
-     "dist_m": 12986.5,
-     "lat": 19.445,
-     "lon": -155.797778
-    },
-    "detail": "detail/us-hi/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 19.613902,
-    "lon": -155.779234,
-    "dist_m": 8645.61,
-    "nearest_way": {
-     "id": 268040501,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Kaukahōkū",
-     "type": "isolated_dwelling",
-     "dist_m": 9646.5,
-     "lat": 19.575833,
-     "lon": -155.861944
-    },
-    "detail": "detail/us-hi/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 2,
     "lat": 19.817738,
     "lon": -155.229337,
     "dist_m": 8607.16,
@@ -145,11 +58,12 @@
      "lat": 19.79,
      "lon": -155.334722
     },
-    "detail": "detail/us-hi/A-6",
+    "island_km2": null,
+    "detail": "detail/us-hi/A-19.817738_-155.229337",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 3,
     "lat": 19.262585,
     "lon": -155.232982,
     "dist_m": 8355.78,
@@ -163,15 +77,16 @@
     "nearest_place": {
      "name": "Volcano",
      "type": "town",
-     "dist_m": 18506.7,
+     "dist_m": 18506.8,
      "lat": 19.429768,
      "lon": -155.233984
     },
-    "detail": "detail/us-hi/A-7",
+    "island_km2": null,
+    "detail": "detail/us-hi/A-19.262585_-155.232982",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 4,
     "lat": 20.734241,
     "lon": -156.151596,
     "dist_m": 8198.38,
@@ -189,11 +104,12 @@
      "lat": 20.799133,
      "lon": -156.074494
     },
-    "detail": "detail/us-hi/A-8",
+    "island_km2": 1886.3,
+    "detail": "detail/us-hi/A-20.734241_-156.151596",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 5,
     "lat": 19.378548,
     "lon": -155.091927,
     "dist_m": 8060.23,
@@ -211,61 +127,232 @@
      "lat": 19.338155,
      "lon": -155.009633
     },
-    "detail": "detail/us-hi/A-9",
+    "island_km2": null,
+    "detail": "detail/us-hi/A-19.378548_-155.091927",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 19.288895,
-    "lon": -155.680966,
-    "dist_m": 7916.35,
+    "rank": 6,
+    "lat": 21.166081,
+    "lon": -156.840465,
+    "dist_m": 7667.01,
     "nearest_way": {
-     "id": 45693934,
+     "id": 733612316,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Komakawai",
+     "name": "Hālawa",
      "type": "hamlet",
-     "dist_m": 15659.4,
-     "lat": 19.397778,
-     "lon": -155.776111
+     "dist_m": 10537.9,
+     "lat": 21.156681,
+     "lon": -156.739497
     },
-    "detail": "detail/us-hi/A-10",
+    "island_km2": 676.0,
+    "detail": "detail/us-hi/A-21.166081_-156.840465",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 22.10448,
+    "lon": -159.52077,
+    "dist_m": 7181.47,
+    "nearest_way": {
+     "id": 471300169,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hanalei",
+     "type": "town",
+     "dist_m": 11211.1,
+     "lat": 22.202994,
+     "lon": -159.495695
+    },
+    "island_km2": 1442.7,
+    "detail": "detail/us-hi/A-22.104480_-159.520770",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 18.979371,
+    "lon": -155.760975,
+    "dist_m": 6028.83,
+    "nearest_way": {
+     "id": 442095239,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kaʻilikiʻi",
+     "type": "hamlet",
+     "dist_m": 6408.8,
+     "lat": 18.954176,
+     "lon": -155.706184
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/A-18.979371_-155.760975",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 19.672876,
+    "lon": -155.61211,
+    "dist_m": 5741.07,
+    "nearest_way": {
+     "id": 219734640,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kaukahōkū",
+     "type": "isolated_dwelling",
+     "dist_m": 28322.3,
+     "lat": 19.575833,
+     "lon": -155.861944
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/A-19.672876_-155.612110",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 19.211713,
+    "lon": -155.567556,
+    "dist_m": 5726.03,
+    "nearest_way": {
+     "id": 45660263,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pahala",
+     "type": "village",
+     "dist_m": 9541.9,
+     "lat": 19.202444,
+     "lon": -155.477346
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/A-19.211713_-155.567556",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 20.512075,
+    "lon": -156.544738,
+    "dist_m": 5580.06,
+    "nearest_way": {
+     "id": 766128645,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kanahena",
+     "type": "hamlet",
+     "dist_m": 16247.9,
+     "lat": 20.618603,
+     "lon": -156.437554
+    },
+    "island_km2": 115.1,
+    "detail": "detail/us-hi/A-20.512075_-156.544738",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 19.894648,
+    "lon": -155.597187,
+    "dist_m": 5351.54,
+    "nearest_way": {
+     "id": 45708958,
+     "highway": "track",
+     "name": "Fire Road 11",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hanaipoe",
+     "type": "hamlet",
+     "dist_m": 15383.2,
+     "lat": 19.948333,
+     "lon": -155.461667
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/A-19.894648_-155.597187",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 20.107249,
+    "lon": -155.69908,
+    "dist_m": 5291.46,
+    "nearest_way": {
+     "id": 45700226,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Waimea",
+     "type": "town",
+     "dist_m": 9993.2,
+     "lat": 20.021702,
+     "lon": -155.668588
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/A-20.107249_-155.699080",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 19.152219,
+    "lon": -155.446398,
+    "dist_m": 5183.17,
+    "nearest_way": {
+     "id": 1030753949,
+     "highway": "primary",
+     "name": "Mamalahoa Highway",
+     "ref": "HI 11",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pahala",
+     "type": "village",
+     "dist_m": 6442.4,
+     "lat": 19.202444,
+     "lon": -155.477346
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/A-19.152219_-155.446398",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 11115.8,
+  "lat": 19.392897,
+  "lon": -155.637794,
+  "rank": 31,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 21.650658,
-    "lon": -160.543841,
-    "dist_m": 41980.46,
-    "nearest_way": {
-     "id": 547787623,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Kiekie",
-     "type": "isolated_dwelling",
-     "dist_m": 42287.9,
-     "lat": 21.885503,
-     "lon": -160.221419
-    },
-    "detail": "detail/us-hi/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 19.360973,
     "lon": -155.66641,
     "dist_m": 21323.39,
@@ -283,121 +370,12 @@
      "lat": 19.397778,
      "lon": -155.776111
     },
-    "detail": "detail/us-hi/B-2",
+    "island_km2": null,
+    "detail": "detail/us-hi/B-19.360973_-155.666410",
     "warnings": []
    },
    {
-    "rank": 3,
-    "lat": 19.394858,
-    "lon": -155.558912,
-    "dist_m": 15448.62,
-    "nearest_way": {
-     "id": 807317283,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Komakawai",
-     "type": "hamlet",
-     "dist_m": 22816.9,
-     "lat": 19.397778,
-     "lon": -155.776111
-    },
-    "detail": "detail/us-hi/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 19.264641,
-    "lon": -155.646247,
-    "dist_m": 15096.93,
-    "nearest_way": {
-     "id": 45660263,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Pahala",
-     "type": "village",
-     "dist_m": 19046.9,
-     "lat": 19.202444,
-     "lon": -155.477346
-    },
-    "detail": "detail/us-hi/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 19.455093,
-    "lon": -155.693248,
-    "dist_m": 15054.76,
-    "nearest_way": {
-     "id": 1132082443,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Kaunēnē",
-     "type": "hamlet",
-     "dist_m": 9817.5,
-     "lat": 19.421389,
-     "lon": -155.779722
-    },
-    "detail": "detail/us-hi/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 19.277726,
-    "lon": -155.750334,
-    "dist_m": 12468.47,
-    "nearest_way": {
-     "id": 45687720,
-     "highway": "residential",
-     "name": "Kaohe Street",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Komakawai",
-     "type": "hamlet",
-     "dist_m": 13562.5,
-     "lat": 19.397778,
-     "lon": -155.776111
-    },
-    "detail": "detail/us-hi/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 19.65156,
-    "lon": -155.795925,
-    "dist_m": 12246.63,
-    "nearest_way": {
-     "id": 45716054,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Kaukahōkū",
-     "type": "isolated_dwelling",
-     "dist_m": 10873.6,
-     "lat": 19.575833,
-     "lon": -155.861944
-    },
-    "detail": "detail/us-hi/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 2,
     "lat": 21.779067,
     "lon": -160.203234,
     "dist_m": 11663.77,
@@ -411,15 +389,16 @@
     "nearest_place": {
      "name": "Kiekie",
      "type": "isolated_dwelling",
-     "dist_m": 11934.4,
+     "dist_m": 11934.5,
      "lat": 21.885503,
      "lon": -160.221419
     },
-    "detail": "detail/us-hi/B-8",
+    "island_km2": 184.1,
+    "detail": "detail/us-hi/B-21.779067_-160.203234",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 3,
     "lat": 21.166521,
     "lon": -156.844093,
     "dist_m": 10506.24,
@@ -437,11 +416,12 @@
      "lat": 21.177381,
      "lon": -156.948379
     },
-    "detail": "detail/us-hi/B-9",
+    "island_km2": 676.0,
+    "detail": "detail/us-hi/B-21.166521_-156.844093",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 4,
     "lat": 19.211033,
     "lon": -155.352344,
     "dist_m": 10501.79,
@@ -459,11 +439,295 @@
      "lat": 19.202444,
      "lon": -155.477346
     },
-    "detail": "detail/us-hi/B-10",
+    "island_km2": null,
+    "detail": "detail/us-hi/B-19.211033_-155.352344",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 22.029154,
+    "lon": -159.562202,
+    "dist_m": 10110.76,
+    "nearest_way": {
+     "id": 45802714,
+     "highway": "secondary",
+     "name": "Kōkeʻe Road",
+     "ref": "HI 550",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kaawanui Village",
+     "type": "hamlet",
+     "dist_m": 11824.5,
+     "lat": 21.942781,
+     "lon": -159.629531
+    },
+    "island_km2": 1442.7,
+    "detail": "detail/us-hi/B-22.029154_-159.562202",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 19.875825,
+    "lon": -155.553921,
+    "dist_m": 9717.49,
+    "nearest_way": {
+     "id": 45623021,
+     "highway": "service",
+     "name": "Emergency Access Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hanaipoe",
+     "type": "hamlet",
+     "dist_m": 12559.3,
+     "lat": 19.948333,
+     "lon": -155.461667
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/B-19.875825_-155.553921",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 20.723591,
+    "lon": -156.13988,
+    "dist_m": 9621.46,
+    "nearest_way": {
+     "id": 261636390,
+     "highway": "tertiary",
+     "name": "Piilani Highway",
+     "ref": "HI-31",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pukaʻauhuhu",
+     "type": "hamlet",
+     "dist_m": 9837.2,
+     "lat": 20.635278,
+     "lon": -156.150277
+    },
+    "island_km2": 1886.3,
+    "detail": "detail/us-hi/B-20.723591_-156.139880",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 19.819254,
+    "lon": -155.240845,
+    "dist_m": 9569.27,
+    "nearest_way": {
+     "id": 917136640,
+     "highway": "service",
+     "name": "Kaiwiki Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pua‘ākala",
+     "type": "hamlet",
+     "dist_m": 10355.5,
+     "lat": 19.79,
+     "lon": -155.334722
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/B-19.819254_-155.240845",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 20.132264,
+    "lon": -155.68661,
+    "dist_m": 9323.89,
+    "nearest_way": {
+     "id": 45642153,
+     "highway": "tertiary",
+     "name": "Akoni Pule Highway",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Waipio",
+     "type": "hamlet",
+     "dist_m": 9495.0,
+     "lat": 20.111111,
+     "lon": -155.598611
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/B-20.132264_-155.686610",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 19.078402,
+    "lon": -155.906038,
+    "dist_m": 8757.67,
+    "nearest_way": {
+     "id": 442095250,
+     "highway": "primary",
+     "name": "Mamalahoa Highway",
+     "ref": "HI 11",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Miloli‘i",
+     "type": "village",
+     "dist_m": 11964.2,
+     "lat": 19.186482,
+     "lon": -155.905032
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/B-19.078402_-155.906038",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 19.379243,
+    "lon": -155.085892,
+    "dist_m": 8448.54,
+    "nearest_way": {
+     "id": 45698208,
+     "highway": "living_street",
+     "name": "Lelehuna Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kapaahu",
+     "type": "isolated_dwelling",
+     "dist_m": 9213.0,
+     "lat": 19.338155,
+     "lon": -155.009633
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/B-19.379243_-155.085892",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 19.262585,
+    "lon": -155.232982,
+    "dist_m": 8355.78,
+    "nearest_way": {
+     "id": 45620415,
+     "highway": "tertiary",
+     "name": "Chain of Craters Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Volcano",
+     "type": "town",
+     "dist_m": 18506.8,
+     "lat": 19.429768,
+     "lon": -155.233984
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/B-19.262585_-155.232982",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 18.970671,
+    "lon": -155.598861,
+    "dist_m": 7188.26,
+    "nearest_way": {
+     "id": 215962065,
+     "highway": "service",
+     "name": "South Point Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kamaoa Homesteads",
+     "type": "hamlet",
+     "dist_m": 8727.7,
+     "lat": 19.020293,
+     "lon": -155.663276
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/B-18.970671_-155.598861",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 20.859135,
+    "lon": -156.832187,
+    "dist_m": 7083.64,
+    "nearest_way": {
+     "id": 1206232707,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Halepalaoa Landing",
+     "type": "hamlet",
+     "dist_m": 3983.4,
+     "lat": 20.828983,
+     "lon": -156.811306
+    },
+    "island_km2": 366.2,
+    "detail": "detail/us-hi/B-20.859135_-156.832187",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 20.890001,
+    "lon": -157.061536,
+    "dist_m": 6950.14,
+    "nearest_way": {
+     "id": 44477254,
+     "highway": "unclassified",
+     "name": "Awalua Highway",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kaumalapau",
+     "type": "hamlet",
+     "dist_m": 13627.3,
+     "lat": 20.787198,
+     "lon": -156.989536
+    },
+    "island_km2": 366.2,
+    "detail": "detail/us-hi/B-20.890001_-157.061536",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 18.975321,
+    "lon": -155.753051,
+    "dist_m": 6676.23,
+    "nearest_way": {
+     "id": 215962075,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kaʻilikiʻi",
+     "type": "hamlet",
+     "dist_m": 5462.6,
+     "lat": 18.954176,
+     "lon": -155.706184
+    },
+    "island_km2": null,
+    "detail": "detail/us-hi/B-18.975321_-155.753051",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 21323.39,
+  "lat": 19.360973,
+  "lon": -155.66641,
+  "rank": 25,
+  "withheld": 0
  }
 }

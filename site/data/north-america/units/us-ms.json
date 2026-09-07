@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 30.231456,
-    "lon": -88.895305,
-    "dist_m": 17736.59,
-    "nearest_way": {
-     "id": 13593800,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Biloxi",
-     "type": "city",
-     "dist_m": 18777.6,
-     "lat": 30.400763,
-     "lon": -88.889382
-    },
-    "detail": "detail/us-ms/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 30.206361,
     "lon": -88.414782,
     "dist_m": 13985.1,
@@ -57,33 +35,35 @@
      "lat": 30.346589,
      "lon": -88.532237
     },
-    "detail": "detail/us-ms/A-2",
+    "island_km2": 4.0,
+    "detail": "detail/us-ms/A-30.206361_-88.414782",
     "warnings": []
    },
    {
-    "rank": 3,
-    "lat": 30.220156,
-    "lon": -88.522439,
-    "dist_m": 11300.64,
+    "rank": 2,
+    "lat": 30.218252,
+    "lon": -88.941406,
+    "dist_m": 13277.22,
     "nearest_way": {
-     "id": 704761645,
-     "highway": "service",
+     "id": 13592902,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "South Pascagoula",
+     "name": "Edgewater Park",
      "type": "hamlet",
-     "dist_m": 14047.7,
-     "lat": 30.346589,
-     "lon": -88.532237
+     "dist_m": 19919.4,
+     "lat": 30.393532,
+     "lon": -88.986978
     },
-    "detail": "detail/us-ms/A-3",
+    "island_km2": 1.8,
+    "detail": "detail/us-ms/A-30.218252_-88.941406",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 30.242113,
     "lon": -88.778465,
     "dist_m": 10305.84,
@@ -101,14 +81,38 @@
      "lat": 30.39361,
      "lon": -88.721707
     },
-    "detail": "detail/us-ms/A-4",
+    "island_km2": 13.0,
+    "detail": "detail/us-ms/A-30.242113_-88.778465",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 30.227049,
+    "lon": -88.580741,
+    "dist_m": 8414.56,
+    "nearest_way": {
+     "id": 251208525,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "East Pascagoula",
+     "type": "hamlet",
+     "dist_m": 13564.4,
+     "lat": 30.345478,
+     "lon": -88.545293
+    },
+    "island_km2": 13.0,
+    "detail": "detail/us-ms/A-30.227049_-88.580741",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 30.350688,
-    "lon": -88.394177,
-    "dist_m": 5763.03,
+    "lat": 30.352584,
+    "lon": -88.397915,
+    "dist_m": 5355.99,
     "nearest_way": {
      "id": 13634497,
      "highway": "residential",
@@ -119,11 +123,12 @@
     "nearest_place": {
      "name": "Orange Grove",
      "type": "hamlet",
-     "dist_m": 9934.8,
+     "dist_m": 9547.6,
      "lat": 30.420755,
      "lon": -88.458624
     },
-    "detail": "detail/us-ms/A-5",
+    "island_km2": null,
+    "detail": "detail/us-ms/A-30.352584_-88.397915",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 30.225197,
      "lon": -89.483662
     },
-    "detail": "detail/us-ms/A-6",
+    "island_km2": null,
+    "detail": "detail/us-ms/A-30.175404_-89.461878",
     "warnings": []
    },
    {
@@ -167,33 +173,12 @@
      "lat": 34.029549,
      "lon": -91.073167
     },
-    "detail": "detail/us-ms/A-7",
+    "island_km2": null,
+    "detail": "detail/us-ms/A-33.981722_-91.050190",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 30.225896,
-    "lon": -88.628888,
-    "dist_m": 3900.11,
-    "nearest_way": {
-     "id": 251208525,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "East Pascagoula",
-     "type": "hamlet",
-     "dist_m": 15505.4,
-     "lat": 30.345478,
-     "lon": -88.545293
-    },
-    "detail": "detail/us-ms/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
     "lat": 30.364745,
     "lon": -88.830255,
     "dist_m": 3857.52,
@@ -211,11 +196,12 @@
      "lat": 30.41129,
      "lon": -88.827917
     },
-    "detail": "detail/us-ms/A-9",
+    "island_km2": null,
+    "detail": "detail/us-ms/A-30.364745_-88.830255",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 32.820107,
     "lon": -90.545347,
     "dist_m": 3499.52,
@@ -233,12 +219,158 @@
      "lat": 32.755134,
      "lon": -90.562317
     },
-    "detail": "detail/us-ms/A-10",
+    "island_km2": null,
+    "detail": "detail/us-ms/A-32.820107_-90.545347",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 30.229957,
+    "lon": -89.151606,
+    "dist_m": 3347.35,
+    "nearest_way": {
+     "id": 13592906,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "White Harbor",
+     "type": "hamlet",
+     "dist_m": 12322.4,
+     "lat": 30.330753,
+     "lon": -89.205597
+    },
+    "island_km2": 7.8,
+    "detail": "detail/us-ms/A-30.229957_-89.151606",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 31.957313,
+    "lon": -91.160947,
+    "dist_m": 3181.99,
+    "nearest_way": {
+     "id": 13493261,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bruinsburg",
+     "type": "hamlet",
+     "dist_m": 1690.7,
+     "lat": 31.942381,
+     "lon": -91.157332
+    },
+    "island_km2": null,
+    "detail": "detail/us-ms/A-31.957313_-91.160947",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 30.476806,
+    "lon": -88.594961,
+    "dist_m": 3135.81,
+    "nearest_way": {
+     "id": 13622845,
+     "highway": "residential",
+     "name": "Powells Point Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Poticaw Landing",
+     "type": "hamlet",
+     "dist_m": 4515.7,
+     "lat": 30.511865,
+     "lon": -88.618909
+    },
+    "island_km2": null,
+    "detail": "detail/us-ms/A-30.476806_-88.594961",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 30.663808,
+    "lon": -89.831176,
+    "dist_m": 3116.72,
+    "nearest_way": {
+     "id": 13696988,
+     "highway": "residential",
+     "name": "Luther Wise Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sun",
+     "type": "village",
+     "dist_m": 6062.3,
+     "lat": 30.649565,
+     "lon": -89.892244
+    },
+    "island_km2": null,
+    "detail": "detail/us-ms/A-30.663808_-89.831176",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 30.720117,
+    "lon": -88.674547,
+    "dist_m": 3104.98,
+    "nearest_way": {
+     "id": 13630745,
+     "highway": "residential",
+     "name": "Red Bluff Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Holly Landing",
+     "type": "hamlet",
+     "dist_m": 3552.1,
+     "lat": 30.714913,
+     "lon": -88.711139
+    },
+    "island_km2": null,
+    "detail": "detail/us-ms/A-30.720117_-88.674547",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 34.315223,
+    "lon": -90.583117,
+    "dist_m": 3018.67,
+    "nearest_way": {
+     "id": 13576711,
+     "highway": "tertiary",
+     "name": "Friars Point Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "King and Anderson",
+     "type": "hamlet",
+     "dist_m": 3012.5,
+     "lat": 34.295107,
+     "lon": -90.605102
+    },
+    "island_km2": null,
+    "detail": "detail/us-ms/A-34.315223_-90.583117",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 5355.99,
+  "lat": 30.352584,
+  "lon": -88.397915,
+  "rank": 44,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,11 +389,12 @@
     "nearest_place": {
      "name": "Edgewater Park",
      "type": "hamlet",
-     "dist_m": 20716.9,
+     "dist_m": 20717.0,
      "lat": 30.393532,
      "lon": -88.986978
     },
-    "detail": "detail/us-ms/B-1",
+    "island_km2": 1.8,
+    "detail": "detail/us-ms/B-30.207747_-88.963701",
     "warnings": []
    },
    {
@@ -283,7 +416,8 @@
      "lat": 30.350475,
      "lon": -89.152818
     },
-    "detail": "detail/us-ms/B-2",
+    "island_km2": 7.8,
+    "detail": "detail/us-ms/B-30.205327_-89.094918",
     "warnings": []
    },
    {
@@ -305,7 +439,8 @@
      "lat": 30.346589,
      "lon": -88.532237
     },
-    "detail": "detail/us-ms/B-3",
+    "island_km2": 4.0,
+    "detail": "detail/us-ms/B-30.206361_-88.414782",
     "warnings": []
    },
    {
@@ -327,55 +462,12 @@
      "lat": 30.345478,
      "lon": -88.545293
     },
-    "detail": "detail/us-ms/B-4",
+    "island_km2": 13.0,
+    "detail": "detail/us-ms/B-30.228501_-88.652393",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 30.241196,
-    "lon": -88.776715,
-    "dist_m": 12135.4,
-    "nearest_way": {
-     "id": 13631915,
-     "highway": "residential",
-     "name": "Belle Fountain Drive",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Fountainebleau",
-     "type": "hamlet",
-     "dist_m": 17705.3,
-     "lat": 30.39361,
-     "lon": -88.721707
-    },
-    "detail": "detail/us-ms/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 30.220156,
-    "lon": -88.522439,
-    "dist_m": 11300.64,
-    "nearest_way": {
-     "id": 704761645,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "South Pascagoula",
-     "type": "hamlet",
-     "dist_m": 14047.7,
-     "lat": 30.346589,
-     "lon": -88.532237
-    },
-    "detail": "detail/us-ms/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 31.00574,
     "lon": -88.890676,
     "dist_m": 6823.16,
@@ -393,33 +485,12 @@
      "lat": 31.076296,
      "lon": -88.856151
     },
-    "detail": "detail/us-ms/B-7",
+    "island_km2": null,
+    "detail": "detail/us-ms/B-31.005740_-88.890676",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 30.350688,
-    "lon": -88.394177,
-    "dist_m": 5763.03,
-    "nearest_way": {
-     "id": 13634497,
-     "highway": "residential",
-     "name": "Grand Bature Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Orange Grove",
-     "type": "hamlet",
-     "dist_m": 9934.8,
-     "lat": 30.420755,
-     "lon": -88.458624
-    },
-    "detail": "detail/us-ms/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 6,
     "lat": 32.625513,
     "lon": -91.106652,
     "dist_m": 5556.59,
@@ -433,15 +504,39 @@
     "nearest_place": {
      "name": "Magna Vista",
      "type": "hamlet",
-     "dist_m": 5555.6,
+     "dist_m": 5555.5,
      "lat": 32.65819,
      "lon": -91.061774
     },
-    "detail": "detail/us-ms/B-9",
+    "island_km2": null,
+    "detail": "detail/us-ms/B-32.625513_-91.106652",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 7,
+    "lat": 30.352584,
+    "lon": -88.397915,
+    "dist_m": 5355.99,
+    "nearest_way": {
+     "id": 13634497,
+     "highway": "residential",
+     "name": "Grand Bature Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Orange Grove",
+     "type": "hamlet",
+     "dist_m": 9547.6,
+     "lat": 30.420755,
+     "lon": -88.458624
+    },
+    "island_km2": null,
+    "detail": "detail/us-ms/B-30.352584_-88.397915",
+    "warnings": []
+   },
+   {
+    "rank": 8,
     "lat": 33.981974,
     "lon": -91.064428,
     "dist_m": 5258.71,
@@ -459,11 +554,157 @@
      "lat": 34.029549,
      "lon": -91.073167
     },
-    "detail": "detail/us-ms/B-10",
+    "island_km2": null,
+    "detail": "detail/us-ms/B-33.981974_-91.064428",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 32.171918,
+    "lon": -91.080399,
+    "dist_m": 5198.6,
+    "nearest_way": {
+     "id": 13979404,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hurricane",
+     "type": "hamlet",
+     "dist_m": 6416.7,
+     "lat": 32.166818,
+     "lon": -91.148166
+    },
+    "island_km2": null,
+    "detail": "detail/us-ms/B-32.171918_-91.080399",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 30.175404,
+    "lon": -89.461878,
+    "dist_m": 5186.21,
+    "nearest_way": {
+     "id": 13598214,
+     "highway": "residential",
+     "name": "Ansley Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ansley",
+     "type": "hamlet",
+     "dist_m": 5905.0,
+     "lat": 30.225197,
+     "lon": -89.483662
+    },
+    "island_km2": null,
+    "detail": "detail/us-ms/B-30.175404_-89.461878",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 34.225242,
+    "lon": -90.770348,
+    "dist_m": 4954.89,
+    "nearest_way": {
+     "id": 13576391,
+     "highway": "primary",
+     "name": "Mississippi Highway 1",
+     "ref": "MS 1",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Burke Landing",
+     "type": "hamlet",
+     "dist_m": 5277.4,
+     "lat": 34.270383,
+     "lon": -90.788439
+    },
+    "island_km2": null,
+    "detail": "detail/us-ms/B-34.225242_-90.770348",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 32.889905,
+    "lon": -90.757123,
+    "dist_m": 4870.7,
+    "nearest_way": {
+     "id": 13952773,
+     "highway": "residential",
+     "name": "East River Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tisdell Landing",
+     "type": "hamlet",
+     "dist_m": 4707.4,
+     "lat": 32.93235,
+     "lon": -90.756764
+    },
+    "island_km2": null,
+    "detail": "detail/us-ms/B-32.889905_-90.757123",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 34.341461,
+    "lon": -90.717868,
+    "dist_m": 4621.14,
+    "nearest_way": {
+     "id": 13577806,
+     "highway": "residential",
+     "name": "Old River Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Modoc",
+     "type": "hamlet",
+     "dist_m": 5708.9,
+     "lat": 34.335937,
+     "lon": -90.779552
+    },
+    "island_km2": null,
+    "detail": "detail/us-ms/B-34.341461_-90.717868",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 33.747419,
+    "lon": -91.093447,
+    "dist_m": 4597.96,
+    "nearest_way": {
+     "id": 13563135,
+     "highway": "residential",
+     "name": "Pearson Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Niblett Landing",
+     "type": "hamlet",
+     "dist_m": 7114.0,
+     "lat": 33.703167,
+     "lon": -91.037886
+    },
+    "island_km2": null,
+    "detail": "detail/us-ms/B-33.747419_-91.093447",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 6823.16,
+  "lat": 31.00574,
+  "lon": -88.890676,
+  "rank": 44,
+  "withheld": 0
  }
 }

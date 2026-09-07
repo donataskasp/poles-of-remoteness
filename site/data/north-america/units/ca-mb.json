@@ -35,210 +35,296 @@
      "lat": 58.769268,
      "lon": -94.172952
     },
-    "detail": "detail/ca-mb/A-1",
+    "island_km2": null,
+    "detail": "detail/ca-mb/A-57.809372_-95.987378",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 58.158956,
-    "lon": -96.387559,
-    "dist_m": 136521.31,
+    "lat": 54.87838,
+    "lon": -92.05902,
+    "dist_m": 107192.26,
     "nearest_way": {
-     "id": 504121103,
-     "highway": "residential",
+     "id": 329257421,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Tadoule Lake",
-     "type": "town",
-     "dist_m": 137535.6,
-     "lat": 58.719496,
-     "lon": -98.485876
+     "name": "Ponask Lake",
+     "type": "hamlet",
+     "dist_m": 106347.7,
+     "lat": 53.959263,
+     "lon": -92.506208
     },
-    "detail": "detail/ca-mb/A-2",
+    "island_km2": null,
+    "detail": "detail/ca-mb/A-54.878380_-92.059020",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 57.887194,
-    "lon": -96.074642,
-    "dist_m": 136048.51,
+    "lat": 55.430844,
+    "lon": -100.27933,
+    "dist_m": 60784.02,
     "nearest_way": {
-     "id": 162790943,
-     "highway": "unclassified",
+     "id": 1424180431,
+     "highway": "tertiary",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Churchill",
-     "type": "town",
-     "dist_m": 148541.2,
-     "lat": 58.769268,
-     "lon": -94.172952
+     "name": "Sherridon",
+     "type": "village",
+     "dist_m": 61923.9,
+     "lat": 55.116667,
+     "lon": -101.083333
     },
-    "detail": "detail/ca-mb/A-3",
+    "island_km2": null,
+    "detail": "detail/ca-mb/A-55.430844_-100.279330",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 58.0818,
-    "lon": -96.298224,
-    "dist_m": 135449.93,
+    "lat": 54.257913,
+    "lon": -95.558963,
+    "dist_m": 51885.21,
     "nearest_way": {
-     "id": 162790943,
-     "highway": "unclassified",
-     "name": null,
+     "id": 517108774,
+     "highway": "track",
+     "name": "Norway House to Island Lake Winter Road",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Churchill",
-     "type": "town",
-     "dist_m": 145880.2,
-     "lat": 58.769268,
-     "lon": -94.172952
+     "name": "Bolton Lake Lodge",
+     "type": "hamlet",
+     "dist_m": 14377.7,
+     "lat": 54.221591,
+     "lon": -95.770587
     },
-    "detail": "detail/ca-mb/A-4",
+    "island_km2": null,
+    "detail": "detail/ca-mb/A-54.257913_-95.558963",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 57.964555,
-    "lon": -96.163225,
-    "dist_m": 135243.63,
+    "lat": 55.992127,
+    "lon": -102.003998,
+    "dist_m": 50518.8,
     "nearest_way": {
-     "id": 162790943,
+     "id": 326057285,
      "highway": "unclassified",
-     "name": null,
+     "name": "Laurie River Access Road",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Churchill",
-     "type": "town",
-     "dist_m": 146967.8,
-     "lat": 58.769268,
-     "lon": -94.172952
+     "name": "Pukatawagan",
+     "type": "village",
+     "dist_m": 51152.9,
+     "lat": 55.747985,
+     "lon": -101.311798
     },
-    "detail": "detail/ca-mb/A-5",
+    "island_km2": null,
+    "detail": "detail/ca-mb/A-55.992127_-102.003998",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 57.767682,
-    "lon": -95.837243,
-    "dist_m": 134406.52,
+    "lat": 52.445645,
+    "lon": -97.938868,
+    "dist_m": 46378.26,
     "nearest_way": {
-     "id": 162790943,
-     "highway": "unclassified",
+     "id": 414519014,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Churchill",
-     "type": "town",
-     "dist_m": 148268.3,
-     "lat": 58.769268,
-     "lon": -94.172952
+     "name": "Lynx Harbour",
+     "type": "hamlet",
+     "dist_m": 42627.1,
+     "lat": 52.119291,
+     "lon": -97.611756
     },
-    "detail": "detail/ca-mb/A-6",
+    "island_km2": 160.7,
+    "detail": "detail/ca-mb/A-52.445645_-97.938868",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 58.249899,
-    "lon": -96.381298,
-    "dist_m": 132492.22,
+    "lat": 53.036484,
+    "lon": -96.517485,
+    "dist_m": 46148.4,
     "nearest_way": {
-     "id": 162790943,
-     "highway": "unclassified",
-     "name": null,
+     "id": 323431975,
+     "highway": "track",
+     "name": "Winter Road",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Tadoule Lake",
-     "type": "town",
-     "dist_m": 133435.0,
-     "lat": 58.719496,
-     "lon": -98.485876
+     "name": "Poplar River",
+     "type": "village",
+     "dist_m": 51154.9,
+     "lat": 52.995106,
+     "lon": -97.276618
     },
-    "detail": "detail/ca-mb/A-7",
+    "island_km2": null,
+    "detail": "detail/ca-mb/A-53.036484_-96.517485",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 57.739763,
-    "lon": -95.676685,
-    "dist_m": 130303.0,
+    "lat": 53.844165,
+    "lon": -98.608388,
+    "dist_m": 41317.97,
     "nearest_way": {
-     "id": 162790943,
-     "highway": "unclassified",
-     "name": null,
+     "id": 626270782,
+     "highway": "track",
+     "name": "(Winter road)",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Churchill",
-     "type": "town",
-     "dist_m": 144711.7,
-     "lat": 58.769268,
-     "lon": -94.172952
+     "name": "Evans Point",
+     "type": "hamlet",
+     "dist_m": 50274.8,
+     "lat": 53.724272,
+     "lon": -97.873013
     },
-    "detail": "detail/ca-mb/A-8",
+    "island_km2": null,
+    "detail": "detail/ca-mb/A-53.844165_-98.608388",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 57.649934,
-    "lon": -92.610231,
-    "dist_m": 128902.12,
+    "lat": 52.470119,
+    "lon": -99.847036,
+    "dist_m": 37864.28,
     "nearest_way": {
-     "id": 493430791,
+     "id": 569328166,
      "highway": "unclassified",
-     "name": null,
-     "ref": null,
+     "name": "Provincial Road 272",
+     "ref": "PR 272",
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Fort Churchill",
+     "name": "Duck Bay",
      "type": "village",
-     "dist_m": 150657.8,
-     "lat": 58.756444,
-     "lon": -94.084199
+     "dist_m": 38962.5,
+     "lat": 52.174158,
+     "lon": -100.152405
     },
-    "detail": "detail/ca-mb/A-9",
+    "island_km2": 170.8,
+    "detail": "detail/ca-mb/A-52.470119_-99.847036",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 57.7382,
-    "lon": -96.094688,
-    "dist_m": 128881.53,
+    "lat": 59.99944,
+    "lon": -99.772174,
+    "dist_m": 36667.96,
     "nearest_way": {
-     "id": 54661048,
-     "highway": "unclassified",
+     "id": 545809358,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Churchill",
+     "name": "Caribou",
      "type": "town",
-     "dist_m": 160984.9,
-     "lat": 58.769268,
-     "lon": -94.172952
+     "dist_m": 132003.7,
+     "lat": 59.412567,
+     "lon": -97.734958
     },
-    "detail": "detail/ca-mb/A-10",
+    "island_km2": 8.4,
+    "detail": "detail/ca-mb/A-59.999440_-99.772174",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 52.530518,
+    "lon": -100.010485,
+    "dist_m": 35176.04,
+    "nearest_way": {
+     "id": 396683240,
+     "highway": "tertiary",
+     "name": "Nidhogg Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Duck Bay",
+     "type": "village",
+     "dist_m": 40815.7,
+     "lat": 52.174158,
+     "lon": -100.152405
+    },
+    "island_km2": null,
+    "detail": "detail/ca-mb/A-52.530518_-100.010485",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 53.45016,
+    "lon": -100.00066,
+    "dist_m": 34745.43,
+    "nearest_way": {
+     "id": 1059943397,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Mosakahiken",
+     "type": "town",
+     "dist_m": 35268.2,
+     "lat": 53.704268,
+     "lon": -100.318775
+    },
+    "island_km2": null,
+    "detail": "detail/ca-mb/A-53.450160_-100.000660",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 52.305092,
+    "lon": -98.23217,
+    "dist_m": 33640.07,
+    "nearest_way": {
+     "id": 414519014,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Dauphin River",
+     "type": "village",
+     "dist_m": 39734.7,
+     "lat": 51.963349,
+     "lon": -98.063814
+    },
+    "island_km2": null,
+    "detail": "detail/ca-mb/A-52.305092_-98.232170",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 137600.69,
+  "lat": 57.809372,
+  "lon": -95.987378,
+  "rank": 7,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,209 +347,364 @@
      "lat": 57.036171,
      "lon": -90.103662
     },
-    "detail": "detail/ca-mb/B-1",
+    "island_km2": null,
+    "detail": "detail/ca-mb/B-57.265601_-90.886832",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 57.25885,
-    "lon": -91.064495,
-    "dist_m": 160109.81,
+    "lat": 59.99944,
+    "lon": -99.772174,
+    "dist_m": 114175.36,
     "nearest_way": {
-     "id": 976249300,
-     "highway": "unclassified",
-     "name": "Fort Severn to Shamattawa Winter road",
+     "id": 1189247006,
+     "highway": "service",
+     "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Kaska Goose Lodge",
-     "type": "isolated_dwelling",
-     "dist_m": 63225.9,
-     "lat": 57.036171,
-     "lon": -90.103662
+     "name": "Caribou",
+     "type": "town",
+     "dist_m": 132003.7,
+     "lat": 59.412567,
+     "lon": -97.734958
     },
-    "detail": "detail/ca-mb/B-2",
+    "island_km2": 8.4,
+    "detail": "detail/ca-mb/B-59.999440_-99.772174",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 57.239138,
-    "lon": -90.644607,
-    "dist_m": 158170.01,
+    "lat": 59.991917,
+    "lon": -99.968315,
+    "dist_m": 112770.45,
     "nearest_way": {
-     "id": 976249300,
-     "highway": "unclassified",
-     "name": "Fort Severn to Shamattawa Winter road",
+     "id": 1189247006,
+     "highway": "service",
+     "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Kaska Goose Lodge",
-     "type": "isolated_dwelling",
-     "dist_m": 39794.9,
-     "lat": 57.036171,
-     "lon": -90.103662
+     "name": "Ennadai",
+     "type": "hamlet",
+     "dist_m": 136601.3,
+     "lat": 61.131833,
+     "lon": -100.885131
     },
-    "detail": "detail/ca-mb/B-3",
+    "island_km2": 7.3,
+    "detail": "detail/ca-mb/B-59.991917_-99.968315",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 57.233243,
-    "lon": -91.225103,
-    "dist_m": 156725.0,
+    "lat": 54.871531,
+    "lon": -92.333079,
+    "dist_m": 109710.26,
     "nearest_way": {
-     "id": 1418375203,
+     "id": 329277549,
      "highway": "unclassified",
-     "name": "Fort Severn to Shamattawa Winter road",
+     "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Kaska Goose Lodge",
-     "type": "isolated_dwelling",
-     "dist_m": 71363.3,
-     "lat": 57.036171,
-     "lon": -90.103662
+     "name": "Ponask Lake",
+     "type": "hamlet",
+     "dist_m": 102167.1,
+     "lat": 53.959263,
+     "lon": -92.506208
     },
-    "detail": "detail/ca-mb/B-4",
+    "island_km2": null,
+    "detail": "detail/ca-mb/B-54.871531_-92.333079",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 57.199094,
-    "lon": -90.482613,
-    "dist_m": 153573.56,
+    "lat": 59.909069,
+    "lon": -99.693718,
+    "dist_m": 104747.01,
     "nearest_way": {
-     "id": 976249300,
-     "highway": "unclassified",
-     "name": "Fort Severn to Shamattawa Winter road",
+     "id": 1189247006,
+     "highway": "service",
+     "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Kaska Goose Lodge",
-     "type": "isolated_dwelling",
-     "dist_m": 29261.0,
-     "lat": 57.036171,
-     "lon": -90.103662
+     "name": "Caribou",
+     "type": "town",
+     "dist_m": 123489.2,
+     "lat": 59.412567,
+     "lon": -97.734958
     },
-    "detail": "detail/ca-mb/B-5",
+    "island_km2": 2.1,
+    "detail": "detail/ca-mb/B-59.909069_-99.693718",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 57.192523,
-    "lon": -90.789061,
-    "dist_m": 152448.76,
+    "lat": 55.430844,
+    "lon": -100.27933,
+    "dist_m": 60784.02,
     "nearest_way": {
-     "id": 976249300,
-     "highway": "unclassified",
-     "name": "Fort Severn to Shamattawa Winter road",
+     "id": 1424180431,
+     "highway": "tertiary",
+     "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Kaska Goose Lodge",
-     "type": "isolated_dwelling",
-     "dist_m": 45027.8,
-     "lat": 57.036171,
-     "lon": -90.103662
+     "name": "Sherridon",
+     "type": "village",
+     "dist_m": 61923.9,
+     "lat": 55.116667,
+     "lon": -101.083333
     },
-    "detail": "detail/ca-mb/B-6",
+    "island_km2": null,
+    "detail": "detail/ca-mb/B-55.430844_-100.279330",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 57.198824,
-    "lon": -91.382685,
-    "dist_m": 152398.84,
+    "lat": 55.990739,
+    "lon": -102.00401,
+    "dist_m": 50601.81,
     "nearest_way": {
-     "id": 1418375203,
-     "highway": "unclassified",
-     "name": "Fort Severn to Shamattawa Winter road",
+     "id": 327285314,
+     "highway": "residential",
+     "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Kaska Goose Lodge",
-     "type": "isolated_dwelling",
-     "dist_m": 79571.6,
-     "lat": 57.036171,
-     "lon": -90.103662
+     "name": "Pukatawagan",
+     "type": "village",
+     "dist_m": 51072.2,
+     "lat": 55.747985,
+     "lon": -101.311798
     },
-    "detail": "detail/ca-mb/B-7",
+    "island_km2": null,
+    "detail": "detail/ca-mb/B-55.990739_-102.004010",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 57.184055,
-    "lon": -90.967686,
-    "dist_m": 151539.43,
+    "lat": 52.46666,
+    "lon": -97.947107,
+    "dist_m": 48651.14,
     "nearest_way": {
-     "id": 976249300,
-     "highway": "unclassified",
-     "name": "Fort Severn to Shamattawa Winter road",
+     "id": 760238139,
+     "highway": "service",
+     "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Kaska Goose Lodge",
-     "type": "isolated_dwelling",
-     "dist_m": 54882.1,
-     "lat": 57.036171,
-     "lon": -90.103662
+     "name": "Lynx Harbour",
+     "type": "hamlet",
+     "dist_m": 44917.1,
+     "lat": 52.119291,
+     "lon": -97.611756
     },
-    "detail": "detail/ca-mb/B-8",
+    "island_km2": 160.7,
+    "detail": "detail/ca-mb/B-52.466660_-97.947107",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 57.159022,
-    "lon": -91.130142,
-    "dist_m": 148996.09,
+    "lat": 52.524003,
+    "lon": -99.892142,
+    "dist_m": 41678.84,
     "nearest_way": {
-     "id": 1418375203,
+     "id": 569328166,
      "highway": "unclassified",
-     "name": "Fort Severn to Shamattawa Winter road",
-     "ref": null,
+     "name": "Provincial Road 272",
+     "ref": "PR 272",
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Kaska Goose Lodge",
-     "type": "isolated_dwelling",
-     "dist_m": 63703.7,
-     "lat": 57.036171,
-     "lon": -90.103662
+     "name": "Duck Bay",
+     "type": "village",
+     "dist_m": 42778.1,
+     "lat": 52.174158,
+     "lon": -100.152405
     },
-    "detail": "detail/ca-mb/B-9",
+    "island_km2": 170.8,
+    "detail": "detail/ca-mb/B-52.524003_-99.892142",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 57.149665,
-    "lon": -90.342662,
-    "dist_m": 148458.22,
+    "lat": 53.469887,
+    "lon": -99.904453,
+    "dist_m": 37301.96,
     "nearest_way": {
-     "id": 976249300,
-     "highway": "unclassified",
-     "name": "Fort Severn to Shamattawa Winter road",
+     "id": 369701842,
+     "highway": "service",
+     "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Kaska Goose Lodge",
-     "type": "isolated_dwelling",
-     "dist_m": 19226.3,
-     "lat": 57.036171,
-     "lon": -90.103662
+     "name": "Mosakahiken",
+     "type": "town",
+     "dist_m": 37858.9,
+     "lat": 53.704268,
+     "lon": -100.318775
     },
-    "detail": "detail/ca-mb/B-10",
+    "island_km2": null,
+    "detail": "detail/ca-mb/B-53.469887_-99.904453",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 52.50942,
+    "lon": -100.039759,
+    "dist_m": 35219.5,
+    "nearest_way": {
+     "id": 396683240,
+     "highway": "tertiary",
+     "name": "Nidhogg Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Duck Bay",
+     "type": "village",
+     "dist_m": 38087.7,
+     "lat": 52.174158,
+     "lon": -100.152405
+    },
+    "island_km2": null,
+    "detail": "detail/ca-mb/B-52.509420_-100.039759",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 52.305814,
+    "lon": -98.232597,
+    "dist_m": 33713.95,
+    "nearest_way": {
+     "id": 327728851,
+     "highway": "secondary",
+     "name": "Provincial Road 513",
+     "ref": "PR 513",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Dauphin River",
+     "type": "village",
+     "dist_m": 39820.0,
+     "lat": 51.963349,
+     "lon": -98.063814
+    },
+    "island_km2": null,
+    "detail": "detail/ca-mb/B-52.305814_-98.232597",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 57.14417,
+    "lon": -98.613388,
+    "dist_m": 33171.33,
+    "nearest_way": {
+     "id": 54664821,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Leaf Rapids",
+     "type": "town",
+     "dist_m": 114587.8,
+     "lat": 56.461493,
+     "lon": -100.016899
+    },
+    "island_km2": 74.4,
+    "detail": "detail/ca-mb/B-57.144170_-98.613388",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 53.199113,
+    "lon": -101.649319,
+    "dist_m": 31553.57,
+    "nearest_way": {
+     "id": 256117951,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Red Deer Lake",
+     "type": "hamlet",
+     "dist_m": 36207.9,
+     "lat": 52.893728,
+     "lon": -101.463081
+    },
+    "island_km2": null,
+    "detail": "detail/ca-mb/B-53.199113_-101.649319",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 57.502896,
+    "lon": -102.007352,
+    "dist_m": 31368.85,
+    "nearest_way": {
+     "id": 1251243021,
+     "highway": "unclassified",
+     "name": "Brochet Winter Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Brochet",
+     "type": "village",
+     "dist_m": 46613.6,
+     "lat": 57.880827,
+     "lon": -101.671508
+    },
+    "island_km2": null,
+    "detail": "detail/ca-mb/B-57.502896_-102.007352",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 52.415007,
+    "lon": -99.724224,
+    "dist_m": 29557.64,
+    "nearest_way": {
+     "id": 226057487,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Duck Bay",
+     "type": "village",
+     "dist_m": 39643.9,
+     "lat": 52.174158,
+     "lon": -100.152405
+    },
+    "island_km2": null,
+    "detail": "detail/ca-mb/B-52.415007_-99.724224",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 160504.92,
+  "lat": 57.265601,
+  "lon": -90.886832,
+  "rank": 7,
+  "withheld": 0
  }
 }

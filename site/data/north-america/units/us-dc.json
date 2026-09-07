@@ -35,7 +35,8 @@
      "lat": 38.981257,
      "lon": -77.06942
     },
-    "detail": "detail/us-dc/A-1",
+    "island_km2": null,
+    "detail": "detail/us-dc/A-38.975188_-77.047017",
     "warnings": []
    },
    {
@@ -53,11 +54,12 @@
     "nearest_place": {
      "name": "Colmar Manor",
      "type": "village",
-     "dist_m": 3086.6,
+     "dist_m": 3086.7,
      "lat": 38.931503,
      "lon": -76.95026
     },
-    "detail": "detail/us-dc/A-2",
+    "island_km2": null,
+    "detail": "detail/us-dc/A-38.904979_-76.960936",
     "warnings": []
    },
    {
@@ -79,12 +81,20 @@
      "lat": 38.815232,
      "lon": -76.998591
     },
-    "detail": "detail/us-dc/A-3",
+    "island_km2": null,
+    "detail": "detail/us-dc/A-38.809464_-77.018704",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 3 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 3 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "A_mainland": {
+  "dist_m": 500.18,
+  "lat": 38.975188,
+  "lon": -77.047017,
+  "rank": 64,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -107,7 +117,8 @@
      "lat": 38.931503,
      "lon": -76.95026
     },
-    "detail": "detail/us-dc/B-1",
+    "island_km2": null,
+    "detail": "detail/us-dc/B-38.913352_-76.947398",
     "warnings": []
    },
    {
@@ -129,7 +140,8 @@
      "lat": 38.981257,
      "lon": -77.06942
     },
-    "detail": "detail/us-dc/B-2",
+    "island_km2": null,
+    "detail": "detail/us-dc/B-38.975188_-77.047017",
     "warnings": []
    },
    {
@@ -151,11 +163,19 @@
      "lat": 38.80511,
      "lon": -77.047023
     },
-    "detail": "detail/us-dc/B-3",
+    "island_km2": null,
+    "detail": "detail/us-dc/B-38.825043_-77.038667",
     "warnings": []
    }
   ],
   "withheld": 0,
-  "reason": "only 3 pole(s): no further point of the unit is both at least 10 km from the accepted poles and on allowed ground"
+  "reason": "only 3 mainland pole(s): no further point of the unit is a distinct area, at least 10 km from the accepted poles and on allowed ground"
+ },
+ "B_mainland": {
+  "dist_m": 566.36,
+  "lat": 38.913352,
+  "lon": -76.947398,
+  "rank": 64,
+  "withheld": 0
  }
 }

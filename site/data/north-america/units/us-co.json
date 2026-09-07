@@ -35,55 +35,12 @@
      "lat": 37.640554,
      "lon": -107.691451
     },
-    "detail": "detail/us-co/A-1",
+    "island_km2": null,
+    "detail": "detail/us-co/A-37.624876_-107.402847",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 37.607089,
-    "lon": -107.576532,
-    "dist_m": 12345.91,
-    "nearest_way": {
-     "id": 896568927,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Needleton",
-     "type": "hamlet",
-     "dist_m": 10803.6,
-     "lat": 37.640554,
-     "lon": -107.691451
-    },
-    "detail": "detail/us-co/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 37.636987,
-    "lon": -107.195887,
-    "dist_m": 10566.64,
-    "nearest_way": {
-     "id": 311315790,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Spar City",
-     "type": "village",
-     "dist_m": 21490.9,
-     "lat": 37.708557,
-     "lon": -106.969536
-    },
-    "detail": "detail/us-co/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 40.202214,
     "lon": -105.688639,
     "dist_m": 10325.69,
@@ -101,33 +58,12 @@
      "lat": 40.252207,
      "lon": -105.823067
     },
-    "detail": "detail/us-co/A-4",
+    "island_km2": null,
+    "detail": "detail/us-co/A-40.202214_-105.688639",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 37.550541,
-    "lon": -106.954134,
-    "dist_m": 10233.11,
-    "nearest_way": {
-     "id": 702120964,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Spar City",
-     "type": "village",
-     "dist_m": 17590.7,
-     "lat": 37.708557,
-     "lon": -106.969536
-    },
-    "detail": "detail/us-co/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 3,
     "lat": 39.940077,
     "lon": -107.343545,
     "dist_m": 10226.37,
@@ -145,11 +81,12 @@
      "lat": 39.741548,
      "lon": -107.346784
     },
-    "detail": "detail/us-co/A-6",
+    "island_km2": null,
+    "detail": "detail/us-co/A-39.940077_-107.343545",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 4,
     "lat": 37.160048,
     "lon": -106.559374,
     "dist_m": 9904.92,
@@ -163,15 +100,16 @@
     "nearest_place": {
      "name": "Cumbres",
      "type": "hamlet",
-     "dist_m": 18467.3,
+     "dist_m": 18467.2,
      "lat": 37.019655,
      "lon": -106.447869
     },
-    "detail": "detail/us-co/A-7",
+    "island_km2": null,
+    "detail": "detail/us-co/A-37.160048_-106.559374",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 5,
     "lat": 38.73553,
     "lon": -107.352995,
     "dist_m": 9112.88,
@@ -189,33 +127,12 @@
      "lat": 38.645299,
      "lon": -107.585329
     },
-    "detail": "detail/us-co/A-8",
+    "island_km2": null,
+    "detail": "detail/us-co/A-38.735530_-107.352995",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 38.727089,
-    "lon": -107.232588,
-    "dist_m": 8772.86,
-    "nearest_way": {
-     "id": 17061609,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Baldwin",
-     "type": "hamlet",
-     "dist_m": 16394.3,
-     "lat": 38.758706,
-     "lon": -107.048388
-    },
-    "detail": "detail/us-co/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 6,
     "lat": 39.158202,
     "lon": -107.134456,
     "dist_m": 8762.81,
@@ -233,12 +150,112 @@
      "lat": 39.180819,
      "lon": -107.239773
     },
-    "detail": "detail/us-co/A-10",
+    "island_km2": null,
+    "detail": "detail/us-co/A-39.158202_-107.134456",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 39.490066,
+    "lon": -106.538387,
+    "dist_m": 8615.06,
+    "nearest_way": {
+     "id": 17047169,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fulford",
+     "type": "hamlet",
+     "dist_m": 10522.6,
+     "lat": 39.514985,
+     "lon": -106.656423
+    },
+    "island_km2": null,
+    "detail": "detail/us-co/A-39.490066_-106.538387",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 40.661819,
+    "lon": -106.704827,
+    "dist_m": 8370.93,
+    "nearest_way": {
+     "id": 17136546,
+     "highway": "track",
+     "name": "Forest Service Trail 1198",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Slavonia",
+     "type": "hamlet",
+     "dist_m": 13614.5,
+     "lat": 40.784418,
+     "lon": -106.704208
+    },
+    "island_km2": null,
+    "detail": "detail/us-co/A-40.661819_-106.704827",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 37.531363,
+    "lon": -107.93637,
+    "dist_m": 8260.3,
+    "nearest_way": {
+     "id": 402729668,
+     "highway": "unclassified",
+     "name": "Upper Dutch Creek Trail",
+     "ref": "FR 581.U",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rockwood",
+     "type": "hamlet",
+     "dist_m": 12702.2,
+     "lat": 37.490833,
+     "lon": -107.80201
+    },
+    "island_km2": null,
+    "detail": "detail/us-co/A-37.531363_-107.936370",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 40.495251,
+    "lon": -105.672504,
+    "dist_m": 8232.94,
+    "nearest_way": {
+     "id": 173464922,
+     "highway": "unclassified",
+     "name": "Old Fall River Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fall River Estates Subdivision",
+     "type": "hamlet",
+     "dist_m": 14565.9,
+     "lat": 40.393166,
+     "lon": -105.564689
+    },
+    "island_km2": null,
+    "detail": "detail/us-co/A-40.495251_-105.672504",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 13762.47,
+  "lat": 37.624876,
+  "lon": -107.402847,
+  "rank": 25,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,33 +278,12 @@
      "lat": 37.640554,
      "lon": -107.691451
     },
-    "detail": "detail/us-co/B-1",
+    "island_km2": null,
+    "detail": "detail/us-co/B-37.642251_-107.561631",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 37.614607,
-    "lon": -107.408325,
-    "dist_m": 14986.48,
-    "nearest_way": {
-     "id": 17062687,
-     "highway": "unclassified",
-     "name": "Rio Grande Reservoir Road",
-     "ref": "CR 18;FR 520",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Needleton",
-     "type": "hamlet",
-     "dist_m": 25158.2,
-     "lat": 37.640554,
-     "lon": -107.691451
-    },
-    "detail": "detail/us-co/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 39.917963,
     "lon": -107.133302,
     "dist_m": 12193.45,
@@ -305,11 +301,12 @@
      "lat": 39.868875,
      "lon": -106.905599
     },
-    "detail": "detail/us-co/B-3",
+    "island_km2": null,
+    "detail": "detail/us-co/B-39.917963_-107.133302",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 37.81394,
     "lon": -105.618363,
     "dist_m": 12135.09,
@@ -327,11 +324,12 @@
      "lat": 37.860278,
      "lon": -105.595845
     },
-    "detail": "detail/us-co/B-4",
+    "island_km2": null,
+    "detail": "detail/us-co/B-37.813940_-105.618363",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 38.746575,
     "lon": -107.216154,
     "dist_m": 11126.17,
@@ -349,77 +347,12 @@
      "lat": 38.758706,
      "lon": -107.048388
     },
-    "detail": "detail/us-co/B-5",
+    "island_km2": null,
+    "detail": "detail/us-co/B-38.746575_-107.216154",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 37.556291,
-    "lon": -106.938088,
-    "dist_m": 10928.39,
-    "nearest_way": {
-     "id": 227977572,
-     "highway": "residential",
-     "name": "Middle Creek Road",
-     "ref": "FR 523",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Spar City",
-     "type": "village",
-     "dist_m": 17126.4,
-     "lat": 37.708557,
-     "lon": -106.969536
-    },
-    "detail": "detail/us-co/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 37.625626,
-    "lon": -107.292443,
-    "dist_m": 10767.14,
-    "nearest_way": {
-     "id": 390176506,
-     "highway": "unclassified",
-     "name": "Poison Park Road",
-     "ref": "FR 644",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Spar City",
-     "type": "village",
-     "dist_m": 29939.5,
-     "lat": 37.708557,
-     "lon": -106.969536
-    },
-    "detail": "detail/us-co/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 37.559587,
-    "lon": -107.613125,
-    "dist_m": 10538.19,
-    "nearest_way": {
-     "id": 17092576,
-     "highway": "unclassified",
-     "name": "Middle Mountain Road",
-     "ref": "CR 501G;FR 724",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Needleton",
-     "type": "hamlet",
-     "dist_m": 11340.1,
-     "lat": 37.640554,
-     "lon": -107.691451
-    },
-    "detail": "detail/us-co/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 5,
     "lat": 37.145566,
     "lon": -106.559708,
     "dist_m": 10432.01,
@@ -433,15 +366,16 @@
     "nearest_place": {
      "name": "Cumbres",
      "type": "hamlet",
-     "dist_m": 17150.6,
+     "dist_m": 17150.7,
      "lat": 37.019655,
      "lon": -106.447869
     },
-    "detail": "detail/us-co/B-9",
+    "island_km2": null,
+    "detail": "detail/us-co/B-37.145566_-106.559708",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 6,
     "lat": 40.633766,
     "lon": -106.727684,
     "dist_m": 10340.16,
@@ -459,11 +393,111 @@
      "lat": 40.566086,
      "lon": -106.888383
     },
-    "detail": "detail/us-co/B-10",
+    "island_km2": null,
+    "detail": "detail/us-co/B-40.633766_-106.727684",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 40.202214,
+    "lon": -105.688639,
+    "dist_m": 10325.69,
+    "nearest_way": {
+     "id": 477540469,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Grand Lake",
+     "type": "village",
+     "dist_m": 12716.8,
+     "lat": 40.252207,
+     "lon": -105.823067
+    },
+    "island_km2": null,
+    "detail": "detail/us-co/B-40.202214_-105.688639",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 37.902663,
+    "lon": -106.803725,
+    "dist_m": 9576.79,
+    "nearest_way": {
+     "id": 248486105,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Creede",
+     "type": "hamlet",
+     "dist_m": 11564.4,
+     "lat": 37.864166,
+     "lon": -106.925879
+    },
+    "island_km2": null,
+    "detail": "detail/us-co/B-37.902663_-106.803725",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 37.542909,
+    "lon": -103.719403,
+    "dist_m": 9559.38,
+    "nearest_way": {
+     "id": 132474215,
+     "highway": "unclassified",
+     "name": null,
+     "ref": "MSR 1A",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mindeman",
+     "type": "hamlet",
+     "dist_m": 25191.9,
+     "lat": 37.706957,
+     "lon": -103.916624
+    },
+    "island_km2": null,
+    "detail": "detail/us-co/B-37.542909_-103.719403",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 39.481454,
+    "lon": -106.540395,
+    "dist_m": 9465.08,
+    "nearest_way": {
+     "id": 17041988,
+     "highway": "unclassified",
+     "name": "Tigiwon Road",
+     "ref": "FR 707.1",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fulford",
+     "type": "hamlet",
+     "dist_m": 10652.0,
+     "lat": 39.514985,
+     "lon": -106.656423
+    },
+    "island_km2": null,
+    "detail": "detail/us-co/B-39.481454_-106.540395",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 15667.74,
+  "lat": 37.642251,
+  "lon": -107.561631,
+  "rank": 28,
+  "withheld": 0
  }
 }

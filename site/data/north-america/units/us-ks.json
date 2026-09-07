@@ -31,11 +31,12 @@
     "nearest_place": {
      "name": "Lake City",
      "type": "hamlet",
-     "dist_m": 5691.2,
+     "dist_m": 5691.1,
      "lat": 37.353356,
      "lon": -98.820928
     },
-    "detail": "detail/us-ks/A-1",
+    "island_km2": null,
+    "detail": "detail/us-ks/A-37.318721_-98.868287",
     "warnings": []
    },
    {
@@ -53,11 +54,12 @@
     "nearest_place": {
      "name": "Bazaar",
      "type": "hamlet",
-     "dist_m": 7917.5,
+     "dist_m": 7917.6,
      "lat": 38.27196,
      "lon": -96.535285
     },
-    "detail": "detail/us-ks/A-2",
+    "island_km2": null,
+    "detail": "detail/us-ks/A-38.265322_-96.445203",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 38.914419,
      "lon": -101.59253
     },
-    "detail": "detail/us-ks/A-3",
+    "island_km2": null,
+    "detail": "detail/us-ks/A-38.853910_-101.488312",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 38.428625,
      "lon": -96.643898
     },
-    "detail": "detail/us-ks/A-4",
+    "island_km2": null,
+    "detail": "detail/us-ks/A-38.450488_-96.599695",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 38.912779,
      "lon": -96.209439
     },
-    "detail": "detail/us-ks/A-5",
+    "island_km2": null,
+    "detail": "detail/us-ks/A-38.838570_-96.245932",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 38.447516,
      "lon": -100.054574
     },
-    "detail": "detail/us-ks/A-6",
+    "island_km2": null,
+    "detail": "detail/us-ks/A-38.408529_-100.105156",
     "warnings": []
    },
    {
@@ -167,7 +173,8 @@
      "lat": 38.992777,
      "lon": -96.271106
     },
-    "detail": "detail/us-ks/A-7",
+    "island_km2": null,
+    "detail": "detail/us-ks/A-38.934386_-96.314195",
     "warnings": []
    },
    {
@@ -185,11 +192,12 @@
     "nearest_place": {
      "name": "Dunlap",
      "type": "hamlet",
-     "dist_m": 7208.3,
+     "dist_m": 7208.4,
      "lat": 38.576399,
      "lon": -96.365834
     },
-    "detail": "detail/us-ks/A-8",
+    "island_km2": null,
+    "detail": "detail/us-ks/A-38.566463_-96.447575",
     "warnings": []
    },
    {
@@ -207,11 +215,12 @@
     "nearest_place": {
      "name": "Lapland",
      "type": "hamlet",
-     "dist_m": 7104.0,
+     "dist_m": 7104.1,
      "lat": 37.984744,
      "lon": -96.393341
     },
-    "detail": "detail/us-ks/A-9",
+    "island_km2": null,
+    "detail": "detail/us-ks/A-37.969281_-96.471802",
     "warnings": []
    },
    {
@@ -233,12 +242,20 @@
      "lat": 37.238358,
      "lon": -98.911766
     },
-    "detail": "detail/us-ks/A-10",
+    "island_km2": null,
+    "detail": "detail/us-ks/A-37.202859_-98.876165",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 4131.44,
+  "lat": 37.318721,
+  "lon": -98.868287,
+  "rank": 52,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 37.188638,
      "lon": -99.765683
     },
-    "detail": "detail/us-ks/B-1",
+    "island_km2": null,
+    "detail": "detail/us-ks/B-37.250261_-99.933673",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 38.312521,
      "lon": -100.910155
     },
-    "detail": "detail/us-ks/B-2",
+    "island_km2": null,
+    "detail": "detail/us-ks/B-38.315452_-101.062430",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 38.278354,
      "lon": -101.291551
     },
-    "detail": "detail/us-ks/B-3",
+    "island_km2": null,
+    "detail": "detail/us-ks/B-38.339495_-101.449546",
     "warnings": []
    },
    {
@@ -323,11 +343,12 @@
     "nearest_place": {
      "name": "Lydia",
      "type": "hamlet",
-     "dist_m": 9672.4,
+     "dist_m": 9672.5,
      "lat": 38.278354,
      "lon": -101.291551
     },
-    "detail": "detail/us-ks/B-4",
+    "island_km2": null,
+    "detail": "detail/us-ks/B-38.365491_-101.291710",
     "warnings": []
    },
    {
@@ -345,11 +366,12 @@
     "nearest_place": {
      "name": "Whitelaw",
      "type": "hamlet",
-     "dist_m": 20167.0,
+     "dist_m": 20167.1,
      "lat": 38.455016,
      "lon": -101.679337
     },
-    "detail": "detail/us-ks/B-5",
+    "island_km2": null,
+    "detail": "detail/us-ks/B-38.278887_-101.622731",
     "warnings": []
    },
    {
@@ -371,7 +393,8 @@
      "lat": 37.785297,
      "lon": -99.642068
     },
-    "detail": "detail/us-ks/B-6",
+    "island_km2": null,
+    "detail": "detail/us-ks/B-37.707219_-99.524331",
     "warnings": []
    },
    {
@@ -389,11 +412,12 @@
     "nearest_place": {
      "name": "Cloverdale",
      "type": "hamlet",
-     "dist_m": 8496.4,
+     "dist_m": 8496.5,
      "lat": 37.226978,
      "lon": -96.489178
     },
-    "detail": "detail/us-ks/B-7",
+    "island_km2": null,
+    "detail": "detail/us-ks/B-37.289778_-96.543957",
     "warnings": []
    },
    {
@@ -415,7 +439,8 @@
      "lat": 36.893639,
      "lon": -100.372646
     },
-    "detail": "detail/us-ks/B-8",
+    "island_km2": null,
+    "detail": "detail/us-ks/B-37.001368_-100.416289",
     "warnings": []
    },
    {
@@ -437,7 +462,8 @@
      "lat": 38.793346,
      "lon": -100.858757
     },
-    "detail": "detail/us-ks/B-9",
+    "island_km2": null,
+    "detail": "detail/us-ks/B-38.739755_-100.697999",
     "warnings": []
    },
    {
@@ -455,15 +481,23 @@
     "nearest_place": {
      "name": "Meade",
      "type": "town",
-     "dist_m": 21352.5,
+     "dist_m": 21352.6,
      "lat": 37.28558,
      "lon": -100.340145
     },
-    "detail": "detail/us-ks/B-10",
+    "island_km2": null,
+    "detail": "detail/us-ks/B-37.096909_-100.293037",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 5800.96,
+  "lat": 37.250261,
+  "lon": -99.933673,
+  "rank": 50,
+  "withheld": 0
  }
 }

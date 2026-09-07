@@ -35,29 +35,31 @@
      "lat": 46.603872,
      "lon": -63.858107
     },
-    "detail": "detail/ca-pe/A-1",
+    "island_km2": 8.1,
+    "detail": "detail/ca-pe/A-46.602976_-63.759439",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 46.13245,
-    "lon": -63.062038,
-    "dist_m": 5775.63,
+    "lat": 46.122761,
+    "lon": -63.173534,
+    "dist_m": 4143.05,
     "nearest_way": {
-     "id": 199916514,
-     "highway": "unclassified",
-     "name": "Crown Point Road",
+     "id": 712158144,
+     "highway": "service",
+     "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Alexandra",
+     "name": "Rice Point",
      "type": "village",
-     "dist_m": 7782.5,
-     "lat": 46.195914,
-     "lon": -63.019482
+     "dist_m": 4838.6,
+     "lat": 46.134062,
+     "lon": -63.233996
     },
-    "detail": "detail/ca-pe/A-2",
+    "island_km2": 1.5,
+    "detail": "detail/ca-pe/A-46.122761_-63.173534",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 46.2283,
      "lon": -62.484691
     },
-    "detail": "detail/ca-pe/A-3",
+    "island_km2": null,
+    "detail": "detail/ca-pe/A-46.178218_-62.399459",
     "warnings": []
    },
    {
@@ -101,36 +104,15 @@
      "lat": 46.812748,
      "lon": -64.064999
     },
-    "detail": "detail/ca-pe/A-4",
+    "island_km2": null,
+    "detail": "detail/ca-pe/A-46.766176_-64.014424",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 46.116078,
-    "lon": -63.194862,
-    "dist_m": 2968.98,
-    "nearest_way": {
-     "id": 712158144,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Rice Point",
-     "type": "village",
-     "dist_m": 3625.5,
-     "lat": 46.134062,
-     "lon": -63.233996
-    },
-    "detail": "detail/ca-pe/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 46.656755,
-    "lon": -63.87369,
-    "dist_m": 2918.96,
+    "lat": 46.656767,
+    "lon": -63.873676,
+    "dist_m": 2920.05,
     "nearest_way": {
      "id": 169660047,
      "highway": "unclassified",
@@ -141,15 +123,16 @@
     "nearest_place": {
      "name": "Poplar Grove",
      "type": "village",
-     "dist_m": 4437.1,
+     "dist_m": 4438.3,
      "lat": 46.655267,
      "lon": -63.931619
     },
-    "detail": "detail/ca-pe/A-6",
+    "island_km2": null,
+    "detail": "detail/ca-pe/A-46.656767_-63.873676",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 46.506864,
     "lon": -63.451704,
     "dist_m": 2587.39,
@@ -167,14 +150,15 @@
      "lat": 46.479482,
      "lon": -63.419094
     },
-    "detail": "detail/ca-pe/A-7",
+    "island_km2": null,
+    "detail": "detail/ca-pe/A-46.506864_-63.451704",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 46.416385,
-    "lon": -62.999392,
-    "dist_m": 2435.71,
+    "rank": 7,
+    "lat": 46.41643,
+    "lon": -62.999262,
+    "dist_m": 2427.22,
     "nearest_way": {
      "id": 200366995,
      "highway": "unclassified",
@@ -185,37 +169,16 @@
     "nearest_place": {
      "name": "Blooming Point",
      "type": "village",
-     "dist_m": 3855.5,
+     "dist_m": 3854.5,
      "lat": 46.386824,
      "lon": -62.973169
     },
-    "detail": "detail/ca-pe/A-8",
+    "island_km2": null,
+    "detail": "detail/ca-pe/A-46.416430_-62.999262",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 46.511596,
-    "lon": -63.76354,
-    "dist_m": 2396.62,
-    "nearest_way": {
-     "id": 181691453,
-     "highway": "unclassified",
-     "name": "Beech Point Road",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Hamilton",
-     "type": "village",
-     "dist_m": 5135.9,
-     "lat": 46.493221,
-     "lon": -63.702149
-    },
-    "detail": "detail/ca-pe/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 8,
     "lat": 46.444068,
     "lon": -62.127149,
     "dist_m": 2196.79,
@@ -233,12 +196,112 @@
      "lat": 46.429893,
      "lon": -62.167988
     },
-    "detail": "detail/ca-pe/A-10",
+    "island_km2": null,
+    "detail": "detail/ca-pe/A-46.444068_-62.127149",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.42423,
+    "lon": -62.290043,
+    "dist_m": 2169.2,
+    "nearest_way": {
+     "id": 200530507,
+     "highway": "track",
+     "name": "Heritage Woodlot Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Gowanbrae",
+     "type": "village",
+     "dist_m": 4185.7,
+     "lat": 46.387839,
+     "lon": -62.304029
+    },
+    "island_km2": null,
+    "detail": "detail/ca-pe/A-46.424230_-62.290043",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.29906,
+    "lon": -62.584648,
+    "dist_m": 1980.04,
+    "nearest_way": {
+     "id": 200372372,
+     "highway": "unclassified",
+     "name": "Elm Road",
+     "ref": "333",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Glenfanning",
+     "type": "village",
+     "dist_m": 2661.8,
+     "lat": 46.275236,
+     "lon": -62.588139
+    },
+    "island_km2": null,
+    "detail": "detail/ca-pe/A-46.299060_-62.584648",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 46.178692,
+    "lon": -62.982218,
+    "dist_m": 1878.84,
+    "nearest_way": {
+     "id": 199916514,
+     "highway": "unclassified",
+     "name": "Crown Point Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Pownal",
+     "type": "village",
+     "dist_m": 2732.8,
+     "lat": 46.202402,
+     "lon": -62.972859
+    },
+    "island_km2": null,
+    "detail": "detail/ca-pe/A-46.178692_-62.982218",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 46.448667,
+    "lon": -62.717602,
+    "dist_m": 1801.17,
+    "nearest_way": {
+     "id": 200514280,
+     "highway": "unclassified",
+     "name": "Gulfview Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Morell",
+     "type": "village",
+     "dist_m": 3737.6,
+     "lat": 46.416645,
+     "lon": -62.702773
+    },
+    "island_km2": null,
+    "detail": "detail/ca-pe/A-46.448667_-62.717602",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 3947.0,
+  "lat": 46.178218,
+  "lon": -62.399459,
+  "rank": 53,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,29 +324,31 @@
      "lat": 46.603872,
      "lon": -63.858107
     },
-    "detail": "detail/ca-pe/B-1",
+    "island_km2": 8.1,
+    "detail": "detail/ca-pe/B-46.602976_-63.759439",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 46.13245,
-    "lon": -63.062038,
-    "dist_m": 5775.63,
+    "lat": 46.122761,
+    "lon": -63.173534,
+    "dist_m": 4143.05,
     "nearest_way": {
-     "id": 199916514,
-     "highway": "unclassified",
-     "name": "Crown Point Road",
+     "id": 712158144,
+     "highway": "service",
+     "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Alexandra",
+     "name": "Rice Point",
      "type": "village",
-     "dist_m": 7782.5,
-     "lat": 46.195914,
-     "lon": -63.019482
+     "dist_m": 4838.6,
+     "lat": 46.134062,
+     "lon": -63.233996
     },
-    "detail": "detail/ca-pe/B-2",
+    "island_km2": 1.5,
+    "detail": "detail/ca-pe/B-46.122761_-63.173534",
     "warnings": []
    },
    {
@@ -305,7 +370,8 @@
      "lat": 46.2283,
      "lon": -62.484691
     },
-    "detail": "detail/ca-pe/B-3",
+    "island_km2": null,
+    "detail": "detail/ca-pe/B-46.178218_-62.399459",
     "warnings": []
    },
    {
@@ -327,36 +393,15 @@
      "lat": 46.812748,
      "lon": -64.064999
     },
-    "detail": "detail/ca-pe/B-4",
+    "island_km2": null,
+    "detail": "detail/ca-pe/B-46.766176_-64.014424",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 46.116078,
-    "lon": -63.194862,
-    "dist_m": 2968.98,
-    "nearest_way": {
-     "id": 712158144,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Rice Point",
-     "type": "village",
-     "dist_m": 3625.5,
-     "lat": 46.134062,
-     "lon": -63.233996
-    },
-    "detail": "detail/ca-pe/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 46.656755,
-    "lon": -63.87369,
-    "dist_m": 2918.96,
+    "lat": 46.656767,
+    "lon": -63.873676,
+    "dist_m": 2920.05,
     "nearest_way": {
      "id": 169660047,
      "highway": "unclassified",
@@ -367,15 +412,16 @@
     "nearest_place": {
      "name": "Poplar Grove",
      "type": "village",
-     "dist_m": 4437.1,
+     "dist_m": 4438.3,
      "lat": 46.655267,
      "lon": -63.931619
     },
-    "detail": "detail/ca-pe/B-6",
+    "island_km2": null,
+    "detail": "detail/ca-pe/B-46.656767_-63.873676",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 46.506864,
     "lon": -63.451704,
     "dist_m": 2587.39,
@@ -393,14 +439,15 @@
      "lat": 46.479482,
      "lon": -63.419094
     },
-    "detail": "detail/ca-pe/B-7",
+    "island_km2": null,
+    "detail": "detail/ca-pe/B-46.506864_-63.451704",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 46.416385,
-    "lon": -62.999392,
-    "dist_m": 2435.71,
+    "rank": 7,
+    "lat": 46.41643,
+    "lon": -62.999262,
+    "dist_m": 2427.22,
     "nearest_way": {
      "id": 200366995,
      "highway": "unclassified",
@@ -411,15 +458,16 @@
     "nearest_place": {
      "name": "Blooming Point",
      "type": "village",
-     "dist_m": 3855.5,
+     "dist_m": 3854.5,
      "lat": 46.386824,
      "lon": -62.973169
     },
-    "detail": "detail/ca-pe/B-8",
+    "island_km2": null,
+    "detail": "detail/ca-pe/B-46.416430_-62.999262",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 46.584589,
     "lon": -64.111947,
     "dist_m": 2409.53,
@@ -437,33 +485,111 @@
      "lat": 46.617413,
      "lon": -64.109013
     },
-    "detail": "detail/ca-pe/B-9",
+    "island_km2": null,
+    "detail": "detail/ca-pe/B-46.584589_-64.111947",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.444068,
+    "lon": -62.127149,
+    "dist_m": 2196.79,
+    "nearest_way": {
+     "id": 200652623,
+     "highway": "tertiary",
+     "name": "Munns Road",
+     "ref": "301",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "East Baltic",
+     "type": "village",
+     "dist_m": 3511.9,
+     "lat": 46.429893,
+     "lon": -62.167988
+    },
+    "island_km2": null,
+    "detail": "detail/ca-pe/B-46.444068_-62.127149",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 46.511596,
-    "lon": -63.76354,
-    "dist_m": 2396.62,
+    "lat": 46.425482,
+    "lon": -62.290621,
+    "dist_m": 2173.02,
     "nearest_way": {
-     "id": 181691453,
-     "highway": "unclassified",
-     "name": "Beech Point Road",
-     "ref": null,
+     "id": 200530570,
+     "highway": "tertiary",
+     "name": "New Zealand Road",
+     "ref": "306",
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Hamilton",
+     "name": "Gowanbrae",
      "type": "village",
-     "dist_m": 5135.9,
-     "lat": 46.493221,
-     "lon": -63.702149
+     "dist_m": 4309.5,
+     "lat": 46.387839,
+     "lon": -62.304029
     },
-    "detail": "detail/ca-pe/B-10",
+    "island_km2": null,
+    "detail": "detail/ca-pe/B-46.425482_-62.290621",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 46.444264,
+    "lon": -64.037753,
+    "dist_m": 2024.64,
+    "nearest_way": {
+     "id": 169656857,
+     "highway": "tertiary",
+     "name": "Cannontown Road",
+     "ref": "165",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Urbainville",
+     "type": "village",
+     "dist_m": 2156.6,
+     "lat": 46.463659,
+     "lon": -64.037053
+    },
+    "island_km2": null,
+    "detail": "detail/ca-pe/B-46.444264_-64.037753",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 46.29906,
+    "lon": -62.584648,
+    "dist_m": 1980.04,
+    "nearest_way": {
+     "id": 200372372,
+     "highway": "unclassified",
+     "name": "Elm Road",
+     "ref": "333",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Glenfanning",
+     "type": "village",
+     "dist_m": 2661.8,
+     "lat": 46.275236,
+     "lon": -62.588139
+    },
+    "island_km2": null,
+    "detail": "detail/ca-pe/B-46.299060_-62.584648",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 3947.0,
+  "lat": 46.178218,
+  "lon": -62.399459,
+  "rank": 57,
+  "withheld": 0
  }
 }

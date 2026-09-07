@@ -35,55 +35,12 @@
      "lat": 33.113185,
      "lon": -108.588163
     },
-    "detail": "detail/us-nm/A-1",
+    "island_km2": null,
+    "detail": "detail/us-nm/A-33.244457_-108.463575",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 33.168411,
-    "lon": -108.402087,
-    "dist_m": 14447.34,
-    "nearest_way": {
-     "id": 14479736,
-     "highway": "unclassified",
-     "name": "Turkey Creek Road",
-     "ref": "FR 155",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Rastus Place",
-     "type": "hamlet",
-     "dist_m": 17397.8,
-     "lat": 33.012569,
-     "lon": -108.423384
-    },
-    "detail": "detail/us-nm/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 33.268081,
-    "lon": -108.569219,
-    "dist_m": 13394.91,
-    "nearest_way": {
-     "id": 1369760318,
-     "highway": "tertiary",
-     "name": "Bursum Road",
-     "ref": "NM 159",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Willow Creek",
-     "type": "hamlet",
-     "dist_m": 14721.8,
-     "lat": 33.400247,
-     "lon": -108.583847
-    },
-    "detail": "detail/us-nm/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 35.940396,
     "lon": -105.583142,
     "dist_m": 11608.27,
@@ -101,11 +58,12 @@
      "lat": 35.8867,
      "lon": -105.446125
     },
-    "detail": "detail/us-nm/A-4",
+    "island_km2": null,
+    "detail": "detail/us-nm/A-35.940396_-105.583142",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 3,
     "lat": 33.204098,
     "lon": -107.884626,
     "dist_m": 11604.23,
@@ -119,126 +77,185 @@
     "nearest_place": {
      "name": "Hermosa",
      "type": "hamlet",
-     "dist_m": 15333.9,
+     "dist_m": 15334.0,
      "lat": 33.157535,
      "lon": -107.729813
     },
-    "detail": "detail/us-nm/A-5",
+    "island_km2": null,
+    "detail": "detail/us-nm/A-33.204098_-107.884626",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 33.107238,
-    "lon": -108.320579,
-    "dist_m": 11019.21,
+    "rank": 4,
+    "lat": 32.789476,
+    "lon": -106.392865,
+    "dist_m": 7508.26,
     "nearest_way": {
-     "id": 316305015,
-     "highway": "secondary",
-     "name": "Copperas Vista Road",
-     "ref": "NM 15;FR 630",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Rastus Place",
-     "type": "hamlet",
-     "dist_m": 14227.2,
-     "lat": 33.012569,
-     "lon": -108.423384
-    },
-    "detail": "detail/us-nm/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 33.285023,
-    "lon": -108.363612,
-    "dist_m": 11016.95,
-    "nearest_way": {
-     "id": 282429922,
-     "highway": "service",
+     "id": 802262972,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Gila Hot Springs",
+     "name": "Point of Sands",
      "type": "hamlet",
-     "dist_m": 17640.8,
-     "lat": 33.195762,
-     "lon": -108.206946
+     "dist_m": 19080.7,
+     "lat": 32.746828,
+     "lon": -106.195577
     },
-    "detail": "detail/us-nm/A-7",
+    "island_km2": null,
+    "detail": "detail/us-nm/A-32.789476_-106.392865",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 36.506429,
+    "lon": -105.420757,
+    "dist_m": 7165.02,
+    "nearest_way": {
+     "id": 1150536047,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Taos Ski Valley",
+     "type": "hamlet",
+     "dist_m": 10388.6,
+     "lat": 36.596,
+     "lon": -105.4545
+    },
+    "island_km2": null,
+    "detail": "detail/us-nm/A-36.506429_-105.420757",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 34.830077,
+    "lon": -108.001851,
+    "dist_m": 7118.45,
+    "nearest_way": {
+     "id": 14447625,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "York Ranch",
+     "type": "hamlet",
+     "dist_m": 18922.9,
+     "lat": 34.659611,
+     "lon": -108.009232
+    },
+    "island_km2": null,
+    "detail": "detail/us-nm/A-34.830077_-108.001851",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 32.994637,
+    "lon": -106.320736,
+    "dist_m": 7117.63,
+    "nearest_way": {
+     "id": 14537856,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "hamlet",
+     "dist_m": 20921.2,
+     "lat": 32.958328,
+     "lon": -106.54036
+    },
+    "island_km2": null,
+    "detail": "detail/us-nm/A-32.994637_-106.320736",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 35.879667,
-    "lon": -105.754955,
-    "dist_m": 9790.07,
+    "lat": 33.646063,
+    "lon": -107.423173,
+    "dist_m": 6877.91,
     "nearest_way": {
-     "id": 14605343,
-     "highway": "residential",
-     "name": "Panchuela Road",
-     "ref": "FR 305",
+     "id": 14619203,
+     "highway": "track",
+     "name": null,
+     "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Winsor Creek Summer Home",
+     "name": null,
      "type": "hamlet",
-     "dist_m": 10439.4,
-     "lat": 35.814197,
-     "lon": -105.671961
+     "dist_m": 17433.9,
+     "lat": 33.646796,
+     "lon": -107.611105
     },
-    "detail": "detail/us-nm/A-8",
+    "island_km2": null,
+    "detail": "detail/us-nm/A-33.646063_-107.423173",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 33.311565,
-    "lon": -108.251725,
-    "dist_m": 9033.05,
+    "lat": 36.100876,
+    "lon": -106.83198,
+    "dist_m": 6668.57,
     "nearest_way": {
-     "id": 220408162,
-     "highway": "service",
-     "name": "Upper Scorpion Camp Ground Road",
-     "ref": "FR 973 A",
+     "id": 544217066,
+     "highway": "track",
+     "name": "FR 93G",
+     "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Gila Hot Springs",
+     "name": "Upper La Jara",
      "type": "hamlet",
-     "dist_m": 13504.4,
-     "lat": 33.195762,
-     "lon": -108.206946
+     "dist_m": 8465.8,
+     "lat": 36.120574,
+     "lon": -106.922818
     },
-    "detail": "detail/us-nm/A-9",
+    "island_km2": null,
+    "detail": "detail/us-nm/A-36.100876_-106.831980",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 33.335368,
-    "lon": -108.492297,
-    "dist_m": 9000.79,
+    "lat": 34.673561,
+    "lon": -105.933576,
+    "dist_m": 6191.69,
     "nearest_way": {
-     "id": 243571022,
+     "id": 859484791,
      "highway": "track",
-     "name": "FDT 143 Trailhead Road",
-     "ref": "FR 4308 C",
+     "name": "Old US 60",
+     "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Willow Creek",
+     "name": "Lucy",
      "type": "hamlet",
-     "dist_m": 11152.0,
-     "lat": 33.400247,
-     "lon": -108.583847
+     "dist_m": 9173.3,
+     "lat": 34.652009,
+     "lon": -105.836956
     },
-    "detail": "detail/us-nm/A-10",
+    "island_km2": null,
+    "detail": "detail/us-nm/A-34.673561_-105.933576",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 18542.34,
+  "lat": 33.244457,
+  "lon": -108.463575,
+  "rank": 21,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,37 +274,16 @@
     "nearest_place": {
      "name": null,
      "type": "isolated_dwelling",
-     "dist_m": 18705.3,
+     "dist_m": 18705.2,
      "lat": 33.113185,
      "lon": -108.588163
     },
-    "detail": "detail/us-nm/B-1",
+    "island_km2": null,
+    "detail": "detail/us-nm/B-33.245659_-108.464034",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 33.168411,
-    "lon": -108.402087,
-    "dist_m": 14447.34,
-    "nearest_way": {
-     "id": 14479736,
-     "highway": "unclassified",
-     "name": "Turkey Creek Road",
-     "ref": "FR 155",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Rastus Place",
-     "type": "hamlet",
-     "dist_m": 17397.8,
-     "lat": 33.012569,
-     "lon": -108.423384
-    },
-    "detail": "detail/us-nm/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 33.233867,
     "lon": -107.877953,
     "dist_m": 13563.9,
@@ -305,55 +301,12 @@
      "lat": 33.240686,
      "lon": -107.715051
     },
-    "detail": "detail/us-nm/B-3",
+    "island_km2": null,
+    "detail": "detail/us-nm/B-33.233867_-107.877953",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 33.267315,
-    "lon": -108.56924,
-    "dist_m": 13467.36,
-    "nearest_way": {
-     "id": 14472293,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Willow Creek",
-     "type": "hamlet",
-     "dist_m": 14806.2,
-     "lat": 33.400247,
-     "lon": -108.583847
-    },
-    "detail": "detail/us-nm/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 33.122964,
-    "lon": -107.863205,
-    "dist_m": 12823.75,
-    "nearest_way": {
-     "id": 279136324,
-     "highway": "tertiary",
-     "name": "North Star Mesa Road",
-     "ref": "NM 61;FR 150",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Bloodgood Place",
-     "type": "hamlet",
-     "dist_m": 12722.3,
-     "lat": 33.051461,
-     "lon": -107.969763
-    },
-    "detail": "detail/us-nm/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 3,
     "lat": 36.89078,
     "lon": -105.836048,
     "dist_m": 12040.57,
@@ -371,11 +324,12 @@
      "lat": 36.830852,
      "lon": -105.845568
     },
-    "detail": "detail/us-nm/B-6",
+    "island_km2": null,
+    "detail": "detail/us-nm/B-36.890780_-105.836048",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 4,
     "lat": 35.940273,
     "lon": -105.587074,
     "dist_m": 11959.62,
@@ -393,11 +347,12 @@
      "lat": 35.8867,
      "lon": -105.446125
     },
-    "detail": "detail/us-nm/B-7",
+    "island_km2": null,
+    "detail": "detail/us-nm/B-35.940273_-105.587074",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 5,
     "lat": 34.709112,
     "lon": -109.028779,
     "dist_m": 11647.44,
@@ -415,11 +370,12 @@
      "lat": 34.65051,
      "lon": -109.118346
     },
-    "detail": "detail/us-nm/B-8",
+    "island_km2": null,
+    "detail": "detail/us-nm/B-34.709112_-109.028779",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 6,
     "lat": 32.110624,
     "lon": -107.29911,
     "dist_m": 11645.96,
@@ -437,11 +393,12 @@
      "lat": 32.074075,
      "lon": -107.29041
     },
-    "detail": "detail/us-nm/B-9",
+    "island_km2": null,
+    "detail": "detail/us-nm/B-32.110624_-107.299110",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 7,
     "lat": 34.838451,
     "lon": -108.042582,
     "dist_m": 11398.06,
@@ -459,11 +416,88 @@
      "lat": 34.659611,
      "lon": -108.009232
     },
-    "detail": "detail/us-nm/B-10",
+    "island_km2": null,
+    "detail": "detail/us-nm/B-34.838451_-108.042582",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 33.940962,
+    "lon": -104.929698,
+    "dist_m": 10959.16,
+    "nearest_way": {
+     "id": 14427141,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mesa",
+     "type": "hamlet",
+     "dist_m": 23775.6,
+     "lat": 33.984249,
+     "lon": -104.677756
+    },
+    "island_km2": null,
+    "detail": "detail/us-nm/B-33.940962_-104.929698",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 33.607542,
+    "lon": -107.506902,
+    "dist_m": 10188.64,
+    "nearest_way": {
+     "id": 14632413,
+     "highway": "residential",
+     "name": "Forest 478 Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "hamlet",
+     "dist_m": 10603.8,
+     "lat": 33.646796,
+     "lon": -107.611105
+    },
+    "island_km2": null,
+    "detail": "detail/us-nm/B-33.607542_-107.506902",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 34.669273,
+    "lon": -107.755018,
+    "dist_m": 10060.27,
+    "nearest_way": {
+     "id": 14447092,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hughes Place",
+     "type": "hamlet",
+     "dist_m": 2565.3,
+     "lat": 34.678106,
+     "lon": -107.780886
+    },
+    "island_km2": null,
+    "detail": "detail/us-nm/B-34.669273_-107.755018",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 18600.37,
+  "lat": 33.245659,
+  "lon": -108.464034,
+  "rank": 26,
+  "withheld": 0
  }
 }

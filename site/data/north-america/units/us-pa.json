@@ -35,7 +35,8 @@
      "lat": 41.5109,
      "lon": -77.801102
     },
-    "detail": "detail/us-pa/A-1",
+    "island_km2": null,
+    "detail": "detail/us-pa/A-41.517433_-77.866951",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 41.868672,
      "lon": -78.935316
     },
-    "detail": "detail/us-pa/A-2",
+    "island_km2": null,
+    "detail": "detail/us-pa/A-41.956486_-78.925546",
     "warnings": []
    },
    {
@@ -75,11 +77,12 @@
     "nearest_place": {
      "name": "Okome",
      "type": "hamlet",
-     "dist_m": 3648.6,
+     "dist_m": 3648.5,
      "lat": 41.437292,
      "lon": -77.413034
     },
-    "detail": "detail/us-pa/A-3",
+    "island_km2": null,
+    "detail": "detail/us-pa/A-41.444667_-77.455577",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 41.540437,
      "lon": -76.195433
     },
-    "detail": "detail/us-pa/A-4",
+    "island_km2": null,
+    "detail": "detail/us-pa/A-41.505688_-76.178327",
     "warnings": []
    },
    {
@@ -119,11 +123,12 @@
     "nearest_place": {
      "name": "Penn Five",
      "type": "hamlet",
-     "dist_m": 3623.4,
+     "dist_m": 3623.3,
      "lat": 40.827003,
      "lon": -78.268626
     },
-    "detail": "detail/us-pa/A-5",
+    "island_km2": null,
+    "detail": "detail/us-pa/A-40.796786_-78.284828",
     "warnings": []
    },
    {
@@ -141,11 +146,12 @@
     "nearest_place": {
      "name": "Tobyhanna",
      "type": "village",
-     "dist_m": 5823.8,
+     "dist_m": 5823.7,
      "lat": 41.177032,
      "lon": -75.417962
     },
-    "detail": "detail/us-pa/A-6",
+    "island_km2": null,
+    "detail": "detail/us-pa/A-41.172595_-75.487116",
     "warnings": []
    },
    {
@@ -167,7 +173,8 @@
      "lat": 41.17675,
      "lon": -75.684079
     },
-    "detail": "detail/us-pa/A-7",
+    "island_km2": null,
+    "detail": "detail/us-pa/A-41.128796_-75.685847",
     "warnings": []
    },
    {
@@ -185,11 +192,12 @@
     "nearest_place": {
      "name": "Auges Corners",
      "type": "hamlet",
-     "dist_m": 3658.4,
+     "dist_m": 3658.5,
      "lat": 41.386363,
      "lon": -79.493435
     },
-    "detail": "detail/us-pa/A-8",
+    "island_km2": null,
+    "detail": "detail/us-pa/A-41.419216_-79.490244",
     "warnings": []
    },
    {
@@ -207,11 +215,12 @@
     "nearest_place": {
      "name": "Mapleton",
      "type": "village",
-     "dist_m": 4391.7,
+     "dist_m": 4391.6,
      "lat": 40.393846,
      "lon": -77.941222
     },
-    "detail": "detail/us-pa/A-9",
+    "island_km2": null,
+    "detail": "detail/us-pa/A-40.354500_-77.935994",
     "warnings": []
    },
    {
@@ -233,12 +242,20 @@
      "lat": 41.414785,
      "lon": -78.198897
     },
-    "detail": "detail/us-pa/A-10",
+    "island_km2": null,
+    "detail": "detail/us-pa/A-41.416207_-78.142685",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 4410.67,
+  "lat": 41.517433,
+  "lon": -77.866951,
+  "rank": 49,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 41.483441,
      "lon": -77.814419
     },
-    "detail": "detail/us-pa/B-1",
+    "island_km2": null,
+    "detail": "detail/us-pa/B-41.510282_-77.875226",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 41.147838,
      "lon": -78.002225
     },
-    "detail": "detail/us-pa/B-2",
+    "island_km2": null,
+    "detail": "detail/us-pa/B-41.153396_-77.994561",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 41.485062,
      "lon": -78.438351
     },
-    "detail": "detail/us-pa/B-3",
+    "island_km2": null,
+    "detail": "detail/us-pa/B-41.524503_-78.432161",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 40.667286,
      "lon": -78.427518
     },
-    "detail": "detail/us-pa/B-4",
+    "island_km2": null,
+    "detail": "detail/us-pa/B-40.647544_-78.445685",
     "warnings": []
    },
    {
@@ -349,7 +370,8 @@
      "lat": 41.86034,
      "lon": -78.80031
     },
-    "detail": "detail/us-pa/B-5",
+    "island_km2": null,
+    "detail": "detail/us-pa/B-41.896497_-78.779874",
     "warnings": []
    },
    {
@@ -371,7 +393,8 @@
      "lat": 41.277582,
      "lon": -76.511893
     },
-    "detail": "detail/us-pa/B-6",
+    "island_km2": null,
+    "detail": "detail/us-pa/B-41.311939_-76.497574",
     "warnings": []
    },
    {
@@ -393,7 +416,8 @@
      "lat": 40.348362,
      "lon": -79.050715
     },
-    "detail": "detail/us-pa/B-7",
+    "island_km2": null,
+    "detail": "detail/us-pa/B-40.342552_-79.011542",
     "warnings": []
    },
    {
@@ -415,7 +439,8 @@
      "lat": 41.477007,
      "lon": -78.368626
     },
-    "detail": "detail/us-pa/B-8",
+    "island_km2": null,
+    "detail": "detail/us-pa/B-41.435444_-78.402414",
     "warnings": []
    },
    {
@@ -437,7 +462,8 @@
      "lat": 41.517008,
      "lon": -78.215564
     },
-    "detail": "detail/us-pa/B-9",
+    "island_km2": null,
+    "detail": "detail/us-pa/B-41.515935_-78.163157",
     "warnings": []
    },
    {
@@ -459,11 +485,19 @@
      "lat": 41.612006,
      "lon": -79.165598
     },
-    "detail": "detail/us-pa/B-10",
+    "island_km2": null,
+    "detail": "detail/us-pa/B-41.639118_-79.191957",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 4673.7,
+  "lat": 41.510282,
+  "lon": -77.875226,
+  "rank": 54,
+  "withheld": 0
  }
 }

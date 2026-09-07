@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 47.936297,
-    "lon": -88.79383,
-    "dist_m": 26525.09,
-    "nearest_way": {
-     "id": 17841409,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Silver Islet",
-     "type": "village",
-     "dist_m": 43973.2,
-     "lat": 48.331347,
-     "lon": -88.82096
-    },
-    "detail": "detail/us-mi/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 48.043809,
     "lon": -88.870164,
     "dist_m": 25180.87,
@@ -57,102 +35,15 @@
      "lat": 48.331347,
      "lon": -88.82096
     },
-    "detail": "detail/us-mi/A-2",
+    "island_km2": 628.4,
+    "detail": "detail/us-mi/A-48.043809_-88.870164",
     "warnings": []
    },
    {
-    "rank": 3,
-    "lat": 48.262577,
-    "lon": -88.260524,
-    "dist_m": 20871.17,
-    "nearest_way": {
-     "id": 1094342668,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Silver Islet",
-     "type": "village",
-     "dist_m": 42279.3,
-     "lat": 48.331347,
-     "lon": -88.82096
-    },
-    "detail": "detail/us-mi/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 45.698258,
-    "lon": -85.843821,
-    "dist_m": 18799.6,
-    "nearest_way": {
-     "id": 504031227,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Bonner Landing",
-     "type": "hamlet",
-     "dist_m": 20593.2,
-     "lat": 45.704166,
-     "lon": -85.57953
-    },
-    "detail": "detail/us-mi/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 47.891575,
-    "lon": -88.911517,
-    "dist_m": 17818.19,
-    "nearest_way": {
-     "id": 1122283734,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Silver Islet",
-     "type": "village",
-     "dist_m": 49362.1,
-     "lat": 48.331347,
-     "lon": -88.82096
-    },
-    "detail": "detail/us-mi/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 48.020634,
-    "lon": -88.738669,
-    "dist_m": 17305.82,
-    "nearest_way": {
-     "id": 17841409,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Silver Islet",
-     "type": "village",
-     "dist_m": 35087.2,
-     "lat": 48.331347,
-     "lon": -88.82096
-    },
-    "detail": "detail/us-mi/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 45.817518,
-    "lon": -85.298833,
-    "dist_m": 17283.49,
+    "rank": 2,
+    "lat": 45.804428,
+    "lon": -85.344222,
+    "dist_m": 13472.38,
     "nearest_way": {
      "id": 17750014,
      "highway": "service",
@@ -163,40 +54,65 @@
     "nearest_place": {
      "name": "Saint James",
      "type": "village",
-     "dist_m": 18951.3,
+     "dist_m": 15138.0,
      "lat": 45.746953,
      "lon": -85.520679
     },
-    "detail": "detail/us-mi/A-7",
+    "island_km2": 15.8,
+    "detail": "detail/us-mi/A-45.804428_-85.344222",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 47.97623,
-    "lon": -88.961688,
-    "dist_m": 15462.77,
+    "rank": 3,
+    "lat": 45.744594,
+    "lon": -85.6951,
+    "dist_m": 9702.66,
     "nearest_way": {
-     "id": 1122283734,
+     "id": 17746927,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bonner Landing",
+     "type": "hamlet",
+     "dist_m": 10056.4,
+     "lat": 45.704166,
+     "lon": -85.57953
+    },
+    "island_km2": 18.7,
+    "detail": "detail/us-mi/A-45.744594_-85.695100",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 47.419593,
+    "lon": -87.585535,
+    "dist_m": 9685.82,
+    "nearest_way": {
+     "id": 17844739,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Silver Islet",
+     "name": "Copper Harbor",
      "type": "village",
-     "dist_m": 40851.3,
-     "lat": 48.331347,
-     "lon": -88.82096
+     "dist_m": 23500.2,
+     "lat": 47.468074,
+     "lon": -87.888804
     },
-    "detail": "detail/us-mi/A-8",
+    "island_km2": 6.4,
+    "detail": "detail/us-mi/A-47.419593_-87.585535",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 47.86505,
-    "lon": -89.318136,
-    "dist_m": 12965.22,
+    "rank": 5,
+    "lat": 47.869882,
+    "lon": -89.262702,
+    "dist_m": 9000.71,
     "nearest_way": {
      "id": 17841986,
      "highway": "track",
@@ -207,21 +123,114 @@
     "nearest_place": {
      "name": "Grand Portage",
      "type": "village",
-     "dist_m": 29525.0,
+     "dist_m": 33233.1,
      "lat": 47.963776,
      "lon": -89.684812
     },
-    "detail": "detail/us-mi/A-9",
+    "island_km2": 628.4,
+    "detail": "detail/us-mi/A-47.869882_-89.262702",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 45.76607,
+    "lon": -85.078572,
+    "dist_m": 8392.23,
+    "nearest_way": {
+     "id": 17795420,
+     "highway": "service",
+     "name": "Waugoshance Point Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Anam'ewaatgwenh",
+     "type": "hamlet",
+     "dist_m": 13956.1,
+     "lat": 45.643541,
+     "lon": -85.039393
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/A-45.766070_-85.078572",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 45.829592,
+    "lon": -85.523205,
+    "dist_m": 8342.41,
+    "nearest_way": {
+     "id": 165355568,
+     "highway": "residential",
+     "name": "Lake Michigan Court",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Saint James",
+     "type": "village",
+     "dist_m": 9187.2,
+     "lat": 45.746953,
+     "lon": -85.520679
+    },
+    "island_km2": 26.2,
+    "detail": "detail/us-mi/A-45.829592_-85.523205",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 45.053787,
+    "lon": -85.999432,
+    "dist_m": 7362.96,
+    "nearest_way": {
+     "id": 17852990,
+     "highway": "track",
+     "name": "Cottage Row",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Manitou",
+     "type": "hamlet",
+     "dist_m": 7556.6,
+     "lat": 45.120264,
+     "lon": -85.979256
+    },
+    "island_km2": 64.5,
+    "detail": "detail/us-mi/A-45.053787_-85.999432",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.788026,
+    "lon": -89.858856,
+    "dist_m": 7239.94,
+    "nearest_way": {
+     "id": 17792105,
+     "highway": "secondary",
+     "name": "South Boundary Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "White Pine",
+     "type": "hamlet",
+     "dist_m": 21331.6,
+     "lat": 46.753836,
+     "lon": -89.584043
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/A-46.788026_-89.858856",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 48.116218,
-    "lon": -88.714153,
-    "dist_m": 12582.89,
+    "lat": 48.190979,
+    "lon": -88.422521,
+    "dist_m": 6586.93,
     "nearest_way": {
-     "id": 17841409,
-     "highway": "track",
+     "id": 1094342668,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
@@ -229,16 +238,254 @@
     "nearest_place": {
      "name": "Silver Islet",
      "type": "village",
-     "dist_m": 25203.3,
+     "dist_m": 33448.3,
      "lat": 48.331347,
      "lon": -88.82096
     },
-    "detail": "detail/us-mi/A-10",
+    "island_km2": 628.4,
+    "detail": "detail/us-mi/A-48.190979_-88.422521",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 46.240029,
+    "lon": -86.141483,
+    "dist_m": 5456.5,
+    "nearest_way": {
+     "id": 910615627,
+     "highway": "track",
+     "name": "C-3 Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Walsh",
+     "type": "hamlet",
+     "dist_m": 12182.2,
+     "lat": 46.345524,
+     "lon": -86.184318
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/A-46.240029_-86.141483",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 46.104889,
+    "lon": -83.793623,
+    "dist_m": 5284.13,
+    "nearest_way": {
+     "id": 194309226,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Drummond",
+     "type": "village",
+     "dist_m": 10158.3,
+     "lat": 46.021655,
+     "lon": -83.739407
+    },
+    "island_km2": 7.0,
+    "detail": "detail/us-mi/A-46.104889_-83.793623",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 46.346253,
+    "lon": -85.319689,
+    "dist_m": 4743.63,
+    "nearest_way": {
+     "id": 1060669534,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Soo Junction",
+     "type": "hamlet",
+     "dist_m": 4780.7,
+     "lat": 46.335563,
+     "lon": -85.259539
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/A-46.346253_-85.319689",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 46.552098,
+    "lon": -86.425991,
+    "dist_m": 4532.22,
+    "nearest_way": {
+     "id": 17707072,
+     "highway": "unclassified",
+     "name": "Little Beaver Lake Road",
+     "ref": "699",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Melstrand",
+     "type": "hamlet",
+     "dist_m": 9937.8,
+     "lat": 46.463011,
+     "lon": -86.415162
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/A-46.552098_-86.425991",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 45.931366,
+    "lon": -84.376433,
+    "dist_m": 4136.73,
+    "nearest_way": {
+     "id": 526543698,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Patrick Landing",
+     "type": "hamlet",
+     "dist_m": 5932.8,
+     "lat": 45.98474,
+     "lon": -84.377253
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/A-45.931366_-84.376433",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 45.861048,
+    "lon": -84.880715,
+    "dist_m": 4003.22,
+    "nearest_way": {
+     "id": 17877005,
+     "highway": "residential",
+     "name": "Gros Cap Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Gros Cap",
+     "type": "hamlet",
+     "dist_m": 4232.9,
+     "lat": 45.87029,
+     "lon": -84.827833
+    },
+    "island_km2": 2.4,
+    "detail": "detail/us-mi/A-45.861048_-84.880715",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 46.210606,
+    "lon": -89.289565,
+    "dist_m": 3906.14,
+    "nearest_way": {
+     "id": 17787388,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Land O' Lakes",
+     "type": "village",
+     "dist_m": 7738.2,
+     "lat": 46.161339,
+     "lon": -89.218749
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/A-46.210606_-89.289565",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 46.633757,
+    "lon": -85.27579,
+    "dist_m": 3534.18,
+    "nearest_way": {
+     "id": 17877638,
+     "highway": "tertiary",
+     "name": "COUNTY RD 506",
+     "ref": "CR 506",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Timberlost",
+     "type": "hamlet",
+     "dist_m": 11383.5,
+     "lat": 46.561406,
+     "lon": -85.170656
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/A-46.633757_-85.275790",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 45.972621,
+    "lon": -84.68458,
+    "dist_m": 3483.68,
+    "nearest_way": {
+     "id": 17876982,
+     "highway": "track",
+     "name": "Ackland Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Charles",
+     "type": "hamlet",
+     "dist_m": 4691.1,
+     "lat": 46.014458,
+     "lon": -84.69255
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/A-45.972621_-84.684580",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 46.355684,
+    "lon": -85.628238,
+    "dist_m": 3471.48,
+    "nearest_way": {
+     "id": 17877464,
+     "highway": "residential",
+     "name": "Camp Six Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Natalie",
+     "type": "hamlet",
+     "dist_m": 4015.7,
+     "lat": 46.34694,
+     "lon": -85.577618
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/A-46.355684_-85.628238",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 8392.23,
+  "lat": 45.76607,
+  "lon": -85.078572,
+  "rank": 39,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,169 +504,16 @@
     "nearest_place": {
      "name": "Silver Islet",
      "type": "village",
-     "dist_m": 49341.3,
+     "dist_m": 49341.2,
      "lat": 48.331347,
      "lon": -88.82096
     },
-    "detail": "detail/us-mi/B-1",
+    "island_km2": 628.4,
+    "detail": "detail/us-mi/B-47.891725_-88.911092",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 47.856111,
-    "lon": -89.037665,
-    "dist_m": 37924.91,
-    "nearest_way": {
-     "id": 71830733,
-     "highway": "residential",
-     "name": "Cottage Drive",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Grand Portage",
-     "type": "village",
-     "dist_m": 49836.6,
-     "lat": 47.963776,
-     "lon": -89.684812
-    },
-    "detail": "detail/us-mi/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 47.982313,
-    "lon": -88.899068,
-    "dist_m": 35941.45,
-    "nearest_way": {
-     "id": 72310329,
-     "highway": "residential",
-     "name": "Island Avenue",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Silver Islet",
-     "type": "village",
-     "dist_m": 39242.9,
-     "lat": 48.331347,
-     "lon": -88.82096
-    },
-    "detail": "detail/us-mi/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 47.824858,
-    "lon": -89.166416,
-    "dist_m": 33576.97,
-    "nearest_way": {
-     "id": 71831689,
-     "highway": "residential",
-     "name": "Memory Road",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Grand Portage",
-     "type": "village",
-     "dist_m": 41728.3,
-     "lat": 47.963776,
-     "lon": -89.684812
-    },
-    "detail": "detail/us-mi/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 47.947549,
-    "lon": -89.024707,
-    "dist_m": 31842.78,
-    "nearest_way": {
-     "id": 72310329,
-     "highway": "residential",
-     "name": "Island Avenue",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Silver Islet",
-     "type": "village",
-     "dist_m": 45289.5,
-     "lat": 48.331347,
-     "lon": -88.82096
-    },
-    "detail": "detail/us-mi/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 47.946584,
-    "lon": -88.764687,
-    "dist_m": 30538.69,
-    "nearest_way": {
-     "id": 1094342668,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Silver Islet",
-     "type": "village",
-     "dist_m": 42987.4,
-     "lat": 48.331347,
-     "lon": -88.82096
-    },
-    "detail": "detail/us-mi/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 48.061198,
-    "lon": -88.825414,
-    "dist_m": 27173.81,
-    "nearest_way": {
-     "id": 1094342668,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Silver Islet",
-     "type": "village",
-     "dist_m": 30040.8,
-     "lat": 48.331347,
-     "lon": -88.82096
-    },
-    "detail": "detail/us-mi/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 47.917009,
-    "lon": -89.153168,
-    "dist_m": 26988.51,
-    "nearest_way": {
-     "id": 71830733,
-     "highway": "residential",
-     "name": "Cottage Drive",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Grand Portage",
-     "type": "village",
-     "dist_m": 40058.7,
-     "lat": 47.963776,
-     "lon": -89.684812
-    },
-    "detail": "detail/us-mi/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
     "lat": 45.159067,
     "lon": -86.047877,
     "dist_m": 23399.91,
@@ -437,33 +531,433 @@
      "lat": 45.120264,
      "lon": -85.979256
     },
-    "detail": "detail/us-mi/B-9",
+    "island_km2": 64.5,
+    "detail": "detail/us-mi/B-45.159067_-86.047877",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 45.042953,
+    "lon": -86.138322,
+    "dist_m": 16735.84,
+    "nearest_way": {
+     "id": 17857577,
+     "highway": "service",
+     "name": "West Sleeping Bear Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Manitou",
+     "type": "hamlet",
+     "dist_m": 15187.8,
+     "lat": 45.120264,
+     "lon": -85.979256
+    },
+    "island_km2": 25.6,
+    "detail": "detail/us-mi/B-45.042953_-86.138322",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 45.804428,
+    "lon": -85.344222,
+    "dist_m": 13472.38,
+    "nearest_way": {
+     "id": 17750014,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Saint James",
+     "type": "village",
+     "dist_m": 15138.0,
+     "lat": 45.746953,
+     "lon": -85.520679
+    },
+    "island_km2": 15.8,
+    "detail": "detail/us-mi/B-45.804428_-85.344222",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 44.028836,
+    "lon": -83.42682,
+    "dist_m": 12506.45,
+    "nearest_way": {
+     "id": 1363149616,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Whitestone Point",
+     "type": "hamlet",
+     "dist_m": 14233.5,
+     "lat": 44.108628,
+     "lon": -83.56581
+    },
+    "island_km2": 2.5,
+    "detail": "detail/us-mi/B-44.028836_-83.426820",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 46.557698,
+    "lon": -86.658885,
+    "dist_m": 10936.45,
+    "nearest_way": {
+     "id": 17707202,
+     "highway": "unclassified",
+     "name": "Miners Castle Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Williams Landing",
+     "type": "hamlet",
+     "dist_m": 11891.0,
+     "lat": 46.451054,
+     "lon": -86.670992
+    },
+    "island_km2": 61.7,
+    "detail": "detail/us-mi/B-46.557698_-86.658885",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 45.744594,
+    "lon": -85.6951,
+    "dist_m": 9702.66,
+    "nearest_way": {
+     "id": 17746927,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bonner Landing",
+     "type": "hamlet",
+     "dist_m": 10056.4,
+     "lat": 45.704166,
+     "lon": -85.57953
+    },
+    "island_km2": 18.7,
+    "detail": "detail/us-mi/B-45.744594_-85.695100",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 47.419593,
+    "lon": -87.585535,
+    "dist_m": 9700.6,
+    "nearest_way": {
+     "id": 17843073,
+     "highway": "unclassified",
+     "name": "High Rock Bay Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Copper Harbor",
+     "type": "village",
+     "dist_m": 23500.2,
+     "lat": 47.468074,
+     "lon": -87.888804
+    },
+    "island_km2": 6.4,
+    "detail": "detail/us-mi/B-47.419593_-87.585535",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 45.76607,
+    "lon": -85.078572,
+    "dist_m": 8392.23,
+    "nearest_way": {
+     "id": 17795420,
+     "highway": "service",
+     "name": "Waugoshance Point Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Anam'ewaatgwenh",
+     "type": "hamlet",
+     "dist_m": 13956.1,
+     "lat": 45.643541,
+     "lon": -85.039393
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/B-45.766070_-85.078572",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 47.866459,
-    "lon": -89.314402,
-    "dist_m": 22845.88,
+    "lat": 45.829592,
+    "lon": -85.523205,
+    "dist_m": 8342.41,
     "nearest_way": {
-     "id": 71831689,
+     "id": 165355568,
      "highway": "residential",
-     "name": "Memory Road",
+     "name": "Lake Michigan Court",
      "ref": null,
-     "country": "ca"
+     "country": "us"
     },
     "nearest_place": {
-     "name": "Grand Portage",
+     "name": "Saint James",
      "type": "village",
-     "dist_m": 29726.5,
-     "lat": 47.963776,
-     "lon": -89.684812
+     "dist_m": 9187.2,
+     "lat": 45.746953,
+     "lon": -85.520679
     },
-    "detail": "detail/us-mi/B-10",
+    "island_km2": 26.2,
+    "detail": "detail/us-mi/B-45.829592_-85.523205",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 46.919931,
+    "lon": -89.020461,
+    "dist_m": 7981.44,
+    "nearest_way": {
+     "id": 17929233,
+     "highway": "unclassified",
+     "name": "South",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Misery Bay",
+     "type": "hamlet",
+     "dist_m": 9166.8,
+     "lat": 46.997334,
+     "lon": -88.978943
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/B-46.919931_-89.020461",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 46.246519,
+    "lon": -86.098303,
+    "dist_m": 7669.52,
+    "nearest_way": {
+     "id": 17971116,
+     "highway": "unclassified",
+     "name": "North Entrance - Driggs River Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Walsh",
+     "type": "hamlet",
+     "dist_m": 12846.6,
+     "lat": 46.345524,
+     "lon": -86.184318
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/B-46.246519_-86.098303",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 46.788026,
+    "lon": -89.858856,
+    "dist_m": 7239.94,
+    "nearest_way": {
+     "id": 17792105,
+     "highway": "secondary",
+     "name": "South Boundary Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "White Pine",
+     "type": "hamlet",
+     "dist_m": 21331.6,
+     "lat": 46.753836,
+     "lon": -89.584043
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/B-46.788026_-89.858856",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 46.726112,
+    "lon": -88.061981,
+    "dist_m": 6735.75,
+    "nearest_way": {
+     "id": 17728008,
+     "highway": "unclassified",
+     "name": "Huron Bay-Peshekee Grade",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dodge City",
+     "type": "hamlet",
+     "dist_m": 15499.0,
+     "lat": 46.778537,
+     "lon": -87.874019
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/B-46.726112_-88.061981",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 48.190979,
+    "lon": -88.422521,
+    "dist_m": 6586.93,
+    "nearest_way": {
+     "id": 1094342668,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Silver Islet",
+     "type": "village",
+     "dist_m": 33448.3,
+     "lat": 48.331347,
+     "lon": -88.82096
+    },
+    "island_km2": 628.4,
+    "detail": "detail/us-mi/B-48.190979_-88.422521",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 46.76195,
+    "lon": -85.121168,
+    "dist_m": 6281.19,
+    "nearest_way": {
+     "id": 17766566,
+     "highway": "unclassified",
+     "name": "North Widewaters Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Vermilion",
+     "type": "hamlet",
+     "dist_m": 2211.3,
+     "lat": 46.762523,
+     "lon": -85.150103
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/B-46.761950_-85.121168",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 46.422971,
+    "lon": -89.438744,
+    "dist_m": 6201.67,
+    "nearest_way": {
+     "id": 17793226,
+     "highway": "unclassified",
+     "name": "Matchwood Tower Road",
+     "ref": "FS 6930",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "White City",
+     "type": "hamlet",
+     "dist_m": 7671.0,
+     "lat": 46.411336,
+     "lon": -89.537096
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/B-46.422971_-89.438744",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 46.598291,
+    "lon": -86.306,
+    "dist_m": 6185.27,
+    "nearest_way": {
+     "id": 17701082,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sullivans Landing",
+     "type": "hamlet",
+     "dist_m": 10075.2,
+     "lat": 46.648577,
+     "lon": -86.196556
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/B-46.598291_-86.306000",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 46.507588,
+    "lon": -89.68026,
+    "dist_m": 5769.33,
+    "nearest_way": {
+     "id": 17929501,
+     "highway": "primary",
+     "name": null,
+     "ref": "M 64",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ethelwood",
+     "type": "hamlet",
+     "dist_m": 4091.4,
+     "lat": 46.48717,
+     "lon": -89.724604
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/B-46.507588_-89.680260",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 46.631627,
+    "lon": -89.779874,
+    "dist_m": 5680.11,
+    "nearest_way": {
+     "id": 17795354,
+     "highway": "unclassified",
+     "name": "Jack Spur Road",
+     "ref": "FS 210",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tula",
+     "type": "hamlet",
+     "dist_m": 9482.0,
+     "lat": 46.546328,
+     "lon": -89.779993
+    },
+    "island_km2": null,
+    "detail": "detail/us-mi/B-46.631627_-89.779874",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 8392.23,
+  "lat": 45.76607,
+  "lon": -85.078572,
+  "rank": 41,
+  "withheld": 0
  }
 }

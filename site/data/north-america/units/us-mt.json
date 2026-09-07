@@ -35,210 +35,227 @@
      "lat": 47.497165,
      "lon": -112.886991
     },
-    "detail": "detail/us-mt/A-1",
+    "island_km2": null,
+    "detail": "detail/us-mt/A-47.590275_-113.255329",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 47.499626,
-    "lon": -113.237216,
-    "dist_m": 26132.93,
+    "lat": 48.869549,
+    "lon": -113.967238,
+    "dist_m": 17683.68,
     "nearest_way": {
-     "id": 379038277,
-     "highway": "service",
-     "name": null,
+     "id": 83396739,
+     "highway": "secondary",
+     "name": "Going-to-the-Sun Road",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Packers",
+     "name": "Waterton Park",
      "type": "hamlet",
-     "dist_m": 26389.5,
-     "lat": 47.497165,
-     "lon": -112.886991
+     "dist_m": 20646.2,
+     "lat": 49.050917,
+     "lon": -113.90702
     },
-    "detail": "detail/us-mt/A-2",
+    "island_km2": null,
+    "detail": "detail/us-mt/A-48.869549_-113.967238",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 47.668653,
-    "lon": -113.187775,
-    "dist_m": 25001.22,
+    "lat": 45.089549,
+    "lon": -110.37329,
+    "dist_m": 16409.03,
     "nearest_way": {
-     "id": 1531287421,
-     "highway": "track",
+     "id": 103988181,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Gates Park",
+     "name": "Independence",
      "type": "isolated_dwelling",
-     "dist_m": 22928.2,
-     "lat": 47.789688,
-     "lon": -112.940311
+     "dist_m": 16910.5,
+     "lat": 45.211967,
+     "lon": -110.245573
     },
-    "detail": "detail/us-mt/A-3",
+    "island_km2": null,
+    "detail": "detail/us-mt/A-45.089549_-110.373290",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 47.761298,
-    "lon": -113.115855,
-    "dist_m": 23971.18,
+    "lat": 48.527978,
+    "lon": -113.582636,
+    "dist_m": 16340.49,
     "nearest_way": {
-     "id": 1531287421,
-     "highway": "track",
+     "id": 82153856,
+     "highway": "trunk",
      "name": null,
-     "ref": null,
+     "ref": "US 2",
      "country": "us"
     },
     "nearest_place": {
-     "name": "Gates Park",
-     "type": "isolated_dwelling",
-     "dist_m": 13530.2,
-     "lat": 47.789688,
-     "lon": -112.940311
+     "name": "Nyack",
+     "type": "hamlet",
+     "dist_m": 19205.2,
+     "lat": 48.439411,
+     "lon": -113.805668
     },
-    "detail": "detail/us-mt/A-4",
+    "island_km2": null,
+    "detail": "detail/us-mt/A-48.527978_-113.582636",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 47.424181,
-    "lon": -113.163827,
-    "dist_m": 22047.07,
+    "lat": 45.937895,
+    "lon": -114.431502,
+    "dist_m": 15274.56,
     "nearest_way": {
-     "id": 722678105,
-     "highway": "track",
-     "name": null,
+     "id": 368854604,
+     "highway": "unclassified",
+     "name": "FS 5634",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Packers",
+     "name": "University Heights",
      "type": "hamlet",
-     "dist_m": 22395.2,
-     "lat": 47.497165,
-     "lon": -112.886991
+     "dist_m": 19817.6,
+     "lat": 46.033532,
+     "lon": -114.215644
     },
-    "detail": "detail/us-mt/A-5",
+    "island_km2": null,
+    "detail": "detail/us-mt/A-45.937895_-114.431502",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 47.624867,
-    "lon": -113.379664,
-    "dist_m": 21237.68,
+    "lat": 45.407366,
+    "lon": -110.389283,
+    "dist_m": 14190.3,
     "nearest_way": {
-     "id": 1304699567,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Condon",
-     "type": "hamlet",
-     "dist_m": 27132.4,
-     "lat": 47.527697,
-     "lon": -113.71048
-    },
-    "detail": "detail/us-mt/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 47.588865,
-    "lon": -113.12094,
-    "dist_m": 19898.22,
-    "nearest_way": {
-     "id": 379038274,
+     "id": 37693542,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Packers",
+     "name": "Contact",
      "type": "hamlet",
-     "dist_m": 20350.2,
-     "lat": 47.497165,
-     "lon": -112.886991
+     "dist_m": 16517.6,
+     "lat": 45.501408,
+     "lon": -110.22577
     },
-    "detail": "detail/us-mt/A-7",
+    "island_km2": null,
+    "detail": "detail/us-mt/A-45.407366_-110.389283",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 45.1944,
+    "lon": -104.063864,
+    "dist_m": 11388.69,
+    "nearest_way": {
+     "id": 5432090,
+     "highway": "unclassified",
+     "name": "Little Missouri Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Gustave",
+     "type": "hamlet",
+     "dist_m": 11887.0,
+     "lat": 45.281101,
+     "lon": -103.975213
+    },
+    "island_km2": null,
+    "detail": "detail/us-mt/A-45.194400_-104.063864",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 48.023862,
-    "lon": -113.071739,
-    "dist_m": 19841.11,
+    "lat": 45.001003,
+    "lon": -110.955231,
+    "dist_m": 9843.68,
     "nearest_way": {
-     "id": 1228332187,
-     "highway": "unclassified",
-     "name": "Spotted Bear River Road",
-     "ref": "FR 568",
+     "id": 1001624620,
+     "highway": "trunk",
+     "name": "Gallatin Road",
+     "ref": "US 191",
      "country": "us"
     },
     "nearest_place": {
-     "name": "Gooseberry Park",
-     "type": "isolated_dwelling",
-     "dist_m": 2462.8,
-     "lat": 48.001856,
-     "lon": -113.075487
+     "name": "Aldridge",
+     "type": "hamlet",
+     "dist_m": 14209.8,
+     "lat": 45.086879,
+     "lon": -110.821604
     },
-    "detail": "detail/us-mt/A-8",
+    "island_km2": null,
+    "detail": "detail/us-mt/A-45.001003_-110.955231",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 47.850038,
-    "lon": -113.077665,
-    "dist_m": 19391.61,
+    "lat": 45.904587,
+    "lon": -113.543934,
+    "dist_m": 9438.29,
     "nearest_way": {
-     "id": 5812941,
+     "id": 1311578995,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Gates Park",
-     "type": "isolated_dwelling",
-     "dist_m": 12280.9,
-     "lat": 47.789688,
-     "lon": -112.940311
+     "name": "Wisdom",
+     "type": "village",
+     "dist_m": 32734.2,
+     "lat": 45.617574,
+     "lon": -113.449576
     },
-    "detail": "detail/us-mt/A-9",
+    "island_km2": null,
+    "detail": "detail/us-mt/A-45.904587_-113.543934",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 47.534457,
-    "lon": -113.362661,
-    "dist_m": 19224.84,
+    "lat": 47.722842,
+    "lon": -108.177141,
+    "dist_m": 9223.71,
     "nearest_way": {
-     "id": 5765248,
-     "highway": "track",
-     "name": "South Fork Barber Spur",
+     "id": 5780716,
+     "highway": "residential",
+     "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Condon",
+     "name": "Midale",
      "type": "hamlet",
-     "dist_m": 26201.2,
-     "lat": 47.527697,
-     "lon": -113.71048
+     "dist_m": 20192.2,
+     "lat": 47.904164,
+     "lon": -108.162071
     },
-    "detail": "detail/us-mt/A-10",
+    "island_km2": null,
+    "detail": "detail/us-mt/A-47.722842_-108.177141",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 29228.63,
+  "lat": 47.590275,
+  "lon": -113.255329,
+  "rank": 15,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,213 +274,230 @@
     "nearest_place": {
      "name": "Packers",
      "type": "hamlet",
-     "dist_m": 29621.8,
+     "dist_m": 29621.7,
      "lat": 47.497165,
      "lon": -112.886991
     },
-    "detail": "detail/us-mt/B-1",
+    "island_km2": null,
+    "detail": "detail/us-mt/B-47.589844_-113.255898",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 47.687025,
-    "lon": -113.12685,
-    "dist_m": 27181.81,
+    "lat": 48.869549,
+    "lon": -113.967238,
+    "dist_m": 17683.68,
     "nearest_way": {
-     "id": 379038274,
-     "highway": "service",
-     "name": null,
+     "id": 83396739,
+     "highway": "secondary",
+     "name": "Going-to-the-Sun Road",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Gates Park",
-     "type": "isolated_dwelling",
-     "dist_m": 18056.4,
-     "lat": 47.789688,
-     "lon": -112.940311
+     "name": "Waterton Park",
+     "type": "hamlet",
+     "dist_m": 20646.2,
+     "lat": 49.050917,
+     "lon": -113.90702
     },
-    "detail": "detail/us-mt/B-2",
+    "island_km2": null,
+    "detail": "detail/us-mt/B-48.869549_-113.967238",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 47.499626,
-    "lon": -113.237216,
-    "dist_m": 26132.93,
+    "lat": 45.094551,
+    "lon": -110.384378,
+    "dist_m": 16984.68,
     "nearest_way": {
-     "id": 379038277,
+     "id": 24260369,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Packers",
-     "type": "hamlet",
-     "dist_m": 26389.5,
-     "lat": 47.497165,
-     "lon": -112.886991
+     "name": "Independence",
+     "type": "isolated_dwelling",
+     "dist_m": 17012.2,
+     "lat": 45.211967,
+     "lon": -110.245573
     },
-    "detail": "detail/us-mt/B-3",
+    "island_km2": null,
+    "detail": "detail/us-mt/B-45.094551_-110.384378",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 47.773663,
-    "lon": -113.087484,
-    "dist_m": 24228.39,
+    "lat": 48.527978,
+    "lon": -113.582636,
+    "dist_m": 16340.49,
     "nearest_way": {
-     "id": 434229732,
-     "highway": "unclassified",
-     "name": "South Fork Road",
-     "ref": null,
+     "id": 82153856,
+     "highway": "trunk",
+     "name": null,
+     "ref": "US 2",
      "country": "us"
     },
     "nearest_place": {
-     "name": "Gates Park",
-     "type": "isolated_dwelling",
-     "dist_m": 11172.1,
-     "lat": 47.789688,
-     "lon": -112.940311
+     "name": "Nyack",
+     "type": "hamlet",
+     "dist_m": 19205.2,
+     "lat": 48.439411,
+     "lon": -113.805668
     },
-    "detail": "detail/us-mt/B-4",
+    "island_km2": null,
+    "detail": "detail/us-mt/B-48.527978_-113.582636",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 47.424354,
-    "lon": -113.163361,
-    "dist_m": 22070.89,
+    "lat": 45.937895,
+    "lon": -114.431502,
+    "dist_m": 15274.56,
     "nearest_way": {
-     "id": 379038277,
-     "highway": "service",
-     "name": null,
+     "id": 368854604,
+     "highway": "unclassified",
+     "name": "FS 5634",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Packers",
+     "name": "University Heights",
      "type": "hamlet",
-     "dist_m": 22355.4,
-     "lat": 47.497165,
-     "lon": -112.886991
+     "dist_m": 19817.6,
+     "lat": 46.033532,
+     "lon": -114.215644
     },
-    "detail": "detail/us-mt/B-5",
+    "island_km2": null,
+    "detail": "detail/us-mt/B-45.937895_-114.431502",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 47.61826,
-    "lon": -113.384537,
-    "dist_m": 21785.91,
+    "lat": 47.552057,
+    "lon": -107.851553,
+    "dist_m": 14714.22,
     "nearest_way": {
-     "id": 1338088295,
-     "highway": "unclassified",
+     "id": 5781432,
+     "highway": "residential",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Condon",
+     "name": "Woods Place",
      "type": "hamlet",
-     "dist_m": 26510.2,
-     "lat": 47.527697,
-     "lon": -113.71048
+     "dist_m": 22823.9,
+     "lat": 47.502496,
+     "lon": -108.145675
     },
-    "detail": "detail/us-mt/B-6",
+    "island_km2": null,
+    "detail": "detail/us-mt/B-47.552057_-107.851553",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 48.029983,
-    "lon": -113.06557,
-    "dist_m": 20578.95,
+    "lat": 45.602886,
+    "lon": -107.925052,
+    "dist_m": 14431.84,
     "nearest_way": {
-     "id": 1228332187,
-     "highway": "unclassified",
-     "name": "Spotted Bear River Road",
-     "ref": "FR 568",
+     "id": 5422485,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Gooseberry Park",
-     "type": "isolated_dwelling",
-     "dist_m": 3213.8,
-     "lat": 48.001856,
-     "lon": -113.075487
+     "name": "Toluca",
+     "type": "hamlet",
+     "dist_m": 16561.8,
+     "lat": 45.74719,
+     "lon": -107.872051
     },
-    "detail": "detail/us-mt/B-7",
+    "island_km2": null,
+    "detail": "detail/us-mt/B-45.602886_-107.925052",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 47.595881,
-    "lon": -113.119352,
-    "dist_m": 20180.88,
+    "lat": 45.405961,
+    "lon": -110.390899,
+    "dist_m": 14221.5,
     "nearest_way": {
-     "id": 379038274,
+     "id": 37693542,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Packers",
+     "name": "Contact",
      "type": "hamlet",
-     "dist_m": 20649.7,
-     "lat": 47.497165,
-     "lon": -112.886991
+     "dist_m": 16714.5,
+     "lat": 45.501408,
+     "lon": -110.22577
     },
-    "detail": "detail/us-mt/B-8",
+    "island_km2": null,
+    "detail": "detail/us-mt/B-45.405961_-110.390899",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 47.682172,
-    "lon": -113.262899,
-    "dist_m": 20175.74,
+    "lat": 47.691681,
+    "lon": -107.026774,
+    "dist_m": 12640.23,
     "nearest_way": {
-     "id": 309425233,
-     "highway": "unclassified",
-     "name": "Forest Road 549",
-     "ref": "FR 549",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Gates Park",
-     "type": "isolated_dwelling",
-     "dist_m": 26987.8,
-     "lat": 47.789688,
-     "lon": -112.940311
-    },
-    "detail": "detail/us-mt/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 47.861931,
-    "lon": -113.055936,
-    "dist_m": 20131.7,
-    "nearest_way": {
-     "id": 455552955,
-     "highway": "service",
+     "id": 5818714,
+     "highway": "residential",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Gates Park",
-     "type": "isolated_dwelling",
-     "dist_m": 11809.9,
-     "lat": 47.789688,
-     "lon": -112.940311
+     "name": "Murray Place",
+     "type": "hamlet",
+     "dist_m": 13118.2,
+     "lat": 47.806675,
+     "lon": -107.065912
     },
-    "detail": "detail/us-mt/B-10",
+    "island_km2": null,
+    "detail": "detail/us-mt/B-47.691681_-107.026774",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.530871,
+    "lon": -106.806781,
+    "dist_m": 12465.58,
+    "nearest_way": {
+     "id": 5801311,
+     "highway": "tertiary",
+     "name": "Little Porcupine Creek Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Vananda",
+     "type": "hamlet",
+     "dist_m": 21541.7,
+     "lat": 46.391934,
+     "lon": -107.002276
+    },
+    "island_km2": null,
+    "detail": "detail/us-mt/B-46.530871_-106.806781",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 29253.29,
+  "lat": 47.589844,
+  "lon": -113.255898,
+  "rank": 17,
+  "withheld": 0
  }
 }

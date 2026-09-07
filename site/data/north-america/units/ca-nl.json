@@ -35,61 +35,64 @@
      "lat": 57.481089,
      "lon": -61.833998
     },
-    "detail": "detail/ca-nl/A-1",
+    "island_km2": null,
+    "detail": "detail/ca-nl/A-57.273350_-63.882667",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 57.291933,
-    "lon": -63.708152,
-    "dist_m": 139564.67,
+    "lat": 59.464613,
+    "lon": -63.702651,
+    "dist_m": 124073.21,
     "nearest_way": {
-     "id": 798618285,
-     "highway": "service",
+     "id": 1237910173,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Nutak",
+     "name": "Nachvak",
      "type": "hamlet",
-     "dist_m": 114660.8,
-     "lat": 57.481089,
-     "lon": -61.833998
+     "dist_m": 45512.9,
+     "lat": 59.066667,
+     "lon": -63.883333
     },
-    "detail": "detail/ca-nl/A-2",
+    "island_km2": 5.6,
+    "detail": "detail/ca-nl/A-59.464613_-63.702651",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 57.196113,
-    "lon": -63.77083,
-    "dist_m": 135286.15,
+    "lat": 57.610071,
+    "lon": -61.400728,
+    "dist_m": 118912.03,
     "nearest_way": {
-     "id": 798618285,
-     "highway": "service",
-     "name": null,
+     "id": 471529476,
+     "highway": "unclassified",
+     "name": "Middle Path",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
      "name": "Nutak",
      "type": "hamlet",
-     "dist_m": 120870.4,
+     "dist_m": 29655.4,
      "lat": 57.481089,
      "lon": -61.833998
     },
-    "detail": "detail/ca-nl/A-3",
+    "island_km2": 2.6,
+    "detail": "detail/ca-nl/A-57.610071_-61.400728",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 57.312751,
-    "lon": -63.535174,
-    "dist_m": 133974.2,
+    "lat": 57.577835,
+    "lon": -61.694099,
+    "dist_m": 114031.22,
     "nearest_way": {
-     "id": 798618285,
-     "highway": "service",
+     "id": 499529507,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
@@ -97,21 +100,22 @@
     "nearest_place": {
      "name": "Nutak",
      "type": "hamlet",
-     "dist_m": 103982.0,
+     "dist_m": 13650.3,
      "lat": 57.481089,
      "lon": -61.833998
     },
-    "detail": "detail/ca-nl/A-4",
+    "island_km2": 10.3,
+    "detail": "detail/ca-nl/A-57.577835_-61.694099",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 57.086092,
-    "lon": -63.890016,
-    "dist_m": 133809.8,
+    "lat": 57.554159,
+    "lon": -61.866989,
+    "dist_m": 111970.82,
     "nearest_way": {
-     "id": 798618285,
-     "highway": "service",
+     "id": 499529507,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
@@ -119,18 +123,19 @@
     "nearest_place": {
      "name": "Nutak",
      "type": "hamlet",
-     "dist_m": 131561.9,
+     "dist_m": 8374.5,
      "lat": 57.481089,
      "lon": -61.833998
     },
-    "detail": "detail/ca-nl/A-5",
+    "island_km2": 302.2,
+    "detail": "detail/ca-nl/A-57.554159_-61.866989",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 57.384556,
-    "lon": -63.708265,
-    "dist_m": 130332.27,
+    "lat": 57.491509,
+    "lon": -62.297635,
+    "dist_m": 110763.66,
     "nearest_way": {
      "id": 1238433925,
      "highway": "track",
@@ -141,21 +146,275 @@
     "nearest_place": {
      "name": "Nutak",
      "type": "hamlet",
-     "dist_m": 113086.1,
+     "dist_m": 27831.8,
      "lat": 57.481089,
      "lon": -61.833998
     },
-    "detail": "detail/ca-nl/A-6",
+    "island_km2": 22.6,
+    "detail": "detail/ca-nl/A-57.491509_-62.297635",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 56.699789,
-    "lon": -64.14526,
-    "dist_m": 130209.91,
+    "lat": 57.515012,
+    "lon": -62.125828,
+    "dist_m": 110306.0,
     "nearest_way": {
-     "id": 499905174,
+     "id": 471529476,
+     "highway": "unclassified",
+     "name": "Middle Path",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nutak",
+     "type": "hamlet",
+     "dist_m": 17900.7,
+     "lat": 57.481089,
+     "lon": -61.833998
+    },
+    "island_km2": 8.0,
+    "detail": "detail/ca-nl/A-57.515012_-62.125828",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 59.370532,
+    "lon": -63.532842,
+    "dist_m": 110284.87,
+    "nearest_way": {
+     "id": 1238431274,
      "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nachvak",
+     "type": "hamlet",
+     "dist_m": 39325.5,
+     "lat": 59.066667,
+     "lon": -63.883333
+    },
+    "island_km2": 1.4,
+    "detail": "detail/ca-nl/A-59.370532_-63.532842",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 52.19069,
+    "lon": -62.600385,
+    "dist_m": 110165.76,
+    "nearest_way": {
+     "id": 990194089,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Campement Mista",
+     "type": "hamlet",
+     "dist_m": 134572.4,
+     "lat": 51.10202,
+     "lon": -63.447587
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/A-52.190690_-62.600385",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 57.523354,
+    "lon": -61.488969,
+    "dist_m": 108655.69,
+    "nearest_way": {
+     "id": 471529476,
+     "highway": "unclassified",
+     "name": "Middle Path",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nutak",
+     "type": "hamlet",
+     "dist_m": 21213.7,
+     "lat": 57.481089,
+     "lon": -61.833998
+    },
+    "island_km2": 9.3,
+    "detail": "detail/ca-nl/A-57.523354_-61.488969",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 57.669361,
+    "lon": -61.679156,
+    "dist_m": 105599.22,
+    "nearest_way": {
+     "id": 499529507,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nutak",
+     "type": "hamlet",
+     "dist_m": 22923.4,
+     "lat": 57.481089,
+     "lon": -61.833998
+    },
+    "island_km2": 13.0,
+    "detail": "detail/ca-nl/A-57.669361_-61.679156",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 57.475448,
+    "lon": -61.640812,
+    "dist_m": 102705.04,
+    "nearest_way": {
+     "id": 471529476,
+     "highway": "unclassified",
+     "name": "Middle Path",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nutak",
+     "type": "hamlet",
+     "dist_m": 11606.3,
+     "lat": 57.481089,
+     "lon": -61.833998
+    },
+    "island_km2": 5.0,
+    "detail": "detail/ca-nl/A-57.475448_-61.640812",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 53.490246,
+    "lon": -58.887709,
+    "dist_m": 75949.54,
+    "nearest_way": {
+     "id": 177547120,
+     "highway": "trunk",
+     "name": "Southern Labrador Highway",
+     "ref": "510",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Rigolet",
+     "type": "town",
+     "dist_m": 82227.2,
+     "lat": 54.177903,
+     "lon": -58.431173
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/A-53.490246_-58.887709",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 53.168541,
+    "lon": -56.504709,
+    "dist_m": 47394.88,
+    "nearest_way": {
+     "id": 173084133,
+     "highway": "secondary",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Norman's Bay",
+     "type": "town",
+     "dist_m": 47710.0,
+     "lat": 52.938318,
+     "lon": -55.904491
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/A-53.168541_-56.504709",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 54.831117,
+    "lon": -57.842041,
+    "dist_m": 38412.44,
+    "nearest_way": {
+     "id": 499304842,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Holton Harbour",
+     "type": "hamlet",
+     "dist_m": 47356.8,
+     "lat": 54.566667,
+     "lon": -57.266667
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/A-54.831117_-57.842041",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 54.11049,
+    "lon": -64.181278,
+    "dist_m": 35535.16,
+    "nearest_way": {
+     "id": 173108660,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Churchill Falls",
+     "type": "town",
+     "dist_m": 65269.5,
+     "lat": 53.532897,
+     "lon": -64.009959
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/A-54.110490_-64.181278",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 53.716576,
+    "lon": -56.401465,
+    "dist_m": 31289.83,
+    "nearest_way": {
+     "id": 178303907,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Hare Harbour",
+     "type": "hamlet",
+     "dist_m": 25316.8,
+     "lat": 53.755209,
+     "lon": -56.779537
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/A-53.716576_-56.401465",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 56.322194,
+    "lon": -61.414525,
+    "dist_m": 28791.58,
+    "nearest_way": {
+     "id": 498357360,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "ca"
@@ -163,82 +422,70 @@
     "nearest_place": {
      "name": "Nain",
      "type": "town",
-     "dist_m": 151343.6,
+     "dist_m": 29982.7,
      "lat": 56.541463,
      "lon": -61.696596
     },
-    "detail": "detail/ca-nl/A-7",
+    "island_km2": null,
+    "detail": "detail/ca-nl/A-56.322194_-61.414525",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 57.222736,
-    "lon": -63.592626,
-    "dist_m": 129202.28,
+    "rank": 19,
+    "lat": 56.281299,
+    "lon": -61.577121,
+    "dist_m": 24792.45,
     "nearest_way": {
-     "id": 798618285,
-     "highway": "service",
-     "name": null,
+     "id": 1266937137,
+     "highway": "unclassified",
+     "name": "HWP road",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Nutak",
-     "type": "hamlet",
-     "dist_m": 109701.4,
-     "lat": 57.481089,
-     "lon": -61.833998
+     "name": "Nain",
+     "type": "town",
+     "dist_m": 29893.1,
+     "lat": 56.541463,
+     "lon": -61.696596
     },
-    "detail": "detail/ca-nl/A-8",
+    "island_km2": null,
+    "detail": "detail/ca-nl/A-56.281299_-61.577121",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 57.331961,
-    "lon": -63.362348,
-    "dist_m": 128919.02,
+    "rank": 20,
+    "lat": 52.003769,
+    "lon": -55.829007,
+    "dist_m": 24329.99,
     "nearest_way": {
-     "id": 798618285,
-     "highway": "service",
-     "name": null,
-     "ref": null,
+     "id": 513659720,
+     "highway": "trunk",
+     "name": "Southern Labrador Highway",
+     "ref": "510",
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Nutak",
+     "name": "Henley Harbour",
      "type": "hamlet",
-     "dist_m": 93353.1,
-     "lat": 57.481089,
-     "lon": -61.833998
+     "dist_m": 2051.0,
+     "lat": 51.992335,
+     "lon": -55.85243
     },
-    "detail": "detail/ca-nl/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 56.984079,
-    "lon": -63.907903,
-    "dist_m": 128863.13,
-    "nearest_way": {
-     "id": 798618285,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Nutak",
-     "type": "hamlet",
-     "dist_m": 136925.8,
-     "lat": 57.481089,
-     "lon": -61.833998
-    },
-    "detail": "detail/ca-nl/A-10",
+    "island_km2": null,
+    "detail": "detail/ca-nl/A-52.003769_-55.829007",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 145982.03,
+  "lat": 57.27335,
+  "lon": -63.882667,
+  "rank": 6,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,18 +504,42 @@
     "nearest_place": {
      "name": "Nutak",
      "type": "hamlet",
-     "dist_m": 102768.9,
+     "dist_m": 102768.8,
      "lat": 57.481089,
      "lon": -61.833998
     },
-    "detail": "detail/ca-nl/B-1",
+    "island_km2": 5.3,
+    "detail": "detail/ca-nl/B-58.350539_-62.414637",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 58.259701,
-    "lon": -62.535264,
-    "dist_m": 196658.52,
+    "lat": 58.240006,
+    "lon": -62.602507,
+    "dist_m": 195629.98,
+    "nearest_way": {
+     "id": 502403921,
+     "highway": "road",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nutak",
+     "type": "hamlet",
+     "dist_m": 96048.7,
+     "lat": 57.481089,
+     "lon": -61.833998
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/B-58.240006_-62.602507",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 58.216463,
+    "lon": -62.114017,
+    "dist_m": 186939.54,
     "nearest_way": {
      "id": 471529476,
      "highway": "unclassified",
@@ -279,62 +550,19 @@
     "nearest_place": {
      "name": "Nutak",
      "type": "hamlet",
-     "dist_m": 96186.4,
+     "dist_m": 83573.0,
      "lat": 57.481089,
      "lon": -61.833998
     },
-    "detail": "detail/ca-nl/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 58.20162,
-    "lon": -62.677716,
-    "dist_m": 192874.34,
-    "nearest_way": {
-     "id": 502403921,
-     "highway": "road",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Nutak",
-     "type": "hamlet",
-     "dist_m": 94608.7,
-     "lat": 57.481089,
-     "lon": -61.833998
-    },
-    "detail": "detail/ca-nl/B-3",
+    "island_km2": 2.9,
+    "detail": "detail/ca-nl/B-58.216463_-62.114017",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 58.348841,
-    "lon": -62.598139,
-    "dist_m": 192367.2,
-    "nearest_way": {
-     "id": 502403921,
-     "highway": "road",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Nutak",
-     "type": "hamlet",
-     "dist_m": 106732.0,
-     "lat": 57.481089,
-     "lon": -61.833998
-    },
-    "detail": "detail/ca-nl/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 58.478617,
-    "lon": -62.556459,
-    "dist_m": 191506.24,
+    "lat": 58.54935,
+    "lon": -62.629776,
+    "dist_m": 185972.16,
     "nearest_way": {
      "id": 502403921,
      "highway": "road",
@@ -345,18 +573,42 @@
     "nearest_place": {
      "name": "Nachvak",
      "type": "hamlet",
-     "dist_m": 100910.2,
+     "dist_m": 92569.1,
      "lat": 59.066667,
      "lon": -63.883333
     },
-    "detail": "detail/ca-nl/B-5",
+    "island_km2": 31.4,
+    "detail": "detail/ca-nl/B-58.549350_-62.629776",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 58.14842,
+    "lon": -62.413165,
+    "dist_m": 182859.0,
+    "nearest_way": {
+     "id": 471529476,
+     "highway": "unclassified",
+     "name": "Middle Path",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nutak",
+     "type": "hamlet",
+     "dist_m": 81908.0,
+     "lat": 57.481089,
+     "lon": -61.833998
+    },
+    "island_km2": 3.7,
+    "detail": "detail/ca-nl/B-58.148420_-62.413165",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 58.231378,
-    "lon": -62.101915,
-    "dist_m": 188487.16,
+    "lat": 58.062188,
+    "lon": -62.216682,
+    "dist_m": 170986.12,
     "nearest_way": {
      "id": 471529476,
      "highway": "unclassified",
@@ -367,84 +619,19 @@
     "nearest_place": {
      "name": "Nutak",
      "type": "hamlet",
-     "dist_m": 85063.7,
+     "dist_m": 68608.6,
      "lat": 57.481089,
      "lon": -61.833998
     },
-    "detail": "detail/ca-nl/B-6",
+    "island_km2": 7.3,
+    "detail": "detail/ca-nl/B-58.062188_-62.216682",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 58.205475,
-    "lon": -62.326478,
-    "dist_m": 187907.12,
-    "nearest_way": {
-     "id": 471529476,
-     "highway": "unclassified",
-     "name": "Middle Path",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Nutak",
-     "type": "hamlet",
-     "dist_m": 85816.0,
-     "lat": 57.481089,
-     "lon": -61.833998
-    },
-    "detail": "detail/ca-nl/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 58.131325,
-    "lon": -62.798449,
-    "dist_m": 187901.98,
-    "nearest_way": {
-     "id": 471529476,
-     "highway": "unclassified",
-     "name": "Middle Path",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Nutak",
-     "type": "hamlet",
-     "dist_m": 92368.5,
-     "lat": 57.481089,
-     "lon": -61.833998
-    },
-    "detail": "detail/ca-nl/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 58.169161,
-    "lon": -62.508022,
-    "dist_m": 186514.64,
-    "nearest_way": {
-     "id": 471529476,
-     "highway": "unclassified",
-     "name": "Middle Path",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Nutak",
-     "type": "hamlet",
-     "dist_m": 86467.6,
-     "lat": 57.481089,
-     "lon": -61.833998
-    },
-    "detail": "detail/ca-nl/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 58.288678,
-    "lon": -62.740732,
-    "dist_m": 186237.94,
+    "lat": 58.541621,
+    "lon": -62.934287,
+    "dist_m": 168600.57,
     "nearest_way": {
      "id": 502403921,
      "highway": "road",
@@ -453,17 +640,324 @@
      "country": "ca"
     },
     "nearest_place": {
+     "name": "Nachvak",
+     "type": "hamlet",
+     "dist_m": 80184.4,
+     "lat": 59.066667,
+     "lon": -63.883333
+    },
+    "island_km2": 7.2,
+    "detail": "detail/ca-nl/B-58.541621_-62.934287",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 60.076361,
+    "lon": -64.319844,
+    "dist_m": 168560.29,
+    "nearest_way": {
+     "id": 1261351354,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "ᐃᑉᐱᒋᑦᑐᖅ Ippigittuq",
+     "type": "hamlet",
+     "dist_m": 42698.7,
+     "lat": 59.899835,
+     "lon": -64.998811
+    },
+    "island_km2": 1.8,
+    "detail": "detail/ca-nl/B-60.076361_-64.319844",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 57.970399,
+    "lon": -62.224559,
+    "dist_m": 161057.74,
+    "nearest_way": {
+     "id": 471529476,
+     "highway": "unclassified",
+     "name": "Middle Path",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
      "name": "Nutak",
      "type": "hamlet",
-     "dist_m": 104800.4,
+     "dist_m": 59256.4,
      "lat": 57.481089,
      "lon": -61.833998
     },
-    "detail": "detail/ca-nl/B-10",
+    "island_km2": 18.4,
+    "detail": "detail/ca-nl/B-57.970399_-62.224559",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 60.15997,
+    "lon": -64.238555,
+    "dist_m": 159861.91,
+    "nearest_way": {
+     "id": 1261351354,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Port Burwell",
+     "type": "hamlet",
+     "dist_m": 42843.2,
+     "lat": 60.415406,
+     "lon": -64.817512
+    },
+    "island_km2": 13.8,
+    "detail": "detail/ca-nl/B-60.159970_-64.238555",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 57.928324,
+    "lon": -61.677215,
+    "dist_m": 153092.62,
+    "nearest_way": {
+     "id": 471529476,
+     "highway": "unclassified",
+     "name": "Middle Path",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nutak",
+     "type": "hamlet",
+     "dist_m": 50679.1,
+     "lat": 57.481089,
+     "lon": -61.833998
+    },
+    "island_km2": 15.3,
+    "detail": "detail/ca-nl/B-57.928324_-61.677215",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 52.516708,
+    "lon": -64.150458,
+    "dist_m": 111108.79,
+    "nearest_way": {
+     "id": 173166595,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Churchill Falls",
+     "type": "town",
+     "dist_m": 113480.6,
+     "lat": 53.532897,
+     "lon": -64.009959
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/B-52.516708_-64.150458",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 53.488558,
+    "lon": -58.90659,
+    "dist_m": 76549.08,
+    "nearest_way": {
+     "id": 177547120,
+     "highway": "trunk",
+     "name": "Southern Labrador Highway",
+     "ref": "510",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Sheshatshiu",
+     "type": "town",
+     "dist_m": 81859.3,
+     "lat": 53.512316,
+     "lon": -60.139556
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/B-53.488558_-58.906590",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 53.156541,
+    "lon": -56.526653,
+    "dist_m": 47950.54,
+    "nearest_way": {
+     "id": 173084133,
+     "highway": "secondary",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Norman's Bay",
+     "type": "town",
+     "dist_m": 48277.2,
+     "lat": 52.938318,
+     "lon": -55.904491
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/B-53.156541_-56.526653",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 54.098727,
+    "lon": -64.167911,
+    "dist_m": 42109.14,
+    "nearest_way": {
+     "id": 173108513,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Churchill Falls",
+     "type": "town",
+     "dist_m": 63831.2,
+     "lat": 53.532897,
+     "lon": -64.009959
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/B-54.098727_-64.167911",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 53.765348,
+    "lon": -56.427198,
+    "dist_m": 35626.5,
+    "nearest_way": {
+     "id": 178304109,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Hare Harbour",
+     "type": "hamlet",
+     "dist_m": 23264.8,
+     "lat": 53.755209,
+     "lon": -56.779537
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/B-53.765348_-56.427198",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 56.322194,
+    "lon": -61.414525,
+    "dist_m": 28791.58,
+    "nearest_way": {
+     "id": 498357360,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nain",
+     "type": "town",
+     "dist_m": 29982.7,
+     "lat": 56.541463,
+     "lon": -61.696596
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/B-56.322194_-61.414525",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 56.281299,
+    "lon": -61.577121,
+    "dist_m": 24792.45,
+    "nearest_way": {
+     "id": 1266937137,
+     "highway": "unclassified",
+     "name": "HWP road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nain",
+     "type": "town",
+     "dist_m": 29893.1,
+     "lat": 56.541463,
+     "lon": -61.696596
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/B-56.281299_-61.577121",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 52.003769,
+    "lon": -55.829007,
+    "dist_m": 24329.99,
+    "nearest_way": {
+     "id": 513659720,
+     "highway": "trunk",
+     "name": "Southern Labrador Highway",
+     "ref": "510",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Henley Harbour",
+     "type": "hamlet",
+     "dist_m": 2051.0,
+     "lat": 51.992335,
+     "lon": -55.85243
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/B-52.003769_-55.829007",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 52.217418,
+    "lon": -55.620574,
+    "dist_m": 14956.38,
+    "nearest_way": {
+     "id": 173074236,
+     "highway": "secondary",
+     "name": "Ranger Valley Drive",
+     "ref": "510-7",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Cape Saint Charles",
+     "type": "hamlet",
+     "dist_m": 515.5,
+     "lat": 52.217896,
+     "lon": -55.628076
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nl/B-52.217418_-55.620574",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 195629.98,
+  "lat": 58.240006,
+  "lon": -62.602507,
+  "rank": 5,
+  "withheld": 0
  }
 }

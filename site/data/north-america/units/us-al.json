@@ -31,11 +31,12 @@
     "nearest_place": {
      "name": "San Souci Beach",
      "type": "hamlet",
-     "dist_m": 19077.5,
+     "dist_m": 19077.6,
      "lat": 30.38881,
      "lon": -88.258337
     },
-    "detail": "detail/us-al/A-1",
+    "island_km2": 13.6,
+    "detail": "detail/us-al/A-30.232022_-88.340100",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 30.484085,
      "lon": -88.100832
     },
-    "detail": "detail/us-al/A-2",
+    "island_km2": 5.7,
+    "detail": "detail/us-al/A-30.490989_-88.024049",
     "warnings": []
    },
    {
@@ -79,36 +81,15 @@
      "lat": 30.77741,
      "lon": -88.023054
     },
-    "detail": "detail/us-al/A-3",
+    "island_km2": null,
+    "detail": "detail/us-al/A-30.776384_-87.980594",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 30.351932,
-    "lon": -88.391929,
-    "dist_m": 5836.75,
-    "nearest_way": {
-     "id": 13634497,
-     "highway": "residential",
-     "name": "Grand Bature Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Orange Grove",
-     "type": "hamlet",
-     "dist_m": 9965.0,
-     "lat": 30.420755,
-     "lon": -88.458624
-    },
-    "detail": "detail/us-al/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 30.324137,
-    "lon": -88.25583,
-    "dist_m": 5673.05,
+    "lat": 30.324093,
+    "lon": -88.255725,
+    "dist_m": 5674.05,
     "nearest_way": {
      "id": 7907664,
      "highway": "unclassified",
@@ -119,15 +100,16 @@
     "nearest_place": {
      "name": "Coden",
      "type": "hamlet",
-     "dist_m": 6736.3,
+     "dist_m": 6738.5,
      "lat": 30.382977,
      "lon": -88.238336
     },
-    "detail": "detail/us-al/A-5",
+    "island_km2": 1.7,
+    "detail": "detail/us-al/A-30.324093_-88.255725",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 30.996107,
     "lon": -87.93211,
     "dist_m": 5314.55,
@@ -145,55 +127,12 @@
      "lat": 30.993793,
      "lon": -87.85805
     },
-    "detail": "detail/us-al/A-6",
+    "island_km2": null,
+    "detail": "detail/us-al/A-30.996107_-87.932110",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 30.187609,
-    "lon": -88.050767,
-    "dist_m": 5083.75,
-    "nearest_way": {
-     "id": 6230199,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Fort Morgan",
-     "type": "hamlet",
-     "dist_m": 5237.3,
-     "lat": 30.228188,
-     "lon": -88.022911
-    },
-    "detail": "detail/us-al/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 30.86588,
-    "lon": -87.953625,
-    "dist_m": 5046.02,
-    "nearest_way": {
-     "id": 1099374934,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Hurricane",
-     "type": "hamlet",
-     "dist_m": 5660.1,
-     "lat": 30.841019,
-     "lon": -87.901939
-    },
-    "detail": "detail/us-al/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 6,
     "lat": 31.273677,
     "lon": -87.912008,
     "dist_m": 4553.94,
@@ -211,11 +150,12 @@
      "lat": 31.343224,
      "lon": -87.845552
     },
-    "detail": "detail/us-al/A-9",
+    "island_km2": null,
+    "detail": "detail/us-al/A-31.273677_-87.912008",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 7,
     "lat": 31.705175,
     "lon": -88.12865,
     "dist_m": 3892.02,
@@ -233,12 +173,158 @@
      "lat": 31.680993,
      "lon": -88.174177
     },
-    "detail": "detail/us-al/A-10",
+    "island_km2": null,
+    "detail": "detail/us-al/A-31.705175_-88.128650",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 31.535803,
+    "lon": -87.660528,
+    "dist_m": 3821.19,
+    "nearest_way": {
+     "id": 6276748,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Manila",
+     "type": "hamlet",
+     "dist_m": 6665.7,
+     "lat": 31.508495,
+     "lon": -87.72305
+    },
+    "island_km2": null,
+    "detail": "detail/us-al/A-31.535803_-87.660528",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 30.383846,
+    "lon": -88.381806,
+    "dist_m": 3714.85,
+    "nearest_way": {
+     "id": 7846985,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pecan",
+     "type": "hamlet",
+     "dist_m": 8031.1,
+     "lat": 30.443532,
+     "lon": -88.429178
+    },
+    "island_km2": null,
+    "detail": "detail/us-al/A-30.383846_-88.381806",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 34.969442,
+    "lon": -86.33766,
+    "dist_m": 3231.5,
+    "nearest_way": {
+     "id": 486699484,
+     "highway": "residential",
+     "name": "Mountain Fork Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Elora",
+     "type": "hamlet",
+     "dist_m": 5153.1,
+     "lat": 35.01342,
+     "lon": -86.355823
+    },
+    "island_km2": null,
+    "detail": "detail/us-al/A-34.969442_-86.337660",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 34.31425,
+    "lon": -87.460517,
+    "dist_m": 3090.56,
+    "nearest_way": {
+     "id": 7767479,
+     "highway": "track",
+     "name": "Northwest Road",
+     "ref": "FS 208W;TR 208",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rabbittown",
+     "type": "hamlet",
+     "dist_m": 6442.4,
+     "lat": 34.263988,
+     "lon": -87.495577
+    },
+    "island_km2": null,
+    "detail": "detail/us-al/A-34.314250_-87.460517",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 31.402091,
+    "lon": -87.94117,
+    "dist_m": 3083.39,
+    "nearest_way": {
+     "id": 8897428,
+     "highway": "residential",
+     "name": "Dead River Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prestwick",
+     "type": "hamlet",
+     "dist_m": 6116.7,
+     "lat": 31.452943,
+     "lon": -87.966112
+    },
+    "island_km2": null,
+    "detail": "detail/us-al/A-31.402091_-87.941170",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 31.35161,
+    "lon": -88.358168,
+    "dist_m": 3037.19,
+    "nearest_way": {
+     "id": 8891021,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fruitdale",
+     "type": "hamlet",
+     "dist_m": 4825.2,
+     "lat": 31.342672,
+     "lon": -88.407795
+    },
+    "island_km2": null,
+    "detail": "detail/us-al/A-31.351610_-88.358168",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 6275.17,
+  "lat": 30.776384,
+  "lon": -87.980594,
+  "rank": 42,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,11 +343,12 @@
     "nearest_place": {
      "name": "San Souci Beach",
      "type": "hamlet",
-     "dist_m": 19077.5,
+     "dist_m": 19077.6,
      "lat": 30.38881,
      "lon": -88.258337
     },
-    "detail": "detail/us-al/B-1",
+    "island_km2": 13.6,
+    "detail": "detail/us-al/B-30.232022_-88.340100",
     "warnings": []
    },
    {
@@ -283,7 +370,8 @@
      "lat": 30.484085,
      "lon": -88.100832
     },
-    "detail": "detail/us-al/B-2",
+    "island_km2": 5.7,
+    "detail": "detail/us-al/B-30.490989_-88.024049",
     "warnings": []
    },
    {
@@ -305,36 +393,15 @@
      "lat": 30.809909,
      "lon": -88.00472
     },
-    "detail": "detail/us-al/B-3",
+    "island_km2": null,
+    "detail": "detail/us-al/B-30.787040_-87.978862",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 30.351932,
-    "lon": -88.391929,
-    "dist_m": 5836.75,
-    "nearest_way": {
-     "id": 13634497,
-     "highway": "residential",
-     "name": "Grand Bature Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Orange Grove",
-     "type": "hamlet",
-     "dist_m": 9965.0,
-     "lat": 30.420755,
-     "lon": -88.458624
-    },
-    "detail": "detail/us-al/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 30.324137,
-    "lon": -88.25583,
-    "dist_m": 5673.05,
+    "lat": 30.324093,
+    "lon": -88.255725,
+    "dist_m": 5674.05,
     "nearest_way": {
      "id": 7907664,
      "highway": "unclassified",
@@ -345,15 +412,16 @@
     "nearest_place": {
      "name": "Coden",
      "type": "hamlet",
-     "dist_m": 6736.3,
+     "dist_m": 6738.5,
      "lat": 30.382977,
      "lon": -88.238336
     },
-    "detail": "detail/us-al/B-5",
+    "island_km2": 1.7,
+    "detail": "detail/us-al/B-30.324093_-88.255725",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 30.996107,
     "lon": -87.93211,
     "dist_m": 5314.55,
@@ -371,11 +439,12 @@
      "lat": 30.993793,
      "lon": -87.85805
     },
-    "detail": "detail/us-al/B-6",
+    "island_km2": null,
+    "detail": "detail/us-al/B-30.996107_-87.932110",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 31.257982,
     "lon": -87.91416,
     "dist_m": 5123.99,
@@ -393,33 +462,12 @@
      "lat": 31.266282,
      "lon": -88.03139
     },
-    "detail": "detail/us-al/B-7",
+    "island_km2": null,
+    "detail": "detail/us-al/B-31.257982_-87.914160",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 30.187609,
-    "lon": -88.050767,
-    "dist_m": 5083.75,
-    "nearest_way": {
-     "id": 6230199,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Fort Morgan",
-     "type": "hamlet",
-     "dist_m": 5237.3,
-     "lat": 30.228188,
-     "lon": -88.022911
-    },
-    "detail": "detail/us-al/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 7,
     "lat": 34.95121,
     "lon": -86.309712,
     "dist_m": 4704.0,
@@ -433,37 +481,161 @@
     "nearest_place": {
      "name": "Francisco",
      "type": "hamlet",
-     "dist_m": 6828.1,
+     "dist_m": 6828.2,
      "lat": 34.987309,
      "lon": -86.249153
     },
-    "detail": "detail/us-al/B-9",
+    "island_km2": null,
+    "detail": "detail/us-al/B-34.951210_-86.309712",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 30.746481,
+    "lon": -87.637927,
+    "dist_m": 4268.45,
+    "nearest_way": {
+     "id": 6227155,
+     "highway": "unclassified",
+     "name": "Brady Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Gateswood",
+     "type": "hamlet",
+     "dist_m": 6154.5,
+     "lat": 30.721023,
+     "lon": -87.580819
+    },
+    "island_km2": null,
+    "detail": "detail/us-al/B-30.746481_-87.637927",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 33.061624,
+    "lon": -86.37855,
+    "dist_m": 4249.1,
+    "nearest_way": {
+     "id": 122317914,
+     "highway": "tertiary",
+     "name": "County Road 55",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Strickland Crossroads",
+     "type": "hamlet",
+     "dist_m": 718.0,
+     "lat": 33.062897,
+     "lon": -86.386088
+    },
+    "island_km2": null,
+    "detail": "detail/us-al/B-33.061624_-86.378550",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 30.875116,
-    "lon": -87.942729,
-    "dist_m": 4701.03,
+    "lat": 31.064912,
+    "lon": -88.157064,
+    "dist_m": 4220.7,
     "nearest_way": {
-     "id": 108053203,
-     "highway": "motorway",
+     "id": 7889596,
+     "highway": "residential",
      "name": null,
-     "ref": "I 65",
+     "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Hurricane",
+     "name": "Lambert Grove",
      "type": "hamlet",
-     "dist_m": 5432.3,
-     "lat": 30.841019,
-     "lon": -87.901939
+     "dist_m": 2372.6,
+     "lat": 31.043513,
+     "lon": -88.157226
     },
-    "detail": "detail/us-al/B-10",
+    "island_km2": null,
+    "detail": "detail/us-al/B-31.064912_-88.157064",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 34.321259,
+    "lon": -87.433033,
+    "dist_m": 4131.51,
+    "nearest_way": {
+     "id": 224301974,
+     "highway": "unclassified",
+     "name": "Cranal Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rabbittown",
+     "type": "hamlet",
+     "dist_m": 8574.2,
+     "lat": 34.263988,
+     "lon": -87.495577
+    },
+    "island_km2": null,
+    "detail": "detail/us-al/B-34.321259_-87.433033",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 30.382845,
+    "lon": -88.378883,
+    "dist_m": 4062.11,
+    "nearest_way": {
+     "id": 13622478,
+     "highway": "residential",
+     "name": "Bayou Heron Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pecan",
+     "type": "hamlet",
+     "dist_m": 8283.5,
+     "lat": 30.443532,
+     "lon": -88.429178
+    },
+    "island_km2": null,
+    "detail": "detail/us-al/B-30.382845_-88.378883",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 31.702956,
+    "lon": -88.129927,
+    "dist_m": 4052.17,
+    "nearest_way": {
+     "id": 8897250,
+     "highway": "residential",
+     "name": "Hatchetigbee Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Silver Cross",
+     "type": "hamlet",
+     "dist_m": 4850.8,
+     "lat": 31.680993,
+     "lon": -88.174177
+    },
+    "island_km2": null,
+    "detail": "detail/us-al/B-31.702956_-88.129927",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 6817.87,
+  "lat": 30.78704,
+  "lon": -87.978862,
+  "rank": 45,
+  "withheld": 0
  }
 }

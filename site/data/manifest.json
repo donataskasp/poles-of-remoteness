@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "generated_at": "2026-09-07T01:04:46+00:00",
+ "generated_at": "2026-09-07T01:40:33+00:00",
  "regions": {
   "europe": {
    "snapshot": "2026-08-19",
@@ -102,9 +102,9 @@
   },
   "north-america": {
    "snapshot": "2026-08-22",
-   "published_at": "2026-08-24T18:19:04+00:00",
+   "published_at": "2026-09-07T01:40:33+00:00",
    "r2_base": "https://data.polesofremoteness.com",
-   "pipeline_commit": "e92063bff00dfc292ecce23f951e06443c11f873",
+   "pipeline_commit": "2e98cdd20f52d006bc61f2060326a3d09f1b0f78",
    "sources": [
     {
      "url": "https://download.geofabrik.de/north-america-latest.osm.pbf",
@@ -134,8 +134,8 @@
     }
    },
    "detail": {
-    "count": 1262,
-    "bytes": 16018638
+    "count": 1569,
+    "bytes": 22058901
    },
    "validation": {
     "report": "north-america/2026-08-22/validation/report.json",
@@ -143,8 +143,8 @@
     "contact_sheet": "north-america/2026-08-22/validation/contact-sheet.html"
    },
    "verified": {
-    "at": "2026-08-24T18:19:04+00:00",
-    "keys": 2529,
+    "at": "2026-09-07T01:40:33+00:00",
+    "keys": 3143,
     "range_ok": 2
    }
   }

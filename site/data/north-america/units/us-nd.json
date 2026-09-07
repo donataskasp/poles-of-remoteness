@@ -35,7 +35,8 @@
      "lat": 47.583659,
      "lon": -102.38927
     },
-    "detail": "detail/us-nd/A-1",
+    "island_km2": null,
+    "detail": "detail/us-nd/A-47.537699_-102.452266",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 46.931331,
      "lon": -103.485362
     },
-    "detail": "detail/us-nd/A-2",
+    "island_km2": null,
+    "detail": "detail/us-nd/A-46.993920_-103.550822",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 47.392514,
      "lon": -103.247966
     },
-    "detail": "detail/us-nd/A-3",
+    "island_km2": null,
+    "detail": "detail/us-nd/A-47.580863_-103.411197",
     "warnings": []
    },
    {
@@ -101,33 +104,12 @@
      "lat": 46.386505,
      "lon": -100.797047
     },
-    "detail": "detail/us-nd/A-4",
+    "island_km2": null,
+    "detail": "detail/us-nd/A-46.325966_-100.852035",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 47.8963,
-    "lon": -102.378246,
-    "dist_m": 3167.67,
-    "nearest_way": {
-     "id": 9736544,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Van Hook",
-     "type": "village",
-     "dist_m": 6032.9,
-     "lat": 47.948783,
-     "lon": -102.357766
-    },
-    "detail": "detail/us-nd/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
     "lat": 46.265629,
     "lon": -100.984371,
     "dist_m": 3124.54,
@@ -145,11 +127,12 @@
      "lat": 46.220174,
      "lon": -101.097315
     },
-    "detail": "detail/us-nd/A-6",
+    "island_km2": null,
+    "detail": "detail/us-nd/A-46.265629_-100.984371",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 47.575035,
     "lon": -101.320102,
     "dist_m": 3013.48,
@@ -167,11 +150,12 @@
      "lat": 47.544165,
      "lon": -101.223766
     },
-    "detail": "detail/us-nd/A-7",
+    "island_km2": null,
+    "detail": "detail/us-nd/A-47.575035_-101.320102",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 48.298816,
     "lon": -99.138791,
     "dist_m": 2883.89,
@@ -185,15 +169,16 @@
     "nearest_place": {
      "name": "Churchs Ferry",
      "type": "hamlet",
-     "dist_m": 5371.2,
+     "dist_m": 5371.1,
      "lat": 48.270644,
      "lon": -99.19758
     },
-    "detail": "detail/us-nd/A-8",
+    "island_km2": null,
+    "detail": "detail/us-nd/A-48.298816_-99.138791",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 46.91536,
     "lon": -103.35345,
     "dist_m": 2872.83,
@@ -207,38 +192,70 @@
     "nearest_place": {
      "name": "Sully Springs",
      "type": "hamlet",
-     "dist_m": 6087.8,
+     "dist_m": 6087.9,
      "lat": 46.867235,
      "lon": -103.391571
     },
-    "detail": "detail/us-nd/A-9",
+    "island_km2": null,
+    "detail": "detail/us-nd/A-46.915360_-103.353450",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 47.771213,
-    "lon": -102.296877,
-    "dist_m": 2825.22,
+    "rank": 9,
+    "lat": 46.106658,
+    "lon": -101.381028,
+    "dist_m": 2816.81,
     "nearest_way": {
-     "id": 9656486,
+     "id": 9681441,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Brendle's Bay",
+     "name": "Saint Gertrude",
      "type": "hamlet",
-     "dist_m": 16363.6,
-     "lat": 47.918337,
-     "lon": -102.291282
+     "dist_m": 20097.8,
+     "lat": 46.28421,
+     "lon": -101.331834
     },
-    "detail": "detail/us-nd/A-10",
+    "island_km2": null,
+    "detail": "detail/us-nd/A-46.106658_-101.381028",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.128182,
+    "lon": -101.038734,
+    "dist_m": 2810.11,
+    "nearest_way": {
+     "id": 9779591,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Porcupine",
+     "type": "village",
+     "dist_m": 11181.3,
+     "lat": 46.220174,
+     "lon": -101.097315
+    },
+    "island_km2": null,
+    "detail": "detail/us-nd/A-46.128182_-101.038734",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 3469.09,
+  "lat": 47.537699,
+  "lon": -102.452266,
+  "rank": 56,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 46.041389,
      "lon": -100.92513
     },
-    "detail": "detail/us-nd/B-1",
+    "island_km2": null,
+    "detail": "detail/us-nd/B-46.129555_-100.817098",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 46.556955,
      "lon": -103.791866
     },
-    "detail": "detail/us-nd/B-2",
+    "island_km2": null,
+    "detail": "detail/us-nd/B-46.482225_-103.785354",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 46.220174,
      "lon": -101.097315
     },
-    "detail": "detail/us-nd/B-3",
+    "island_km2": null,
+    "detail": "detail/us-nd/B-46.097900_-101.201503",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 46.619619,
      "lon": -103.596699
     },
-    "detail": "detail/us-nd/B-4",
+    "island_km2": null,
+    "detail": "detail/us-nd/B-46.651080_-103.554740",
     "warnings": []
    },
    {
@@ -345,37 +366,16 @@
     "nearest_place": {
      "name": "Breien",
      "type": "hamlet",
-     "dist_m": 16817.2,
+     "dist_m": 16817.1,
      "lat": 46.379998,
      "lon": -100.942355
     },
-    "detail": "detail/us-nd/B-5",
+    "island_km2": null,
+    "detail": "detail/us-nd/B-46.240545_-100.857694",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 46.681973,
-    "lon": -103.687361,
-    "dist_m": 4831.08,
-    "nearest_way": {
-     "id": 9675064,
-     "highway": "unclassified",
-     "name": "47th Street Southwest",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Walser Crossing",
-     "type": "hamlet",
-     "dist_m": 9808.8,
-     "lat": 46.619619,
-     "lon": -103.596699
-    },
-    "detail": "detail/us-nd/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 46.108712,
     "lon": -101.039994,
     "dist_m": 4784.65,
@@ -393,11 +393,12 @@
      "lat": 46.041389,
      "lon": -100.92513
     },
-    "detail": "detail/us-nd/B-7",
+    "island_km2": null,
+    "detail": "detail/us-nd/B-46.108712_-101.039994",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 46.393552,
     "lon": -104.045495,
     "dist_m": 4779.43,
@@ -415,11 +416,12 @@
      "lat": 46.295006,
      "lon": -103.920761
     },
-    "detail": "detail/us-nd/B-8",
+    "island_km2": null,
+    "detail": "detail/us-nd/B-46.393552_-104.045495",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 47.545312,
     "lon": -101.953317,
     "dist_m": 4677.93,
@@ -437,11 +439,12 @@
      "lat": 47.665098,
      "lon": -101.843118
     },
-    "detail": "detail/us-nd/B-9",
+    "island_km2": null,
+    "detail": "detail/us-nd/B-47.545312_-101.953317",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 47.563328,
     "lon": -103.382107,
     "dist_m": 4625.65,
@@ -455,15 +458,46 @@
     "nearest_place": {
      "name": "Grassy Butte",
      "type": "hamlet",
-     "dist_m": 21515.0,
+     "dist_m": 21514.9,
      "lat": 47.392514,
      "lon": -103.247966
     },
-    "detail": "detail/us-nd/B-10",
+    "island_km2": null,
+    "detail": "detail/us-nd/B-47.563328_-103.382107",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 47.597221,
+    "lon": -102.277322,
+    "dist_m": 4577.69,
+    "nearest_way": {
+     "id": 803027389,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Charging Eagle Bay",
+     "type": "hamlet",
+     "dist_m": 8554.0,
+     "lat": 47.583659,
+     "lon": -102.38927
+    },
+    "island_km2": null,
+    "detail": "detail/us-nd/B-47.597221_-102.277322",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 6469.3,
+  "lat": 46.129555,
+  "lon": -100.817098,
+  "rank": 47,
+  "withheld": 0
  }
 }

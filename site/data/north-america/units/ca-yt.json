@@ -35,143 +35,12 @@
      "lat": 63.740783,
      "lon": -133.466249
     },
-    "detail": "detail/ca-yt/A-1",
+    "island_km2": null,
+    "detail": "detail/ca-yt/A-64.580934_-131.910255",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 60.855659,
-    "lon": -126.226205,
-    "dist_m": 108529.08,
-    "nearest_way": {
-     "id": 1257228691,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Iron Creek",
-     "type": "hamlet",
-     "dist_m": 133178.3,
-     "lat": 60.00305,
-     "lon": -127.921144
-    },
-    "detail": "detail/ca-yt/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 64.536658,
-    "lon": -131.71629,
-    "dist_m": 106213.63,
-    "nearest_way": {
-     "id": 662723223,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Lansing Post",
-     "type": "hamlet",
-     "dist_m": 123002.1,
-     "lat": 63.740783,
-     "lon": -133.466249
-    },
-    "detail": "detail/ca-yt/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 60.811851,
-    "lon": -126.054845,
-    "dist_m": 105123.09,
-    "nearest_way": {
-     "id": 1257228691,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Iron Creek",
-     "type": "hamlet",
-     "dist_m": 136739.8,
-     "lat": 60.00305,
-     "lon": -127.921144
-    },
-    "detail": "detail/ca-yt/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 60.777896,
-    "lon": -125.874769,
-    "dist_m": 103913.13,
-    "nearest_way": {
-     "id": 1110408130,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Nahanni Butte",
-     "type": "hamlet",
-     "dist_m": 138182.7,
-     "lat": 61.035173,
-     "lon": -123.383622
-    },
-    "detail": "detail/ca-yt/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 64.519351,
-    "lon": -132.066975,
-    "dist_m": 103061.28,
-    "nearest_way": {
-     "id": 662723223,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Lansing Post",
-     "type": "hamlet",
-     "dist_m": 110347.4,
-     "lat": 63.740783,
-     "lon": -133.466249
-    },
-    "detail": "detail/ca-yt/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 60.737269,
-    "lon": -125.698399,
-    "dist_m": 103019.52,
-    "nearest_way": {
-     "id": 1257228691,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Nahanni Butte",
-     "type": "hamlet",
-     "dist_m": 129996.0,
-     "lat": 61.035173,
-     "lon": -123.383622
-    },
-    "detail": "detail/ca-yt/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
     "lat": 60.842517,
     "lon": -140.797352,
     "dist_m": 103013.24,
@@ -189,56 +58,227 @@
      "lat": 61.37532,
      "lon": -142.558873
     },
-    "detail": "detail/ca-yt/A-8",
+    "island_km2": null,
+    "detail": "detail/ca-yt/A-60.842517_-140.797352",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 60.813236,
-    "lon": -126.527932,
-    "dist_m": 102688.63,
+    "rank": 3,
+    "lat": 66.293347,
+    "lon": -139.527083,
+    "dist_m": 93099.78,
     "nearest_way": {
-     "id": 1257228695,
+     "id": 359277449,
      "highway": "track",
-     "name": "West Lake Road",
+     "name": null,
      "ref": null,
-     "country": "ca"
+     "country": "us"
     },
     "nearest_place": {
-     "name": "Iron Creek",
+     "name": "Eagle Plains",
      "type": "hamlet",
-     "dist_m": 118502.8,
-     "lat": 60.00305,
-     "lon": -127.921144
+     "dist_m": 126168.9,
+     "lat": 66.372722,
+     "lon": -136.718255
     },
-    "detail": "detail/ca-yt/A-9",
+    "island_km2": null,
+    "detail": "detail/ca-yt/A-66.293347_-139.527083",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 64.460794,
-    "lon": -131.336999,
-    "dist_m": 102562.47,
+    "rank": 4,
+    "lat": 68.082342,
+    "lon": -137.549577,
+    "dist_m": 91868.61,
     "nearest_way": {
-     "id": 662723223,
+     "id": 356497645,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Lansing Post",
-     "type": "hamlet",
-     "dist_m": 131212.4,
-     "lat": 63.740783,
-     "lon": -133.466249
+     "name": "Shingle Point Airfield",
+     "type": "isolated_dwelling",
+     "dist_m": 95881.7,
+     "lat": 68.934529,
+     "lon": -137.242386
     },
-    "detail": "detail/ca-yt/A-10",
+    "island_km2": null,
+    "detail": "detail/ca-yt/A-68.082342_-137.549577",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 60.929976,
+    "lon": -131.543834,
+    "dist_m": 76441.88,
+    "nearest_way": {
+     "id": 524550384,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Swift River",
+     "type": "hamlet",
+     "dist_m": 105224.9,
+     "lat": 60.001936,
+     "lon": -131.189337
+    },
+    "island_km2": null,
+    "detail": "detail/ca-yt/A-60.929976_-131.543834",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 62.223832,
+    "lon": -139.135068,
+    "dist_m": 66537.98,
+    "nearest_way": {
+     "id": 673727059,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Coffee Creek",
+     "type": "hamlet",
+     "dist_m": 76882.3,
+     "lat": 62.913269,
+     "lon": -139.086066
+    },
+    "island_km2": null,
+    "detail": "detail/ca-yt/A-62.223832_-139.135068",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 61.746844,
+    "lon": -134.704207,
+    "dist_m": 49655.72,
+    "nearest_way": {
+     "id": 1305450479,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Big Salmon Village (abandoned)",
+     "type": "isolated_dwelling",
+     "dist_m": 18954.5,
+     "lat": 61.881623,
+     "lon": -134.923521
+    },
+    "island_km2": null,
+    "detail": "detail/ca-yt/A-61.746844_-134.704207",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 63.175273,
+    "lon": -137.821591,
+    "dist_m": 46200.04,
+    "nearest_way": {
+     "id": 653791445,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Pelly Farm",
+     "type": "isolated_dwelling",
+     "dist_m": 46317.5,
+     "lat": 62.830479,
+     "lon": -137.311345
+    },
+    "island_km2": null,
+    "detail": "detail/ca-yt/A-63.175273_-137.821591",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 60.215221,
+    "lon": -136.237041,
+    "dist_m": 39689.77,
+    "nearest_way": {
+     "id": 207928901,
+     "highway": "trunk",
+     "name": "Haines Road",
+     "ref": "YK 3",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Klukshu",
+     "type": "isolated_dwelling",
+     "dist_m": 43405.1,
+     "lat": 60.2937,
+     "lon": -137.004872
+    },
+    "island_km2": null,
+    "detail": "detail/ca-yt/A-60.215221_-136.237041",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 69.638894,
+    "lon": -139.12372,
+    "dist_m": 37613.45,
+    "nearest_way": {
+     "id": 357223196,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Pauline Cove",
+     "type": "hamlet",
+     "dist_m": 11255.3,
+     "lat": 69.569019,
+     "lon": -138.915057
+    },
+    "island_km2": 111.6,
+    "detail": "detail/ca-yt/A-69.638894_-139.123720",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 60.106319,
+    "lon": -133.300113,
+    "dist_m": 25681.64,
+    "nearest_way": {
+     "id": 1421775510,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lemieux",
+     "type": "isolated_dwelling",
+     "dist_m": 21039.2,
+     "lat": 59.926804,
+     "lon": -133.18303
+    },
+    "island_km2": null,
+    "detail": "detail/ca-yt/A-60.106319_-133.300113",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 110121.89,
+  "lat": 64.580934,
+  "lon": -131.910255,
+  "rank": 9,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,209 +301,272 @@
      "lat": 66.50007,
      "lon": -133.066622
     },
-    "detail": "detail/ca-yt/B-1",
+    "island_km2": null,
+    "detail": "detail/ca-yt/B-65.489029_-132.696190",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 65.412148,
-    "lon": -132.565854,
-    "dist_m": 200420.81,
+    "lat": 68.80443,
+    "lon": -138.537167,
+    "dist_m": 143724.26,
     "nearest_way": {
-     "id": 659407137,
+     "id": 323734291,
      "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Martin House",
+     "name": "Shingle Point",
      "type": "hamlet",
-     "dist_m": 123429.3,
-     "lat": 66.50007,
-     "lon": -133.066622
+     "dist_m": 51510.0,
+     "lat": 68.988771,
+     "lon": -137.362267
     },
-    "detail": "detail/ca-yt/B-2",
+    "island_km2": null,
+    "detail": "detail/ca-yt/B-68.804430_-138.537167",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 65.579978,
-    "lon": -132.67423,
-    "dist_m": 197652.14,
+    "lat": 60.909268,
+    "lon": -141.0019,
+    "dist_m": 106377.89,
     "nearest_way": {
-     "id": 259675056,
-     "highway": "primary",
-     "name": "Dempster Highway",
-     "ref": "YK 5",
+     "id": 159366673,
+     "highway": "residential",
+     "name": "Quill Creek Road",
+     "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Martin House",
+     "name": "Dan Creek",
      "type": "hamlet",
-     "dist_m": 104127.8,
-     "lat": 66.50007,
-     "lon": -133.066622
+     "dist_m": 98640.3,
+     "lat": 61.37532,
+     "lon": -142.558873
     },
-    "detail": "detail/ca-yt/B-3",
+    "island_km2": null,
+    "detail": "detail/ca-yt/B-60.909268_-141.001900",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 65.478727,
-    "lon": -132.921142,
-    "dist_m": 195462.63,
+    "lat": 69.574756,
+    "lon": -138.84772,
+    "dist_m": 92323.98,
     "nearest_way": {
-     "id": 659407137,
-     "highway": "unclassified",
+     "id": 1455843595,
+     "highway": "road",
      "name": null,
      "ref": null,
-     "country": "ca"
+     "country": "us"
     },
     "nearest_place": {
-     "name": "Martin House",
+     "name": "Pauline Cove",
      "type": "hamlet",
-     "dist_m": 114078.7,
-     "lat": 66.50007,
-     "lon": -133.066622
+     "dist_m": 2701.0,
+     "lat": 69.569019,
+     "lon": -138.915057
     },
-    "detail": "detail/ca-yt/B-4",
+    "island_km2": 111.6,
+    "detail": "detail/ca-yt/B-69.574756_-138.847720",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 65.496382,
-    "lon": -132.471942,
-    "dist_m": 193039.27,
+    "lat": 62.208833,
+    "lon": -138.757698,
+    "dist_m": 77012.23,
     "nearest_way": {
-     "id": 392462582,
-     "highway": "unclassified",
-     "name": "Wrigley-Fort Good Hope Winter Road",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Martin House",
-     "type": "hamlet",
-     "dist_m": 115128.8,
-     "lat": 66.50007,
-     "lon": -133.066622
-    },
-    "detail": "detail/ca-yt/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 65.671324,
-    "lon": -132.651515,
-    "dist_m": 192795.53,
-    "nearest_way": {
-     "id": 392423283,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Martin House",
-     "type": "hamlet",
-     "dist_m": 94301.7,
-     "lat": 66.50007,
-     "lon": -133.066622
-    },
-    "detail": "detail/ca-yt/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 65.312042,
-    "lon": -132.555658,
-    "dist_m": 192724.08,
-    "nearest_way": {
-     "id": 659407137,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Martin House",
-     "type": "hamlet",
-     "dist_m": 134502.1,
-     "lat": 66.50007,
-     "lon": -133.066622
-    },
-    "detail": "detail/ca-yt/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 65.400106,
-    "lon": -132.790504,
-    "dist_m": 192473.12,
-    "nearest_way": {
-     "id": 659407137,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Martin House",
-     "type": "hamlet",
-     "dist_m": 123294.6,
-     "lat": 66.50007,
-     "lon": -133.066622
-    },
-    "detail": "detail/ca-yt/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 65.5709,
-    "lon": -132.902897,
-    "dist_m": 189737.54,
-    "nearest_way": {
-     "id": 259675056,
-     "highway": "primary",
-     "name": "Dempster Highway",
-     "ref": "YK 5",
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Martin House",
-     "type": "hamlet",
-     "dist_m": 103875.4,
-     "lat": 66.50007,
-     "lon": -133.066622
-    },
-    "detail": "detail/ca-yt/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 65.76353,
-    "lon": -132.629159,
-    "dist_m": 188361.07,
-    "nearest_way": {
-     "id": 259676100,
+     "id": 159276994,
      "highway": "residential",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Martin House",
+     "name": "Coffee Creek",
      "type": "hamlet",
-     "dist_m": 84474.2,
-     "lat": 66.50007,
-     "lon": -133.066622
+     "dist_m": 80308.3,
+     "lat": 62.913269,
+     "lon": -139.086066
     },
-    "detail": "detail/ca-yt/B-10",
+    "island_km2": null,
+    "detail": "detail/ca-yt/B-62.208833_-138.757698",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 60.929976,
+    "lon": -131.543834,
+    "dist_m": 76441.88,
+    "nearest_way": {
+     "id": 524550384,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Swift River",
+     "type": "hamlet",
+     "dist_m": 105224.9,
+     "lat": 60.001936,
+     "lon": -131.189337
+    },
+    "island_km2": null,
+    "detail": "detail/ca-yt/B-60.929976_-131.543834",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 61.573404,
+    "lon": -134.362699,
+    "dist_m": 67179.66,
+    "nearest_way": {
+     "id": 746263453,
+     "highway": "tertiary",
+     "name": "Canol Road",
+     "ref": "YK 6",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Mason Landing",
+     "type": "hamlet",
+     "dist_m": 21244.3,
+     "lat": 61.433333,
+     "lon": -134.633333
+    },
+    "island_km2": null,
+    "detail": "detail/ca-yt/B-61.573404_-134.362699",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 60.142139,
+    "lon": -136.022306,
+    "dist_m": 48074.77,
+    "nearest_way": {
+     "id": 51249305,
+     "highway": "trunk",
+     "name": "Haines Highway",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Klukshu",
+     "type": "isolated_dwelling",
+     "dist_m": 57023.2,
+     "lat": 60.2937,
+     "lon": -137.004872
+    },
+    "island_km2": null,
+    "detail": "detail/ca-yt/B-60.142139_-136.022306",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 67.883236,
+    "lon": -139.792099,
+    "dist_m": 30136.88,
+    "nearest_way": {
+     "id": 310371973,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Old Crow",
+     "type": "town",
+     "dist_m": 34853.2,
+     "lat": 67.571002,
+     "lon": -139.825745
+    },
+    "island_km2": 2.0,
+    "detail": "detail/ca-yt/B-67.883236_-139.792099",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 60.000864,
+    "lon": -133.231152,
+    "dist_m": 29964.68,
+    "nearest_way": {
+     "id": 1421775510,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lemieux",
+     "type": "isolated_dwelling",
+     "dist_m": 8678.0,
+     "lat": 59.926804,
+     "lon": -133.18303
+    },
+    "island_km2": null,
+    "detail": "detail/ca-yt/B-60.000864_-133.231152",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 60.38646,
+    "lon": -134.526676,
+    "dist_m": 14068.23,
+    "nearest_way": {
+     "id": 672387621,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Crag Lake",
+     "type": "hamlet",
+     "dist_m": 15961.8,
+     "lat": 60.243445,
+     "lon": -134.509737
+    },
+    "island_km2": null,
+    "detail": "detail/ca-yt/B-60.386460_-134.526676",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 62.191843,
+    "lon": -136.084672,
+    "dist_m": 9350.66,
+    "nearest_way": {
+     "id": 264403902,
+     "highway": "primary",
+     "name": "Campbell Highway",
+     "ref": "YK 4",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Carmacks",
+     "type": "town",
+     "dist_m": 15701.5,
+     "lat": 62.088769,
+     "lon": -136.289898
+    },
+    "island_km2": null,
+    "detail": "detail/ca-yt/B-62.191843_-136.084672",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 202866.68,
+  "lat": 65.489029,
+  "lon": -132.69619,
+  "rank": 4,
+  "withheld": 0
  }
 }

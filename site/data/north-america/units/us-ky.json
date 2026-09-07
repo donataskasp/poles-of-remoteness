@@ -35,7 +35,8 @@
      "lat": 37.175603,
      "lon": -86.206643
     },
-    "detail": "detail/us-ky/A-1",
+    "island_km2": null,
+    "detail": "detail/us-ky/A-37.199809_-86.179036",
     "warnings": []
    },
    {
@@ -53,11 +54,12 @@
     "nearest_place": {
      "name": "Katharyn",
      "type": "hamlet",
-     "dist_m": 4660.1,
+     "dist_m": 4660.2,
      "lat": 38.000905,
      "lon": -85.928852
     },
-    "detail": "detail/us-ky/A-2",
+    "island_km2": null,
+    "detail": "detail/us-ky/A-37.963049_-85.905913",
     "warnings": []
    },
    {
@@ -75,11 +77,12 @@
     "nearest_place": {
      "name": "Fidelity",
      "type": "hamlet",
-     "dist_m": 4880.7,
+     "dist_m": 4880.8,
      "lat": 36.663687,
      "lon": -84.60994
     },
-    "detail": "detail/us-ky/A-3",
+    "island_km2": null,
+    "detail": "detail/us-ky/A-36.619711_-84.610857",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 36.796198,
      "lon": -83.401019
     },
-    "detail": "detail/us-ky/A-4",
+    "island_km2": null,
+    "detail": "detail/us-ky/A-36.778249_-83.433441",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 36.636753,
      "lon": -83.431574
     },
-    "detail": "detail/us-ky/A-5",
+    "island_km2": null,
+    "detail": "detail/us-ky/A-36.671050_-83.462662",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 36.818142,
      "lon": -83.655194
     },
-    "detail": "detail/us-ky/A-6",
+    "island_km2": null,
+    "detail": "detail/us-ky/A-36.848065_-83.670215",
     "warnings": []
    },
    {
@@ -163,11 +169,12 @@
     "nearest_place": {
      "name": "Roaring Spring",
      "type": "hamlet",
-     "dist_m": 5774.1,
+     "dist_m": 5774.2,
      "lat": 36.725604,
      "lon": -87.70696
     },
-    "detail": "detail/us-ky/A-7",
+    "island_km2": null,
+    "detail": "detail/us-ky/A-36.677531_-87.731685",
     "warnings": []
    },
    {
@@ -189,7 +196,8 @@
      "lat": 38.521188,
      "lon": -83.337962
     },
-    "detail": "detail/us-ky/A-8",
+    "island_km2": null,
+    "detail": "detail/us-ky/A-38.523618_-83.289442",
     "warnings": []
    },
    {
@@ -211,7 +219,8 @@
      "lat": 36.766446,
      "lon": -89.121734
     },
-    "detail": "detail/us-ky/A-9",
+    "island_km2": null,
+    "detail": "detail/us-ky/A-36.788538_-89.142869",
     "warnings": []
    },
    {
@@ -233,12 +242,20 @@
      "lat": 37.010924,
      "lon": -83.349903
     },
-    "detail": "detail/us-ky/A-10",
+    "island_km2": null,
+    "detail": "detail/us-ky/A-37.027153_-83.319006",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 3036.94,
+  "lat": 37.199809,
+  "lon": -86.179036,
+  "rank": 57,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 37.916734,
      "lon": -85.826072
     },
-    "detail": "detail/us-ky/B-1",
+    "island_km2": null,
+    "detail": "detail/us-ky/B-37.911844_-85.810316",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 37.495651,
      "lon": -83.094059
     },
-    "detail": "detail/us-ky/B-2",
+    "island_km2": null,
+    "detail": "detail/us-ky/B-37.462375_-83.115417",
     "warnings": []
    },
    {
@@ -301,11 +320,12 @@
     "nearest_place": {
      "name": "Foster Crossroads",
      "type": "hamlet",
-     "dist_m": 5405.8,
+     "dist_m": 5405.7,
      "lat": 36.583133,
      "lon": -84.555495
     },
-    "detail": "detail/us-ky/B-3",
+    "island_km2": null,
+    "detail": "detail/us-ky/B-36.613042_-84.603181",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 36.679528,
      "lon": -83.823254
     },
-    "detail": "detail/us-ky/B-4",
+    "island_km2": null,
+    "detail": "detail/us-ky/B-36.663098_-83.778227",
     "warnings": []
    },
    {
@@ -345,11 +366,12 @@
     "nearest_place": {
      "name": "La Fayette",
      "type": "hamlet",
-     "dist_m": 6025.3,
+     "dist_m": 6025.2,
      "lat": 36.658382,
      "lon": -87.658349
     },
-    "detail": "detail/us-ky/B-5",
+    "island_km2": null,
+    "detail": "detail/us-ky/B-36.667253_-87.724837",
     "warnings": []
    },
    {
@@ -371,7 +393,8 @@
      "lat": 36.726461,
      "lon": -84.789943
     },
-    "detail": "detail/us-ky/B-6",
+    "island_km2": null,
+    "detail": "detail/us-ky/B-36.696023_-84.802920",
     "warnings": []
    },
    {
@@ -393,7 +416,8 @@
      "lat": 36.614249,
      "lon": -83.830475
     },
-    "detail": "detail/us-ky/B-7",
+    "island_km2": null,
+    "detail": "detail/us-ky/B-36.585817_-83.841471",
     "warnings": []
    },
    {
@@ -411,11 +435,12 @@
     "nearest_place": {
      "name": "Honeybee",
      "type": "hamlet",
-     "dist_m": 6115.4,
+     "dist_m": 6115.5,
      "lat": 36.84147,
      "lon": -84.37216
     },
-    "detail": "detail/us-ky/B-8",
+    "island_km2": null,
+    "detail": "detail/us-ky/B-36.812713_-84.313684",
     "warnings": []
    },
    {
@@ -433,11 +458,12 @@
     "nearest_place": {
      "name": "Duco",
      "type": "hamlet",
-     "dist_m": 4045.5,
+     "dist_m": 4045.6,
      "lat": 37.60565,
      "lon": -83.027113
     },
-    "detail": "detail/us-ky/B-9",
+    "island_km2": null,
+    "detail": "detail/us-ky/B-37.577513_-83.056232",
     "warnings": []
    },
    {
@@ -459,11 +485,19 @@
      "lat": 37.175603,
      "lon": -86.206643
     },
-    "detail": "detail/us-ky/B-10",
+    "island_km2": null,
+    "detail": "detail/us-ky/B-37.199809_-86.179036",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 4175.21,
+  "lat": 37.911844,
+  "lon": -85.810316,
+  "rank": 56,
+  "withheld": 0
  }
 }

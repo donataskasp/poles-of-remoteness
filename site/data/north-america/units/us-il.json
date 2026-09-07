@@ -18,94 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 41.872744,
-    "lon": -87.545363,
-    "dist_m": 4917.21,
-    "nearest_way": {
-     "id": 1467696857,
-     "highway": "living_street",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Chicago",
-     "type": "city",
-     "dist_m": 6570.4,
-     "lat": 41.875562,
-     "lon": -87.624421
-    },
-    "detail": "detail/us-il/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 41.966059,
-    "lon": -87.591117,
-    "dist_m": 3651.49,
-    "nearest_way": {
-     "id": 404335293,
-     "highway": "service",
-     "name": "West Montrose Harbor Drive",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Chicago",
-     "type": "city",
-     "dist_m": 10424.5,
-     "lat": 41.875562,
-     "lon": -87.624421
-    },
-    "detail": "detail/us-il/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 38.733906,
-    "lon": -89.243982,
-    "dist_m": 2522.84,
-    "nearest_way": {
-     "id": 441864938,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Keyesport",
-     "type": "hamlet",
-     "dist_m": 2734.0,
-     "lat": 38.741992,
-     "lon": -89.273684
-    },
-    "detail": "detail/us-il/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 41.962543,
-    "lon": -90.152921,
-    "dist_m": 2392.26,
-    "nearest_way": {
-     "id": 15863264,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Elk River Junction",
-     "type": "hamlet",
-     "dist_m": 2590.3,
-     "lat": 41.979749,
-     "lon": -90.174017
-    },
-    "detail": "detail/us-il/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 37.362304,
     "lon": -88.952327,
     "dist_m": 2319.04,
@@ -123,11 +35,35 @@
      "lat": 37.325052,
      "lon": -88.938956
     },
-    "detail": "detail/us-il/A-5",
+    "island_km2": null,
+    "detail": "detail/us-il/A-37.362304_-88.952327",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 2,
+    "lat": 38.785705,
+    "lon": -89.227038,
+    "dist_m": 2309.85,
+    "nearest_way": {
+     "id": 21755874,
+     "highway": "residential",
+     "name": "County Road 450 North",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Keyesport Landing",
+     "type": "hamlet",
+     "dist_m": 5119.4,
+     "lat": 38.756714,
+     "lon": -89.27285
+    },
+    "island_km2": null,
+    "detail": "detail/us-il/A-38.785705_-89.227038",
+    "warnings": []
+   },
+   {
+    "rank": 3,
     "lat": 37.566366,
     "lon": -89.388507,
     "dist_m": 2290.53,
@@ -145,11 +81,12 @@
      "lat": 37.545605,
      "lon": -89.453706
     },
-    "detail": "detail/us-il/A-6",
+    "island_km2": null,
+    "detail": "detail/us-il/A-37.566366_-89.388507",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 4,
     "lat": 40.907973,
     "lon": -90.982118,
     "dist_m": 2232.75,
@@ -167,11 +104,12 @@
      "lat": 40.931982,
      "lon": -90.947086
     },
-    "detail": "detail/us-il/A-7",
+    "island_km2": null,
+    "detail": "detail/us-il/A-40.907973_-90.982118",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 5,
     "lat": 38.066247,
     "lon": -89.531261,
     "dist_m": 2205.09,
@@ -185,15 +123,16 @@
     "nearest_place": {
      "name": "Jamestown",
      "type": "hamlet",
-     "dist_m": 1837.0,
+     "dist_m": 1836.9,
      "lat": 38.049773,
      "lon": -89.529261
     },
-    "detail": "detail/us-il/A-8",
+    "island_km2": null,
+    "detail": "detail/us-il/A-38.066247_-89.531261",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 6,
     "lat": 40.093702,
     "lon": -90.363782,
     "dist_m": 2173.81,
@@ -211,11 +150,12 @@
      "lat": 40.128935,
      "lon": -90.372068
     },
-    "detail": "detail/us-il/A-9",
+    "island_km2": null,
+    "detail": "detail/us-il/A-40.093702_-90.363782",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 7,
     "lat": 37.821968,
     "lon": -88.050356,
     "dist_m": 2157.22,
@@ -233,61 +173,94 @@
      "lat": 37.836156,
      "lon": -88.021698
     },
-    "detail": "detail/us-il/A-10",
+    "island_km2": null,
+    "detail": "detail/us-il/A-37.821968_-88.050356",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 37.525417,
+    "lon": -88.536824,
+    "dist_m": 2133.96,
+    "nearest_way": {
+     "id": 21986998,
+     "highway": "residential",
+     "name": "Reynolds Br Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hartsville",
+     "type": "hamlet",
+     "dist_m": 4912.5,
+     "lat": 37.535883,
+     "lon": -88.482822
+    },
+    "island_km2": null,
+    "detail": "detail/us-il/A-37.525417_-88.536824",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 38.717739,
+    "lon": -90.194686,
+    "dist_m": 2091.49,
+    "nearest_way": {
+     "id": 1191380715,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prospect Hill",
+     "type": "hamlet",
+     "dist_m": 3067.5,
+     "lat": 38.73755,
+     "lon": -90.219278
+    },
+    "island_km2": null,
+    "detail": "detail/us-il/A-38.717739_-90.194686",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 42.137895,
+    "lon": -90.196444,
+    "dist_m": 2061.04,
+    "nearest_way": {
+     "id": 21708241,
+     "highway": "residential",
+     "name": "Marcus Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Marcus",
+     "type": "hamlet",
+     "dist_m": 2272.8,
+     "lat": 42.158354,
+     "lon": -90.195962
+    },
+    "island_km2": null,
+    "detail": "detail/us-il/A-42.137895_-90.196444",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 2319.04,
+  "lat": 37.362304,
+  "lon": -88.952327,
+  "rank": 58,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 41.872744,
-    "lon": -87.545363,
-    "dist_m": 4917.21,
-    "nearest_way": {
-     "id": 1467696857,
-     "highway": "living_street",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Chicago",
-     "type": "city",
-     "dist_m": 6570.4,
-     "lat": 41.875562,
-     "lon": -87.624421
-    },
-    "detail": "detail/us-il/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 41.966059,
-    "lon": -87.591117,
-    "dist_m": 3651.49,
-    "nearest_way": {
-     "id": 404335293,
-     "highway": "service",
-     "name": "West Montrose Harbor Drive",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Chicago",
-     "type": "city",
-     "dist_m": 10424.5,
-     "lat": 41.875562,
-     "lon": -87.624421
-    },
-    "detail": "detail/us-il/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 37.065279,
     "lon": -89.279799,
     "dist_m": 3242.7,
@@ -305,11 +278,12 @@
      "lat": 37.10005,
      "lon": -89.261466
     },
-    "detail": "detail/us-il/B-3",
+    "island_km2": null,
+    "detail": "detail/us-il/B-37.065279_-89.279799",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 2,
     "lat": 41.219435,
     "lon": -89.359325,
     "dist_m": 3201.05,
@@ -327,11 +301,12 @@
      "lat": 41.187814,
      "lon": -89.3662
     },
-    "detail": "detail/us-il/B-4",
+    "island_km2": null,
+    "detail": "detail/us-il/B-41.219435_-89.359325",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 3,
     "lat": 40.058333,
     "lon": -90.381032,
     "dist_m": 3093.13,
@@ -349,11 +324,12 @@
      "lat": 40.070048,
      "lon": -90.429014
     },
-    "detail": "detail/us-il/B-5",
+    "island_km2": null,
+    "detail": "detail/us-il/B-40.058333_-90.381032",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 4,
     "lat": 37.801931,
     "lon": -88.057635,
     "dist_m": 3001.51,
@@ -371,11 +347,12 @@
      "lat": 37.836156,
      "lon": -88.021698
     },
-    "detail": "detail/us-il/B-6",
+    "island_km2": null,
+    "detail": "detail/us-il/B-37.801931_-88.057635",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 5,
     "lat": 37.97993,
     "lon": -90.003313,
     "dist_m": 2687.63,
@@ -393,33 +370,12 @@
      "lat": 37.981442,
      "lon": -90.041779
     },
-    "detail": "detail/us-il/B-7",
+    "island_km2": null,
+    "detail": "detail/us-il/B-37.979930_-90.003313",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 38.733906,
-    "lon": -89.243982,
-    "dist_m": 2522.84,
-    "nearest_way": {
-     "id": 441864938,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Keyesport",
-     "type": "hamlet",
-     "dist_m": 2734.0,
-     "lat": 38.741992,
-     "lon": -89.273684
-    },
-    "detail": "detail/us-il/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 6,
     "lat": 37.558749,
     "lon": -89.386708,
     "dist_m": 2509.15,
@@ -437,33 +393,111 @@
      "lat": 37.545605,
      "lon": -89.453706
     },
-    "detail": "detail/us-il/B-9",
+    "island_km2": null,
+    "detail": "detail/us-il/B-37.558749_-89.386708",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 41.962543,
-    "lon": -90.152921,
-    "dist_m": 2392.26,
+    "rank": 7,
+    "lat": 37.363134,
+    "lon": -88.951163,
+    "dist_m": 2340.93,
     "nearest_way": {
-     "id": 15863264,
+     "id": 21802096,
      "highway": "residential",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Elk River Junction",
+     "name": "Forman",
      "type": "hamlet",
-     "dist_m": 2590.3,
-     "lat": 41.979749,
-     "lon": -90.174017
+     "dist_m": 4292.9,
+     "lat": 37.346719,
+     "lon": -88.907287
     },
-    "detail": "detail/us-il/B-10",
+    "island_km2": null,
+    "detail": "detail/us-il/B-37.363134_-88.951163",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.785705,
+    "lon": -89.227038,
+    "dist_m": 2309.85,
+    "nearest_way": {
+     "id": 21755874,
+     "highway": "residential",
+     "name": "County Road 450 North",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Keyesport Landing",
+     "type": "hamlet",
+     "dist_m": 5119.4,
+     "lat": 38.756714,
+     "lon": -89.27285
+    },
+    "island_km2": null,
+    "detail": "detail/us-il/B-38.785705_-89.227038",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 37.295854,
+    "lon": -89.406693,
+    "dist_m": 2303.53,
+    "nearest_way": {
+     "id": 21689711,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "McClure",
+     "type": "village",
+     "dist_m": 3282.6,
+     "lat": 37.317828,
+     "lon": -89.431478
+    },
+    "island_km2": null,
+    "detail": "detail/us-il/B-37.295854_-89.406693",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 40.907973,
+    "lon": -90.982118,
+    "dist_m": 2232.75,
+    "nearest_way": {
+     "id": 15879595,
+     "highway": "residential",
+     "name": "170th Street",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oquawka",
+     "type": "town",
+     "dist_m": 3977.1,
+     "lat": 40.931982,
+     "lon": -90.947086
+    },
+    "island_km2": null,
+    "detail": "detail/us-il/B-40.907973_-90.982118",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 3242.7,
+  "lat": 37.065279,
+  "lon": -89.279799,
+  "rank": 58,
+  "withheld": 0
  }
 }

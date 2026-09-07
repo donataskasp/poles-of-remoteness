@@ -31,11 +31,12 @@
     "nearest_place": {
      "name": "Old Buffalo",
      "type": "hamlet",
-     "dist_m": 6105.5,
+     "dist_m": 6105.4,
      "lat": 36.168403,
      "lon": -92.456827
     },
-    "detail": "detail/us-ar/A-1",
+    "island_km2": null,
+    "detail": "detail/us-ar/A-36.113592_-92.462768",
     "warnings": []
    },
    {
@@ -53,11 +54,12 @@
     "nearest_place": {
      "name": "New Union",
      "type": "hamlet",
-     "dist_m": 7659.8,
+     "dist_m": 7659.9,
      "lat": 33.161236,
      "lon": -92.245416
     },
-    "detail": "detail/us-ar/A-2",
+    "island_km2": null,
+    "detail": "detail/us-ar/A-33.185199_-92.168392",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 34.755373,
      "lon": -91.30596
     },
-    "detail": "detail/us-ar/A-3",
+    "island_km2": null,
+    "detail": "detail/us-ar/A-34.778408_-91.337858",
     "warnings": []
    },
    {
@@ -97,11 +100,12 @@
     "nearest_place": {
      "name": "Corona",
      "type": "hamlet",
-     "dist_m": 5977.1,
+     "dist_m": 5977.0,
      "lat": 35.445361,
      "lon": -90.082591
     },
-    "detail": "detail/us-ar/A-4",
+    "island_km2": null,
+    "detail": "detail/us-ar/A-35.394936_-90.105754",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 34.488432,
      "lon": -91.25651
     },
-    "detail": "detail/us-ar/A-5",
+    "island_km2": null,
+    "detail": "detail/us-ar/A-34.525128_-91.237945",
     "warnings": []
    },
    {
@@ -145,29 +150,31 @@
      "lat": 34.547314,
      "lon": -93.3613
     },
-    "detail": "detail/us-ar/A-6",
+    "island_km2": null,
+    "detail": "detail/us-ar/A-34.580107_-93.329021",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 33.988507,
-    "lon": -91.062455,
-    "dist_m": 3536.8,
+    "lat": 33.978776,
+    "lon": -91.095484,
+    "dist_m": 3505.0,
     "nearest_way": {
-     "id": 12783398,
+     "id": 1193769865,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Stimson",
+     "name": "Mozart",
      "type": "hamlet",
-     "dist_m": 4658.8,
-     "lat": 34.029549,
-     "lon": -91.073167
+     "dist_m": 4212.9,
+     "lat": 34.014827,
+     "lon": -91.109835
     },
-    "detail": "detail/us-ar/A-7",
+    "island_km2": null,
+    "detail": "detail/us-ar/A-33.978776_-91.095484",
     "warnings": []
    },
    {
@@ -185,11 +192,12 @@
     "nearest_place": {
      "name": "Felsenthal",
      "type": "hamlet",
-     "dist_m": 4797.0,
+     "dist_m": 4796.9,
      "lat": 33.057557,
      "lon": -92.153197
     },
-    "detail": "detail/us-ar/A-8",
+    "island_km2": null,
+    "detail": "detail/us-ar/A-33.096698_-92.131336",
     "warnings": []
    },
    {
@@ -211,7 +219,8 @@
      "lat": 34.145936,
      "lon": -91.176782
     },
-    "detail": "detail/us-ar/A-9",
+    "island_km2": null,
+    "detail": "detail/us-ar/A-34.178318_-91.152758",
     "warnings": []
    },
    {
@@ -233,12 +242,20 @@
      "lat": 35.708136,
      "lon": -93.188787
     },
-    "detail": "detail/us-ar/A-10",
+    "island_km2": null,
+    "detail": "detail/us-ar/A-35.737412_-93.185540",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 4386.52,
+  "lat": 36.113592,
+  "lon": -92.462768,
+  "rank": 50,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 34.014827,
      "lon": -91.109835
     },
-    "detail": "detail/us-ar/B-1",
+    "island_km2": null,
+    "detail": "detail/us-ar/B-34.065349_-91.118212",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 36.167848,
      "lon": -92.442104
     },
-    "detail": "detail/us-ar/B-2",
+    "island_km2": null,
+    "detail": "detail/us-ar/B-36.119880_-92.450206",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 33.80261,
      "lon": -91.025386
     },
-    "detail": "detail/us-ar/B-3",
+    "island_km2": null,
+    "detail": "detail/us-ar/B-33.798931_-91.073963",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 34.653712,
      "lon": -90.557327
     },
-    "detail": "detail/us-ar/B-4",
+    "island_km2": null,
+    "detail": "detail/us-ar/B-34.632556_-90.526308",
     "warnings": []
    },
    {
@@ -345,11 +366,12 @@
     "nearest_place": {
      "name": "Dobbs Landing",
      "type": "hamlet",
-     "dist_m": 4503.8,
+     "dist_m": 4503.7,
      "lat": 34.755373,
      "lon": -91.30596
     },
-    "detail": "detail/us-ar/B-5",
+    "island_km2": null,
+    "detail": "detail/us-ar/B-34.781847_-91.343258",
     "warnings": []
    },
    {
@@ -371,7 +393,8 @@
      "lat": 35.378696,
      "lon": -90.181483
     },
-    "detail": "detail/us-ar/B-6",
+    "island_km2": null,
+    "detail": "detail/us-ar/B-35.377446_-90.121586",
     "warnings": []
    },
    {
@@ -389,11 +412,12 @@
     "nearest_place": {
      "name": "New Union",
      "type": "hamlet",
-     "dist_m": 7659.8,
+     "dist_m": 7659.9,
      "lat": 33.161236,
      "lon": -92.245416
     },
-    "detail": "detail/us-ar/B-7",
+    "island_km2": null,
+    "detail": "detail/us-ar/B-33.185199_-92.168392",
     "warnings": []
    },
    {
@@ -415,7 +439,8 @@
      "lat": 34.139829,
      "lon": -90.866773
     },
-    "detail": "detail/us-ar/B-8",
+    "island_km2": null,
+    "detail": "detail/us-ar/B-34.170202_-90.847236",
     "warnings": []
    },
    {
@@ -437,7 +462,8 @@
      "lat": 34.881756,
      "lon": -92.68822
     },
-    "detail": "detail/us-ar/B-9",
+    "island_km2": null,
+    "detail": "detail/us-ar/B-34.834202_-92.659567",
     "warnings": []
    },
    {
@@ -459,11 +485,19 @@
      "lat": 34.547314,
      "lon": -93.3613
     },
-    "detail": "detail/us-ar/B-10",
+    "island_km2": null,
+    "detail": "detail/us-ar/B-34.575949_-93.335344",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 5792.57,
+  "lat": 34.065349,
+  "lon": -91.118212,
+  "rank": 51,
+  "withheld": 0
  }
 }

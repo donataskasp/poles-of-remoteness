@@ -35,7 +35,8 @@
      "lat": 37.392916,
      "lon": -75.708535
     },
-    "detail": "detail/us-va/A-1",
+    "island_km2": 5.0,
+    "detail": "detail/us-va/A-37.310405_-75.761198",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 37.392916,
      "lon": -75.708535
     },
-    "detail": "detail/us-va/A-2",
+    "island_km2": 15.5,
+    "detail": "detail/us-va/A-37.389575_-75.705226",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 37.286071,
      "lon": -75.924028
     },
-    "detail": "detail/us-va/A-3",
+    "island_km2": 11266.4,
+    "detail": "detail/us-va/A-37.225820_-75.803493",
     "warnings": []
    },
    {
@@ -101,144 +104,365 @@
      "lat": 37.553749,
      "lon": -75.733819
     },
-    "detail": "detail/us-va/A-4",
+    "island_km2": 11266.4,
+    "detail": "detail/us-va/A-37.490789_-75.660481",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 37.796124,
-    "lon": -75.891886,
-    "dist_m": 8570.21,
+    "lat": 38.421755,
+    "lon": -79.200552,
+    "dist_m": 4220.69,
     "nearest_way": {
-     "id": 689069615,
+     "id": 225471608,
      "highway": "track",
-     "name": "Port Isobel Drive",
-     "ref": null,
+     "name": "Little Bald Mountain Road",
+     "ref": "FR 427",
      "country": "us"
     },
     "nearest_place": {
-     "name": "Tangier",
-     "type": "village",
-     "dist_m": 9395.4,
-     "lat": 37.826237,
-     "lon": -75.991603
+     "name": "Stokesville",
+     "type": "hamlet",
+     "dist_m": 8540.6,
+     "lat": 38.355298,
+     "lon": -79.151291
     },
-    "detail": "detail/us-va/A-5",
+    "island_km2": null,
+    "detail": "detail/us-va/A-38.421755_-79.200552",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 37.570807,
-    "lon": -75.599635,
-    "dist_m": 8539.7,
+    "lat": 37.800521,
+    "lon": -75.785353,
+    "dist_m": 4175.02,
     "nearest_way": {
-     "id": 225594195,
+     "id": 19761929,
+     "highway": "residential",
+     "name": "Baldpate Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Deep Creek",
+     "type": "hamlet",
+     "dist_m": 4671.6,
+     "lat": 37.767351,
+     "lon": -75.752708
+    },
+    "island_km2": 11266.4,
+    "detail": "detail/us-va/A-37.800521_-75.785353",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 38.358384,
+    "lon": -79.319376,
+    "dist_m": 3816.54,
+    "nearest_way": {
+     "id": 1071291539,
+     "highway": "unclassified",
+     "name": "North River Road",
+     "ref": "FR 95",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Palo Alto",
+     "type": "hamlet",
+     "dist_m": 8484.3,
+     "lat": 38.423456,
+     "lon": -79.370319
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/A-38.358384_-79.319376",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 37.40118,
+    "lon": -75.820371,
+    "dist_m": 3560.35,
+    "nearest_way": {
+     "id": 1039424371,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Wachapreague",
-     "type": "village",
-     "dist_m": 8655.2,
-     "lat": 37.604374,
-     "lon": -75.688088
+     "name": "Red Bank",
+     "type": "hamlet",
+     "dist_m": 5179.2,
+     "lat": 37.44458,
+     "lon": -75.841874
     },
-    "detail": "detail/us-va/A-6",
+    "island_km2": 11266.4,
+    "detail": "detail/us-va/A-37.401180_-75.820371",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 37.893642,
-    "lon": -75.900577,
-    "dist_m": 8518.55,
+    "rank": 9,
+    "lat": 36.664827,
+    "lon": -76.404528,
+    "dist_m": 3397.24,
     "nearest_way": {
-     "id": 17669856,
+     "id": 629735982,
      "highway": "track",
-     "name": "Hammock Pointe",
-     "ref": null,
+     "name": "Northeast Ditch Road",
+     "ref": "410",
      "country": "us"
     },
     "nearest_place": {
-     "name": "Byrdtown",
-     "type": "hamlet",
-     "dist_m": 9054.1,
-     "lat": 37.959569,
-     "lon": -75.839932
+     "name": "Chesapeake",
+     "type": "city",
+     "dist_m": 15013.3,
+     "lat": 36.716831,
+     "lon": -76.249445
     },
-    "detail": "detail/us-va/A-7",
+    "island_km2": null,
+    "detail": "detail/us-va/A-36.664827_-76.404528",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 37.861416,
-    "lon": -75.729895,
-    "dist_m": 4844.94,
+    "rank": 10,
+    "lat": 37.897877,
+    "lon": -75.756588,
+    "dist_m": 3352.4,
     "nearest_way": {
-     "id": 19755329,
+     "id": 19764542,
      "highway": "residential",
-     "name": "Guards Shore Road",
-     "ref": "SR 684",
+     "name": "Saxis Road",
+     "ref": "SR 695",
      "country": "us"
     },
     "nearest_place": {
      "name": "Saxis",
      "type": "village",
-     "dist_m": 6983.8,
+     "dist_m": 4211.3,
      "lat": 37.924014,
      "lon": -75.721874
     },
-    "detail": "detail/us-va/A-8",
+    "island_km2": 11266.4,
+    "detail": "detail/us-va/A-37.897877_-75.756588",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 37.165308,
-    "lon": -75.889302,
-    "dist_m": 4831.79,
+    "rank": 11,
+    "lat": 37.166611,
+    "lon": -76.343998,
+    "dist_m": 3287.81,
     "nearest_way": {
-     "id": 20374565,
+     "id": 20588848,
      "highway": "residential",
-     "name": "Magotha Road",
-     "ref": "SR 655",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Townsend",
-     "type": "hamlet",
-     "dist_m": 6519.3,
-     "lat": 37.184981,
-     "lon": -75.958473
-    },
-    "detail": "detail/us-va/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 37.922268,
-    "lon": -76.025967,
-    "dist_m": 4629.45,
-    "nearest_way": {
-     "id": 17664820,
-     "highway": "residential",
-     "name": "Tylerton Road",
+     "name": "Breezy Point Road",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Tylerton",
-     "type": "village",
-     "dist_m": 5071.9,
-     "lat": 37.967902,
-     "lon": -76.022991
+     "name": "Poquoson",
+     "type": "town",
+     "dist_m": 6361.3,
+     "lat": 37.124186,
+     "lon": -76.392146
     },
-    "detail": "detail/us-va/A-10",
+    "island_km2": null,
+    "detail": "detail/us-va/A-37.166611_-76.343998",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 38.013811,
+    "lon": -75.27743,
+    "dist_m": 3217.2,
+    "nearest_way": {
+     "id": 19755779,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "George Island Landing",
+     "type": "hamlet",
+     "dist_m": 8063.3,
+     "lat": 38.042899,
+     "lon": -75.361585
+    },
+    "island_km2": 11266.4,
+    "detail": "detail/us-va/A-38.013811_-75.277430",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 37.060785,
+    "lon": -81.437186,
+    "dist_m": 3014.3,
+    "nearest_way": {
+     "id": 20547390,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Joe Neets",
+     "type": "hamlet",
+     "dist_m": 4396.7,
+     "lat": 37.082616,
+     "lon": -81.478443
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/A-37.060785_-81.437186",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 38.277193,
+    "lon": -78.717695,
+    "dist_m": 3007.85,
+    "nearest_way": {
+     "id": 286498099,
+     "highway": "track",
+     "name": "Madison Run Fire Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lynnwood",
+     "type": "hamlet",
+     "dist_m": 5973.1,
+     "lat": 38.310128,
+     "lon": -78.771691
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/A-38.277193_-78.717695",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 38.598219,
+    "lon": -78.310189,
+    "dist_m": 2891.31,
+    "nearest_way": {
+     "id": 323540233,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nethers",
+     "type": "hamlet",
+     "dist_m": 4164.3,
+     "lat": 38.570354,
+     "lon": -78.278191
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/A-38.598219_-78.310189",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 37.91311,
+    "lon": -75.439433,
+    "dist_m": 2864.24,
+    "nearest_way": {
+     "id": 238472951,
+     "highway": "primary",
+     "name": "Chincoteague Road",
+     "ref": "VA 175",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wallops Island",
+     "type": "village",
+     "dist_m": 4218.3,
+     "lat": 37.924311,
+     "lon": -75.485276
+    },
+    "island_km2": 11266.4,
+    "detail": "detail/us-va/A-37.913110_-75.439433",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 37.650012,
+    "lon": -79.387217,
+    "dist_m": 2861.36,
+    "nearest_way": {
+     "id": 1034391742,
+     "highway": "track",
+     "name": "Cedar Bridge Hollow",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Snowden",
+     "type": "hamlet",
+     "dist_m": 5412.1,
+     "lat": 37.601803,
+     "lon": -79.396423
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/A-37.650012_-79.387217",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 37.863307,
+    "lon": -79.670862,
+    "dist_m": 2861.1,
+    "nearest_way": {
+     "id": 866344710,
+     "highway": "track",
+     "name": "White Rock Tower Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Copeland",
+     "type": "hamlet",
+     "dist_m": 3737.5,
+     "lat": 37.888184,
+     "lon": -79.699491
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/A-37.863307_-79.670862",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 37.933826,
+    "lon": -79.105113,
+    "dist_m": 2856.42,
+    "nearest_way": {
+     "id": 19876412,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lofton",
+     "type": "hamlet",
+     "dist_m": 5728.8,
+     "lat": 37.955134,
+     "lon": -79.164475
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/A-37.933826_-79.105113",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 4220.69,
+  "lat": 38.421755,
+  "lon": -79.200552,
+  "rank": 51,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,11 +481,12 @@
     "nearest_place": {
      "name": "Broadwater",
      "type": "hamlet",
-     "dist_m": 1642.8,
+     "dist_m": 1642.9,
      "lat": 37.392916,
      "lon": -75.708535
     },
-    "detail": "detail/us-va/B-1",
+    "island_km2": 15.5,
+    "detail": "detail/us-va/B-37.378428_-75.712339",
     "warnings": []
    },
    {
@@ -279,11 +504,12 @@
     "nearest_place": {
      "name": "Broadwater",
      "type": "hamlet",
-     "dist_m": 11608.0,
+     "dist_m": 11608.1,
      "lat": 37.392916,
      "lon": -75.708535
     },
-    "detail": "detail/us-va/B-2",
+    "island_km2": 5.0,
+    "detail": "detail/us-va/B-37.301837_-75.772943",
     "warnings": []
    },
    {
@@ -301,37 +527,16 @@
     "nearest_place": {
      "name": "Oyster",
      "type": "hamlet",
-     "dist_m": 12898.5,
+     "dist_m": 12898.4,
      "lat": 37.286071,
      "lon": -75.924028
     },
-    "detail": "detail/us-va/B-3",
+    "island_km2": 11288.3,
+    "detail": "detail/us-va/B-37.215415_-75.808595",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 37.458912,
-    "lon": -75.658608,
-    "dist_m": 10998.16,
-    "nearest_way": {
-     "id": 19759219,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Broadwater",
-     "type": "hamlet",
-     "dist_m": 8554.5,
-     "lat": 37.392916,
-     "lon": -75.708535
-    },
-    "detail": "detail/us-va/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 38.027437,
     "lon": -75.24182,
     "dist_m": 9390.98,
@@ -349,77 +554,35 @@
      "lat": 38.098731,
      "lon": -75.315471
     },
-    "detail": "detail/us-va/B-5",
+    "island_km2": 11288.3,
+    "detail": "detail/us-va/B-38.027437_-75.241820",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 37.490789,
+    "lon": -75.660481,
+    "dist_m": 8817.21,
+    "nearest_way": {
+     "id": 19757369,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Quinby",
+     "type": "village",
+     "dist_m": 9531.9,
+     "lat": 37.553749,
+     "lon": -75.733819
+    },
+    "island_km2": 11288.3,
+    "detail": "detail/us-va/B-37.490789_-75.660481",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 37.796124,
-    "lon": -75.891886,
-    "dist_m": 8815.73,
-    "nearest_way": {
-     "id": 581390486,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Tangier",
-     "type": "village",
-     "dist_m": 9395.4,
-     "lat": 37.826237,
-     "lon": -75.991603
-    },
-    "detail": "detail/us-va/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 37.893642,
-    "lon": -75.900577,
-    "dist_m": 8746.13,
-    "nearest_way": {
-     "id": 17671480,
-     "highway": "residential",
-     "name": "Lloyd Webb Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Byrdtown",
-     "type": "hamlet",
-     "dist_m": 9054.1,
-     "lat": 37.959569,
-     "lon": -75.839932
-    },
-    "detail": "detail/us-va/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 37.545296,
-    "lon": -75.620106,
-    "dist_m": 8684.26,
-    "nearest_way": {
-     "id": 19760336,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Wachapreague",
-     "type": "village",
-     "dist_m": 8891.5,
-     "lat": 37.604374,
-     "lon": -75.688088
-    },
-    "detail": "detail/us-va/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
     "lat": 36.67466,
     "lon": -76.455162,
     "dist_m": 8077.92,
@@ -437,33 +600,272 @@
      "lat": 36.728134,
      "lon": -76.583468
     },
-    "detail": "detail/us-va/B-9",
+    "island_km2": null,
+    "detail": "detail/us-va/B-36.674660_-76.455162",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 37.140822,
-    "lon": -75.873015,
-    "dist_m": 6288.52,
+    "rank": 7,
+    "lat": 38.417364,
+    "lon": -79.221328,
+    "dist_m": 5647.62,
     "nearest_way": {
-     "id": 20373524,
-     "highway": "residential",
+     "id": 392489150,
+     "highway": "service",
+     "name": "Todd Lake Forest Road",
+     "ref": "FR 523",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stokesville",
+     "type": "hamlet",
+     "dist_m": 9214.6,
+     "lat": 38.355298,
+     "lon": -79.151291
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/B-38.417364_-79.221328",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 38.597556,
+    "lon": -79.036267,
+    "dist_m": 5490.37,
+    "nearest_way": {
+     "id": 1054056627,
+     "highway": "primary",
+     "name": "Rawley Pike",
+     "ref": "US 33",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Palos",
+     "type": "hamlet",
+     "dist_m": 6761.5,
+     "lat": 38.572898,
+     "lon": -78.965307
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/B-38.597556_-79.036267",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 37.84955,
+    "lon": -75.390474,
+    "dist_m": 5124.03,
+    "nearest_way": {
+     "id": 19756869,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Townsend",
+     "name": "Black Point Landing",
      "type": "hamlet",
-     "dist_m": 9035.1,
-     "lat": 37.184981,
-     "lon": -75.958473
+     "dist_m": 6691.9,
+     "lat": 37.909568,
+     "lon": -75.383253
     },
-    "detail": "detail/us-va/B-10",
+    "island_km2": 11288.3,
+    "detail": "detail/us-va/B-37.849550_-75.390474",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 38.515115,
+    "lon": -79.124436,
+    "dist_m": 5062.85,
+    "nearest_way": {
+     "id": 1365409219,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rawley Springs",
+     "type": "hamlet",
+     "dist_m": 6029.5,
+     "lat": 38.505401,
+     "lon": -79.056422
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/B-38.515115_-79.124436",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 38.351299,
+    "lon": -79.324009,
+    "dist_m": 4618.07,
+    "nearest_way": {
+     "id": 1316967586,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Head Waters",
+     "type": "hamlet",
+     "dist_m": 8308.3,
+     "lat": 38.325617,
+     "lon": -79.413271
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/B-38.351299_-79.324009",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 38.238573,
+    "lon": -79.437821,
+    "dist_m": 4610.81,
+    "nearest_way": {
+     "id": 20311006,
+     "highway": "residential",
+     "name": "Benson Run Hollow",
+     "ref": "173.2",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Deerfield",
+     "type": "hamlet",
+     "dist_m": 5405.4,
+     "lat": 38.196515,
+     "lon": -79.406707
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/B-38.238573_-79.437821",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 37.800521,
+    "lon": -75.785353,
+    "dist_m": 4175.02,
+    "nearest_way": {
+     "id": 19761929,
+     "highway": "residential",
+     "name": "Baldpate Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Deep Creek",
+     "type": "hamlet",
+     "dist_m": 4671.6,
+     "lat": 37.767351,
+     "lon": -75.752708
+    },
+    "island_km2": 11288.3,
+    "detail": "detail/us-va/B-37.800521_-75.785353",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 37.914578,
+    "lon": -79.663662,
+    "dist_m": 4112.83,
+    "nearest_way": {
+     "id": 764649686,
+     "highway": "tertiary",
+     "name": "Millboro & Kerrs Creek Turnpike",
+     "ref": "SR 633",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Copeland",
+     "type": "hamlet",
+     "dist_m": 4302.6,
+     "lat": 37.888184,
+     "lon": -79.699491
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/B-37.914578_-79.663662",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 38.967965,
+    "lon": -78.610816,
+    "dist_m": 4111.9,
+    "nearest_way": {
+     "id": 429894229,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kern Springs",
+     "type": "hamlet",
+     "dist_m": 4721.3,
+     "lat": 38.927333,
+     "lon": -78.594735
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/B-38.967965_-78.610816",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 37.949019,
+    "lon": -79.064118,
+    "dist_m": 3867.0,
+    "nearest_way": {
+     "id": 19875639,
+     "highway": "residential",
+     "name": "Coal Road",
+     "ref": "FR 42",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "White Rock",
+     "type": "hamlet",
+     "dist_m": 6512.2,
+     "lat": 37.890415,
+     "lon": -79.060582
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/B-37.949019_-79.064118",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 38.711729,
+    "lon": -78.989207,
+    "dist_m": 3808.43,
+    "nearest_way": {
+     "id": 20505741,
+     "highway": "residential",
+     "name": "Low Place Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Yankeetown",
+     "type": "hamlet",
+     "dist_m": 4677.8,
+     "lat": 38.684838,
+     "lon": -78.947806
+    },
+    "island_km2": null,
+    "detail": "detail/us-va/B-38.711729_-78.989207",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 8077.92,
+  "lat": 36.67466,
+  "lon": -76.455162,
+  "rank": 42,
+  "withheld": 0
  }
 }

@@ -31,170 +31,300 @@
     "nearest_place": {
      "name": "Nash Harbor",
      "type": "hamlet",
-     "dist_m": 331960.2,
+     "dist_m": 331960.3,
      "lat": 60.203648,
      "lon": -166.93883
     },
-    "detail": "detail/us-ak/A-1",
+    "island_km2": 302.3,
+    "detail": "detail/us-ak/A-60.472035_-172.927004",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 60.198047,
-    "lon": -172.790838,
-    "dist_m": 360635.12,
+    "lat": 60.623468,
+    "lon": -173.050273,
+    "dist_m": 350859.35,
     "nearest_way": {
-     "id": 727177918,
-     "highway": "track",
+     "id": 649505926,
+     "highway": "tertiary",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Nash Harbor",
+     "name": "Booshu Camp",
      "type": "hamlet",
-     "dist_m": 324455.1,
-     "lat": 60.203648,
-     "lon": -166.93883
+     "dist_m": 323357.4,
+     "lat": 63.467794,
+     "lon": -171.828267
     },
-    "detail": "detail/us-ak/A-2",
+    "island_km2": 17.1,
+    "detail": "detail/us-ak/A-60.623468_-173.050273",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 60.544287,
-    "lon": -173.056275,
-    "dist_m": 359573.31,
+    "lat": 52.451837,
+    "lon": -171.309797,
+    "dist_m": 173196.82,
     "nearest_way": {
-     "id": 649505926,
-     "highway": "tertiary",
+     "id": 1333260172,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Booshu Camp",
+     "name": "Nikolski",
      "type": "hamlet",
-     "dist_m": 332086.5,
-     "lat": 63.467794,
-     "lon": -171.828267
+     "dist_m": 173732.9,
+     "lat": 52.938056,
+     "lon": -168.867778
     },
-    "detail": "detail/us-ak/A-3",
+    "island_km2": 49.6,
+    "detail": "detail/us-ak/A-52.451837_-171.309797",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 60.401874,
-    "lon": -172.795873,
-    "dist_m": 359222.33,
+    "lat": 68.444839,
+    "lon": -158.864444,
+    "dist_m": 153350.86,
     "nearest_way": {
-     "id": 727177918,
+     "id": 334619884,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Nash Harbor",
+     "name": "Klery Creek",
      "type": "hamlet",
-     "dist_m": 324476.7,
-     "lat": 60.203648,
-     "lon": -166.93883
+     "dist_m": 155316.0,
+     "lat": 67.179444,
+     "lon": -160.403056
     },
-    "detail": "detail/us-ak/A-4",
+    "island_km2": null,
+    "detail": "detail/us-ak/A-68.444839_-158.864444",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 60.339681,
-    "lon": -172.645924,
-    "dist_m": 351324.19,
+    "lat": 68.915688,
+    "lon": -143.585823,
+    "dist_m": 117473.22,
     "nearest_way": {
-     "id": 727177918,
-     "highway": "track",
+     "id": 877610266,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Nash Harbor",
+     "name": "Arctic Village",
      "type": "hamlet",
-     "dist_m": 316105.7,
-     "lat": 60.203648,
-     "lon": -166.93883
+     "dist_m": 118763.2,
+     "lat": 68.126944,
+     "lon": -145.537778
     },
-    "detail": "detail/us-ak/A-5",
+    "island_km2": null,
+    "detail": "detail/us-ak/A-68.915688_-143.585823",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 60.640353,
-    "lon": -173.121129,
-    "dist_m": 349805.35,
+    "lat": 65.760537,
+    "lon": -158.754691,
+    "dist_m": 108531.77,
     "nearest_way": {
-     "id": 649505926,
-     "highway": "tertiary",
+     "id": 1162955348,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Booshu Camp",
-     "type": "hamlet",
-     "dist_m": 322265.3,
-     "lat": 63.467794,
-     "lon": -171.828267
+     "name": "Huslia",
+     "type": "village",
+     "dist_m": 108410.2,
+     "lat": 65.70082,
+     "lon": -156.396261
     },
-    "detail": "detail/us-ak/A-6",
+    "island_km2": null,
+    "detail": "detail/us-ak/A-65.760537_-158.754691",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 60.382952,
-    "lon": -172.448539,
-    "dist_m": 340189.92,
+    "lat": 61.262613,
+    "lon": -153.547621,
+    "dist_m": 101632.87,
     "nearest_way": {
-     "id": 727177918,
+     "id": 306406750,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Nash Harbor",
+     "name": "Whitefish Lake",
      "type": "hamlet",
-     "dist_m": 305280.9,
-     "lat": 60.203648,
-     "lon": -166.93883
+     "dist_m": 87643.1,
+     "lat": 60.932416,
+     "lon": -155.022339
     },
-    "detail": "detail/us-ak/A-7",
+    "island_km2": null,
+    "detail": "detail/us-ak/A-61.262613_-153.547621",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 60.309757,
-    "lon": -172.31049,
-    "dist_m": 333054.36,
+    "lat": 59.982458,
+    "lon": -159.828542,
+    "dist_m": 100902.12,
     "nearest_way": {
-     "id": 727177918,
+     "id": 8950211,
+     "highway": "track",
+     "name": "Okstukuk Lake Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kashiagamiut",
+     "type": "hamlet",
+     "dist_m": 69578.2,
+     "lat": 59.369444,
+     "lon": -160.064722
+    },
+    "island_km2": null,
+    "detail": "detail/us-ak/A-59.982458_-159.828542",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 60.811858,
+    "lon": -141.002001,
+    "dist_m": 95971.59,
+    "nearest_way": {
+     "id": 8993902,
+     "highway": "track",
+     "name": "Dan Creek Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dan Creek",
+     "type": "hamlet",
+     "dist_m": 104860.1,
+     "lat": 61.37532,
+     "lon": -142.558873
+    },
+    "island_km2": null,
+    "detail": "detail/us-ak/A-60.811858_-141.002001",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 58.876975,
+    "lon": -153.562827,
+    "dist_m": 89654.2,
+    "nearest_way": {
+     "id": 564256512,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kaguyak",
+     "type": "hamlet",
+     "dist_m": 39619.6,
+     "lat": 58.56772,
+     "lon": -153.900638
+    },
+    "island_km2": null,
+    "detail": "detail/us-ak/A-58.876975_-153.562827",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 62.69791,
+    "lon": -161.870021,
+    "dist_m": 84744.03,
+    "nearest_way": {
+     "id": 1542862224,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Nash Harbor",
+     "name": "Pikmiktalik",
      "type": "hamlet",
-     "dist_m": 297565.9,
-     "lat": 60.203648,
-     "lon": -166.93883
+     "dist_m": 70298.0,
+     "lat": 63.236111,
+     "lon": -162.5925
     },
-    "detail": "detail/us-ak/A-8",
+    "island_km2": null,
+    "detail": "detail/us-ak/A-62.697910_-161.870021",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 62.871366,
+    "lon": -152.285146,
+    "dist_m": 76604.03,
+    "nearest_way": {
+     "id": 9001148,
+     "highway": "track",
+     "name": "Winter Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chelatna Lodge",
+     "type": "hamlet",
+     "dist_m": 66360.3,
+     "lat": 62.434171,
+     "lon": -151.406547
+    },
+    "island_km2": null,
+    "detail": "detail/us-ak/A-62.871366_-152.285146",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 61.326731,
+    "lon": -163.525086,
+    "dist_m": 73465.6,
+    "nearest_way": {
+     "id": 830871938,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chakwaktolik",
+     "type": "hamlet",
+     "dist_m": 16406.0,
+     "lat": 61.229167,
+     "lon": -163.754167
+    },
+    "island_km2": null,
+    "detail": "detail/us-ak/A-61.326731_-163.525086",
     "warnings": []
    }
   ],
-  "withheld": 2,
+  "withheld": 7,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 153350.86,
+  "lat": 68.444839,
+  "lon": -158.864444,
+  "rank": 4,
+  "withheld": 7
  },
  "B": {
   "poles": [
@@ -217,165 +347,272 @@
      "lat": 60.203648,
      "lon": -166.93883
     },
-    "detail": "detail/us-ak/B-1",
+    "island_km2": 302.3,
+    "detail": "detail/us-ak/B-60.468589_-172.923661",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 60.198047,
-    "lon": -172.790838,
-    "dist_m": 361086.47,
+    "lat": 60.623468,
+    "lon": -173.050273,
+    "dist_m": 350859.35,
     "nearest_way": {
-     "id": 994015224,
-     "highway": "service",
+     "id": 649505926,
+     "highway": "tertiary",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Nash Harbor",
+     "name": "Booshu Camp",
      "type": "hamlet",
-     "dist_m": 324455.1,
-     "lat": 60.203648,
-     "lon": -166.93883
+     "dist_m": 323357.4,
+     "lat": 63.467794,
+     "lon": -171.828267
     },
-    "detail": "detail/us-ak/B-2",
+    "island_km2": 17.1,
+    "detail": "detail/us-ak/B-60.623468_-173.050273",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 60.543174,
-    "lon": -173.048571,
-    "dist_m": 359613.16,
+    "lat": 68.45501,
+    "lon": -159.147389,
+    "dist_m": 158266.98,
     "nearest_way": {
-     "id": 649505926,
-     "highway": "tertiary",
+     "id": 434824122,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Booshu Camp",
+     "name": "Klery Creek",
      "type": "hamlet",
-     "dist_m": 332130.6,
-     "lat": 63.467794,
-     "lon": -171.828267
+     "dist_m": 151786.7,
+     "lat": 67.179444,
+     "lon": -160.403056
     },
-    "detail": "detail/us-ak/B-3",
+    "island_km2": null,
+    "detail": "detail/us-ak/B-68.455010_-159.147389",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 60.399927,
-    "lon": -172.787556,
-    "dist_m": 359282.31,
+    "lat": 68.49161,
+    "lon": -142.229281,
+    "dist_m": 138631.23,
     "nearest_way": {
-     "id": 994015224,
-     "highway": "service",
+     "id": 1455843595,
+     "highway": "road",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Nash Harbor",
+     "name": "Imnairvik",
      "type": "hamlet",
-     "dist_m": 324013.3,
-     "lat": 60.203648,
-     "lon": -166.93883
+     "dist_m": 112135.1,
+     "lat": 69.161484,
+     "lon": -140.155514
     },
-    "detail": "detail/us-ak/B-4",
+    "island_km2": null,
+    "detail": "detail/us-ak/B-68.491610_-142.229281",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 60.337049,
-    "lon": -172.637603,
-    "dist_m": 351373.28,
+    "lat": 65.759469,
+    "lon": -158.760268,
+    "dist_m": 108775.02,
     "nearest_way": {
-     "id": 994015224,
-     "highway": "service",
-     "name": null,
+     "id": 569224475,
+     "highway": "residential",
+     "name": "Selawik Street",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Nash Harbor",
-     "type": "hamlet",
-     "dist_m": 315644.9,
-     "lat": 60.203648,
-     "lon": -166.93883
+     "name": "Huslia",
+     "type": "village",
+     "dist_m": 108660.6,
+     "lat": 65.70082,
+     "lon": -156.396261
     },
-    "detail": "detail/us-ak/B-5",
+    "island_km2": null,
+    "detail": "detail/us-ak/B-65.759469_-158.760268",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 60.640353,
-    "lon": -173.121129,
-    "dist_m": 349805.35,
+    "lat": 60.61714,
+    "lon": -158.016512,
+    "dist_m": 106657.33,
     "nearest_way": {
-     "id": 649505926,
-     "highway": "tertiary",
+     "id": 1444848091,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Booshu Camp",
+     "name": "Kashegelok",
      "type": "hamlet",
-     "dist_m": 322265.3,
-     "lat": 63.467794,
-     "lon": -171.828267
+     "dist_m": 28285.3,
+     "lat": 60.854722,
+     "lon": -157.833889
     },
-    "detail": "detail/us-ak/B-6",
+    "island_km2": null,
+    "detail": "detail/us-ak/B-60.617140_-158.016512",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 60.383961,
-    "lon": -172.442017,
-    "dist_m": 340327.25,
+    "lat": 60.910232,
+    "lon": -141.004862,
+    "dist_m": 106436.35,
     "nearest_way": {
-     "id": 994015224,
-     "highway": "service",
+     "id": 8993846,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Nash Harbor",
+     "name": "Dan Creek",
      "type": "hamlet",
-     "dist_m": 304924.0,
-     "lat": 60.203648,
-     "lon": -166.93883
+     "dist_m": 98447.0,
+     "lat": 61.37532,
+     "lon": -142.558873
     },
-    "detail": "detail/us-ak/B-7",
+    "island_km2": null,
+    "detail": "detail/us-ak/B-60.910232_-141.004862",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 60.309757,
-    "lon": -172.31049,
-    "dist_m": 333532.61,
+    "lat": 58.876975,
+    "lon": -153.562827,
+    "dist_m": 89654.2,
     "nearest_way": {
-     "id": 994015224,
+     "id": 564256512,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Nash Harbor",
+     "name": "Kaguyak",
      "type": "hamlet",
-     "dist_m": 297565.9,
-     "lat": 60.203648,
-     "lon": -166.93883
+     "dist_m": 39619.6,
+     "lat": 58.56772,
+     "lon": -153.900638
     },
-    "detail": "detail/us-ak/B-8",
+    "island_km2": null,
+    "detail": "detail/us-ak/B-58.876975_-153.562827",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 66.512898,
+    "lon": -164.300982,
+    "dist_m": 83492.97,
+    "nearest_way": {
+     "id": 205380833,
+     "highway": "unclassified",
+     "name": "Air Force Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Espenberg",
+     "type": "hamlet",
+     "dist_m": 17569.5,
+     "lat": 66.593034,
+     "lon": -163.960431
+    },
+    "island_km2": null,
+    "detail": "detail/us-ak/B-66.512898_-164.300982",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 56.53765,
+    "lon": -159.834451,
+    "dist_m": 72809.66,
+    "nearest_way": {
+     "id": 8975344,
+     "highway": "residential",
+     "name": "Lakeview Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chignik Lake",
+     "type": "hamlet",
+     "dist_m": 73311.3,
+     "lat": 56.253029,
+     "lon": -158.763948
+    },
+    "island_km2": null,
+    "detail": "detail/us-ak/B-56.537650_-159.834451",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 62.527048,
+    "lon": -148.76358,
+    "dist_m": 64593.11,
+    "nearest_way": {
+     "id": 8978060,
+     "highway": "residential",
+     "name": "East Lorien's Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chulitna",
+     "type": "hamlet",
+     "dist_m": 58034.3,
+     "lat": 62.886944,
+     "lon": -149.583056
+    },
+    "island_km2": null,
+    "detail": "detail/us-ak/B-62.527048_-148.763580",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 61.195499,
+    "lon": -147.704646,
+    "dist_m": 62619.2,
+    "nearest_way": {
+     "id": 457587863,
+     "highway": "residential",
+     "name": "Copper Queen Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ellamar",
+     "type": "hamlet",
+     "dist_m": 63859.7,
+     "lat": 60.895556,
+     "lon": -146.6975
+    },
+    "island_km2": null,
+    "detail": "detail/us-ak/B-61.195499_-147.704646",
     "warnings": []
    }
   ],
-  "withheld": 2,
+  "withheld": 8,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 158266.98,
+  "lat": 68.45501,
+  "lon": -159.147389,
+  "rank": 8,
+  "withheld": 8
  }
 }

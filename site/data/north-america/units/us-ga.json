@@ -35,77 +35,12 @@
      "lat": 30.97161,
      "lon": -82.388743
     },
-    "detail": "detail/us-ga/A-1",
+    "island_km2": null,
+    "detail": "detail/us-ga/A-30.909751_-82.267027",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 30.697658,
-    "lon": -82.297398,
-    "dist_m": 12644.8,
-    "nearest_way": {
-     "id": 685450688,
-     "highway": "secondary",
-     "name": "State Highway 177",
-     "ref": "GA 177",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Rockvil",
-     "type": "village",
-     "dist_m": 17309.2,
-     "lat": 30.56053,
-     "lon": -82.383722
-    },
-    "detail": "detail/us-ga/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 30.784929,
-    "lon": -82.259708,
-    "dist_m": 10736.42,
-    "nearest_way": {
-     "id": 9084079,
-     "highway": "residential",
-     "name": "Duck Island Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Silver Hill",
-     "type": "hamlet",
-     "dist_m": 14063.0,
-     "lat": 30.838008,
-     "lon": -82.126231
-    },
-    "detail": "detail/us-ga/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 30.897895,
-    "lon": -82.373262,
-    "dist_m": 7736.72,
-    "nearest_way": {
-     "id": 685264332,
-     "highway": "unclassified",
-     "name": "State Highway 177",
-     "ref": "GA 177",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "McLeods Mill",
-     "type": "hamlet",
-     "dist_m": 8305.5,
-     "lat": 30.97161,
-     "lon": -82.388743
-    },
-    "detail": "detail/us-ga/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 31.35237,
     "lon": -81.335918,
     "dist_m": 6434.87,
@@ -119,15 +54,16 @@
     "nearest_place": {
      "name": "Sapelo Island",
      "type": "hamlet",
-     "dist_m": 7389.2,
+     "dist_m": 7389.3,
      "lat": 31.397448,
      "lon": -81.278706
     },
-    "detail": "detail/us-ga/A-5",
+    "island_km2": null,
+    "detail": "detail/us-ga/A-31.352370_-81.335918",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 3,
     "lat": 31.962506,
     "lon": -80.918364,
     "dist_m": 6076.13,
@@ -145,77 +81,12 @@
      "lat": 32.003548,
      "lon": -80.973723
     },
-    "detail": "detail/us-ga/A-6",
+    "island_km2": null,
+    "detail": "detail/us-ga/A-31.962506_-80.918364",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 31.002944,
-    "lon": -82.284867,
-    "dist_m": 5958.67,
-    "nearest_way": {
-     "id": 9523603,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "McLeods Mill",
-     "type": "hamlet",
-     "dist_m": 10512.5,
-     "lat": 30.97161,
-     "lon": -82.388743
-    },
-    "detail": "detail/us-ga/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 30.867508,
-    "lon": -82.472796,
-    "dist_m": 5954.73,
-    "nearest_way": {
-     "id": 9118054,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Williamsburg",
-     "type": "hamlet",
-     "dist_m": 10143.8,
-     "lat": 30.782717,
-     "lon": -82.512632
-    },
-    "detail": "detail/us-ga/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 30.655603,
-    "lon": -82.201315,
-    "dist_m": 5678.19,
-    "nearest_way": {
-     "id": 9521925,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Toledo",
-     "type": "hamlet",
-     "dist_m": 14417.3,
-     "lat": 30.636067,
-     "lon": -82.052615
-    },
-    "detail": "detail/us-ga/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 4,
     "lat": 31.578282,
     "lon": -81.222336,
     "dist_m": 5403.77,
@@ -233,12 +104,158 @@
      "lat": 31.641053,
      "lon": -81.256766
     },
-    "detail": "detail/us-ga/A-10",
+    "island_km2": null,
+    "detail": "detail/us-ga/A-31.578282_-81.222336",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 31.731642,
+    "lon": -81.181628,
+    "dist_m": 4966.0,
+    "nearest_way": {
+     "id": 9081210,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fancy Hall",
+     "type": "hamlet",
+     "dist_m": 7270.2,
+     "lat": 31.768828,
+     "lon": -81.244825
+    },
+    "island_km2": null,
+    "detail": "detail/us-ga/A-31.731642_-81.181628",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 30.969556,
+    "lon": -81.471345,
+    "dist_m": 4598.61,
+    "nearest_way": {
+     "id": 9056806,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dover Bluff",
+     "type": "hamlet",
+     "dist_m": 7495.1,
+     "lat": 31.017177,
+     "lon": -81.527044
+    },
+    "island_km2": null,
+    "detail": "detail/us-ga/A-30.969556_-81.471345",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 31.387341,
+    "lon": -81.516696,
+    "dist_m": 4380.27,
+    "nearest_way": {
+     "id": 9380863,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Darien",
+     "type": "village",
+     "dist_m": 8093.0,
+     "lat": 31.370226,
+     "lon": -81.43399
+    },
+    "island_km2": null,
+    "detail": "detail/us-ga/A-31.387341_-81.516696",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 31.818232,
+    "lon": -81.035174,
+    "dist_m": 4315.7,
+    "nearest_way": {
+     "id": 9092037,
+     "highway": "track",
+     "name": "Bradley Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Middle Place",
+     "type": "hamlet",
+     "dist_m": 7508.8,
+     "lat": 31.801609,
+     "lon": -81.112048
+    },
+    "island_km2": null,
+    "detail": "detail/us-ga/A-31.818232_-81.035174",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 34.911852,
+    "lon": -84.596791,
+    "dist_m": 4292.39,
+    "nearest_way": {
+     "id": 460998871,
+     "highway": "unclassified",
+     "name": "West Cow Pen Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Doogan",
+     "type": "hamlet",
+     "dist_m": 8515.7,
+     "lat": 34.968556,
+     "lon": -84.659621
+    },
+    "island_km2": null,
+    "detail": "detail/us-ga/A-34.911852_-84.596791",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 31.133394,
+    "lon": -81.445124,
+    "dist_m": 3194.92,
+    "nearest_way": {
+     "id": 1282063634,
+     "highway": "residential",
+     "name": "Old Seaside Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Back Landing",
+     "type": "hamlet",
+     "dist_m": 3587.0,
+     "lat": 31.150509,
+     "lon": -81.477044
+    },
+    "island_km2": null,
+    "detail": "detail/us-ga/A-31.133394_-81.445124",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 12660.82,
+  "lat": 30.909751,
+  "lon": -82.267027,
+  "rank": 28,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,37 +274,16 @@
     "nearest_place": {
      "name": "McLeods Mill",
      "type": "hamlet",
-     "dist_m": 13744.9,
+     "dist_m": 13745.0,
      "lat": 30.97161,
      "lon": -82.388743
     },
-    "detail": "detail/us-ga/B-1",
+    "island_km2": null,
+    "detail": "detail/us-ga/B-30.910075_-82.263879",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 30.698478,
-    "lon": -82.294631,
-    "dist_m": 12757.97,
-    "nearest_way": {
-     "id": 9523176,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Rockvil",
-     "type": "village",
-     "dist_m": 17516.8,
-     "lat": 30.56053,
-     "lon": -82.383722
-    },
-    "detail": "detail/us-ga/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 31.779631,
     "lon": -81.0641,
     "dist_m": 11591.12,
@@ -305,99 +301,12 @@
      "lat": 31.801609,
      "lon": -81.112048
     },
-    "detail": "detail/us-ga/B-3",
+    "island_km2": null,
+    "detail": "detail/us-ga/B-31.779631_-81.064100",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 30.785546,
-    "lon": -82.259586,
-    "dist_m": 10723.86,
-    "nearest_way": {
-     "id": 9084079,
-     "highway": "residential",
-     "name": "Duck Island Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Silver Hill",
-     "type": "hamlet",
-     "dist_m": 14023.9,
-     "lat": 30.838008,
-     "lon": -82.126231
-    },
-    "detail": "detail/us-ga/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 31.906028,
-    "lon": -80.936024,
-    "dist_m": 9080.83,
-    "nearest_way": {
-     "id": 251071641,
-     "highway": "residential",
-     "name": "Breckenridge Lane",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "The Landings",
-     "type": "hamlet",
-     "dist_m": 9381.2,
-     "lat": 31.944661,
-     "lon": -81.024276
-    },
-    "detail": "detail/us-ga/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 30.880377,
-    "lon": -82.418125,
-    "dist_m": 7919.91,
-    "nearest_way": {
-     "id": 9519206,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Hopkins",
-     "type": "hamlet",
-     "dist_m": 10182.6,
-     "lat": 30.971608,
-     "lon": -82.430411
-    },
-    "detail": "detail/us-ga/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 30.859342,
-    "lon": -82.521884,
-    "dist_m": 7072.99,
-    "nearest_way": {
-     "id": 9122114,
-     "highway": "residential",
-     "name": "Flint Oak Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Williamsburg",
-     "type": "hamlet",
-     "dist_m": 8541.2,
-     "lat": 30.782717,
-     "lon": -82.512632
-    },
-    "detail": "detail/us-ga/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 3,
     "lat": 31.35237,
     "lon": -81.335918,
     "dist_m": 6434.87,
@@ -411,59 +320,184 @@
     "nearest_place": {
      "name": "Sapelo Island",
      "type": "hamlet",
-     "dist_m": 7389.2,
+     "dist_m": 7389.3,
      "lat": 31.397448,
      "lon": -81.278706
     },
-    "detail": "detail/us-ga/B-8",
+    "island_km2": null,
+    "detail": "detail/us-ga/B-31.352370_-81.335918",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 30.658176,
-    "lon": -82.197189,
-    "dist_m": 6000.82,
+    "rank": 4,
+    "lat": 31.578282,
+    "lon": -81.222336,
+    "dist_m": 5403.77,
     "nearest_way": {
-     "id": 9521925,
+     "id": 9381641,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Toledo",
+     "name": "Thomas Landing",
      "type": "hamlet",
-     "dist_m": 14073.1,
-     "lat": 30.636067,
-     "lon": -82.052615
+     "dist_m": 7688.7,
+     "lat": 31.641053,
+     "lon": -81.256766
     },
-    "detail": "detail/us-ga/B-9",
+    "island_km2": null,
+    "detail": "detail/us-ga/B-31.578282_-81.222336",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 31.002944,
-    "lon": -82.284867,
-    "dist_m": 5958.67,
+    "rank": 5,
+    "lat": 30.971091,
+    "lon": -81.407554,
+    "dist_m": 5391.83,
     "nearest_way": {
-     "id": 9523603,
+     "id": 483670710,
+     "highway": "unclassified",
+     "name": "Clubb Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "High Point",
+     "type": "hamlet",
+     "dist_m": 6348.4,
+     "lat": 30.915299,
+     "lon": -81.422504
+    },
+    "island_km2": null,
+    "detail": "detail/us-ga/B-30.971091_-81.407554",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 31.643806,
+    "lon": -81.744876,
+    "dist_m": 4962.5,
+    "nearest_way": {
+     "id": 9372580,
+     "highway": "primary",
+     "name": null,
+     "ref": "57",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ludowici",
+     "type": "village",
+     "dist_m": 7319.1,
+     "lat": 31.709796,
+     "lon": -81.743085
+    },
+    "island_km2": null,
+    "detail": "detail/us-ga/B-31.643806_-81.744876",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 30.980991,
+    "lon": -81.602926,
+    "dist_m": 4922.27,
+    "nearest_way": {
+     "id": 1131833266,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ceylon",
+     "type": "hamlet",
+     "dist_m": 5040.4,
+     "lat": 30.961621,
+     "lon": -81.650659
+    },
+    "island_km2": null,
+    "detail": "detail/us-ga/B-30.980991_-81.602926",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 34.866548,
+    "lon": -83.646135,
+    "dist_m": 4904.72,
+    "nearest_way": {
+     "id": 520153193,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mountain Scene",
+     "type": "hamlet",
+     "dist_m": 6990.1,
+     "lat": 34.857898,
+     "lon": -83.721855
+    },
+    "island_km2": null,
+    "detail": "detail/us-ga/B-34.866548_-83.646135",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 31.376848,
+    "lon": -81.506764,
+    "dist_m": 4769.5,
+    "nearest_way": {
+     "id": 9254653,
      "highway": "residential",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "McLeods Mill",
-     "type": "hamlet",
-     "dist_m": 10512.5,
-     "lat": 30.97161,
-     "lon": -82.388743
+     "name": "Darien",
+     "type": "village",
+     "dist_m": 6961.8,
+     "lat": 31.370226,
+     "lon": -81.43399
     },
-    "detail": "detail/us-ga/B-10",
+    "island_km2": null,
+    "detail": "detail/us-ga/B-31.376848_-81.506764",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 34.988231,
+    "lon": -84.540672,
+    "dist_m": 4701.62,
+    "nearest_way": {
+     "id": 19744216,
+     "highway": "residential",
+     "name": "Big Frog Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sylco",
+     "type": "hamlet",
+     "dist_m": 7324.4,
+     "lat": 35.033966,
+     "lon": -84.598544
+    },
+    "island_km2": null,
+    "detail": "detail/us-ga/B-34.988231_-84.540672",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 12900.17,
+  "lat": 30.910075,
+  "lon": -82.263879,
+  "rank": 32,
+  "withheld": 0
  }
 }

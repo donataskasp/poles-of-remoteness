@@ -35,7 +35,8 @@
      "lat": 44.071449,
      "lon": -72.972616
     },
-    "detail": "detail/us-vt/A-1",
+    "island_km2": null,
+    "detail": "detail/us-vt/A-44.034987_-72.906182",
     "warnings": []
    },
    {
@@ -53,11 +54,12 @@
     "nearest_place": {
      "name": "Sunderland",
      "type": "village",
-     "dist_m": 5410.4,
+     "dist_m": 5410.5,
      "lat": 43.113515,
      "lon": -73.103714
     },
-    "detail": "detail/us-vt/A-2",
+    "island_km2": null,
+    "detail": "detail/us-vt/A-43.105338_-73.038187",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 43.317296,
      "lon": -72.992604
     },
-    "detail": "detail/us-vt/A-3",
+    "island_km2": null,
+    "detail": "detail/us-vt/A-43.313062_-72.942716",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 44.979319,
      "lon": -73.105302
     },
-    "detail": "detail/us-vt/A-4",
+    "island_km2": null,
+    "detail": "detail/us-vt/A-45.008542_-73.134745",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 44.817105,
      "lon": -73.290091
     },
-    "detail": "detail/us-vt/A-5",
+    "island_km2": 3.9,
+    "detail": "detail/us-vt/A-44.825071_-73.230877",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 44.445608,
      "lon": -72.897901
     },
-    "detail": "detail/us-vt/A-6",
+    "island_km2": null,
+    "detail": "detail/us-vt/A-44.452212_-72.842058",
     "warnings": []
    },
    {
@@ -163,11 +169,12 @@
     "nearest_place": {
      "name": "Village of Alpenwald",
      "type": "hamlet",
-     "dist_m": 5222.3,
+     "dist_m": 5222.4,
      "lat": 42.818233,
      "lon": -73.020947
     },
-    "detail": "detail/us-vt/A-7",
+    "island_km2": null,
+    "detail": "detail/us-vt/A-42.814311_-73.084580",
     "warnings": []
    },
    {
@@ -189,7 +196,8 @@
      "lat": 44.220894,
      "lon": -72.398157
     },
-    "detail": "detail/us-vt/A-8",
+    "island_km2": null,
+    "detail": "detail/us-vt/A-44.224698_-72.342311",
     "warnings": []
    },
    {
@@ -211,7 +219,8 @@
      "lat": 44.458963,
      "lon": -72.693568
     },
-    "detail": "detail/us-vt/A-9",
+    "island_km2": null,
+    "detail": "detail/us-vt/A-44.411749_-72.636050",
     "warnings": []
    },
    {
@@ -233,12 +242,43 @@
      "lat": 44.620051,
      "lon": -72.721233
     },
-    "detail": "detail/us-vt/A-10",
+    "island_km2": null,
+    "detail": "detail/us-vt/A-44.622393_-72.757508",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 43.804369,
+    "lon": -72.930431,
+    "dist_m": 2770.18,
+    "nearest_way": {
+     "id": 19708738,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Robinson",
+     "type": "hamlet",
+     "dist_m": 7680.9,
+     "lat": 43.859231,
+     "lon": -72.872331
+    },
+    "island_km2": null,
+    "detail": "detail/us-vt/A-43.804369_-72.930431",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 3715.05,
+  "lat": 44.034987,
+  "lon": -72.906182,
+  "rank": 54,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,11 +297,12 @@
     "nearest_place": {
      "name": "MacIntyre",
      "type": "hamlet",
-     "dist_m": 3084.3,
+     "dist_m": 3084.4,
      "lat": 43.023967,
      "lon": -73.071216
     },
-    "detail": "detail/us-vt/B-1",
+    "island_km2": null,
+    "detail": "detail/us-vt/B-42.996321_-73.067735",
     "warnings": []
    },
    {
@@ -283,7 +324,8 @@
      "lat": 43.116744,
      "lon": -72.906489
     },
-    "detail": "detail/us-vt/B-2",
+    "island_km2": null,
+    "detail": "detail/us-vt/B-43.109802_-72.983097",
     "warnings": []
    },
    {
@@ -301,11 +343,12 @@
     "nearest_place": {
      "name": "Alpine Village",
      "type": "hamlet",
-     "dist_m": 6277.8,
+     "dist_m": 6277.7,
      "lat": 44.068673,
      "lon": -72.834279
     },
-    "detail": "detail/us-vt/B-3",
+    "island_km2": null,
+    "detail": "detail/us-vt/B-44.036337_-72.898519",
     "warnings": []
    },
    {
@@ -323,11 +366,12 @@
     "nearest_place": {
      "name": "Moscow",
      "type": "hamlet",
-     "dist_m": 6624.9,
+     "dist_m": 6624.8,
      "lat": 44.441443,
      "lon": -72.715396
     },
-    "detail": "detail/us-vt/B-4",
+    "island_km2": null,
+    "detail": "detail/us-vt/B-44.426814_-72.796059",
     "warnings": []
    },
    {
@@ -345,11 +389,12 @@
     "nearest_place": {
      "name": "Belvidere Center",
      "type": "hamlet",
-     "dist_m": 5334.9,
+     "dist_m": 5334.8,
      "lat": 44.750049,
      "lon": -72.691234
     },
-    "detail": "detail/us-vt/B-5",
+    "island_km2": null,
+    "detail": "detail/us-vt/B-44.796414_-72.673763",
     "warnings": []
    },
    {
@@ -371,7 +416,8 @@
      "lat": 42.818233,
      "lon": -73.020947
     },
-    "detail": "detail/us-vt/B-6",
+    "island_km2": null,
+    "detail": "detail/us-vt/B-42.814655_-73.117133",
     "warnings": []
    },
    {
@@ -393,7 +439,8 @@
      "lat": 43.317296,
      "lon": -72.992604
     },
-    "detail": "detail/us-vt/B-7",
+    "island_km2": null,
+    "detail": "detail/us-vt/B-43.313098_-72.942775",
     "warnings": []
    },
    {
@@ -415,7 +462,8 @@
      "lat": 44.979319,
      "lon": -73.105302
     },
-    "detail": "detail/us-vt/B-8",
+    "island_km2": null,
+    "detail": "detail/us-vt/B-45.008542_-73.134745",
     "warnings": []
    },
    {
@@ -437,7 +485,8 @@
      "lat": 44.527761,
      "lon": -71.816468
     },
-    "detail": "detail/us-vt/B-9",
+    "island_km2": null,
+    "detail": "detail/us-vt/B-44.500775_-71.786324",
     "warnings": []
    },
    {
@@ -455,15 +504,23 @@
     "nearest_place": {
      "name": "Baldwin Mills",
      "type": "hamlet",
-     "dist_m": 6649.3,
+     "dist_m": 6649.2,
      "lat": 45.036335,
      "lon": -71.90963
     },
-    "detail": "detail/us-vt/B-10",
+    "island_km2": null,
+    "detail": "detail/us-vt/B-44.981335_-71.876425",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 5203.73,
+  "lat": 42.996321,
+  "lon": -73.067735,
+  "rank": 52,
+  "withheld": 0
  }
 }

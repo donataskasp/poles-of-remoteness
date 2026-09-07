@@ -31,214 +31,300 @@
     "nearest_place": {
      "name": "Enterprise",
      "type": "hamlet",
-     "dist_m": 119587.5,
+     "dist_m": 119587.4,
      "lat": 60.556832,
      "lon": -116.140949
     },
-    "detail": "detail/ca-ab/A-1",
+    "island_km2": null,
+    "detail": "detail/ca-ab/A-59.586837_-115.221194",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 59.562371,
-    "lon": -115.045151,
-    "dist_m": 97680.38,
+    "lat": 59.992105,
+    "lon": -110.320652,
+    "dist_m": 72635.9,
     "nearest_way": {
-     "id": 1106502836,
+     "id": 1284903558,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Garden River",
+     "name": "Fitzgerald",
      "type": "hamlet",
-     "dist_m": 116180.0,
-     "lat": 58.710841,
-     "lon": -113.873283
+     "dist_m": 73130.2,
+     "lat": 59.860678,
+     "lon": -111.601868
     },
-    "detail": "detail/ca-ab/A-2",
+    "island_km2": null,
+    "detail": "detail/ca-ab/A-59.992105_-110.320652",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 59.525002,
-    "lon": -115.351744,
-    "dist_m": 95685.68,
+    "lat": 59.99994,
+    "lon": -119.195282,
+    "dist_m": 63500.57,
     "nearest_way": {
-     "id": 1128266817,
+     "id": 1365202377,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "John D'Or Prairie",
+     "name": "Zama City",
      "type": "hamlet",
-     "dist_m": 115360.4,
-     "lat": 58.494771,
-     "lon": -115.147652
+     "dist_m": 98400.2,
+     "lat": 59.154881,
+     "lon": -118.688648
     },
-    "detail": "detail/ca-ab/A-3",
+    "island_km2": null,
+    "detail": "detail/ca-ab/A-59.999940_-119.195282",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 59.67578,
-    "lon": -115.264137,
-    "dist_m": 95197.12,
+    "lat": 58.917346,
+    "lon": -110.182213,
+    "dist_m": 52046.39,
     "nearest_way": {
-     "id": 266259312,
-     "highway": "primary",
-     "name": "Fort Smith Highway",
-     "ref": "5",
+     "id": 30187928,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Enterprise",
-     "type": "hamlet",
-     "dist_m": 109600.3,
-     "lat": 60.556832,
-     "lon": -116.140949
+     "name": "Fort Chipewyan",
+     "type": "town",
+     "dist_m": 60222.6,
+     "lat": 58.716643,
+     "lon": -111.150019
     },
-    "detail": "detail/ca-ab/A-4",
+    "island_km2": null,
+    "detail": "detail/ca-ab/A-58.917346_-110.182213",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 59.533862,
-    "lon": -114.873688,
-    "dist_m": 94712.71,
+    "lat": 56.788141,
+    "lon": -110.223566,
+    "dist_m": 46457.21,
     "nearest_way": {
-     "id": 266960657,
-     "highway": "track",
+     "id": 804392955,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Garden River",
-     "type": "hamlet",
-     "dist_m": 108109.6,
-     "lat": 58.710841,
-     "lon": -113.873283
+     "name": "La Loche West",
+     "type": "village",
+     "dist_m": 49637.0,
+     "lat": 56.483333,
+     "lon": -109.633333
     },
-    "detail": "detail/ca-ab/A-5",
+    "island_km2": null,
+    "detail": "detail/ca-ab/A-56.788141_-110.223566",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 59.495443,
-    "lon": -114.70845,
-    "dist_m": 91664.18,
+    "lat": 58.715784,
+    "lon": -112.203174,
+    "dist_m": 36813.23,
     "nearest_way": {
-     "id": 1106502836,
-     "highway": "track",
+     "id": 30187287,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Garden River",
-     "type": "hamlet",
-     "dist_m": 99645.1,
-     "lat": 58.710841,
-     "lon": -113.873283
+     "name": "Embarras Portage",
+     "type": "village",
+     "dist_m": 50524.1,
+     "lat": 58.449938,
+     "lon": -111.499408
     },
-    "detail": "detail/ca-ab/A-6",
+    "island_km2": 3.9,
+    "detail": "detail/ca-ab/A-58.715784_-112.203174",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 59.498406,
-    "lon": -115.173453,
-    "dist_m": 91090.86,
+    "lat": 57.528072,
+    "lon": -115.931773,
+    "dist_m": 33677.88,
     "nearest_way": {
-     "id": 1106502836,
-     "highway": "track",
+     "id": 1047428467,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "John D'Or Prairie",
-     "type": "hamlet",
-     "dist_m": 111809.9,
-     "lat": 58.494771,
-     "lon": -115.147652
+     "name": "South Tallcree",
+     "type": "village",
+     "dist_m": 54812.3,
+     "lat": 57.911239,
+     "lon": -115.354542
     },
-    "detail": "detail/ca-ab/A-7",
+    "island_km2": null,
+    "detail": "detail/ca-ab/A-57.528072_-115.931773",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 59.463176,
-    "lon": -115.481451,
-    "dist_m": 90974.61,
+    "lat": 58.957636,
+    "lon": -110.584239,
+    "dist_m": 32786.69,
     "nearest_way": {
-     "id": 1106502836,
-     "highway": "track",
+     "id": 30187928,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "John D'Or Prairie",
-     "type": "hamlet",
-     "dist_m": 109569.6,
-     "lat": 58.494771,
-     "lon": -115.147652
+     "name": "Fort Chipewyan",
+     "type": "town",
+     "dist_m": 42285.5,
+     "lat": 58.716643,
+     "lon": -111.150019
     },
-    "detail": "detail/ca-ab/A-8",
+    "island_km2": 10.5,
+    "detail": "detail/ca-ab/A-58.957636_-110.584239",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 59.651536,
-    "lon": -115.089539,
-    "dist_m": 90954.42,
+    "lat": 53.848533,
+    "lon": -119.738665,
+    "dist_m": 32447.69,
     "nearest_way": {
-     "id": 266259312,
-     "highway": "primary",
-     "name": "Fort Smith Highway",
-     "ref": "5",
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Enterprise",
-     "type": "hamlet",
-     "dist_m": 116588.5,
-     "lat": 60.556832,
-     "lon": -116.140949
-    },
-    "detail": "detail/ca-ab/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 59.614858,
-    "lon": -115.39793,
-    "dist_m": 90807.07,
-    "nearest_way": {
-     "id": 1128266817,
+     "id": 376286354,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Enterprise",
-     "type": "hamlet",
-     "dist_m": 112800.5,
-     "lat": 60.556832,
-     "lon": -116.140949
+     "name": "Grande Cache",
+     "type": "town",
+     "dist_m": 41036.9,
+     "lat": 53.888813,
+     "lon": -119.118566
     },
-    "detail": "detail/ca-ab/A-10",
+    "island_km2": null,
+    "detail": "detail/ca-ab/A-53.848533_-119.738665",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 55.292779,
+    "lon": -110.00546,
+    "dist_m": 32336.08,
+    "nearest_way": {
+     "id": 32303466,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Conklin",
+     "type": "hamlet",
+     "dist_m": 77937.4,
+     "lat": 55.6325,
+     "lon": -111.082778
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ab/A-55.292779_-110.005460",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 58.85104,
+    "lon": -118.073825,
+    "dist_m": 28725.67,
+    "nearest_way": {
+     "id": 1125888224,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Habay",
+     "type": "hamlet",
+     "dist_m": 37520.0,
+     "lat": 58.808222,
+     "lon": -118.718154
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ab/A-58.851040_-118.073825",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 58.438421,
+    "lon": -111.996133,
+    "dist_m": 28550.68,
+    "nearest_way": {
+     "id": 1088021697,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Embarras Portage",
+     "type": "village",
+     "dist_m": 29036.4,
+     "lat": 58.449938,
+     "lon": -111.499408
+    },
+    "island_km2": 6.4,
+    "detail": "detail/ca-ab/A-58.438421_-111.996133",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 52.223232,
+    "lon": -117.720612,
+    "dist_m": 27942.77,
+    "nearest_way": {
+     "id": 955925117,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Mica Creek",
+     "type": "village",
+     "dist_m": 62701.8,
+     "lat": 52.007839,
+     "lon": -118.566454
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ab/A-52.223232_-117.720612",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 101193.97,
+  "lat": 59.586837,
+  "lon": -115.221194,
+  "rank": 11,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,209 +347,295 @@
      "lat": 58.494771,
      "lon": -115.147652
     },
-    "detail": "detail/ca-ab/B-1",
+    "island_km2": null,
+    "detail": "detail/ca-ab/B-59.540533_-115.230763",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 59.515552,
-    "lon": -115.055867,
-    "dist_m": 102432.2,
+    "lat": 60.000448,
+    "lon": -119.942685,
+    "dist_m": 73643.53,
     "nearest_way": {
-     "id": 30459311,
-     "highway": "service",
+     "id": 30458059,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Garden River",
+     "name": "Sambaa K'e",
      "type": "hamlet",
-     "dist_m": 112358.7,
-     "lat": 58.710841,
-     "lon": -113.873283
+     "dist_m": 87278.3,
+     "lat": 60.441945,
+     "lon": -121.243477
     },
-    "detail": "detail/ca-ab/B-2",
+    "island_km2": null,
+    "detail": "detail/ca-ab/B-60.000448_-119.942685",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 59.487111,
-    "lon": -115.375089,
-    "dist_m": 100387.18,
+    "lat": 59.991939,
+    "lon": -110.319053,
+    "dist_m": 72717.58,
     "nearest_way": {
-     "id": 30467221,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
+     "id": 762008414,
+     "highway": "secondary",
+     "name": "Saskatchewan Highway 999",
+     "ref": "999",
      "country": "ca"
     },
     "nearest_place": {
-     "name": "John D'Or Prairie",
+     "name": "Camsell Portage",
      "type": "hamlet",
-     "dist_m": 111312.1,
-     "lat": 58.494771,
-     "lon": -115.147652
+     "dist_m": 73091.2,
+     "lat": 59.61174,
+     "lon": -109.257864
     },
-    "detail": "detail/ca-ab/B-3",
+    "island_km2": null,
+    "detail": "detail/ca-ab/B-59.991939_-110.319053",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 59.495946,
-    "lon": -114.879906,
-    "dist_m": 99414.55,
+    "lat": 58.917346,
+    "lon": -110.182213,
+    "dist_m": 52046.39,
     "nearest_way": {
-     "id": 30461397,
-     "highway": "primary",
-     "name": "Highway 58",
-     "ref": "58",
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Garden River",
-     "type": "hamlet",
-     "dist_m": 104764.8,
-     "lat": 58.710841,
-     "lon": -113.873283
-    },
-    "detail": "detail/ca-ab/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 59.630991,
-    "lon": -115.25306,
-    "dist_m": 98516.86,
-    "nearest_way": {
-     "id": 266259312,
-     "highway": "primary",
-     "name": "Fort Smith Highway",
-     "ref": "5",
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Enterprise",
-     "type": "hamlet",
-     "dist_m": 114369.6,
-     "lat": 60.556832,
-     "lon": -116.140949
-    },
-    "detail": "detail/ca-ab/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 59.577895,
-    "lon": -115.399236,
-    "dist_m": 95582.16,
-    "nearest_way": {
-     "id": 265361635,
-     "highway": "trunk",
-     "name": "MacKenzie Highway",
-     "ref": "1",
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Enterprise",
-     "type": "hamlet",
-     "dist_m": 116623.7,
-     "lat": 60.556832,
-     "lon": -116.140949
-    },
-    "detail": "detail/ca-ab/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 59.451267,
-    "lon": -115.184008,
-    "dist_m": 95538.52,
-    "nearest_way": {
-     "id": 30459311,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "John D'Or Prairie",
-     "type": "hamlet",
-     "dist_m": 106569.1,
-     "lat": 58.494771,
-     "lon": -115.147652
-    },
-    "detail": "detail/ca-ab/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 59.426653,
-    "lon": -115.509977,
-    "dist_m": 95030.28,
-    "nearest_way": {
-     "id": 30467221,
+     "id": 30187928,
      "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "John D'Or Prairie",
-     "type": "hamlet",
-     "dist_m": 105879.0,
-     "lat": 58.494771,
-     "lon": -115.147652
+     "name": "Fort Chipewyan",
+     "type": "town",
+     "dist_m": 60222.6,
+     "lat": 58.716643,
+     "lon": -111.150019
     },
-    "detail": "detail/ca-ab/B-8",
+    "island_km2": null,
+    "detail": "detail/ca-ab/B-58.917346_-110.182213",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 56.819671,
+    "lon": -110.278607,
+    "dist_m": 50391.81,
+    "nearest_way": {
+     "id": 37968324,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Clearwater Camp",
+     "type": "hamlet",
+     "dist_m": 50663.0,
+     "lat": 56.641993,
+     "lon": -111.040575
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ab/B-56.819671_-110.278607",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 58.438738,
+    "lon": -111.995885,
+    "dist_m": 43628.12,
+    "nearest_way": {
+     "id": 30187587,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Embarras Portage",
+     "type": "village",
+     "dist_m": 29020.3,
+     "lat": 58.449938,
+     "lon": -111.499408
+    },
+    "island_km2": 6.4,
+    "detail": "detail/ca-ab/B-58.438738_-111.995885",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 53.47443,
+    "lon": -118.903378,
+    "dist_m": 40574.96,
+    "nearest_way": {
+     "id": 475410525,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Grande Cache",
+     "type": "town",
+     "dist_m": 48262.4,
+     "lat": 53.888813,
+     "lon": -119.118566
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ab/B-53.474430_-118.903378",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 58.715784,
+    "lon": -112.203174,
+    "dist_m": 36813.23,
+    "nearest_way": {
+     "id": 30187287,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Embarras Portage",
+     "type": "village",
+     "dist_m": 50524.1,
+     "lat": 58.449938,
+     "lon": -111.499408
+    },
+    "island_km2": 3.9,
+    "detail": "detail/ca-ab/B-58.715784_-112.203174",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 59.483565,
-    "lon": -114.702666,
-    "dist_m": 94865.01,
+    "lat": 57.528072,
+    "lon": -115.931773,
+    "dist_m": 33677.88,
     "nearest_way": {
-     "id": 30467439,
-     "highway": "primary",
-     "name": "Highway 58",
-     "ref": "58",
+     "id": 1047428467,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Garden River",
-     "type": "hamlet",
-     "dist_m": 98329.9,
-     "lat": 58.710841,
-     "lon": -113.873283
+     "name": "South Tallcree",
+     "type": "village",
+     "dist_m": 54812.3,
+     "lat": 57.911239,
+     "lon": -115.354542
     },
-    "detail": "detail/ca-ab/B-9",
+    "island_km2": null,
+    "detail": "detail/ca-ab/B-57.528072_-115.931773",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 59.60673,
-    "lon": -115.078614,
-    "dist_m": 94626.39,
+    "lat": 58.957636,
+    "lon": -110.584239,
+    "dist_m": 32786.69,
     "nearest_way": {
-     "id": 266259312,
-     "highway": "primary",
-     "name": "Fort Smith Highway",
-     "ref": "5",
+     "id": 30187928,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Enterprise",
-     "type": "hamlet",
-     "dist_m": 121247.1,
-     "lat": 60.556832,
-     "lon": -116.140949
+     "name": "Fort Chipewyan",
+     "type": "town",
+     "dist_m": 42285.5,
+     "lat": 58.716643,
+     "lon": -111.150019
     },
-    "detail": "detail/ca-ab/B-10",
+    "island_km2": 10.5,
+    "detail": "detail/ca-ab/B-58.957636_-110.584239",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 57.029378,
+    "lon": -119.400124,
+    "dist_m": 32571.63,
+    "nearest_way": {
+     "id": 30469319,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Worsley",
+     "type": "hamlet",
+     "dist_m": 60344.2,
+     "lat": 56.50768,
+     "lon": -119.133145
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ab/B-57.029378_-119.400124",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 55.292779,
+    "lon": -110.00546,
+    "dist_m": 32336.08,
+    "nearest_way": {
+     "id": 32303466,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Conklin",
+     "type": "hamlet",
+     "dist_m": 77937.4,
+     "lat": 55.6325,
+     "lon": -111.082778
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ab/B-55.292779_-110.005460",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 52.445918,
+    "lon": -116.926572,
+    "dist_m": 30184.09,
+    "nearest_way": {
+     "id": 1448289261,
+     "highway": "primary",
+     "name": "Icefields Parkway",
+     "ref": "93",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Smallboy Camp",
+     "type": "hamlet",
+     "dist_m": 43689.6,
+     "lat": 52.829883,
+     "lon": -116.791874
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ab/B-52.445918_-116.926572",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 105626.93,
+  "lat": 59.540533,
+  "lon": -115.230763,
+  "rank": 11,
+  "withheld": 0
  }
 }

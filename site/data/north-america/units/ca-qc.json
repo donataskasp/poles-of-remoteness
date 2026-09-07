@@ -35,102 +35,15 @@
      "lat": 56.605922,
      "lon": -76.546315
     },
-    "detail": "detail/ca-qc/A-1",
+    "island_km2": null,
+    "detail": "detail/ca-qc/A-58.222101_-74.028287",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 58.313811,
-    "lon": -74.036194,
-    "dist_m": 233405.85,
-    "nearest_way": {
-     "id": 796027587,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Camp Upirngivikallak",
-     "type": "hamlet",
-     "dist_m": 236188.7,
-     "lat": 58.393466,
-     "lon": -78.068006
-    },
-    "detail": "detail/ca-qc/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 58.143614,
-    "lon": -73.935965,
-    "dist_m": 232476.32,
-    "nearest_way": {
-     "id": 903569777,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "ᓇᖏᐊᕐᓇᑐᓕᒃ",
-     "type": "hamlet",
-     "dist_m": 232317.6,
-     "lat": 56.605922,
-     "lon": -76.546315
-    },
-    "detail": "detail/ca-qc/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 58.405483,
-    "lon": -74.044154,
-    "dist_m": 231925.46,
-    "nearest_way": {
-     "id": 796027587,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Camp Upirngivikallak",
-     "type": "hamlet",
-     "dist_m": 235254.9,
-     "lat": 58.393466,
-     "lon": -78.068006
-    },
-    "detail": "detail/ca-qc/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 58.498683,
-    "lon": -74.05285,
-    "dist_m": 230843.14,
-    "nearest_way": {
-     "id": 1092120072,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Camp Upirngivikallak",
-     "type": "hamlet",
-     "dist_m": 234725.4,
-     "lat": 58.393466,
-     "lon": -78.068006
-    },
-    "detail": "detail/ca-qc/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 58.746351,
-    "lon": -74.074095,
-    "dist_m": 230343.14,
+    "lat": 59.458767,
+    "lon": -74.101206,
+    "dist_m": 187379.53,
     "nearest_way": {
      "id": 358952948,
      "highway": "unclassified",
@@ -141,104 +54,438 @@
     "nearest_place": {
      "name": "Puvirnituq",
      "type": "town",
-     "dist_m": 231782.4,
+     "dist_m": 189561.3,
      "lat": 60.039386,
      "lon": -77.270918
     },
-    "detail": "detail/ca-qc/A-6",
+    "island_km2": 12.9,
+    "detail": "detail/ca-qc/A-59.458767_-74.101206",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 58.590492,
-    "lon": -74.060337,
-    "dist_m": 230293.0,
+    "rank": 3,
+    "lat": 56.52803,
+    "lon": -73.526545,
+    "dist_m": 150889.84,
     "nearest_way": {
-     "id": 1092120072,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Camp Upirngivikallak",
-     "type": "hamlet",
-     "dist_m": 234718.3,
-     "lat": 58.393466,
-     "lon": -78.068006
-    },
-    "detail": "detail/ca-qc/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 58.065505,
-    "lon": -73.844512,
-    "dist_m": 230068.04,
-    "nearest_way": {
-     "id": 796027587,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "ᓇᖏᐊᕐᓇᑐᓕᒃ",
-     "type": "hamlet",
-     "dist_m": 229960.7,
-     "lat": 56.605922,
-     "lon": -76.546315
-    },
-    "detail": "detail/ca-qc/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 57.986294,
-    "lon": -73.75379,
-    "dist_m": 227995.84,
-    "nearest_way": {
-     "id": 1144582386,
+     "id": 914265761,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
+     "name": "Tikiraaluk",
+     "type": "hamlet",
+     "dist_m": 185685.4,
+     "lat": 56.474642,
+     "lon": -76.540463
+    },
+    "island_km2": 4.6,
+    "detail": "detail/ca-qc/A-56.528030_-73.526545",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 56.169395,
+    "lon": -74.387893,
+    "dist_m": 132597.27,
+    "nearest_way": {
+     "id": 327426938,
+     "highway": "unclassified",
+     "name": "Main Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Tikiraaluk",
+     "type": "hamlet",
+     "dist_m": 137448.0,
+     "lat": 56.474642,
+     "lon": -76.540463
+    },
+    "island_km2": 3.0,
+    "detail": "detail/ca-qc/A-56.169395_-74.387893",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 56.26262,
+    "lon": -74.403059,
+    "dist_m": 128731.39,
+    "nearest_way": {
+     "id": 327426938,
+     "highway": "unclassified",
+     "name": "Main Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Tikiraaluk",
+     "type": "hamlet",
+     "dist_m": 134173.8,
+     "lat": 56.474642,
+     "lon": -76.540463
+    },
+    "island_km2": 18.7,
+    "detail": "detail/ca-qc/A-56.262620_-74.403059",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 57.217532,
+    "lon": -74.798125,
+    "dist_m": 125170.83,
+    "nearest_way": {
+     "id": 327426938,
+     "highway": "unclassified",
+     "name": "Main Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
      "name": "ᓇᖏᐊᕐᓇᑐᓕᒃ",
      "type": "hamlet",
-     "dist_m": 227948.4,
+     "dist_m": 126403.7,
      "lat": 56.605922,
      "lon": -76.546315
     },
-    "detail": "detail/ca-qc/A-9",
+    "island_km2": 13.1,
+    "detail": "detail/ca-qc/A-57.217532_-74.798125",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 56.174848,
+    "lon": -74.584261,
+    "dist_m": 120895.24,
+    "nearest_way": {
+     "id": 327426938,
+     "highway": "unclassified",
+     "name": "Main Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Tikiraaluk",
+     "type": "hamlet",
+     "dist_m": 125541.7,
+     "lat": 56.474642,
+     "lon": -76.540463
+    },
+    "island_km2": 2.6,
+    "detail": "detail/ca-qc/A-56.174848_-74.584261",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 51.289439,
+    "lon": -60.677152,
+    "dist_m": 111591.85,
+    "nearest_way": {
+     "id": 647937801,
+     "highway": "track",
+     "name": null,
+     "ref": "Route Blanche",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Aylmer Sound",
+     "type": "hamlet",
+     "dist_m": 113153.3,
+     "lat": 50.621956,
+     "lon": -59.461977
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/A-51.289439_-60.677152",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 60.518756,
+    "lon": -73.849365,
+    "dist_m": 88738.06,
+    "nearest_way": {
+     "id": 1049376341,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Katinniq",
+     "type": "hamlet",
+     "dist_m": 130581.9,
+     "lat": 61.687676,
+     "lon": -73.677789
+    },
+    "island_km2": 3.2,
+    "detail": "detail/ca-qc/A-60.518756_-73.849365",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 58.833171,
-    "lon": -74.012929,
-    "dist_m": 226969.85,
+    "lat": 59.445343,
+    "lon": -65.592679,
+    "dist_m": 77458.61,
     "nearest_way": {
-     "id": 796027587,
+     "id": 502403921,
+     "highway": "road",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Amarurtalijaaluk",
+     "type": "hamlet",
+     "dist_m": 38909.6,
+     "lat": 59.788088,
+     "lon": -65.460147
+    },
+    "island_km2": 7.2,
+    "detail": "detail/ca-qc/A-59.445343_-65.592679",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 50.85131,
+    "lon": -79.443256,
+    "dist_m": 77162.21,
+    "nearest_way": {
+     "id": 1494623088,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "ᐙᔅᑳᐦᐄᑲᓂᔥ Waskaganish",
+     "type": "town",
+     "dist_m": 84888.8,
+     "lat": 51.477554,
+     "lon": -78.749892
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/A-50.851310_-79.443256",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 55.41821,
+    "lon": -64.324824,
+    "dist_m": 72334.19,
+    "nearest_way": {
+     "id": 1492899573,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kawawachikamach",
+     "type": "town",
+     "dist_m": 167238.6,
+     "lat": 54.861678,
+     "lon": -66.760893
+    },
+    "island_km2": 2.6,
+    "detail": "detail/ca-qc/A-55.418210_-64.324824",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 54.737024,
+    "lon": -78.308783,
+    "dist_m": 67933.46,
+    "nearest_way": {
+     "id": 178251748,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kuujjuarapik-Whapmagoostui",
+     "type": "town",
+     "dist_m": 69990.8,
+     "lat": 55.279513,
+     "lon": -77.755835
+    },
+    "island_km2": 14.6,
+    "detail": "detail/ca-qc/A-54.737024_-78.308783",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 62.315021,
+    "lon": -73.191773,
+    "dist_m": 54560.35,
+    "nearest_way": {
+     "id": 949525188,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Katinniq",
+     "type": "hamlet",
+     "dist_m": 74407.5,
+     "lat": 61.687676,
+     "lon": -73.677789
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/A-62.315021_-73.191773",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 50.983041,
+    "lon": -76.743326,
+    "dist_m": 46905.19,
+    "nearest_way": {
+     "id": 608146437,
      "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Puvirnituq",
-     "type": "town",
-     "dist_m": 228513.3,
-     "lat": 60.039386,
-     "lon": -77.270918
+     "name": "Old Nemaska",
+     "type": "hamlet",
+     "dist_m": 39153.1,
+     "lat": 51.322359,
+     "lon": -76.891814
     },
-    "detail": "detail/ca-qc/A-10",
+    "island_km2": null,
+    "detail": "detail/ca-qc/A-50.983041_-76.743326",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 52.60282,
+    "lon": -78.091474,
+    "dist_m": 46105.72,
+    "nearest_way": {
+     "id": 177874700,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Vieux-Comptoir",
+     "type": "hamlet",
+     "dist_m": 42956.3,
+     "lat": 52.606408,
+     "lon": -78.7255
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/A-52.602820_-78.091474",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 51.701934,
+    "lon": -78.038801,
+    "dist_m": 43176.75,
+    "nearest_way": {
+     "id": 608089953,
+     "highway": "primary",
+     "name": "Route Billy-Diamond",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "ᐙᔅᑳᐦᐄᑲᓂᔥ Waskaganish",
+     "type": "town",
+     "dist_m": 55243.6,
+     "lat": 51.477554,
+     "lon": -78.749892
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/A-51.701934_-78.038801",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 53.376487,
+    "lon": -78.948613,
+    "dist_m": 38788.67,
+    "nearest_way": {
+     "id": 481877344,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "hamlet",
+     "dist_m": 24774.7,
+     "lat": 53.591961,
+     "lon": -79.042308
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/A-53.376487_-78.948613",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 50.166821,
+    "lon": -75.926237,
+    "dist_m": 30735.52,
+    "nearest_way": {
+     "id": 583985920,
+     "highway": "unclassified",
+     "name": null,
+     "ref": "R1022",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "ᐙᔂᓂᐲ Waswanipi",
+     "type": "town",
+     "dist_m": 52390.5,
+     "lat": 49.696379,
+     "lon": -75.962397
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/A-50.166821_-75.926237",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 51.894635,
+    "lon": -76.545766,
+    "dist_m": 30237.77,
+    "nearest_way": {
+     "id": 610221812,
+     "highway": "unclassified",
+     "name": "Route Muskeg-Eastman 1",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nemiscau",
+     "type": "village",
+     "dist_m": 30433.6,
+     "lat": 51.687943,
+     "lon": -76.256866
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/A-51.894635_-76.545766",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 235322.78,
+  "lat": 58.222101,
+  "lon": -74.028287,
+  "rank": 3,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,80 +508,84 @@
      "lat": 56.830209,
      "lon": -68.952432
     },
-    "detail": "detail/ca-qc/B-1",
+    "island_km2": null,
+    "detail": "detail/ca-qc/B-56.840997_-72.414042",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 56.919659,
-    "lon": -72.503096,
-    "dist_m": 244065.35,
+    "lat": 59.458767,
+    "lon": -74.101206,
+    "dist_m": 187379.53,
     "nearest_way": {
-     "id": 796027587,
+     "id": 358952948,
      "highway": "unclassified",
-     "name": null,
+     "name": "Rue Koperqualuk",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Waskaikinis",
-     "type": "isolated_dwelling",
-     "dist_m": 216709.5,
-     "lat": 56.830209,
-     "lon": -68.952432
+     "name": "Puvirnituq",
+     "type": "town",
+     "dist_m": 189561.3,
+     "lat": 60.039386,
+     "lon": -77.270918
     },
-    "detail": "detail/ca-qc/B-2",
+    "island_km2": 12.9,
+    "detail": "detail/ca-qc/B-59.458767_-74.101206",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 56.836182,
-    "lon": -72.243463,
-    "dist_m": 243313.97,
+    "lat": 56.525311,
+    "lon": -73.457379,
+    "dist_m": 182850.74,
     "nearest_way": {
-     "id": 796027587,
+     "id": 327426938,
      "highway": "unclassified",
-     "name": null,
+     "name": "Main Road",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Waskaikinis",
-     "type": "isolated_dwelling",
-     "dist_m": 200878.8,
-     "lat": 56.830209,
-     "lon": -68.952432
+     "name": "Tikiraaluk",
+     "type": "hamlet",
+     "dist_m": 189939.2,
+     "lat": 56.474642,
+     "lon": -76.540463
     },
-    "detail": "detail/ca-qc/B-3",
+    "island_km2": 4.6,
+    "detail": "detail/ca-qc/B-56.525311_-73.457379",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 56.759931,
-    "lon": -72.495172,
-    "dist_m": 242569.71,
+    "lat": 56.169395,
+    "lon": -74.387893,
+    "dist_m": 132597.27,
     "nearest_way": {
-     "id": 226326135,
+     "id": 327426938,
      "highway": "unclassified",
-     "name": null,
+     "name": "Main Road",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Waskaikinis",
-     "type": "isolated_dwelling",
-     "dist_m": 216599.3,
-     "lat": 56.830209,
-     "lon": -68.952432
+     "name": "Tikiraaluk",
+     "type": "hamlet",
+     "dist_m": 137448.0,
+     "lat": 56.474642,
+     "lon": -76.540463
     },
-    "detail": "detail/ca-qc/B-4",
+    "island_km2": 3.0,
+    "detail": "detail/ca-qc/B-56.169395_-74.387893",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 56.997672,
-    "lon": -72.591879,
-    "dist_m": 240192.98,
+    "lat": 56.26262,
+    "lon": -74.403059,
+    "dist_m": 128731.39,
     "nearest_way": {
      "id": 327426938,
      "highway": "unclassified",
@@ -343,64 +594,44 @@
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Waskaikinis",
-     "type": "isolated_dwelling",
-     "dist_m": 222443.7,
-     "lat": 56.830209,
-     "lon": -68.952432
+     "name": "Tikiraaluk",
+     "type": "hamlet",
+     "dist_m": 134173.8,
+     "lat": 56.474642,
+     "lon": -76.540463
     },
-    "detail": "detail/ca-qc/B-5",
+    "island_km2": 18.7,
+    "detail": "detail/ca-qc/B-56.262620_-74.403059",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 56.829694,
-    "lon": -72.071269,
-    "dist_m": 238720.82,
+    "lat": 55.428947,
+    "lon": -64.315593,
+    "dist_m": 126867.68,
     "nearest_way": {
-     "id": 226326135,
+     "id": 1266936629,
      "highway": "unclassified",
-     "name": null,
+     "name": "Orma Road",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Waskaikinis",
-     "type": "isolated_dwelling",
-     "dist_m": 190385.7,
-     "lat": 56.830209,
-     "lon": -68.952432
+     "name": "Kawawachikamach",
+     "type": "town",
+     "dist_m": 168210.9,
+     "lat": 54.861678,
+     "lon": -66.760893
     },
-    "detail": "detail/ca-qc/B-6",
+    "island_km2": 2.6,
+    "detail": "detail/ca-qc/B-55.428947_-64.315593",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 56.922206,
-    "lon": -72.32874,
-    "dist_m": 237914.83,
-    "nearest_way": {
-     "id": 796027587,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Waskaikinis",
-     "type": "isolated_dwelling",
-     "dist_m": 206100.1,
-     "lat": 56.830209,
-     "lon": -68.952432
-    },
-    "detail": "detail/ca-qc/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 56.8383,
-    "lon": -72.586695,
-    "dist_m": 237830.82,
+    "lat": 57.217532,
+    "lon": -74.798125,
+    "dist_m": 125170.83,
     "nearest_way": {
      "id": 327426938,
      "highway": "unclassified",
@@ -409,61 +640,324 @@
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Waskaikinis",
-     "type": "isolated_dwelling",
-     "dist_m": 221818.8,
-     "lat": 56.830209,
-     "lon": -68.952432
+     "name": "ᓇᖏᐊᕐᓇᑐᓕᒃ",
+     "type": "hamlet",
+     "dist_m": 126403.7,
+     "lat": 56.605922,
+     "lon": -76.546315
     },
-    "detail": "detail/ca-qc/B-8",
+    "island_km2": 13.1,
+    "detail": "detail/ca-qc/B-57.217532_-74.798125",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 56.174848,
+    "lon": -74.584261,
+    "dist_m": 120895.24,
+    "nearest_way": {
+     "id": 327426938,
+     "highway": "unclassified",
+     "name": "Main Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Tikiraaluk",
+     "type": "hamlet",
+     "dist_m": 125541.7,
+     "lat": 56.474642,
+     "lon": -76.540463
+    },
+    "island_km2": 2.6,
+    "detail": "detail/ca-qc/B-56.174848_-74.584261",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 56.753407,
-    "lon": -72.323282,
-    "dist_m": 237135.92,
+    "lat": 60.518785,
+    "lon": -73.849706,
+    "dist_m": 117702.98,
     "nearest_way": {
-     "id": 226326135,
-     "highway": "unclassified",
+     "id": 949728392,
+     "highway": "tertiary",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Waskaikinis",
-     "type": "isolated_dwelling",
-     "dist_m": 206153.0,
-     "lat": 56.830209,
-     "lon": -68.952432
+     "name": "Katinniq",
+     "type": "hamlet",
+     "dist_m": 130579.9,
+     "lat": 61.687676,
+     "lon": -73.677789
     },
-    "detail": "detail/ca-qc/B-9",
+    "island_km2": 3.2,
+    "detail": "detail/ca-qc/B-60.518785_-73.849706",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 56.678806,
-    "lon": -72.575986,
-    "dist_m": 237114.49,
+    "lat": 51.282564,
+    "lon": -60.69485,
+    "dist_m": 113617.45,
     "nearest_way": {
-     "id": 226326135,
+     "id": 538304900,
+     "highway": "unclassified",
+     "name": "Chemin d'Aylmer Sound",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Aylmer Sound",
+     "type": "hamlet",
+     "dist_m": 113603.1,
+     "lat": 50.621956,
+     "lon": -59.461977
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/B-51.282564_-60.694850",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 50.841053,
+    "lon": -79.384396,
+    "dist_m": 81449.27,
+    "nearest_way": {
+     "id": 431995931,
+     "highway": "unclassified",
+     "name": null,
+     "ref": "R1036",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "ᐙᔅᑳᐦᐄᑲᓂᔥ Waskaganish",
+     "type": "town",
+     "dist_m": 83573.0,
+     "lat": 51.477554,
+     "lon": -78.749892
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/B-50.841053_-79.384396",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 60.944874,
+    "lon": -74.174732,
+    "dist_m": 78553.32,
+    "nearest_way": {
+     "id": 949728392,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Katinniq",
+     "type": "hamlet",
+     "dist_m": 86948.4,
+     "lat": 61.687676,
+     "lon": -73.677789
+    },
+    "island_km2": 4.9,
+    "detail": "detail/ca-qc/B-60.944874_-74.174732",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 59.445343,
+    "lon": -65.592679,
+    "dist_m": 77458.61,
+    "nearest_way": {
+     "id": 502403921,
+     "highway": "road",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Amarurtalijaaluk",
+     "type": "hamlet",
+     "dist_m": 38909.6,
+     "lat": 59.788088,
+     "lon": -65.460147
+    },
+    "island_km2": 7.2,
+    "detail": "detail/ca-qc/B-59.445343_-65.592679",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 62.315021,
+    "lon": -73.191773,
+    "dist_m": 54560.35,
+    "nearest_way": {
+     "id": 949525188,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Katinniq",
+     "type": "hamlet",
+     "dist_m": 74407.5,
+     "lat": 61.687676,
+     "lon": -73.677789
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/B-62.315021_-73.191773",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 50.986056,
+    "lon": -76.824645,
+    "dist_m": 49520.04,
+    "nearest_way": {
+     "id": 194077764,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Old Nemaska",
+     "type": "hamlet",
+     "dist_m": 37708.1,
+     "lat": 51.322359,
+     "lon": -76.891814
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/B-50.986056_-76.824645",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 52.60282,
+    "lon": -78.091474,
+    "dist_m": 46105.72,
+    "nearest_way": {
+     "id": 177874700,
      "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Waskaikinis",
-     "type": "isolated_dwelling",
-     "dist_m": 222273.2,
-     "lat": 56.830209,
-     "lon": -68.952432
+     "name": "Vieux-Comptoir",
+     "type": "hamlet",
+     "dist_m": 42956.3,
+     "lat": 52.606408,
+     "lon": -78.7255
     },
-    "detail": "detail/ca-qc/B-10",
+    "island_km2": null,
+    "detail": "detail/ca-qc/B-52.602820_-78.091474",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 50.246738,
+    "lon": -75.231092,
+    "dist_m": 45174.93,
+    "nearest_way": {
+     "id": 480453563,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Oujé-Bougoumou",
+     "type": "village",
+     "dist_m": 46673.2,
+     "lat": 49.922041,
+     "lon": -74.818018
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/B-50.246738_-75.231092",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 51.701934,
+    "lon": -78.038801,
+    "dist_m": 43176.75,
+    "nearest_way": {
+     "id": 608089953,
+     "highway": "primary",
+     "name": "Route Billy-Diamond",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "ᐙᔅᑳᐦᐄᑲᓂᔥ Waskaganish",
+     "type": "town",
+     "dist_m": 55243.6,
+     "lat": 51.477554,
+     "lon": -78.749892
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/B-51.701934_-78.038801",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 53.376487,
+    "lon": -78.948613,
+    "dist_m": 38788.67,
+    "nearest_way": {
+     "id": 481877344,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "hamlet",
+     "dist_m": 24774.7,
+     "lat": 53.591961,
+     "lon": -79.042308
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/B-53.376487_-78.948613",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 51.92864,
+    "lon": -76.811566,
+    "dist_m": 32616.96,
+    "nearest_way": {
+     "id": 1044057039,
+     "highway": "primary",
+     "name": "Route du Nord",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Nemiscau",
+     "type": "village",
+     "dist_m": 46699.9,
+     "lat": 51.687943,
+     "lon": -76.256866
+    },
+    "island_km2": null,
+    "detail": "detail/ca-qc/B-51.928640_-76.811566",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 248332.54,
+  "lat": 56.840997,
+  "lon": -72.414042,
+  "rank": 3,
+  "withheld": 0
  }
 }

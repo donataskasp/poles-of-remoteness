@@ -35,7 +35,8 @@
      "lat": 45.936915,
      "lon": -114.827814
     },
-    "detail": "detail/us-id/A-1",
+    "island_km2": null,
+    "detail": "detail/us-id/A-46.242182_-114.949901",
     "warnings": []
    },
    {
@@ -57,188 +58,204 @@
      "lat": 45.315506,
      "lon": -115.025836
     },
-    "detail": "detail/us-id/A-2",
+    "island_km2": null,
+    "detail": "detail/us-id/A-45.163570_-114.828898",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 45.122149,
-    "lon": -114.944268,
-    "dist_m": 22212.38,
+    "lat": 43.967948,
+    "lon": -115.071958,
+    "dist_m": 15253.51,
     "nearest_way": {
-     "id": 13973888,
-     "highway": "track",
+     "id": 1346398512,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Root Ranch",
-     "type": "isolated_dwelling",
-     "dist_m": 22423.7,
-     "lat": 45.315506,
-     "lon": -115.025836
+     "name": "Atlanta",
+     "type": "hamlet",
+     "dist_m": 19003.7,
+     "lat": 43.801567,
+     "lon": -115.126747
     },
-    "detail": "detail/us-id/A-3",
+    "island_km2": null,
+    "detail": "detail/us-id/A-43.967948_-115.071958",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 46.190726,
-    "lon": -114.842285,
-    "dist_m": 20234.03,
+    "lat": 43.34713,
+    "lon": -113.390861,
+    "dist_m": 10813.67,
     "nearest_way": {
-     "id": 777205705,
+     "id": 13725347,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "North Star Ranch",
-     "type": "isolated_dwelling",
-     "dist_m": 28233.9,
-     "lat": 45.936915,
-     "lon": -114.827814
+     "name": "Butte City",
+     "type": "hamlet",
+     "dist_m": 31396.4,
+     "lat": 43.608816,
+     "lon": -113.244382
     },
-    "detail": "detail/us-id/A-4",
+    "island_km2": null,
+    "detail": "detail/us-id/A-43.347130_-113.390861",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 45.487669,
-    "lon": -115.061361,
-    "dist_m": 19289.49,
+    "lat": 44.025942,
+    "lon": -114.327174,
+    "dist_m": 10709.4,
     "nearest_way": {
-     "id": 843299298,
-     "highway": "tertiary",
-     "name": "Magruder Road",
-     "ref": "FR 468",
+     "id": 13798616,
+     "highway": "unclassified",
+     "name": "North Fork Big Lost River Road",
+     "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Stonebreaker Ranch",
-     "type": "isolated_dwelling",
-     "dist_m": 15233.3,
-     "lat": 45.389484,
-     "lon": -115.197208
+     "name": "Clayton",
+     "type": "hamlet",
+     "dist_m": 26550.1,
+     "lat": 44.259144,
+     "lon": -114.399473
     },
-    "detail": "detail/us-id/A-5",
+    "island_km2": null,
+    "detail": "detail/us-id/A-44.025942_-114.327174",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 45.943609,
-    "lon": -114.508978,
-    "dist_m": 19137.08,
+    "lat": 45.519762,
+    "lon": -115.799494,
+    "dist_m": 9818.53,
     "nearest_way": {
-     "id": 1306396143,
-     "highway": "service",
+     "id": 13825682,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "North Star Ranch",
+     "name": "James Ranch",
      "type": "isolated_dwelling",
-     "dist_m": 24735.8,
-     "lat": 45.936915,
-     "lon": -114.827814
+     "dist_m": 19226.2,
+     "lat": 45.401237,
+     "lon": -115.620439
     },
-    "detail": "detail/us-id/A-6",
+    "island_km2": null,
+    "detail": "detail/us-id/A-45.519762_-115.799494",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 45.456244,
-    "lon": -114.893216,
-    "dist_m": 18692.36,
+    "lat": 45.333588,
+    "lon": -116.64207,
+    "dist_m": 9788.81,
     "nearest_way": {
-     "id": 841431610,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Root Ranch",
-     "type": "isolated_dwelling",
-     "dist_m": 18775.9,
-     "lat": 45.315506,
-     "lon": -115.025836
-    },
-    "detail": "detail/us-id/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 46.152196,
-    "lon": -114.968838,
-    "dist_m": 18661.38,
-    "nearest_way": {
-     "id": 777205705,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "North Star Ranch",
-     "type": "isolated_dwelling",
-     "dist_m": 26300.9,
-     "lat": 45.936915,
-     "lon": -114.827814
-    },
-    "detail": "detail/us-id/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 45.150187,
-    "lon": -115.068026,
-    "dist_m": 18420.18,
-    "nearest_way": {
-     "id": 841431608,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Root Ranch",
-     "type": "isolated_dwelling",
-     "dist_m": 18669.2,
-     "lat": 45.315506,
-     "lon": -115.025836
-    },
-    "detail": "detail/us-id/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 46.255628,
-    "lon": -115.081235,
-    "dist_m": 18385.5,
-    "nearest_way": {
-     "id": 731230852,
+     "id": 306276440,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
+     "name": "Fruita",
+     "type": "isolated_dwelling",
+     "dist_m": 19265.9,
+     "lat": 45.235857,
+     "lon": -116.84489
+    },
+    "island_km2": null,
+    "detail": "detail/us-id/A-45.333588_-116.642070",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.745687,
+    "lon": -114.917919,
+    "dist_m": 9755.88,
+    "nearest_way": {
+     "id": 814352957,
+     "highway": "track",
+     "name": "Toboggan Hill Road",
+     "ref": "NFSR 581B",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lolo Hot Springs",
+     "type": "hamlet",
+     "dist_m": 29546.2,
+     "lat": 46.724345,
+     "lon": -114.532595
+    },
+    "island_km2": null,
+    "detail": "detail/us-id/A-46.745687_-114.917919",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 43.732742,
+    "lon": -114.752718,
+    "dist_m": 9179.13,
+    "nearest_way": {
+     "id": 13728486,
+     "highway": "unclassified",
+     "name": "Baker Creek Road",
+     "ref": "FR 162",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Easley Hot Springs",
+     "type": "hamlet",
+     "dist_m": 17956.5,
+     "lat": 43.779368,
+     "lon": -114.539231
+    },
+    "island_km2": null,
+    "detail": "detail/us-id/A-43.732742_-114.752718",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 45.758349,
+    "lon": -114.900379,
+    "dist_m": 9051.8,
+    "nearest_way": {
+     "id": 13845495,
+     "highway": "unclassified",
+     "name": "National Forest Development Road 6223",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
      "name": "North Star Ranch",
      "type": "isolated_dwelling",
-     "dist_m": 40484.9,
+     "dist_m": 20632.2,
      "lat": 45.936915,
      "lon": -114.827814
     },
-    "detail": "detail/us-id/A-10",
+    "island_km2": null,
+    "detail": "detail/us-id/A-45.758349_-114.900379",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 24256.58,
+  "lat": 46.242182,
+  "lon": -114.949901,
+  "rank": 16,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,33 +278,12 @@
      "lat": 45.315506,
      "lon": -115.025836
     },
-    "detail": "detail/us-id/B-1",
+    "island_km2": null,
+    "detail": "detail/us-id/B-45.341460_-115.052273",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 45.179279,
-    "lon": -114.945375,
-    "dist_m": 28246.07,
-    "nearest_way": {
-     "id": 1313827134,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Root Ranch",
-     "type": "isolated_dwelling",
-     "dist_m": 16404.7,
-     "lat": 45.315506,
-     "lon": -115.025836
-    },
-    "detail": "detail/us-id/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 46.098434,
     "lon": -114.851995,
     "dist_m": 27268.63,
@@ -301,59 +297,16 @@
     "nearest_place": {
      "name": "North Star Ranch",
      "type": "isolated_dwelling",
-     "dist_m": 18050.4,
+     "dist_m": 18050.5,
      "lat": 45.936915,
      "lon": -114.827814
     },
-    "detail": "detail/us-id/B-3",
+    "island_km2": null,
+    "detail": "detail/us-id/B-46.098434_-114.851995",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 45.102248,
-    "lon": -114.878111,
-    "dist_m": 25423.33,
-    "nearest_way": {
-     "id": 13937560,
-     "highway": "unclassified",
-     "name": "Thunder Mountain Road",
-     "ref": "NF 375",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Root Ranch",
-     "type": "isolated_dwelling",
-     "dist_m": 26389.3,
-     "lat": 45.315506,
-     "lon": -115.025836
-    },
-    "detail": "detail/us-id/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 45.26865,
-    "lon": -114.975774,
-    "dist_m": 25233.22,
-    "nearest_way": {
-     "id": 725203860,
-     "highway": "service",
-     "name": "Corn Creek Boat Ramp",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Root Ranch",
-     "type": "isolated_dwelling",
-     "dist_m": 6522.3,
-     "lat": 45.315506,
-     "lon": -115.025836
-    },
-    "detail": "detail/us-id/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 3,
     "lat": 42.12014,
     "lon": -116.859716,
     "dist_m": 24752.02,
@@ -371,99 +324,180 @@
      "lat": 41.882536,
      "lon": -117.209296
     },
-    "detail": "detail/us-id/B-6",
+    "island_km2": null,
+    "detail": "detail/us-id/B-42.120140_-116.859716",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 46.182146,
-    "lon": -114.901514,
-    "dist_m": 24570.6,
+    "rank": 4,
+    "lat": 42.151982,
+    "lon": -115.536702,
+    "dist_m": 16581.51,
     "nearest_way": {
-     "id": 13842662,
+     "id": 13920363,
      "highway": "unclassified",
-     "name": "Fog Mountain Road",
-     "ref": "FR 319",
+     "name": "Clover Three Creek Road",
+     "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "North Star Ranch",
-     "type": "isolated_dwelling",
-     "dist_m": 27848.2,
-     "lat": 45.936915,
-     "lon": -114.827814
-    },
-    "detail": "detail/us-id/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 45.420534,
-    "lon": -114.987206,
-    "dist_m": 24095.58,
-    "nearest_way": {
-     "id": 13880060,
-     "highway": "unclassified",
-     "name": "Salmon River Road",
-     "ref": "NF 030",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Root Ranch",
-     "type": "isolated_dwelling",
-     "dist_m": 12058.6,
-     "lat": 45.315506,
-     "lon": -115.025836
-    },
-    "detail": "detail/us-id/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 44.943504,
-    "lon": -114.830914,
-    "dist_m": 23942.14,
-    "nearest_way": {
-     "id": 13937560,
-     "highway": "unclassified",
-     "name": "Thunder Mountain Road",
-     "ref": "NF 375",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": null,
+     "name": "Murphy Hot Springs",
      "type": "hamlet",
-     "dist_m": 30568.8,
-     "lat": 44.870333,
-     "lon": -114.457787
+     "dist_m": 20302.4,
+     "lat": 42.024427,
+     "lon": -115.360946
     },
-    "detail": "detail/us-id/B-9",
+    "island_km2": null,
+    "detail": "detail/us-id/B-42.151982_-115.536702",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 41.998829,
-    "lon": -116.893464,
-    "dist_m": 23798.87,
+    "rank": 5,
+    "lat": 43.297847,
+    "lon": -113.462795,
+    "dist_m": 15988.09,
     "nearest_way": {
-     "id": 817655945,
+     "id": 13725097,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Butte City",
+     "type": "hamlet",
+     "dist_m": 38809.2,
+     "lat": 43.608816,
+     "lon": -113.244382
+    },
+    "island_km2": null,
+    "detail": "detail/us-id/B-43.297847_-113.462795",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 42.661308,
+    "lon": -116.107575,
+    "dist_m": 15539.44,
+    "nearest_way": {
+     "id": 1472020999,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Calico Ranch",
+     "name": "Bruneau",
      "type": "hamlet",
-     "dist_m": 29203.2,
-     "lat": 41.882536,
-     "lon": -117.209296
+     "dist_m": 35125.9,
+     "lat": 42.881031,
+     "lon": -115.79894
     },
-    "detail": "detail/us-id/B-10",
+    "island_km2": null,
+    "detail": "detail/us-id/B-42.661308_-116.107575",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 43.968303,
+    "lon": -115.072287,
+    "dist_m": 15276.15,
+    "nearest_way": {
+     "id": 13773380,
+     "highway": "unclassified",
+     "name": "Pikes Fork Road",
+     "ref": "FS 312",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Atlanta",
+     "type": "hamlet",
+     "dist_m": 19036.0,
+     "lat": 43.801567,
+     "lon": -115.126747
+    },
+    "island_km2": null,
+    "detail": "detail/us-id/B-43.968303_-115.072287",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 45.512848,
+    "lon": -115.735733,
+    "dist_m": 13528.41,
+    "nearest_way": {
+     "id": 13853222,
+     "highway": "unclassified",
+     "name": "Gospel Road",
+     "ref": "FR 444",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "James Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 15336.1,
+     "lat": 45.401237,
+     "lon": -115.620439
+    },
+    "island_km2": null,
+    "detail": "detail/us-id/B-45.512848_-115.735733",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 42.443986,
+    "lon": -115.200294,
+    "dist_m": 13415.8,
+    "nearest_way": {
+     "id": 13920720,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Castleford",
+     "type": "village",
+     "dist_m": 28269.3,
+     "lat": 42.5208,
+     "lon": -114.872513
+    },
+    "island_km2": null,
+    "detail": "detail/us-id/B-42.443986_-115.200294",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 42.901547,
+    "lon": -113.261259,
+    "dist_m": 12409.11,
+    "nearest_way": {
+     "id": 13910097,
+     "highway": "residential",
+     "name": "Gehring Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Minidoka",
+     "type": "village",
+     "dist_m": 24901.7,
+     "lat": 42.753797,
+     "lon": -113.490282
+    },
+    "island_km2": null,
+    "detail": "detail/us-id/B-42.901547_-113.261259",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 28732.86,
+  "lat": 45.34146,
+  "lon": -115.052273,
+  "rank": 18,
+  "withheld": 0
  }
 }

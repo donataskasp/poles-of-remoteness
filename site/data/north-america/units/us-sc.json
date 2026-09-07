@@ -35,7 +35,8 @@
      "lat": 33.088225,
      "lon": -79.461174
     },
-    "detail": "detail/us-sc/A-1",
+    "island_km2": null,
+    "detail": "detail/us-sc/A-33.011856_-79.366932",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 32.526298,
      "lon": -80.407325
     },
-    "detail": "detail/us-sc/A-2",
+    "island_km2": null,
+    "detail": "detail/us-sc/A-32.496528_-80.473393",
     "warnings": []
    },
    {
@@ -79,33 +81,12 @@
      "lat": 32.322698,
      "lon": -80.60983
     },
-    "detail": "detail/us-sc/A-3",
+    "island_km2": null,
+    "detail": "detail/us-sc/A-32.280356_-80.557503",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 33.014459,
-    "lon": -79.480565,
-    "dist_m": 5636.05,
-    "nearest_way": {
-     "id": 205613388,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Tibwin",
-     "type": "hamlet",
-     "dist_m": 7427.6,
-     "lat": 33.076558,
-     "lon": -79.510344
-    },
-    "detail": "detail/us-sc/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 33.307539,
     "lon": -79.160394,
     "dist_m": 5411.59,
@@ -119,59 +100,16 @@
     "nearest_place": {
      "name": "Clambank",
      "type": "hamlet",
-     "dist_m": 4412.4,
+     "dist_m": 4412.5,
      "lat": 33.335167,
      "lon": -79.194491
     },
-    "detail": "detail/us-sc/A-5",
+    "island_km2": null,
+    "detail": "detail/us-sc/A-33.307539_-79.160394",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 33.120838,
-    "lon": -79.280293,
-    "dist_m": 5072.29,
-    "nearest_way": {
-     "id": 12381058,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Collins Creek",
-     "type": "hamlet",
-     "dist_m": 12817.9,
-     "lat": 33.15739,
-     "lon": -79.410616
-    },
-    "detail": "detail/us-sc/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 33.339197,
-    "lon": -80.04908,
-    "dist_m": 4737.44,
-    "nearest_way": {
-     "id": 299542636,
-     "highway": "residential",
-     "name": "Butter Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Bonneau Beach",
-     "type": "hamlet",
-     "dist_m": 5016.3,
-     "lat": 33.319891,
-     "lon": -80.000357
-    },
-    "detail": "detail/us-sc/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 5,
     "lat": 33.714754,
     "lon": -80.583722,
     "dist_m": 4428.04,
@@ -189,11 +127,12 @@
      "lat": 33.690158,
      "lon": -80.599809
     },
-    "detail": "detail/us-sc/A-8",
+    "island_km2": null,
+    "detail": "detail/us-sc/A-33.714754_-80.583722",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 6,
     "lat": 32.343624,
     "lon": -80.770792,
     "dist_m": 3954.55,
@@ -211,34 +150,112 @@
      "lat": 32.381862,
      "lon": -80.742607
     },
-    "detail": "detail/us-sc/A-9",
+    "island_km2": null,
+    "detail": "detail/us-sc/A-32.343624_-80.770792",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 33.429729,
-    "lon": -80.198753,
-    "dist_m": 3625.61,
+    "rank": 7,
+    "lat": 32.107911,
+    "lon": -80.932965,
+    "dist_m": 3474.95,
     "nearest_way": {
-     "id": 334232017,
-     "highway": "track",
+     "id": 12122092,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Wilsons Landing",
+     "name": "Glasgow Landing",
      "type": "hamlet",
-     "dist_m": 4021.5,
-     "lat": 33.448499,
-     "lon": -80.16175
+     "dist_m": 6267.8,
+     "lat": 32.135484,
+     "lon": -80.990944
     },
-    "detail": "detail/us-sc/A-10",
+    "island_km2": null,
+    "detail": "detail/us-sc/A-32.107911_-80.932965",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 34.516737,
+    "lon": -79.783759,
+    "dist_m": 3454.32,
+    "nearest_way": {
+     "id": 172337873,
+     "highway": "primary",
+     "name": null,
+     "ref": "US 15;US 401",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Plumfield Landing",
+     "type": "hamlet",
+     "dist_m": 4139.9,
+     "lat": 34.501268,
+     "lon": -79.824786
+    },
+    "island_km2": null,
+    "detail": "detail/us-sc/A-34.516737_-79.783759",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 32.725065,
+    "lon": -79.874466,
+    "dist_m": 3275.0,
+    "nearest_way": {
+     "id": 768489776,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Parrot Point",
+     "type": "hamlet",
+     "dist_m": 3468.0,
+     "lat": 32.728789,
+     "lon": -79.911199
+    },
+    "island_km2": null,
+    "detail": "detail/us-sc/A-32.725065_-79.874466",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 32.875545,
+    "lon": -79.687802,
+    "dist_m": 3266.51,
+    "nearest_way": {
+     "id": 12148228,
+     "highway": "residential",
+     "name": "Old House Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ten Mile",
+     "type": "hamlet",
+     "dist_m": 5417.8,
+     "lat": 32.887396,
+     "lon": -79.743969
+    },
+    "island_km2": null,
+    "detail": "detail/us-sc/A-32.875545_-79.687802",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 10116.2,
+  "lat": 33.011856,
+  "lon": -79.366932,
+  "rank": 36,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 33.088225,
      "lon": -79.461174
     },
-    "detail": "detail/us-sc/B-1",
+    "island_km2": null,
+    "detail": "detail/us-sc/B-33.011856_-79.366932",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 33.229611,
      "lon": -79.204215
     },
-    "detail": "detail/us-sc/B-2",
+    "island_km2": null,
+    "detail": "detail/us-sc/B-33.141471_-79.231119",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 32.940228,
      "lon": -79.657547
     },
-    "detail": "detail/us-sc/B-3",
+    "island_km2": null,
+    "detail": "detail/us-sc/B-32.908990_-79.579513",
     "warnings": []
    },
    {
@@ -323,11 +343,12 @@
     "nearest_place": {
      "name": "Longwood",
      "type": "hamlet",
-     "dist_m": 6706.4,
+     "dist_m": 6706.3,
      "lat": 32.322698,
      "lon": -80.60983
     },
-    "detail": "detail/us-sc/B-4",
+    "island_km2": null,
+    "detail": "detail/us-sc/B-32.279377_-80.560145",
     "warnings": []
    },
    {
@@ -349,33 +370,12 @@
      "lat": 32.526298,
      "lon": -80.407325
     },
-    "detail": "detail/us-sc/B-5",
+    "island_km2": null,
+    "detail": "detail/us-sc/B-32.496528_-80.473393",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 33.013614,
-    "lon": -79.484523,
-    "dist_m": 5820.79,
-    "nearest_way": {
-     "id": 1126419024,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Tibwin",
-     "type": "hamlet",
-     "dist_m": 7385.7,
-     "lat": 33.076558,
-     "lon": -79.510344
-    },
-    "detail": "detail/us-sc/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 33.307539,
     "lon": -79.160394,
     "dist_m": 5411.59,
@@ -389,37 +389,16 @@
     "nearest_place": {
      "name": "Clambank",
      "type": "hamlet",
-     "dist_m": 4412.4,
+     "dist_m": 4412.5,
      "lat": 33.335167,
      "lon": -79.194491
     },
-    "detail": "detail/us-sc/B-7",
+    "island_km2": null,
+    "detail": "detail/us-sc/B-33.307539_-79.160394",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 33.339197,
-    "lon": -80.04908,
-    "dist_m": 4737.44,
-    "nearest_way": {
-     "id": 299542636,
-     "highway": "residential",
-     "name": "Butter Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Bonneau Beach",
-     "type": "hamlet",
-     "dist_m": 5016.3,
-     "lat": 33.319891,
-     "lon": -80.000357
-    },
-    "detail": "detail/us-sc/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 7,
     "lat": 33.714754,
     "lon": -80.583722,
     "dist_m": 4428.04,
@@ -437,11 +416,12 @@
      "lat": 33.690158,
      "lon": -80.599809
     },
-    "detail": "detail/us-sc/B-9",
+    "island_km2": null,
+    "detail": "detail/us-sc/B-33.714754_-80.583722",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 8,
     "lat": 35.028636,
     "lon": -82.887873,
     "dist_m": 4275.09,
@@ -459,11 +439,65 @@
      "lat": 35.070499,
      "lon": -82.873378
     },
-    "detail": "detail/us-sc/B-10",
+    "island_km2": null,
+    "detail": "detail/us-sc/B-35.028636_-82.887873",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 32.343624,
+    "lon": -80.770792,
+    "dist_m": 3954.55,
+    "nearest_way": {
+     "id": 300383171,
+     "highway": "residential",
+     "name": "Inverness Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Shell Point park",
+     "type": "hamlet",
+     "dist_m": 5001.8,
+     "lat": 32.381862,
+     "lon": -80.742607
+    },
+    "island_km2": null,
+    "detail": "detail/us-sc/B-32.343624_-80.770792",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 33.090775,
+    "lon": -79.584434,
+    "dist_m": 3922.49,
+    "nearest_way": {
+     "id": 983650348,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Thompson Corner",
+     "type": "hamlet",
+     "dist_m": 4030.2,
+     "lat": 33.127113,
+     "lon": -79.584513
+    },
+    "island_km2": null,
+    "detail": "detail/us-sc/B-33.090775_-79.584434",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 10116.2,
+  "lat": 33.011856,
+  "lon": -79.366932,
+  "rank": 38,
+  "withheld": 0
  }
 }

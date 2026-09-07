@@ -18,9 +18,9 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 47.227668,
-    "lon": -60.139911,
-    "dist_m": 29185.82,
+    "lat": 47.224483,
+    "lon": -60.13963,
+    "dist_m": 28933.67,
     "nearest_way": {
      "id": 439374367,
      "highway": "track",
@@ -31,11 +31,12 @@
     "nearest_place": {
      "name": "Bay St. Lawrence East",
      "type": "village",
-     "dist_m": 32308.8,
+     "dist_m": 32068.7,
      "lat": 47.017336,
      "lon": -60.433728
     },
-    "detail": "detail/ca-ns/A-1",
+    "island_km2": 4.9,
+    "detail": "detail/ca-ns/A-47.224483_-60.139630",
     "warnings": []
    },
    {
@@ -53,37 +54,16 @@
     "nearest_place": {
      "name": "Dover",
      "type": "village",
-     "dist_m": 176954.3,
+     "dist_m": 176954.4,
      "lat": 45.28641,
      "lon": -61.046784
     },
-    "detail": "detail/ca-ns/A-2",
+    "island_km2": 29.5,
+    "detail": "detail/ca-ns/A-44.050079_-59.640320",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 45.247478,
-    "lon": -65.016866,
-    "dist_m": 14863.48,
-    "nearest_way": {
-     "id": 182858768,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Morden",
-     "type": "village",
-     "dist_m": 17026.0,
-     "lat": 45.102691,
-     "lon": -64.946075
-    },
-    "detail": "detail/ca-ns/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 44.24308,
     "lon": -65.518497,
     "dist_m": 13315.73,
@@ -101,55 +81,12 @@
      "lat": 44.158564,
      "lon": -65.337067
     },
-    "detail": "detail/ca-ns/A-4",
+    "island_km2": null,
+    "detail": "detail/ca-ns/A-44.243080_-65.518497",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 43.514757,
-    "lon": -65.999826,
-    "dist_m": 11586.53,
-    "nearest_way": {
-     "id": 1488662417,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Tusket Islands",
-     "type": "village",
-     "dist_m": 10182.6,
-     "lat": 43.604729,
-     "lon": -66.023827
-    },
-    "detail": "detail/ca-ns/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 43.637608,
-    "lon": -66.14857,
-    "dist_m": 10510.4,
-    "nearest_way": {
-     "id": 98857319,
-     "highway": "tertiary",
-     "name": "Melbourne Road",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Tusket Islands",
-     "type": "village",
-     "dist_m": 10710.7,
-     "lat": 43.604729,
-     "lon": -66.023827
-    },
-    "detail": "detail/ca-ns/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
+    "rank": 4,
     "lat": 43.982563,
     "lon": -60.178819,
     "dist_m": 10443.35,
@@ -163,15 +100,39 @@
     "nearest_place": {
      "name": "Dover",
      "type": "village",
-     "dist_m": 160421.9,
+     "dist_m": 160422.0,
      "lat": 45.28641,
      "lon": -61.046784
     },
-    "detail": "detail/ca-ns/A-7",
+    "island_km2": 29.5,
+    "detail": "detail/ca-ns/A-43.982563_-60.178819",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 5,
+    "lat": 43.498762,
+    "lon": -65.984399,
+    "dist_m": 10000.38,
+    "nearest_way": {
+     "id": 1488662417,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "West Side",
+     "type": "hamlet",
+     "dist_m": 10438.5,
+     "lat": 43.408374,
+     "lon": -66.019595
+    },
+    "island_km2": 1.3,
+    "detail": "detail/ca-ns/A-43.498762_-65.984399",
+    "warnings": []
+   },
+   {
+    "rank": 6,
     "lat": 46.757642,
     "lon": -60.498667,
     "dist_m": 9897.25,
@@ -185,37 +146,16 @@
     "nearest_place": {
      "name": "Ingonish Centre",
      "type": "village",
-     "dist_m": 11886.4,
+     "dist_m": 11886.3,
      "lat": 46.670901,
      "lon": -60.407768
     },
-    "detail": "detail/ca-ns/A-8",
+    "island_km2": null,
+    "detail": "detail/ca-ns/A-46.757642_-60.498667",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 44.334215,
-    "lon": -65.507291,
-    "dist_m": 9268.87,
-    "nearest_way": {
-     "id": 344403925,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Faith Hope and Charity Lakes",
-     "type": "village",
-     "dist_m": 15101.7,
-     "lat": 44.467479,
-     "lon": -65.470104
-    },
-    "detail": "detail/ca-ns/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 7,
     "lat": 46.925205,
     "lon": -60.653108,
     "dist_m": 8886.73,
@@ -233,20 +173,189 @@
      "lat": 46.867351,
      "lon": -60.555954
     },
-    "detail": "detail/ca-ns/A-10",
+    "island_km2": null,
+    "detail": "detail/ca-ns/A-46.925205_-60.653108",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.210106,
+    "lon": -65.094275,
+    "dist_m": 7379.71,
+    "nearest_way": {
+     "id": 485029067,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Low Landing",
+     "type": "isolated_dwelling",
+     "dist_m": 7317.8,
+     "lat": 44.266292,
+     "lon": -65.142061
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/A-44.210106_-65.094275",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.014848,
+    "lon": -65.613876,
+    "dist_m": 6858.83,
+    "nearest_way": {
+     "id": 235861191,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Jacksons Mountain",
+     "type": "hamlet",
+     "dist_m": 7411.5,
+     "lat": 43.979105,
+     "lon": -65.691891
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/A-44.014848_-65.613876",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 45.223383,
+    "lon": -61.092756,
+    "dist_m": 6599.19,
+    "nearest_way": {
+     "id": 224815392,
+     "highway": "track",
+     "name": "Dover Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Whitehead",
+     "type": "village",
+     "dist_m": 7817.9,
+     "lat": 45.238064,
+     "lon": -61.190117
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/A-45.223383_-61.092756",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 43.759604,
+    "lon": -65.637961,
+    "dist_m": 6595.86,
+    "nearest_way": {
+     "id": 98993133,
+     "highway": "unclassified",
+     "name": "Unknown3 Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Great Pubnico Lake",
+     "type": "hamlet",
+     "dist_m": 3334.4,
+     "lat": 43.760185,
+     "lon": -65.67936
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/A-43.759604_-65.637961",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 46.429377,
+    "lon": -60.572895,
+    "dist_m": 6487.99,
+    "nearest_way": {
+     "id": 117104446,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Indian Brook",
+     "type": "village",
+     "dist_m": 7126.4,
+     "lat": 46.373239,
+     "lon": -60.528142
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/A-46.429377_-60.572895",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 44.062478,
+    "lon": -65.383107,
+    "dist_m": 6032.93,
+    "nearest_way": {
+     "id": 478729401,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Indian Fields",
+     "type": "hamlet",
+     "dist_m": 7023.2,
+     "lat": 44.032814,
+     "lon": -65.460491
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/A-44.062478_-65.383107",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 44.871897,
+    "lon": -62.798109,
+    "dist_m": 5975.07,
+    "nearest_way": {
+     "id": 570565258,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "River Lake",
+     "type": "village",
+     "dist_m": 7457.5,
+     "lat": 44.919752,
+     "lon": -62.731924
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/A-44.871897_-62.798109",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 13315.73,
+  "lat": 44.24308,
+  "lon": -65.518497,
+  "rank": 27,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 43.956138,
-    "lon": -59.781305,
-    "dist_m": 177126.51,
+    "lat": 43.956278,
+    "lon": -59.781011,
+    "dist_m": 177126.66,
     "nearest_way": {
      "id": 224815400,
      "highway": "residential",
@@ -257,106 +366,19 @@
     "nearest_place": {
      "name": "Dover",
      "type": "village",
-     "dist_m": 178710.6,
+     "dist_m": 178710.7,
      "lat": 45.28641,
      "lon": -61.046784
     },
-    "detail": "detail/ca-ns/B-1",
+    "island_km2": 29.5,
+    "detail": "detail/ca-ns/B-43.956278_-59.781011",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 44.019378,
-    "lon": -59.690587,
-    "dist_m": 175593.77,
-    "nearest_way": {
-     "id": 224815400,
-     "highway": "residential",
-     "name": "Dover Road",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Dover",
-     "type": "village",
-     "dist_m": 177185.5,
-     "lat": 45.28641,
-     "lon": -61.046784
-    },
-    "detail": "detail/ca-ns/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 43.926214,
-    "lon": -59.904416,
-    "dist_m": 174692.4,
-    "nearest_way": {
-     "id": 224815400,
-     "highway": "residential",
-     "name": "Dover Road",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Dover",
-     "type": "village",
-     "dist_m": 176263.8,
-     "lat": 45.28641,
-     "lon": -61.046784
-    },
-    "detail": "detail/ca-ns/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 43.930165,
-    "lon": -60.036516,
-    "dist_m": 169027.1,
-    "nearest_way": {
-     "id": 227604644,
-     "highway": "residential",
-     "name": "Base Road",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Dover",
-     "type": "village",
-     "dist_m": 170717.0,
-     "lat": 45.28641,
-     "lon": -61.046784
-    },
-    "detail": "detail/ca-ns/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 43.970249,
-    "lon": -60.158324,
-    "dist_m": 160170.09,
-    "nearest_way": {
-     "id": 227604644,
-     "highway": "residential",
-     "name": "Base Road",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Dover",
-     "type": "village",
-     "dist_m": 162361.3,
-     "lat": 45.28641,
-     "lon": -61.046784
-    },
-    "detail": "detail/ca-ns/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 47.227668,
-    "lon": -60.139911,
-    "dist_m": 32289.33,
+    "lat": 47.224483,
+    "lon": -60.13963,
+    "dist_m": 32040.49,
     "nearest_way": {
      "id": 116842175,
      "highway": "unclassified",
@@ -367,37 +389,16 @@
     "nearest_place": {
      "name": "Bay St. Lawrence East",
      "type": "village",
-     "dist_m": 32308.8,
+     "dist_m": 32068.7,
      "lat": 47.017336,
      "lon": -60.433728
     },
-    "detail": "detail/ca-ns/B-6",
+    "island_km2": 4.9,
+    "detail": "detail/ca-ns/B-47.224483_-60.139630",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 45.252035,
-    "lon": -65.013723,
-    "dist_m": 17112.61,
-    "nearest_way": {
-     "id": 347692920,
-     "highway": "residential",
-     "name": "Augsburger Street",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Morden",
-     "type": "village",
-     "dist_m": 17428.4,
-     "lat": 45.102691,
-     "lon": -64.946075
-    },
-    "detail": "detail/ca-ns/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 3,
     "lat": 44.281513,
     "lon": -65.465841,
     "dist_m": 15144.12,
@@ -415,14 +416,15 @@
      "lat": 44.158564,
      "lon": -65.337067
     },
-    "detail": "detail/ca-ns/B-8",
+    "island_km2": null,
+    "detail": "detail/ca-ns/B-44.281513_-65.465841",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 46.037144,
-    "lon": -59.661202,
-    "dist_m": 14025.65,
+    "rank": 4,
+    "lat": 46.034268,
+    "lon": -59.6745,
+    "dist_m": 12949.41,
     "nearest_way": {
      "id": 106989025,
      "highway": "tertiary",
@@ -433,37 +435,253 @@
     "nearest_place": {
      "name": "Scatarie Island",
      "type": "village",
-     "dist_m": 2998.0,
+     "dist_m": 1922.1,
      "lat": 46.027892,
      "lon": -59.697577
     },
-    "detail": "detail/ca-ns/B-9",
+    "island_km2": 15.5,
+    "detail": "detail/ca-ns/B-46.034268_-59.674500",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 46.724643,
+    "lon": -60.550957,
+    "dist_m": 11506.64,
+    "nearest_way": {
+     "id": 116981499,
+     "highway": "residential",
+     "name": "Tall Pines Estates",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Ingonish Centre",
+     "type": "village",
+     "dist_m": 12475.2,
+     "lat": 46.670901,
+     "lon": -60.407768
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/B-46.724643_-60.550957",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 46.960493,
+    "lon": -60.677358,
+    "dist_m": 10856.32,
+    "nearest_way": {
+     "id": 1414248684,
+     "highway": "tertiary",
+     "name": "Meat Cove Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Meat Cove",
+     "type": "hamlet",
+     "dist_m": 11576.6,
+     "lat": 47.026109,
+     "lon": -60.559179
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/B-46.960493_-60.677358",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 43.498762,
+    "lon": -65.984399,
+    "dist_m": 10349.39,
+    "nearest_way": {
+     "id": 1488662419,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "West Side",
+     "type": "hamlet",
+     "dist_m": 10438.5,
+     "lat": 43.408374,
+     "lon": -66.019595
+    },
+    "island_km2": 1.3,
+    "detail": "detail/ca-ns/B-43.498762_-65.984399",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 45.327888,
+    "lon": -64.944685,
+    "dist_m": 9510.25,
+    "nearest_way": {
+     "id": 182858391,
+     "highway": "unclassified",
+     "name": "West Advocate Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Eatonville",
+     "type": "village",
+     "dist_m": 9948.7,
+     "lat": 45.396452,
+     "lon": -64.863047
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/B-45.327888_-64.944685",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.210057,
+    "lon": -65.118489,
+    "dist_m": 7906.66,
+    "nearest_way": {
+     "id": 235875527,
+     "highway": "unclassified",
+     "name": "Rossignol Loop Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Low Landing",
+     "type": "isolated_dwelling",
+     "dist_m": 6526.2,
+     "lat": 44.266292,
+     "lon": -65.142061
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/B-44.210057_-65.118489",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 44.199448,
-    "lon": -65.522378,
-    "dist_m": 12391.7,
+    "lat": 46.433258,
+    "lon": -60.589536,
+    "dist_m": 7866.94,
     "nearest_way": {
-     "id": 478728935,
+     "id": 117104432,
+     "highway": "residential",
+     "name": "Kelly Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Indian Brook",
+     "type": "village",
+     "dist_m": 8173.1,
+     "lat": 46.373239,
+     "lon": -60.528142
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/B-46.433258_-60.589536",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 44.882479,
+    "lon": -64.786896,
+    "dist_m": 7772.04,
+    "nearest_way": {
+     "id": 344795430,
+     "highway": "residential",
+     "name": "Alton Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Tomahawk Lake",
+     "type": "hamlet",
+     "dist_m": 3153.8,
+     "lat": 44.882208,
+     "lon": -64.746981
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/B-44.882479_-64.786896",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 45.591246,
+    "lon": -64.451005,
+    "dist_m": 7624.04,
+    "nearest_way": {
+     "id": 148277436,
+     "highway": "secondary",
+     "name": "Shulie Road",
+     "ref": "NS 209",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Harrison Settlement",
+     "type": "village",
+     "dist_m": 9136.5,
+     "lat": 45.520216,
+     "lon": -64.392102
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/B-45.591246_-64.451005",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 43.937225,
+    "lon": -65.11293,
+    "dist_m": 7429.59,
+    "nearest_way": {
+     "id": 1138342751,
      "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Flintstone Rock",
+     "name": "Sable River",
      "type": "village",
-     "dist_m": 13902.7,
-     "lat": 44.08329,
-     "lon": -65.586951
+     "dist_m": 11427.7,
+     "lat": 43.840654,
+     "lon": -65.064
     },
-    "detail": "detail/ca-ns/B-10",
+    "island_km2": null,
+    "detail": "detail/ca-ns/B-43.937225_-65.112930",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 45.182085,
+    "lon": -62.292244,
+    "dist_m": 7342.61,
+    "nearest_way": {
+     "id": 76447604,
+     "highway": "residential",
+     "name": "Liscomb River Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "New Chester",
+     "type": "village",
+     "dist_m": 7322.0,
+     "lat": 45.118357,
+     "lon": -62.26862
+    },
+    "island_km2": null,
+    "detail": "detail/ca-ns/B-45.182085_-62.292244",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 15144.12,
+  "lat": 44.281513,
+  "lon": -65.465841,
+  "rank": 29,
+  "withheld": 0
  }
 }

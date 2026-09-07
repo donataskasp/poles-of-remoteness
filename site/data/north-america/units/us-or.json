@@ -31,37 +31,16 @@
     "nearest_place": {
      "name": "Cornucopia",
      "type": "hamlet",
-     "dist_m": 18271.5,
+     "dist_m": 18271.6,
      "lat": 45.008772,
      "lon": -117.198394
     },
-    "detail": "detail/us-or/A-1",
+    "island_km2": null,
+    "detail": "detail/us-or/A-45.164067_-117.274602",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 45.259791,
-    "lon": -117.5335,
-    "dist_m": 11310.76,
-    "nearest_way": {
-     "id": 1104384175,
-     "highway": "track",
-     "name": "Lodgepole Trail",
-     "ref": "TR 1920",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Cove",
-     "type": "village",
-     "dist_m": 21962.0,
-     "lat": 45.296826,
-     "lon": -117.808439
-    },
-    "detail": "detail/us-or/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 42.340822,
     "lon": -123.966876,
     "dist_m": 11181.9,
@@ -79,33 +58,12 @@
      "lat": 42.555332,
      "lon": -124.06493
     },
-    "detail": "detail/us-or/A-3",
+    "island_km2": null,
+    "detail": "detail/us-or/A-42.340822_-123.966876",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 45.349845,
-    "lon": -117.561603,
-    "dist_m": 10801.26,
-    "nearest_way": {
-     "id": 5100322,
-     "highway": "unclassified",
-     "name": "Moss Springs Road",
-     "ref": "FS 6220",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Lostine",
-     "type": "village",
-     "dist_m": 18464.8,
-     "lat": 45.487561,
-     "lon": -117.429641
-    },
-    "detail": "detail/us-or/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
+    "rank": 3,
     "lat": 44.060721,
     "lon": -121.895157,
     "dist_m": 10284.0,
@@ -123,77 +81,12 @@
      "lat": 44.174824,
      "lon": -122.163314
     },
-    "detail": "detail/us-or/A-5",
+    "island_km2": null,
+    "detail": "detail/us-or/A-44.060721_-121.895157",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 44.124916,
-    "lon": -121.793514,
-    "dist_m": 10012.91,
-    "nearest_way": {
-     "id": 338536790,
-     "highway": "track",
-     "name": "Forest Road 1526-200",
-     "ref": "NF 200",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Sisters",
-     "type": "town",
-     "dist_m": 26860.8,
-     "lat": 44.290948,
-     "lon": -121.549251
-    },
-    "detail": "detail/us-or/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 42.14455,
-    "lon": -123.886518,
-    "dist_m": 9790.76,
-    "nearest_way": {
-     "id": 5177328,
-     "highway": "unclassified",
-     "name": "Forest Road 1909",
-     "ref": "NF 1909",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "O'Brien",
-     "type": "hamlet",
-     "dist_m": 17412.5,
-     "lat": 42.067119,
-     "lon": -123.703474
-    },
-    "detail": "detail/us-or/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 45.166312,
-    "lon": -117.406443,
-    "dist_m": 9604.16,
-    "nearest_way": {
-     "id": 1105981969,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Cornucopia",
-     "type": "hamlet",
-     "dist_m": 23975.0,
-     "lat": 45.008772,
-     "lon": -117.198394
-    },
-    "detail": "detail/us-or/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 4,
     "lat": 45.330668,
     "lon": -116.667794,
     "dist_m": 8770.94,
@@ -211,11 +104,12 @@
      "lat": 45.235857,
      "lon": -116.84489
     },
-    "detail": "detail/us-or/A-9",
+    "island_km2": null,
+    "detail": "detail/us-or/A-45.330668_-116.667794",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 5,
     "lat": 42.59229,
     "lon": -117.986656,
     "dist_m": 8468.64,
@@ -233,12 +127,135 @@
      "lat": 42.411439,
      "lon": -117.862809
     },
-    "detail": "detail/us-or/A-10",
+    "island_km2": null,
+    "detail": "detail/us-or/A-42.592290_-117.986656",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 44.825073,
+    "lon": -119.229684,
+    "dist_m": 7865.85,
+    "nearest_way": {
+     "id": 5220289,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ritter",
+     "type": "isolated_dwelling",
+     "dist_m": 10087.6,
+     "lat": 44.891636,
+     "lon": -119.142908
+    },
+    "island_km2": null,
+    "detail": "detail/us-or/A-44.825073_-119.229684",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 42.83887,
+    "lon": -120.698235,
+    "dist_m": 7712.7,
+    "nearest_way": {
+     "id": 5138631,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Summer Lake",
+     "type": "hamlet",
+     "dist_m": 16237.1,
+     "lat": 42.972711,
+     "lon": -120.778132
+    },
+    "island_km2": null,
+    "detail": "detail/us-or/A-42.838870_-120.698235",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.619992,
+    "lon": -121.799806,
+    "dist_m": 7354.98,
+    "nearest_way": {
+     "id": 5501071,
+     "highway": "track",
+     "name": "National Forest Development Road 2255-730",
+     "ref": "NF 730",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Camp Sherman",
+     "type": "hamlet",
+     "dist_m": 21693.0,
+     "lat": 44.460087,
+     "lon": -121.643233
+    },
+    "island_km2": null,
+    "detail": "detail/us-or/A-44.619992_-121.799806",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 45.946738,
+    "lon": -117.852255,
+    "dist_m": 7009.33,
+    "nearest_way": {
+     "id": 5207531,
+     "highway": "service",
+     "name": "Forest Road 410",
+     "ref": "NF 410",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kooskooskie",
+     "type": "hamlet",
+     "dist_m": 21980.4,
+     "lat": 46.011733,
+     "lon": -118.120144
+    },
+    "island_km2": null,
+    "detail": "detail/us-or/A-45.946738_-117.852255",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.531726,
+    "lon": -122.112284,
+    "dist_m": 6864.86,
+    "nearest_way": {
+     "id": 545755870,
+     "highway": "track",
+     "name": "Forest Road 6010",
+     "ref": "NF 6010",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Crescent Lake",
+     "type": "hamlet",
+     "dist_m": 11862.3,
+     "lat": 43.509509,
+     "lon": -121.968774
+    },
+    "island_km2": null,
+    "detail": "detail/us-or/A-43.531726_-122.112284",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 12425.36,
+  "lat": 45.164067,
+  "lon": -117.274602,
+  "rank": 30,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 43.250029,
      "lon": -119.876752
     },
-    "detail": "detail/us-or/B-1",
+    "island_km2": null,
+    "detail": "detail/us-or/B-43.106217_-119.551600",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 42.338172,
      "lon": -118.235335
     },
-    "detail": "detail/us-or/B-2",
+    "island_km2": null,
+    "detail": "detail/us-or/B-42.618047_-118.179161",
     "warnings": []
    },
    {
@@ -301,11 +320,12 @@
     "nearest_place": {
      "name": "Summer Lake",
      "type": "hamlet",
-     "dist_m": 33543.8,
+     "dist_m": 33543.7,
      "lat": 42.972711,
      "lon": -120.778132
     },
-    "detail": "detail/us-or/B-3",
+    "island_km2": null,
+    "detail": "detail/us-or/B-42.993679_-120.367864",
     "warnings": []
    },
    {
@@ -327,55 +347,12 @@
      "lat": 42.569433,
      "lon": -116.988323
     },
-    "detail": "detail/us-or/B-4",
+    "island_km2": null,
+    "detail": "detail/us-or/B-42.323227_-117.179255",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 43.077657,
-    "lon": -119.672453,
-    "dist_m": 22204.01,
-    "nearest_way": {
-     "id": 5386387,
-     "highway": "unclassified",
-     "name": "Nasty Flat Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Wagontire",
-     "type": "hamlet",
-     "dist_m": 25352.6,
-     "lat": 43.250029,
-     "lon": -119.876752
-    },
-    "detail": "detail/us-or/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 42.710387,
-    "lon": -118.178357,
-    "dist_m": 22022.48,
-    "nearest_way": {
-     "id": 300717834,
-     "highway": "service",
-     "name": "Tudor Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Whitehorse Ranch",
-     "type": "isolated_dwelling",
-     "dist_m": 41611.2,
-     "lat": 42.338172,
-     "lon": -118.235335
-    },
-    "detail": "detail/us-or/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 43.071873,
     "lon": -117.778897,
     "dist_m": 21526.73,
@@ -393,77 +370,134 @@
      "lat": 43.291547,
      "lon": -117.894346
     },
-    "detail": "detail/us-or/B-7",
+    "island_km2": null,
+    "detail": "detail/us-or/B-43.071873_-117.778897",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 43.410493,
+    "lon": -120.143141,
+    "dist_m": 19801.95,
+    "nearest_way": {
+     "id": 5143196,
+     "highway": "trunk",
+     "name": "Central Oregon Highway",
+     "ref": "US 20",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wagontire",
+     "type": "hamlet",
+     "dist_m": 28010.5,
+     "lat": 43.250029,
+     "lon": -119.876752
+    },
+    "island_km2": null,
+    "detail": "detail/us-or/B-43.410493_-120.143141",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 42.282167,
+    "lon": -119.619834,
+    "dist_m": 15934.3,
+    "nearest_way": {
+     "id": 5143358,
+     "highway": "service",
+     "name": "Bureau of Land Mgmt Rd 6122-0-",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Adel",
+     "type": "hamlet",
+     "dist_m": 25790.2,
+     "lat": 42.177376,
+     "lon": -119.898617
+    },
+    "island_km2": null,
+    "detail": "detail/us-or/B-42.282167_-119.619834",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 43.021328,
-    "lon": -119.50255,
-    "dist_m": 21215.46,
+    "lat": 42.152116,
+    "lon": -118.169789,
+    "dist_m": 15819.3,
     "nearest_way": {
-     "id": 5386387,
+     "id": 302935862,
      "highway": "unclassified",
-     "name": "Nasty Flat Road",
-     "ref": null,
+     "name": "Cherokee Creek Road",
+     "ref": "BLM 6305",
      "country": "us"
     },
     "nearest_place": {
-     "name": "Wagontire",
-     "type": "hamlet",
-     "dist_m": 39654.4,
-     "lat": 43.250029,
-     "lon": -119.876752
+     "name": "Whitehorse Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 21363.0,
+     "lat": 42.338172,
+     "lon": -118.235335
     },
-    "detail": "detail/us-or/B-8",
+    "island_km2": null,
+    "detail": "detail/us-or/B-42.152116_-118.169789",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 43.106848,
-    "lon": -119.426143,
-    "dist_m": 20629.26,
+    "lat": 42.872345,
+    "lon": -118.586073,
+    "dist_m": 14911.98,
     "nearest_way": {
-     "id": 5387509,
-     "highway": "unclassified",
-     "name": "South Harney Lake Lane",
+     "id": 296295567,
+     "highway": "service",
+     "name": "Clemens Ranch Road",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Wagontire",
+     "name": "Diamond",
      "type": "hamlet",
-     "dist_m": 39940.7,
-     "lat": 43.250029,
-     "lon": -119.876752
+     "dist_m": 16841.7,
+     "lat": 43.012103,
+     "lon": -118.666031
     },
-    "detail": "detail/us-or/B-9",
+    "island_km2": null,
+    "detail": "detail/us-or/B-42.872345_-118.586073",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 42.549761,
-    "lon": -118.263873,
-    "dist_m": 20521.05,
+    "lat": 45.664574,
+    "lon": -116.659088,
+    "dist_m": 14240.76,
     "nearest_way": {
-     "id": 5378953,
+     "id": 5205701,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Whitehorse Ranch",
+     "name": "Brockman Ranch",
      "type": "isolated_dwelling",
-     "dist_m": 23620.7,
-     "lat": 42.338172,
-     "lon": -118.235335
+     "dist_m": 17081.3,
+     "lat": 45.539181,
+     "lon": -116.532497
     },
-    "detail": "detail/us-or/B-10",
+    "island_km2": null,
+    "detail": "detail/us-or/B-45.664574_-116.659088",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 27288.95,
+  "lat": 43.106217,
+  "lon": -119.5516,
+  "rank": 19,
+  "withheld": 0
  }
 }

@@ -31,222 +31,446 @@
     "nearest_place": {
      "name": "Hyland Post",
      "type": "hamlet",
-     "dist_m": 99444.3,
+     "dist_m": 99444.4,
      "lat": 57.645625,
      "lon": -128.164595
     },
-    "detail": "detail/ca-bc/A-1",
+    "island_km2": null,
+    "detail": "detail/ca-bc/A-58.505058_-127.707831",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 58.459307,
-    "lon": -127.860924,
-    "dist_m": 113062.32,
+    "lat": 59.0825,
+    "lon": -131.765438,
+    "dist_m": 91144.05,
     "nearest_way": {
-     "id": 441852442,
-     "highway": "track",
-     "name": null,
+     "id": 51188887,
+     "highway": "unclassified",
+     "name": "ODonnel River Road",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Hyland Post",
-     "type": "hamlet",
-     "dist_m": 92383.3,
-     "lat": 57.645625,
-     "lon": -128.164595
+     "name": "Nahlin",
+     "type": "isolated_dwelling",
+     "dist_m": 22038.2,
+     "lat": 58.884749,
+     "lon": -131.754082
     },
-    "detail": "detail/ca-bc/A-2",
+    "island_km2": null,
+    "detail": "detail/ca-bc/A-59.082500_-131.765438",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 58.593133,
-    "lon": -127.660396,
-    "dist_m": 111773.52,
+    "lat": 51.943992,
+    "lon": -131.01529,
+    "dist_m": 82303.48,
     "nearest_way": {
-     "id": 1126379316,
+     "id": 1096823833,
      "highway": "track",
-     "name": "Moose Lake Trail",
+     "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Hyland Post",
+     "name": "Rose Harbour",
      "type": "hamlet",
-     "dist_m": 109636.1,
-     "lat": 57.645625,
-     "lon": -128.164595
+     "dist_m": 23280.4,
+     "lat": 52.148945,
+     "lon": -131.083535
     },
-    "detail": "detail/ca-bc/A-3",
+    "island_km2": 129.8,
+    "detail": "detail/ca-bc/A-51.943992_-131.015290",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 58.452832,
-    "lon": -127.558927,
-    "dist_m": 108716.23,
+    "lat": 60.000206,
+    "lon": -138.443168,
+    "dist_m": 68812.31,
     "nearest_way": {
-     "id": 1126379316,
+     "id": 674360957,
      "highway": "track",
-     "name": "Moose Lake Trail",
+     "name": "Mush Lake Road",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Hyland Post",
+     "name": "Klukshu",
      "type": "hamlet",
-     "dist_m": 96757.3,
-     "lat": 57.645625,
-     "lon": -128.164595
+     "dist_m": 86079.1,
+     "lat": 60.294684,
+     "lon": -137.010557
     },
-    "detail": "detail/ca-bc/A-4",
+    "island_km2": null,
+    "detail": "detail/ca-bc/A-60.000206_-138.443168",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 58.68107,
-    "lon": -127.614449,
-    "dist_m": 108466.26,
+    "lat": 52.084979,
+    "lon": -131.211507,
+    "dist_m": 62960.99,
     "nearest_way": {
-     "id": 483142803,
+     "id": 1096823833,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Fort Halkett",
-     "type": "town",
-     "dist_m": 117037.9,
-     "lat": 59.555498,
-     "lon": -126.481616
+     "name": "Rose Harbour",
+     "type": "hamlet",
+     "dist_m": 11291.6,
+     "lat": 52.148945,
+     "lon": -131.083535
     },
-    "detail": "detail/ca-bc/A-5",
+    "island_km2": 1.9,
+    "detail": "detail/ca-bc/A-52.084979_-131.211507",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 58.393754,
-    "lon": -127.983472,
-    "dist_m": 108389.11,
+    "lat": 52.936792,
+    "lon": -127.80964,
+    "dist_m": 59636.13,
     "nearest_way": {
-     "id": 477421045,
+     "id": 1054205183,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Hyland Post",
-     "type": "hamlet",
-     "dist_m": 84009.8,
-     "lat": 57.645625,
-     "lon": -128.164595
+     "name": "Boat Bluff",
+     "type": "isolated_dwelling",
+     "dist_m": 58217.7,
+     "lat": 52.643442,
+     "lon": -128.52418
     },
-    "detail": "detail/ca-bc/A-6",
+    "island_km2": null,
+    "detail": "detail/ca-bc/A-52.936792_-127.809640",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 58.551289,
-    "lon": -127.863785,
-    "dist_m": 105742.08,
+    "lat": 52.163309,
+    "lon": -131.045145,
+    "dist_m": 59447.84,
     "nearest_way": {
-     "id": 483142803,
+     "id": 1096823839,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Hyland Post",
+     "name": "Rose Harbour",
      "type": "hamlet",
-     "dist_m": 102419.8,
-     "lat": 57.645625,
-     "lon": -128.164595
+     "dist_m": 3075.3,
+     "lat": 52.148945,
+     "lon": -131.083535
     },
-    "detail": "detail/ca-bc/A-7",
+    "island_km2": 10054.8,
+    "detail": "detail/ca-bc/A-52.163309_-131.045145",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 58.406343,
-    "lon": -127.714221,
-    "dist_m": 105237.48,
+    "lat": 60.001495,
+    "lon": -125.402396,
+    "dist_m": 58807.63,
     "nearest_way": {
-     "id": 441852442,
-     "highway": "track",
+     "id": 1266170811,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Hyland Post",
-     "type": "hamlet",
-     "dist_m": 88807.9,
-     "lat": 57.645625,
-     "lon": -128.164595
+     "name": "Fort Liard",
+     "type": "village",
+     "dist_m": 110622.2,
+     "lat": 60.240823,
+     "lon": -123.471225
     },
-    "detail": "detail/ca-bc/A-8",
+    "island_km2": null,
+    "detail": "detail/ca-bc/A-60.001495_-125.402396",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 58.483896,
-    "lon": -128.032779,
-    "dist_m": 104311.34,
+    "lat": 53.317373,
+    "lon": -130.12541,
+    "dist_m": 55109.03,
     "nearest_way": {
-     "id": 483142803,
+     "id": 716942516,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kitkatla",
+     "type": "village",
+     "dist_m": 56891.6,
+     "lat": 53.795233,
+     "lon": -130.430246
+    },
+    "island_km2": 1032.4,
+    "detail": "detail/ca-bc/A-53.317373_-130.125410",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 59.763801,
+    "lon": -120.018374,
+    "dist_m": 54114.88,
+    "nearest_way": {
+     "id": 30458059,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Zama City",
+     "type": "hamlet",
+     "dist_m": 101425.0,
+     "lat": 59.154881,
+     "lon": -118.688648
+    },
+    "island_km2": null,
+    "detail": "detail/ca-bc/A-59.763801_-120.018374",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 56.368833,
+    "lon": -128.358183,
+    "dist_m": 49461.95,
+    "nearest_way": {
+     "id": 794912812,
+     "highway": "unclassified",
+     "name": "Kuldo Extension Forest Service Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kuldo",
+     "type": "isolated_dwelling",
+     "dist_m": 64984.5,
+     "lat": 55.840037,
+     "lon": -127.916192
+    },
+    "island_km2": null,
+    "detail": "detail/ca-bc/A-56.368833_-128.358183",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 51.739065,
+    "lon": -125.882434,
+    "dist_m": 49162.64,
+    "nearest_way": {
+     "id": 1209548829,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Hyland Post",
+     "name": "Stuie",
      "type": "hamlet",
-     "dist_m": 93689.1,
-     "lat": 57.645625,
-     "lon": -128.164595
+     "dist_m": 71453.1,
+     "lat": 52.370971,
+     "lon": -126.067935
     },
-    "detail": "detail/ca-bc/A-9",
+    "island_km2": null,
+    "detail": "detail/ca-bc/A-51.739065_-125.882434",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 58.542474,
-    "lon": -127.510837,
-    "dist_m": 103904.33,
+    "rank": 13,
+    "lat": 53.074079,
+    "lon": -129.74132,
+    "dist_m": 48268.75,
     "nearest_way": {
-     "id": 1126379316,
+     "id": 189776608,
      "highway": "track",
-     "name": "Moose Lake Trail",
+     "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Hyland Post",
-     "type": "hamlet",
-     "dist_m": 107072.2,
-     "lat": 57.645625,
-     "lon": -128.164595
+     "name": "Hartley Bay",
+     "type": "village",
+     "dist_m": 50921.6,
+     "lat": 53.42568,
+     "lon": -129.253125
     },
-    "detail": "detail/ca-bc/A-10",
+    "island_km2": 134.8,
+    "detail": "detail/ca-bc/A-53.074079_-129.741320",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 50.864277,
+    "lon": -129.090759,
+    "dist_m": 47605.96,
+    "nearest_way": {
+     "id": 374389019,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Holberg",
+     "type": "hamlet",
+     "dist_m": 79471.2,
+     "lat": 50.655163,
+     "lon": -128.013781
+    },
+    "island_km2": 1.2,
+    "detail": "detail/ca-bc/A-50.864277_-129.090759",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 52.668732,
+    "lon": -129.425746,
+    "dist_m": 47174.64,
+    "nearest_way": {
+     "id": 189776606,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Boat Bluff",
+     "type": "isolated_dwelling",
+     "dist_m": 61072.9,
+     "lat": 52.643442,
+     "lon": -128.52418
+    },
+    "island_km2": 4.6,
+    "detail": "detail/ca-bc/A-52.668732_-129.425746",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 52.621428,
+    "lon": -129.190837,
+    "dist_m": 44144.28,
+    "nearest_way": {
+     "id": 189776606,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Boat Bluff",
+     "type": "isolated_dwelling",
+     "dist_m": 45202.9,
+     "lat": 52.643442,
+     "lon": -128.52418
+    },
+    "island_km2": 443.1,
+    "detail": "detail/ca-bc/A-52.621428_-129.190837",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 53.473911,
+    "lon": -129.964852,
+    "dist_m": 43304.34,
+    "nearest_way": {
+     "id": 1551373577,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kitkatla",
+     "type": "village",
+     "dist_m": 47187.6,
+     "lat": 53.795233,
+     "lon": -130.430246
+    },
+    "island_km2": null,
+    "detail": "detail/ca-bc/A-53.473911_-129.964852",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 54.582436,
+    "lon": -131.098068,
+    "dist_m": 42018.82,
+    "nearest_way": {
+     "id": 1431074060,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lax Kw'alaams",
+     "type": "town",
+     "dist_m": 43281.9,
+     "lat": 54.55458,
+     "lon": -130.430605
+    },
+    "island_km2": 10.5,
+    "detail": "detail/ca-bc/A-54.582436_-131.098068",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 59.826671,
+    "lon": -135.725158,
+    "dist_m": 37457.69,
+    "nearest_way": {
+     "id": 316827668,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lindeman City",
+     "type": "isolated_dwelling",
+     "dist_m": 36455.0,
+     "lat": 59.785064,
+     "lon": -135.080914
+    },
+    "island_km2": null,
+    "detail": "detail/ca-bc/A-59.826671_-135.725158",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 115926.86,
+  "lat": 58.505058,
+  "lon": -127.707831,
+  "rank": 8,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 51.905296,
-    "lon": -130.971164,
-    "dist_m": 139580.25,
+    "lat": 51.943992,
+    "lon": -131.01529,
+    "dist_m": 134379.06,
     "nearest_way": {
      "id": 188149705,
      "highway": "service",
@@ -257,59 +481,16 @@
     "nearest_place": {
      "name": "Rose Harbour",
      "type": "hamlet",
-     "dist_m": 28186.0,
+     "dist_m": 23280.4,
      "lat": 52.148945,
      "lon": -131.083535
     },
-    "detail": "detail/ca-bc/B-1",
+    "island_km2": 129.8,
+    "detail": "detail/ca-bc/B-51.943992_-131.015290",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 51.969944,
-    "lon": -131.079696,
-    "dist_m": 129872.77,
-    "nearest_way": {
-     "id": 188149705,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Rose Harbour",
-     "type": "hamlet",
-     "dist_m": 19918.9,
-     "lat": 52.148945,
-     "lon": -131.083535
-    },
-    "detail": "detail/ca-bc/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 52.075715,
-    "lon": -130.938219,
-    "dist_m": 124016.87,
-    "nearest_way": {
-     "id": 188149705,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Rose Harbour",
-     "type": "hamlet",
-     "dist_m": 12864.6,
-     "lat": 52.148945,
-     "lon": -131.083535
-    },
-    "detail": "detail/ca-bc/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 58.529093,
     "lon": -127.759084,
     "dist_m": 121263.59,
@@ -327,102 +508,84 @@
      "lat": 57.645625,
      "lon": -128.164595
     },
-    "detail": "detail/ca-bc/B-4",
+    "island_km2": null,
+    "detail": "detail/ca-bc/B-58.529093_-127.759084",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 52.084979,
+    "lon": -131.211507,
+    "dist_m": 114492.57,
+    "nearest_way": {
+     "id": 188149705,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Rose Harbour",
+     "type": "hamlet",
+     "dist_m": 11291.6,
+     "lat": 52.148945,
+     "lon": -131.083535
+    },
+    "island_km2": 1.9,
+    "detail": "detail/ca-bc/B-52.084979_-131.211507",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 52.163309,
+    "lon": -131.045145,
+    "dist_m": 111896.93,
+    "nearest_way": {
+     "id": 188149705,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Rose Harbour",
+     "type": "hamlet",
+     "dist_m": 3075.3,
+     "lat": 52.148945,
+     "lon": -131.083535
+    },
+    "island_km2": 10054.8,
+    "detail": "detail/ca-bc/B-52.163309_-131.045145",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 52.063264,
-    "lon": -131.089,
-    "dist_m": 120240.64,
+    "lat": 59.0825,
+    "lon": -131.765438,
+    "dist_m": 91144.05,
     "nearest_way": {
-     "id": 188149705,
-     "highway": "service",
-     "name": null,
+     "id": 51188887,
+     "highway": "unclassified",
+     "name": "ODonnel River Road",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Rose Harbour",
-     "type": "hamlet",
-     "dist_m": 9541.0,
-     "lat": 52.148945,
-     "lon": -131.083535
+     "name": "Nahlin",
+     "type": "isolated_dwelling",
+     "dist_m": 22038.2,
+     "lat": 58.884749,
+     "lon": -131.754082
     },
-    "detail": "detail/ca-bc/B-5",
+    "island_km2": null,
+    "detail": "detail/ca-bc/B-59.082500_-131.765438",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 58.468922,
-    "lon": -127.891179,
-    "dist_m": 116923.9,
-    "nearest_way": {
-     "id": 441852452,
-     "highway": "road",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Hyland Post",
-     "type": "hamlet",
-     "dist_m": 93107.4,
-     "lat": 57.645625,
-     "lon": -128.164595
-    },
-    "detail": "detail/ca-bc/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 58.615971,
-    "lon": -127.707154,
-    "dist_m": 115968.47,
-    "nearest_way": {
-     "id": 50758971,
-     "highway": "trunk",
-     "name": "Alaska Highway",
-     "ref": "BC 97",
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Hyland Post",
-     "type": "hamlet",
-     "dist_m": 111386.0,
-     "lat": 57.645625,
-     "lon": -128.164595
-    },
-    "detail": "detail/ca-bc/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 58.481734,
-    "lon": -127.605864,
-    "dist_m": 114288.01,
-    "nearest_way": {
-     "id": 50758971,
-     "highway": "trunk",
-     "name": "Alaska Highway",
-     "ref": "BC 97",
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Hyland Post",
-     "type": "hamlet",
-     "dist_m": 98791.6,
-     "lat": 57.645625,
-     "lon": -128.164595
-    },
-    "detail": "detail/ca-bc/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 52.09493,
-    "lon": -131.23091,
-    "dist_m": 112949.63,
+    "lat": 52.433578,
+    "lon": -131.360289,
+    "dist_m": 75136.28,
     "nearest_way": {
      "id": 188149705,
      "highway": "service",
@@ -433,37 +596,345 @@
     "nearest_place": {
      "name": "Rose Harbour",
      "type": "hamlet",
-     "dist_m": 11747.7,
+     "dist_m": 36873.9,
      "lat": 52.148945,
      "lon": -131.083535
     },
-    "detail": "detail/ca-bc/B-9",
+    "island_km2": 6.2,
+    "detail": "detail/ca-bc/B-52.433578_-131.360289",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 58.55875,
-    "lon": -127.931059,
-    "dist_m": 112520.36,
+    "rank": 7,
+    "lat": 60.000334,
+    "lon": -138.340716,
+    "dist_m": 73315.37,
     "nearest_way": {
-     "id": 269088583,
-     "highway": "service",
-     "name": "Boya Lake Access Road",
+     "id": 292508039,
+     "highway": "unclassified",
+     "name": "East Gate Road",
+     "ref": "NF 9955",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Klukshu",
+     "type": "hamlet",
+     "dist_m": 80840.9,
+     "lat": 60.294684,
+     "lon": -137.010557
+    },
+    "island_km2": null,
+    "detail": "detail/ca-bc/B-60.000334_-138.340716",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 60.000448,
+    "lon": -120.002717,
+    "dist_m": 71320.9,
+    "nearest_way": {
+     "id": 435310107,
+     "highway": "tertiary",
+     "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Hyland Post",
+     "name": "Sambaa K'e",
      "type": "hamlet",
-     "dist_m": 102631.1,
-     "lat": 57.645625,
-     "lon": -128.164595
+     "dist_m": 84550.7,
+     "lat": 60.441945,
+     "lon": -121.243477
     },
-    "detail": "detail/ca-bc/B-10",
+    "island_km2": null,
+    "detail": "detail/ca-bc/B-60.000448_-120.002717",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 52.546556,
+    "lon": -131.363283,
+    "dist_m": 64239.18,
+    "nearest_way": {
+     "id": 188149705,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Rose Harbour",
+     "type": "hamlet",
+     "dist_m": 48175.8,
+     "lat": 52.148945,
+     "lon": -131.083535
+    },
+    "island_km2": 16.3,
+    "detail": "detail/ca-bc/B-52.546556_-131.363283",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 52.856841,
+    "lon": -129.357355,
+    "dist_m": 62440.67,
+    "nearest_way": {
+     "id": 1059973468,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Boat Bluff",
+     "type": "isolated_dwelling",
+     "dist_m": 61065.6,
+     "lat": 52.643442,
+     "lon": -128.52418
+    },
+    "island_km2": 18.4,
+    "detail": "detail/ca-bc/B-52.856841_-129.357355",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 52.677392,
+    "lon": -129.427849,
+    "dist_m": 61475.31,
+    "nearest_way": {
+     "id": 1059973468,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Boat Bluff",
+     "type": "isolated_dwelling",
+     "dist_m": 61260.9,
+     "lat": 52.643442,
+     "lon": -128.52418
+    },
+    "island_km2": 4.6,
+    "detail": "detail/ca-bc/B-52.677392_-129.427849",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 52.935193,
+    "lon": -127.817885,
+    "dist_m": 59822.62,
+    "nearest_way": {
+     "id": 1423675271,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Boat Bluff",
+     "type": "isolated_dwelling",
+     "dist_m": 57658.4,
+     "lat": 52.643442,
+     "lon": -128.52418
+    },
+    "island_km2": null,
+    "detail": "detail/ca-bc/B-52.935193_-127.817885",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 60.001518,
+    "lon": -125.407262,
+    "dist_m": 59074.73,
+    "nearest_way": {
+     "id": 1257228648,
+     "highway": "unclassified",
+     "name": "Smith River Access Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Fort Liard",
+     "type": "village",
+     "dist_m": 110884.1,
+     "lat": 60.240823,
+     "lon": -123.471225
+    },
+    "island_km2": null,
+    "detail": "detail/ca-bc/B-60.001518_-125.407262",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 52.94806,
+    "lon": -129.626768,
+    "dist_m": 57005.38,
+    "nearest_way": {
+     "id": 1551373571,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Hartley Bay",
+     "type": "village",
+     "dist_m": 58729.8,
+     "lat": 53.42568,
+     "lon": -129.253125
+    },
+    "island_km2": 134.8,
+    "detail": "detail/ca-bc/B-52.948060_-129.626768",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 52.921248,
+    "lon": -129.170071,
+    "dist_m": 55483.01,
+    "nearest_way": {
+     "id": 1341673739,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Boat Bluff",
+     "type": "isolated_dwelling",
+     "dist_m": 53432.2,
+     "lat": 52.643442,
+     "lon": -128.52418
+    },
+    "island_km2": 2742.5,
+    "detail": "detail/ca-bc/B-52.921248_-129.170071",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 52.770676,
+    "lon": -129.301153,
+    "dist_m": 55323.97,
+    "nearest_way": {
+     "id": 1059973468,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Boat Bluff",
+     "type": "isolated_dwelling",
+     "dist_m": 54391.0,
+     "lat": 52.643442,
+     "lon": -128.52418
+    },
+    "island_km2": 443.1,
+    "detail": "detail/ca-bc/B-52.770676_-129.301153",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 51.753636,
+    "lon": -125.790987,
+    "dist_m": 52090.55,
+    "nearest_way": {
+     "id": 714964749,
+     "highway": "unclassified",
+     "name": "Telchako River Forest Service Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kleena Kleene",
+     "type": "hamlet",
+     "dist_m": 69054.3,
+     "lat": 51.947077,
+     "lon": -124.838758
+    },
+    "island_km2": null,
+    "detail": "detail/ca-bc/B-51.753636_-125.790987",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 59.933506,
+    "lon": -135.795611,
+    "dist_m": 47593.77,
+    "nearest_way": {
+     "id": 51249293,
+     "highway": "trunk",
+     "name": "Haines Highway",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lindeman City",
+     "type": "isolated_dwelling",
+     "dist_m": 43329.3,
+     "lat": 59.785064,
+     "lon": -135.080914
+    },
+    "island_km2": null,
+    "detail": "detail/ca-bc/B-59.933506_-135.795611",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 53.477968,
+    "lon": -129.977768,
+    "dist_m": 44207.31,
+    "nearest_way": {
+     "id": 1551373577,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kitkatla",
+     "type": "village",
+     "dist_m": 46288.4,
+     "lat": 53.795233,
+     "lon": -130.430246
+    },
+    "island_km2": null,
+    "detail": "detail/ca-bc/B-53.477968_-129.977768",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 54.623025,
+    "lon": -129.692782,
+    "dist_m": 40369.17,
+    "nearest_way": {
+     "id": 1426763145,
+     "highway": "unclassified",
+     "name": "Lachmach Forest Service Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kincolith",
+     "type": "village",
+     "dist_m": 44675.8,
+     "lat": 54.994485,
+     "lon": -129.955815
+    },
+    "island_km2": null,
+    "detail": "detail/ca-bc/B-54.623025_-129.692782",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 121263.59,
+  "lat": 58.529093,
+  "lon": -127.759084,
+  "rank": 9,
+  "withheld": 0
  }
 }

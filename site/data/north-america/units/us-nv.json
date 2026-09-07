@@ -35,7 +35,8 @@
      "lat": 39.849168,
      "lon": -118.216223
     },
-    "detail": "detail/us-nv/A-1",
+    "island_km2": null,
+    "detail": "detail/us-nv/A-39.804154_-118.491747",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 41.545525,
      "lon": -119.030983
     },
-    "detail": "detail/us-nv/A-2",
+    "island_km2": null,
+    "detail": "detail/us-nv/A-41.239461_-118.770214",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 40.641425,
      "lon": -116.933829
     },
-    "detail": "detail/us-nv/A-3",
+    "island_km2": null,
+    "detail": "detail/us-nv/A-40.839107_-116.752139",
     "warnings": []
    },
    {
@@ -97,59 +100,16 @@
     "nearest_place": {
      "name": "Wimer Place",
      "type": "hamlet",
-     "dist_m": 15340.8,
+     "dist_m": 15340.7,
      "lat": 41.79858,
      "lon": -119.725837
     },
-    "detail": "detail/us-nv/A-4",
+    "island_km2": null,
+    "detail": "detail/us-nv/A-41.703922_-119.591519",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 41.14891,
-    "lon": -118.788469,
-    "dist_m": 10879.88,
-    "nearest_way": {
-     "id": 14338550,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Goldbud",
-     "type": "hamlet",
-     "dist_m": 40853.8,
-     "lat": 40.791909,
-     "lon": -118.671332
-    },
-    "detail": "detail/us-nv/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 41.368724,
-    "lon": -118.666449,
-    "dist_m": 10424.18,
-    "nearest_way": {
-     "id": 14339514,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Summit Lake",
-     "type": "hamlet",
-     "dist_m": 36238.4,
-     "lat": 41.545525,
-     "lon": -119.030983
-    },
-    "detail": "detail/us-nv/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 36.985569,
     "lon": -114.755239,
     "dist_m": 10100.21,
@@ -163,15 +123,16 @@
     "nearest_place": {
      "name": "Carp",
      "type": "hamlet",
-     "dist_m": 27509.0,
+     "dist_m": 27508.9,
      "lat": 37.114158,
      "lon": -114.490855
     },
-    "detail": "detail/us-nv/A-7",
+    "island_km2": null,
+    "detail": "detail/us-nv/A-36.985569_-114.755239",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 6,
     "lat": 37.039582,
     "lon": -115.511839,
     "dist_m": 9989.89,
@@ -189,11 +150,12 @@
      "lat": 37.364961,
      "lon": -115.164461
     },
-    "detail": "detail/us-nv/A-8",
+    "island_km2": null,
+    "detail": "detail/us-nv/A-37.039582_-115.511839",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 7,
     "lat": 36.938519,
     "lon": -115.757869,
     "dist_m": 9772.76,
@@ -211,11 +173,12 @@
      "lat": 37.044674,
      "lon": -116.075203
     },
-    "detail": "detail/us-nv/A-9",
+    "island_km2": null,
+    "detail": "detail/us-nv/A-36.938519_-115.757869",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 8,
     "lat": 37.128806,
     "lon": -117.36656,
     "dist_m": 9495.25,
@@ -229,16 +192,70 @@
     "nearest_place": {
      "name": "Grapevine",
      "type": "hamlet",
-     "dist_m": 14845.1,
+     "dist_m": 14845.0,
      "lat": 36.995051,
      "lon": -117.364567
     },
-    "detail": "detail/us-nv/A-10",
+    "island_km2": null,
+    "detail": "detail/us-nv/A-37.128806_-117.366560",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 36.932123,
+    "lon": -115.092162,
+    "dist_m": 9461.86,
+    "nearest_way": {
+     "id": 14282484,
+     "highway": "track",
+     "name": "Cabin Springs Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Alamo",
+     "type": "village",
+     "dist_m": 48464.1,
+     "lat": 37.364961,
+     "lon": -115.164461
+    },
+    "island_km2": null,
+    "detail": "detail/us-nv/A-36.932123_-115.092162",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 38.79947,
+    "lon": -117.313666,
+    "dist_m": 9166.72,
+    "nearest_way": {
+     "id": 413183876,
+     "highway": "track",
+     "name": "96A",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Darroughs Hot Springs",
+     "type": "isolated_dwelling",
+     "dist_m": 11791.1,
+     "lat": 38.820334,
+     "lon": -117.180559
+    },
+    "island_km2": null,
+    "detail": "detail/us-nv/A-38.799470_-117.313666",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 12577.86,
+  "lat": 39.804154,
+  "lon": -118.491747,
+  "rank": 29,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 41.784436,
      "lon": -117.223567
     },
-    "detail": "detail/us-nv/B-1",
+    "island_km2": null,
+    "detail": "detail/us-nv/B-41.742370_-116.849575",
     "warnings": []
    },
    {
@@ -283,187 +301,203 @@
      "lat": 37.044674,
      "lon": -116.075203
     },
-    "detail": "detail/us-nv/B-2",
+    "island_km2": null,
+    "detail": "detail/us-nv/B-36.960559_-115.621869",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 41.67591,
-    "lon": -116.763877,
-    "dist_m": 29106.96,
+    "lat": 41.447418,
+    "lon": -119.39973,
+    "dist_m": 20309.51,
     "nearest_way": {
-     "id": 14305350,
+     "id": 14348825,
+     "highway": "tertiary",
+     "name": "County Road 217",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chinatown",
+     "type": "hamlet",
+     "dist_m": 18681.6,
+     "lat": 41.531565,
+     "lon": -119.206029
+    },
+    "island_km2": null,
+    "detail": "detail/us-nv/B-41.447418_-119.399730",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 40.067896,
+    "lon": -115.193095,
+    "dist_m": 19532.12,
+    "nearest_way": {
+     "id": 792237422,
      "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Scraper Springs",
+     "name": "Shanty Town",
      "type": "hamlet",
-     "dist_m": 38193.6,
-     "lat": 41.337681,
-     "lon": -116.681215
+     "dist_m": 28391.8,
+     "lat": 40.161874,
+     "lon": -115.502825
     },
-    "detail": "detail/us-nv/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 41.832443,
-    "lon": -116.867924,
-    "dist_m": 28003.97,
-    "nearest_way": {
-     "id": 14348035,
-     "highway": "unclassified",
-     "name": "Quinn River Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Calico Ranch",
-     "type": "hamlet",
-     "dist_m": 28886.8,
-     "lat": 41.882536,
-     "lon": -117.209296
-    },
-    "detail": "detail/us-nv/B-4",
+    "island_km2": null,
+    "detail": "detail/us-nv/B-40.067896_-115.193095",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 37.036962,
-    "lon": -115.555907,
-    "dist_m": 26600.81,
+    "lat": 36.977575,
+    "lon": -117.076943,
+    "dist_m": 19294.15,
     "nearest_way": {
-     "id": 14339998,
-     "highway": "unclassified",
-     "name": "Alamo Road",
-     "ref": null,
+     "id": 14291040,
+     "highway": "secondary",
+     "name": "Scotty's Castle Road",
+     "ref": "SR 267",
      "country": "us"
     },
     "nearest_place": {
-     "name": "Survival City",
-     "type": "hamlet",
-     "dist_m": 46206.6,
-     "lat": 37.044674,
-     "lon": -116.075203
+     "name": "Strozzi Ranch",
+     "type": "isolated_dwelling",
+     "dist_m": 3943.6,
+     "lat": 36.942102,
+     "lon": -117.074321
     },
-    "detail": "detail/us-nv/B-5",
+    "island_km2": null,
+    "detail": "detail/us-nv/B-36.977575_-117.076943",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 41.920413,
-    "lon": -116.901248,
-    "dist_m": 25928.35,
+    "lat": 40.689875,
+    "lon": -114.386735,
+    "dist_m": 18787.99,
     "nearest_way": {
-     "id": 817655945,
+     "id": 673031275,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Decoy",
+     "type": "hamlet",
+     "dist_m": 8782.5,
+     "lat": 40.671602,
+     "lon": -114.487811
+    },
+    "island_km2": null,
+    "detail": "detail/us-nv/B-40.689875_-114.386735",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 36.238351,
+    "lon": -114.207828,
+    "dist_m": 18743.89,
+    "nearest_way": {
+     "id": 196851062,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Calico Ranch",
+     "name": "Echo Bay",
      "type": "hamlet",
-     "dist_m": 25905.2,
-     "lat": 41.882536,
-     "lon": -117.209296
+     "dist_m": 21241.7,
+     "lat": 36.309146,
+     "lon": -114.427477
     },
-    "detail": "detail/us-nv/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 41.589672,
-    "lon": -116.723106,
-    "dist_m": 25725.62,
-    "nearest_way": {
-     "id": 726511101,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Scraper Springs",
-     "type": "hamlet",
-     "dist_m": 28204.7,
-     "lat": 41.337681,
-     "lon": -116.681215
-    },
-    "detail": "detail/us-nv/B-7",
+    "island_km2": null,
+    "detail": "detail/us-nv/B-36.238351_-114.207828",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 41.468362,
-    "lon": -116.672329,
-    "dist_m": 25651.47,
+    "lat": 40.963682,
+    "lon": -118.926158,
+    "dist_m": 18366.65,
     "nearest_way": {
-     "id": 726511101,
-     "highway": "unclassified",
+     "id": 14351895,
+     "highway": "tertiary",
+     "name": "Soldier Meadows Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Goldbud",
+     "type": "hamlet",
+     "dist_m": 28727.0,
+     "lat": 40.791909,
+     "lon": -118.671332
+    },
+    "island_km2": null,
+    "detail": "detail/us-nv/B-40.963682_-118.926158",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.171975,
+    "lon": -118.125105,
+    "dist_m": 17721.24,
+    "nearest_way": {
+     "id": 527787105,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Scraper Springs",
+     "name": "River Ranch",
      "type": "hamlet",
-     "dist_m": 14532.6,
-     "lat": 41.337681,
-     "lon": -116.681215
+     "dist_m": 34393.0,
+     "lat": 41.462043,
+     "lon": -117.981253
     },
-    "detail": "detail/us-nv/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 41.7021,
-    "lon": -116.962113,
-    "dist_m": 23664.73,
-    "nearest_way": {
-     "id": 1364195921,
-     "highway": "unclassified",
-     "name": "Little Owyhee Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Owyhee Camp",
-     "type": "hamlet",
-     "dist_m": 23592.9,
-     "lat": 41.784436,
-     "lon": -117.223567
-    },
-    "detail": "detail/us-nv/B-9",
+    "island_km2": null,
+    "detail": "detail/us-nv/B-41.171975_-118.125105",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 36.869286,
-    "lon": -115.647293,
-    "dist_m": 23311.4,
+    "lat": 41.351226,
+    "lon": -115.574258,
+    "dist_m": 17324.35,
     "nearest_way": {
-     "id": 14421147,
-     "highway": "residential",
-     "name": "Ff Road",
-     "ref": null,
+     "id": 14365605,
+     "highway": "tertiary",
+     "name": "Deeth-Charleston Road",
+     "ref": "CR-747",
      "country": "us"
     },
     "nearest_place": {
-     "name": "Indian Springs",
-     "type": "village",
-     "dist_m": 32531.4,
-     "lat": 36.576715,
-     "lon": -115.670148
+     "name": "North Fork",
+     "type": "hamlet",
+     "dist_m": 24965.0,
+     "lat": 41.482409,
+     "lon": -115.816746
     },
-    "detail": "detail/us-nv/B-10",
+    "island_km2": null,
+    "detail": "detail/us-nv/B-41.351226_-115.574258",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 31334.49,
+  "lat": 41.74237,
+  "lon": -116.849575,
+  "rank": 16,
+  "withheld": 0
  }
 }

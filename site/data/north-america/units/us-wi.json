@@ -35,16 +35,17 @@
      "lat": 46.852033,
      "lon": -90.790336
     },
-    "detail": "detail/us-wi/A-1",
+    "island_km2": 36.4,
+    "detail": "detail/us-wi/A-47.077063_-90.394775",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 47.075701,
-    "lon": -90.586775,
-    "dist_m": 22544.56,
+    "lat": 47.040768,
+    "lon": -90.562938,
+    "dist_m": 18913.55,
     "nearest_way": {
-     "id": 167247715,
+     "id": 167247734,
      "highway": "service",
      "name": null,
      "ref": null,
@@ -53,37 +54,16 @@
     "nearest_place": {
      "name": "Sand Bay",
      "type": "hamlet",
-     "dist_m": 27263.2,
+     "dist_m": 27088.4,
      "lat": 46.945857,
      "lon": -90.890932
     },
-    "detail": "detail/us-wi/A-2",
+    "island_km2": 7.8,
+    "detail": "detail/us-wi/A-47.040768_-90.562938",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 46.945934,
-    "lon": -90.391392,
-    "dist_m": 17810.64,
-    "nearest_way": {
-     "id": 1374616426,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Red Cliff",
-     "type": "village",
-     "dist_m": 32141.6,
-     "lat": 46.852033,
-     "lon": -90.790336
-    },
-    "detail": "detail/us-wi/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 47.079893,
     "lon": -90.727094,
     "dist_m": 16347.49,
@@ -101,33 +81,12 @@
      "lat": 46.945857,
      "lon": -90.890932
     },
-    "detail": "detail/us-wi/A-4",
+    "island_km2": 2.1,
+    "detail": "detail/us-wi/A-47.079893_-90.727094",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 46.967345,
-    "lon": -90.522626,
-    "dist_m": 12225.77,
-    "nearest_way": {
-     "id": 1319094661,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Red Cliff",
-     "type": "village",
-     "dist_m": 24089.3,
-     "lat": 46.852033,
-     "lon": -90.790336
-    },
-    "detail": "detail/us-wi/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 4,
     "lat": 46.994149,
     "lon": -90.680403,
     "dist_m": 12125.37,
@@ -145,38 +104,17 @@
      "lat": 46.945857,
      "lon": -90.890932
     },
-    "detail": "detail/us-wi/A-6",
+    "island_km2": 7.2,
+    "detail": "detail/us-wi/A-46.994149_-90.680403",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 45.054363,
-    "lon": -87.489721,
-    "dist_m": 8511.24,
+    "rank": 5,
+    "lat": 46.958193,
+    "lon": -90.507794,
+    "dist_m": 12009.68,
     "nearest_way": {
-     "id": 1463928259,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Menominee",
-     "type": "town",
-     "dist_m": 11471.9,
-     "lat": 45.107671,
-     "lon": -87.614491
-    },
-    "detail": "detail/us-wi/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 46.87486,
-    "lon": -90.476113,
-    "dist_m": 8170.16,
-    "nearest_way": {
-     "id": 167223558,
+     "id": 1319094661,
      "highway": "service",
      "name": null,
      "ref": null,
@@ -185,37 +123,16 @@
     "nearest_place": {
      "name": "Red Cliff",
      "type": "village",
-     "dist_m": 24093.4,
+     "dist_m": 24549.8,
      "lat": 46.852033,
      "lon": -90.790336
     },
-    "detail": "detail/us-wi/A-8",
+    "island_km2": 45.2,
+    "detail": "detail/us-wi/A-46.958193_-90.507794",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 47.003302,
-    "lon": -90.938073,
-    "dist_m": 6858.83,
-    "nearest_way": {
-     "id": 213119149,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Sand Bay",
-     "type": "hamlet",
-     "dist_m": 7324.6,
-     "lat": 46.945857,
-     "lon": -90.890932
-    },
-    "detail": "detail/us-wi/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 6,
     "lat": 46.69566,
     "lon": -90.742073,
     "dist_m": 6814.09,
@@ -233,12 +150,273 @@
      "lat": 46.754657,
      "lon": -90.782405
     },
-    "detail": "detail/us-wi/A-10",
+    "island_km2": null,
+    "detail": "detail/us-wi/A-46.695660_-90.742073",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.999487,
+    "lon": -90.937926,
+    "dist_m": 6552.06,
+    "nearest_way": {
+     "id": 213119149,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sand Bay",
+     "type": "hamlet",
+     "dist_m": 6952.3,
+     "lat": 46.945857,
+     "lon": -90.890932
+    },
+    "island_km2": 14.2,
+    "detail": "detail/us-wi/A-46.999487_-90.937926",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.891514,
+    "lon": -90.691036,
+    "dist_m": 5335.52,
+    "nearest_way": {
+     "id": 1217596135,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Red Cliff",
+     "type": "village",
+     "dist_m": 8750.7,
+     "lat": 46.852033,
+     "lon": -90.790336
+    },
+    "island_km2": 4.2,
+    "detail": "detail/us-wi/A-46.891514_-90.691036",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.160736,
+    "lon": -91.586504,
+    "dist_m": 3527.87,
+    "nearest_way": {
+     "id": 1178201055,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chittamo",
+     "type": "hamlet",
+     "dist_m": 10687.8,
+     "lat": 46.128,
+     "lon": -91.716572
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/A-46.160736_-91.586504",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.323223,
+    "lon": -92.024619,
+    "dist_m": 3252.95,
+    "nearest_way": {
+     "id": 21457904,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Moose Junction",
+     "type": "hamlet",
+     "dist_m": 10796.8,
+     "lat": 46.287441,
+     "lon": -92.154915
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/A-46.323223_-92.024619",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 45.64614,
+    "lon": -91.070674,
+    "dist_m": 3219.21,
+    "nearest_way": {
+     "id": 224046947,
+     "highway": "primary",
+     "name": "State Highway 27",
+     "ref": "WI 27",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Murry",
+     "type": "village",
+     "dist_m": 11338.2,
+     "lat": 45.600519,
+     "lon": -91.200711
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/A-45.646140_-91.070674",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 46.044227,
+    "lon": -91.67698,
+    "dist_m": 3015.62,
+    "nearest_way": {
+     "id": 21637294,
+     "highway": "residential",
+     "name": "Hall Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stanberry",
+     "type": "hamlet",
+     "dist_m": 5689.5,
+     "lat": 46.007171,
+     "lon": -91.626288
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/A-46.044227_-91.676980",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 43.502327,
+    "lon": -88.63141,
+    "dist_m": 2957.61,
+    "nearest_way": {
+     "id": 21457210,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Horicon",
+     "type": "village",
+     "dist_m": 5660.1,
+     "lat": 43.451382,
+     "lon": -88.631214
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/A-43.502327_-88.631410",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 45.617291,
+    "lon": -90.157625,
+    "dist_m": 2928.46,
+    "nearest_way": {
+     "id": 21562372,
+     "highway": "residential",
+     "name": "Trappers Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dover",
+     "type": "hamlet",
+     "dist_m": 6476.6,
+     "lat": 45.671624,
+     "lon": -90.187651
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/A-45.617291_-90.157625",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 46.628344,
+    "lon": -92.251261,
+    "dist_m": 2861.73,
+    "nearest_way": {
+     "id": 21462551,
+     "highway": "tertiary",
+     "name": "East Military Road",
+     "ref": "CTH W",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Anton",
+     "type": "hamlet",
+     "dist_m": 1586.4,
+     "lat": 46.619108,
+     "lon": -92.235471
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/A-46.628344_-92.251261",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 46.72845,
+    "lon": -91.311103,
+    "dist_m": 2844.43,
+    "nearest_way": {
+     "id": 211265900,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Port Wing",
+     "type": "village",
+     "dist_m": 7791.2,
+     "lat": 46.774971,
+     "lon": -91.387368
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/A-46.728450_-91.311103",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 46.084413,
+    "lon": -90.119967,
+    "dist_m": 2813.02,
+    "nearest_way": {
+     "id": 425763604,
+     "highway": "residential",
+     "name": "Wilson Lake Drive West",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Springstead",
+     "type": "hamlet",
+     "dist_m": 6706.9,
+     "lat": 46.025226,
+     "lon": -90.136829
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/A-46.084413_-90.119967",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 6814.09,
+  "lat": 46.69566,
+  "lon": -90.742073,
+  "rank": 41,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,16 +439,17 @@
      "lat": 46.852033,
      "lon": -90.790336
     },
-    "detail": "detail/us-wi/B-1",
+    "island_km2": 36.4,
+    "detail": "detail/us-wi/B-47.077063_-90.394775",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 47.075701,
-    "lon": -90.586775,
-    "dist_m": 22544.56,
+    "lat": 47.040768,
+    "lon": -90.562938,
+    "dist_m": 18913.55,
     "nearest_way": {
-     "id": 167247715,
+     "id": 167247734,
      "highway": "service",
      "name": null,
      "ref": null,
@@ -279,37 +458,16 @@
     "nearest_place": {
      "name": "Sand Bay",
      "type": "hamlet",
-     "dist_m": 27263.2,
+     "dist_m": 27088.4,
      "lat": 46.945857,
      "lon": -90.890932
     },
-    "detail": "detail/us-wi/B-2",
+    "island_km2": 7.8,
+    "detail": "detail/us-wi/B-47.040768_-90.562938",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 46.945934,
-    "lon": -90.391392,
-    "dist_m": 17810.64,
-    "nearest_way": {
-     "id": 1374616426,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Red Cliff",
-     "type": "village",
-     "dist_m": 32141.6,
-     "lat": 46.852033,
-     "lon": -90.790336
-    },
-    "detail": "detail/us-wi/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 47.079893,
     "lon": -90.727094,
     "dist_m": 16347.49,
@@ -327,11 +485,12 @@
      "lat": 46.945857,
      "lon": -90.890932
     },
-    "detail": "detail/us-wi/B-4",
+    "island_km2": 2.1,
+    "detail": "detail/us-wi/B-47.079893_-90.727094",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 46.994149,
     "lon": -90.680403,
     "dist_m": 12353.08,
@@ -349,14 +508,15 @@
      "lat": 46.945857,
      "lon": -90.890932
     },
-    "detail": "detail/us-wi/B-5",
+    "island_km2": 7.2,
+    "detail": "detail/us-wi/B-46.994149_-90.680403",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 46.967345,
-    "lon": -90.522626,
-    "dist_m": 12225.77,
+    "rank": 5,
+    "lat": 46.958193,
+    "lon": -90.507794,
+    "dist_m": 12009.68,
     "nearest_way": {
      "id": 1319094661,
      "highway": "service",
@@ -367,59 +527,16 @@
     "nearest_place": {
      "name": "Red Cliff",
      "type": "village",
-     "dist_m": 24089.3,
+     "dist_m": 24549.8,
      "lat": 46.852033,
      "lon": -90.790336
     },
-    "detail": "detail/us-wi/B-6",
+    "island_km2": 45.2,
+    "detail": "detail/us-wi/B-46.958193_-90.507794",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 45.054363,
-    "lon": -87.489721,
-    "dist_m": 8511.24,
-    "nearest_way": {
-     "id": 1463928259,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Menominee",
-     "type": "town",
-     "dist_m": 11471.9,
-     "lat": 45.107671,
-     "lon": -87.614491
-    },
-    "detail": "detail/us-wi/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 46.87486,
-    "lon": -90.476113,
-    "dist_m": 8170.16,
-    "nearest_way": {
-     "id": 167223558,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Red Cliff",
-     "type": "village",
-     "dist_m": 24093.4,
-     "lat": 46.852033,
-     "lon": -90.790336
-    },
-    "detail": "detail/us-wi/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 6,
     "lat": 46.985339,
     "lon": -90.982152,
     "dist_m": 7515.1,
@@ -433,15 +550,16 @@
     "nearest_place": {
      "name": "Sand Bay",
      "type": "hamlet",
-     "dist_m": 8213.4,
+     "dist_m": 8213.5,
      "lat": 46.945857,
      "lon": -90.890932
     },
-    "detail": "detail/us-wi/B-9",
+    "island_km2": 14.2,
+    "detail": "detail/us-wi/B-46.985339_-90.982152",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 7,
     "lat": 46.69566,
     "lon": -90.742073,
     "dist_m": 6814.09,
@@ -459,11 +577,249 @@
      "lat": 46.754657,
      "lon": -90.782405
     },
-    "detail": "detail/us-wi/B-10",
+    "island_km2": null,
+    "detail": "detail/us-wi/B-46.695660_-90.742073",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.889523,
+    "lon": -90.698094,
+    "dist_m": 5658.26,
+    "nearest_way": {
+     "id": 1217596135,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Red Cliff",
+     "type": "village",
+     "dist_m": 8174.7,
+     "lat": 46.852033,
+     "lon": -90.790336
+    },
+    "island_km2": 4.2,
+    "detail": "detail/us-wi/B-46.889523_-90.698094",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.023192,
+    "lon": -90.228188,
+    "dist_m": 4695.34,
+    "nearest_way": {
+     "id": 21489868,
+     "highway": "unclassified",
+     "name": "Fed Forestry Rd 128",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Springstead",
+     "type": "hamlet",
+     "dist_m": 7077.5,
+     "lat": 46.025226,
+     "lon": -90.136829
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/B-46.023192_-90.228188",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.328148,
+    "lon": -92.212632,
+    "dist_m": 4457.01,
+    "nearest_way": {
+     "id": 21462690,
+     "highway": "tertiary",
+     "name": "Moose Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Moose Junction",
+     "type": "hamlet",
+     "dist_m": 6343.7,
+     "lat": 46.287441,
+     "lon": -92.154915
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/B-46.328148_-92.212632",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 46.443969,
+    "lon": -90.640975,
+    "dist_m": 4239.75,
+    "nearest_way": {
+     "id": 257718413,
+     "highway": "unclassified",
+     "name": "Potato River Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sedgwick",
+     "type": "hamlet",
+     "dist_m": 3733.2,
+     "lat": 46.466893,
+     "lon": -90.605462
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/B-46.443969_-90.640975",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 46.839945,
+    "lon": -90.944484,
+    "dist_m": 4206.15,
+    "nearest_way": {
+     "id": 21446216,
+     "highway": "tertiary",
+     "name": "Star Route Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Belanger Settlement",
+     "type": "hamlet",
+     "dist_m": 6972.3,
+     "lat": 46.803733,
+     "lon": -91.019087
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/B-46.839945_-90.944484",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 45.238652,
+    "lon": -88.857042,
+    "dist_m": 4154.64,
+    "nearest_way": {
+     "id": 21507481,
+     "highway": "unclassified",
+     "name": "West Hollister Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hollister",
+     "type": "hamlet",
+     "dist_m": 5148.8,
+     "lat": 45.247962,
+     "lon": -88.792801
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/B-45.238652_-88.857042",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 45.696894,
+    "lon": -88.751315,
+    "dist_m": 4136.65,
+    "nearest_way": {
+     "id": 21483209,
+     "highway": "tertiary",
+     "name": "County Road O",
+     "ref": "CTH O",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Newald",
+     "type": "village",
+     "dist_m": 5851.6,
+     "lat": 45.738572,
+     "lon": -88.705393
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/B-45.696894_-88.751315",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 46.161635,
+    "lon": -91.582446,
+    "dist_m": 3653.41,
+    "nearest_way": {
+     "id": 21463369,
+     "highway": "unclassified",
+     "name": "Jack Pine Loop",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chittamo",
+     "type": "hamlet",
+     "dist_m": 11016.5,
+     "lat": 46.128,
+     "lon": -91.716572
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/B-46.161635_-91.582446",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 45.405815,
+    "lon": -89.335193,
+    "dist_m": 3653.05,
+    "nearest_way": {
+     "id": 307029814,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Parrish",
+     "type": "hamlet",
+     "dist_m": 5498.8,
+     "lat": 45.419682,
+     "lon": -89.402624
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/B-45.405815_-89.335193",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 46.727451,
+    "lon": -91.30012,
+    "dist_m": 3651.21,
+    "nearest_way": {
+     "id": 21439024,
+     "highway": "residential",
+     "name": "Hjalmer Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Port Wing",
+     "type": "village",
+     "dist_m": 8505.8,
+     "lat": 46.774971,
+     "lon": -91.387368
+    },
+    "island_km2": null,
+    "detail": "detail/us-wi/B-46.727451_-91.300120",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 6814.09,
+  "lat": 46.69566,
+  "lon": -90.742073,
+  "rank": 46,
+  "withheld": 0
  }
 }

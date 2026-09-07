@@ -35,36 +35,15 @@
      "lat": 29.494099,
      "lon": -89.173935
     },
-    "detail": "detail/us-la/A-1",
+    "island_km2": 3.3,
+    "detail": "detail/us-la/A-29.680029_-88.948087",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 29.764186,
-    "lon": -88.888301,
-    "dist_m": 53984.1,
-    "nearest_way": {
-     "id": 13592902,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Breton",
-     "type": "hamlet",
-     "dist_m": 40761.0,
-     "lat": 29.494099,
-     "lon": -89.173935
-    },
-    "detail": "detail/us-la/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 29.85451,
-    "lon": -88.863212,
-    "dist_m": 45703.73,
+    "lat": 29.845413,
+    "lon": -88.846678,
+    "dist_m": 46021.17,
     "nearest_way": {
      "id": 251208526,
      "highway": "track",
@@ -75,37 +54,16 @@
     "nearest_place": {
      "name": "Breton",
      "type": "hamlet",
-     "dist_m": 50007.1,
+     "dist_m": 50200.5,
      "lat": 29.494099,
      "lon": -89.173935
     },
-    "detail": "detail/us-la/A-3",
+    "island_km2": 13.1,
+    "detail": "detail/us-la/A-29.845413_-88.846678",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 29.556604,
-    "lon": -89.058085,
-    "dist_m": 41379.86,
-    "nearest_way": {
-     "id": 13401142,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Breton",
-     "type": "hamlet",
-     "dist_m": 13195.9,
-     "lat": 29.494099,
-     "lon": -89.173935
-    },
-    "detail": "detail/us-la/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
+    "rank": 3,
     "lat": 29.88482,
     "lon": -89.24061,
     "dist_m": 35801.22,
@@ -123,77 +81,12 @@
      "lat": 29.877982,
      "lon": -89.597
     },
-    "detail": "detail/us-la/A-5",
+    "island_km2": 1.6,
+    "detail": "detail/us-la/A-29.884820_-89.240610",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 29.943744,
-    "lon": -88.834078,
-    "dist_m": 35544.58,
-    "nearest_way": {
-     "id": 251208526,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Biloxi",
-     "type": "city",
-     "dist_m": 50942.3,
-     "lat": 30.400763,
-     "lon": -88.889382
-    },
-    "detail": "detail/us-la/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 29.734657,
-    "lon": -89.265093,
-    "dist_m": 34356.78,
-    "nearest_way": {
-     "id": 495368612,
-     "highway": "service",
-     "name": null,
-     "ref": "LA 624",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Breton",
-     "type": "hamlet",
-     "dist_m": 28088.7,
-     "lat": 29.494099,
-     "lon": -89.173935
-    },
-    "detail": "detail/us-la/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 29.414727,
-    "lon": -91.855546,
-    "dist_m": 32888.38,
-    "nearest_way": {
-     "id": 13477199,
-     "highway": "residential",
-     "name": "Bayview Drive",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Cypremort Point",
-     "type": "hamlet",
-     "dist_m": 33713.3,
-     "lat": 29.718543,
-     "lon": -91.871787
-    },
-    "detail": "detail/us-la/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 4,
     "lat": 29.972321,
     "lon": -89.284131,
     "dist_m": 32455.37,
@@ -211,61 +104,393 @@
      "lat": 29.877982,
      "lon": -89.597
     },
-    "detail": "detail/us-la/A-9",
+    "island_km2": 1.5,
+    "detail": "detail/us-la/A-29.972321_-89.284131",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 29.048607,
-    "lon": -90.922827,
-    "dist_m": 31550.33,
+    "rank": 5,
+    "lat": 29.76311,
+    "lon": -89.285275,
+    "dist_m": 31656.46,
     "nearest_way": {
-     "id": 1120657041,
+     "id": 495368612,
+     "highway": "service",
+     "name": null,
+     "ref": "LA 624",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Breton",
+     "type": "hamlet",
+     "dist_m": 31708.4,
+     "lat": 29.494099,
+     "lon": -89.173935
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/A-29.763110_-89.285275",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 29.220254,
+    "lon": -91.144251,
+    "dist_m": 30637.67,
+    "nearest_way": {
+     "id": 846845942,
      "highway": "track",
-     "name": "Bayou Dularge Road",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Theriot",
+     "type": "village",
+     "dist_m": 40991.6,
+     "lat": 29.411589,
+     "lon": -90.783136
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/A-29.220254_-91.144251",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 29.054298,
+    "lon": -90.865558,
+    "dist_m": 28985.16,
+    "nearest_way": {
+     "id": 13498810,
+     "highway": "secondary",
+     "name": "Highway 56",
+     "ref": "LA 56",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cocodrie",
+     "type": "hamlet",
+     "dist_m": 29154.3,
+     "lat": 29.246893,
+     "lon": -90.661477
+    },
+    "island_km2": 3.7,
+    "detail": "detail/us-la/A-29.054298_-90.865558",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 29.063303,
+    "lon": -90.480944,
+    "dist_m": 26793.02,
+    "nearest_way": {
+     "id": 13499347,
+     "highway": "residential",
+     "name": "Redfish Street",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
      "name": "Cocodrie",
      "type": "hamlet",
-     "dist_m": 33610.5,
+     "dist_m": 26881.0,
      "lat": 29.246893,
      "lon": -90.661477
     },
-    "detail": "detail/us-la/A-10",
+    "island_km2": 4.2,
+    "detail": "detail/us-la/A-29.063303_-90.480944",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 29.482986,
+    "lon": -91.79149,
+    "dist_m": 26575.68,
+    "nearest_way": {
+     "id": 13476491,
+     "highway": "residential",
+     "name": "Bay View Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Burns",
+     "type": "hamlet",
+     "dist_m": 27003.6,
+     "lat": 29.573547,
+     "lon": -91.53289
+    },
+    "island_km2": 267.8,
+    "detail": "detail/us-la/A-29.482986_-91.791490",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 29.184102,
+    "lon": -89.070795,
+    "dist_m": 26496.06,
+    "nearest_way": {
+     "id": 895399672,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pilottown",
+     "type": "hamlet",
+     "dist_m": 18079.1,
+     "lat": 29.179848,
+     "lon": -89.256601
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/A-29.184102_-89.070795",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 29.047322,
+    "lon": -90.762362,
+    "dist_m": 24025.67,
+    "nearest_way": {
+     "id": 13498810,
+     "highway": "secondary",
+     "name": "Highway 56",
+     "ref": "LA 56",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cocodrie",
+     "type": "hamlet",
+     "dist_m": 24200.3,
+     "lat": 29.246893,
+     "lon": -90.661477
+    },
+    "island_km2": 3.6,
+    "detail": "detail/us-la/A-29.047322_-90.762362",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 30.066145,
+    "lon": -89.280194,
+    "dist_m": 23728.13,
+    "nearest_way": {
+     "id": 13592906,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Gulfside",
+     "type": "hamlet",
+     "dist_m": 24743.1,
+     "lat": 30.266863,
+     "lon": -89.392548
+    },
+    "island_km2": 34.2,
+    "detail": "detail/us-la/A-30.066145_-89.280194",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 29.630084,
+    "lon": -89.490094,
+    "dist_m": 23306.37,
+    "nearest_way": {
+     "id": 13404508,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hesperides",
+     "type": "hamlet",
+     "dist_m": 23821.3,
+     "lat": 29.44605,
+     "lon": -89.617006
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/A-29.630084_-89.490094",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 29.462997,
+    "lon": -90.049296,
+    "dist_m": 18607.71,
+    "nearest_way": {
+     "id": 13405470,
+     "highway": "residential",
+     "name": "West Bayou Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bassa Bassa",
+     "type": "hamlet",
+     "dist_m": 11754.1,
+     "lat": 29.367615,
+     "lon": -89.996369
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/A-29.462997_-90.049296",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 28.928984,
+    "lon": -89.419423,
+    "dist_m": 16878.23,
+    "nearest_way": {
+     "id": 895399672,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Port Eads",
+     "type": "hamlet",
+     "dist_m": 26420.0,
+     "lat": 29.01575,
+     "lon": -89.166947
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/A-28.928984_-89.419423",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 29.108719,
+    "lon": -90.376158,
+    "dist_m": 15710.57,
+    "nearest_way": {
+     "id": 12670866,
+     "highway": "tertiary",
+     "name": "Norman Doucet Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Leeville",
+     "type": "hamlet",
+     "dist_m": 22482.8,
+     "lat": 29.250453,
+     "lon": -90.210807
+    },
+    "island_km2": 1.0,
+    "detail": "detail/us-la/A-29.108719_-90.376158",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 29.613335,
+    "lon": -92.008664,
+    "dist_m": 14006.55,
+    "nearest_way": {
+     "id": 1117936847,
+     "highway": "road",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cypremort Point",
+     "type": "hamlet",
+     "dist_m": 17651.8,
+     "lat": 29.718543,
+     "lon": -91.871787
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/A-29.613335_-92.008664",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 29.995647,
+    "lon": -91.407871,
+    "dist_m": 13311.59,
+    "nearest_way": {
+     "id": 13472766,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fish Island",
+     "type": "hamlet",
+     "dist_m": 13405.1,
+     "lat": 29.968258,
+     "lon": -91.543169
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/A-29.995647_-91.407871",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 29.80553,
+    "lon": -92.593106,
+    "dist_m": 12444.64,
+    "nearest_way": {
+     "id": 13510119,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Florence Landing",
+     "type": "hamlet",
+     "dist_m": 14820.9,
+     "lat": 29.919655,
+     "lon": -92.513192
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/A-29.805530_-92.593106",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 29.541759,
+    "lon": -91.399245,
+    "dist_m": 12222.04,
+    "nearest_way": {
+     "id": 13479573,
+     "highway": "service",
+     "name": "Marathon Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fivemile Oaks",
+     "type": "hamlet",
+     "dist_m": 2279.3,
+     "lat": 29.558547,
+     "lon": -91.385665
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/A-29.541759_-91.399245",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 31656.46,
+  "lat": 29.76311,
+  "lon": -89.285275,
+  "rank": 14,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 29.764186,
-    "lon": -88.888301,
-    "dist_m": 66031.4,
-    "nearest_way": {
-     "id": 857058693,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Breton",
-     "type": "hamlet",
-     "dist_m": 40761.0,
-     "lat": 29.494099,
-     "lon": -89.173935
-    },
-    "detail": "detail/us-la/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 29.680029,
     "lon": -88.948087,
     "dist_m": 58357.14,
@@ -283,124 +508,38 @@
      "lat": 29.494099,
      "lon": -89.173935
     },
-    "detail": "detail/us-la/B-2",
+    "island_km2": 3.3,
+    "detail": "detail/us-la/B-29.680029_-88.948087",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 29.845413,
+    "lon": -88.846678,
+    "dist_m": 56393.65,
+    "nearest_way": {
+     "id": 857058693,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Breton",
+     "type": "hamlet",
+     "dist_m": 50200.5,
+     "lat": 29.494099,
+     "lon": -89.173935
+    },
+    "island_km2": 13.1,
+    "detail": "detail/us-la/B-29.845413_-88.846678",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 29.847129,
-    "lon": -88.84243,
-    "dist_m": 56130.99,
-    "nearest_way": {
-     "id": 857058693,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Breton",
-     "type": "hamlet",
-     "dist_m": 50607.7,
-     "lat": 29.494099,
-     "lon": -89.173935
-    },
-    "detail": "detail/us-la/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 29.939356,
-    "lon": -88.8253,
-    "dist_m": 45777.66,
-    "nearest_way": {
-     "id": 857058693,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Fountainebleau",
-     "type": "hamlet",
-     "dist_m": 51335.6,
-     "lat": 30.39361,
-     "lon": -88.721707
-    },
-    "detail": "detail/us-la/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 29.556604,
-    "lon": -89.058085,
-    "dist_m": 41405.17,
-    "nearest_way": {
-     "id": 13405805,
-     "highway": "residential",
-     "name": "Boothville River Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Breton",
-     "type": "hamlet",
-     "dist_m": 13195.9,
-     "lat": 29.494099,
-     "lon": -89.173935
-    },
-    "detail": "detail/us-la/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 29.929672,
-    "lon": -89.203955,
-    "dist_m": 40402.59,
-    "nearest_way": {
-     "id": 13591814,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Saint Malo",
-     "type": "hamlet",
-     "dist_m": 38390.0,
-     "lat": 29.877982,
-     "lon": -89.597
-    },
-    "detail": "detail/us-la/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 30.031092,
-    "lon": -88.85867,
-    "dist_m": 36721.88,
-    "nearest_way": {
-     "id": 13631915,
-     "highway": "residential",
-     "name": "Belle Fountain Drive",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Biloxi",
-     "type": "city",
-     "dist_m": 41086.8,
-     "lat": 30.400763,
-     "lon": -88.889382
-    },
-    "detail": "detail/us-la/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 29.824381,
-    "lon": -89.243928,
-    "dist_m": 34880.63,
+    "lat": 29.941506,
+    "lon": -89.239949,
+    "dist_m": 37520.62,
     "nearest_way": {
      "id": 495368612,
      "highway": "service",
@@ -411,15 +550,16 @@
     "nearest_place": {
      "name": "Saint Malo",
      "type": "hamlet",
-     "dist_m": 34630.8,
+     "dist_m": 35193.3,
      "lat": 29.877982,
      "lon": -89.597
     },
-    "detail": "detail/us-la/B-8",
+    "island_km2": 4.4,
+    "detail": "detail/us-la/B-29.941506_-89.239949",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 4,
     "lat": 29.224572,
     "lon": -91.187596,
     "dist_m": 34636.56,
@@ -437,33 +577,387 @@
      "lat": 29.558547,
      "lon": -91.385665
     },
-    "detail": "detail/us-la/B-9",
+    "island_km2": null,
+    "detail": "detail/us-la/B-29.224572_-91.187596",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 29.76311,
+    "lon": -89.285275,
+    "dist_m": 31656.46,
+    "nearest_way": {
+     "id": 495368612,
+     "highway": "service",
+     "name": null,
+     "ref": "LA 624",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Breton",
+     "type": "hamlet",
+     "dist_m": 31708.4,
+     "lat": 29.494099,
+     "lon": -89.173935
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/B-29.763110_-89.285275",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 30.03049,
+    "lon": -89.210206,
+    "dist_m": 31052.37,
+    "nearest_way": {
+     "id": 13591814,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Henderson Point",
+     "type": "hamlet",
+     "dist_m": 31402.0,
+     "lat": 30.305024,
+     "lon": -89.290546
+    },
+    "island_km2": 34.2,
+    "detail": "detail/us-la/B-30.030490_-89.210206",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 29.972735,
+    "lon": -89.350349,
+    "dist_m": 29506.49,
+    "nearest_way": {
+     "id": 495368612,
+     "highway": "service",
+     "name": null,
+     "ref": "LA 624",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Saint Malo",
+     "type": "hamlet",
+     "dist_m": 26029.5,
+     "lat": 29.877982,
+     "lon": -89.597
+    },
+    "island_km2": 2.6,
+    "detail": "detail/us-la/B-29.972735_-89.350349",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 29.054298,
+    "lon": -90.865558,
+    "dist_m": 28985.16,
+    "nearest_way": {
+     "id": 13498810,
+     "highway": "secondary",
+     "name": "Highway 56",
+     "ref": "LA 56",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cocodrie",
+     "type": "hamlet",
+     "dist_m": 29154.3,
+     "lat": 29.246893,
+     "lon": -90.661477
+    },
+    "island_km2": 3.7,
+    "detail": "detail/us-la/B-29.054298_-90.865558",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 29.063303,
+    "lon": -90.480944,
+    "dist_m": 26793.02,
+    "nearest_way": {
+     "id": 13499347,
+     "highway": "residential",
+     "name": "Redfish Street",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cocodrie",
+     "type": "hamlet",
+     "dist_m": 26881.0,
+     "lat": 29.246893,
+     "lon": -90.661477
+    },
+    "island_km2": 4.2,
+    "detail": "detail/us-la/B-29.063303_-90.480944",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 29.414727,
-    "lon": -91.855546,
-    "dist_m": 32888.38,
+    "lat": 29.482986,
+    "lon": -91.79149,
+    "dist_m": 26575.68,
     "nearest_way": {
-     "id": 13477199,
+     "id": 13476491,
      "highway": "residential",
-     "name": "Bayview Drive",
+     "name": "Bay View Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Burns",
+     "type": "hamlet",
+     "dist_m": 27003.6,
+     "lat": 29.573547,
+     "lon": -91.53289
+    },
+    "island_km2": 267.8,
+    "detail": "detail/us-la/B-29.482986_-91.791490",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 29.184102,
+    "lon": -89.070795,
+    "dist_m": 26496.06,
+    "nearest_way": {
+     "id": 895399672,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pilottown",
+     "type": "hamlet",
+     "dist_m": 18079.1,
+     "lat": 29.179848,
+     "lon": -89.256601
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/B-29.184102_-89.070795",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 29.047322,
+    "lon": -90.762362,
+    "dist_m": 24025.67,
+    "nearest_way": {
+     "id": 13498810,
+     "highway": "secondary",
+     "name": "Highway 56",
+     "ref": "LA 56",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cocodrie",
+     "type": "hamlet",
+     "dist_m": 24200.3,
+     "lat": 29.246893,
+     "lon": -90.661477
+    },
+    "island_km2": 3.6,
+    "detail": "detail/us-la/B-29.047322_-90.762362",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 29.630084,
+    "lon": -89.490094,
+    "dist_m": 23444.57,
+    "nearest_way": {
+     "id": 1366036399,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hesperides",
+     "type": "hamlet",
+     "dist_m": 23821.3,
+     "lat": 29.44605,
+     "lon": -89.617006
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/B-29.630084_-89.490094",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 29.463603,
+    "lon": -90.050206,
+    "dist_m": 18644.2,
+    "nearest_way": {
+     "id": 13405470,
+     "highway": "residential",
+     "name": "West Bayou Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bassa Bassa",
+     "type": "hamlet",
+     "dist_m": 11853.2,
+     "lat": 29.367615,
+     "lon": -89.996369
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/B-29.463603_-90.050206",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 28.928984,
+    "lon": -89.419423,
+    "dist_m": 16878.23,
+    "nearest_way": {
+     "id": 895399672,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Port Eads",
+     "type": "hamlet",
+     "dist_m": 26420.0,
+     "lat": 29.01575,
+     "lon": -89.166947
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/B-28.928984_-89.419423",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 29.437423,
+    "lon": -91.35376,
+    "dist_m": 16141.6,
+    "nearest_way": {
+     "id": 13497189,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fivemile Oaks",
+     "type": "hamlet",
+     "dist_m": 13777.7,
+     "lat": 29.558547,
+     "lon": -91.385665
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/B-29.437423_-91.353760",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 29.108719,
+    "lon": -90.376158,
+    "dist_m": 15710.57,
+    "nearest_way": {
+     "id": 12670866,
+     "highway": "tertiary",
+     "name": "Norman Doucet Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Leeville",
+     "type": "hamlet",
+     "dist_m": 22482.8,
+     "lat": 29.250453,
+     "lon": -90.210807
+    },
+    "island_km2": 1.0,
+    "detail": "detail/us-la/B-29.108719_-90.376158",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 29.613335,
+    "lon": -92.008664,
+    "dist_m": 14006.55,
+    "nearest_way": {
+     "id": 1117936847,
+     "highway": "road",
+     "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
      "name": "Cypremort Point",
      "type": "hamlet",
-     "dist_m": 33713.3,
+     "dist_m": 17651.8,
      "lat": 29.718543,
      "lon": -91.871787
     },
-    "detail": "detail/us-la/B-10",
+    "island_km2": null,
+    "detail": "detail/us-la/B-29.613335_-92.008664",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 29.995647,
+    "lon": -91.407871,
+    "dist_m": 13311.59,
+    "nearest_way": {
+     "id": 13472766,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fish Island",
+     "type": "hamlet",
+     "dist_m": 13405.1,
+     "lat": 29.968258,
+     "lon": -91.543169
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/B-29.995647_-91.407871",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 29.802533,
+    "lon": -92.585471,
+    "dist_m": 12679.88,
+    "nearest_way": {
+     "id": 12609489,
+     "highway": "primary",
+     "name": "La 82",
+     "ref": "LA 82",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Florence Landing",
+     "type": "hamlet",
+     "dist_m": 14742.0,
+     "lat": 29.919655,
+     "lon": -92.513192
+    },
+    "island_km2": null,
+    "detail": "detail/us-la/B-29.802533_-92.585471",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 34636.56,
+  "lat": 29.224572,
+  "lon": -91.187596,
+  "rank": 15,
+  "withheld": 0
  }
 }

@@ -18,46 +18,314 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 41.603254,
-    "lon": -71.370139,
-    "dist_m": 2988.13,
+    "lat": 41.307109,
+    "lon": -71.886565,
+    "dist_m": 2100.39,
     "nearest_way": {
-     "id": 884010910,
+     "id": 872267208,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Wickford",
-     "type": "village",
-     "dist_m": 7729.8,
-     "lat": 41.571194,
-     "lon": -71.452418
+     "name": "Stonington",
+     "type": "town",
+     "dist_m": 3587.4,
+     "lat": 41.335933,
+     "lon": -71.905904
     },
-    "detail": "detail/us-ri/A-1",
+    "island_km2": null,
+    "detail": "detail/us-ri/A-41.307109_-71.886565",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 41.459611,
-    "lon": -71.247796,
-    "dist_m": 2218.7,
+    "lat": 41.451371,
+    "lon": -71.581384,
+    "dist_m": 1922.88,
     "nearest_way": {
-     "id": 729928288,
+     "id": 753902782,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Newport",
-     "type": "city",
-     "dist_m": 6461.1,
-     "lat": 41.489983,
-     "lon": -71.313771
+     "name": "South Kingstown",
+     "type": "town",
+     "dist_m": 3524.3,
+     "lat": 41.454944,
+     "lon": -71.539474
     },
-    "detail": "detail/us-ri/A-2",
+    "island_km2": null,
+    "detail": "detail/us-ri/A-41.451371_-71.581384",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 41.769898,
+    "lon": -71.587645,
+    "dist_m": 1370.87,
+    "nearest_way": {
+     "id": 19352257,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Scituate",
+     "type": "town",
+     "dist_m": 2576.3,
+     "lat": 41.785113,
+     "lon": -71.611035
+    },
+    "island_km2": null,
+    "detail": "detail/us-ri/A-41.769898_-71.587645",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 41.232575,
+    "lon": -71.578009,
+    "dist_m": 1250.27,
+    "nearest_way": {
+     "id": 19375516,
+     "highway": "tertiary",
+     "name": "Corn Neck Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "New Shoreham",
+     "type": "town",
+     "dist_m": 6925.5,
+     "lat": 41.172209,
+     "lon": -71.557301
+    },
+    "island_km2": 24.7,
+    "detail": "detail/us-ri/A-41.232575_-71.578009",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 41.637217,
+    "lon": -71.595782,
+    "dist_m": 1149.98,
+    "nearest_way": {
+     "id": 78924015,
+     "highway": "track",
+     "name": "New London Turnpike",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hell's Half Acre",
+     "type": "hamlet",
+     "dist_m": 3735.5,
+     "lat": 41.604738,
+     "lon": -71.607426
+    },
+    "island_km2": null,
+    "detail": "detail/us-ri/A-41.637217_-71.595782",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 41.884631,
+    "lon": -71.796074,
+    "dist_m": 1129.37,
+    "nearest_way": {
+     "id": 1212264522,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "East Putnam",
+     "type": "hamlet",
+     "dist_m": 3656.7,
+     "lat": 41.913709,
+     "lon": -71.816737
+    },
+    "island_km2": null,
+    "detail": "detail/us-ri/A-41.884631_-71.796074",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 41.988367,
+    "lon": -71.774988,
+    "dist_m": 1072.82,
+    "nearest_way": {
+     "id": 19391378,
+     "highway": "track",
+     "name": "Benson Mountain Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "East Thompson",
+     "type": "hamlet",
+     "dist_m": 3610.9,
+     "lat": 42.008986,
+     "lon": -71.808682
+    },
+    "island_km2": null,
+    "detail": "detail/us-ri/A-41.988367_-71.774988",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 41.565851,
+    "lon": -71.772148,
+    "dist_m": 1048.81,
+    "nearest_way": {
+     "id": 19363142,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rockville",
+     "type": "village",
+     "dist_m": 5193.5,
+     "lat": 41.519821,
+     "lon": -71.76118
+    },
+    "island_km2": null,
+    "detail": "detail/us-ri/A-41.565851_-71.772148",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.365515,
+    "lon": -71.514707,
+    "dist_m": 1044.17,
+    "nearest_way": {
+     "id": 19397147,
+     "highway": "residential",
+     "name": "Beach Row",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Jerusalem",
+     "type": "village",
+     "dist_m": 1290.9,
+     "lat": 41.37708,
+     "lon": -71.516249
+    },
+    "island_km2": null,
+    "detail": "detail/us-ri/A-41.365515_-71.514707",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 41.606915,
+    "lon": -71.178823,
+    "dist_m": 1004.86,
+    "nearest_way": {
+     "id": 741838119,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tiverton",
+     "type": "town",
+     "dist_m": 2335.7,
+     "lat": 41.625741,
+     "lon": -71.166333
+    },
+    "island_km2": null,
+    "detail": "detail/us-ri/A-41.606915_-71.178823",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 41.396552,
+    "lon": -71.769509,
+    "dist_m": 930.63,
+    "nearest_way": {
+     "id": 145290323,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bradford",
+     "type": "village",
+     "dist_m": 1863.6,
+     "lat": 41.399262,
+     "lon": -71.747517
+    },
+    "island_km2": null,
+    "detail": "detail/us-ri/A-41.396552_-71.769509",
+    "warnings": []
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 2100.39,
+  "lat": 41.307109,
+  "lon": -71.886565,
+  "rank": 62,
+  "withheld": 0
+ },
+ "B": {
+  "poles": [
+   {
+    "rank": 1,
+    "lat": 41.665549,
+    "lon": -71.34477,
+    "dist_m": 2603.27,
+    "nearest_way": {
+     "id": 1219061789,
+     "highway": "residential",
+     "name": "Neck Farm Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bristol",
+     "type": "town",
+     "dist_m": 6669.7,
+     "lat": 41.677046,
+     "lon": -71.26616
+    },
+    "island_km2": 15.1,
+    "detail": "detail/us-ri/B-41.665549_-71.344770",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 41.59729,
+    "lon": -71.73222,
+    "dist_m": 2134.11,
+    "nearest_way": {
+     "id": 856286590,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "West Greenwich",
+     "type": "town",
+     "dist_m": 6210.9,
+     "lat": 41.622619,
+     "lon": -71.665789
+    },
+    "island_km2": null,
+    "detail": "detail/us-ri/B-41.597290_-71.732220",
     "warnings": []
    },
    {
@@ -79,33 +347,58 @@
      "lat": 41.335933,
      "lon": -71.905904
     },
-    "detail": "detail/us-ri/A-3",
+    "island_km2": null,
+    "detail": "detail/us-ri/B-41.307109_-71.886565",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 41.354627,
-    "lon": -71.51037,
-    "dist_m": 2012.96,
+    "lat": 41.945761,
+    "lon": -71.781155,
+    "dist_m": 2034.59,
     "nearest_way": {
-     "id": 1285654773,
+     "id": 19356077,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Point Judith",
-     "type": "village",
-     "dist_m": 2311.2,
-     "lat": 41.36538,
-     "lon": -71.486723
+     "name": "Quaddick",
+     "type": "hamlet",
+     "dist_m": 3372.9,
+     "lat": 41.938431,
+     "lon": -71.820626
     },
-    "detail": "detail/us-ri/A-4",
+    "island_km2": null,
+    "detail": "detail/us-ri/B-41.945761_-71.781155",
     "warnings": []
    },
    {
     "rank": 5,
+    "lat": 41.767741,
+    "lon": -71.602337,
+    "dist_m": 2031.73,
+    "nearest_way": {
+     "id": 840323188,
+     "highway": "secondary",
+     "name": "Plainfield Pike",
+     "ref": "RI 14",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Scituate",
+     "type": "town",
+     "dist_m": 2060.5,
+     "lat": 41.785113,
+     "lon": -71.611035
+    },
+    "island_km2": null,
+    "detail": "detail/us-ri/B-41.767741_-71.602337",
+    "warnings": []
+   },
+   {
+    "rank": 6,
     "lat": 41.451371,
     "lon": -71.581384,
     "dist_m": 1922.88,
@@ -123,73 +416,54 @@
      "lat": 41.454944,
      "lon": -71.539474
     },
-    "detail": "detail/us-ri/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 41.688062,
-    "lon": -71.21982,
-    "dist_m": 1748.05,
-    "nearest_way": {
-     "id": 19343379,
-     "highway": "residential",
-     "name": "Viking Drive",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Globe Village",
-     "type": "hamlet",
-     "dist_m": 2926.3,
-     "lat": 41.682047,
-     "lon": -71.185602
-    },
-    "detail": "detail/us-ri/A-6",
+    "island_km2": null,
+    "detail": "detail/us-ri/B-41.451371_-71.581384",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 41.50636,
-    "lon": -71.401446,
-    "dist_m": 1384.51,
+    "lat": 41.624266,
+    "lon": -71.603639,
+    "dist_m": 1762.34,
     "nearest_way": {
-     "id": 759385637,
-     "highway": "track",
+     "id": 19345914,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Saunderstown",
-     "type": "village",
-     "dist_m": 1932.1,
-     "lat": 41.50788,
-     "lon": -71.4245
+     "name": "Hell's Half Acre",
+     "type": "hamlet",
+     "dist_m": 2191.7,
+     "lat": 41.604738,
+     "lon": -71.607426
     },
-    "detail": "detail/us-ri/A-7",
+    "island_km2": null,
+    "detail": "detail/us-ri/B-41.624266_-71.603639",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 41.769898,
-    "lon": -71.587645,
-    "dist_m": 1370.87,
+    "lat": 41.350962,
+    "lon": -71.661325,
+    "dist_m": 1591.97,
     "nearest_way": {
-     "id": 19352257,
-     "highway": "track",
-     "name": null,
+     "id": 19386377,
+     "highway": "service",
+     "name": "Park Lane",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Scituate",
+     "name": "Charlestown",
      "type": "town",
-     "dist_m": 2576.3,
-     "lat": 41.785113,
-     "lon": -71.611035
+     "dist_m": 3933.5,
+     "lat": 41.383157,
+     "lon": -71.641729
     },
-    "detail": "detail/us-ri/A-8",
+    "island_km2": null,
+    "detail": "detail/us-ri/B-41.350962_-71.661325",
     "warnings": []
    },
    {
@@ -211,259 +485,88 @@
      "lat": 41.172209,
      "lon": -71.557301
     },
-    "detail": "detail/us-ri/A-9",
+    "island_km2": 24.7,
+    "detail": "detail/us-ri/B-41.232575_-71.578009",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 41.637217,
-    "lon": -71.595782,
-    "dist_m": 1149.98,
+    "lat": 41.365515,
+    "lon": -71.514707,
+    "dist_m": 1044.17,
     "nearest_way": {
-     "id": 78924015,
-     "highway": "track",
-     "name": "New London Turnpike",
+     "id": 19397147,
+     "highway": "residential",
+     "name": "Beach Row",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Hell's Half Acre",
-     "type": "hamlet",
-     "dist_m": 3735.5,
-     "lat": 41.604738,
-     "lon": -71.607426
+     "name": "Jerusalem",
+     "type": "village",
+     "dist_m": 1290.9,
+     "lat": 41.37708,
+     "lon": -71.516249
     },
-    "detail": "detail/us-ri/A-10",
+    "island_km2": null,
+    "detail": "detail/us-ri/B-41.365515_-71.514707",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 41.603752,
+    "lon": -71.180299,
+    "dist_m": 1033.33,
+    "nearest_way": {
+     "id": 765292946,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tiverton",
+     "type": "town",
+     "dist_m": 2705.4,
+     "lat": 41.625741,
+     "lon": -71.166333
+    },
+    "island_km2": null,
+    "detail": "detail/us-ri/B-41.603752_-71.180299",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 41.816714,
+    "lon": -71.771546,
+    "dist_m": 1009.72,
+    "nearest_way": {
+     "id": 19353441,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Foster",
+     "type": "village",
+     "dist_m": 2390.3,
+     "lat": 41.831488,
+     "lon": -71.750625
+    },
+    "island_km2": null,
+    "detail": "detail/us-ri/B-41.816714_-71.771546",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
- "B": {
-  "poles": [
-   {
-    "rank": 1,
-    "lat": 41.603254,
-    "lon": -71.370139,
-    "dist_m": 2988.13,
-    "nearest_way": {
-     "id": 884010910,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Wickford",
-     "type": "village",
-     "dist_m": 7729.8,
-     "lat": 41.571194,
-     "lon": -71.452418
-    },
-    "detail": "detail/us-ri/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 41.459611,
-    "lon": -71.247796,
-    "dist_m": 2218.7,
-    "nearest_way": {
-     "id": 729928288,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Newport",
-     "type": "city",
-     "dist_m": 6461.1,
-     "lat": 41.489983,
-     "lon": -71.313771
-    },
-    "detail": "detail/us-ri/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 41.59729,
-    "lon": -71.73222,
-    "dist_m": 2134.11,
-    "nearest_way": {
-     "id": 856286590,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "West Greenwich",
-     "type": "town",
-     "dist_m": 6210.9,
-     "lat": 41.622619,
-     "lon": -71.665789
-    },
-    "detail": "detail/us-ri/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 41.307109,
-    "lon": -71.886565,
-    "dist_m": 2100.39,
-    "nearest_way": {
-     "id": 872267208,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Stonington",
-     "type": "town",
-     "dist_m": 3587.4,
-     "lat": 41.335933,
-     "lon": -71.905904
-    },
-    "detail": "detail/us-ri/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 41.945761,
-    "lon": -71.781155,
-    "dist_m": 2034.59,
-    "nearest_way": {
-     "id": 19356077,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Quaddick",
-     "type": "hamlet",
-     "dist_m": 3372.9,
-     "lat": 41.938431,
-     "lon": -71.820626
-    },
-    "detail": "detail/us-ri/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 41.767741,
-    "lon": -71.602337,
-    "dist_m": 2031.73,
-    "nearest_way": {
-     "id": 840323188,
-     "highway": "secondary",
-     "name": "Plainfield Pike",
-     "ref": "RI 14",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Scituate",
-     "type": "town",
-     "dist_m": 2060.5,
-     "lat": 41.785113,
-     "lon": -71.611035
-    },
-    "detail": "detail/us-ri/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 41.354627,
-    "lon": -71.51037,
-    "dist_m": 2012.96,
-    "nearest_way": {
-     "id": 1285654773,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Point Judith",
-     "type": "village",
-     "dist_m": 2311.2,
-     "lat": 41.36538,
-     "lon": -71.486723
-    },
-    "detail": "detail/us-ri/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 41.451371,
-    "lon": -71.581384,
-    "dist_m": 1922.88,
-    "nearest_way": {
-     "id": 753902782,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "South Kingstown",
-     "type": "town",
-     "dist_m": 3524.3,
-     "lat": 41.454944,
-     "lon": -71.539474
-    },
-    "detail": "detail/us-ri/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 41.624266,
-    "lon": -71.603639,
-    "dist_m": 1762.34,
-    "nearest_way": {
-     "id": 19345914,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Hell's Half Acre",
-     "type": "hamlet",
-     "dist_m": 2191.8,
-     "lat": 41.604738,
-     "lon": -71.607426
-    },
-    "detail": "detail/us-ri/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 41.688062,
-    "lon": -71.21982,
-    "dist_m": 1748.05,
-    "nearest_way": {
-     "id": 19343379,
-     "highway": "residential",
-     "name": "Viking Drive",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Globe Village",
-     "type": "hamlet",
-     "dist_m": 2926.3,
-     "lat": 41.682047,
-     "lon": -71.185602
-    },
-    "detail": "detail/us-ri/B-10",
-    "warnings": []
-   }
-  ],
-  "withheld": 0,
-  "reason": null
+ "B_mainland": {
+  "dist_m": 2134.11,
+  "lat": 41.59729,
+  "lon": -71.73222,
+  "rank": 63,
+  "withheld": 0
  }
 }

@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 44.499745,
-    "lon": -67.100304,
-    "dist_m": 18027.14,
-    "nearest_way": {
-     "id": 11498589,
-     "highway": "service",
-     "name": "Daniels Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Cutler",
-     "type": "village",
-     "dist_m": 19349.3,
-     "lat": 44.657365,
-     "lon": -67.203831
-    },
-    "detail": "detail/ca-nb/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 46.64345,
     "lon": -66.960967,
     "dist_m": 16601.63,
@@ -57,99 +35,12 @@
      "lat": 46.496632,
      "lon": -67.042121
     },
-    "detail": "detail/ca-nb/A-2",
+    "island_km2": null,
+    "detail": "detail/ca-nb/A-46.643450_-66.960967",
     "warnings": []
    },
    {
-    "rank": 3,
-    "lat": 44.48431,
-    "lon": -66.850174,
-    "dist_m": 13088.57,
-    "nearest_way": {
-     "id": 1414049864,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Deep Cove",
-     "type": "hamlet",
-     "dist_m": 14899.1,
-     "lat": 44.617666,
-     "lon": -66.869602
-    },
-    "detail": "detail/ca-nb/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 46.682336,
-    "lon": -67.085272,
-    "dist_m": 12062.39,
-    "nearest_way": {
-     "id": 412997902,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Juniper",
-     "type": "village",
-     "dist_m": 17930.7,
-     "lat": 46.55098,
-     "lon": -67.221129
-    },
-    "detail": "detail/ca-nb/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 46.717309,
-    "lon": -66.881803,
-    "dist_m": 11295.94,
-    "nearest_way": {
-     "id": 152108921,
-     "highway": "unclassified",
-     "name": "Redstone Road",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Deersdale",
-     "type": "hamlet",
-     "dist_m": 27434.1,
-     "lat": 46.496632,
-     "lon": -67.042121
-    },
-    "detail": "detail/ca-nb/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 46.600534,
-    "lon": -66.838186,
-    "dist_m": 10451.47,
-    "nearest_way": {
-     "id": 151315013,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Deersdale",
-     "type": "hamlet",
-     "dist_m": 19443.0,
-     "lat": 46.496632,
-     "lon": -67.042121
-    },
-    "detail": "detail/ca-nb/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
+    "rank": 2,
     "lat": 47.243941,
     "lon": -67.562934,
     "dist_m": 10220.3,
@@ -167,11 +58,12 @@
      "lat": 47.101078,
      "lon": -67.759298
     },
-    "detail": "detail/ca-nb/A-7",
+    "island_km2": null,
+    "detail": "detail/ca-nb/A-47.243941_-67.562934",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 3,
     "lat": 46.251007,
     "lon": -65.370502,
     "dist_m": 9711.55,
@@ -189,33 +81,12 @@
      "lat": 46.469846,
      "lon": -65.245588
     },
-    "detail": "detail/ca-nb/A-8",
+    "island_km2": null,
+    "detail": "detail/ca-nb/A-46.251007_-65.370502",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 46.551982,
-    "lon": -66.954919,
-    "dist_m": 9047.31,
-    "nearest_way": {
-     "id": 1313841978,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Deersdale",
-     "type": "hamlet",
-     "dist_m": 9089.8,
-     "lat": 46.496632,
-     "lon": -67.042121
-    },
-    "detail": "detail/ca-nb/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 4,
     "lat": 47.159381,
     "lon": -65.031464,
     "dist_m": 8264.7,
@@ -233,39 +104,186 @@
      "lat": 47.20645,
      "lon": -65.121011
     },
-    "detail": "detail/ca-nb/A-10",
+    "island_km2": 3.4,
+    "detail": "detail/ca-nb/A-47.159381_-65.031464",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 47.677522,
+    "lon": -66.789582,
+    "dist_m": 8062.67,
+    "nearest_way": {
+     "id": 1422348967,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Runnymede",
+     "type": "hamlet",
+     "dist_m": 27637.5,
+     "lat": 47.901556,
+     "lon": -66.949374
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nb/A-47.677522_-66.789582",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 47.883092,
+    "lon": -66.314444,
+    "dist_m": 7849.1,
+    "nearest_way": {
+     "id": 647572810,
+     "highway": "track",
+     "name": "chemin Blackland-Portage",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Charlo",
+     "type": "village",
+     "dist_m": 12148.6,
+     "lat": 47.992055,
+     "lon": -66.302449
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nb/A-47.883092_-66.314444",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 47.579511,
+    "lon": -67.070136,
+    "dist_m": 7118.3,
+    "nearest_way": {
+     "id": 66794747,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Thibault",
+     "type": "hamlet",
+     "dist_m": 20740.9,
+     "lat": 47.60255,
+     "lon": -67.343787
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nb/A-47.579511_-67.070136",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 45.516315,
+    "lon": -67.226574,
+    "dist_m": 6843.3,
+    "nearest_way": {
+     "id": 76225534,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Meredith Settlement",
+     "type": "isolated_dwelling",
+     "dist_m": 8219.8,
+     "lat": 45.4461,
+     "lon": -67.259598
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nb/A-45.516315_-67.226574",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 47.853455,
+    "lon": -66.647085,
+    "dist_m": 6709.75,
+    "nearest_way": {
+     "id": 106008893,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Atholville",
+     "type": "village",
+     "dist_m": 16035.0,
+     "lat": 47.988948,
+     "lon": -66.720561
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nb/A-47.853455_-66.647085",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 47.156409,
+    "lon": -66.243988,
+    "dist_m": 6696.38,
+    "nearest_way": {
+     "id": 166638560,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lyttleton",
+     "type": "hamlet",
+     "dist_m": 34958.0,
+     "lat": 46.937714,
+     "lon": -65.91343
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nb/A-47.156409_-66.243988",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 47.547782,
+    "lon": -67.843864,
+    "dist_m": 6669.94,
+    "nearest_way": {
+     "id": 136545151,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kedgwick River",
+     "type": "hamlet",
+     "dist_m": 29602.6,
+     "lat": 47.660976,
+     "lon": -67.487531
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nb/A-47.547782_-67.843864",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 16601.63,
+  "lat": 46.64345,
+  "lon": -66.960967,
+  "rank": 23,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 44.499745,
-    "lon": -67.100304,
-    "dist_m": 18027.14,
-    "nearest_way": {
-     "id": 11498589,
-     "highway": "service",
-     "name": "Daniels Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Cutler",
-     "type": "village",
-     "dist_m": 19349.3,
-     "lat": 44.657365,
-     "lon": -67.203831
-    },
-    "detail": "detail/ca-nb/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 46.64345,
     "lon": -66.960967,
     "dist_m": 16601.63,
@@ -283,55 +301,12 @@
      "lat": 46.496632,
      "lon": -67.042121
     },
-    "detail": "detail/ca-nb/B-2",
+    "island_km2": null,
+    "detail": "detail/ca-nb/B-46.643450_-66.960967",
     "warnings": []
    },
    {
-    "rank": 3,
-    "lat": 44.48431,
-    "lon": -66.850174,
-    "dist_m": 13167.68,
-    "nearest_way": {
-     "id": 1414049866,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Deep Cove",
-     "type": "hamlet",
-     "dist_m": 14899.1,
-     "lat": 44.617666,
-     "lon": -66.869602
-    },
-    "detail": "detail/ca-nb/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 44.93675,
-    "lon": -66.73204,
-    "dist_m": 12843.02,
-    "nearest_way": {
-     "id": 116528718,
-     "highway": "secondary",
-     "name": "Deadmans Harbour Road",
-     "ref": "NB 778",
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Deadmans Harbour",
-     "type": "hamlet",
-     "dist_m": 13207.8,
-     "lat": 45.05286,
-     "lon": -66.767789
-    },
-    "detail": "detail/ca-nb/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
+    "rank": 2,
     "lat": 45.309964,
     "lon": -66.421405,
     "dist_m": 12290.08,
@@ -349,55 +324,12 @@
      "lat": 45.401442,
      "lon": -66.284757
     },
-    "detail": "detail/ca-nb/B-5",
+    "island_km2": null,
+    "detail": "detail/ca-nb/B-45.309964_-66.421405",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 46.682336,
-    "lon": -67.085272,
-    "dist_m": 12062.39,
-    "nearest_way": {
-     "id": 412997902,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Juniper",
-     "type": "village",
-     "dist_m": 17930.7,
-     "lat": 46.55098,
-     "lon": -67.221129
-    },
-    "detail": "detail/ca-nb/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 46.717309,
-    "lon": -66.881803,
-    "dist_m": 11295.94,
-    "nearest_way": {
-     "id": 152108921,
-     "highway": "unclassified",
-     "name": "Redstone Road",
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Deersdale",
-     "type": "hamlet",
-     "dist_m": 27434.1,
-     "lat": 46.496632,
-     "lon": -67.042121
-    },
-    "detail": "detail/ca-nb/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 3,
     "lat": 47.230605,
     "lon": -67.568642,
     "dist_m": 10816.04,
@@ -415,33 +347,12 @@
      "lat": 47.101078,
      "lon": -67.759298
     },
-    "detail": "detail/ca-nb/B-8",
+    "island_km2": null,
+    "detail": "detail/ca-nb/B-47.230605_-67.568642",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 46.600534,
-    "lon": -66.838186,
-    "dist_m": 10451.47,
-    "nearest_way": {
-     "id": 151315013,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Deersdale",
-     "type": "hamlet",
-     "dist_m": 19443.0,
-     "lat": 46.496632,
-     "lon": -67.042121
-    },
-    "detail": "detail/ca-nb/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 4,
     "lat": 47.606059,
     "lon": -66.760087,
     "dist_m": 10318.4,
@@ -455,15 +366,184 @@
     "nearest_place": {
      "name": "Runnymede",
      "type": "hamlet",
-     "dist_m": 35789.3,
+     "dist_m": 35789.4,
      "lat": 47.901556,
      "lon": -66.949374
     },
-    "detail": "detail/ca-nb/B-10",
+    "island_km2": null,
+    "detail": "detail/ca-nb/B-47.606059_-66.760087",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 46.56827,
+    "lon": -65.464051,
+    "dist_m": 9720.5,
+    "nearest_way": {
+     "id": 152581196,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Rogersville",
+     "type": "village",
+     "dist_m": 18532.5,
+     "lat": 46.73286,
+     "lon": -65.425538
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nb/B-46.568270_-65.464051",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 46.251007,
+    "lon": -65.370502,
+    "dist_m": 9711.55,
+    "nearest_way": {
+     "id": 1377084182,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Harcourt",
+     "type": "village",
+     "dist_m": 26156.3,
+     "lat": 46.469846,
+     "lon": -65.245588
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nb/B-46.251007_-65.370502",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 47.159381,
+    "lon": -65.031464,
+    "dist_m": 8264.7,
+    "nearest_way": {
+     "id": 161004468,
+     "highway": "tertiary",
+     "name": "Chemin Bayview",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Burnt Church (Esgenoôpetitj)",
+     "type": "village",
+     "dist_m": 8570.3,
+     "lat": 47.20645,
+     "lon": -65.121011
+    },
+    "island_km2": 3.4,
+    "detail": "detail/ca-nb/B-47.159381_-65.031464",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 47.885177,
+    "lon": -66.315342,
+    "dist_m": 7993.98,
+    "nearest_way": {
+     "id": 166076687,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Charlo",
+     "type": "village",
+     "dist_m": 11922.7,
+     "lat": 47.992055,
+     "lon": -66.302449
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nb/B-47.885177_-66.315342",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 45.629754,
+    "lon": -67.57124,
+    "dist_m": 7751.86,
+    "nearest_way": {
+     "id": 73513714,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Lambert Lake",
+     "type": "village",
+     "dist_m": 9940.1,
+     "lat": 45.5459,
+     "lon": -67.526946
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nb/B-45.629754_-67.571240",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 47.404247,
+    "lon": -66.69678,
+    "dist_m": 7431.42,
+    "nearest_way": {
+     "id": 166664419,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Thibault",
+     "type": "hamlet",
+     "dist_m": 53498.6,
+     "lat": 47.60255,
+     "lon": -67.343787
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nb/B-47.404247_-66.696780",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 47.314109,
+    "lon": -66.34593,
+    "dist_m": 7299.11,
+    "nearest_way": {
+     "id": 166178253,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Brunswick Mines",
+     "type": "hamlet",
+     "dist_m": 38648.2,
+     "lat": 47.473697,
+     "lon": -65.891135
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nb/B-47.314109_-66.345930",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 16601.63,
+  "lat": 46.64345,
+  "lon": -66.960967,
+  "rank": 27,
+  "withheld": 0
  }
 }

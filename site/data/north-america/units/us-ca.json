@@ -18,9 +18,9 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 33.479337,
-    "lon": -119.050823,
-    "dist_m": 42619.64,
+    "lat": 33.482363,
+    "lon": -119.047888,
+    "dist_m": 42352.85,
     "nearest_way": {
      "id": 13268675,
      "highway": "track",
@@ -31,81 +31,16 @@
     "nearest_place": {
      "name": "Two Harbors",
      "type": "hamlet",
-     "dist_m": 51462.8,
+     "dist_m": 51219.7,
      "lat": 33.440027,
      "lon": -118.499245
     },
-    "detail": "detail/us-ca/A-1",
+    "island_km2": 2.7,
+    "detail": "detail/us-ca/A-33.482363_-119.047888",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 37.693331,
-    "lon": -123.004124,
-    "dist_m": 33463.02,
-    "nearest_way": {
-     "id": 12170016,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Bolinas",
-     "type": "hamlet",
-     "dist_m": 36852.2,
-     "lat": 37.90937,
-     "lon": -122.686373
-    },
-    "detail": "detail/us-ca/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 34.102356,
-    "lon": -120.520102,
-    "dist_m": 29358.34,
-    "nearest_way": {
-     "id": 97923186,
-     "highway": "track",
-     "name": "Pocket Field Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Concepcion",
-     "type": "hamlet",
-     "dist_m": 39422.4,
-     "lat": 34.453598,
-     "lon": -120.454884
-    },
-    "detail": "detail/us-ca/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 37.764114,
-    "lon": -123.098567,
-    "dist_m": 26725.24,
-    "nearest_way": {
-     "id": 765577604,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Bolinas",
-     "type": "hamlet",
-     "dist_m": 39704.7,
-     "lat": 37.90937,
-     "lon": -122.686373
-    },
-    "detail": "detail/us-ca/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 36.998973,
     "lon": -118.68603,
     "dist_m": 21713.23,
@@ -123,55 +58,12 @@
      "lat": 36.790774,
      "lon": -118.670378
     },
-    "detail": "detail/us-ca/A-5",
+    "island_km2": null,
+    "detail": "detail/us-ca/A-36.998973_-118.686030",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 34.028354,
-    "lon": -120.454472,
-    "dist_m": 21096.2,
-    "nearest_way": {
-     "id": 97923186,
-     "highway": "track",
-     "name": "Pocket Field Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Concepcion",
-     "type": "hamlet",
-     "dist_m": 47170.9,
-     "lat": 34.453598,
-     "lon": -120.454884
-    },
-    "detail": "detail/us-ca/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 36.618574,
-    "lon": -118.481126,
-    "dist_m": 21058.32,
-    "nearest_way": {
-     "id": 138851351,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Mineral King",
-     "type": "hamlet",
-     "dist_m": 21222.0,
-     "lat": 36.450775,
-     "lon": -118.594815
-    },
-    "detail": "detail/us-ca/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 3,
     "lat": 38.081216,
     "lon": -119.612742,
     "dist_m": 21034.14,
@@ -189,64 +81,258 @@
      "lat": 37.869367,
      "lon": -119.650171
     },
-    "detail": "detail/us-ca/A-8",
+    "island_km2": null,
+    "detail": "detail/us-ca/A-38.081216_-119.612742",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 36.369118,
-    "lon": -118.382231,
-    "dist_m": 20880.47,
+    "rank": 4,
+    "lat": 34.029713,
+    "lon": -120.452645,
+    "dist_m": 20957.42,
     "nearest_way": {
-     "id": 711244196,
+     "id": 97923186,
      "highway": "track",
-     "name": "EAST BEACH CREEK",
-     "ref": "FR 20S25",
+     "name": "Pocket Field Road",
+     "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Mineral King",
+     "name": "Concepcion",
      "type": "hamlet",
-     "dist_m": 21111.2,
-     "lat": 36.450775,
-     "lon": -118.594815
+     "dist_m": 47020.6,
+     "lat": 34.453598,
+     "lon": -120.454884
     },
-    "detail": "detail/us-ca/A-9",
+    "island_km2": 38.4,
+    "detail": "detail/us-ca/A-34.029713_-120.452645",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 36.975342,
-    "lon": -118.575792,
-    "dist_m": 19874.95,
+    "rank": 5,
+    "lat": 37.722501,
+    "lon": -119.307822,
+    "dist_m": 16892.31,
     "nearest_way": {
-     "id": 517114567,
+     "id": 1162127371,
+     "highway": "track",
+     "name": null,
+     "ref": "4S43",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tuolumne Meadows",
+     "type": "hamlet",
+     "dist_m": 17374.4,
+     "lat": 37.87414,
+     "lon": -119.35678
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/A-37.722501_-119.307822",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 34.006457,
+    "lon": -119.407927,
+    "dist_m": 12492.13,
+    "nearest_way": {
+     "id": 164632747,
+     "highway": "track",
+     "name": "Smugglers Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Silver Strand",
+     "type": "hamlet",
+     "dist_m": 23860.4,
+     "lat": 34.152783,
+     "lon": -119.218442
+    },
+    "island_km2": 2.9,
+    "detail": "detail/us-ca/A-34.006457_-119.407927",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 41.488892,
+    "lon": -123.221048,
+    "dist_m": 12454.09,
+    "nearest_way": {
+     "id": 1207898574,
+     "highway": "track",
+     "name": null,
+     "ref": "FR 43N19B",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bestville",
+     "type": "isolated_dwelling",
+     "dist_m": 21894.8,
+     "lat": 41.300692,
+     "lon": -123.143099
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/A-41.488892_-123.221048",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 35.782645,
+    "lon": -116.696034,
+    "dist_m": 12393.74,
+    "nearest_way": {
+     "id": 1344448530,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Kanawyers",
-     "type": "isolated_dwelling",
-     "dist_m": 19991.6,
-     "lat": 36.795328,
-     "lon": -118.584314
+     "name": "Tecopa",
+     "type": "village",
+     "dist_m": 43081.7,
+     "lat": 35.848521,
+     "lon": -116.226235
     },
-    "detail": "detail/us-ca/A-10",
+    "island_km2": null,
+    "detail": "detail/us-ca/A-35.782645_-116.696034",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 34.922599,
+    "lon": -115.99867,
+    "dist_m": 11438.02,
+    "nearest_way": {
+     "id": 58673177,
+     "highway": "track",
+     "name": "South Gas Line Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Glasgow",
+     "type": "hamlet",
+     "dist_m": 13583.5,
+     "lat": 34.983598,
+     "lon": -115.869726
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/A-34.922599_-115.998670",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 33.209855,
+    "lon": -115.140893,
+    "dist_m": 10797.44,
+    "nearest_way": {
+     "id": 10356739,
+     "highway": "unclassified",
+     "name": "Dietz Road",
+     "ref": "BLM 910",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Imperial Gables",
+     "type": "hamlet",
+     "dist_m": 21759.8,
+     "lat": 33.127538,
+     "lon": -114.929133
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/A-33.209855_-115.140893",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 33.491768,
+    "lon": -116.310958,
+    "dist_m": 10787.32,
+    "nearest_way": {
+     "id": 267589766,
+     "highway": "track",
+     "name": "Rockhouse Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Valerie",
+     "type": "hamlet",
+     "dist_m": 14851.2,
+     "lat": 33.568915,
+     "lon": -116.180283
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/A-33.491768_-116.310958",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 37.033193,
+    "lon": -117.759839,
+    "dist_m": 10477.17,
+    "nearest_way": {
+     "id": 1000076805,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Grapevine",
+     "type": "hamlet",
+     "dist_m": 35431.1,
+     "lat": 36.995051,
+     "lon": -117.364567
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/A-37.033193_-117.759839",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 34.537833,
+    "lon": -119.010352,
+    "dist_m": 10455.3,
+    "nearest_way": {
+     "id": 388818697,
+     "highway": "track",
+     "name": "Nordhoff Road",
+     "ref": "FS 05N08;TR 21W08",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Howell Place",
+     "type": "isolated_dwelling",
+     "dist_m": 12664.8,
+     "lat": 34.469135,
+     "lon": -119.120497
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/A-34.537833_-119.010352",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 21713.23,
+  "lat": 36.998973,
+  "lon": -118.68603,
+  "rank": 20,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 33.488387,
-    "lon": -119.027858,
-    "dist_m": 47509.47,
+    "lat": 33.488429,
+    "lon": -119.028134,
+    "dist_m": 47491.12,
     "nearest_way": {
      "id": 480095014,
      "highway": "unclassified",
@@ -257,40 +343,19 @@
     "nearest_place": {
      "name": "Two Harbors",
      "type": "hamlet",
-     "dist_m": 49432.1,
+     "dist_m": 49458.1,
      "lat": 33.440027,
      "lon": -118.499245
     },
-    "detail": "detail/us-ca/B-1",
+    "island_km2": 2.7,
+    "detail": "detail/us-ca/B-33.488429_-119.028134",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 34.101028,
-    "lon": -120.517186,
-    "dist_m": 38585.79,
-    "nearest_way": {
-     "id": 16237972,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Concepcion",
-     "type": "hamlet",
-     "dist_m": 39528.2,
-     "lat": 34.453598,
-     "lon": -120.454884
-    },
-    "detail": "detail/us-ca/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 34.029921,
-    "lon": -120.449784,
-    "dist_m": 35669.96,
+    "lat": 34.029713,
+    "lon": -120.452645,
+    "dist_m": 35930.84,
     "nearest_way": {
      "id": 1425405997,
      "highway": "service",
@@ -301,37 +366,16 @@
     "nearest_place": {
      "name": "Concepcion",
      "type": "hamlet",
-     "dist_m": 46999.5,
+     "dist_m": 47020.6,
      "lat": 34.453598,
      "lon": -120.454884
     },
-    "detail": "detail/us-ca/B-3",
+    "island_km2": 38.4,
+    "detail": "detail/us-ca/B-34.029713_-120.452645",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 37.693331,
-    "lon": -123.004124,
-    "dist_m": 33463.02,
-    "nearest_way": {
-     "id": 12170016,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Bolinas",
-     "type": "hamlet",
-     "dist_m": 36852.2,
-     "lat": 37.90937,
-     "lon": -122.686373
-    },
-    "detail": "detail/us-ca/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
+    "rank": 3,
     "lat": 34.026641,
     "lon": -119.528864,
     "dist_m": 31591.86,
@@ -349,77 +393,12 @@
      "lat": 33.996147,
      "lon": -119.715905
     },
-    "detail": "detail/us-ca/B-5",
+    "island_km2": 253.6,
+    "detail": "detail/us-ca/B-34.026641_-119.528864",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 37.764114,
-    "lon": -123.098567,
-    "dist_m": 26725.24,
-    "nearest_way": {
-     "id": 765577604,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Bolinas",
-     "type": "hamlet",
-     "dist_m": 39704.7,
-     "lat": 37.90937,
-     "lon": -122.686373
-    },
-    "detail": "detail/us-ca/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 34.05466,
-    "lon": -120.340761,
-    "dist_m": 26170.55,
-    "nearest_way": {
-     "id": 1425405997,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Christi Ranch",
-     "type": "isolated_dwelling",
-     "dist_m": 43613.5,
-     "lat": 34.022862,
-     "lon": -119.870008
-    },
-    "detail": "detail/us-ca/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 34.003749,
-    "lon": -119.422817,
-    "dist_m": 24810.94,
-    "nearest_way": {
-     "id": 789790997,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Silver Strand",
-     "type": "hamlet",
-     "dist_m": 25082.5,
-     "lat": 34.152783,
-     "lon": -119.218442
-    },
-    "detail": "detail/us-ca/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 4,
     "lat": 34.324055,
     "lon": -115.361144,
     "dist_m": 24754.23,
@@ -437,11 +416,35 @@
      "lat": 34.312507,
      "lon": -115.242203
     },
-    "detail": "detail/us-ca/B-9",
+    "island_km2": null,
+    "detail": "detail/us-ca/B-34.324055_-115.361144",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 5,
+    "lat": 34.005199,
+    "lon": -119.422646,
+    "dist_m": 24696.46,
+    "nearest_way": {
+     "id": 789790997,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Silver Strand",
+     "type": "hamlet",
+     "dist_m": 24964.7,
+     "lat": 34.152783,
+     "lon": -119.218442
+    },
+    "island_km2": 2.9,
+    "detail": "detail/us-ca/B-34.005199_-119.422646",
+    "warnings": []
+   },
+   {
+    "rank": 6,
     "lat": 34.94666,
     "lon": -115.979002,
     "dist_m": 24690.49,
@@ -455,15 +458,207 @@
     "nearest_place": {
      "name": "Glasgow",
      "type": "hamlet",
-     "dist_m": 10788.5,
+     "dist_m": 10788.4,
      "lat": 34.983598,
      "lon": -115.869726
     },
-    "detail": "detail/us-ca/B-10",
+    "island_km2": null,
+    "detail": "detail/us-ca/B-34.946660_-115.979002",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 38.107223,
+    "lon": -119.631162,
+    "dist_m": 22195.95,
+    "nearest_way": {
+     "id": 1216157055,
+     "highway": "secondary",
+     "name": null,
+     "ref": "CA 108",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Twin Lakes Estates",
+     "type": "hamlet",
+     "dist_m": 25221.1,
+     "lat": 38.154571,
+     "lon": -119.349815
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/B-38.107223_-119.631162",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 37.001133,
+    "lon": -118.694751,
+    "dist_m": 21899.85,
+    "nearest_way": {
+     "id": 1250946261,
+     "highway": "unclassified",
+     "name": "South Lake Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cedar Grove",
+     "type": "hamlet",
+     "dist_m": 23445.6,
+     "lat": 36.790774,
+     "lon": -118.670378
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/B-37.001133_-118.694751",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 36.350316,
+    "lon": -118.38207,
+    "dist_m": 21839.26,
+    "nearest_way": {
+     "id": 1296392754,
+     "highway": "service",
+     "name": "Blackrock Trailhead",
+     "ref": "FR 21S03A",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mineral King",
+     "type": "hamlet",
+     "dist_m": 22101.7,
+     "lat": 36.450775,
+     "lon": -118.594815
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/B-36.350316_-118.382070",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 35.252031,
+    "lon": -117.15369,
+    "dist_m": 21094.98,
+    "nearest_way": {
+     "id": 1217449406,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Copper City",
+     "type": "hamlet",
+     "dist_m": 11336.0,
+     "lat": 35.350801,
+     "lon": -117.185601
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/B-35.252031_-117.153690",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 34.699371,
+    "lon": -119.627375,
+    "dist_m": 19485.79,
+    "nearest_way": {
+     "id": 35097976,
+     "highway": "unclassified",
+     "name": "Paradise Road",
+     "ref": "5N18",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ventucopa",
+     "type": "hamlet",
+     "dist_m": 20592.7,
+     "lat": 34.831348,
+     "lon": -119.469196
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/B-34.699371_-119.627375",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 36.679272,
+    "lon": -117.354156,
+    "dist_m": 18844.61,
+    "nearest_way": {
+     "id": 271359998,
+     "highway": "secondary",
+     "name": "North Highway",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stovepipe Wells",
+     "type": "hamlet",
+     "dist_m": 20217.2,
+     "lat": 36.606553,
+     "lon": -117.146869
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/B-36.679272_-117.354156",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 36.944752,
+    "lon": -117.703793,
+    "dist_m": 18635.72,
+    "nearest_way": {
+     "id": 1011347403,
+     "highway": "service",
+     "name": "Eureka Dunes Campground Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Grapevine",
+     "type": "hamlet",
+     "dist_m": 30718.4,
+     "lat": 36.995051,
+     "lon": -117.364567
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/B-36.944752_-117.703793",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 33.879574,
+    "lon": -115.041749,
+    "dist_m": 18408.4,
+    "nearest_way": {
+     "id": 7165121,
+     "highway": "unclassified",
+     "name": "Midland Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Midland",
+     "type": "hamlet",
+     "dist_m": 22259.6,
+     "lat": 33.861129,
+     "lon": -114.802188
+    },
+    "island_km2": null,
+    "detail": "detail/us-ca/B-33.879574_-115.041749",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 24754.23,
+  "lat": 34.324055,
+  "lon": -115.361144,
+  "rank": 21,
+  "withheld": 0
  }
 }

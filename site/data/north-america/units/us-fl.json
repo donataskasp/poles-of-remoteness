@@ -35,146 +35,15 @@
      "lat": 25.521508,
      "lon": -81.205909
     },
-    "detail": "detail/us-fl/A-1",
+    "island_km2": null,
+    "detail": "detail/us-fl/A-25.428069_-81.154393",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 25.332734,
-    "lon": -81.147617,
-    "dist_m": 28699.22,
-    "nearest_way": {
-     "id": 11123207,
-     "highway": "track",
-     "name": "Bear Lake Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Leon Hamilton Place",
-     "type": "hamlet",
-     "dist_m": 21718.9,
-     "lat": 25.521508,
-     "lon": -81.205909
-    },
-    "detail": "detail/us-fl/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 25.511255,
-    "lon": -81.209762,
-    "dist_m": 28207.27,
-    "nearest_way": {
-     "id": 766383561,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Leon Hamilton Place",
-     "type": "hamlet",
-     "dist_m": 1200.0,
-     "lat": 25.521508,
-     "lon": -81.205909
-    },
-    "detail": "detail/us-fl/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 25.489572,
-    "lon": -81.080052,
-    "dist_m": 25682.67,
-    "nearest_way": {
-     "id": 766383561,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Leon Hamilton Place",
-     "type": "hamlet",
-     "dist_m": 13138.2,
-     "lat": 25.521508,
-     "lon": -81.205909
-    },
-    "detail": "detail/us-fl/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 25.239533,
-    "lon": -81.171237,
-    "dist_m": 25159.25,
-    "nearest_way": {
-     "id": 49862048,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Leon Hamilton Place",
-     "type": "hamlet",
-     "dist_m": 31431.1,
-     "lat": 25.521508,
-     "lon": -81.205909
-    },
-    "detail": "detail/us-fl/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 25.387975,
-    "lon": -81.060697,
-    "dist_m": 23885.99,
-    "nearest_way": {
-     "id": 11114755,
-     "highway": "service",
-     "name": "Mahogany Hammock Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Leon Hamilton Place",
-     "type": "hamlet",
-     "dist_m": 20787.7,
-     "lat": 25.521508,
-     "lon": -81.205909
-    },
-    "detail": "detail/us-fl/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 25.605976,
-    "lon": -81.241524,
-    "dist_m": 21955.0,
-    "nearest_way": {
-     "id": 766379350,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Leon Hamilton Place",
-     "type": "hamlet",
-     "dist_m": 10018.5,
-     "lat": 25.521508,
-     "lon": -81.205909
-    },
-    "detail": "detail/us-fl/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 24.563247,
-    "lon": -82.164574,
-    "dist_m": 20716.54,
+    "lat": 24.589684,
+    "lon": -82.145103,
+    "dist_m": 19678.62,
     "nearest_way": {
      "id": 636412855,
      "highway": "track",
@@ -185,60 +54,231 @@
     "nearest_place": {
      "name": "Key West",
      "type": "city",
-     "dist_m": 36736.0,
+     "dist_m": 34961.8,
      "lat": 24.554826,
      "lon": -81.802072
     },
-    "detail": "detail/us-fl/A-8",
+    "island_km2": 8.2,
+    "detail": "detail/us-fl/A-24.589684_-82.145103",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 25.551166,
-    "lon": -81.005792,
-    "dist_m": 19095.78,
+    "rank": 3,
+    "lat": 25.109645,
+    "lon": -80.656604,
+    "dist_m": 16490.78,
     "nearest_way": {
-     "id": 766574959,
+     "id": 11120877,
+     "highway": "residential",
+     "name": "Redwing Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Plantation Key",
+     "type": "hamlet",
+     "dist_m": 16863.4,
+     "lat": 24.984853,
+     "lon": -80.560895
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/A-25.109645_-80.656604",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 26.011342,
+    "lon": -80.69061,
+    "dist_m": 14948.13,
+    "nearest_way": {
+     "id": 46265714,
+     "highway": "motorway",
+     "name": "Alligator Alley",
+     "ref": "I 75",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Jessie Willies",
+     "type": "hamlet",
+     "dist_m": 2340.1,
+     "lat": 26.019258,
+     "lon": -80.712283
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/A-26.011342_-80.690610",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 25.834028,
+    "lon": -81.510985,
+    "dist_m": 12184.65,
+    "nearest_way": {
+     "id": 523245660,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Tenmile Corner",
+     "name": "Fakahatchee",
      "type": "hamlet",
-     "dist_m": 16555.8,
-     "lat": 25.615941,
-     "lon": -80.857289
+     "dist_m": 4390.5,
+     "lat": 25.868434,
+     "lon": -81.489249
     },
-    "detail": "detail/us-fl/A-9",
+    "island_km2": null,
+    "detail": "detail/us-fl/A-25.834028_-81.510985",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 24.96494,
-    "lon": -80.974924,
-    "dist_m": 19073.06,
+    "rank": 6,
+    "lat": 26.91567,
+    "lon": -80.98345,
+    "dist_m": 11369.48,
     "nearest_way": {
-     "id": 49862048,
-     "highway": "service",
+     "id": 161507386,
+     "highway": "residential",
+     "name": "Herbert Hoover Dike",
+     "ref": "LD-1",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Monkey Box",
+     "type": "hamlet",
+     "dist_m": 7450.9,
+     "lat": 26.933113,
+     "lon": -81.0559
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/A-26.915670_-80.983450",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 25.422957,
+    "lon": -80.203959,
+    "dist_m": 11344.8,
+    "nearest_way": {
+     "id": 1148250419,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Conch Key",
+     "name": "Cutter Bank",
      "type": "hamlet",
-     "dist_m": 21171.3,
-     "lat": 24.790416,
-     "lon": -80.889513
+     "dist_m": 7791.5,
+     "lat": 25.378169,
+     "lon": -80.263663
     },
-    "detail": "detail/us-fl/A-10",
+    "island_km2": null,
+    "detail": "detail/us-fl/A-25.422957_-80.203959",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 26.502806,
+    "lon": -80.336009,
+    "dist_m": 10996.15,
+    "nearest_way": {
+     "id": 161392838,
+     "highway": "track",
+     "name": "L-40",
+     "ref": "L-40",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Shawano",
+     "type": "isolated_dwelling",
+     "dist_m": 18409.0,
+     "lat": 26.554793,
+     "lon": -80.511443
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/A-26.502806_-80.336009",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 26.031285,
+    "lon": -81.158482,
+    "dist_m": 10512.33,
+    "nearest_way": {
+     "id": 523298045,
+     "highway": "tertiary",
+     "name": "Turner River Road",
+     "ref": "CR 839",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wagon Wheel",
+     "type": "hamlet",
+     "dist_m": 12141.2,
+     "lat": 26.100923,
+     "lon": -81.064792
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/A-26.031285_-81.158482",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 26.239808,
+    "lon": -80.594744,
+    "dist_m": 10336.56,
+    "nearest_way": {
+     "id": 161009542,
+     "highway": "track",
+     "name": "L-5",
+     "ref": "L-5",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Andytown",
+     "type": "hamlet",
+     "dist_m": 18497.2,
+     "lat": 26.145919,
+     "lon": -80.44172
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/A-26.239808_-80.594744",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 26.29984,
+    "lon": -80.399529,
+    "dist_m": 8988.05,
+    "nearest_way": {
+     "id": 98656705,
+     "highway": "service",
+     "name": "Conservation Levee Greenway L-35B",
+     "ref": "L-35B",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Heron Bay South",
+     "type": "hamlet",
+     "dist_m": 11358.6,
+     "lat": 26.304871,
+     "lon": -80.285921
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/A-26.299840_-80.399529",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 34007.36,
+  "lat": 25.428069,
+  "lon": -81.154393,
+  "rank": 13,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,18 +297,19 @@
     "nearest_place": {
      "name": "Leon Hamilton Place",
      "type": "hamlet",
-     "dist_m": 9128.3,
+     "dist_m": 9128.4,
      "lat": 25.521508,
      "lon": -81.205909
     },
-    "detail": "detail/us-fl/B-1",
+    "island_km2": null,
+    "detail": "detail/us-fl/B-25.448125_-81.164616",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 24.556536,
-    "lon": -82.165748,
-    "dist_m": 35499.29,
+    "lat": 24.589232,
+    "lon": -82.145247,
+    "dist_m": 33541.94,
     "nearest_way": {
      "id": 493341258,
      "highway": "service",
@@ -279,169 +320,16 @@
     "nearest_place": {
      "name": "Key West",
      "type": "city",
-     "dist_m": 36844.5,
+     "dist_m": 34970.8,
      "lat": 24.554826,
      "lon": -81.802072
     },
-    "detail": "detail/us-fl/B-2",
+    "island_km2": 8.2,
+    "detail": "detail/us-fl/B-24.589232_-82.145247",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 25.341144,
-    "lon": -81.13997,
-    "dist_m": 29716.65,
-    "nearest_way": {
-     "id": 49862048,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Leon Hamilton Place",
-     "type": "hamlet",
-     "dist_m": 21053.0,
-     "lat": 25.521508,
-     "lon": -81.205909
-    },
-    "detail": "detail/us-fl/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 25.493813,
-    "lon": -81.077209,
-    "dist_m": 29503.51,
-    "nearest_way": {
-     "id": 135848887,
-     "highway": "secondary",
-     "name": "Main Park Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Leon Hamilton Place",
-     "type": "hamlet",
-     "dist_m": 13297.2,
-     "lat": 25.521508,
-     "lon": -81.205909
-    },
-    "detail": "detail/us-fl/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 25.539163,
-    "lon": -81.205086,
-    "dist_m": 28081.38,
-    "nearest_way": {
-     "id": 1186829997,
-     "highway": "unclassified",
-     "name": "Loop Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Leon Hamilton Place",
-     "type": "hamlet",
-     "dist_m": 1957.5,
-     "lat": 25.521508,
-     "lon": -81.205909
-    },
-    "detail": "detail/us-fl/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 25.250742,
-    "lon": -81.16855,
-    "dist_m": 25507.23,
-    "nearest_way": {
-     "id": 49862048,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Leon Hamilton Place",
-     "type": "hamlet",
-     "dist_m": 30229.9,
-     "lat": 25.521508,
-     "lon": -81.205909
-    },
-    "detail": "detail/us-fl/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 25.397463,
-    "lon": -81.061326,
-    "dist_m": 24256.2,
-    "nearest_way": {
-     "id": 11114755,
-     "highway": "service",
-     "name": "Mahogany Hammock Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Leon Hamilton Place",
-     "type": "hamlet",
-     "dist_m": 20006.9,
-     "lat": 25.521508,
-     "lon": -81.205909
-    },
-    "detail": "detail/us-fl/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 25.615905,
-    "lon": -81.269705,
-    "dist_m": 23276.9,
-    "nearest_way": {
-     "id": 523071972,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Chatham",
-     "type": "hamlet",
-     "dist_m": 11199.6,
-     "lat": 25.714272,
-     "lon": -81.243965
-    },
-    "detail": "detail/us-fl/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 25.53908,
-    "lon": -80.987914,
-    "dist_m": 23228.42,
-    "nearest_way": {
-     "id": 11104687,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Tenmile Corner",
-     "type": "hamlet",
-     "dist_m": 15644.4,
-     "lat": 25.615941,
-     "lon": -80.857289
-    },
-    "detail": "detail/us-fl/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
     "lat": 25.95426,
     "lon": -80.690303,
     "dist_m": 21268.17,
@@ -459,11 +347,226 @@
      "lat": 26.019258,
      "lon": -80.712283
     },
-    "detail": "detail/us-fl/B-10",
+    "island_km2": null,
+    "detail": "detail/us-fl/B-25.954260_-80.690303",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 25.146269,
+    "lon": -80.651764,
+    "dist_m": 18653.13,
+    "nearest_way": {
+     "id": 49855461,
+     "highway": "secondary",
+     "name": "Main Park Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sunset Point",
+     "type": "hamlet",
+     "dist_m": 19632.9,
+     "lat": 25.047628,
+     "lon": -80.49006
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/B-25.146269_-80.651764",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 25.496581,
+    "lon": -80.178011,
+    "dist_m": 15388.91,
+    "nearest_way": {
+     "id": 11107419,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "The Keyhole",
+     "type": "hamlet",
+     "dist_m": 805.2,
+     "lat": 25.503313,
+     "lon": -80.181031
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/B-25.496581_-80.178011",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 26.266155,
+    "lon": -80.729493,
+    "dist_m": 12545.34,
+    "nearest_way": {
+     "id": 46265730,
+     "highway": "motorway",
+     "name": "Alligator Alley",
+     "ref": "I 75",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Big Cypress",
+     "type": "village",
+     "dist_m": 26958.7,
+     "lat": 26.320658,
+     "lon": -80.992578
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/B-26.266155_-80.729493",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 26.373575,
+    "lon": -80.418469,
+    "dist_m": 12211.25,
+    "nearest_way": {
+     "id": 98656702,
+     "highway": "service",
+     "name": "Conservation Levee Greenway L-36",
+     "ref": "L-36",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Heron Bay South",
+     "type": "hamlet",
+     "dist_m": 15265.3,
+     "lat": 26.304871,
+     "lon": -80.285921
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/B-26.373575_-80.418469",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 25.834028,
+    "lon": -81.510985,
+    "dist_m": 12202.9,
+    "nearest_way": {
+     "id": 523256275,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fakahatchee",
+     "type": "hamlet",
+     "dist_m": 4390.5,
+     "lat": 25.868434,
+     "lon": -81.489249
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/B-25.834028_-81.510985",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 29.612506,
+    "lon": -85.08047,
+    "dist_m": 11860.25,
+    "nearest_way": {
+     "id": 10926966,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nine Mile",
+     "type": "hamlet",
+     "dist_m": 12226.1,
+     "lat": 29.716879,
+     "lon": -85.121303
+    },
+    "island_km2": 27.8,
+    "detail": "detail/us-fl/B-29.612506_-85.080470",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 29.875092,
+    "lon": -83.107478,
+    "dist_m": 11765.29,
+    "nearest_way": {
+     "id": 11004426,
+     "highway": "tertiary",
+     "name": null,
+     "ref": "CR 360",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Midway",
+     "type": "hamlet",
+     "dist_m": 15431.3,
+     "lat": 30.01216,
+     "lon": -83.079563
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/B-29.875092_-83.107478",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 26.915805,
+    "lon": -80.9835,
+    "dist_m": 11380.85,
+    "nearest_way": {
+     "id": 161507356,
+     "highway": "residential",
+     "name": "Harney Pond Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Monkey Box",
+     "type": "hamlet",
+     "dist_m": 7442.2,
+     "lat": 26.933113,
+     "lon": -81.0559
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/B-26.915805_-80.983500",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 29.162254,
+    "lon": -82.869252,
+    "dist_m": 9752.36,
+    "nearest_way": {
+     "id": 201437301,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rosewood",
+     "type": "hamlet",
+     "dist_m": 10484.3,
+     "lat": 29.239131,
+     "lon": -82.932064
+    },
+    "island_km2": null,
+    "detail": "detail/us-fl/B-29.162254_-82.869252",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 35905.43,
+  "lat": 25.448125,
+  "lon": -81.164616,
+  "rank": 13,
+  "withheld": 0
  }
 }

@@ -35,7 +35,8 @@
      "lat": 35.639707,
      "lon": -83.68831
     },
-    "detail": "detail/us-nc/A-1",
+    "island_km2": null,
+    "detail": "detail/us-nc/A-35.523292_-83.638122",
     "warnings": []
    },
    {
@@ -53,37 +54,16 @@
     "nearest_place": {
      "name": "Oyster Creek Landing",
      "type": "hamlet",
-     "dist_m": 10027.6,
+     "dist_m": 10027.7,
      "lat": 35.391562,
      "lon": -76.31399
     },
-    "detail": "detail/us-nc/A-2",
+    "island_km2": 2.7,
+    "detail": "detail/us-nc/A-35.309344_-76.268171",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 35.522048,
-    "lon": -83.75095,
-    "dist_m": 8694.94,
-    "nearest_way": {
-     "id": 239069469,
-     "highway": "unclassified",
-     "name": "Lakeview Drive West",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Cades Cove",
-     "type": "hamlet",
-     "dist_m": 10794.4,
-     "lat": 35.608953,
-     "lon": -83.804477
-    },
-    "detail": "detail/us-nc/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 35.686449,
     "lon": -83.26582,
     "dist_m": 8491.08,
@@ -101,77 +81,12 @@
      "lat": 35.766762,
      "lon": -83.287932
     },
-    "detail": "detail/us-nc/A-4",
+    "island_km2": null,
+    "detail": "detail/us-nc/A-35.686449_-83.265820",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 35.347498,
-    "lon": -76.408242,
-    "dist_m": 8119.73,
-    "nearest_way": {
-     "id": 16612006,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Swan Quarter",
-     "type": "village",
-     "dist_m": 9709.0,
-     "lat": 35.406278,
-     "lon": -76.329086
-    },
-    "detail": "detail/us-nc/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 35.296771,
-    "lon": -75.675294,
-    "dist_m": 7596.6,
-    "nearest_way": {
-     "id": 16495781,
-     "highway": "residential",
-     "name": "Sportsman Drive",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Frisco",
-     "type": "hamlet",
-     "dist_m": 8165.2,
-     "lat": 35.234467,
-     "lon": -75.627529
-    },
-    "detail": "detail/us-nc/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 35.073154,
-    "lon": -76.435526,
-    "dist_m": 5836.26,
-    "nearest_way": {
-     "id": 1236342817,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Cedar Island",
-     "type": "hamlet",
-     "dist_m": 13068.4,
-     "lat": 35.00822,
-     "lon": -76.316025
-    },
-    "detail": "detail/us-nc/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 4,
     "lat": 35.966634,
     "lon": -75.930879,
     "dist_m": 5700.72,
@@ -189,33 +104,35 @@
      "lat": 35.891273,
      "lon": -75.920189
     },
-    "detail": "detail/us-nc/A-8",
+    "island_km2": null,
+    "detail": "detail/us-nc/A-35.966634_-75.930879",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 35.677885,
-    "lon": -83.152603,
-    "dist_m": 5420.64,
+    "rank": 5,
+    "lat": 35.076407,
+    "lon": -76.464436,
+    "dist_m": 5518.21,
     "nearest_way": {
-     "id": 237614154,
-     "highway": "unclassified",
-     "name": "Balsam Mountain Road",
+     "id": 1236342817,
+     "highway": "track",
+     "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Cataloochee",
+     "name": "Whortonsville",
      "type": "hamlet",
-     "dist_m": 7786.1,
-     "lat": 35.640101,
-     "lon": -83.080144
+     "dist_m": 15117.6,
+     "lat": 35.09572,
+     "lon": -76.62854
     },
-    "detail": "detail/us-nc/A-9",
+    "island_km2": null,
+    "detail": "detail/us-nc/A-35.076407_-76.464436",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 6,
     "lat": 35.184967,
     "lon": -76.535323,
     "dist_m": 5367.64,
@@ -233,12 +150,135 @@
      "lat": 35.245722,
      "lon": -76.569094
     },
-    "detail": "detail/us-nc/A-10",
+    "island_km2": null,
+    "detail": "detail/us-nc/A-35.184967_-76.535323",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 33.902156,
+    "lon": -77.949157,
+    "dist_m": 5316.79,
+    "nearest_way": {
+     "id": 16417481,
+     "highway": "unclassified",
+     "name": "East Beach Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sheephead Rock",
+     "type": "hamlet",
+     "dist_m": 5347.5,
+     "lat": 33.940174,
+     "lon": -77.913597
+    },
+    "island_km2": null,
+    "detail": "detail/us-nc/A-33.902156_-77.949157",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 35.824172,
+    "lon": -75.729019,
+    "dist_m": 5302.66,
+    "nearest_way": {
+     "id": 1519459538,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Manns Harbor",
+     "type": "village",
+     "dist_m": 7475.8,
+     "lat": 35.885724,
+     "lon": -75.762679
+    },
+    "island_km2": null,
+    "detail": "detail/us-nc/A-35.824172_-75.729019",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 34.974622,
+    "lon": -76.377275,
+    "dist_m": 4796.76,
+    "nearest_way": {
+     "id": 1236342807,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Roe",
+     "type": "hamlet",
+     "dist_m": 6555.3,
+     "lat": 34.992387,
+     "lon": -76.308803
+    },
+    "island_km2": null,
+    "detail": "detail/us-nc/A-34.974622_-76.377275",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 35.383369,
+    "lon": -76.385663,
+    "dist_m": 4576.67,
+    "nearest_way": {
+     "id": 16611119,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Swan Quarter",
+     "type": "village",
+     "dist_m": 5734.0,
+     "lat": 35.406278,
+     "lon": -76.329086
+    },
+    "island_km2": null,
+    "detail": "detail/us-nc/A-35.383369_-76.385663",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 35.40716,
+    "lon": -84.019806,
+    "dist_m": 4368.28,
+    "nearest_way": {
+     "id": 461179232,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Jenkins Meadow",
+     "type": "hamlet",
+     "dist_m": 6682.2,
+     "lat": 35.382029,
+     "lon": -83.952961
+    },
+    "island_km2": null,
+    "detail": "detail/us-nc/A-35.407160_-84.019806",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 10906.85,
+  "lat": 35.523292,
+  "lon": -83.638122,
+  "rank": 32,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +301,8 @@
      "lat": 35.00822,
      "lon": -76.316025
     },
-    "detail": "detail/us-nc/B-1",
+    "island_km2": null,
+    "detail": "detail/us-nc/B-35.069138_-76.453741",
     "warnings": []
    },
    {
@@ -283,7 +324,8 @@
      "lat": 35.070015,
      "lon": -76.063614
     },
-    "detail": "detail/us-nc/B-2",
+    "island_km2": 17.6,
+    "detail": "detail/us-nc/B-35.039513_-76.087111",
     "warnings": []
    },
    {
@@ -305,7 +347,8 @@
      "lat": 35.639707,
      "lon": -83.68831
     },
-    "detail": "detail/us-nc/B-3",
+    "island_km2": null,
+    "detail": "detail/us-nc/B-35.523299_-83.631320",
     "warnings": []
    },
    {
@@ -323,59 +366,16 @@
     "nearest_place": {
      "name": "Oyster Creek Landing",
      "type": "hamlet",
-     "dist_m": 10027.6,
+     "dist_m": 10027.7,
      "lat": 35.391562,
      "lon": -76.31399
     },
-    "detail": "detail/us-nc/B-4",
+    "island_km2": 2.7,
+    "detail": "detail/us-nc/B-35.309344_-76.268171",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 35.521276,
-    "lon": -83.743447,
-    "dist_m": 9074.37,
-    "nearest_way": {
-     "id": 239069469,
-     "highway": "unclassified",
-     "name": "Lakeview Drive West",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Cades Cove",
-     "type": "hamlet",
-     "dist_m": 11191.1,
-     "lat": 35.608953,
-     "lon": -83.804477
-    },
-    "detail": "detail/us-nc/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 35.346989,
-    "lon": -76.411643,
-    "dist_m": 9010.56,
-    "nearest_way": {
-     "id": 16612676,
-     "highway": "unclassified",
-     "name": "Landing Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Germantown",
-     "type": "hamlet",
-     "dist_m": 9678.9,
-     "lat": 35.425796,
-     "lon": -76.457332
-    },
-    "detail": "detail/us-nc/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 35.686449,
     "lon": -83.26582,
     "dist_m": 8491.08,
@@ -393,55 +393,12 @@
      "lat": 35.766762,
      "lon": -83.287932
     },
-    "detail": "detail/us-nc/B-7",
+    "island_km2": null,
+    "detail": "detail/us-nc/B-35.686449_-83.265820",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 35.731256,
-    "lon": -75.606369,
-    "dist_m": 7643.72,
-    "nearest_way": {
-     "id": 402766981,
-     "highway": "primary",
-     "name": "Marc Basnight Bridge",
-     "ref": "NC 12",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Stumpy Point",
-     "type": "hamlet",
-     "dist_m": 12665.3,
-     "lat": 35.698506,
-     "lon": -75.740453
-    },
-    "detail": "detail/us-nc/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 35.296771,
-    "lon": -75.675294,
-    "dist_m": 7596.6,
-    "nearest_way": {
-     "id": 16495781,
-     "highway": "residential",
-     "name": "Sportsman Drive",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Frisco",
-     "type": "hamlet",
-     "dist_m": 8165.2,
-     "lat": 35.234467,
-     "lon": -75.627529
-    },
-    "detail": "detail/us-nc/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 6,
     "lat": 36.529649,
     "lon": -76.455876,
     "dist_m": 7449.07,
@@ -459,11 +416,157 @@
      "lat": 36.460153,
      "lon": -76.393276
     },
-    "detail": "detail/us-nc/B-10",
+    "island_km2": null,
+    "detail": "detail/us-nc/B-36.529649_-76.455876",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 35.97464,
+    "lon": -75.902353,
+    "dist_m": 6908.27,
+    "nearest_way": {
+     "id": 16494875,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mashoes",
+     "type": "hamlet",
+     "dist_m": 8030.2,
+     "lat": 35.9583,
+     "lon": -75.815627
+    },
+    "island_km2": null,
+    "detail": "detail/us-nc/B-35.974640_-75.902353",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 35.398985,
+    "lon": -83.991879,
+    "dist_m": 6517.59,
+    "nearest_way": {
+     "id": 843762113,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Jenkins Meadow",
+     "type": "hamlet",
+     "dist_m": 4005.1,
+     "lat": 35.382029,
+     "lon": -83.952961
+    },
+    "island_km2": null,
+    "detail": "detail/us-nc/B-35.398985_-83.991879",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 34.980378,
+    "lon": -77.409901,
+    "dist_m": 6469.05,
+    "nearest_way": {
+     "id": 16634715,
+     "highway": "residential",
+     "name": "Olivers Cross Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Comfort",
+     "type": "hamlet",
+     "dist_m": 9461.3,
+     "lat": 35.005717,
+     "lon": -77.508854
+    },
+    "island_km2": null,
+    "detail": "detail/us-nc/B-34.980378_-77.409901",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 34.490897,
+    "lon": -77.703473,
+    "dist_m": 6351.3,
+    "nearest_way": {
+     "id": 16708627,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Edgecombe",
+     "type": "hamlet",
+     "dist_m": 10438.7,
+     "lat": 34.462945,
+     "lon": -77.594972
+    },
+    "island_km2": null,
+    "detail": "detail/us-nc/B-34.490897_-77.703473",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 35.680269,
+    "lon": -76.470935,
+    "dist_m": 6193.96,
+    "nearest_way": {
+     "id": 636383301,
+     "highway": "unclassified",
+     "name": "Shore Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ponzer",
+     "type": "hamlet",
+     "dist_m": 10496.7,
+     "lat": 35.587666,
+     "lon": -76.494651
+    },
+    "island_km2": null,
+    "detail": "detail/us-nc/B-35.680269_-76.470935",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 34.802021,
+    "lon": -77.011532,
+    "dist_m": 5960.6,
+    "nearest_way": {
+     "id": 16455689,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Camp Bryan",
+     "type": "hamlet",
+     "dist_m": 5403.3,
+     "lat": 34.84516,
+     "lon": -76.984112
+    },
+    "island_km2": null,
+    "detail": "detail/us-nc/B-34.802021_-77.011532",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 13128.66,
+  "lat": 35.069138,
+  "lon": -76.453741,
+  "rank": 31,
+  "withheld": 0
  }
 }

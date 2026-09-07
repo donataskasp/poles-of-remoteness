@@ -35,39 +35,18 @@
      "lat": 48.050402,
      "lon": -91.437973
     },
-    "detail": "detail/us-mn/A-1",
+    "island_km2": null,
+    "detail": "detail/us-mn/A-48.111687_-91.199053",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 48.031018,
-    "lon": -91.134869,
-    "dist_m": 21461.42,
+    "lat": 49.170044,
+    "lon": -94.84352,
+    "dist_m": 15609.35,
     "nearest_way": {
-     "id": 1335974388,
+     "id": 18131723,
      "highway": "track",
-     "name": "FH 5 Spur 1351 Spur B",
-     "ref": "1351B",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Prairie Portage",
-     "type": "isolated_dwelling",
-     "dist_m": 22703.9,
-     "lat": 48.050402,
-     "lon": -91.437973
-    },
-    "detail": "detail/us-mn/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 49.125327,
-    "lon": -94.775865,
-    "dist_m": 21252.58,
-    "nearest_way": {
-     "id": 18132628,
-     "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
@@ -75,147 +54,16 @@
     "nearest_place": {
      "name": "Long Point",
      "type": "hamlet",
-     "dist_m": 21269.1,
+     "dist_m": 23070.4,
      "lat": 48.977215,
      "lon": -94.959949
     },
-    "detail": "detail/us-mn/A-3",
+    "island_km2": 4.1,
+    "detail": "detail/us-mn/A-49.170044_-94.843520",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 48.198344,
-    "lon": -91.715969,
-    "dist_m": 18266.76,
-    "nearest_way": {
-     "id": 18236204,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Prairie Portage",
-     "type": "isolated_dwelling",
-     "dist_m": 26437.0,
-     "lat": 48.050402,
-     "lon": -91.437973
-    },
-    "detail": "detail/us-mn/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 48.253658,
-    "lon": -91.959028,
-    "dist_m": 17183.71,
-    "nearest_way": {
-     "id": 18236193,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Lac La Croix",
-     "type": "village",
-     "dist_m": 20356.6,
-     "lat": 48.376157,
-     "lon": -92.162987
-    },
-    "detail": "detail/us-mn/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 47.988339,
-    "lon": -91.014087,
-    "dist_m": 16310.12,
-    "nearest_way": {
-     "id": 18052884,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Forest Center",
-     "type": "hamlet",
-     "dist_m": 30732.4,
-     "lat": 47.794901,
-     "lon": -91.307635
-    },
-    "detail": "detail/us-mn/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 47.958518,
-    "lon": -91.219879,
-    "dist_m": 15904.46,
-    "nearest_way": {
-     "id": 1471599967,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Prairie Portage",
-     "type": "isolated_dwelling",
-     "dist_m": 19215.0,
-     "lat": 48.050402,
-     "lon": -91.437973
-    },
-    "detail": "detail/us-mn/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 48.17101,
-    "lon": -91.096966,
-    "dist_m": 14715.55,
-    "nearest_way": {
-     "id": 18051593,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Prairie Portage",
-     "type": "isolated_dwelling",
-     "dist_m": 28716.9,
-     "lat": 48.050402,
-     "lon": -91.437973
-    },
-    "detail": "detail/us-mn/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 48.103235,
-    "lon": -91.613483,
-    "dist_m": 14283.37,
-    "nearest_way": {
-     "id": 1172289454,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Prairie Portage",
-     "type": "isolated_dwelling",
-     "dist_m": 14337.0,
-     "lat": 48.050402,
-     "lon": -91.437973
-    },
-    "detail": "detail/us-mn/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 3,
     "lat": 48.550017,
     "lon": -92.90564,
     "dist_m": 13388.59,
@@ -229,16 +77,208 @@
     "nearest_place": {
      "name": "Kabetogama",
      "type": "village",
-     "dist_m": 15393.5,
+     "dist_m": 15393.4,
      "lat": 48.437695,
      "lon": -93.027374
     },
-    "detail": "detail/us-mn/A-10",
+    "island_km2": null,
+    "detail": "detail/us-mn/A-48.550017_-92.905640",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 48.314649,
+    "lon": -94.75711,
+    "dist_m": 11052.14,
+    "nearest_way": {
+     "id": 18008969,
+     "highway": "track",
+     "name": "(Snowmobile Trail)",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oaks Corner",
+     "type": "hamlet",
+     "dist_m": 18792.5,
+     "lat": 48.424419,
+     "lon": -94.949965
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/A-48.314649_-94.757110",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 47.980566,
+    "lon": -92.183235,
+    "dist_m": 9775.3,
+    "nearest_way": {
+     "id": 18245120,
+     "highway": "residential",
+     "name": "Mud Creek Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Burntside Lake",
+     "type": "hamlet",
+     "dist_m": 14792.6,
+     "lat": 47.892687,
+     "lon": -92.034593
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/A-47.980566_-92.183235",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 48.200707,
+    "lon": -94.256985,
+    "dist_m": 9342.43,
+    "nearest_way": {
+     "id": 18126771,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Gates Corner",
+     "type": "hamlet",
+     "dist_m": 11648.3,
+     "lat": 48.219124,
+     "lon": -94.102699
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/A-48.200707_-94.256985",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 48.357553,
+    "lon": -94.428686,
+    "dist_m": 9287.4,
+    "nearest_way": {
+     "id": 18129133,
+     "highway": "unclassified",
+     "name": "Pine Island Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wayland",
+     "type": "hamlet",
+     "dist_m": 14690.5,
+     "lat": 48.468297,
+     "lon": -94.320482
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/A-48.357553_-94.428686",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 48.170025,
+    "lon": -95.068301,
+    "dist_m": 8620.87,
+    "nearest_way": {
+     "id": 18008963,
+     "highway": "track",
+     "name": "(Snowmobile Trail)",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Thorhult",
+     "type": "hamlet",
+     "dist_m": 14945.4,
+     "lat": 48.230243,
+     "lon": -95.248045
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/A-48.170025_-95.068301",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 49.17882,
+    "lon": -95.02534,
+    "dist_m": 7608.86,
+    "nearest_way": {
+     "id": 207573224,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Angle Inlet",
+     "type": "village",
+     "dist_m": 18473.3,
+     "lat": 49.34302,
+     "lon": -95.063667
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/A-49.178820_-95.025340",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 48.454172,
+    "lon": -95.081856,
+    "dist_m": 7430.17,
+    "nearest_way": {
+     "id": 584269758,
+     "highway": "service",
+     "name": "Rapid River Road Southwest",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oaks Corner",
+     "type": "hamlet",
+     "dist_m": 10304.2,
+     "lat": 48.424419,
+     "lon": -94.949965
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/A-48.454172_-95.081856",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 48.042223,
+    "lon": -95.381698,
+    "dist_m": 7342.55,
+    "nearest_way": {
+     "id": 18010870,
+     "highway": "residential",
+     "name": "Reservation Hwy 23",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Jelle",
+     "type": "hamlet",
+     "dist_m": 21814.9,
+     "lat": 48.238018,
+     "lon": -95.400272
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/A-48.042223_-95.381698",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 22873.92,
+  "lat": 48.111687,
+  "lon": -91.199053,
+  "rank": 18,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,102 +301,15 @@
      "lat": 48.050402,
      "lon": -91.437973
     },
-    "detail": "detail/us-mn/B-1",
+    "island_km2": null,
+    "detail": "detail/us-mn/B-48.111687_-91.199053",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 48.034385,
-    "lon": -91.127754,
-    "dist_m": 21783.14,
-    "nearest_way": {
-     "id": 816216190,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Prairie Portage",
-     "type": "isolated_dwelling",
-     "dist_m": 23199.6,
-     "lat": 48.050402,
-     "lon": -91.437973
-    },
-    "detail": "detail/us-mn/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 49.125776,
-    "lon": -94.775881,
-    "dist_m": 21290.7,
-    "nearest_way": {
-     "id": 18132628,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Long Point",
-     "type": "hamlet",
-     "dist_m": 21307.1,
-     "lat": 48.977215,
-     "lon": -94.959949
-    },
-    "detail": "detail/us-mn/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 48.19839,
-    "lon": -91.716102,
-    "dist_m": 19766.03,
-    "nearest_way": {
-     "id": 620770183,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Prairie Portage",
-     "type": "isolated_dwelling",
-     "dist_m": 26448.0,
-     "lat": 48.050402,
-     "lon": -91.437973
-    },
-    "detail": "detail/us-mn/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 48.253658,
-    "lon": -91.959028,
-    "dist_m": 17356.37,
-    "nearest_way": {
-     "id": 1477330609,
-     "highway": "tertiary",
-     "name": "Echo Trail",
-     "ref": "CR 116",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Lac La Croix",
-     "type": "village",
-     "dist_m": 20356.6,
-     "lat": 48.376157,
-     "lon": -92.162987
-    },
-    "detail": "detail/us-mn/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 49.186353,
-    "lon": -94.879082,
-    "dist_m": 16483.44,
+    "lat": 49.176773,
+    "lon": -94.829701,
+    "dist_m": 20229.23,
     "nearest_way": {
      "id": 18132203,
      "highway": "service",
@@ -367,81 +320,16 @@
     "nearest_place": {
      "name": "Penasse",
      "type": "hamlet",
-     "dist_m": 20991.1,
+     "dist_m": 23231.3,
      "lat": 49.367615,
      "lon": -94.959495
     },
-    "detail": "detail/us-mn/B-6",
+    "island_km2": 4.1,
+    "detail": "detail/us-mn/B-49.176773_-94.829701",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 47.964841,
-    "lon": -91.214198,
-    "dist_m": 16274.17,
-    "nearest_way": {
-     "id": 1471599967,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Prairie Portage",
-     "type": "isolated_dwelling",
-     "dist_m": 19216.9,
-     "lat": 48.050402,
-     "lon": -91.437973
-    },
-    "detail": "detail/us-mn/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 47.987982,
-    "lon": -91.01076,
-    "dist_m": 16133.53,
-    "nearest_way": {
-     "id": 18052884,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Forest Center",
-     "type": "hamlet",
-     "dist_m": 30883.1,
-     "lat": 47.794901,
-     "lon": -91.307635
-    },
-    "detail": "detail/us-mn/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 48.113979,
-    "lon": -91.651929,
-    "dist_m": 15654.9,
-    "nearest_way": {
-     "id": 620986059,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Prairie Portage",
-     "type": "isolated_dwelling",
-     "dist_m": 17438.3,
-     "lat": 48.050402,
-     "lon": -91.437973
-    },
-    "detail": "detail/us-mn/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 3,
     "lat": 48.226079,
     "lon": -95.012272,
     "dist_m": 14858.76,
@@ -455,15 +343,207 @@
     "nearest_place": {
      "name": "Thorhult",
      "type": "hamlet",
-     "dist_m": 17523.1,
+     "dist_m": 17523.0,
      "lat": 48.230243,
      "lon": -95.248045
     },
-    "detail": "detail/us-mn/B-10",
+    "island_km2": null,
+    "detail": "detail/us-mn/B-48.226079_-95.012272",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 48.550017,
+    "lon": -92.90564,
+    "dist_m": 13388.59,
+    "nearest_way": {
+     "id": 18249821,
+     "highway": "residential",
+     "name": "Waltz Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kabetogama",
+     "type": "village",
+     "dist_m": 15393.4,
+     "lat": 48.437695,
+     "lon": -93.027374
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/B-48.550017_-92.905640",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 48.38331,
+    "lon": -94.01089,
+    "dist_m": 10851.34,
+    "nearest_way": {
+     "id": 18130443,
+     "highway": "unclassified",
+     "name": "Twomey-Williams Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fairland",
+     "type": "hamlet",
+     "dist_m": 14168.3,
+     "lat": 48.46746,
+     "lon": -94.154637
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/B-48.383310_-94.010890",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 48.373217,
+    "lon": -94.412634,
+    "dist_m": 10603.59,
+    "nearest_way": {
+     "id": 18129133,
+     "highway": "unclassified",
+     "name": "Pine Island Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wayland",
+     "type": "hamlet",
+     "dist_m": 12582.0,
+     "lat": 48.468297,
+     "lon": -94.320482
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/B-48.373217_-94.412634",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 49.223227,
+    "lon": -94.94959,
+    "dist_m": 10426.37,
+    "nearest_way": {
+     "id": 18132203,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Angle Inlet",
+     "type": "village",
+     "dist_m": 15696.6,
+     "lat": 49.34302,
+     "lon": -95.063667
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/B-49.223227_-94.949590",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 48.478148,
+    "lon": -95.098033,
+    "dist_m": 10343.88,
+    "nearest_way": {
+     "id": 18132968,
+     "highway": "unclassified",
+     "name": "Hogsback Obrien Forest Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oaks Corner",
+     "type": "hamlet",
+     "dist_m": 12476.5,
+     "lat": 48.424419,
+     "lon": -94.949965
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/B-48.478148_-95.098033",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 47.984213,
+    "lon": -92.171759,
+    "dist_m": 10047.62,
+    "nearest_way": {
+     "id": 856190834,
+     "highway": "unclassified",
+     "name": "Forest Road 472",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Burntside Lake",
+     "type": "hamlet",
+     "dist_m": 14442.7,
+     "lat": 47.892687,
+     "lon": -92.034593
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/B-47.984213_-92.171759",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 48.179057,
+    "lon": -94.254917,
+    "dist_m": 9900.49,
+    "nearest_way": {
+     "id": 18126771,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Gates Corner",
+     "type": "hamlet",
+     "dist_m": 12161.0,
+     "lat": 48.219124,
+     "lon": -94.102699
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/B-48.179057_-94.254917",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 47.545126,
+    "lon": -91.763816,
+    "dist_m": 8145.66,
+    "nearest_way": {
+     "id": 18138153,
+     "highway": "secondary",
+     "name": "Highway 2",
+     "ref": "CH 2",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Toimi",
+     "type": "hamlet",
+     "dist_m": 16084.7,
+     "lat": 47.400477,
+     "lon": -91.767669
+    },
+    "island_km2": null,
+    "detail": "detail/us-mn/B-47.545126_-91.763816",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 22873.92,
+  "lat": 48.111687,
+  "lon": -91.199053,
+  "rank": 23,
+  "withheld": 0
  }
 }

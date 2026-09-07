@@ -35,7 +35,8 @@
      "lat": 39.212613,
      "lon": -75.431031
     },
-    "detail": "detail/us-de/A-1",
+    "island_km2": null,
+    "detail": "detail/us-de/A-39.240275_-75.404947",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 39.516779,
      "lon": -75.576593
     },
-    "detail": "detail/us-de/A-2",
+    "island_km2": 4833.5,
+    "detail": "detail/us-de/A-39.501578_-75.539850",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 38.947335,
      "lon": -75.314914
     },
-    "detail": "detail/us-de/A-3",
+    "island_km2": null,
+    "detail": "detail/us-de/A-38.971603_-75.313621",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 38.774001,
      "lon": -75.190463
     },
-    "detail": "detail/us-de/A-4",
+    "island_km2": null,
+    "detail": "detail/us-de/A-38.787564_-75.190395",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 39.604835,
      "lon": -75.550202
     },
-    "detail": "detail/us-de/A-5",
+    "island_km2": 4833.5,
+    "detail": "detail/us-de/A-39.621595_-75.571176",
     "warnings": []
    },
    {
@@ -141,11 +146,12 @@
     "nearest_place": {
      "name": "Careytown",
      "type": "hamlet",
-     "dist_m": 3508.4,
+     "dist_m": 3508.3,
      "lat": 38.434004,
      "lon": -75.32547
     },
-    "detail": "detail/us-de/A-6",
+    "island_km2": null,
+    "detail": "detail/us-de/A-38.459823_-75.302292",
     "warnings": []
    },
    {
@@ -163,11 +169,12 @@
     "nearest_place": {
      "name": "Taylors Gut Landing",
      "type": "hamlet",
-     "dist_m": 1590.9,
+     "dist_m": 1590.8,
      "lat": 39.327612,
      "lon": -75.514924
     },
-    "detail": "detail/us-de/A-7",
+    "island_km2": null,
+    "detail": "detail/us-de/A-39.340069_-75.505805",
     "warnings": []
    },
    {
@@ -189,7 +196,8 @@
      "lat": 39.137144,
      "lon": -75.409496
     },
-    "detail": "detail/us-de/A-8",
+    "island_km2": null,
+    "detail": "detail/us-de/A-39.120352_-75.413708",
     "warnings": []
    },
    {
@@ -211,7 +219,8 @@
      "lat": 38.566226,
      "lon": -75.714931
     },
-    "detail": "detail/us-de/A-9",
+    "island_km2": null,
+    "detail": "detail/us-de/A-38.559508_-75.686470",
     "warnings": []
    },
    {
@@ -229,16 +238,70 @@
     "nearest_place": {
      "name": "Primehook Beach",
      "type": "hamlet",
-     "dist_m": 3153.6,
+     "dist_m": 3153.5,
      "lat": 38.855668,
      "lon": -75.242688
     },
-    "detail": "detail/us-de/A-10",
+    "island_km2": null,
+    "detail": "detail/us-de/A-38.865370_-75.276836",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 38.58182,
+    "lon": -75.183287,
+    "dist_m": 1238.86,
+    "nearest_way": {
+     "id": 17245149,
+     "highway": "residential",
+     "name": "Dover Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oak Orchard",
+     "type": "hamlet",
+     "dist_m": 2144.8,
+     "lat": 38.598939,
+     "lon": -75.171873
+    },
+    "island_km2": null,
+    "detail": "detail/us-de/A-38.581820_-75.183287",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 39.412851,
+    "lon": -75.611989,
+    "dist_m": 1184.48,
+    "nearest_way": {
+     "id": 117146889,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stave Landing",
+     "type": "hamlet",
+     "dist_m": 2275.2,
+     "lat": 39.431501,
+     "lon": -75.601038
+    },
+    "island_km2": null,
+    "detail": "detail/us-de/A-39.412851_-75.611989",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 5103.91,
+  "lat": 39.240275,
+  "lon": -75.404947,
+  "rank": 47,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +324,8 @@
      "lat": 39.212613,
      "lon": -75.431031
     },
-    "detail": "detail/us-de/B-1",
+    "island_km2": null,
+    "detail": "detail/us-de/B-39.240275_-75.404947",
     "warnings": []
    },
    {
@@ -283,7 +347,8 @@
      "lat": 39.516779,
      "lon": -75.576593
     },
-    "detail": "detail/us-de/B-2",
+    "island_km2": 4833.5,
+    "detail": "detail/us-de/B-39.501578_-75.539850",
     "warnings": []
    },
    {
@@ -305,7 +370,8 @@
      "lat": 39.333446,
      "lon": -75.474644
     },
-    "detail": "detail/us-de/B-3",
+    "island_km2": null,
+    "detail": "detail/us-de/B-39.353917_-75.493126",
     "warnings": []
    },
    {
@@ -327,7 +393,8 @@
      "lat": 38.947335,
      "lon": -75.314914
     },
-    "detail": "detail/us-de/B-4",
+    "island_km2": null,
+    "detail": "detail/us-de/B-38.971603_-75.313621",
     "warnings": []
    },
    {
@@ -349,7 +416,8 @@
      "lat": 38.502614,
      "lon": -75.233522
     },
-    "detail": "detail/us-de/B-5",
+    "island_km2": null,
+    "detail": "detail/us-de/B-38.493898_-75.281891",
     "warnings": []
    },
    {
@@ -371,7 +439,8 @@
      "lat": 38.774001,
      "lon": -75.190463
     },
-    "detail": "detail/us-de/B-6",
+    "island_km2": null,
+    "detail": "detail/us-de/B-38.787282_-75.190477",
     "warnings": []
    },
    {
@@ -393,7 +462,8 @@
      "lat": 39.604835,
      "lon": -75.550202
     },
-    "detail": "detail/us-de/B-7",
+    "island_km2": 4833.5,
+    "detail": "detail/us-de/B-39.621595_-75.571176",
     "warnings": []
    },
    {
@@ -415,7 +485,8 @@
      "lat": 39.071398,
      "lon": -75.475886
     },
-    "detail": "detail/us-de/B-8",
+    "island_km2": null,
+    "detail": "detail/us-de/B-39.072917_-75.442131",
     "warnings": []
    },
    {
@@ -437,7 +508,8 @@
      "lat": 39.431501,
      "lon": -75.601038
     },
-    "detail": "detail/us-de/B-9",
+    "island_km2": null,
+    "detail": "detail/us-de/B-39.418098_-75.602155",
     "warnings": []
    },
    {
@@ -455,15 +527,69 @@
     "nearest_place": {
      "name": "Pusey Crossroads",
      "type": "hamlet",
-     "dist_m": 2054.8,
+     "dist_m": 2054.7,
      "lat": 38.55817,
      "lon": -75.409363
     },
-    "detail": "detail/us-de/B-10",
+    "island_km2": null,
+    "detail": "detail/us-de/B-38.574763_-75.419811",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 38.798744,
+    "lon": -75.358123,
+    "dist_m": 1377.45,
+    "nearest_way": {
+     "id": 17237700,
+     "highway": "primary",
+     "name": "Milton Ellendale Highway",
+     "ref": "DE 16",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Reynolds Mill",
+     "type": "hamlet",
+     "dist_m": 2012.9,
+     "lat": 38.813168,
+     "lon": -75.344082
+    },
+    "island_km2": null,
+    "detail": "detail/us-de/B-38.798744_-75.358123",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 38.678965,
+    "lon": -75.45971,
+    "dist_m": 1329.64,
+    "nearest_way": {
+     "id": 778786434,
+     "highway": "service",
+     "name": "Clemson Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "McDonalds Crossroads",
+     "type": "hamlet",
+     "dist_m": 1652.8,
+     "lat": 38.667614,
+     "lon": -75.44742
+    },
+    "island_km2": null,
+    "detail": "detail/us-de/B-38.678965_-75.459710",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 5103.91,
+  "lat": 39.240275,
+  "lon": -75.404947,
+  "rank": 53,
+  "withheld": 0
  }
 }

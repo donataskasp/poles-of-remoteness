@@ -18,9 +18,9 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 38.115664,
-    "lon": -76.089834,
-    "dist_m": 11756.12,
+    "lat": 38.091309,
+    "lon": -76.055655,
+    "dist_m": 9907.67,
     "nearest_way": {
      "id": 17657803,
      "highway": "residential",
@@ -31,33 +31,35 @@
     "nearest_place": {
      "name": "Wenona",
      "type": "hamlet",
-     "dist_m": 12513.5,
+     "dist_m": 10655.6,
      "lat": 38.139012,
      "lon": -75.950211
     },
-    "detail": "detail/us-md/A-1",
+    "island_km2": 9.8,
+    "detail": "detail/us-md/A-38.091309_-76.055655",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 37.912168,
-    "lon": -75.884635,
-    "dist_m": 6126.87,
+    "lat": 38.181533,
+    "lon": -76.083637,
+    "dist_m": 5909.78,
     "nearest_way": {
-     "id": 17669856,
-     "highway": "track",
-     "name": "Hammock Pointe",
+     "id": 17642883,
+     "highway": "residential",
+     "name": "Phillips Gunning Club Road",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Byrdtown",
+     "name": "Crocheron",
      "type": "hamlet",
-     "dist_m": 6566.9,
-     "lat": 37.959569,
-     "lon": -75.839932
+     "dist_m": 7348.6,
+     "lat": 38.242901,
+     "lon": -76.052159
     },
-    "detail": "detail/us-md/A-2",
+    "island_km2": 17.8,
+    "detail": "detail/us-md/A-38.181533_-76.083637",
     "warnings": []
    },
    {
@@ -79,121 +81,81 @@
      "lat": 38.258456,
      "lon": -75.910211
     },
-    "detail": "detail/us-md/A-3",
+    "island_km2": null,
+    "detail": "detail/us-md/A-38.234279_-75.970089",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 38.038151,
-    "lon": -76.009234,
-    "dist_m": 5066.05,
+    "lat": 37.922898,
+    "lon": -75.896044,
+    "dist_m": 5398.72,
     "nearest_way": {
-     "id": 1339655763,
-     "highway": "service",
-     "name": null,
+     "id": 17669856,
+     "highway": "track",
+     "name": "Hammock Pointe",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Ewell",
-     "type": "village",
-     "dist_m": 5165.3,
-     "lat": 37.995678,
-     "lon": -76.033271
+     "name": "Byrdtown",
+     "type": "hamlet",
+     "dist_m": 6395.0,
+     "lat": 37.959569,
+     "lon": -75.839932
     },
-    "detail": "detail/us-md/A-4",
+    "island_km2": null,
+    "detail": "detail/us-md/A-37.922898_-75.896044",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 38.374517,
-    "lon": -76.004987,
-    "dist_m": 4631.01,
+    "lat": 38.370001,
+    "lon": -75.994681,
+    "dist_m": 4502.22,
     "nearest_way": {
-     "id": 279671536,
+     "id": 17635635,
      "highway": "track",
-     "name": "Willeys Neck Road",
+     "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
      "name": "Bestpitch",
      "type": "hamlet",
-     "dist_m": 4841.1,
+     "dist_m": 5247.5,
      "lat": 38.417272,
      "lon": -75.994056
     },
-    "detail": "detail/us-md/A-5",
+    "island_km2": null,
+    "detail": "detail/us-md/A-38.370001_-75.994681",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 38.061352,
-    "lon": -75.315895,
-    "dist_m": 3939.36,
+    "lat": 38.07344,
+    "lon": -75.303289,
+    "dist_m": 3021.31,
     "nearest_way": {
-     "id": 1178257626,
-     "highway": "track",
-     "name": null,
+     "id": 17712482,
+     "highway": "unclassified",
+     "name": "Scotts Landing Road",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Hudson Landing",
+     "name": "Duers Neck Landing",
      "type": "hamlet",
-     "dist_m": 3939.8,
-     "lat": 38.083454,
-     "lon": -75.351028
+     "dist_m": 3003.8,
+     "lat": 38.098731,
+     "lon": -75.315471
     },
-    "detail": "detail/us-md/A-6",
+    "island_km2": null,
+    "detail": "detail/us-md/A-38.073440_-75.303289",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 38.233185,
-    "lon": -76.133213,
-    "dist_m": 3915.41,
-    "nearest_way": {
-     "id": 17628657,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Hoopersville",
-     "type": "hamlet",
-     "dist_m": 5140.6,
-     "lat": 38.261234,
-     "lon": -76.179942
-    },
-    "detail": "detail/us-md/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 39.274288,
-    "lon": -76.27146,
-    "dist_m": 3160.87,
-    "nearest_way": {
-     "id": 565100401,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Great Oak Landing",
-     "type": "hamlet",
-     "dist_m": 6028.8,
-     "lat": 39.264553,
-     "lon": -76.202731
-    },
-    "detail": "detail/us-md/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
     "lat": 38.033626,
     "lon": -75.871976,
     "dist_m": 2947.33,
@@ -211,11 +173,35 @@
      "lat": 38.016235,
      "lon": -75.81632
     },
-    "detail": "detail/us-md/A-9",
+    "island_km2": null,
+    "detail": "detail/us-md/A-38.033626_-75.871976",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 8,
+    "lat": 38.007567,
+    "lon": -76.000682,
+    "dist_m": 2941.33,
+    "nearest_way": {
+     "id": 17670812,
+     "highway": "service",
+     "name": "Oyster House Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ewell",
+     "type": "village",
+     "dist_m": 3151.9,
+     "lat": 37.995678,
+     "lon": -76.033271
+    },
+    "island_km2": 29.4,
+    "detail": "detail/us-md/A-38.007567_-76.000682",
+    "warnings": []
+   },
+   {
+    "rank": 9,
     "lat": 39.382152,
     "lon": -76.176355,
     "dist_m": 2748.83,
@@ -233,39 +219,117 @@
      "lat": 39.363166,
      "lon": -76.114672
     },
-    "detail": "detail/us-md/A-10",
+    "island_km2": null,
+    "detail": "detail/us-md/A-39.382152_-76.176355",
     "warnings": []
-   }
-  ],
-  "withheld": 0,
-  "reason": null
- },
- "B": {
-  "poles": [
+   },
    {
-    "rank": 1,
-    "lat": 38.115664,
-    "lon": -76.089834,
-    "dist_m": 11756.12,
+    "rank": 10,
+    "lat": 38.210371,
+    "lon": -75.846602,
+    "dist_m": 2543.74,
     "nearest_way": {
-     "id": 17657803,
+     "id": 743191298,
+     "highway": "secondary",
+     "name": "Deal Island Road",
+     "ref": "MD 363",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Saint Stephen",
+     "type": "hamlet",
+     "dist_m": 2621.9,
+     "lat": 38.187345,
+     "lon": -75.839931
+    },
+    "island_km2": null,
+    "detail": "detail/us-md/A-38.210371_-75.846602",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 37.969651,
+    "lon": -75.752335,
+    "dist_m": 2319.42,
+    "nearest_way": {
+     "id": 752881835,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Indian Hammock",
+     "type": "hamlet",
+     "dist_m": 3347.3,
+     "lat": 37.996513,
+     "lon": -75.769653
+    },
+    "island_km2": null,
+    "detail": "detail/us-md/A-37.969651_-75.752335",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 38.272237,
+    "lon": -75.119795,
+    "dist_m": 2183.64,
+    "nearest_way": {
+     "id": 17695524,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Snug Harbor",
+     "type": "hamlet",
+     "dist_m": 2666.5,
+     "lat": 38.294004,
+     "lon": -75.132686
+    },
+    "island_km2": null,
+    "detail": "detail/us-md/A-38.272237_-75.119795",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 38.132043,
+    "lon": -75.920511,
+    "dist_m": 2084.54,
+    "nearest_way": {
+     "id": 17670260,
      "highway": "residential",
-     "name": "Marina Drive",
+     "name": "Horner Lane",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
      "name": "Wenona",
      "type": "hamlet",
-     "dist_m": 12513.5,
+     "dist_m": 2716.3,
      "lat": 38.139012,
      "lon": -75.950211
     },
-    "detail": "detail/us-md/B-1",
+    "island_km2": null,
+    "detail": "detail/us-md/A-38.132043_-75.920511",
     "warnings": []
-   },
+   }
+  ],
+  "withheld": 0,
+  "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 5650.43,
+  "lat": 38.234279,
+  "lon": -75.970089,
+  "rank": 43,
+  "withheld": 0
+ },
+ "B": {
+  "poles": [
    {
-    "rank": 2,
+    "rank": 1,
     "lat": 38.032384,
     "lon": -75.238328,
     "dist_m": 10007.35,
@@ -283,51 +347,77 @@
      "lat": 38.098731,
      "lon": -75.315471
     },
-    "detail": "detail/us-md/B-2",
+    "island_km2": null,
+    "detail": "detail/us-md/B-38.032384_-75.238328",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 38.091309,
+    "lon": -76.055655,
+    "dist_m": 9907.67,
+    "nearest_way": {
+     "id": 17657803,
+     "highway": "residential",
+     "name": "Marina Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Wenona",
+     "type": "hamlet",
+     "dist_m": 10655.6,
+     "lat": 38.139012,
+     "lon": -75.950211
+    },
+    "island_km2": 9.8,
+    "detail": "detail/us-md/B-38.091309_-76.055655",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 38.114042,
-    "lon": -75.185062,
-    "dist_m": 8625.97,
+    "lat": 37.922898,
+    "lon": -75.896044,
+    "dist_m": 5933.44,
     "nearest_way": {
-     "id": 17684261,
+     "id": 1504673119,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Figgs Landing",
+     "name": "Byrdtown",
      "type": "hamlet",
-     "dist_m": 9760.8,
-     "lat": 38.120953,
-     "lon": -75.296026
+     "dist_m": 6395.0,
+     "lat": 37.959569,
+     "lon": -75.839932
     },
-    "detail": "detail/us-md/B-3",
+    "island_km2": null,
+    "detail": "detail/us-md/B-37.922898_-75.896044",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 37.913258,
-    "lon": -75.886866,
-    "dist_m": 6285.68,
+    "lat": 38.181533,
+    "lon": -76.083637,
+    "dist_m": 5909.78,
     "nearest_way": {
-     "id": 17671480,
+     "id": 17642883,
      "highway": "residential",
-     "name": "Lloyd Webb Road",
+     "name": "Phillips Gunning Club Road",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Byrdtown",
+     "name": "Crocheron",
      "type": "hamlet",
-     "dist_m": 6591.3,
-     "lat": 37.959569,
-     "lon": -75.839932
+     "dist_m": 7348.6,
+     "lat": 38.242901,
+     "lon": -76.052159
     },
-    "detail": "detail/us-md/B-4",
+    "island_km2": 17.8,
+    "detail": "detail/us-md/B-38.181533_-76.083637",
     "warnings": []
    },
    {
@@ -349,7 +439,8 @@
      "lat": 38.258456,
      "lon": -75.910211
     },
-    "detail": "detail/us-md/B-5",
+    "island_km2": null,
+    "detail": "detail/us-md/B-38.234279_-75.970089",
     "warnings": []
    },
    {
@@ -371,33 +462,12 @@
      "lat": 38.417272,
      "lon": -75.994056
     },
-    "detail": "detail/us-md/B-6",
+    "island_km2": null,
+    "detail": "detail/us-md/B-38.369943_-75.994412",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 38.038151,
-    "lon": -76.009234,
-    "dist_m": 5066.05,
-    "nearest_way": {
-     "id": 1339655763,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Ewell",
-     "type": "village",
-     "dist_m": 5165.3,
-     "lat": 37.995678,
-     "lon": -76.033271
-    },
-    "detail": "detail/us-md/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
     "lat": 38.766647,
     "lon": -76.39066,
     "dist_m": 4783.63,
@@ -415,55 +485,180 @@
      "lat": 38.761507,
      "lon": -76.318839
     },
-    "detail": "detail/us-md/B-8",
+    "island_km2": 7.0,
+    "detail": "detail/us-md/B-38.766647_-76.390660",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 38.232318,
-    "lon": -76.136186,
-    "dist_m": 4178.2,
+    "rank": 8,
+    "lat": 39.315121,
+    "lon": -76.329337,
+    "dist_m": 3027.65,
     "nearest_way": {
-     "id": 315334239,
+     "id": 64361573,
      "highway": "residential",
-     "name": "Hoopersville Road",
+     "name": "Carroll Island Road",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Hoopersville",
-     "type": "hamlet",
-     "dist_m": 4997.3,
-     "lat": 38.261234,
-     "lon": -76.179942
+     "name": "Bowleys Quarters",
+     "type": "village",
+     "dist_m": 5326.9,
+     "lat": 39.317221,
+     "lon": -76.391047
     },
-    "detail": "detail/us-md/B-9",
+    "island_km2": null,
+    "detail": "detail/us-md/B-39.315121_-76.329337",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 39.274288,
-    "lon": -76.27146,
-    "dist_m": 3508.82,
+    "rank": 9,
+    "lat": 38.033626,
+    "lon": -75.871976,
+    "dist_m": 2947.33,
     "nearest_way": {
-     "id": 17636723,
+     "id": 1461918205,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Great Oak Landing",
+     "name": "Hearts Ease",
      "type": "hamlet",
-     "dist_m": 6028.8,
-     "lat": 39.264553,
-     "lon": -76.202731
+     "dist_m": 5254.2,
+     "lat": 38.016235,
+     "lon": -75.81632
     },
-    "detail": "detail/us-md/B-10",
+    "island_km2": null,
+    "detail": "detail/us-md/B-38.033626_-75.871976",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 38.007567,
+    "lon": -76.000682,
+    "dist_m": 2941.33,
+    "nearest_way": {
+     "id": 17670812,
+     "highway": "service",
+     "name": "Oyster House Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Ewell",
+     "type": "village",
+     "dist_m": 3151.9,
+     "lat": 37.995678,
+     "lon": -76.033271
+    },
+    "island_km2": 29.4,
+    "detail": "detail/us-md/B-38.007567_-76.000682",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 39.382152,
+    "lon": -76.176355,
+    "dist_m": 2748.83,
+    "nearest_way": {
+     "id": 567572736,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Echo Hill",
+     "type": "hamlet",
+     "dist_m": 5717.9,
+     "lat": 39.363166,
+     "lon": -76.114672
+    },
+    "island_km2": null,
+    "detail": "detail/us-md/B-39.382152_-76.176355",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 37.970716,
+    "lon": -75.756629,
+    "dist_m": 2696.92,
+    "nearest_way": {
+     "id": 17671191,
+     "highway": "residential",
+     "name": "Paul Gumby Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Indian Hammock",
+     "type": "hamlet",
+     "dist_m": 3083.5,
+     "lat": 37.996513,
+     "lon": -75.769653
+    },
+    "island_km2": null,
+    "detail": "detail/us-md/B-37.970716_-75.756629",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 38.214329,
+    "lon": -75.832892,
+    "dist_m": 2573.27,
+    "nearest_way": {
+     "id": 17668236,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Saint Stephen",
+     "type": "hamlet",
+     "dist_m": 3058.1,
+     "lat": 38.187345,
+     "lon": -75.839931
+    },
+    "island_km2": null,
+    "detail": "detail/us-md/B-38.214329_-75.832892",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 38.409583,
+    "lon": -76.155042,
+    "dist_m": 2291.08,
+    "nearest_way": {
+     "id": 17642753,
+     "highway": "secondary",
+     "name": "Golden Hill Road",
+     "ref": "MD 335",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Milton",
+     "type": "hamlet",
+     "dist_m": 10151.2,
+     "lat": 38.497899,
+     "lon": -76.185221
+    },
+    "island_km2": null,
+    "detail": "detail/us-md/B-38.409583_-76.155042",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 10007.35,
+  "lat": 38.032384,
+  "lon": -75.238328,
+  "rank": 39,
+  "withheld": 0
  }
 }

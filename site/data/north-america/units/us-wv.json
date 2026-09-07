@@ -35,7 +35,8 @@
      "lat": 38.240949,
      "lon": -80.372579
     },
-    "detail": "detail/us-wv/A-1",
+    "island_km2": null,
+    "detail": "detail/us-wv/A-38.304641_-80.308382",
     "warnings": []
    },
    {
@@ -53,11 +54,12 @@
     "nearest_place": {
      "name": "Little Italy",
      "type": "hamlet",
-     "dist_m": 3859.3,
+     "dist_m": 3859.4,
      "lat": 38.794278,
      "lon": -79.549219
     },
-    "detail": "detail/us-wv/A-2",
+    "island_km2": null,
+    "detail": "detail/us-wv/A-38.777512_-79.510308",
     "warnings": []
    },
    {
@@ -75,11 +77,12 @@
     "nearest_place": {
      "name": "Rosendorf",
      "type": "hamlet",
-     "dist_m": 6823.4,
+     "dist_m": 6823.5,
      "lat": 39.073996,
      "lon": -79.622004
     },
-    "detail": "detail/us-wv/A-3",
+    "island_km2": null,
+    "detail": "detail/us-wv/A-39.012892_-79.630517",
     "warnings": []
    },
    {
@@ -97,11 +100,12 @@
     "nearest_place": {
      "name": "Denmar",
      "type": "hamlet",
-     "dist_m": 4064.5,
+     "dist_m": 4064.4,
      "lat": 38.086405,
      "lon": -80.222563
     },
-    "detail": "detail/us-wv/A-4",
+    "island_km2": null,
+    "detail": "detail/us-wv/A-38.067695_-80.182743",
     "warnings": []
    },
    {
@@ -119,11 +123,12 @@
     "nearest_place": {
      "name": "Laneville",
      "type": "hamlet",
-     "dist_m": 5335.4,
+     "dist_m": 5335.3,
      "lat": 38.973986,
      "lon": -79.418684
     },
-    "detail": "detail/us-wv/A-5",
+    "island_km2": null,
+    "detail": "detail/us-wv/A-39.000917_-79.367682",
     "warnings": []
    },
    {
@@ -141,11 +146,12 @@
     "nearest_place": {
      "name": "Streby",
      "type": "hamlet",
-     "dist_m": 4227.8,
+     "dist_m": 4227.7,
      "lat": 39.080386,
      "lon": -79.239484
     },
-    "detail": "detail/us-wv/A-6",
+    "island_km2": null,
+    "detail": "detail/us-wv/A-39.092360_-79.285870",
     "warnings": []
    },
    {
@@ -167,7 +173,8 @@
      "lat": 38.853721,
      "lon": -79.730061
     },
-    "detail": "detail/us-wv/A-7",
+    "island_km2": null,
+    "detail": "detail/us-wv/A-38.854287_-79.731745",
     "warnings": []
    },
    {
@@ -189,7 +196,8 @@
      "lat": 38.039845,
      "lon": -80.031728
     },
-    "detail": "detail/us-wv/A-8",
+    "island_km2": null,
+    "detail": "detail/us-wv/A-38.036463_-79.982839",
     "warnings": []
    },
    {
@@ -211,7 +219,8 @@
      "lat": 37.539283,
      "lon": -81.200098
     },
-    "detail": "detail/us-wv/A-9",
+    "island_km2": null,
+    "detail": "detail/us-wv/A-37.514652_-81.167498",
     "warnings": []
    },
    {
@@ -229,16 +238,24 @@
     "nearest_place": {
      "name": "Bass",
      "type": "hamlet",
-     "dist_m": 4236.4,
+     "dist_m": 4236.3,
      "lat": 38.948444,
      "lon": -79.002252
     },
-    "detail": "detail/us-wv/A-10",
+    "island_km2": null,
+    "detail": "detail/us-wv/A-38.915240_-78.978173",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 5176.64,
+  "lat": 38.304641,
+  "lon": -80.308382,
+  "rank": 45,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,33 +278,12 @@
      "lat": 38.425667,
      "lon": -80.311188
     },
-    "detail": "detail/us-wv/B-1",
+    "island_km2": null,
+    "detail": "detail/us-wv/B-38.339688_-80.333312",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 38.455845,
-    "lon": -80.162807,
-    "dist_m": 4539.21,
-    "nearest_way": {
-     "id": 15662816,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Brush Camp Low Place",
-     "type": "hamlet",
-     "dist_m": 719.8,
-     "lat": 38.449835,
-     "lon": -80.165905
-    },
-    "detail": "detail/us-wv/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 38.415769,
     "lon": -80.864334,
     "dist_m": 4513.26,
@@ -301,15 +297,16 @@
     "nearest_place": {
      "name": "Widen",
      "type": "hamlet",
-     "dist_m": 5633.0,
+     "dist_m": 5633.1,
      "lat": 38.466215,
      "lon": -80.857323
     },
-    "detail": "detail/us-wv/B-3",
+    "island_km2": null,
+    "detail": "detail/us-wv/B-38.415769_-80.864334",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 38.522291,
     "lon": -79.217189,
     "dist_m": 4482.3,
@@ -323,15 +320,16 @@
     "nearest_place": {
      "name": "Sugar Grove",
      "type": "hamlet",
-     "dist_m": 9172.0,
+     "dist_m": 9172.1,
      "lat": 38.511196,
      "lon": -79.321406
     },
-    "detail": "detail/us-wv/B-4",
+    "island_km2": null,
+    "detail": "detail/us-wv/B-38.522291_-79.217189",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 38.787537,
     "lon": -79.495886,
     "dist_m": 4381.59,
@@ -349,11 +347,12 @@
      "lat": 38.807334,
      "lon": -79.542553
     },
-    "detail": "detail/us-wv/B-5",
+    "island_km2": null,
+    "detail": "detail/us-wv/B-38.787537_-79.495886",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 37.847987,
     "lon": -81.746356,
     "dist_m": 4304.53,
@@ -371,11 +370,12 @@
      "lat": 37.806218,
      "lon": -81.758727
     },
-    "detail": "detail/us-wv/B-6",
+    "island_km2": null,
+    "detail": "detail/us-wv/B-37.847987_-81.746356",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 38.779666,
     "lon": -79.788456,
     "dist_m": 4177.09,
@@ -393,11 +393,12 @@
      "lat": 38.751222,
      "lon": -79.757838
     },
-    "detail": "detail/us-wv/B-7",
+    "island_km2": null,
+    "detail": "detail/us-wv/B-38.779666_-79.788456",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 39.064001,
     "lon": -79.498208,
     "dist_m": 4154.84,
@@ -415,11 +416,12 @@
      "lat": 39.021775,
      "lon": -79.537833
     },
-    "detail": "detail/us-wv/B-8",
+    "island_km2": null,
+    "detail": "detail/us-wv/B-39.064001_-79.498208",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 38.638769,
     "lon": -79.159132,
     "dist_m": 4149.85,
@@ -437,11 +439,12 @@
      "lat": 38.659561,
      "lon": -79.212815
     },
-    "detail": "detail/us-wv/B-9",
+    "island_km2": null,
+    "detail": "detail/us-wv/B-38.638769_-79.159132",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 38.478791,
     "lon": -79.95879,
     "dist_m": 4074.42,
@@ -459,11 +462,42 @@
      "lat": 38.456783,
      "lon": -79.955896
     },
-    "detail": "detail/us-wv/B-10",
+    "island_km2": null,
+    "detail": "detail/us-wv/B-38.478791_-79.958790",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 38.972795,
+    "lon": -78.609712,
+    "dist_m": 3973.61,
+    "nearest_way": {
+     "id": 758409736,
+     "highway": "unclassified",
+     "name": "Waites Run Road",
+     "ref": "CR 5/1",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Van Buren Furnace",
+     "type": "isolated_dwelling",
+     "dist_m": 4659.5,
+     "lat": 38.97622,
+     "lon": -78.556123
+    },
+    "island_km2": null,
+    "detail": "detail/us-wv/B-38.972795_-78.609712",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 7864.47,
+  "lat": 38.339688,
+  "lon": -80.333312,
+  "rank": 43,
+  "withheld": 0
  }
 }

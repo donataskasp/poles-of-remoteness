@@ -35,7 +35,8 @@
      "lat": 42.613056,
      "lon": -101.277099
     },
-    "detail": "detail/us-ne/A-1",
+    "island_km2": null,
+    "detail": "detail/us-ne/A-42.585668_-101.499668",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 42.174438,
      "lon": -101.418222
     },
-    "detail": "detail/us-ne/A-2",
+    "island_km2": null,
+    "detail": "detail/us-ne/A-42.140678_-101.335360",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 41.66451,
      "lon": -102.2045
     },
-    "detail": "detail/us-ne/A-3",
+    "island_km2": null,
+    "detail": "detail/us-ne/A-41.615229_-102.103823",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 42.021093,
      "lon": -102.088519
     },
-    "detail": "detail/us-ne/A-4",
+    "island_km2": null,
+    "detail": "detail/us-ne/A-42.128601_-102.016275",
     "warnings": []
    },
    {
@@ -119,11 +123,12 @@
     "nearest_place": {
      "name": "Hire",
      "type": "hamlet",
-     "dist_m": 16915.3,
+     "dist_m": 16915.4,
      "lat": 42.174438,
      "lon": -101.418222
     },
-    "detail": "detail/us-ne/A-5",
+    "island_km2": null,
+    "detail": "detail/us-ne/A-42.197096_-101.620706",
     "warnings": []
    },
    {
@@ -145,33 +150,12 @@
      "lat": 41.826139,
      "lon": -99.522194
     },
-    "detail": "detail/us-ne/A-6",
+    "island_km2": null,
+    "detail": "detail/us-ne/A-41.996113_-99.611717",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 42.618634,
-    "lon": -101.384504,
-    "dist_m": 7934.82,
-    "nearest_way": {
-     "id": 694562609,
-     "highway": "unclassified",
-     "name": "Mule Deer Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Doughboy",
-     "type": "hamlet",
-     "dist_m": 8834.0,
-     "lat": 42.613056,
-     "lon": -101.277099
-    },
-    "detail": "detail/us-ne/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
     "lat": 41.437794,
     "lon": -101.070818,
     "dist_m": 7928.15,
@@ -189,11 +173,12 @@
      "lat": 41.553117,
      "lon": -100.957626
     },
-    "detail": "detail/us-ne/A-8",
+    "island_km2": null,
+    "detail": "detail/us-ne/A-41.437794_-101.070818",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 41.779523,
     "lon": -101.886477,
     "dist_m": 7798.02,
@@ -211,11 +196,12 @@
      "lat": 41.631374,
      "lon": -101.941849
     },
-    "detail": "detail/us-ne/A-9",
+    "island_km2": null,
+    "detail": "detail/us-ne/A-41.779523_-101.886477",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 42.265972,
     "lon": -101.815194,
     "dist_m": 7762.71,
@@ -233,12 +219,43 @@
      "lat": 42.022804,
      "lon": -101.927416
     },
-    "detail": "detail/us-ne/A-10",
+    "island_km2": null,
+    "detail": "detail/us-ne/A-42.265972_-101.815194",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 42.077772,
+    "lon": -100.678124,
+    "dist_m": 7726.09,
+    "nearest_way": {
+     "id": 14265567,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Norway",
+     "type": "hamlet",
+     "dist_m": 9690.4,
+     "lat": 41.996645,
+     "lon": -100.721168
+    },
+    "island_km2": null,
+    "detail": "detail/us-ne/A-42.077772_-100.678124",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 10150.92,
+  "lat": 42.585668,
+  "lon": -101.499668,
+  "rank": 35,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 42.613056,
      "lon": -101.277099
     },
-    "detail": "detail/us-ne/B-1",
+    "island_km2": null,
+    "detail": "detail/us-ne/B-42.585668_-101.499668",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 42.174438,
      "lon": -101.418222
     },
-    "detail": "detail/us-ne/B-2",
+    "island_km2": null,
+    "detail": "detail/us-ne/B-42.140678_-101.335360",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 41.66451,
      "lon": -102.2045
     },
-    "detail": "detail/us-ne/B-3",
+    "island_km2": null,
+    "detail": "detail/us-ne/B-41.615229_-102.103823",
     "warnings": []
    },
    {
@@ -323,11 +343,12 @@
     "nearest_place": {
      "name": "Rackett",
      "type": "hamlet",
-     "dist_m": 8722.4,
+     "dist_m": 8722.5,
      "lat": 41.66451,
      "lon": -102.2045
     },
-    "detail": "detail/us-ne/B-4",
+    "island_km2": null,
+    "detail": "detail/us-ne/B-41.708388_-102.291389",
     "warnings": []
    },
    {
@@ -349,7 +370,8 @@
      "lat": 42.021093,
      "lon": -102.088519
     },
-    "detail": "detail/us-ne/B-5",
+    "island_km2": null,
+    "detail": "detail/us-ne/B-42.128601_-102.016275",
     "warnings": []
    },
    {
@@ -367,11 +389,12 @@
     "nearest_place": {
      "name": "Hire",
      "type": "hamlet",
-     "dist_m": 16915.3,
+     "dist_m": 16915.4,
      "lat": 42.174438,
      "lon": -101.418222
     },
-    "detail": "detail/us-ne/B-6",
+    "island_km2": null,
+    "detail": "detail/us-ne/B-42.197096_-101.620706",
     "warnings": []
    },
    {
@@ -389,11 +412,12 @@
     "nearest_place": {
      "name": "Pine Creek Ranch",
      "type": "hamlet",
-     "dist_m": 8277.1,
+     "dist_m": 8277.0,
      "lat": 42.476093,
      "lon": -102.407073
     },
-    "detail": "detail/us-ne/B-7",
+    "island_km2": null,
+    "detail": "detail/us-ne/B-42.454292_-102.310838",
     "warnings": []
    },
    {
@@ -415,7 +439,8 @@
      "lat": 41.826139,
      "lon": -99.522194
     },
-    "detail": "detail/us-ne/B-8",
+    "island_km2": null,
+    "detail": "detail/us-ne/B-41.996113_-99.611717",
     "warnings": []
    },
    {
@@ -437,7 +462,8 @@
      "lat": 41.207214,
      "lon": -101.516559
     },
-    "detail": "detail/us-ne/B-9",
+    "island_km2": null,
+    "detail": "detail/us-ne/B-41.285261_-101.483414",
     "warnings": []
    },
    {
@@ -455,15 +481,23 @@
     "nearest_place": {
      "name": "Mumper",
      "type": "hamlet",
-     "dist_m": 11732.3,
+     "dist_m": 11732.4,
      "lat": 41.761368,
      "lon": -102.440196
     },
-    "detail": "detail/us-ne/B-10",
+    "island_km2": null,
+    "detail": "detail/us-ne/B-41.660808_-102.483357",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 10150.92,
+  "lat": 42.585668,
+  "lon": -101.499668,
+  "rank": 37,
+  "withheld": 0
  }
 }

@@ -31,11 +31,12 @@
     "nearest_place": {
      "name": "Herkimer Landing",
      "type": "hamlet",
-     "dist_m": 14628.9,
+     "dist_m": 14629.0,
      "lat": 43.509512,
      "lon": -74.814604
     },
-    "detail": "detail/us-ny/A-1",
+    "island_km2": null,
+    "detail": "detail/us-ny/A-43.568579_-74.652841",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 44.243938,
      "lon": -74.051541
     },
-    "detail": "detail/us-ny/A-2",
+    "island_km2": null,
+    "detail": "detail/us-ny/A-44.159079_-74.079871",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 43.324236,
      "lon": -74.524313
     },
-    "detail": "detail/us-ny/A-3",
+    "island_km2": null,
+    "detail": "detail/us-ny/A-43.293973_-74.434603",
     "warnings": []
    },
    {
@@ -97,125 +100,16 @@
     "nearest_place": {
      "name": "Janacks Landing Shelter",
      "type": "hamlet",
-     "dist_m": 10933.0,
+     "dist_m": 10932.9,
      "lat": 44.111729,
      "lon": -74.891575
     },
-    "detail": "detail/us-ny/A-4",
+    "island_km2": null,
+    "detail": "detail/us-ny/A-44.033736_-74.974781",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 43.478313,
-    "lon": -74.631828,
-    "dist_m": 7319.12,
-    "nearest_way": {
-     "id": 967008841,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Piseco",
-     "type": "hamlet",
-     "dist_m": 9755.8,
-     "lat": 43.448402,
-     "lon": -74.518484
-    },
-    "detail": "detail/us-ny/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 44.10729,
-    "lon": -73.907334,
-    "dist_m": 6689.0,
-    "nearest_way": {
-     "id": 494298416,
-     "highway": "track",
-     "name": "Marcy Dam Truck Trail",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Saint Huberts",
-     "type": "hamlet",
-     "dist_m": 12045.2,
-     "lat": 44.1593,
-     "lon": -73.775273
-    },
-    "detail": "detail/us-ny/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 44.07185,
-    "lon": -73.769164,
-    "dist_m": 6612.86,
-    "nearest_way": {
-     "id": 539135076,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Underwood",
-     "type": "hamlet",
-     "dist_m": 7651.7,
-     "lat": 44.087831,
-     "lon": -73.676243
-    },
-    "detail": "detail/us-ny/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 44.103362,
-    "lon": -74.181682,
-    "dist_m": 6306.03,
-    "nearest_way": {
-     "id": 496981356,
-     "highway": "track",
-     "name": "Calkins Brook Truck Trail",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Newcomb",
-     "type": "hamlet",
-     "dist_m": 14924.2,
-     "lat": 43.969592,
-     "lon": -74.164925
-    },
-    "detail": "detail/us-ny/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 44.144399,
-    "lon": -74.790269,
-    "dist_m": 6063.73,
-    "nearest_way": {
-     "id": 44008344,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Janacks Landing Shelter",
-     "type": "hamlet",
-     "dist_m": 8883.5,
-     "lat": 44.111729,
-     "lon": -74.891575
-    },
-    "detail": "detail/us-ny/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
     "lat": 43.866993,
     "lon": -74.755466,
     "dist_m": 5914.07,
@@ -233,12 +127,135 @@
      "lat": 43.871452,
      "lon": -74.634335
     },
-    "detail": "detail/us-ny/A-10",
+    "island_km2": null,
+    "detail": "detail/us-ny/A-43.866993_-74.755466",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 43.666012,
+    "lon": -74.164639,
+    "dist_m": 5733.61,
+    "nearest_way": {
+     "id": 762475459,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Edwards Hill",
+     "type": "hamlet",
+     "dist_m": 10467.3,
+     "lat": 43.628399,
+     "lon": -74.045689
+    },
+    "island_km2": null,
+    "detail": "detail/us-ny/A-43.666012_-74.164639",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 43.780321,
+    "lon": -74.536842,
+    "dist_m": 5727.65,
+    "nearest_way": {
+     "id": 20089896,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sagamore",
+     "type": "hamlet",
+     "dist_m": 7563.9,
+     "lat": 43.764509,
+     "lon": -74.62822
+    },
+    "island_km2": null,
+    "detail": "detail/us-ny/A-43.780321_-74.536842",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 43.905395,
+    "lon": -73.835861,
+    "dist_m": 5427.39,
+    "nearest_way": {
+     "id": 20085351,
+     "highway": "secondary",
+     "name": "Blue Ridge Road",
+     "ref": "CR 84",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Loch Muller",
+     "type": "hamlet",
+     "dist_m": 6134.0,
+     "lat": 43.866173,
+     "lon": -73.889579
+    },
+    "island_km2": null,
+    "detail": "detail/us-ny/A-43.905395_-73.835861",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 43.809526,
+    "lon": -73.625229,
+    "dist_m": 5248.78,
+    "nearest_way": {
+     "id": 1191300754,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Graphite",
+     "type": "hamlet",
+     "dist_m": 8198.3,
+     "lat": 43.751173,
+     "lon": -73.562899
+    },
+    "island_km2": null,
+    "detail": "detail/us-ny/A-43.809526_-73.625229",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.965697,
+    "lon": -74.655689,
+    "dist_m": 5144.59,
+    "nearest_way": {
+     "id": 20094101,
+     "highway": "service",
+     "name": "Whitney Access Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Woods",
+     "type": "hamlet",
+     "dist_m": 10059.7,
+     "lat": 43.883118,
+     "lon": -74.604334
+    },
+    "island_km2": null,
+    "detail": "detail/us-ny/A-43.965697_-74.655689",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 8868.38,
+  "lat": 43.568579,
+  "lon": -74.652841,
+  "rank": 37,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,11 +274,12 @@
     "nearest_place": {
      "name": "Clark Point",
      "type": "hamlet",
-     "dist_m": 15927.9,
+     "dist_m": 15927.8,
      "lat": 43.825342,
      "lon": -76.269097
     },
-    "detail": "detail/us-ny/B-1",
+    "island_km2": 10.8,
+    "detail": "detail/us-ny/B-43.890667_-76.445445",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 43.928675,
      "lon": -74.873235
     },
-    "detail": "detail/us-ny/B-2",
+    "island_km2": null,
+    "detail": "detail/us-ny/B-44.002744_-74.963112",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 43.509512,
      "lon": -74.814604
     },
-    "detail": "detail/us-ny/B-3",
+    "island_km2": null,
+    "detail": "detail/us-ny/B-43.562838_-74.664652",
     "warnings": []
    },
    {
@@ -327,55 +347,12 @@
      "lat": 43.969592,
      "lon": -74.164925
     },
-    "detail": "detail/us-ny/B-4",
+    "island_km2": null,
+    "detail": "detail/us-ny/B-44.104094_-74.197340",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 43.619964,
-    "lon": -74.566406,
-    "dist_m": 8693.66,
-    "nearest_way": {
-     "id": 20092455,
-     "highway": "unclassified",
-     "name": "Limekiln Lake-Cedar River Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Sagamore",
-     "type": "hamlet",
-     "dist_m": 16815.3,
-     "lat": 43.764509,
-     "lon": -74.62822
-    },
-    "detail": "detail/us-ny/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 44.162352,
-    "lon": -74.079039,
-    "dist_m": 8614.06,
-    "nearest_way": {
-     "id": 404972913,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Averyville",
-     "type": "hamlet",
-     "dist_m": 9328.1,
-     "lat": 44.243938,
-     "lon": -74.051541
-    },
-    "detail": "detail/us-ny/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 43.613647,
     "lon": -74.200734,
     "dist_m": 8577.2,
@@ -393,33 +370,12 @@
      "lat": 43.557566,
      "lon": -74.120412
     },
-    "detail": "detail/us-ny/B-7",
+    "island_km2": null,
+    "detail": "detail/us-ny/B-43.613647_-74.200734",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 44.111965,
-    "lon": -73.927566,
-    "dist_m": 8240.76,
-    "nearest_way": {
-     "id": 1547004455,
-     "highway": "residential",
-     "name": "Lake Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Saint Huberts",
-     "type": "hamlet",
-     "dist_m": 13273.5,
-     "lat": 44.1593,
-     "lon": -73.775273
-    },
-    "detail": "detail/us-ny/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 6,
     "lat": 43.292918,
     "lon": -74.432726,
     "dist_m": 8140.64,
@@ -437,33 +393,134 @@
      "lat": 43.324236,
      "lon": -74.524313
     },
-    "detail": "detail/us-ny/B-9",
+    "island_km2": null,
+    "detail": "detail/us-ny/B-43.292918_-74.432726",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 43.955903,
-    "lon": -75.07183,
-    "dist_m": 7466.71,
+    "rank": 7,
+    "lat": 43.862148,
+    "lon": -74.748891,
+    "dist_m": 6582.03,
     "nearest_way": {
-     "id": 663040702,
+     "id": 20093929,
      "highway": "service",
-     "name": "Private Driveway",
+     "name": "Shingle Shanty Road",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Stillwater",
+     "name": "Raquette Lake",
      "type": "hamlet",
-     "dist_m": 7852.2,
-     "lat": 43.890066,
-     "lon": -75.036294
+     "dist_m": 9155.8,
+     "lat": 43.81312,
+     "lon": -74.65739
     },
-    "detail": "detail/us-ny/B-10",
+    "island_km2": null,
+    "detail": "detail/us-ny/B-43.862148_-74.748891",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 43.470316,
+    "lon": -74.103553,
+    "dist_m": 6577.85,
+    "nearest_way": {
+     "id": 232595301,
+     "highway": "residential",
+     "name": "Harrisburg Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fullers",
+     "type": "hamlet",
+     "dist_m": 1084.7,
+     "lat": 43.477567,
+     "lon": -74.094576
+    },
+    "island_km2": null,
+    "detail": "detail/us-ny/B-43.470316_-74.103553",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 43.45055,
+    "lon": -74.91996,
+    "dist_m": 6397.74,
+    "nearest_way": {
+     "id": 20093754,
+     "highway": "residential",
+     "name": "Withers Road Spur",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nobleboro",
+     "type": "hamlet",
+     "dist_m": 7682.9,
+     "lat": 43.395902,
+     "lon": -74.861824
+    },
+    "island_km2": null,
+    "detail": "detail/us-ny/B-43.450550_-74.919960",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 40.690379,
+    "lon": -72.983645,
+    "dist_m": 6227.6,
+    "nearest_way": {
+     "id": 732924620,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Watch Hill",
+     "type": "hamlet",
+     "dist_m": 479.9,
+     "lat": 40.689821,
+     "lon": -72.989275
+    },
+    "island_km2": null,
+    "detail": "detail/us-ny/B-40.690379_-72.983645",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 43.815857,
+    "lon": -73.642085,
+    "dist_m": 6083.61,
+    "nearest_way": {
+     "id": 20632739,
+     "highway": "unclassified",
+     "name": "Curtis Read Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Paradox",
+     "type": "hamlet",
+     "dist_m": 8403.9,
+     "lat": 43.891448,
+     "lon": -73.645683
+    },
+    "island_km2": null,
+    "detail": "detail/us-ny/B-43.815857_-73.642085",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 10667.97,
+  "lat": 44.002744,
+  "lon": -74.963112,
+  "rank": 35,
+  "withheld": 0
  }
 }

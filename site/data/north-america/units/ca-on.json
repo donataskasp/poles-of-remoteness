@@ -35,210 +35,342 @@
      "lat": 50.416667,
      "lon": -84.366667
     },
-    "detail": "detail/ca-on/A-1",
+    "island_km2": null,
+    "detail": "detail/ca-on/A-51.487883_-83.609251",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 51.482524,
-    "lon": -83.77479,
-    "dist_m": 146942.15,
+    "lat": 56.775404,
+    "lon": -88.786447,
+    "dist_m": 84625.22,
     "nearest_way": {
-     "id": 207115907,
-     "highway": "service",
+     "id": 1221287381,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Mammamattawa",
-     "type": "hamlet",
-     "dist_m": 125656.0,
-     "lat": 50.416667,
-     "lon": -84.366667
+     "name": "Kaska Goose Lodge",
+     "type": "isolated_dwelling",
+     "dist_m": 85342.6,
+     "lat": 57.036171,
+     "lon": -90.103662
     },
-    "detail": "detail/ca-on/A-2",
+    "island_km2": null,
+    "detail": "detail/ca-on/A-56.775404_-88.786447",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 51.443133,
-    "lon": -83.481452,
-    "dist_m": 142830.98,
+    "lat": 50.787968,
+    "lon": -79.516656,
+    "dist_m": 75101.97,
     "nearest_way": {
-     "id": 336549702,
+     "id": 1494623088,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Mammamattawa",
-     "type": "hamlet",
-     "dist_m": 130046.3,
-     "lat": 50.416667,
-     "lon": -84.366667
+     "name": "Moose Factory",
+     "type": "town",
+     "dist_m": 92586.5,
+     "lat": 51.260217,
+     "lon": -80.603282
     },
-    "detail": "detail/ca-on/A-3",
+    "island_km2": null,
+    "detail": "detail/ca-on/A-50.787968_-79.516656",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 51.416958,
-    "lon": -83.876723,
-    "dist_m": 140282.57,
+    "lat": 53.357639,
+    "lon": -90.747095,
+    "dist_m": 54736.87,
     "nearest_way": {
-     "id": 336549702,
-     "highway": "track",
-     "name": null,
+     "id": 1078728344,
+     "highway": "unclassified",
+     "name": "Kasabonika Junction to KI/Wapekeka Jct Winter Road",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Mammamattawa",
-     "type": "hamlet",
-     "dist_m": 116490.2,
-     "lat": 50.416667,
-     "lon": -84.366667
+     "name": "Weagamow Lake",
+     "type": "town",
+     "dist_m": 60272.0,
+     "lat": 52.949945,
+     "lon": -91.340167
     },
-    "detail": "detail/ca-on/A-4",
+    "island_km2": null,
+    "detail": "detail/ca-on/A-53.357639_-90.747095",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 51.549014,
-    "lon": -83.87637,
-    "dist_m": 139376.51,
+    "lat": 51.343929,
+    "lon": -89.370509,
+    "dist_m": 49441.4,
     "nearest_way": {
-     "id": 207115907,
-     "highway": "service",
-     "name": null,
+     "id": 36764463,
+     "highway": "tertiary",
+     "name": "Northern Ontario Resource Trail",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Mammamattawa",
+     "name": "Pickle Crow",
      "type": "hamlet",
-     "dist_m": 130591.0,
-     "lat": 50.416667,
-     "lon": -84.366667
+     "dist_m": 50353.1,
+     "lat": 51.5,
+     "lon": -90.05
     },
-    "detail": "detail/ca-on/A-5",
+    "island_km2": null,
+    "detail": "detail/ca-on/A-51.343929_-89.370509",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 51.398696,
-    "lon": -83.353629,
-    "dist_m": 138991.96,
+    "lat": 47.720427,
+    "lon": -85.955474,
+    "dist_m": 46689.59,
     "nearest_way": {
-     "id": 336549702,
-     "highway": "track",
+     "id": 1041330464,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Mammamattawa",
-     "type": "hamlet",
-     "dist_m": 130427.4,
-     "lat": 50.416667,
-     "lon": -84.366667
+     "name": "Michipicoten",
+     "type": "town",
+     "dist_m": 81597.3,
+     "lat": 47.96061,
+     "lon": -84.925426
     },
-    "detail": "detail/ca-on/A-6",
+    "island_km2": 202.2,
+    "detail": "detail/ca-on/A-47.720427_-85.955474",
     "warnings": []
    },
    {
     "rank": 7,
-    "lat": 51.570404,
-    "lon": -83.547675,
-    "dist_m": 138838.96,
+    "lat": 48.14929,
+    "lon": -86.069142,
+    "dist_m": 43129.12,
     "nearest_way": {
-     "id": 207115907,
-     "highway": "service",
+     "id": 35121998,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Site 5",
+     "name": "Pic River",
      "type": "village",
-     "dist_m": 133843.4,
-     "lat": 52.223709,
-     "lon": -81.91494
+     "dist_m": 55014.5,
+     "lat": 48.625833,
+     "lon": -86.268766
     },
-    "detail": "detail/ca-on/A-7",
+    "island_km2": null,
+    "detail": "detail/ca-on/A-48.149290_-86.069142",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 51.561728,
-    "lon": -83.696211,
-    "dist_m": 138516.68,
+    "lat": 49.807096,
+    "lon": -88.567334,
+    "dist_m": 38252.68,
     "nearest_way": {
-     "id": 207115907,
-     "highway": "service",
+     "id": 1421647700,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Mammamattawa",
+     "name": "Nipigon House",
      "type": "hamlet",
-     "dist_m": 135804.4,
-     "lat": 50.416667,
-     "lon": -84.366667
+     "dist_m": 38353.4,
+     "lat": 49.816667,
+     "lon": -89.1
     },
-    "detail": "detail/ca-on/A-8",
+    "island_km2": 93.0,
+    "detail": "detail/ca-on/A-49.807096_-88.567334",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 51.407352,
-    "lon": -83.6789,
-    "dist_m": 138342.79,
+    "lat": 48.327764,
+    "lon": -91.521222,
+    "dist_m": 37489.18,
     "nearest_way": {
-     "id": 336549702,
+     "id": 246390147,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Mammamattawa",
-     "type": "hamlet",
-     "dist_m": 120356.7,
-     "lat": 50.416667,
-     "lon": -84.366667
+     "name": "Prairie Portage",
+     "type": "isolated_dwelling",
+     "dist_m": 31456.0,
+     "lat": 48.050402,
+     "lon": -91.437973
     },
-    "detail": "detail/ca-on/A-9",
+    "island_km2": null,
+    "detail": "detail/ca-on/A-48.327764_-91.521222",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 51.353957,
-    "lon": -83.226325,
-    "dist_m": 135782.84,
+    "lat": 55.557589,
+    "lon": -85.641683,
+    "dist_m": 36626.45,
     "nearest_way": {
-     "id": 1354433324,
+     "id": 414207840,
+     "highway": "unclassified",
+     "name": "Peawanuck to Fort Severn Winter Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Peawanuck",
+     "type": "town",
+     "dist_m": 62347.4,
+     "lat": 55.011489,
+     "lon": -85.424194
+    },
+    "island_km2": null,
+    "detail": "detail/ca-on/A-55.557589_-85.641683",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 52.722118,
+    "lon": -90.872477,
+    "dist_m": 31595.12,
+    "nearest_way": {
+     "id": 755418432,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Atikup",
+     "type": "hamlet",
+     "dist_m": 7798.7,
+     "lat": 52.766667,
+     "lon": -90.783333
+    },
+    "island_km2": 4.1,
+    "detail": "detail/ca-on/A-52.722118_-90.872477",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 52.829461,
+    "lon": -90.712776,
+    "dist_m": 31291.81,
+    "nearest_way": {
+     "id": 329404822,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Mammamattawa",
+     "name": "Atikup",
      "type": "hamlet",
-     "dist_m": 131570.4,
-     "lat": 50.416667,
-     "lon": -84.366667
+     "dist_m": 8454.5,
+     "lat": 52.766667,
+     "lon": -90.783333
     },
-    "detail": "detail/ca-on/A-10",
+    "island_km2": 7.4,
+    "detail": "detail/ca-on/A-52.829461_-90.712776",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 49.879224,
+    "lon": -88.415053,
+    "dist_m": 30261.71,
+    "nearest_way": {
+     "id": 665455771,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Beardmore",
+     "type": "village",
+     "dist_m": 45302.6,
+     "lat": 49.599866,
+     "lon": -87.957682
+    },
+    "island_km2": 2.3,
+    "detail": "detail/ca-on/A-49.879224_-88.415053",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 49.64159,
+    "lon": -88.580813,
+    "dist_m": 29155.64,
+    "nearest_way": {
+     "id": 961075581,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Sand Point",
+     "type": "village",
+     "dist_m": 37790.7,
+     "lat": 49.462516,
+     "lon": -88.136968
+    },
+    "island_km2": null,
+    "detail": "detail/ca-on/A-49.641590_-88.580813",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 49.346602,
+    "lon": -94.47325,
+    "dist_m": 26221.08,
+    "nearest_way": {
+     "id": 409797701,
+     "highway": "residential",
+     "name": "Long Point Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Sioux Narrows",
+     "type": "town",
+     "dist_m": 28258.8,
+     "lat": 49.408203,
+     "lon": -94.095712
+    },
+    "island_km2": null,
+    "detail": "detail/ca-on/A-49.346602_-94.473250",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 147324.81,
+  "lat": 51.487883,
+  "lon": -83.609251,
+  "rank": 5,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,213 +389,368 @@
     "nearest_place": {
      "name": "Lake River",
      "type": "hamlet",
-     "dist_m": 47755.1,
+     "dist_m": 47755.2,
      "lat": 54.366667,
      "lon": -82.533333
     },
-    "detail": "detail/ca-on/B-1",
+    "island_km2": null,
+    "detail": "detail/ca-on/B-54.752204_-82.209547",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 54.671754,
-    "lon": -82.285442,
-    "dist_m": 189186.69,
+    "lat": 56.861323,
+    "lon": -88.8903,
+    "dist_m": 95151.05,
     "nearest_way": {
-     "id": 179903123,
+     "id": 413159918,
      "highway": "unclassified",
-     "name": null,
+     "name": "Fort Severn to Shamattawa Winter road",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Lake River",
-     "type": "hamlet",
-     "dist_m": 37563.5,
-     "lat": 54.366667,
-     "lon": -82.533333
+     "name": "Kaska Goose Lodge",
+     "type": "isolated_dwelling",
+     "dist_m": 76362.8,
+     "lat": 57.036171,
+     "lon": -90.103662
     },
-    "detail": "detail/ca-on/B-2",
+    "island_km2": null,
+    "detail": "detail/ca-on/B-56.861323_-88.890300",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 54.842723,
-    "lon": -82.197362,
-    "dist_m": 188396.8,
+    "lat": 50.74567,
+    "lon": -79.516682,
+    "dist_m": 77240.57,
     "nearest_way": {
-     "id": 179903123,
+     "id": 524307745,
      "highway": "unclassified",
-     "name": null,
+     "name": "Wetum Road",
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Lake River",
-     "type": "hamlet",
-     "dist_m": 57267.6,
-     "lat": 54.366667,
-     "lon": -82.533333
+     "name": "Moose Factory",
+     "type": "town",
+     "dist_m": 95361.4,
+     "lat": 51.260217,
+     "lon": -80.603282
     },
-    "detail": "detail/ca-on/B-3",
+    "island_km2": null,
+    "detail": "detail/ca-on/B-50.745670_-79.516682",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 54.620414,
-    "lon": -82.41634,
-    "dist_m": 183653.45,
+    "lat": 47.720427,
+    "lon": -85.955474,
+    "dist_m": 46689.59,
     "nearest_way": {
-     "id": 374822614,
-     "highway": "residential",
+     "id": 1041330464,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Lake River",
-     "type": "hamlet",
-     "dist_m": 29245.2,
-     "lat": 54.366667,
-     "lon": -82.533333
+     "name": "Michipicoten",
+     "type": "town",
+     "dist_m": 81597.3,
+     "lat": 47.96061,
+     "lon": -84.925426
     },
-    "detail": "detail/ca-on/B-4",
+    "island_km2": 202.2,
+    "detail": "detail/ca-on/B-47.720427_-85.955474",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 54.929988,
-    "lon": -82.242897,
-    "dist_m": 183130.21,
+    "lat": 48.14929,
+    "lon": -86.069142,
+    "dist_m": 43129.12,
     "nearest_way": {
-     "id": 179903123,
+     "id": 35121998,
      "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Lake River",
-     "type": "hamlet",
-     "dist_m": 65449.8,
-     "lat": 54.366667,
-     "lon": -82.533333
+     "name": "Pic River",
+     "type": "village",
+     "dist_m": 55014.5,
+     "lat": 48.625833,
+     "lon": -86.268766
     },
-    "detail": "detail/ca-on/B-5",
+    "island_km2": null,
+    "detail": "detail/ca-on/B-48.149290_-86.069142",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 54.747562,
-    "lon": -82.371957,
-    "dist_m": 180968.56,
+    "lat": 49.806724,
+    "lon": -88.566117,
+    "dist_m": 38344.59,
     "nearest_way": {
-     "id": 179903123,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Lake River",
-     "type": "hamlet",
-     "dist_m": 43665.9,
-     "lat": 54.366667,
-     "lon": -82.533333
-    },
-    "detail": "detail/ca-on/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 55.0614,
-    "lon": -82.245548,
-    "dist_m": 180191.38,
-    "nearest_way": {
-     "id": 179903123,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Lake River",
-     "type": "hamlet",
-     "dist_m": 79529.2,
-     "lat": 54.366667,
-     "lon": -82.533333
-    },
-    "detail": "detail/ca-on/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 54.569053,
-    "lon": -82.546872,
-    "dist_m": 178536.6,
-    "nearest_way": {
-     "id": 179903123,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Lake River",
-     "type": "hamlet",
-     "dist_m": 22545.5,
-     "lat": 54.366667,
-     "lon": -82.533333
-    },
-    "detail": "detail/ca-on/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 54.838153,
-    "lon": -82.360199,
-    "dist_m": 178504.58,
-    "nearest_way": {
-     "id": 179903123,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Lake River",
-     "type": "hamlet",
-     "dist_m": 53663.3,
-     "lat": 54.366667,
-     "lon": -82.533333
-    },
-    "detail": "detail/ca-on/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 54.552894,
-    "lon": -82.310647,
-    "dist_m": 175964.02,
-    "nearest_way": {
-     "id": 374822614,
+     "id": 36759996,
      "highway": "residential",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Lake River",
+     "name": "Nipigon House",
      "type": "hamlet",
-     "dist_m": 25264.0,
-     "lat": 54.366667,
-     "lon": -82.533333
+     "dist_m": 38442.3,
+     "lat": 49.816667,
+     "lon": -89.1
     },
-    "detail": "detail/ca-on/B-10",
+    "island_km2": 93.0,
+    "detail": "detail/ca-on/B-49.806724_-88.566117",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 48.321391,
+    "lon": -91.371896,
+    "dist_m": 37817.56,
+    "nearest_way": {
+     "id": 600398723,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Prairie Portage",
+     "type": "isolated_dwelling",
+     "dist_m": 30530.3,
+     "lat": 48.050402,
+     "lon": -91.437973
+    },
+    "island_km2": null,
+    "detail": "detail/ca-on/B-48.321391_-91.371896",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 55.557589,
+    "lon": -85.641683,
+    "dist_m": 36626.45,
+    "nearest_way": {
+     "id": 414207840,
+     "highway": "unclassified",
+     "name": "Peawanuck to Fort Severn Winter Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Peawanuck",
+     "type": "town",
+     "dist_m": 62347.4,
+     "lat": 55.011489,
+     "lon": -85.424194
+    },
+    "island_km2": null,
+    "detail": "detail/ca-on/B-55.557589_-85.641683",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 49.879224,
+    "lon": -88.415053,
+    "dist_m": 34129.97,
+    "nearest_way": {
+     "id": 665455767,
+     "highway": "tertiary",
+     "name": "Auden Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Beardmore",
+     "type": "village",
+     "dist_m": 45302.6,
+     "lat": 49.599866,
+     "lon": -87.957682
+    },
+    "island_km2": 2.3,
+    "detail": "detail/ca-on/B-49.879224_-88.415053",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 49.649337,
+    "lon": -88.596361,
+    "dist_m": 33960.61,
+    "nearest_way": {
+     "id": 36757038,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Sand Point",
+     "type": "village",
+     "dist_m": 39198.9,
+     "lat": 49.462516,
+     "lon": -88.136968
+    },
+    "island_km2": null,
+    "detail": "detail/ca-on/B-49.649337_-88.596361",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 48.655329,
+    "lon": -88.041134,
+    "dist_m": 31788.15,
+    "nearest_way": {
+     "id": 72163105,
+     "highway": "residential",
+     "name": "Everard Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Red Rock",
+     "type": "town",
+     "dist_m": 35732.4,
+     "lat": 48.942539,
+     "lon": -88.259212
+    },
+    "island_km2": 3.4,
+    "detail": "detail/ca-on/B-48.655329_-88.041134",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 52.722118,
+    "lon": -90.872477,
+    "dist_m": 31595.12,
+    "nearest_way": {
+     "id": 755418432,
+     "highway": "tertiary",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Atikup",
+     "type": "hamlet",
+     "dist_m": 7798.7,
+     "lat": 52.766667,
+     "lon": -90.783333
+    },
+    "island_km2": 4.1,
+    "detail": "detail/ca-on/B-52.722118_-90.872477",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 52.829375,
+    "lon": -90.712929,
+    "dist_m": 31432.21,
+    "nearest_way": {
+     "id": 329404824,
+     "highway": "unclassified",
+     "name": "Musselwhite Mine Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Atikup",
+     "type": "hamlet",
+     "dist_m": 8440.8,
+     "lat": 52.766667,
+     "lon": -90.783333
+    },
+    "island_km2": 7.4,
+    "detail": "detail/ca-on/B-52.829375_-90.712929",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 49.353076,
+    "lon": -94.497975,
+    "dist_m": 27722.48,
+    "nearest_way": {
+     "id": 1315631020,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Sioux Narrows",
+     "type": "town",
+     "dist_m": 29845.8,
+     "lat": 49.408203,
+     "lon": -94.095712
+    },
+    "island_km2": null,
+    "detail": "detail/ca-on/B-49.353076_-94.497975",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 48.628224,
+    "lon": -88.174081,
+    "dist_m": 27601.62,
+    "nearest_way": {
+     "id": 71959690,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Dorion",
+     "type": "village",
+     "dist_m": 33423.9,
+     "lat": 48.785403,
+     "lon": -88.561165
+    },
+    "island_km2": null,
+    "detail": "detail/ca-on/B-48.628224_-88.174081",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 45.840682,
+    "lon": -78.722551,
+    "dist_m": 27033.88,
+    "nearest_way": {
+     "id": 101298615,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Sand Lake",
+     "type": "hamlet",
+     "dist_m": 42070.7,
+     "lat": 45.642503,
+     "lon": -79.18313
+    },
+    "island_km2": null,
+    "detail": "detail/ca-on/B-45.840682_-78.722551",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 190658.18,
+  "lat": 54.752204,
+  "lon": -82.209547,
+  "rank": 6,
+  "withheld": 0
  }
 }

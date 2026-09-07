@@ -31,37 +31,16 @@
     "nearest_place": {
      "name": "Smith Place",
      "type": "hamlet",
-     "dist_m": 27477.4,
+     "dist_m": 27477.5,
      "lat": 47.658419,
      "lon": -123.931298
     },
-    "detail": "detail/us-wa/A-1",
+    "island_km2": null,
+    "detail": "detail/us-wa/A-47.771082_-123.605372",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 47.730565,
-    "lon": -123.418896,
-    "dist_m": 20901.49,
-    "nearest_way": {
-     "id": 5918012,
-     "highway": "unclassified",
-     "name": "Graves Creek Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Eldon",
-     "type": "isolated_dwelling",
-     "dist_m": 35099.5,
-     "lat": 47.54403,
-     "lon": -123.042074
-    },
-    "detail": "detail/us-wa/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 48.838253,
     "lon": -121.347021,
     "dist_m": 18134.42,
@@ -75,37 +54,16 @@
     "nearest_place": {
      "name": "Newhalem",
      "type": "hamlet",
-     "dist_m": 19708.5,
+     "dist_m": 19708.4,
      "lat": 48.673737,
      "lon": -121.247346
     },
-    "detail": "detail/us-wa/A-3",
+    "island_km2": null,
+    "detail": "detail/us-wa/A-48.838253_-121.347021",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 47.752696,
-    "lon": -123.285713,
-    "dist_m": 17748.33,
-    "nearest_way": {
-     "id": 1276178809,
-     "highway": "unclassified",
-     "name": "Dosewallips Road",
-     "ref": "NF 2610",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Triton",
-     "type": "hamlet",
-     "dist_m": 27636.4,
-     "lat": 47.604815,
-     "lon": -122.98988
-    },
-    "detail": "detail/us-wa/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
+    "rank": 3,
     "lat": 48.11344,
     "lon": -121.076445,
     "dist_m": 16819.0,
@@ -119,37 +77,16 @@
     "nearest_place": {
      "name": "Trinity",
      "type": "hamlet",
-     "dist_m": 17225.3,
+     "dist_m": 17225.2,
      "lat": 48.074569,
      "lon": -120.852599
     },
-    "detail": "detail/us-wa/A-5",
+    "island_km2": null,
+    "detail": "detail/us-wa/A-48.113440_-121.076445",
     "warnings": []
    },
    {
-    "rank": 6,
-    "lat": 47.830466,
-    "lon": -123.707667,
-    "dist_m": 16780.23,
-    "nearest_way": {
-     "id": 5850439,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Smith Place",
-     "type": "hamlet",
-     "dist_m": 25439.8,
-     "lat": 47.658419,
-     "lon": -123.931298
-    },
-    "detail": "detail/us-wa/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
+    "rank": 4,
     "lat": 48.852797,
     "lon": -120.522006,
     "dist_m": 16635.63,
@@ -167,78 +104,158 @@
      "lat": 48.75295,
      "lon": -120.716365
     },
-    "detail": "detail/us-wa/A-7",
+    "island_km2": null,
+    "detail": "detail/us-wa/A-48.852797_-120.522006",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 48.878931,
-    "lon": -120.917862,
-    "dist_m": 16107.27,
+    "rank": 5,
+    "lat": 48.587983,
+    "lon": -121.004622,
+    "dist_m": 12614.34,
     "nearest_way": {
-     "id": 184365266,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Anacortes Crossing",
-     "type": "hamlet",
-     "dist_m": 12455.1,
-     "lat": 48.783189,
-     "lon": -120.829836
-    },
-    "detail": "detail/us-wa/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 48.856838,
-    "lon": -121.210175,
-    "dist_m": 15994.87,
-    "nearest_way": {
-     "id": 5251717,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
+     "id": 22710536,
+     "highway": "unclassified",
+     "name": "Cascade River Road",
+     "ref": "NF 15",
      "country": "us"
     },
     "nearest_place": {
      "name": "Diablo",
      "type": "hamlet",
-     "dist_m": 16729.8,
+     "dist_m": 17205.3,
      "lat": 48.713462,
      "lon": -121.141233
     },
-    "detail": "detail/us-wa/A-9",
+    "island_km2": null,
+    "detail": "detail/us-wa/A-48.587983_-121.004622",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 47.557946,
+    "lon": -121.231386,
+    "dist_m": 10124.44,
+    "nearest_way": {
+     "id": 6411868,
+     "highway": "unclassified",
+     "name": "West Fork Foss Road",
+     "ref": "FS 6835",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Scenic",
+     "type": "hamlet",
+     "dist_m": 17771.7,
+     "lat": 47.710759,
+     "lon": -121.16203
+    },
+    "island_km2": null,
+    "detail": "detail/us-wa/A-47.557946_-121.231386",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.873493,
+    "lon": -121.770457,
+    "dist_m": 9678.53,
+    "nearest_way": {
+     "id": 6063055,
+     "highway": "tertiary",
+     "name": "Valley Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Paradise",
+     "type": "hamlet",
+     "dist_m": 10037.5,
+     "lat": 46.786347,
+     "lon": -121.736037
+    },
+    "island_km2": null,
+    "detail": "detail/us-wa/A-46.873493_-121.770457",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.537139,
+    "lon": -121.463369,
+    "dist_m": 9173.58,
+    "nearest_way": {
+     "id": 990665917,
+     "highway": "track",
+     "name": "Half Road",
+     "ref": "FS 2142011",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Packwood",
+     "type": "village",
+     "dist_m": 17661.9,
+     "lat": 46.606501,
+     "lon": -121.670644
+    },
+    "island_km2": null,
+    "detail": "detail/us-wa/A-46.537139_-121.463369",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 48.502079,
+    "lon": -120.458939,
+    "dist_m": 8696.87,
+    "nearest_way": {
+     "id": 6095094,
+     "highway": "track",
+     "name": "Forest Road 5310-200",
+     "ref": "FR 5310-200",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mazama",
+     "type": "hamlet",
+     "dist_m": 10800.1,
+     "lat": 48.592087,
+     "lon": -120.403984
+    },
+    "island_km2": null,
+    "detail": "detail/us-wa/A-48.502079_-120.458939",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 48.269928,
-    "lon": -120.978368,
-    "dist_m": 15966.38,
+    "lat": 46.052034,
+    "lon": -117.653598,
+    "dist_m": 8696.17,
     "nearest_way": {
-     "id": 1131417857,
-     "highway": "unclassified",
-     "name": "Suiattle River Road",
-     "ref": "FS 26",
+     "id": 5889868,
+     "highway": "track",
+     "name": "Forest Road 246",
+     "ref": "NF 246",
      "country": "us"
     },
     "nearest_place": {
-     "name": "Holden Village",
-     "type": "hamlet",
-     "dist_m": 17001.0,
-     "lat": 48.199737,
-     "lon": -120.775051
+     "name": "Grouse",
+     "type": "isolated_dwelling",
+     "dist_m": 18496.9,
+     "lat": 46.01237,
+     "lon": -117.421563
     },
-    "detail": "detail/us-wa/A-10",
+    "island_km2": null,
+    "detail": "detail/us-wa/A-46.052034_-117.653598",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 21934.32,
+  "lat": 47.771082,
+  "lon": -123.605372,
+  "rank": 19,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,11 +274,12 @@
     "nearest_place": {
      "name": "Smith Place",
      "type": "hamlet",
-     "dist_m": 27105.1,
+     "dist_m": 27105.2,
      "lat": 47.658419,
      "lon": -123.931298
     },
-    "detail": "detail/us-wa/B-1",
+    "island_km2": null,
+    "detail": "detail/us-wa/B-47.777943_-123.616443",
     "warnings": []
    },
    {
@@ -283,33 +301,12 @@
      "lat": 48.713462,
      "lon": -121.141233
     },
-    "detail": "detail/us-wa/B-2",
+    "island_km2": null,
+    "detail": "detail/us-wa/B-48.876708_-121.311127",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 47.730565,
-    "lon": -123.418896,
-    "dist_m": 20901.49,
-    "nearest_way": {
-     "id": 5918012,
-     "highway": "unclassified",
-     "name": "Graves Creek Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Eldon",
-     "type": "isolated_dwelling",
-     "dist_m": 35099.5,
-     "lat": 47.54403,
-     "lon": -123.042074
-    },
-    "detail": "detail/us-wa/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 48.880509,
     "lon": -120.850788,
     "dist_m": 19824.81,
@@ -323,103 +320,16 @@
     "nearest_place": {
      "name": "Anacortes Crossing",
      "type": "hamlet",
-     "dist_m": 10931.3,
+     "dist_m": 10931.4,
      "lat": 48.783189,
      "lon": -120.829836
     },
-    "detail": "detail/us-wa/B-4",
+    "island_km2": null,
+    "detail": "detail/us-wa/B-48.880509_-120.850788",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 47.752696,
-    "lon": -123.285713,
-    "dist_m": 17748.33,
-    "nearest_way": {
-     "id": 1276178809,
-     "highway": "unclassified",
-     "name": "Dosewallips Road",
-     "ref": "NF 2610",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Triton",
-     "type": "hamlet",
-     "dist_m": 27636.4,
-     "lat": 47.604815,
-     "lon": -122.98988
-    },
-    "detail": "detail/us-wa/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 48.899959,
-    "lon": -120.698335,
-    "dist_m": 17626.81,
-    "nearest_way": {
-     "id": 5266219,
-     "highway": "service",
-     "name": "National Forest Development Road 600",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Anacortes Crossing",
-     "type": "hamlet",
-     "dist_m": 16180.2,
-     "lat": 48.783189,
-     "lon": -120.829836
-    },
-    "detail": "detail/us-wa/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 48.86381,
-    "lon": -120.527864,
-    "dist_m": 17601.89,
-    "nearest_way": {
-     "id": 92986732,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Barron",
-     "type": "hamlet",
-     "dist_m": 18539.0,
-     "lat": 48.75295,
-     "lon": -120.716365
-    },
-    "detail": "detail/us-wa/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 48.967632,
-    "lon": -121.307266,
-    "dist_m": 17000.69,
-    "nearest_way": {
-     "id": 1302773921,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Diablo",
-     "type": "hamlet",
-     "dist_m": 30781.1,
-     "lat": 48.713462,
-     "lon": -121.141233
-    },
-    "detail": "detail/us-wa/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 4,
     "lat": 48.11334,
     "lon": -121.073969,
     "dist_m": 16992.05,
@@ -433,37 +343,161 @@
     "nearest_place": {
      "name": "Trinity",
      "type": "hamlet",
-     "dist_m": 17043.9,
+     "dist_m": 17044.0,
      "lat": 48.074569,
      "lon": -120.852599
     },
-    "detail": "detail/us-wa/B-9",
+    "island_km2": null,
+    "detail": "detail/us-wa/B-48.113340_-121.073969",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 47.863496,
-    "lon": -123.665675,
-    "dist_m": 16217.82,
+    "rank": 5,
+    "lat": 46.730228,
+    "lon": -120.195385,
+    "dist_m": 13373.86,
     "nearest_way": {
-     "id": 5850439,
+     "id": 1164584606,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Elwha",
+     "name": "Levering",
      "type": "hamlet",
-     "dist_m": 22148.8,
-     "lat": 48.057562,
-     "lon": -123.598785
+     "dist_m": 20121.4,
+     "lat": 46.793323,
+     "lon": -119.948514
     },
-    "detail": "detail/us-wa/B-10",
+    "island_km2": null,
+    "detail": "detail/us-wa/B-46.730228_-120.195385",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 47.525723,
+    "lon": -121.278573,
+    "dist_m": 12274.59,
+    "nearest_way": {
+     "id": 6485326,
+     "highway": "unclassified",
+     "name": "East Fork Miller River Road",
+     "ref": "FS 6412",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Snoqualmie Pass",
+     "type": "hamlet",
+     "dist_m": 15312.5,
+     "lat": 47.422362,
+     "lon": -121.412824
+    },
+    "island_km2": null,
+    "detail": "detail/us-wa/B-47.525723_-121.278573",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 46.042256,
+    "lon": -117.674912,
+    "dist_m": 10708.14,
+    "nearest_way": {
+     "id": 5865120,
+     "highway": "unclassified",
+     "name": "Kendall Skyline Road",
+     "ref": "NF 46",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Grouse",
+     "type": "isolated_dwelling",
+     "dist_m": 19894.9,
+     "lat": 46.01237,
+     "lon": -117.421563
+    },
+    "island_km2": null,
+    "detail": "detail/us-wa/B-46.042256_-117.674912",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 47.146015,
+    "lon": -120.129634,
+    "dist_m": 10426.57,
+    "nearest_way": {
+     "id": 1341102404,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Sunland Estates",
+     "type": "village",
+     "dist_m": 10886.8,
+     "lat": 47.075197,
+     "lon": -120.030566
+    },
+    "island_km2": null,
+    "detail": "detail/us-wa/B-47.146015_-120.129634",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.399855,
+    "lon": -122.332961,
+    "dist_m": 9898.37,
+    "nearest_way": {
+     "id": 1228802514,
+     "highway": "secondary",
+     "name": "Spirit Lake Highway",
+     "ref": "SR 504",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Nesika (submerged)",
+     "type": "hamlet",
+     "dist_m": 8899.5,
+     "lat": 46.473998,
+     "lon": -122.28927
+    },
+    "island_km2": null,
+    "detail": "detail/us-wa/B-46.399855_-122.332961",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.874768,
+    "lon": -121.767606,
+    "dist_m": 9744.86,
+    "nearest_way": {
+     "id": 6063055,
+     "highway": "tertiary",
+     "name": "Valley Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Paradise",
+     "type": "hamlet",
+     "dist_m": 10120.4,
+     "lat": 46.786347,
+     "lon": -121.736037
+    },
+    "island_km2": null,
+    "detail": "detail/us-wa/B-46.874768_-121.767606",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 22587.29,
+  "lat": 47.777943,
+  "lon": -123.616443,
+  "rank": 24,
+  "withheld": 0
  }
 }

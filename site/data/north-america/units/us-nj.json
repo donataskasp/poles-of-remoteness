@@ -35,7 +35,8 @@
      "lat": 39.410117,
      "lon": -74.364591
     },
-    "detail": "detail/us-nj/A-1",
+    "island_km2": null,
+    "detail": "detail/us-nj/A-39.463136_-74.322371",
     "warnings": []
    },
    {
@@ -57,33 +58,12 @@
      "lat": 39.221806,
      "lon": -75.16629
     },
-    "detail": "detail/us-nj/A-2",
+    "island_km2": null,
+    "detail": "detail/us-nj/A-39.182763_-75.136612",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 39.417705,
-    "lon": -74.436241,
-    "dist_m": 3567.98,
-    "nearest_way": {
-     "id": 11572883,
-     "highway": "service",
-     "name": "Wildlife Drive",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Conovertown",
-     "type": "hamlet",
-     "dist_m": 4389.6,
-     "lat": 39.439839,
-     "lon": -74.478485
-    },
-    "detail": "detail/us-nj/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 39.294338,
     "lon": -75.292271,
     "dist_m": 3474.46,
@@ -101,33 +81,12 @@
      "lat": 39.297231,
      "lon": -75.250243
     },
-    "detail": "detail/us-nj/A-4",
+    "island_km2": null,
+    "detail": "detail/us-nj/A-39.294338_-75.292271",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 39.56061,
-    "lon": -74.296105,
-    "dist_m": 3375.26,
-    "nearest_way": {
-     "id": 28257451,
-     "highway": "unclassified",
-     "name": "Great Bay Boulevard",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Beach Haven",
-     "type": "town",
-     "dist_m": 4781.1,
-     "lat": 39.562952,
-     "lon": -74.240552
-    },
-    "detail": "detail/us-nj/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
+    "rank": 4,
     "lat": 39.306837,
     "lon": -74.693494,
     "dist_m": 3351.55,
@@ -145,33 +104,12 @@
      "lat": 39.334838,
      "lon": -74.677938
     },
-    "detail": "detail/us-nj/A-6",
+    "island_km2": null,
+    "detail": "detail/us-nj/A-39.306837_-74.693494",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 39.787138,
-    "lon": -74.142269,
-    "dist_m": 3276.1,
-    "nearest_way": {
-     "id": 11719438,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Forked River Beach",
-     "type": "hamlet",
-     "dist_m": 4091.1,
-     "lat": 39.817064,
-     "lon": -74.170139
-    },
-    "detail": "detail/us-nj/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
+    "rank": 5,
     "lat": 39.166853,
     "lon": -74.886408,
     "dist_m": 3239.1,
@@ -189,11 +127,35 @@
      "lat": 39.141503,
      "lon": -74.852947
     },
-    "detail": "detail/us-nj/A-8",
+    "island_km2": null,
+    "detail": "detail/us-nj/A-39.166853_-74.886408",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 6,
+    "lat": 39.418406,
+    "lon": -74.441815,
+    "dist_m": 3228.24,
+    "nearest_way": {
+     "id": 11580009,
+     "highway": "residential",
+     "name": "East Ocean Avenue",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Conovertown",
+     "type": "hamlet",
+     "dist_m": 3953.6,
+     "lat": 39.439839,
+     "lon": -74.478485
+    },
+    "island_km2": null,
+    "detail": "detail/us-nj/A-39.418406_-74.441815",
+    "warnings": []
+   },
+   {
+    "rank": 7,
     "lat": 39.431756,
     "lon": -75.461327,
     "dist_m": 3155.73,
@@ -211,34 +173,89 @@
      "lat": 39.420391,
      "lon": -75.425197
     },
-    "detail": "detail/us-nj/A-9",
+    "island_km2": null,
+    "detail": "detail/us-nj/A-39.431756_-75.461327",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 39.543805,
-    "lon": -74.424838,
-    "dist_m": 2915.82,
+    "rank": 8,
+    "lat": 39.726432,
+    "lon": -74.170882,
+    "dist_m": 3080.07,
     "nearest_way": {
-     "id": 11733706,
-     "highway": "track",
-     "name": null,
+     "id": 11729080,
+     "highway": "residential",
+     "name": "Bayview Avenue",
      "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Barnegat Bay",
+     "type": "hamlet",
+     "dist_m": 3943.8,
+     "lat": 39.758175,
+     "lon": -74.191528
+    },
+    "island_km2": null,
+    "detail": "detail/us-nj/A-39.726432_-74.170882",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 39.556056,
+    "lon": -74.42683,
+    "dist_m": 2808.96,
+    "nearest_way": {
+     "id": 38520010,
+     "highway": "motorway",
+     "name": "Garden State Parkway",
+     "ref": "GSP;US 9",
      "country": "us"
     },
     "nearest_place": {
      "name": "Mystic Islands",
      "type": "hamlet",
-     "dist_m": 3651.0,
+     "dist_m": 4038.8,
      "lat": 39.544285,
      "lon": -74.382369
     },
-    "detail": "detail/us-nj/A-10",
+    "island_km2": null,
+    "detail": "detail/us-nj/A-39.556056_-74.426830",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 39.561441,
+    "lon": -74.306698,
+    "dist_m": 2642.39,
+    "nearest_way": {
+     "id": 69195981,
+     "highway": "unclassified",
+     "name": "Great Bay Boulevard",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Parkers Landing",
+     "type": "hamlet",
+     "dist_m": 4218.3,
+     "lat": 39.589841,
+     "lon": -74.339312
+    },
+    "island_km2": null,
+    "detail": "detail/us-nj/A-39.561441_-74.306698",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 5108.5,
+  "lat": 39.463136,
+  "lon": -74.322371,
+  "rank": 46,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 39.685356,
      "lon": -74.605864
     },
-    "detail": "detail/us-nj/B-1",
+    "island_km2": null,
+    "detail": "detail/us-nj/B-39.716555_-74.638695",
     "warnings": []
    },
    {
@@ -279,11 +297,12 @@
     "nearest_place": {
      "name": "Brigantine",
      "type": "town",
-     "dist_m": 6568.6,
+     "dist_m": 6568.5,
      "lat": 39.410117,
      "lon": -74.364591
     },
-    "detail": "detail/us-nj/B-2",
+    "island_km2": null,
+    "detail": "detail/us-nj/B-39.460204_-74.323982",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 39.221806,
      "lon": -75.16629
     },
-    "detail": "detail/us-nj/B-3",
+    "island_km2": null,
+    "detail": "detail/us-nj/B-39.182763_-75.136612",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 39.664731,
      "lon": -74.392005
     },
-    "detail": "detail/us-nj/B-4",
+    "island_km2": null,
+    "detail": "detail/us-nj/B-39.673644_-74.439523",
     "warnings": []
    },
    {
@@ -349,7 +370,8 @@
      "lat": 39.812897,
      "lon": -74.364869
     },
-    "detail": "detail/us-nj/B-5",
+    "island_km2": null,
+    "detail": "detail/us-nj/B-39.838147_-74.329959",
     "warnings": []
    },
    {
@@ -371,7 +393,8 @@
      "lat": 39.297231,
      "lon": -75.250243
     },
-    "detail": "detail/us-nj/B-6",
+    "island_km2": null,
+    "detail": "detail/us-nj/B-39.294795_-75.293924",
     "warnings": []
    },
    {
@@ -393,33 +416,12 @@
      "lat": 39.697498,
      "lon": -74.139325
     },
-    "detail": "detail/us-nj/B-7",
+    "island_km2": null,
+    "detail": "detail/us-nj/B-39.713790_-74.184374",
     "warnings": []
    },
    {
     "rank": 8,
-    "lat": 39.417705,
-    "lon": -74.436241,
-    "dist_m": 3567.98,
-    "nearest_way": {
-     "id": 11572883,
-     "highway": "service",
-     "name": "Wildlife Drive",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Conovertown",
-     "type": "hamlet",
-     "dist_m": 4389.6,
-     "lat": 39.439839,
-     "lon": -74.478485
-    },
-    "detail": "detail/us-nj/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
     "lat": 39.740341,
     "lon": -74.788505,
     "dist_m": 3470.81,
@@ -437,11 +439,12 @@
      "lat": 39.717929,
      "lon": -74.756144
     },
-    "detail": "detail/us-nj/B-9",
+    "island_km2": null,
+    "detail": "detail/us-nj/B-39.740341_-74.788505",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 39.30684,
     "lon": -74.695409,
     "dist_m": 3426.78,
@@ -459,11 +462,42 @@
      "lat": 39.334838,
      "lon": -74.677938
     },
-    "detail": "detail/us-nj/B-10",
+    "island_km2": null,
+    "detail": "detail/us-nj/B-39.306840_-74.695409",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 39.43577,
+    "lon": -75.461787,
+    "dist_m": 3351.13,
+    "nearest_way": {
+     "id": 1262350270,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pine Island",
+     "type": "isolated_dwelling",
+     "dist_m": 3583.4,
+     "lat": 39.420391,
+     "lon": -75.425197
+    },
+    "island_km2": null,
+    "detail": "detail/us-nj/B-39.435770_-75.461787",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 5979.95,
+  "lat": 39.716555,
+  "lon": -74.638695,
+  "rank": 49,
+  "withheld": 0
  }
 }

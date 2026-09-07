@@ -18,9 +18,9 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 59.999887,
-    "lon": -104.342328,
-    "dist_m": 106528.78,
+    "lat": 59.997009,
+    "lon": -104.355972,
+    "dist_m": 105900.91,
     "nearest_way": {
      "id": 768084586,
      "highway": "track",
@@ -31,214 +31,461 @@
     "nearest_place": {
      "name": "Scott Lake Lodge",
      "type": "hamlet",
-     "dist_m": 105626.0,
+     "dist_m": 104866.7,
      "lat": 59.991114,
      "lon": -106.234993
     },
-    "detail": "detail/ca-sk/A-1",
+    "island_km2": null,
+    "detail": "detail/ca-sk/A-59.997009_-104.355972",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 59.34444,
-    "lon": -102.783401,
-    "dist_m": 105685.15,
+    "lat": 58.441863,
+    "lon": -107.572715,
+    "dist_m": 99901.11,
     "nearest_way": {
-     "id": 1456746471,
-     "highway": "unclassified",
+     "id": 1171015149,
+     "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Lac Brochet",
-     "type": "town",
-     "dist_m": 110041.6,
-     "lat": 58.617745,
-     "lon": -101.487098
+     "name": "Fond-du-Lac",
+     "type": "village",
+     "dist_m": 101183.9,
+     "lat": 59.328286,
+     "lon": -107.189484
     },
-    "detail": "detail/ca-sk/A-2",
+    "island_km2": null,
+    "detail": "detail/ca-sk/A-58.441863_-107.572715",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 59.464482,
-    "lon": -103.440886,
-    "dist_m": 105054.41,
+    "lat": 56.547793,
+    "lon": -105.032941,
+    "dist_m": 71818.19,
     "nearest_way": {
-     "id": 1456746471,
+     "id": 1291066997,
+     "highway": "secondary",
+     "name": "Highway 914",
+     "ref": "914",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Brabant Lake",
+     "type": "village",
+     "dist_m": 92667.8,
+     "lat": 56.116046,
+     "lon": -103.752162
+    },
+    "island_km2": null,
+    "detail": "detail/ca-sk/A-56.547793_-105.032941",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 56.891941,
+    "lon": -107.8149,
+    "dist_m": 66861.13,
+    "nearest_way": {
+     "id": 234014664,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Turnor Lake",
+     "type": "village",
+     "dist_m": 71027.2,
+     "lat": 56.476989,
+     "lon": -108.695106
+    },
+    "island_km2": 1.0,
+    "detail": "detail/ca-sk/A-56.891941_-107.814900",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 56.100256,
+    "lon": -102.273676,
+    "dist_m": 61342.29,
+    "nearest_way": {
+     "id": 326057285,
+     "highway": "unclassified",
+     "name": "Laurie River Access Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Sandy Bay",
+     "type": "village",
+     "dist_m": 64011.2,
+     "lat": 55.52576,
+     "lon": -102.313097
+    },
+    "island_km2": null,
+    "detail": "detail/ca-sk/A-56.100256_-102.273676",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 57.582355,
+    "lon": -102.38766,
+    "dist_m": 52245.21,
+    "nearest_way": {
+     "id": 1418368141,
+     "highway": "unclassified",
+     "name": "Wollaston Lake All Season Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Brochet",
+     "type": "village",
+     "dist_m": 54085.3,
+     "lat": 57.880827,
+     "lon": -101.671508
+    },
+    "island_km2": 3.2,
+    "detail": "detail/ca-sk/A-57.582355_-102.387660",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 56.685871,
+    "lon": -102.505382,
+    "dist_m": 50079.13,
+    "nearest_way": {
+     "id": 1026752176,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kinoosao",
+     "type": "village",
+     "dist_m": 52960.4,
+     "lat": 57.081007,
+     "lon": -102.021906
+    },
+    "island_km2": 5.2,
+    "detail": "detail/ca-sk/A-56.685871_-102.505382",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 55.065416,
+    "lon": -109.230245,
+    "dist_m": 49705.08,
+    "nearest_way": {
+     "id": 1157836759,
      "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": null,
-     "type": "isolated_dwelling",
-     "dist_m": 107140.1,
-     "lat": 59.099392,
-     "lon": -105.179774
+     "name": "Cole Bay",
+     "type": "village",
+     "dist_m": 58286.0,
+     "lat": 55.097615,
+     "lon": -108.319312
     },
-    "detail": "detail/ca-sk/A-3",
+    "island_km2": null,
+    "detail": "detail/ca-sk/A-55.065416_-109.230245",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 59.375969,
-    "lon": -102.953877,
-    "dist_m": 104080.05,
+    "rank": 9,
+    "lat": 54.097156,
+    "lon": -103.596142,
+    "dist_m": 45673.96,
     "nearest_way": {
-     "id": 1300968013,
+     "id": 260396219,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Pinebluff",
+     "type": "village",
+     "dist_m": 50994.6,
+     "lat": 54.1,
+     "lon": -102.816667
+    },
+    "island_km2": null,
+    "detail": "detail/ca-sk/A-54.097156_-103.596142",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 57.276148,
+    "lon": -102.668177,
+    "dist_m": 44414.09,
+    "nearest_way": {
+     "id": 1442529904,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kinoosao",
+     "type": "village",
+     "dist_m": 44721.6,
+     "lat": 57.081007,
+     "lon": -102.021906
+    },
+    "island_km2": 3.3,
+    "detail": "detail/ca-sk/A-57.276148_-102.668177",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 58.845826,
+    "lon": -110.006116,
+    "dist_m": 43185.75,
+    "nearest_way": {
+     "id": 1460705766,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Fort Chipewyan",
+     "type": "town",
+     "dist_m": 67708.6,
+     "lat": 58.716643,
+     "lon": -111.150019
+    },
+    "island_km2": null,
+    "detail": "detail/ca-sk/A-58.845826_-110.006116",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 57.451908,
+    "lon": -102.220029,
+    "dist_m": 42700.04,
+    "nearest_way": {
+     "id": 1453670857,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kinoosao",
+     "type": "village",
+     "dist_m": 43000.2,
+     "lat": 57.081007,
+     "lon": -102.021906
+    },
+    "island_km2": null,
+    "detail": "detail/ca-sk/A-57.451908_-102.220029",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 57.637122,
+    "lon": -102.522044,
+    "dist_m": 42425.31,
+    "nearest_way": {
+     "id": 1418368141,
+     "highway": "unclassified",
+     "name": "Wollaston Lake All Season Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Brochet",
+     "type": "village",
+     "dist_m": 57447.8,
+     "lat": 57.880827,
+     "lon": -101.671508
+    },
+    "island_km2": 5.6,
+    "detail": "detail/ca-sk/A-57.637122_-102.522044",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 56.45989,
+    "lon": -104.491884,
+    "dist_m": 39843.4,
+    "nearest_way": {
+     "id": 1052230251,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Brabant Lake",
+     "type": "village",
+     "dist_m": 59701.5,
+     "lat": 56.116046,
+     "lon": -103.752162
+    },
+    "island_km2": 2.8,
+    "detail": "detail/ca-sk/A-56.459890_-104.491884",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 56.608521,
+    "lon": -102.624129,
+    "dist_m": 38967.68,
+    "nearest_way": {
+     "id": 1026752176,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Southend",
+     "type": "village",
+     "dist_m": 49007.8,
+     "lat": 56.32925,
+     "lon": -103.238689
+    },
+    "island_km2": 1.8,
+    "detail": "detail/ca-sk/A-56.608521_-102.624129",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 57.67045,
+    "lon": -102.198631,
+    "dist_m": 38611.0,
+    "nearest_way": {
+     "id": 706814612,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Lac Brochet",
-     "type": "town",
-     "dist_m": 119335.7,
-     "lat": 58.617745,
-     "lon": -101.487098
+     "name": "Brochet",
+     "type": "village",
+     "dist_m": 39150.1,
+     "lat": 57.880827,
+     "lon": -101.671508
     },
-    "detail": "detail/ca-sk/A-4",
+    "island_km2": 6.1,
+    "detail": "detail/ca-sk/A-57.670450_-102.198631",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 59.43412,
-    "lon": -103.272383,
-    "dist_m": 103785.88,
+    "rank": 17,
+    "lat": 56.835259,
+    "lon": -102.4856,
+    "dist_m": 38564.0,
     "nearest_way": {
-     "id": 1456746471,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": null,
-     "type": "isolated_dwelling",
-     "dist_m": 114987.5,
-     "lat": 59.099392,
-     "lon": -105.179774
-    },
-    "detail": "detail/ca-sk/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 59.929524,
-    "lon": -104.221922,
-    "dist_m": 103017.72,
-    "nearest_way": {
-     "id": 768084586,
+     "id": 1442529896,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": null,
-     "type": "isolated_dwelling",
-     "dist_m": 107204.7,
-     "lat": 59.099392,
-     "lon": -105.179774
+     "name": "Kinoosao",
+     "type": "village",
+     "dist_m": 39303.7,
+     "lat": 57.081007,
+     "lon": -102.021906
     },
-    "detail": "detail/ca-sk/A-6",
+    "island_km2": 23.5,
+    "detail": "detail/ca-sk/A-56.835259_-102.485600",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 59.534068,
-    "lon": -103.557437,
-    "dist_m": 101974.85,
+    "rank": 18,
+    "lat": 56.907554,
+    "lon": -110.005828,
+    "dist_m": 38379.69,
     "nearest_way": {
-     "id": 1456746471,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": null,
-     "type": "isolated_dwelling",
-     "dist_m": 104303.7,
-     "lat": 59.099392,
-     "lon": -105.179774
-    },
-    "detail": "detail/ca-sk/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 59.995039,
-    "lon": -104.52574,
-    "dist_m": 101834.55,
-    "nearest_way": {
-     "id": 768084586,
+     "id": 505552605,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Scott Lake Lodge",
+     "name": "Clearwater River",
+     "type": "village",
+     "dist_m": 52336.5,
+     "lat": 56.53111,
+     "lon": -109.494042
+    },
+    "island_km2": null,
+    "detail": "detail/ca-sk/A-56.907554_-110.005828",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 57.26475,
+    "lon": -102.49887,
+    "dist_m": 35060.31,
+    "nearest_way": {
+     "id": 1442529904,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kinoosao",
+     "type": "village",
+     "dist_m": 35371.0,
+     "lat": 57.081007,
+     "lon": -102.021906
+    },
+    "island_km2": 6.4,
+    "detail": "detail/ca-sk/A-57.264750_-102.498870",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 53.251414,
+    "lon": -101.700697,
+    "dist_m": 26973.22,
+    "nearest_way": {
+     "id": 136579455,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Red Deer Lake",
      "type": "hamlet",
-     "dist_m": 95394.6,
-     "lat": 59.991114,
-     "lon": -106.234993
+     "dist_m": 42873.8,
+     "lat": 52.893728,
+     "lon": -101.463081
     },
-    "detail": "detail/ca-sk/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 59.374715,
-    "lon": -102.613459,
-    "dist_m": 101351.16,
-    "nearest_way": {
-     "id": 504123897,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Lac Brochet",
-     "type": "town",
-     "dist_m": 106308.7,
-     "lat": 58.617745,
-     "lon": -101.487098
-    },
-    "detail": "detail/ca-sk/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 59.858566,
-    "lon": -104.101472,
-    "dist_m": 100426.05,
-    "nearest_way": {
-     "id": 768084586,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": null,
-     "type": "isolated_dwelling",
-     "dist_m": 104340.9,
-     "lat": 59.099392,
-     "lon": -105.179774
-    },
-    "detail": "detail/ca-sk/A-10",
+    "island_km2": null,
+    "detail": "detail/ca-sk/A-53.251414_-101.700697",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 105900.91,
+  "lat": 59.997009,
+  "lon": -104.355972,
+  "rank": 10,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +508,8 @@
      "lat": 59.991114,
      "lon": -106.234993
     },
-    "detail": "detail/ca-sk/B-1",
+    "island_km2": null,
+    "detail": "detail/ca-sk/B-59.999889_-104.445506",
     "warnings": []
    },
    {
@@ -283,187 +531,433 @@
      "lat": 57.462153,
      "lon": -106.751673
     },
-    "detail": "detail/ca-sk/B-2",
+    "island_km2": null,
+    "detail": "detail/ca-sk/B-58.075895_-107.016535",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 59.921664,
-    "lon": -104.3474,
-    "dist_m": 109828.3,
+    "lat": 56.535287,
+    "lon": -105.012008,
+    "dist_m": 73495.22,
     "nearest_way": {
-     "id": 1456746471,
-     "highway": "unclassified",
+     "id": 1099638116,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Woodcock Portage",
-     "type": "hamlet",
-     "dist_m": 102801.8,
-     "lat": 59.244193,
-     "lon": -105.582855
+     "name": "Brabant Lake",
+     "type": "village",
+     "dist_m": 90851.0,
+     "lat": 56.116046,
+     "lon": -103.752162
     },
-    "detail": "detail/ca-sk/B-3",
+    "island_km2": null,
+    "detail": "detail/ca-sk/B-56.535287_-105.012008",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 58.145956,
-    "lon": -107.129143,
-    "dist_m": 109393.78,
+    "lat": 57.670084,
+    "lon": -106.777728,
+    "dist_m": 71629.17,
     "nearest_way": {
-     "id": 151441737,
-     "highway": "secondary",
+     "id": 295482459,
+     "highway": "unclassified",
      "name": null,
-     "ref": "905",
+     "ref": null,
      "country": "ca"
     },
     "nearest_place": {
      "name": "Crystal Lodge",
      "type": "hamlet",
-     "dist_m": 79395.7,
+     "dist_m": 23209.8,
      "lat": 57.462153,
      "lon": -106.751673
     },
-    "detail": "detail/ca-sk/B-4",
+    "island_km2": 2.7,
+    "detail": "detail/ca-sk/B-57.670084_-106.777728",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 58.352473,
-    "lon": -107.465178,
-    "dist_m": 108632.52,
+    "lat": 56.891941,
+    "lon": -107.8149,
+    "dist_m": 69897.63,
     "nearest_way": {
-     "id": 424497537,
-     "highway": "tertiary",
+     "id": 393506441,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "Crystal Lodge",
-     "type": "hamlet",
-     "dist_m": 107804.4,
-     "lat": 57.462153,
-     "lon": -106.751673
+     "name": "Turnor Lake",
+     "type": "village",
+     "dist_m": 71027.2,
+     "lat": 56.476989,
+     "lon": -108.695106
     },
-    "detail": "detail/ca-sk/B-5",
+    "island_km2": 1.0,
+    "detail": "detail/ca-sk/B-56.891941_-107.814900",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 59.570534,
-    "lon": -103.830675,
-    "dist_m": 108425.75,
+    "lat": 57.484279,
+    "lon": -106.819248,
+    "dist_m": 65053.34,
     "nearest_way": {
-     "id": 1456746471,
-     "highway": "unclassified",
+     "id": 151442877,
+     "highway": "road",
      "name": null,
      "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": null,
-     "type": "isolated_dwelling",
-     "dist_m": 93006.6,
-     "lat": 59.099392,
-     "lon": -105.179774
-    },
-    "detail": "detail/ca-sk/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 59.504816,
-    "lon": -103.66704,
-    "dist_m": 108226.41,
-    "nearest_way": {
-     "id": 1456746471,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": null,
-     "type": "isolated_dwelling",
-     "dist_m": 97296.2,
-     "lat": 59.099392,
-     "lon": -105.179774
-    },
-    "detail": "detail/ca-sk/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 58.215253,
-    "lon": -107.241267,
-    "dist_m": 108202.49,
-    "nearest_way": {
-     "id": 151441737,
-     "highway": "secondary",
-     "name": null,
-     "ref": "905",
      "country": "ca"
     },
     "nearest_place": {
      "name": "Crystal Lodge",
      "type": "hamlet",
-     "dist_m": 88774.2,
+     "dist_m": 4744.5,
      "lat": 57.462153,
      "lon": -106.751673
     },
-    "detail": "detail/ca-sk/B-8",
+    "island_km2": 1.3,
+    "detail": "detail/ca-sk/B-57.484279_-106.819248",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 56.101761,
+    "lon": -102.289234,
+    "dist_m": 62237.4,
+    "nearest_way": {
+     "id": 757084971,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Southend",
+     "type": "village",
+     "dist_m": 64123.3,
+     "lat": 56.32925,
+     "lon": -103.238689
+    },
+    "island_km2": null,
+    "detail": "detail/ca-sk/B-56.101761_-102.289234",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 57.557113,
+    "lon": -106.635704,
+    "dist_m": 58040.76,
+    "nearest_way": {
+     "id": 151442877,
+     "highway": "road",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Crystal Lodge",
+     "type": "hamlet",
+     "dist_m": 12655.5,
+     "lat": 57.462153,
+     "lon": -106.751673
+    },
+    "island_km2": 67.9,
+    "detail": "detail/ca-sk/B-57.557113_-106.635704",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 59.847821,
-    "lon": -104.23764,
-    "dist_m": 107718.77,
+    "lat": 56.68105,
+    "lon": -102.54221,
+    "dist_m": 54229.74,
     "nearest_way": {
-     "id": 151441987,
-     "highway": "service",
+     "id": 181693848,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": null,
-     "type": "isolated_dwelling",
-     "dist_m": 99011.9,
-     "lat": 59.099392,
-     "lon": -105.179774
+     "name": "Kinoosao",
+     "type": "village",
+     "dist_m": 54679.4,
+     "lat": 57.081007,
+     "lon": -102.021906
     },
-    "detail": "detail/ca-sk/B-9",
+    "island_km2": 5.2,
+    "detail": "detail/ca-sk/B-56.681050_-102.542210",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 59.643595,
-    "lon": -103.937117,
-    "dist_m": 106909.85,
+    "lat": 57.403728,
+    "lon": -106.66021,
+    "dist_m": 53030.38,
     "nearest_way": {
-     "id": 151441987,
-     "highway": "service",
+     "id": 151442877,
+     "highway": "road",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": null,
-     "type": "isolated_dwelling",
-     "dist_m": 93094.0,
-     "lat": 59.099392,
-     "lon": -105.179774
+     "name": "Crystal Lodge",
+     "type": "hamlet",
+     "dist_m": 8515.7,
+     "lat": 57.462153,
+     "lon": -106.751673
     },
-    "detail": "detail/ca-sk/B-10",
+    "island_km2": 3.9,
+    "detail": "detail/ca-sk/B-57.403728_-106.660210",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 57.582355,
+    "lon": -102.38766,
+    "dist_m": 52245.21,
+    "nearest_way": {
+     "id": 1418368141,
+     "highway": "unclassified",
+     "name": "Wollaston Lake All Season Road",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Brochet",
+     "type": "village",
+     "dist_m": 54085.3,
+     "lat": 57.880827,
+     "lon": -101.671508
+    },
+    "island_km2": 3.2,
+    "detail": "detail/ca-sk/B-57.582355_-102.387660",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 57.659247,
+    "lon": -106.33358,
+    "dist_m": 49972.77,
+    "nearest_way": {
+     "id": 295482459,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Crystal Lodge",
+     "type": "hamlet",
+     "dist_m": 33287.6,
+     "lat": 57.462153,
+     "lon": -106.751673
+    },
+    "island_km2": 1.7,
+    "detail": "detail/ca-sk/B-57.659247_-106.333580",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 55.065416,
+    "lon": -109.230245,
+    "dist_m": 49705.08,
+    "nearest_way": {
+     "id": 1157836759,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Cole Bay",
+     "type": "village",
+     "dist_m": 58286.0,
+     "lat": 55.097615,
+     "lon": -108.319312
+    },
+    "island_km2": null,
+    "detail": "detail/ca-sk/B-55.065416_-109.230245",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 57.538249,
+    "lon": -106.451683,
+    "dist_m": 47414.27,
+    "nearest_way": {
+     "id": 295482459,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Crystal Lodge",
+     "type": "hamlet",
+     "dist_m": 19882.4,
+     "lat": 57.462153,
+     "lon": -106.751673
+    },
+    "island_km2": 1.4,
+    "detail": "detail/ca-sk/B-57.538249_-106.451683",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 56.60292,
+    "lon": -102.625781,
+    "dist_m": 47259.72,
+    "nearest_way": {
+     "id": 194482629,
+     "highway": "unclassified",
+     "name": "George Cook Senior Drive",
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Southend",
+     "type": "village",
+     "dist_m": 48537.4,
+     "lat": 56.32925,
+     "lon": -103.238689
+    },
+    "island_km2": 1.8,
+    "detail": "detail/ca-sk/B-56.602920_-102.625781",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 54.086684,
+    "lon": -103.678862,
+    "dist_m": 46506.86,
+    "nearest_way": {
+     "id": 1073121633,
+     "highway": "primary",
+     "name": "Hanson Lake Road",
+     "ref": "106",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Pinebluff",
+     "type": "village",
+     "dist_m": 56431.7,
+     "lat": 54.1,
+     "lon": -102.816667
+    },
+    "island_km2": null,
+    "detail": "detail/ca-sk/B-54.086684_-103.678862",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 58.845826,
+    "lon": -110.006116,
+    "dist_m": 43185.75,
+    "nearest_way": {
+     "id": 1460705766,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Fort Chipewyan",
+     "type": "town",
+     "dist_m": 67708.6,
+     "lat": 58.716643,
+     "lon": -111.150019
+    },
+    "island_km2": null,
+    "detail": "detail/ca-sk/B-58.845826_-110.006116",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 57.451908,
+    "lon": -102.220029,
+    "dist_m": 42771.8,
+    "nearest_way": {
+     "id": 1442525598,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kinoosao",
+     "type": "village",
+     "dist_m": 43000.2,
+     "lat": 57.081007,
+     "lon": -102.021906
+    },
+    "island_km2": null,
+    "detail": "detail/ca-sk/B-57.451908_-102.220029",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 53.180925,
+    "lon": -101.700835,
+    "dist_m": 28753.97,
+    "nearest_way": {
+     "id": 256117951,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Red Deer Lake",
+     "type": "hamlet",
+     "dist_m": 35719.4,
+     "lat": 52.893728,
+     "lon": -101.463081
+    },
+    "island_km2": null,
+    "detail": "detail/ca-sk/B-53.180925_-101.700835",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 55.011915,
+    "lon": -107.02696,
+    "dist_m": 26276.68,
+    "nearest_way": {
+     "id": 154935095,
+     "highway": "primary",
+     "name": "Highway 165",
+     "ref": "165",
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "La Plonge",
+     "type": "village",
+     "dist_m": 39175.6,
+     "lat": 55.159903,
+     "lon": -107.583564
+    },
+    "island_km2": null,
+    "detail": "detail/ca-sk/B-55.011915_-107.026960",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 112037.3,
+  "lat": 59.999889,
+  "lon": -104.445506,
+  "rank": 10,
+  "withheld": 0
  }
 }

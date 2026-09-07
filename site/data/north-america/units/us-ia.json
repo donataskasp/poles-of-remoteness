@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 43.417409,
-    "lon": -91.2301,
-    "dist_m": 2387.37,
-    "nearest_way": {
-     "id": 15814358,
-     "highway": "primary",
-     "name": "Great River Road",
-     "ref": "IA 26",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "De Soto",
-     "type": "village",
-     "dist_m": 2593.3,
-     "lat": 43.423031,
-     "lon": -91.19902
-    },
-    "detail": "detail/us-ia/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 40.664486,
     "lon": -91.156104,
     "dist_m": 2166.28,
@@ -57,7 +35,31 @@
      "lat": 40.636328,
      "lon": -91.167556
     },
-    "detail": "detail/us-ia/A-2",
+    "island_km2": null,
+    "detail": "detail/us-ia/A-40.664486_-91.156104",
+    "warnings": []
+   },
+   {
+    "rank": 2,
+    "lat": 43.428235,
+    "lon": -91.236945,
+    "dist_m": 2112.64,
+    "nearest_way": {
+     "id": 15814358,
+     "highway": "primary",
+     "name": "Great River Road",
+     "ref": "IA 26",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "De Soto",
+     "type": "village",
+     "dist_m": 3124.9,
+     "lat": 43.423031,
+     "lon": -91.19902
+    },
+    "island_km2": null,
+    "detail": "detail/us-ia/A-43.428235_-91.236945",
     "warnings": []
    },
    {
@@ -75,11 +77,12 @@
     "nearest_place": {
      "name": "Toolesboro",
      "type": "hamlet",
-     "dist_m": 3404.7,
+     "dist_m": 3404.8,
      "lat": 41.141977,
      "lon": -91.06209
     },
-    "detail": "detail/us-ia/A-3",
+    "island_km2": null,
+    "detail": "detail/us-ia/A-41.172635_-91.062160",
     "warnings": []
    },
    {
@@ -97,11 +100,12 @@
     "nearest_place": {
      "name": "Alexandria",
      "type": "village",
-     "dist_m": 3997.2,
+     "dist_m": 3997.3,
      "lat": 40.359489,
      "lon": -91.455432
     },
-    "detail": "detail/us-ia/A-4",
+    "island_km2": null,
+    "detail": "detail/us-ia/A-40.391524_-91.476901",
     "warnings": []
    },
    {
@@ -123,33 +127,12 @@
      "lat": 42.17002,
      "lon": -90.226518
     },
-    "detail": "detail/us-ia/A-5",
+    "island_km2": null,
+    "detail": "detail/us-ia/A-42.155903_-90.241927",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 43.257827,
-    "lon": -91.079119,
-    "dist_m": 1935.99,
-    "nearest_way": {
-     "id": 21459506,
-     "highway": "residential",
-     "name": "River Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Lynxville",
-     "type": "village",
-     "dist_m": 2128.5,
-     "lat": 43.246904,
-     "lon": -91.057584
-    },
-    "detail": "detail/us-ia/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 41.497222,
     "lon": -93.416726,
     "dist_m": 1910.34,
@@ -167,55 +150,12 @@
      "lat": 41.484991,
      "lon": -93.388544
     },
-    "detail": "detail/us-ia/A-7",
+    "island_km2": null,
+    "detail": "detail/us-ia/A-41.497222_-93.416726",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 41.036636,
-    "lon": -90.952654,
-    "dist_m": 1893.19,
-    "nearest_way": {
-     "id": 21779169,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Milroy",
-     "type": "hamlet",
-     "dist_m": 3330.0,
-     "lat": 41.018648,
-     "lon": -90.920975
-    },
-    "detail": "detail/us-ia/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 41.95747,
-    "lon": -90.165521,
-    "dist_m": 1889.94,
-    "nearest_way": {
-     "id": 15863264,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Elk River Junction",
-     "type": "hamlet",
-     "dist_m": 2572.8,
-     "lat": 41.979749,
-     "lon": -90.174017
-    },
-    "detail": "detail/us-ia/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 7,
     "lat": 41.470751,
     "lon": -93.253095,
     "dist_m": 1876.84,
@@ -233,45 +173,100 @@
      "lat": 41.465272,
      "lon": -93.311255
     },
-    "detail": "detail/us-ia/A-10",
+    "island_km2": null,
+    "detail": "detail/us-ia/A-41.470751_-93.253095",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 41.759931,
+    "lon": -93.401845,
+    "dist_m": 1859.7,
+    "nearest_way": {
+     "id": 16003058,
+     "highway": "trunk",
+     "name": "Northeast Hubbell Road",
+     "ref": "US 65;IA 330",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Farrar",
+     "type": "hamlet",
+     "dist_m": 5746.1,
+     "lat": 41.805821,
+     "lon": -93.369931
+    },
+    "island_km2": null,
+    "detail": "detail/us-ia/A-41.759931_-93.401845",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 42.201523,
+    "lon": -90.351168,
+    "dist_m": 1757.75,
+    "nearest_way": {
+     "id": 21798736,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Pleasant Creek",
+     "type": "hamlet",
+     "dist_m": 2608.4,
+     "lat": 42.199463,
+     "lon": -90.382629
+    },
+    "island_km2": null,
+    "detail": "detail/us-ia/A-42.201523_-90.351168",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 40.996536,
+    "lon": -92.659434,
+    "dist_m": 1744.11,
+    "nearest_way": {
+     "id": 15974893,
+     "highway": "tertiary",
+     "name": "201st Street",
+     "ref": "CR H47",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Blakesburg",
+     "type": "village",
+     "dist_m": 4100.5,
+     "lat": 40.963986,
+     "lon": -92.636432
+    },
+    "island_km2": null,
+    "detail": "detail/us-ia/A-40.996536_-92.659434",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 2166.28,
+  "lat": 40.664486,
+  "lon": -91.156104,
+  "rank": 61,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 43.417409,
-    "lon": -91.2301,
-    "dist_m": 2387.37,
+    "lat": 42.158825,
+    "lon": -90.251183,
+    "dist_m": 2209.57,
     "nearest_way": {
-     "id": 15814358,
-     "highway": "primary",
-     "name": "Great River Road",
-     "ref": "IA 26",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "De Soto",
-     "type": "village",
-     "dist_m": 2593.3,
-     "lat": 43.423031,
-     "lon": -91.19902
-    },
-    "detail": "detail/us-ia/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 42.158261,
-    "lon": -90.250179,
-    "dist_m": 2260.25,
-    "nearest_way": {
-     "id": 21706388,
-     "highway": "residential",
+     "id": 1173745809,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
@@ -279,15 +274,16 @@
     "nearest_place": {
      "name": "Arnold",
      "type": "hamlet",
-     "dist_m": 2351.4,
+     "dist_m": 2387.6,
      "lat": 42.17002,
      "lon": -90.226518
     },
-    "detail": "detail/us-ia/B-2",
+    "island_km2": null,
+    "detail": "detail/us-ia/B-42.158825_-90.251183",
     "warnings": []
    },
    {
-    "rank": 3,
+    "rank": 2,
     "lat": 41.213284,
     "lon": -91.094627,
     "dist_m": 2204.4,
@@ -305,11 +301,12 @@
      "lat": 41.239196,
      "lon": -91.13126
     },
-    "detail": "detail/us-ia/B-3",
+    "island_km2": null,
+    "detail": "detail/us-ia/B-41.213284_-91.094627",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 40.664486,
     "lon": -91.156104,
     "dist_m": 2166.28,
@@ -327,11 +324,12 @@
      "lat": 40.636328,
      "lon": -91.167556
     },
-    "detail": "detail/us-ia/B-4",
+    "island_km2": null,
+    "detail": "detail/us-ia/B-40.664486_-91.156104",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 41.519058,
     "lon": -93.459823,
     "dist_m": 2130.91,
@@ -345,11 +343,35 @@
     "nearest_place": {
      "name": "Carlisle",
      "type": "town",
-     "dist_m": 3189.7,
+     "dist_m": 3189.8,
      "lat": 41.498683,
      "lon": -93.486751
     },
-    "detail": "detail/us-ia/B-5",
+    "island_km2": null,
+    "detail": "detail/us-ia/B-41.519058_-93.459823",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 43.428235,
+    "lon": -91.236945,
+    "dist_m": 2112.64,
+    "nearest_way": {
+     "id": 15814358,
+     "highway": "primary",
+     "name": "Great River Road",
+     "ref": "IA 26",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "De Soto",
+     "type": "village",
+     "dist_m": 3124.9,
+     "lat": 43.423031,
+     "lon": -91.19902
+    },
+    "island_km2": null,
+    "detail": "detail/us-ia/B-43.428235_-91.236945",
     "warnings": []
    },
    {
@@ -367,11 +389,12 @@
     "nearest_place": {
      "name": "Alexandria",
      "type": "village",
-     "dist_m": 3997.2,
+     "dist_m": 3997.3,
      "lat": 40.359489,
      "lon": -91.455432
     },
-    "detail": "detail/us-ia/B-6",
+    "island_km2": null,
+    "detail": "detail/us-ia/B-40.391524_-91.476901",
     "warnings": []
    },
    {
@@ -393,7 +416,8 @@
      "lat": 41.221126,
      "lon": -91.937674
     },
-    "detail": "detail/us-ia/B-7",
+    "island_km2": null,
+    "detail": "detail/us-ia/B-41.233887_-91.912983",
     "warnings": []
    },
    {
@@ -415,7 +439,8 @@
      "lat": 41.817231,
      "lon": -91.672675
     },
-    "detail": "detail/us-ia/B-8",
+    "island_km2": null,
+    "detail": "detail/us-ia/B-41.795746_-91.680273",
     "warnings": []
    },
    {
@@ -437,33 +462,42 @@
      "lat": 42.113108,
      "lon": -96.356432
     },
-    "detail": "detail/us-ia/B-9",
+    "island_km2": null,
+    "detail": "detail/us-ia/B-42.136044_-96.311443",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 43.257827,
-    "lon": -91.079119,
-    "dist_m": 1935.99,
+    "lat": 41.470751,
+    "lon": -93.253095,
+    "dist_m": 1876.84,
     "nearest_way": {
-     "id": 21459506,
-     "highway": "residential",
-     "name": "River Road",
+     "id": 15968762,
+     "highway": "unclassified",
+     "name": "50th Avenue",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Lynxville",
+     "name": "Swan",
      "type": "village",
-     "dist_m": 2128.5,
-     "lat": 43.246904,
-     "lon": -91.057584
+     "dist_m": 4896.5,
+     "lat": 41.465272,
+     "lon": -93.311255
     },
-    "detail": "detail/us-ia/B-10",
+    "island_km2": null,
+    "detail": "detail/us-ia/B-41.470751_-93.253095",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 2209.57,
+  "lat": 42.158825,
+  "lon": -90.251183,
+  "rank": 62,
+  "withheld": 0
  }
 }

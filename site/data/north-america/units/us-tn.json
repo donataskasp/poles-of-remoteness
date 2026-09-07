@@ -18,9 +18,9 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 35.571008,
-    "lon": -83.591595,
-    "dist_m": 8802.41,
+    "lat": 35.570976,
+    "lon": -83.591612,
+    "dist_m": 8803.32,
     "nearest_way": {
      "id": 16777222,
      "highway": "service",
@@ -31,18 +31,19 @@
     "nearest_place": {
      "name": "Elkmont",
      "type": "hamlet",
-     "dist_m": 9164.1,
+     "dist_m": 9167.7,
      "lat": 35.653134,
      "lon": -83.580829
     },
-    "detail": "detail/us-tn/A-1",
+    "island_km2": null,
+    "detail": "detail/us-tn/A-35.570976_-83.591612",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 35.688481,
-    "lon": -83.263552,
-    "dist_m": 8299.43,
+    "lat": 35.688482,
+    "lon": -83.263497,
+    "dist_m": 8300.05,
     "nearest_way": {
      "id": 19605257,
      "highway": "service",
@@ -53,81 +54,39 @@
     "nearest_place": {
      "name": "Rocky Grove",
      "type": "hamlet",
-     "dist_m": 8961.4,
+     "dist_m": 8962.5,
      "lat": 35.766762,
      "lon": -83.287932
     },
-    "detail": "detail/us-tn/A-2",
+    "island_km2": null,
+    "detail": "detail/us-tn/A-35.688482_-83.263497",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 35.645989,
-    "lon": -83.361461,
-    "dist_m": 5584.79,
+    "lat": 35.583128,
+    "lon": -83.899084,
+    "dist_m": 4323.37,
     "nearest_way": {
-     "id": 275606051,
-     "highway": "trunk",
-     "name": "Newfound Gap Road North",
-     "ref": "US 441",
+     "id": 222045885,
+     "highway": "service",
+     "name": "Abrams Falls Parking Lot",
+     "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Smokemont",
-     "type": "village",
-     "dist_m": 10716.9,
-     "lat": 35.558312,
-     "lon": -83.311837
+     "name": "Abrams",
+     "type": "hamlet",
+     "dist_m": 4454.3,
+     "lat": 35.610527,
+     "lon": -83.93501
     },
-    "detail": "detail/us-tn/A-3",
+    "island_km2": null,
+    "detail": "detail/us-tn/A-35.583128_-83.899084",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 35.568999,
-    "lon": -83.703906,
-    "dist_m": 5526.02,
-    "nearest_way": {
-     "id": 285736211,
-     "highway": "tertiary",
-     "name": "Laurel Creek Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Tremont",
-     "type": "hamlet",
-     "dist_m": 7971.4,
-     "lat": 35.639707,
-     "lon": -83.68831
-    },
-    "detail": "detail/us-tn/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 35.525728,
-    "lon": -83.820346,
-    "dist_m": 4684.66,
-    "nearest_way": {
-     "id": 222064955,
-     "highway": "service",
-     "name": "Forge Creek Parking @ End",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Twenty Mile",
-     "type": "hamlet",
-     "dist_m": 8280.0,
-     "lat": 35.466292,
-     "lon": -83.875533
-    },
-    "detail": "detail/us-tn/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
     "lat": 35.406276,
     "lon": -84.02112,
     "dist_m": 4320.86,
@@ -141,59 +100,16 @@
     "nearest_place": {
      "name": "Jenkins Meadow",
      "type": "hamlet",
-     "dist_m": 6751.2,
+     "dist_m": 6751.3,
      "lat": 35.382029,
      "lon": -83.952961
     },
-    "detail": "detail/us-tn/A-6",
+    "island_km2": null,
+    "detail": "detail/us-tn/A-35.406276_-84.021120",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 35.562179,
-    "lon": -83.943331,
-    "dist_m": 4292.33,
-    "nearest_way": {
-     "id": 222064968,
-     "highway": "residential",
-     "name": "Parson Branch Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Happy Valley",
-     "type": "hamlet",
-     "dist_m": 5346.2,
-     "lat": 35.608973,
-     "lon": -83.957403
-    },
-    "detail": "detail/us-tn/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 35.630509,
-    "lon": -83.866222,
-    "dist_m": 3986.94,
-    "nearest_way": {
-     "id": 222046050,
-     "highway": "tertiary",
-     "name": "Cades Cove Loop Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Cades Cove",
-     "type": "hamlet",
-     "dist_m": 6083.6,
-     "lat": 35.608953,
-     "lon": -83.804477
-    },
-    "detail": "detail/us-tn/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 5,
     "lat": 35.004287,
     "lon": -84.525932,
     "dist_m": 3681.28,
@@ -211,11 +127,12 @@
      "lat": 35.033966,
      "lon": -84.598544
     },
-    "detail": "detail/us-tn/A-9",
+    "island_km2": null,
+    "detail": "detail/us-tn/A-35.004287_-84.525932",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 6,
     "lat": 36.411718,
     "lon": -89.372632,
     "dist_m": 3344.59,
@@ -233,20 +150,120 @@
      "lat": 36.380899,
      "lon": -89.354794
     },
-    "detail": "detail/us-tn/A-10",
+    "island_km2": null,
+    "detail": "detail/us-tn/A-36.411718_-89.372632",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 35.196273,
+    "lon": -85.707891,
+    "dist_m": 3280.82,
+    "nearest_way": {
+     "id": 19551139,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Oak Grove",
+     "type": "hamlet",
+     "dist_m": 5238.5,
+     "lat": 35.240912,
+     "lon": -85.689137
+    },
+    "island_km2": null,
+    "detail": "detail/us-tn/A-35.196273_-85.707891",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 35.255415,
+    "lon": -84.168293,
+    "dist_m": 3166.91,
+    "nearest_way": {
+     "id": 16469534,
+     "highway": "residential",
+     "name": "Copper Creek Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Unaka",
+     "type": "hamlet",
+     "dist_m": 7092.8,
+     "lat": 35.195359,
+     "lon": -84.141582
+    },
+    "island_km2": null,
+    "detail": "detail/us-tn/A-35.255415_-84.168293",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 36.416925,
+    "lon": -84.215689,
+    "dist_m": 3138.78,
+    "nearest_way": {
+     "id": 19406861,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Royal Blue",
+     "type": "hamlet",
+     "dist_m": 5559.7,
+     "lat": 36.382302,
+     "lon": -84.260486
+    },
+    "island_km2": null,
+    "detail": "detail/us-tn/A-36.416925_-84.215689",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 35.398493,
+    "lon": -90.100885,
+    "dist_m": 3077.62,
+    "nearest_way": {
+     "id": 19644737,
+     "highway": "residential",
+     "name": "Corona Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Corona",
+     "type": "hamlet",
+     "dist_m": 5458.9,
+     "lat": 35.445361,
+     "lon": -90.082591
+    },
+    "island_km2": null,
+    "detail": "detail/us-tn/A-35.398493_-90.100885",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 8803.32,
+  "lat": 35.570976,
+  "lon": -83.591612,
+  "rank": 38,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 35.571008,
-    "lon": -83.591595,
-    "dist_m": 8802.41,
+    "lat": 35.570976,
+    "lon": -83.591612,
+    "dist_m": 8803.32,
     "nearest_way": {
      "id": 16777222,
      "highway": "service",
@@ -257,18 +274,19 @@
     "nearest_place": {
      "name": "Elkmont",
      "type": "hamlet",
-     "dist_m": 9164.1,
+     "dist_m": 9167.7,
      "lat": 35.653134,
      "lon": -83.580829
     },
-    "detail": "detail/us-tn/B-1",
+    "island_km2": null,
+    "detail": "detail/us-tn/B-35.570976_-83.591612",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 35.688481,
-    "lon": -83.263552,
-    "dist_m": 8299.43,
+    "lat": 35.688482,
+    "lon": -83.263497,
+    "dist_m": 8300.05,
     "nearest_way": {
      "id": 19605257,
      "highway": "service",
@@ -279,59 +297,16 @@
     "nearest_place": {
      "name": "Rocky Grove",
      "type": "hamlet",
-     "dist_m": 8961.4,
+     "dist_m": 8962.5,
      "lat": 35.766762,
      "lon": -83.287932
     },
-    "detail": "detail/us-tn/B-2",
+    "island_km2": null,
+    "detail": "detail/us-tn/B-35.688482_-83.263497",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 35.645989,
-    "lon": -83.361461,
-    "dist_m": 5584.79,
-    "nearest_way": {
-     "id": 275606051,
-     "highway": "trunk",
-     "name": "Newfound Gap Road North",
-     "ref": "US 441",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Smokemont",
-     "type": "village",
-     "dist_m": 10716.9,
-     "lat": 35.558312,
-     "lon": -83.311837
-    },
-    "detail": "detail/us-tn/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 35.568999,
-    "lon": -83.703906,
-    "dist_m": 5526.02,
-    "nearest_way": {
-     "id": 285736211,
-     "highway": "tertiary",
-     "name": "Laurel Creek Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Tremont",
-     "type": "hamlet",
-     "dist_m": 7971.4,
-     "lat": 35.639707,
-     "lon": -83.68831
-    },
-    "detail": "detail/us-tn/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 35.396194,
     "lon": -84.013529,
     "dist_m": 5516.27,
@@ -345,15 +320,16 @@
     "nearest_place": {
      "name": "Jenkins Meadow",
      "type": "hamlet",
-     "dist_m": 5722.8,
+     "dist_m": 5722.9,
      "lat": 35.382029,
      "lon": -83.952961
     },
-    "detail": "detail/us-tn/B-5",
+    "island_km2": null,
+    "detail": "detail/us-tn/B-35.396194_-84.013529",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 4,
     "lat": 35.516504,
     "lon": -85.597615,
     "dist_m": 5315.92,
@@ -371,11 +347,12 @@
      "lat": 35.564236,
      "lon": -85.619143
     },
-    "detail": "detail/us-tn/B-6",
+    "island_km2": null,
+    "detail": "detail/us-tn/B-35.516504_-85.597615",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 5,
     "lat": 34.991275,
     "lon": -84.53973,
     "dist_m": 4762.94,
@@ -393,33 +370,12 @@
      "lat": 35.033966,
      "lon": -84.598544
     },
-    "detail": "detail/us-tn/B-7",
+    "island_km2": null,
+    "detail": "detail/us-tn/B-34.991275_-84.539730",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 35.525728,
-    "lon": -83.820346,
-    "dist_m": 4684.66,
-    "nearest_way": {
-     "id": 222064955,
-     "highway": "service",
-     "name": "Forge Creek Parking @ End",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Twenty Mile",
-     "type": "hamlet",
-     "dist_m": 8280.0,
-     "lat": 35.466292,
-     "lon": -83.875533
-    },
-    "detail": "detail/us-tn/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 6,
     "lat": 36.213813,
     "lon": -84.547447,
     "dist_m": 4556.48,
@@ -437,33 +393,111 @@
      "lat": 36.168966,
      "lon": -84.532161
     },
-    "detail": "detail/us-tn/B-9",
+    "island_km2": null,
+    "detail": "detail/us-tn/B-36.213813_-84.547447",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 35.562179,
-    "lon": -83.943331,
-    "dist_m": 4292.33,
+    "rank": 7,
+    "lat": 35.583128,
+    "lon": -83.899084,
+    "dist_m": 4323.37,
     "nearest_way": {
-     "id": 222064968,
-     "highway": "residential",
-     "name": "Parson Branch Road",
+     "id": 222045885,
+     "highway": "service",
+     "name": "Abrams Falls Parking Lot",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Happy Valley",
+     "name": "Abrams",
      "type": "hamlet",
-     "dist_m": 5346.2,
-     "lat": 35.608973,
-     "lon": -83.957403
+     "dist_m": 4454.3,
+     "lat": 35.610527,
+     "lon": -83.93501
     },
-    "detail": "detail/us-tn/B-10",
+    "island_km2": null,
+    "detail": "detail/us-tn/B-35.583128_-83.899084",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 36.067279,
+    "lon": -82.601415,
+    "dist_m": 4227.55,
+    "nearest_way": {
+     "id": 749308533,
+     "highway": "service",
+     "name": "Lloyds Cemetery Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Rocky Fork",
+     "type": "hamlet",
+     "dist_m": 5689.6,
+     "lat": 36.035183,
+     "lon": -82.552172
+    },
+    "island_km2": null,
+    "detail": "detail/us-tn/B-36.067279_-82.601415",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 36.334552,
+    "lon": -89.59446,
+    "dist_m": 4161.31,
+    "nearest_way": {
+     "id": 1014187300,
+     "highway": "service",
+     "name": "Flowers Sheep Ridge Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stewart",
+     "type": "hamlet",
+     "dist_m": 4657.8,
+     "lat": 36.372565,
+     "lon": -89.616468
+    },
+    "island_km2": null,
+    "detail": "detail/us-tn/B-36.334552_-89.594460",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 36.337718,
+    "lon": -84.307477,
+    "dist_m": 3767.78,
+    "nearest_way": {
+     "id": 19405004,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Dean",
+     "type": "hamlet",
+     "dist_m": 4234.2,
+     "lat": 36.344802,
+     "lon": -84.353823
+    },
+    "island_km2": null,
+    "detail": "detail/us-tn/B-36.337718_-84.307477",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 8803.32,
+  "lat": 35.570976,
+  "lon": -83.591612,
+  "rank": 40,
+  "withheld": 0
  }
 }

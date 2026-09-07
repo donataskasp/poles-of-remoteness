@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 43.893462,
-    "lon": -68.731918,
-    "dist_m": 12511.43,
-    "nearest_way": {
-     "id": 11447737,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Matinicus",
-     "type": "village",
-     "dist_m": 12914.5,
-     "lat": 43.864187,
-     "lon": -68.887428
-    },
-    "detail": "detail/us-me/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 46.008171,
     "lon": -68.91982,
     "dist_m": 10890.73,
@@ -57,36 +35,268 @@
      "lat": 46.065073,
      "lon": -68.533001
     },
-    "detail": "detail/us-me/A-2",
+    "island_km2": null,
+    "detail": "detail/us-me/A-46.008171_-68.919820",
     "warnings": []
    },
    {
-    "rank": 3,
-    "lat": 43.121299,
-    "lon": -70.475364,
-    "dist_m": 10761.23,
+    "rank": 2,
+    "lat": 45.814009,
+    "lon": -69.133346,
+    "dist_m": 4693.08,
     "nearest_way": {
-     "id": 11533971,
-     "highway": "service",
-     "name": "Sohier Park Road",
+     "id": 293134069,
+     "highway": "track",
+     "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Cape Neddick",
-     "type": "village",
-     "dist_m": 12536.4,
-     "lat": 43.175714,
-     "lon": -70.610377
+     "name": "Stephensons Landing",
+     "type": "hamlet",
+     "dist_m": 17398.5,
+     "lat": 45.700752,
+     "lon": -68.978975
     },
-    "detail": "detail/us-me/A-3",
+    "island_km2": null,
+    "detail": "detail/us-me/A-45.814009_-69.133346",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 46.641945,
+    "lon": -69.793989,
+    "dist_m": 4321.82,
+    "nearest_way": {
+     "id": 191328622,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lac Frontiere",
+     "type": "hamlet",
+     "dist_m": 16373.2,
+     "lat": 46.695314,
+     "lon": -69.993409
+    },
+    "island_km2": null,
+    "detail": "detail/us-me/A-46.641945_-69.793989",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 43.782306,
-    "lon": -68.855182,
-    "dist_m": 8155.22,
+    "lat": 44.33017,
+    "lon": -68.503845,
+    "dist_m": 4299.51,
+    "nearest_way": {
+     "id": 790743420,
+     "highway": "residential",
+     "name": "Alley Point Way",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Brooklin",
+     "type": "village",
+     "dist_m": 8815.5,
+     "lat": 44.266137,
+     "lon": -68.569062
+    },
+    "island_km2": 18.4,
+    "detail": "detail/us-me/A-44.330170_-68.503845",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 44.611183,
+    "lon": -70.891304,
+    "dist_m": 4288.62,
+    "nearest_way": {
+     "id": 11466708,
+     "highway": "primary",
+     "name": "Bear River Road",
+     "ref": "ME 26",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Andover",
+     "type": "village",
+     "dist_m": 11448.6,
+     "lat": 44.635674,
+     "lon": -70.751181
+    },
+    "island_km2": null,
+    "detail": "detail/us-me/A-44.611183_-70.891304",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 44.482419,
+    "lon": -67.800239,
+    "dist_m": 4223.21,
+    "nearest_way": {
+     "id": 860232544,
+     "highway": "residential",
+     "name": "Hotel Cove Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Milbridge",
+     "type": "town",
+     "dist_m": 8718.8,
+     "lat": 44.535353,
+     "lon": -67.881173
+    },
+    "island_km2": 3.7,
+    "detail": "detail/us-me/A-44.482419_-67.800239",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 45.481459,
+    "lon": -68.248496,
+    "dist_m": 3956.86,
+    "nearest_way": {
+     "id": 284406451,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Kingman",
+     "type": "hamlet",
+     "dist_m": 8477.9,
+     "lat": 45.549506,
+     "lon": -68.199463
+    },
+    "island_km2": null,
+    "detail": "detail/us-me/A-45.481459_-68.248496",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.598265,
+    "lon": -67.315048,
+    "dist_m": 3875.66,
+    "nearest_way": {
+     "id": 866021712,
+     "highway": "service",
+     "name": "Wildlife Drive",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cutler",
+     "type": "village",
+     "dist_m": 11001.1,
+     "lat": 44.657365,
+     "lon": -67.203831
+    },
+    "island_km2": null,
+    "detail": "detail/us-me/A-44.598265_-67.315048",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 44.724199,
+    "lon": -67.830104,
+    "dist_m": 3754.2,
+    "nearest_way": {
+     "id": 860840558,
+     "highway": "residential",
+     "name": "Cotton Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Brewster Corner",
+     "type": "hamlet",
+     "dist_m": 8022.6,
+     "lat": 44.795075,
+     "lon": -67.810834
+    },
+    "island_km2": null,
+    "detail": "detail/us-me/A-44.724199_-67.830104",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.307986,
+    "lon": -69.350865,
+    "dist_m": 3667.54,
+    "nearest_way": {
+     "id": 986513465,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Chesuncook",
+     "type": "hamlet",
+     "dist_m": 27899.2,
+     "lat": 46.060318,
+     "lon": -69.4095
+    },
+    "island_km2": null,
+    "detail": "detail/us-me/A-46.307986_-69.350865",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 44.169728,
+    "lon": -68.347446,
+    "dist_m": 3384.32,
+    "nearest_way": {
+     "id": 11438845,
+     "highway": "residential",
+     "name": "Island Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Frenchboro",
+     "type": "hamlet",
+     "dist_m": 5857.8,
+     "lat": 44.118138,
+     "lon": -68.362517
+    },
+    "island_km2": 1.8,
+    "detail": "detail/us-me/A-44.169728_-68.347446",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 45.130943,
+    "lon": -70.299125,
+    "dist_m": 3272.57,
+    "nearest_way": {
+     "id": 267527040,
+     "highway": "track",
+     "name": "Snowmobile ITS 115 Connector",
+     "ref": "ITS 115",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Redington",
+     "type": "hamlet",
+     "dist_m": 5462.7,
+     "lat": 45.09239,
+     "lon": -70.256062
+    },
+    "island_km2": null,
+    "detail": "detail/us-me/A-45.130943_-70.299125",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 43.820501,
+    "lon": -68.89213,
+    "dist_m": 3195.75,
     "nearest_way": {
      "id": 514978389,
      "highway": "track",
@@ -97,197 +307,52 @@
     "nearest_place": {
      "name": "Criehaven Township",
      "type": "hamlet",
-     "dist_m": 6359.8,
+     "dist_m": 1515.2,
      "lat": 43.833973,
      "lon": -68.889201
     },
-    "detail": "detail/us-me/A-4",
+    "island_km2": 1.4,
+    "detail": "detail/us-me/A-43.820501_-68.892130",
     "warnings": []
    },
    {
-    "rank": 5,
-    "lat": 43.859906,
-    "lon": -69.383163,
-    "dist_m": 7129.61,
+    "rank": 14,
+    "lat": 46.638937,
+    "lon": -69.938477,
+    "dist_m": 3174.94,
     "nearest_way": {
-     "id": 776717680,
+     "id": 171302442,
      "highway": "track",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Chamberlain",
-     "type": "village",
-     "dist_m": 8376.9,
-     "lat": 43.89191,
-     "lon": -69.477531
-    },
-    "detail": "detail/us-me/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 43.655304,
-    "lon": -70.035843,
-    "dist_m": 6702.85,
-    "nearest_way": {
-     "id": 11409327,
-     "highway": "residential",
-     "name": "Beach Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Cliff Island",
+     "name": "Daaquam",
      "type": "hamlet",
-     "dist_m": 7371.3,
-     "lat": 43.696194,
-     "lon": -70.107825
+     "dist_m": 7519.2,
+     "lat": 46.598302,
+     "lon": -70.016956
     },
-    "detail": "detail/us-me/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 44.014743,
-    "lon": -68.727271,
-    "dist_m": 5894.86,
-    "nearest_way": {
-     "id": 692919722,
-     "highway": "track",
-     "name": "Western Head Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Vinalhaven",
-     "type": "village",
-     "dist_m": 9156.8,
-     "lat": 44.048137,
-     "lon": -68.831699
-    },
-    "detail": "detail/us-me/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 44.456768,
-    "lon": -67.668255,
-    "dist_m": 5742.9,
-    "nearest_way": {
-     "id": 848613803,
-     "highway": "residential",
-     "name": "Narrows Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Beals",
-     "type": "village",
-     "dist_m": 8191.1,
-     "lat": 44.52001,
-     "lon": -67.615356
-    },
-    "detail": "detail/us-me/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 44.366043,
-    "lon": -67.86434,
-    "dist_m": 5644.61,
-    "nearest_way": {
-     "id": 794821626,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Gouldsboro",
-     "type": "village",
-     "dist_m": 13742.5,
-     "lat": 44.408618,
-     "lon": -68.026264
-    },
-    "detail": "detail/us-me/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 43.719024,
-    "lon": -69.923849,
-    "dist_m": 5515.8,
-    "nearest_way": {
-     "id": 491013573,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Bailey Island",
-     "type": "village",
-     "dist_m": 6042.2,
-     "lat": 43.735878,
-     "lon": -69.995147
-    },
-    "detail": "detail/us-me/A-10",
+    "island_km2": null,
+    "detail": "detail/us-me/A-46.638937_-69.938477",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
  },
+ "A_mainland": {
+  "dist_m": 10890.73,
+  "lat": 46.008171,
+  "lon": -68.91982,
+  "rank": 33,
+  "withheld": 0
+ },
  "B": {
   "poles": [
    {
     "rank": 1,
-    "lat": 43.893462,
-    "lon": -68.731918,
-    "dist_m": 12511.43,
-    "nearest_way": {
-     "id": 11447737,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Matinicus",
-     "type": "village",
-     "dist_m": 12914.5,
-     "lat": 43.864187,
-     "lon": -68.887428
-    },
-    "detail": "detail/us-me/B-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
-    "lat": 43.912424,
-    "lon": -69.03415,
-    "dist_m": 11079.25,
-    "nearest_way": {
-     "id": 905651560,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Matinicus",
-     "type": "village",
-     "dist_m": 12951.1,
-     "lat": 43.864187,
-     "lon": -68.887428
-    },
-    "detail": "detail/us-me/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
     "lat": 46.00971,
     "lon": -68.918356,
     "dist_m": 10996.87,
@@ -305,55 +370,35 @@
      "lat": 46.065073,
      "lon": -68.533001
     },
-    "detail": "detail/us-me/B-3",
+    "island_km2": null,
+    "detail": "detail/us-me/B-46.009710_-68.918356",
     "warnings": []
    },
    {
-    "rank": 4,
-    "lat": 43.121299,
-    "lon": -70.475364,
-    "dist_m": 10761.23,
+    "rank": 2,
+    "lat": 43.869906,
+    "lon": -69.127987,
+    "dist_m": 10032.61,
     "nearest_way": {
-     "id": 11533971,
-     "highway": "service",
-     "name": "Sohier Park Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Cape Neddick",
-     "type": "village",
-     "dist_m": 12536.4,
-     "lat": 43.175714,
-     "lon": -70.610377
-    },
-    "detail": "detail/us-me/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 43.845639,
-    "lon": -69.358105,
-    "dist_m": 9234.8,
-    "nearest_way": {
-     "id": 1188133372,
+     "id": 965401485,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Monhegan",
+     "name": "Port Clyde",
      "type": "village",
-     "dist_m": 9647.9,
-     "lat": 43.763185,
-     "lon": -69.320508
+     "dist_m": 12225.6,
+     "lat": 43.926351,
+     "lon": -69.258606
     },
-    "detail": "detail/us-me/B-5",
+    "island_km2": 1.3,
+    "detail": "detail/us-me/B-43.869906_-69.127987",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 3,
     "lat": 46.050159,
     "lon": -69.291746,
     "dist_m": 8627.89,
@@ -371,55 +416,35 @@
      "lat": 46.060318,
      "lon": -69.4095
     },
-    "detail": "detail/us-me/B-6",
+    "island_km2": null,
+    "detail": "detail/us-me/B-46.050159_-69.291746",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 43.782306,
-    "lon": -68.855182,
-    "dist_m": 8558.44,
+    "rank": 4,
+    "lat": 43.856909,
+    "lon": -69.32152,
+    "dist_m": 8360.22,
     "nearest_way": {
-     "id": 946103873,
+     "id": 1037842975,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Criehaven Township",
-     "type": "hamlet",
-     "dist_m": 6359.8,
-     "lat": 43.833973,
-     "lon": -68.889201
+     "name": "Port Clyde",
+     "type": "village",
+     "dist_m": 9224.3,
+     "lat": 43.926351,
+     "lon": -69.258606
     },
-    "detail": "detail/us-me/B-7",
+    "island_km2": 3.8,
+    "detail": "detail/us-me/B-43.856909_-69.321520",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 44.141897,
-    "lon": -68.245081,
-    "dist_m": 8389.32,
-    "nearest_way": {
-     "id": 843558361,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Frenchboro",
-     "type": "hamlet",
-     "dist_m": 9762.2,
-     "lat": 44.118138,
-     "lon": -68.362517
-    },
-    "detail": "detail/us-me/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 5,
     "lat": 46.022781,
     "lon": -69.958836,
     "dist_m": 8012.13,
@@ -433,15 +458,16 @@
     "nearest_place": {
      "name": "Seboomook",
      "type": "hamlet",
-     "dist_m": 24047.4,
+     "dist_m": 24047.3,
      "lat": 45.880595,
      "lon": -69.72506
     },
-    "detail": "detail/us-me/B-9",
+    "island_km2": null,
+    "detail": "detail/us-me/B-46.022781_-69.958836",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 6,
     "lat": 45.760808,
     "lon": -70.102941,
     "dist_m": 7629.58,
@@ -455,15 +481,161 @@
     "nearest_place": {
      "name": "Long Pond",
      "type": "hamlet",
-     "dist_m": 15543.8,
+     "dist_m": 15543.9,
      "lat": 45.621434,
      "lon": -70.086454
     },
-    "detail": "detail/us-me/B-10",
+    "island_km2": null,
+    "detail": "detail/us-me/B-45.760808_-70.102941",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 45.503998,
+    "lon": -69.0981,
+    "dist_m": 7390.97,
+    "nearest_way": {
+     "id": 11474192,
+     "highway": "unclassified",
+     "name": "B Pond Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Mooresville",
+     "type": "hamlet",
+     "dist_m": 9979.3,
+     "lat": 45.414216,
+     "lon": -69.099766
+    },
+    "island_km2": null,
+    "detail": "detail/us-me/B-45.503998_-69.098100",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 46.380853,
+    "lon": -69.853888,
+    "dist_m": 7322.72,
+    "nearest_way": {
+     "id": 11481880,
+     "highway": "unclassified",
+     "name": "Carter Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "St. Juste",
+     "type": "hamlet",
+     "dist_m": 22522.7,
+     "lat": 46.545566,
+     "lon": -70.024637
+    },
+    "island_km2": null,
+    "detail": "detail/us-me/B-46.380853_-69.853888",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 46.542338,
+    "lon": -69.200829,
+    "dist_m": 7255.96,
+    "nearest_way": {
+     "id": 1096292960,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Clayton Lake",
+     "type": "village",
+     "dist_m": 25786.1,
+     "lat": 46.610833,
+     "lon": -69.522222
+    },
+    "island_km2": null,
+    "detail": "detail/us-me/B-46.542338_-69.200829",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 46.828552,
+    "lon": -69.254522,
+    "dist_m": 7228.74,
+    "nearest_way": {
+     "id": 11380026,
+     "highway": "unclassified",
+     "name": "Maibec Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Clayton Lake",
+     "type": "village",
+     "dist_m": 31696.2,
+     "lat": 46.610833,
+     "lon": -69.522222
+    },
+    "island_km2": null,
+    "detail": "detail/us-me/B-46.828552_-69.254522",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 47.117504,
+    "lon": -69.553013,
+    "dist_m": 7128.22,
+    "nearest_way": {
+     "id": 482848411,
+     "highway": "unclassified",
+     "name": "Estcourt Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Lac-de-l'Est",
+     "type": "hamlet",
+     "dist_m": 12751.2,
+     "lat": 47.229322,
+     "lon": -69.590453
+    },
+    "island_km2": null,
+    "detail": "detail/us-me/B-47.117504_-69.553013",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 46.727123,
+    "lon": -68.638176,
+    "dist_m": 7124.4,
+    "nearest_way": {
+     "id": 173386356,
+     "highway": "tertiary",
+     "name": "Rocky Brook Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Greenlaw Crossing",
+     "type": "hamlet",
+     "dist_m": 7312.6,
+     "lat": 46.661708,
+     "lon": -68.628101
+    },
+    "island_km2": null,
+    "detail": "detail/us-me/B-46.727123_-68.638176",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 10996.87,
+  "lat": 46.00971,
+  "lon": -68.918356,
+  "rank": 33,
+  "withheld": 0
  }
 }

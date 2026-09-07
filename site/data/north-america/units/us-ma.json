@@ -31,169 +31,39 @@
     "nearest_place": {
      "name": "Quitnesset",
      "type": "hamlet",
-     "dist_m": 13599.7,
+     "dist_m": 13599.6,
      "lat": 41.656501,
      "lon": -69.96196
     },
-    "detail": "detail/us-ma/A-1",
+    "island_km2": null,
+    "detail": "detail/us-ma/A-41.539431_-70.009766",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 42.366923,
-    "lon": -70.86814,
-    "dist_m": 6420.95,
+    "lat": 42.434741,
+    "lon": -72.287513,
+    "dist_m": 2518.49,
     "nearest_way": {
-     "id": 207659294,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Windemere",
-     "type": "hamlet",
-     "dist_m": 6991.0,
-     "lat": 42.305655,
-     "lon": -70.887546
-    },
-    "detail": "detail/us-ma/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 42.502302,
-    "lon": -70.774699,
-    "dist_m": 4719.51,
-    "nearest_way": {
-     "id": 8952577,
-     "highway": "tertiary",
-     "name": "Ocean Avenue",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Marblehead",
-     "type": "town",
-     "dist_m": 6251.2,
-     "lat": 42.50359,
-     "lon": -70.850732
-    },
-    "detail": "detail/us-ma/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 41.34697,
-    "lon": -70.281957,
-    "dist_m": 4250.2,
-    "nearest_way": {
-     "id": 9169969,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Warren Landing",
-     "type": "hamlet",
-     "dist_m": 10113.4,
-     "lat": 41.286235,
-     "lon": -70.191962
-    },
-    "detail": "detail/us-ma/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 41.624839,
-    "lon": -69.969441,
-    "dist_m": 3435.15,
-    "nearest_way": {
-     "id": 353929751,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Quitnesset",
-     "type": "hamlet",
-     "dist_m": 3571.4,
-     "lat": 41.656501,
-     "lon": -69.96196
-    },
-    "detail": "detail/us-ma/A-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
-    "lat": 41.324448,
-    "lon": -70.436062,
-    "dist_m": 3394.22,
-    "nearest_way": {
-     "id": 1253452801,
-     "highway": "residential",
-     "name": "Pocha Road Extension",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Wepua Point",
-     "type": "hamlet",
-     "dist_m": 4056.5,
-     "lat": 41.352911,
-     "lon": -70.466433
-    },
-    "detail": "detail/us-ma/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 42.672597,
-    "lon": -70.567599,
-    "dist_m": 2689.28,
-    "nearest_way": {
-     "id": 1208133177,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Eden Square",
-     "type": "hamlet",
-     "dist_m": 3812.4,
-     "lat": 42.644952,
-     "lon": -70.59515
-    },
-    "detail": "detail/us-ma/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 42.417171,
-    "lon": -72.288484,
-    "dist_m": 2647.2,
-    "nearest_way": {
-     "id": 9104119,
+     "id": 9388331,
      "highway": "track",
-     "name": "Clifford Road",
+     "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
      "name": "Dana Commons",
      "type": "hamlet",
-     "dist_m": 5040.4,
+     "dist_m": 5124.1,
      "lat": 42.422146,
      "lon": -72.227613
     },
-    "detail": "detail/us-ma/A-8",
+    "island_km2": null,
+    "detail": "detail/us-ma/A-42.434741_-72.287513",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 3,
     "lat": 42.725661,
     "lon": -73.148107,
     "dist_m": 2421.1,
@@ -211,11 +81,12 @@
      "lat": 42.704248,
      "lon": -73.166217
     },
-    "detail": "detail/us-ma/A-9",
+    "island_km2": null,
+    "detail": "detail/us-ma/A-42.725661_-73.148107",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 4,
     "lat": 42.51813,
     "lon": -73.151176,
     "dist_m": 2416.63,
@@ -233,12 +104,158 @@
      "lat": 42.512584,
      "lon": -73.192881
     },
-    "detail": "detail/us-ma/A-10",
+    "island_km2": null,
+    "detail": "detail/us-ma/A-42.518130_-73.151176",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 42.081474,
+    "lon": -73.49811,
+    "dist_m": 2268.62,
+    "nearest_way": {
+     "id": 762552323,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Boston Corner",
+     "type": "hamlet",
+     "dist_m": 3709.1,
+     "lat": 42.052869,
+     "lon": -73.521233
+    },
+    "island_km2": null,
+    "detail": "detail/us-ma/A-42.081474_-73.498110",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 42.029719,
+    "lon": -70.169219,
+    "dist_m": 2260.85,
+    "nearest_way": {
+     "id": 170631435,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Provincetown",
+     "type": "town",
+     "dist_m": 2887.3,
+     "lat": 42.052561,
+     "lon": -70.185864
+    },
+    "island_km2": null,
+    "detail": "detail/us-ma/A-42.029719_-70.169219",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 42.636434,
+    "lon": -73.30554,
+    "dist_m": 2046.92,
+    "nearest_way": {
+     "id": 928178291,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Hancock",
+     "type": "hamlet",
+     "dist_m": 3166.5,
+     "lat": 42.611193,
+     "lon": -73.287607
+    },
+    "island_km2": null,
+    "detail": "detail/us-ma/A-42.636434_-73.305540",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 42.730771,
+    "lon": -70.819102,
+    "dist_m": 2022.9,
+    "nearest_way": {
+     "id": 544534568,
+     "highway": "service",
+     "name": "South Pool Dike",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hog Islands",
+     "type": "hamlet",
+     "dist_m": 390.5,
+     "lat": 42.73414,
+     "lon": -70.817743
+    },
+    "island_km2": null,
+    "detail": "detail/us-ma/A-42.730771_-70.819102",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.825375,
+    "lon": -69.940252,
+    "dist_m": 1948.28,
+    "nearest_way": {
+     "id": 9016749,
+     "highway": "residential",
+     "name": "Tomahawk Trail",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Weeset",
+     "type": "hamlet",
+     "dist_m": 2568.0,
+     "lat": 41.805664,
+     "lon": -69.956406
+    },
+    "island_km2": null,
+    "detail": "detail/us-ma/A-41.825375_-69.940252",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 42.317128,
+    "lon": -73.172448,
+    "dist_m": 1904.48,
+    "nearest_way": {
+     "id": 251871543,
+     "highway": "unclassified",
+     "name": "County Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Leisure Lee",
+     "type": "hamlet",
+     "dist_m": 3437.1,
+     "lat": 42.293976,
+     "lon": -73.200105
+    },
+    "island_km2": null,
+    "detail": "detail/us-ma/A-42.317128_-73.172448",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 13378.06,
+  "lat": 41.539431,
+  "lon": -70.009766,
+  "rank": 26,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,11 +274,12 @@
     "nearest_place": {
      "name": "Quitnesset",
      "type": "hamlet",
-     "dist_m": 13599.7,
+     "dist_m": 13599.6,
      "lat": 41.656501,
      "lon": -69.96196
     },
-    "detail": "detail/us-ma/B-1",
+    "island_km2": null,
+    "detail": "detail/us-ma/B-41.539431_-70.009766",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 41.49178,
      "lon": -70.743888
     },
-    "detail": "detail/us-ma/B-2",
+    "island_km2": 24.9,
+    "detail": "detail/us-ma/B-41.458722_-70.807417",
     "warnings": []
    },
    {
@@ -301,11 +320,12 @@
     "nearest_place": {
      "name": "Coskata",
      "type": "hamlet",
-     "dist_m": 4947.6,
+     "dist_m": 4947.5,
      "lat": 41.354287,
      "lon": -70.020292
     },
-    "detail": "detail/us-ma/B-3",
+    "island_km2": 120.1,
+    "detail": "detail/us-ma/B-41.392474_-70.050747",
     "warnings": []
    },
    {
@@ -327,33 +347,12 @@
      "lat": 41.307058,
      "lon": -70.774473
     },
-    "detail": "detail/us-ma/B-4",
+    "island_km2": 2.4,
+    "detail": "detail/us-ma/B-41.252122_-70.824519",
     "warnings": []
    },
    {
     "rank": 5,
-    "lat": 42.366626,
-    "lon": -70.868348,
-    "dist_m": 6441.81,
-    "nearest_way": {
-     "id": 207659294,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Windemere",
-     "type": "hamlet",
-     "dist_m": 6955.0,
-     "lat": 42.305655,
-     "lon": -70.887546
-    },
-    "detail": "detail/us-ma/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
     "lat": 42.433127,
     "lon": -72.27819,
     "dist_m": 5363.53,
@@ -371,55 +370,12 @@
      "lat": 42.422146,
      "lon": -72.227613
     },
-    "detail": "detail/us-ma/B-6",
+    "island_km2": null,
+    "detail": "detail/us-ma/B-42.433127_-72.278190",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 42.502302,
-    "lon": -70.774699,
-    "dist_m": 4719.51,
-    "nearest_way": {
-     "id": 8952577,
-     "highway": "tertiary",
-     "name": "Ocean Avenue",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Marblehead",
-     "type": "town",
-     "dist_m": 6251.2,
-     "lat": 42.50359,
-     "lon": -70.850732
-    },
-    "detail": "detail/us-ma/B-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 41.34697,
-    "lon": -70.281957,
-    "dist_m": 4250.2,
-    "nearest_way": {
-     "id": 9169969,
-     "highway": "residential",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Warren Landing",
-     "type": "hamlet",
-     "dist_m": 10113.4,
-     "lat": 41.286235,
-     "lon": -70.191962
-    },
-    "detail": "detail/us-ma/B-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
+    "rank": 6,
     "lat": 42.346574,
     "lon": -72.320875,
     "dist_m": 4078.42,
@@ -437,33 +393,180 @@
      "lat": 42.345924,
      "lon": -72.384251
     },
-    "detail": "detail/us-ma/B-9",
+    "island_km2": null,
+    "detail": "detail/us-ma/B-42.346574_-72.320875",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 41.884366,
-    "lon": -70.067772,
-    "dist_m": 3935.62,
+    "rank": 7,
+    "lat": 41.896209,
+    "lon": -70.070938,
+    "dist_m": 3506.13,
     "nearest_way": {
-     "id": 421301121,
+     "id": 9342247,
      "highway": "residential",
-     "name": "4th Street",
+     "name": "Chequessett Neck Road",
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Cooks Brook Beach",
+     "name": "Mayo Beach",
      "type": "hamlet",
-     "dist_m": 5443.4,
-     "lat": 41.864551,
-     "lon": -70.007797
+     "dist_m": 4556.0,
+     "lat": 41.930661,
+     "lon": -70.041133
     },
-    "detail": "detail/us-ma/B-10",
+    "island_km2": null,
+    "detail": "detail/us-ma/B-41.896209_-70.070938",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 41.739884,
+    "lon": -69.929025,
+    "dist_m": 3233.35,
+    "nearest_way": {
+     "id": 334573395,
+     "highway": "service",
+     "name": "Horseshoe Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "North Chatham",
+     "type": "hamlet",
+     "dist_m": 4729.2,
+     "lat": 41.7015,
+     "lon": -69.953626
+    },
+    "island_km2": null,
+    "detail": "detail/us-ma/B-41.739884_-69.929025",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 41.735185,
+    "lon": -70.299753,
+    "dist_m": 2848.24,
+    "nearest_way": {
+     "id": 9177935,
+     "highway": "residential",
+     "name": "Sunset Lane",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Cobbs Village",
+     "type": "hamlet",
+     "dist_m": 3055.6,
+     "lat": 41.708443,
+     "lon": -70.291133
+    },
+    "island_km2": null,
+    "detail": "detail/us-ma/B-41.735185_-70.299753",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 42.521453,
+    "lon": -73.148372,
+    "dist_m": 2675.39,
+    "nearest_way": {
+     "id": 8941075,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Berkshire Village",
+     "type": "hamlet",
+     "dist_m": 3788.0,
+     "lat": 42.512584,
+     "lon": -73.192881
+    },
+    "island_km2": null,
+    "detail": "detail/us-ma/B-42.521453_-73.148372",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 42.726554,
+    "lon": -73.145452,
+    "dist_m": 2633.19,
+    "nearest_way": {
+     "id": 1114773499,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Blackinton",
+     "type": "hamlet",
+     "dist_m": 3005.6,
+     "lat": 42.704248,
+     "lon": -73.166217
+    },
+    "island_km2": null,
+    "detail": "detail/us-ma/B-42.726554_-73.145452",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 41.746329,
+    "lon": -71.043548,
+    "dist_m": 2555.86,
+    "nearest_way": {
+     "id": 1348136083,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Fighting Rock Corner",
+     "type": "hamlet",
+     "dist_m": 4051.5,
+     "lat": 41.734825,
+     "lon": -71.089766
+    },
+    "island_km2": null,
+    "detail": "detail/us-ma/B-41.746329_-71.043548",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 42.676609,
+    "lon": -70.739536,
+    "dist_m": 2269.27,
+    "nearest_way": {
+     "id": 713679816,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Annisquam",
+     "type": "hamlet",
+     "dist_m": 5489.7,
+     "lat": 42.658428,
+     "lon": -70.677268
+    },
+    "island_km2": null,
+    "detail": "detail/us-ma/B-42.676609_-70.739536",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 13378.06,
+  "lat": 41.539431,
+  "lon": -70.009766,
+  "rank": 30,
+  "withheld": 0
  }
 }

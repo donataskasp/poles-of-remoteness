@@ -31,11 +31,12 @@
     "nearest_place": {
      "name": "Vining",
      "type": "hamlet",
-     "dist_m": 6011.9,
+     "dist_m": 6012.0,
      "lat": 36.767529,
      "lon": -98.164234
     },
-    "detail": "detail/us-ok/A-1",
+    "island_km2": null,
+    "detail": "detail/us-ok/A-36.757676_-98.230443",
     "warnings": []
    },
    {
@@ -53,11 +54,12 @@
     "nearest_place": {
      "name": "Regnier",
      "type": "hamlet",
-     "dist_m": 12644.6,
+     "dist_m": 12644.7,
      "lat": 36.993908,
      "lon": -102.857148
     },
-    "detail": "detail/us-ok/A-2",
+    "island_km2": null,
+    "detail": "detail/us-ok/A-36.914696_-102.755098",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 34.866816,
      "lon": -98.867908
     },
-    "detail": "detail/us-ok/A-3",
+    "island_km2": null,
+    "detail": "detail/us-ok/A-34.809015_-98.769649",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 36.840313,
      "lon": -96.743364
     },
-    "detail": "detail/us-ok/A-4",
+    "island_km2": null,
+    "detail": "detail/us-ok/A-36.890342_-96.782958",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 34.361481,
      "lon": -96.952791
     },
-    "detail": "detail/us-ok/A-5",
+    "island_km2": null,
+    "detail": "detail/us-ok/A-34.365023_-96.902496",
     "warnings": []
    },
    {
@@ -141,11 +146,12 @@
     "nearest_place": {
      "name": "Regnier",
      "type": "hamlet",
-     "dist_m": 6292.2,
+     "dist_m": 6292.1,
      "lat": 36.993908,
      "lon": -102.857148
     },
-    "detail": "detail/us-ok/A-6",
+    "island_km2": null,
+    "detail": "detail/us-ok/A-36.939063_-102.875060",
     "warnings": []
    },
    {
@@ -163,11 +169,12 @@
     "nearest_place": {
      "name": "Star",
      "type": "hamlet",
-     "dist_m": 4643.8,
+     "dist_m": 4643.9,
      "lat": 34.671211,
      "lon": -95.538866
     },
-    "detail": "detail/us-ok/A-7",
+    "island_km2": null,
+    "detail": "detail/us-ok/A-34.709994_-95.519793",
     "warnings": []
    },
    {
@@ -185,11 +192,12 @@
     "nearest_place": {
      "name": "Fairvalley",
      "type": "hamlet",
-     "dist_m": 9207.9,
+     "dist_m": 9207.8,
      "lat": 36.735587,
      "lon": -99.024542
     },
-    "detail": "detail/us-ok/A-8",
+    "island_km2": null,
+    "detail": "detail/us-ok/A-36.652793_-99.017756",
     "warnings": []
    },
    {
@@ -211,7 +219,8 @@
      "lat": 34.327315,
      "lon": -96.781673
     },
-    "detail": "detail/us-ok/A-9",
+    "island_km2": null,
+    "detail": "detail/us-ok/A-34.289350_-96.829785",
     "warnings": []
    },
    {
@@ -229,16 +238,24 @@
     "nearest_place": {
      "name": "Plainview",
      "type": "hamlet",
-     "dist_m": 9215.8,
+     "dist_m": 9215.7,
      "lat": 36.841142,
      "lon": -99.241218
     },
-    "detail": "detail/us-ok/A-10",
+    "island_km2": null,
+    "detail": "detail/us-ok/A-36.912642_-99.188646",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 4928.52,
+  "lat": 36.757676,
+  "lon": -98.230443,
+  "rank": 48,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 34.458711,
      "lon": -95.560529
     },
-    "detail": "detail/us-ok/B-1",
+    "island_km2": null,
+    "detail": "detail/us-ok/B-34.513707_-95.602718",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 36.796453,
      "lon": -96.269444
     },
-    "detail": "detail/us-ok/B-2",
+    "island_km2": null,
+    "detail": "detail/us-ok/B-36.854068_-96.351863",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 36.993908,
      "lon": -102.857148
     },
-    "detail": "detail/us-ok/B-3",
+    "island_km2": null,
+    "detail": "detail/us-ok/B-36.960150_-102.748736",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 34.53899,
      "lon": -94.937453
     },
-    "detail": "detail/us-ok/B-4",
+    "island_km2": null,
+    "detail": "detail/us-ok/B-34.595123_-94.931895",
     "warnings": []
    },
    {
@@ -345,37 +366,16 @@
     "nearest_place": {
      "name": "Vining",
      "type": "hamlet",
-     "dist_m": 6011.9,
+     "dist_m": 6012.0,
      "lat": 36.767529,
      "lon": -98.164234
     },
-    "detail": "detail/us-ok/B-5",
+    "island_km2": null,
+    "detail": "detail/us-ok/B-36.757676_-98.230443",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 36.868109,
-    "lon": -102.737432,
-    "dist_m": 4841.33,
-    "nearest_way": {
-     "id": 14719526,
-     "highway": "unclassified",
-     "name": null,
-     "ref": "CR E0094",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Regnier",
-     "type": "hamlet",
-     "dist_m": 17568.7,
-     "lat": 36.993908,
-     "lon": -102.857148
-    },
-    "detail": "detail/us-ok/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 36.996121,
     "lon": -100.396251,
     "dist_m": 4804.24,
@@ -393,11 +393,12 @@
      "lat": 36.893639,
      "lon": -100.372646
     },
-    "detail": "detail/us-ok/B-7",
+    "island_km2": null,
+    "detail": "detail/us-ok/B-36.996121_-100.396251",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 34.352963,
     "lon": -95.304509,
     "dist_m": 4605.83,
@@ -415,55 +416,88 @@
      "lat": 34.302046,
      "lon": -95.281072
     },
-    "detail": "detail/us-ok/B-8",
+    "island_km2": null,
+    "detail": "detail/us-ok/B-34.352963_-95.304509",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 34.427655,
-    "lon": -95.160282,
-    "dist_m": 4443.32,
+    "rank": 8,
+    "lat": 34.808305,
+    "lon": -98.775864,
+    "dist_m": 4075.61,
     "nearest_way": {
-     "id": 14939545,
-     "highway": "residential",
-     "name": "Nolia Loop",
+     "id": 223569855,
+     "highway": "service",
+     "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Nolia",
+     "name": "Cooperton",
      "type": "hamlet",
-     "dist_m": 5475.4,
-     "lat": 34.47649,
-     "lon": -95.151627
+     "dist_m": 10630.9,
+     "lat": 34.866816,
+     "lon": -98.867908
     },
-    "detail": "detail/us-ok/B-9",
+    "island_km2": null,
+    "detail": "detail/us-ok/B-34.808305_-98.775864",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 36.99865,
+    "lon": -96.493677,
+    "dist_m": 4029.17,
+    "nearest_way": {
+     "id": 12999130,
+     "highway": "residential",
+     "name": "Road 6",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Hewins",
+     "type": "hamlet",
+     "dist_m": 8923.8,
+     "lat": 37.040877,
+     "lon": -96.408338
+    },
+    "island_km2": null,
+    "detail": "detail/us-ok/B-36.998650_-96.493677",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 34.562147,
-    "lon": -95.509916,
-    "dist_m": 4131.67,
+    "lat": 34.805308,
+    "lon": -94.76123,
+    "dist_m": 4008.63,
     "nearest_way": {
-     "id": 1075931222,
-     "highway": "secondary",
-     "name": null,
-     "ref": "OK 2",
+     "id": 954039629,
+     "highway": "residential",
+     "name": "pst road",
+     "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Stanley",
+     "name": "Reichert",
      "type": "hamlet",
-     "dist_m": 4428.3,
-     "lat": 34.5401,
-     "lon": -95.469695
+     "dist_m": 6530.5,
+     "lat": 34.863156,
+     "lon": -94.748007
     },
-    "detail": "detail/us-ok/B-10",
+    "island_km2": null,
+    "detail": "detail/us-ok/B-34.805308_-94.761230",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 6281.83,
+  "lat": 34.513707,
+  "lon": -95.602718,
+  "rank": 48,
+  "withheld": 0
  }
 }

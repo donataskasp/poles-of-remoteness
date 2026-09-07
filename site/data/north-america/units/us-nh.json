@@ -31,11 +31,12 @@
     "nearest_place": {
      "name": "Hart's Location",
      "type": "hamlet",
-     "dist_m": 10677.5,
+     "dist_m": 10677.6,
      "lat": 44.123995,
      "lon": -71.357297
     },
-    "detail": "detail/us-nh/A-1",
+    "island_km2": null,
+    "detail": "detail/us-nh/A-44.133333_-71.490081",
     "warnings": []
    },
    {
@@ -57,7 +58,8 @@
      "lat": 44.289308,
      "lon": -71.224776
     },
-    "detail": "detail/us-nh/A-2",
+    "island_km2": null,
+    "detail": "detail/us-nh/A-44.290476_-71.140471",
     "warnings": []
    },
    {
@@ -79,33 +81,12 @@
      "lat": 44.268613,
      "lon": -71.35591
     },
-    "detail": "detail/us-nh/A-3",
+    "island_km2": null,
+    "detail": "detail/us-nh/A-44.216563_-71.329145",
     "warnings": []
    },
    {
     "rank": 4,
-    "lat": 44.168994,
-    "lon": -71.609957,
-    "dist_m": 5326.19,
-    "nearest_way": {
-     "id": 1288461728,
-     "highway": "motorway",
-     "name": "Franconia Notch Parkway",
-     "ref": "I 93;US 3",
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Deerfield",
-     "type": "hamlet",
-     "dist_m": 6870.9,
-     "lat": 44.23062,
-     "lon": -71.617027
-    },
-    "detail": "detail/us-nh/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 43.935442,
     "lon": -71.42874,
     "dist_m": 5136.04,
@@ -123,11 +104,12 @@
      "lat": 43.912294,
      "lon": -71.359795
     },
-    "detail": "detail/us-nh/A-5",
+    "island_km2": null,
+    "detail": "detail/us-nh/A-43.935442_-71.428740",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 44.081781,
     "lon": -71.740882,
     "dist_m": 4192.51,
@@ -145,11 +127,12 @@
      "lat": 44.078399,
      "lon": -71.800362
     },
-    "detail": "detail/us-nh/A-6",
+    "island_km2": null,
+    "detail": "detail/us-nh/A-44.081781_-71.740882",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 44.542554,
     "lon": -71.353409,
     "dist_m": 4188.59,
@@ -167,11 +150,12 @@
      "lat": 44.599078,
      "lon": -71.303844
     },
-    "detail": "detail/us-nh/A-7",
+    "island_km2": null,
+    "detail": "detail/us-nh/A-44.542554_-71.353409",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 44.326083,
     "lon": -71.310929,
     "dist_m": 4170.09,
@@ -189,33 +173,12 @@
      "lat": 44.35828,
      "lon": -71.352039
     },
-    "detail": "detail/us-nh/A-8",
+    "island_km2": null,
+    "detail": "detail/us-nh/A-44.326083_-71.310929",
     "warnings": []
    },
    {
-    "rank": 9,
-    "lat": 43.96065,
-    "lon": -71.272949,
-    "dist_m": 3749.19,
-    "nearest_way": {
-     "id": 697311274,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Paugus Mill",
-     "type": "hamlet",
-     "dist_m": 4788.4,
-     "lat": 43.923961,
-     "lon": -71.304239
-    },
-    "detail": "detail/us-nh/A-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
+    "rank": 8,
     "lat": 44.020521,
     "lon": -71.834957,
     "dist_m": 3291.43,
@@ -233,12 +196,66 @@
      "lat": 43.983463,
      "lon": -71.893627
     },
-    "detail": "detail/us-nh/A-10",
+    "island_km2": null,
+    "detail": "detail/us-nh/A-44.020521_-71.834957",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 43.8973,
+    "lon": -71.835041,
+    "dist_m": 3234.98,
+    "nearest_way": {
+     "id": 758841621,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stinson Lake",
+     "type": "hamlet",
+     "dist_m": 4548.1,
+     "lat": 43.861181,
+     "lon": -71.808415
+    },
+    "island_km2": null,
+    "detail": "detail/us-nh/A-43.897300_-71.835041",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 44.012796,
+    "lon": -71.552719,
+    "dist_m": 3047.22,
+    "nearest_way": {
+     "id": 619005124,
+     "highway": "service",
+     "name": "Beaver Point Road  - 614",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Tripoli Mill",
+     "type": "hamlet",
+     "dist_m": 2558.1,
+     "lat": 43.998124,
+     "lon": -71.5773
+    },
+    "island_km2": null,
+    "detail": "detail/us-nh/A-44.012796_-71.552719",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 7007.36,
+  "lat": 44.133333,
+  "lon": -71.490081,
+  "rank": 40,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 44.123995,
      "lon": -71.357297
     },
-    "detail": "detail/us-nh/B-1",
+    "island_km2": null,
+    "detail": "detail/us-nh/B-44.135882_-71.509481",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 44.289308,
      "lon": -71.224776
     },
-    "detail": "detail/us-nh/B-2",
+    "island_km2": null,
+    "detail": "detail/us-nh/B-44.265338_-71.138050",
     "warnings": []
    },
    {
@@ -301,11 +320,12 @@
     "nearest_place": {
      "name": "Marshfield Station",
      "type": "hamlet",
-     "dist_m": 6821.1,
+     "dist_m": 6821.2,
      "lat": 44.268613,
      "lon": -71.35591
     },
-    "detail": "detail/us-nh/B-3",
+    "island_km2": null,
+    "detail": "detail/us-nh/B-44.210664_-71.327735",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 43.949631,
      "lon": -71.505697
     },
-    "detail": "detail/us-nh/B-4",
+    "island_km2": null,
+    "detail": "detail/us-nh/B-43.948409_-71.424947",
     "warnings": []
    },
    {
@@ -349,33 +370,12 @@
      "lat": 44.871316,
      "lon": -71.308402
     },
-    "detail": "detail/us-nh/B-5",
+    "island_km2": null,
+    "detail": "detail/us-nh/B-44.950482_-71.209481",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 44.182943,
-    "lon": -71.622191,
-    "dist_m": 4785.66,
-    "nearest_way": {
-     "id": 175345399,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Deerfield",
-     "type": "hamlet",
-     "dist_m": 5313.7,
-     "lat": 44.23062,
-     "lon": -71.617027
-    },
-    "detail": "detail/us-nh/B-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
     "lat": 44.092752,
     "lon": -71.742375,
     "dist_m": 4421.68,
@@ -389,15 +389,16 @@
     "nearest_place": {
      "name": "Wildwood",
      "type": "hamlet",
-     "dist_m": 4910.5,
+     "dist_m": 4910.4,
      "lat": 44.078399,
      "lon": -71.800362
     },
-    "detail": "detail/us-nh/B-7",
+    "island_km2": null,
+    "detail": "detail/us-nh/B-44.092752_-71.742375",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 44.513897,
     "lon": -71.410986,
     "dist_m": 4409.34,
@@ -415,55 +416,88 @@
      "lat": 44.50989,
      "lon": -71.491271
     },
-    "detail": "detail/us-nh/B-8",
+    "island_km2": null,
+    "detail": "detail/us-nh/B-44.513897_-71.410986",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 44.32912,
+    "lon": -71.305938,
+    "dist_m": 4236.53,
+    "nearest_way": {
+     "id": 615039129,
+     "highway": "trunk",
+     "name": "Gorham Hill Road",
+     "ref": "US 2",
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Bowman",
+     "type": "hamlet",
+     "dist_m": 4900.4,
+     "lat": 44.35828,
+     "lon": -71.352039
+    },
+    "island_km2": null,
+    "detail": "detail/us-nh/B-44.329120_-71.305938",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 44.35068,
-    "lon": -71.095887,
-    "dist_m": 4299.89,
+    "lat": 43.82982,
+    "lon": -72.014052,
+    "dist_m": 4206.26,
     "nearest_way": {
-     "id": 18846306,
-     "highway": "residential",
-     "name": "Grumpy Old Men Road",
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Shelburne",
-     "type": "village",
-     "dist_m": 5876.9,
-     "lat": 44.401445,
-     "lon": -71.075209
-    },
-    "detail": "detail/us-nh/B-9",
-    "warnings": []
-   },
-   {
-    "rank": 10,
-    "lat": 43.954345,
-    "lon": -71.278598,
-    "dist_m": 4271.62,
-    "nearest_way": {
-     "id": 18809397,
-     "highway": "service",
+     "id": 1107367706,
+     "highway": "unclassified",
      "name": null,
      "ref": null,
      "country": "us"
     },
     "nearest_place": {
-     "name": "Paugus Mill",
+     "name": "North Dorchester",
      "type": "hamlet",
-     "dist_m": 3954.2,
-     "lat": 43.923961,
-     "lon": -71.304239
+     "dist_m": 4602.7,
+     "lat": 43.802572,
+     "lon": -71.97096
     },
-    "detail": "detail/us-nh/B-10",
+    "island_km2": null,
+    "detail": "detail/us-nh/B-43.829820_-72.014052",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 43.925723,
+    "lon": -71.79402,
+    "dist_m": 4037.21,
+    "nearest_way": {
+     "id": 759085768,
+     "highway": "service",
+     "name": "Hubbard Brook Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Stinson Lake",
+     "type": "hamlet",
+     "dist_m": 7264.0,
+     "lat": 43.861181,
+     "lon": -71.808415
+    },
+    "island_km2": null,
+    "detail": "detail/us-nh/B-43.925723_-71.794020",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 10164.92,
+  "lat": 44.135882,
+  "lon": -71.509481,
+  "rank": 36,
+  "withheld": 0
  }
 }

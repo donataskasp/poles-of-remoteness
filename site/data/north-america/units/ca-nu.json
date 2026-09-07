@@ -35,77 +35,12 @@
      "lat": 71.619553,
      "lon": -117.878052
     },
-    "detail": "detail/ca-nu/A-1",
+    "island_km2": 216456.1,
+    "detail": "detail/ca-nu/A-72.945831_-107.704992",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 73.022749,
-    "lon": -107.905151,
-    "dist_m": 423935.73,
-    "nearest_way": {
-     "id": 509320681,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Fort Collinson",
-     "type": "hamlet",
-     "dist_m": 372076.0,
-     "lat": 71.619553,
-     "lon": -117.878052
-    },
-    "detail": "detail/ca-nu/A-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 73.101506,
-    "lon": -108.099347,
-    "dist_m": 422867.71,
-    "nearest_way": {
-     "id": 509320681,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Fort Collinson",
-     "type": "hamlet",
-     "dist_m": 369316.4,
-     "lat": 71.619553,
-     "lon": -117.878052
-    },
-    "detail": "detail/ca-nu/A-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 72.919752,
-    "lon": -107.397015,
-    "dist_m": 420168.61,
-    "nearest_way": {
-     "id": 511502468,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Fort Collinson",
-     "type": "hamlet",
-     "dist_m": 384169.5,
-     "lat": 71.619553,
-     "lon": -117.878052
-    },
-    "detail": "detail/ca-nu/A-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
     "lat": 73.215066,
     "lon": -108.211739,
     "dist_m": 417194.34,
@@ -123,80 +58,84 @@
      "lat": 71.619553,
      "lon": -117.878052
     },
-    "detail": "detail/ca-nu/A-5",
+    "island_km2": 2.2,
+    "detail": "detail/ca-nu/A-73.215066_-108.211739",
+    "warnings": []
+   },
+   {
+    "rank": 3,
+    "lat": 73.34412,
+    "lon": -107.512888,
+    "dist_m": 390514.75,
+    "nearest_way": {
+     "id": 509320681,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Fort Collinson",
+     "type": "hamlet",
+     "dist_m": 397263.5,
+     "lat": 71.619553,
+     "lon": -117.878052
+    },
+    "island_km2": 4.6,
+    "detail": "detail/ca-nu/A-73.344120_-107.512888",
+    "warnings": []
+   },
+   {
+    "rank": 4,
+    "lat": 72.701657,
+    "lon": -105.269929,
+    "dist_m": 387976.38,
+    "nearest_way": {
+     "id": 530226579,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Fort Ross",
+     "type": "hamlet",
+     "dist_m": 380766.0,
+     "lat": 72.00971,
+     "lon": -94.235774
+    },
+    "island_km2": 1.4,
+    "detail": "detail/ca-nu/A-72.701657_-105.269929",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 73.549546,
+    "lon": -107.975331,
+    "dist_m": 387618.7,
+    "nearest_way": {
+     "id": 509320681,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Fort Collinson",
+     "type": "hamlet",
+     "dist_m": 394128.5,
+     "lat": 71.619553,
+     "lon": -117.878052
+    },
+    "island_km2": 97.6,
+    "detail": "detail/ca-nu/A-73.549546_-107.975331",
     "warnings": []
    },
    {
     "rank": 6,
-    "lat": 72.858597,
-    "lon": -107.833253,
-    "dist_m": 416781.34,
-    "nearest_way": {
-     "id": 511502468,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Fort Collinson",
-     "type": "hamlet",
-     "dist_m": 368463.2,
-     "lat": 71.619553,
-     "lon": -117.878052
-    },
-    "detail": "detail/ca-nu/A-6",
-    "warnings": []
-   },
-   {
-    "rank": 7,
-    "lat": 73.034305,
-    "lon": -107.588292,
-    "dist_m": 415587.01,
-    "nearest_way": {
-     "id": 509320681,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Fort Collinson",
-     "type": "hamlet",
-     "dist_m": 382233.3,
-     "lat": 71.619553,
-     "lon": -117.878052
-    },
-    "detail": "detail/ca-nu/A-7",
-    "warnings": []
-   },
-   {
-    "rank": 8,
-    "lat": 72.893555,
-    "lon": -107.093303,
-    "dist_m": 415380.85,
-    "nearest_way": {
-     "id": 509320681,
-     "highway": "track",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Fort Collinson",
-     "type": "hamlet",
-     "dist_m": 392892.9,
-     "lat": 71.619553,
-     "lon": -117.878052
-    },
-    "detail": "detail/ca-nu/A-8",
-    "warnings": []
-   },
-   {
-    "rank": 9,
-    "lat": 72.934174,
-    "lon": -108.031335,
-    "dist_m": 414935.19,
+    "lat": 72.643342,
+    "lon": -108.454365,
+    "dist_m": 386898.58,
     "nearest_way": {
      "id": 396139269,
      "highway": "track",
@@ -207,20 +146,21 @@
     "nearest_place": {
      "name": "Fort Collinson",
      "type": "hamlet",
-     "dist_m": 364890.7,
+     "dist_m": 342046.2,
      "lat": 71.619553,
      "lon": -117.878052
     },
-    "detail": "detail/ca-nu/A-9",
+    "island_km2": 24.8,
+    "detail": "detail/ca-nu/A-72.643342_-108.454365",
     "warnings": []
    },
    {
-    "rank": 10,
-    "lat": 73.112956,
-    "lon": -107.781411,
-    "dist_m": 414120.7,
+    "rank": 7,
+    "lat": 72.547327,
+    "lon": -108.406751,
+    "dist_m": 383421.41,
     "nearest_way": {
-     "id": 509320681,
+     "id": 513335873,
      "highway": "track",
      "name": null,
      "ref": null,
@@ -229,16 +169,323 @@
     "nearest_place": {
      "name": "Fort Collinson",
      "type": "hamlet",
-     "dist_m": 379383.5,
+     "dist_m": 340990.8,
      "lat": 71.619553,
      "lon": -117.878052
     },
-    "detail": "detail/ca-nu/A-10",
+    "island_km2": 4.9,
+    "detail": "detail/ca-nu/A-72.547327_-108.406751",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 72.814952,
+    "lon": -109.166059,
+    "dist_m": 376207.77,
+    "nearest_way": {
+     "id": 396139269,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Fort Collinson",
+     "type": "hamlet",
+     "dist_m": 325280.2,
+     "lat": 71.619553,
+     "lon": -117.878052
+    },
+    "island_km2": 13.7,
+    "detail": "detail/ca-nu/A-72.814952_-109.166059",
+    "warnings": []
+   },
+   {
+    "rank": 9,
+    "lat": 73.186673,
+    "lon": -106.376745,
+    "dist_m": 375662.2,
+    "nearest_way": {
+     "id": 509320681,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Resolute",
+     "type": "village",
+     "dist_m": 393333.0,
+     "lat": 74.697029,
+     "lon": -94.840851
+    },
+    "island_km2": 1.9,
+    "detail": "detail/ca-nu/A-73.186673_-106.376745",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 71.895831,
+    "lon": -99.980848,
+    "dist_m": 348903.99,
+    "nearest_way": {
+     "id": 530226579,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Fort Ross",
+     "type": "hamlet",
+     "dist_m": 199061.7,
+     "lat": 72.00971,
+     "lon": -94.235774
+    },
+    "island_km2": 33463.2,
+    "detail": "detail/ca-nu/A-71.895831_-99.980848",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 63.912779,
+    "lon": -102.001185,
+    "dist_m": 278322.73,
+    "nearest_way": {
+     "id": 1079014171,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Baker Lake",
+     "type": "town",
+     "dist_m": 294769.8,
+     "lat": 64.318858,
+     "lon": -96.021424
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/A-63.912779_-102.001185",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 71.999475,
+    "lon": -94.683289,
+    "dist_m": 269490.29,
+    "nearest_way": {
+     "id": 1421960411,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Fort Ross",
+     "type": "hamlet",
+     "dist_m": 15479.5,
+     "lat": 72.00971,
+     "lon": -94.235774
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/A-71.999475_-94.683289",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 66.951409,
+    "lon": -81.938493,
+    "dist_m": 194036.36,
+    "nearest_way": {
+     "id": 510308480,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Naujaat",
+     "type": "town",
+     "dist_m": 195081.9,
+     "lat": 66.52669,
+     "lon": -86.232047
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/A-66.951409_-81.938493",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 69.859432,
+    "lon": -85.55346,
+    "dist_m": 114780.47,
+    "nearest_way": {
+     "id": 604994997,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Saputit",
+     "type": "hamlet",
+     "dist_m": 123174.3,
+     "lat": 70.932688,
+     "lon": -84.782145
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/A-69.859432_-85.553460",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 69.506063,
+    "lon": -90.462338,
+    "dist_m": 110667.53,
+    "nearest_way": {
+     "id": 409048825,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Kugaaruk",
+     "type": "town",
+     "dist_m": 111421.6,
+     "lat": 68.534737,
+     "lon": -89.812267
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/A-69.506063_-90.462338",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 59.609141,
+    "lon": -65.45895,
+    "dist_m": 96796.26,
+    "nearest_way": {
+     "id": 502403921,
+     "highway": "road",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Amarurtalijaaluk",
+     "type": "hamlet",
+     "dist_m": 19936.0,
+     "lat": 59.788088,
+     "lon": -65.460147
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/A-59.609141_-65.458950",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 58.17153,
+    "lon": -77.533504,
+    "dist_m": 45385.21,
+    "nearest_way": {
+     "id": 358442320,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Camp Upirngivikallak",
+     "type": "hamlet",
+     "dist_m": 39929.1,
+     "lat": 58.393466,
+     "lon": -78.068006
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/A-58.171530_-77.533504",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 62.195929,
+    "lon": -73.026465,
+    "dist_m": 42138.6,
+    "nearest_way": {
+     "id": 587603367,
+     "highway": "track",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Katinniq",
+     "type": "hamlet",
+     "dist_m": 66162.0,
+     "lat": 61.687676,
+     "lon": -73.677789
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/A-62.195929_-73.026465",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 52.557941,
+    "lon": -78.791428,
+    "dist_m": 39707.14,
+    "nearest_way": {
+     "id": 798218995,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Vieux-Comptoir",
+     "type": "hamlet",
+     "dist_m": 7004.1,
+     "lat": 52.606408,
+     "lon": -78.7255
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/A-52.557941_-78.791428",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 53.36567,
+    "lon": -79.034306,
+    "dist_m": 39218.17,
+    "nearest_way": {
+     "id": 481877344,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "hamlet",
+     "dist_m": 25190.7,
+     "lat": 53.591961,
+     "lon": -79.042308
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/A-53.365670_-79.034306",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 278322.73,
+  "lat": 63.912779,
+  "lon": -102.001185,
+  "rank": 2,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,99 +508,12 @@
      "lat": 71.619553,
      "lon": -117.878052
     },
-    "detail": "detail/ca-nu/B-1",
+    "island_km2": 216456.1,
+    "detail": "detail/ca-nu/B-73.197324_-108.016850",
     "warnings": []
    },
    {
     "rank": 2,
-    "lat": 73.11354,
-    "lon": -107.85425,
-    "dist_m": 431512.2,
-    "nearest_way": {
-     "id": 396139271,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Fort Collinson",
-     "type": "hamlet",
-     "dist_m": 377205.0,
-     "lat": 71.619553,
-     "lon": -117.878052
-    },
-    "detail": "detail/ca-nu/B-2",
-    "warnings": []
-   },
-   {
-    "rank": 3,
-    "lat": 72.996168,
-    "lon": -107.610572,
-    "dist_m": 431452.6,
-    "nearest_way": {
-     "id": 396139271,
-     "highway": "unclassified",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Fort Collinson",
-     "type": "hamlet",
-     "dist_m": 380152.8,
-     "lat": 71.619553,
-     "lon": -117.878052
-    },
-    "detail": "detail/ca-nu/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
-    "lat": 73.302495,
-    "lon": -108.11428,
-    "dist_m": 429095.93,
-    "nearest_way": {
-     "id": 530226579,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Fort Collinson",
-     "type": "hamlet",
-     "dist_m": 377799.2,
-     "lat": 71.619553,
-     "lon": -117.878052
-    },
-    "detail": "detail/ca-nu/B-4",
-    "warnings": []
-   },
-   {
-    "rank": 5,
-    "lat": 72.95956,
-    "lon": -107.315262,
-    "dist_m": 425478.92,
-    "nearest_way": {
-     "id": 530226579,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "ca"
-    },
-    "nearest_place": {
-     "name": "Fort Collinson",
-     "type": "hamlet",
-     "dist_m": 388048.7,
-     "lat": 71.619553,
-     "lon": -117.878052
-    },
-    "detail": "detail/ca-nu/B-5",
-    "warnings": []
-   },
-   {
-    "rank": 6,
     "lat": 78.327232,
     "lon": -104.702973,
     "dist_m": 425358.63,
@@ -367,18 +527,19 @@
     "nearest_place": {
      "name": "McGill Arctic Reasearch Station",
      "type": "isolated_dwelling",
-     "dist_m": 323446.4,
+     "dist_m": 323446.3,
      "lat": 79.415349,
      "lon": -90.746942
     },
-    "detail": "detail/ca-nu/B-6",
+    "island_km2": 11138.8,
+    "detail": "detail/ca-nu/B-78.327232_-104.702973",
     "warnings": []
    },
    {
-    "rank": 7,
-    "lat": 73.091046,
-    "lon": -107.543992,
-    "dist_m": 424100.73,
+    "rank": 3,
+    "lat": 73.567474,
+    "lon": -107.998272,
+    "dist_m": 412990.32,
     "nearest_way": {
      "id": 530226579,
      "highway": "service",
@@ -389,21 +550,45 @@
     "nearest_place": {
      "name": "Fort Collinson",
      "type": "hamlet",
-     "dist_m": 385732.0,
+     "dist_m": 394443.3,
      "lat": 71.619553,
      "lon": -117.878052
     },
-    "detail": "detail/ca-nu/B-7",
+    "island_km2": 97.6,
+    "detail": "detail/ca-nu/B-73.567474_-107.998272",
     "warnings": []
    },
    {
-    "rank": 8,
-    "lat": 73.018725,
-    "lon": -107.925735,
-    "dist_m": 423926.48,
+    "rank": 4,
+    "lat": 78.131698,
+    "lon": -103.265328,
+    "dist_m": 412123.5,
     "nearest_way": {
-     "id": 396139271,
-     "highway": "unclassified",
+     "id": 680608006,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "McGill Arctic Reasearch Station",
+     "type": "isolated_dwelling",
+     "dist_m": 306762.3,
+     "lat": 79.415349,
+     "lon": -90.746942
+    },
+    "island_km2": 122.6,
+    "detail": "detail/ca-nu/B-78.131698_-103.265328",
+    "warnings": []
+   },
+   {
+    "rank": 5,
+    "lat": 73.34412,
+    "lon": -107.512888,
+    "dist_m": 409500.06,
+    "nearest_way": {
+     "id": 530226579,
+     "highway": "service",
      "name": null,
      "ref": null,
      "country": "ca"
@@ -411,59 +596,368 @@
     "nearest_place": {
      "name": "Fort Collinson",
      "type": "hamlet",
-     "dist_m": 371291.6,
+     "dist_m": 397263.5,
      "lat": 71.619553,
      "lon": -117.878052
     },
-    "detail": "detail/ca-nu/B-8",
+    "island_km2": 4.6,
+    "detail": "detail/ca-nu/B-73.344120_-107.512888",
+    "warnings": []
+   },
+   {
+    "rank": 6,
+    "lat": 77.886704,
+    "lon": -102.410472,
+    "dist_m": 399059.28,
+    "nearest_way": {
+     "id": 1284986396,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "McGill Arctic Reasearch Station",
+     "type": "isolated_dwelling",
+     "dist_m": 307118.2,
+     "lat": 79.415349,
+     "lon": -90.746942
+    },
+    "island_km2": 657.2,
+    "detail": "detail/ca-nu/B-77.886704_-102.410472",
+    "warnings": []
+   },
+   {
+    "rank": 7,
+    "lat": 77.407386,
+    "lon": -104.720748,
+    "dist_m": 391882.7,
+    "nearest_way": {
+     "id": 560550097,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "McGill Arctic Reasearch Station",
+     "type": "isolated_dwelling",
+     "dist_m": 383857.6,
+     "lat": 79.415349,
+     "lon": -90.746942
+    },
+    "island_km2": 1412.3,
+    "detail": "detail/ca-nu/B-77.407386_-104.720748",
+    "warnings": []
+   },
+   {
+    "rank": 8,
+    "lat": 78.59283,
+    "lon": -103.611116,
+    "dist_m": 388658.32,
+    "nearest_way": {
+     "id": 680608006,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "McGill Arctic Reasearch Station",
+     "type": "isolated_dwelling",
+     "dist_m": 288304.3,
+     "lat": 79.415349,
+     "lon": -90.746942
+    },
+    "island_km2": 1.0,
+    "detail": "detail/ca-nu/B-78.592830_-103.611116",
     "warnings": []
    },
    {
     "rank": 9,
-    "lat": 78.415733,
-    "lon": -104.897973,
-    "dist_m": 423431.47,
+    "lat": 72.701657,
+    "lon": -105.269929,
+    "dist_m": 387976.38,
     "nearest_way": {
-     "id": 680608006,
+     "id": 530226579,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "McGill Arctic Reasearch Station",
-     "type": "isolated_dwelling",
-     "dist_m": 322705.7,
-     "lat": 79.415349,
-     "lon": -90.746942
+     "name": "Fort Ross",
+     "type": "hamlet",
+     "dist_m": 380766.0,
+     "lat": 72.00971,
+     "lon": -94.235774
     },
-    "detail": "detail/ca-nu/B-9",
+    "island_km2": 1.4,
+    "detail": "detail/ca-nu/B-72.701657_-105.269929",
     "warnings": []
    },
    {
     "rank": 10,
-    "lat": 78.262955,
-    "lon": -104.357633,
-    "dist_m": 423134.74,
+    "lat": 72.643342,
+    "lon": -108.454365,
+    "dist_m": 387444.63,
     "nearest_way": {
-     "id": 680608006,
+     "id": 505871316,
+     "highway": "residential",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Fort Collinson",
+     "type": "hamlet",
+     "dist_m": 342046.2,
+     "lat": 71.619553,
+     "lon": -117.878052
+    },
+    "island_km2": 24.8,
+    "detail": "detail/ca-nu/B-72.643342_-108.454365",
+    "warnings": []
+   },
+   {
+    "rank": 11,
+    "lat": 63.912779,
+    "lon": -102.001185,
+    "dist_m": 278322.73,
+    "nearest_way": {
+     "id": 1079014171,
      "highway": "service",
      "name": null,
      "ref": null,
      "country": "ca"
     },
     "nearest_place": {
-     "name": "McGill Arctic Reasearch Station",
-     "type": "isolated_dwelling",
-     "dist_m": 320164.7,
-     "lat": 79.415349,
-     "lon": -90.746942
+     "name": "Baker Lake",
+     "type": "town",
+     "dist_m": 294769.8,
+     "lat": 64.318858,
+     "lon": -96.021424
     },
-    "detail": "detail/ca-nu/B-10",
+    "island_km2": null,
+    "detail": "detail/ca-nu/B-63.912779_-102.001185",
+    "warnings": []
+   },
+   {
+    "rank": 12,
+    "lat": 71.999475,
+    "lon": -94.683289,
+    "dist_m": 276832.3,
+    "nearest_way": {
+     "id": 4285071,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Fort Ross",
+     "type": "hamlet",
+     "dist_m": 15479.5,
+     "lat": 72.00971,
+     "lon": -94.235774
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/B-71.999475_-94.683289",
+    "warnings": []
+   },
+   {
+    "rank": 13,
+    "lat": 66.947037,
+    "lon": -81.941313,
+    "dist_m": 194532.46,
+    "nearest_way": {
+     "id": 4283570,
+     "highway": "secondary",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Naujaat",
+     "type": "town",
+     "dist_m": 194859.9,
+     "lat": 66.52669,
+     "lon": -86.232047
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/B-66.947037_-81.941313",
+    "warnings": []
+   },
+   {
+    "rank": 14,
+    "lat": 60.16469,
+    "lon": -64.983492,
+    "dist_m": 158730.3,
+    "nearest_way": {
+     "id": 1261351354,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Port Burwell",
+     "type": "hamlet",
+     "dist_m": 29403.9,
+     "lat": 60.415406,
+     "lon": -64.817512
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/B-60.164690_-64.983492",
+    "warnings": []
+   },
+   {
+    "rank": 15,
+    "lat": 68.038559,
+    "lon": -120.680277,
+    "dist_m": 154398.72,
+    "nearest_way": {
+     "id": 697211079,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Paulatuk",
+     "type": "town",
+     "dist_m": 199999.9,
+     "lat": 69.345038,
+     "lon": -124.058516
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/B-68.038559_-120.680277",
+    "warnings": []
+   },
+   {
+    "rank": 16,
+    "lat": 69.585777,
+    "lon": -90.507035,
+    "dist_m": 117110.85,
+    "nearest_way": {
+     "id": 796302364,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Taloyoak",
+     "type": "town",
+     "dist_m": 118202.5,
+     "lat": 69.53505,
+     "lon": -93.535505
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/B-69.585777_-90.507035",
+    "warnings": []
+   },
+   {
+    "rank": 17,
+    "lat": 58.17153,
+    "lon": -77.533504,
+    "dist_m": 45385.21,
+    "nearest_way": {
+     "id": 358442320,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Camp Upirngivikallak",
+     "type": "hamlet",
+     "dist_m": 39929.1,
+     "lat": 58.393466,
+     "lon": -78.068006
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/B-58.171530_-77.533504",
+    "warnings": []
+   },
+   {
+    "rank": 18,
+    "lat": 62.195928,
+    "lon": -73.026369,
+    "dist_m": 44413.93,
+    "nearest_way": {
+     "id": 58706419,
+     "highway": "unclassified",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Katinniq",
+     "type": "hamlet",
+     "dist_m": 66164.5,
+     "lat": 61.687676,
+     "lon": -73.677789
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/B-62.195928_-73.026369",
+    "warnings": []
+   },
+   {
+    "rank": 19,
+    "lat": 52.557941,
+    "lon": -78.791428,
+    "dist_m": 39707.14,
+    "nearest_way": {
+     "id": 798218995,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": "Vieux-Comptoir",
+     "type": "hamlet",
+     "dist_m": 7004.1,
+     "lat": 52.606408,
+     "lon": -78.7255
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/B-52.557941_-78.791428",
+    "warnings": []
+   },
+   {
+    "rank": 20,
+    "lat": 53.36567,
+    "lon": -79.034306,
+    "dist_m": 39218.17,
+    "nearest_way": {
+     "id": 481877344,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "ca"
+    },
+    "nearest_place": {
+     "name": null,
+     "type": "hamlet",
+     "dist_m": 25190.7,
+     "lat": 53.591961,
+     "lon": -79.042308
+    },
+    "island_km2": null,
+    "detail": "detail/ca-nu/B-53.365670_-79.034306",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 278322.73,
+  "lat": 63.912779,
+  "lon": -102.001185,
+  "rank": 2,
+  "withheld": 0
  }
 }

@@ -18,28 +18,6 @@
   "poles": [
    {
     "rank": 1,
-    "lat": 41.725987,
-    "lon": -87.493318,
-    "dist_m": 2622.91,
-    "nearest_way": {
-     "id": 232209112,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Whiting",
-     "type": "town",
-     "dist_m": 5135.2,
-     "lat": 41.67976,
-     "lon": -87.494465
-    },
-    "detail": "detail/us-in/A-1",
-    "warnings": []
-   },
-   {
-    "rank": 2,
     "lat": 38.179877,
     "lon": -87.222031,
     "dist_m": 2285.81,
@@ -53,15 +31,16 @@
     "nearest_place": {
      "name": "Dickeyville",
      "type": "hamlet",
-     "dist_m": 2640.4,
+     "dist_m": 2640.3,
      "lat": 38.15616,
      "lon": -87.219727
     },
-    "detail": "detail/us-in/A-2",
+    "island_km2": null,
+    "detail": "detail/us-in/A-38.179877_-87.222031",
     "warnings": []
    },
    {
-    "rank": 3,
+    "rank": 2,
     "lat": 37.820963,
     "lon": -88.052856,
     "dist_m": 2271.76,
@@ -79,11 +58,12 @@
      "lat": 37.836156,
      "lon": -88.021698
     },
-    "detail": "detail/us-in/A-3",
+    "island_km2": null,
+    "detail": "detail/us-in/A-37.820963_-88.052856",
     "warnings": []
    },
    {
-    "rank": 4,
+    "rank": 3,
     "lat": 38.758538,
     "lon": -85.967808,
     "dist_m": 2264.67,
@@ -101,11 +81,12 @@
      "lat": 38.800055,
      "lon": -85.956087
     },
-    "detail": "detail/us-in/A-4",
+    "island_km2": null,
+    "detail": "detail/us-in/A-38.758538_-85.967808",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 38.427274,
     "lon": -86.631598,
     "dist_m": 2133.41,
@@ -123,11 +104,12 @@
      "lat": 38.375057,
      "lon": -86.624989
     },
-    "detail": "detail/us-in/A-5",
+    "island_km2": null,
+    "detail": "detail/us-in/A-38.427274_-86.631598",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 39.117904,
     "lon": -86.268305,
     "dist_m": 2016.16,
@@ -141,15 +123,16 @@
     "nearest_place": {
      "name": "Elkinsville",
      "type": "hamlet",
-     "dist_m": 4671.3,
+     "dist_m": 4671.4,
      "lat": 39.076041,
      "lon": -86.26286
     },
-    "detail": "detail/us-in/A-6",
+    "island_km2": null,
+    "detail": "detail/us-in/A-39.117904_-86.268305",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 41.672868,
     "lon": -87.034837,
     "dist_m": 1920.67,
@@ -167,11 +150,12 @@
      "lat": 41.651705,
      "lon": -87.007532
     },
-    "detail": "detail/us-in/A-7",
+    "island_km2": null,
+    "detail": "detail/us-in/A-41.672868_-87.034837",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 38.930405,
     "lon": -86.67862,
     "dist_m": 1899.8,
@@ -185,15 +169,16 @@
     "nearest_place": {
      "name": "Owensburg",
      "type": "hamlet",
-     "dist_m": 4520.1,
+     "dist_m": 4520.2,
      "lat": 38.923226,
      "lon": -86.729929
     },
-    "detail": "detail/us-in/A-8",
+    "island_km2": null,
+    "detail": "detail/us-in/A-38.930405_-86.678620",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 39.064115,
     "lon": -86.377591,
     "dist_m": 1874.3,
@@ -211,11 +196,12 @@
      "lat": 38.998463,
      "lon": -86.343371
     },
-    "detail": "detail/us-in/A-9",
+    "island_km2": null,
+    "detail": "detail/us-in/A-39.064115_-86.377591",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 38.474164,
     "lon": -85.892868,
     "dist_m": 1873.78,
@@ -233,12 +219,43 @@
      "lat": 38.448952,
      "lon": -85.877469
     },
-    "detail": "detail/us-in/A-10",
+    "island_km2": null,
+    "detail": "detail/us-in/A-38.474164_-85.892868",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 39.485232,
+    "lon": -85.001542,
+    "dist_m": 1741.89,
+    "nearest_way": {
+     "id": 202762155,
+     "highway": "service",
+     "name": null,
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "New Fairfield",
+     "type": "hamlet",
+     "dist_m": 3477.9,
+     "lat": 39.506995,
+     "lon": -84.97246
+    },
+    "island_km2": null,
+    "detail": "detail/us-in/A-39.485232_-85.001542",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 2285.81,
+  "lat": 38.179877,
+  "lon": -87.222031,
+  "rank": 59,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 37.836156,
      "lon": -88.021698
     },
-    "detail": "detail/us-in/B-1",
+    "island_km2": null,
+    "detail": "detail/us-in/B-37.806164_-88.058046",
     "warnings": []
    },
    {
@@ -283,33 +301,12 @@
      "lat": 39.076041,
      "lon": -86.26286
     },
-    "detail": "detail/us-in/B-2",
+    "island_km2": null,
+    "detail": "detail/us-in/B-39.071305_-86.306362",
     "warnings": []
    },
    {
     "rank": 3,
-    "lat": 41.725987,
-    "lon": -87.493318,
-    "dist_m": 2622.91,
-    "nearest_way": {
-     "id": 232209112,
-     "highway": "service",
-     "name": null,
-     "ref": null,
-     "country": "us"
-    },
-    "nearest_place": {
-     "name": "Whiting",
-     "type": "town",
-     "dist_m": 5135.2,
-     "lat": 41.67976,
-     "lon": -87.494465
-    },
-    "detail": "detail/us-in/B-3",
-    "warnings": []
-   },
-   {
-    "rank": 4,
     "lat": 38.963311,
     "lon": -85.391209,
     "dist_m": 2310.27,
@@ -327,11 +324,12 @@
      "lat": 38.957508,
      "lon": -85.391845
     },
-    "detail": "detail/us-in/B-4",
+    "island_km2": null,
+    "detail": "detail/us-in/B-38.963311_-85.391209",
     "warnings": []
    },
    {
-    "rank": 5,
+    "rank": 4,
     "lat": 38.179877,
     "lon": -87.222031,
     "dist_m": 2285.81,
@@ -345,15 +343,16 @@
     "nearest_place": {
      "name": "Dickeyville",
      "type": "hamlet",
-     "dist_m": 2640.4,
+     "dist_m": 2640.3,
      "lat": 38.15616,
      "lon": -87.219727
     },
-    "detail": "detail/us-in/B-5",
+    "island_km2": null,
+    "detail": "detail/us-in/B-38.179877_-87.222031",
     "warnings": []
    },
    {
-    "rank": 6,
+    "rank": 5,
     "lat": 38.758538,
     "lon": -85.967808,
     "dist_m": 2264.67,
@@ -371,11 +370,12 @@
      "lat": 38.800055,
      "lon": -85.956087
     },
-    "detail": "detail/us-in/B-6",
+    "island_km2": null,
+    "detail": "detail/us-in/B-38.758538_-85.967808",
     "warnings": []
    },
    {
-    "rank": 7,
+    "rank": 6,
     "lat": 38.427274,
     "lon": -86.631598,
     "dist_m": 2133.41,
@@ -393,11 +393,12 @@
      "lat": 38.375057,
      "lon": -86.624989
     },
-    "detail": "detail/us-in/B-7",
+    "island_km2": null,
+    "detail": "detail/us-in/B-38.427274_-86.631598",
     "warnings": []
    },
    {
-    "rank": 8,
+    "rank": 7,
     "lat": 38.931825,
     "lon": -86.680427,
     "dist_m": 1943.13,
@@ -415,11 +416,12 @@
      "lat": 38.923226,
      "lon": -86.729929
     },
-    "detail": "detail/us-in/B-8",
+    "island_km2": null,
+    "detail": "detail/us-in/B-38.931825_-86.680427",
     "warnings": []
    },
    {
-    "rank": 9,
+    "rank": 8,
     "lat": 38.038374,
     "lon": -88.020872,
     "dist_m": 1931.31,
@@ -437,11 +439,12 @@
      "lat": 38.035601,
      "lon": -88.045588
     },
-    "detail": "detail/us-in/B-9",
+    "island_km2": null,
+    "detail": "detail/us-in/B-38.038374_-88.020872",
     "warnings": []
    },
    {
-    "rank": 10,
+    "rank": 9,
     "lat": 41.672868,
     "lon": -87.034837,
     "dist_m": 1920.67,
@@ -459,11 +462,42 @@
      "lat": 41.651705,
      "lon": -87.007532
     },
-    "detail": "detail/us-in/B-10",
+    "island_km2": null,
+    "detail": "detail/us-in/B-41.672868_-87.034837",
+    "warnings": []
+   },
+   {
+    "rank": 10,
+    "lat": 38.474164,
+    "lon": -85.892868,
+    "dist_m": 1873.78,
+    "nearest_way": {
+     "id": 1426218898,
+     "highway": "residential",
+     "name": "Top of the Rock Road",
+     "ref": null,
+     "country": "us"
+    },
+    "nearest_place": {
+     "name": "Broom Hill",
+     "type": "hamlet",
+     "dist_m": 3104.7,
+     "lat": 38.448952,
+     "lon": -85.877469
+    },
+    "island_km2": null,
+    "detail": "detail/us-in/B-38.474164_-85.892868",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 3220.82,
+  "lat": 37.806164,
+  "lon": -88.058046,
+  "rank": 59,
+  "withheld": 0
  }
 }

@@ -35,7 +35,8 @@
      "lat": 36.707561,
      "lon": -92.872951
     },
-    "detail": "detail/us-mo/A-1",
+    "island_km2": null,
+    "detail": "detail/us-mo/A-36.693824_-92.921564",
     "warnings": []
    },
    {
@@ -53,11 +54,12 @@
     "nearest_place": {
      "name": "Fairview",
      "type": "hamlet",
-     "dist_m": 3377.0,
+     "dist_m": 3377.1,
      "lat": 36.63784,
      "lon": -92.858783
     },
-    "detail": "detail/us-mo/A-2",
+    "island_km2": null,
+    "detail": "detail/us-mo/A-36.636570_-92.821055",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 36.788944,
      "lon": -91.192076
     },
-    "detail": "detail/us-mo/A-3",
+    "island_km2": null,
+    "detail": "detail/us-mo/A-36.740971_-91.179236",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 37.571992,
      "lon": -90.85318
     },
-    "detail": "detail/us-mo/A-4",
+    "island_km2": null,
+    "detail": "detail/us-mo/A-37.626018_-90.875083",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 36.890886,
      "lon": -91.032906
     },
-    "detail": "detail/us-mo/A-5",
+    "island_km2": null,
+    "detail": "detail/us-mo/A-36.891856_-90.973092",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 36.795058,
      "lon": -91.700423
     },
-    "detail": "detail/us-mo/A-6",
+    "island_km2": null,
+    "detail": "detail/us-mo/A-36.815804_-91.617668",
     "warnings": []
    },
    {
@@ -167,7 +173,8 @@
      "lat": 37.455886,
      "lon": -90.489285
     },
-    "detail": "detail/us-mo/A-7",
+    "island_km2": null,
+    "detail": "detail/us-mo/A-37.493141_-90.528824",
     "warnings": []
    },
    {
@@ -189,7 +196,8 @@
      "lat": 36.753111,
      "lon": -90.630951
     },
-    "detail": "detail/us-mo/A-8",
+    "island_km2": null,
+    "detail": "detail/us-mo/A-36.734102_-90.666191",
     "warnings": []
    },
    {
@@ -211,7 +219,8 @@
      "lat": 37.525044,
      "lon": -92.024881
     },
-    "detail": "detail/us-mo/A-9",
+    "island_km2": null,
+    "detail": "detail/us-mo/A-37.533405_-92.077390",
     "warnings": []
    },
    {
@@ -233,12 +242,20 @@
      "lat": 37.648932,
      "lon": -92.209886
     },
-    "detail": "detail/us-mo/A-10",
+    "island_km2": null,
+    "detail": "detail/us-mo/A-37.620485_-92.206754",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 3537.15,
+  "lat": 36.693824,
+  "lon": -92.921564,
+  "rank": 55,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -261,7 +278,8 @@
      "lat": 37.258102,
      "lon": -91.483751
     },
-    "detail": "detail/us-mo/B-1",
+    "island_km2": null,
+    "detail": "detail/us-mo/B-37.300704_-91.548906",
     "warnings": []
    },
    {
@@ -283,7 +301,8 @@
      "lat": 37.062829,
      "lon": -89.231742
     },
-    "detail": "detail/us-mo/B-2",
+    "island_km2": null,
+    "detail": "detail/us-mo/B-37.054576_-89.276046",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 36.707561,
      "lon": -92.872951
     },
-    "detail": "detail/us-mo/B-3",
+    "island_km2": null,
+    "detail": "detail/us-mo/B-36.693824_-92.921564",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 36.63784,
      "lon": -92.858783
     },
-    "detail": "detail/us-mo/B-4",
+    "island_km2": null,
+    "detail": "detail/us-mo/B-36.637425_-92.820382",
     "warnings": []
    },
    {
@@ -349,7 +370,8 @@
      "lat": 36.694224,
      "lon": -91.121797
     },
-    "detail": "detail/us-mo/B-5",
+    "island_km2": null,
+    "detail": "detail/us-mo/B-36.717084_-91.179678",
     "warnings": []
    },
    {
@@ -367,11 +389,12 @@
     "nearest_place": {
      "name": "Monterey",
      "type": "hamlet",
-     "dist_m": 5920.3,
+     "dist_m": 5920.4,
      "lat": 37.571992,
      "lon": -90.85318
     },
-    "detail": "detail/us-mo/B-6",
+    "island_km2": null,
+    "detail": "detail/us-mo/B-37.622721_-90.873906",
     "warnings": []
    },
    {
@@ -393,7 +416,8 @@
      "lat": 36.761722,
      "lon": -90.936793
     },
-    "detail": "detail/us-mo/B-7",
+    "island_km2": null,
+    "detail": "detail/us-mo/B-36.758146_-90.895624",
     "warnings": []
    },
    {
@@ -415,7 +439,8 @@
      "lat": 39.292548,
      "lon": -90.749292
     },
-    "detail": "detail/us-mo/B-8",
+    "island_km2": null,
+    "detail": "detail/us-mo/B-39.281146_-90.786989",
     "warnings": []
    },
    {
@@ -437,7 +462,8 @@
      "lat": 36.890886,
      "lon": -91.032906
     },
-    "detail": "detail/us-mo/B-9",
+    "island_km2": null,
+    "detail": "detail/us-mo/B-36.891856_-90.973092",
     "warnings": []
    },
    {
@@ -459,11 +485,19 @@
      "lat": 36.795058,
      "lon": -91.700423
     },
-    "detail": "detail/us-mo/B-10",
+    "island_km2": null,
+    "detail": "detail/us-mo/B-36.815804_-91.617668",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 4253.62,
+  "lat": 37.300704,
+  "lon": -91.548906,
+  "rank": 55,
+  "withheld": 0
  }
 }

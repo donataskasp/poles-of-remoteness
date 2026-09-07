@@ -31,11 +31,12 @@
     "nearest_place": {
      "name": "Gustave",
      "type": "hamlet",
-     "dist_m": 11140.9,
+     "dist_m": 11140.8,
      "lat": 45.281101,
      "lon": -103.975213
     },
-    "detail": "detail/us-sd/A-1",
+    "island_km2": null,
+    "detail": "detail/us-sd/A-45.191953_-104.040098",
     "warnings": []
    },
    {
@@ -53,11 +54,12 @@
     "nearest_place": {
      "name": "Orton",
      "type": "hamlet",
-     "dist_m": 17957.5,
+     "dist_m": 17957.6,
      "lat": 44.71026,
      "lon": -100.842092
     },
-    "detail": "detail/us-sd/A-2",
+    "island_km2": null,
+    "detail": "detail/us-sd/A-44.866342_-100.783330",
     "warnings": []
    },
    {
@@ -79,7 +81,8 @@
      "lat": 45.144706,
      "lon": -100.65153
     },
-    "detail": "detail/us-sd/A-3",
+    "island_km2": null,
+    "detail": "detail/us-sd/A-45.056112_-100.610588",
     "warnings": []
    },
    {
@@ -101,7 +104,8 @@
      "lat": 44.511931,
      "lon": -103.132957
     },
-    "detail": "detail/us-sd/A-4",
+    "island_km2": null,
+    "detail": "detail/us-sd/A-44.614964_-103.043806",
     "warnings": []
    },
    {
@@ -123,7 +127,8 @@
      "lat": 43.569443,
      "lon": -101.660424
     },
-    "detail": "detail/us-sd/A-5",
+    "island_km2": null,
+    "detail": "detail/us-sd/A-43.649957_-101.639566",
     "warnings": []
    },
    {
@@ -145,7 +150,8 @@
      "lat": 43.173321,
      "lon": -101.963177
     },
-    "detail": "detail/us-sd/A-6",
+    "island_km2": null,
+    "detail": "detail/us-sd/A-43.043155_-101.872120",
     "warnings": []
    },
    {
@@ -167,7 +173,8 @@
      "lat": 45.271199,
      "lon": -100.8864
     },
-    "detail": "detail/us-sd/A-7",
+    "island_km2": null,
+    "detail": "detail/us-sd/A-45.175974_-100.932474",
     "warnings": []
    },
    {
@@ -189,7 +196,8 @@
      "lat": 44.964434,
      "lon": -103.424354
     },
-    "detail": "detail/us-sd/A-8",
+    "island_km2": null,
+    "detail": "detail/us-sd/A-44.917310_-103.514548",
     "warnings": []
    },
    {
@@ -207,11 +215,12 @@
     "nearest_place": {
      "name": "Parade",
      "type": "hamlet",
-     "dist_m": 8792.2,
+     "dist_m": 8792.1,
      "lat": 45.02387,
      "lon": -101.104593
     },
-    "detail": "detail/us-sd/A-9",
+    "island_km2": null,
+    "detail": "detail/us-sd/A-44.947117_-101.077557",
     "warnings": []
    },
    {
@@ -233,12 +242,20 @@
      "lat": 44.594153,
      "lon": -102.429576
     },
-    "detail": "detail/us-sd/A-10",
+    "island_km2": null,
+    "detail": "detail/us-sd/A-44.505687_-102.290417",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "A_mainland": {
+  "dist_m": 10349.76,
+  "lat": 45.191953,
+  "lon": -104.040098,
+  "rank": 34,
+  "withheld": 0
  },
  "B": {
   "poles": [
@@ -257,11 +274,12 @@
     "nearest_place": {
      "name": "Volunteer",
      "type": "hamlet",
-     "dist_m": 17715.5,
+     "dist_m": 17715.6,
      "lat": 44.511931,
      "lon": -103.132957
     },
-    "detail": "detail/us-sd/B-1",
+    "island_km2": null,
+    "detail": "detail/us-sd/B-44.650124_-103.021740",
     "warnings": []
    },
    {
@@ -279,11 +297,12 @@
     "nearest_place": {
      "name": "Gustave",
      "type": "hamlet",
-     "dist_m": 11109.6,
+     "dist_m": 11109.5,
      "lat": 45.281101,
      "lon": -103.975213
     },
-    "detail": "detail/us-sd/B-2",
+    "island_km2": null,
+    "detail": "detail/us-sd/B-45.192268_-104.040093",
     "warnings": []
    },
    {
@@ -305,7 +324,8 @@
      "lat": 45.144706,
      "lon": -100.65153
     },
-    "detail": "detail/us-sd/B-3",
+    "island_km2": null,
+    "detail": "detail/us-sd/B-45.218746_-100.712378",
     "warnings": []
    },
    {
@@ -327,7 +347,8 @@
      "lat": 43.667489,
      "lon": -102.898796
     },
-    "detail": "detail/us-sd/B-4",
+    "island_km2": null,
+    "detail": "detail/us-sd/B-43.620252_-102.766760",
     "warnings": []
    },
    {
@@ -345,11 +366,12 @@
     "nearest_place": {
      "name": "Orton",
      "type": "hamlet",
-     "dist_m": 17957.5,
+     "dist_m": 17957.6,
      "lat": 44.71026,
      "lon": -100.842092
     },
-    "detail": "detail/us-sd/B-5",
+    "island_km2": null,
+    "detail": "detail/us-sd/B-44.866342_-100.783330",
     "warnings": []
    },
    {
@@ -371,7 +393,8 @@
      "lat": 43.497212,
      "lon": -102.502116
     },
-    "detail": "detail/us-sd/B-6",
+    "island_km2": null,
+    "detail": "detail/us-sd/B-43.442410_-102.720648",
     "warnings": []
    },
    {
@@ -393,7 +416,8 @@
      "lat": 45.144706,
      "lon": -100.65153
     },
-    "detail": "detail/us-sd/B-7",
+    "island_km2": null,
+    "detail": "detail/us-sd/B-45.056112_-100.610588",
     "warnings": []
    },
    {
@@ -415,7 +439,8 @@
      "lat": 43.076092,
      "lon": -102.820733
     },
-    "detail": "detail/us-sd/B-8",
+    "island_km2": null,
+    "detail": "detail/us-sd/B-43.052632_-102.939233",
     "warnings": []
    },
    {
@@ -437,7 +462,8 @@
      "lat": 44.62433,
      "lon": -100.880521
     },
-    "detail": "detail/us-sd/B-9",
+    "island_km2": null,
+    "detail": "detail/us-sd/B-44.628908_-100.935549",
     "warnings": []
    },
    {
@@ -459,11 +485,19 @@
      "lat": 43.021321,
      "lon": -103.657623
     },
-    "detail": "detail/us-sd/B-10",
+    "island_km2": null,
+    "detail": "detail/us-sd/B-43.101005_-103.483321",
     "warnings": []
    }
   ],
   "withheld": 0,
   "reason": null
+ },
+ "B_mainland": {
+  "dist_m": 10929.05,
+  "lat": 44.650124,
+  "lon": -103.02174,
+  "rank": 34,
+  "withheld": 0
  }
 }
