@@ -124,6 +124,17 @@ The frame is 46,688 x 40,823 cells (1,906 M) at 250 m in an equal-area projectio
 
 A rented Hetzner box (16 vCPU, 32 GB, about 0.10 EUR/h) does a full run for under 1 EUR and pulls the extract in minutes; the container makes the two interchangeable. GitHub-hosted runners (14 GB disk) cannot run the compute and are used only as orchestrator and deployer.
 
+**Re-search under the distinct-area and island rules (2026-09-06/07, branch `distinct-areas`, commits be4d8db to 3309303, the same Mac with a browser open).** The search runs Europe on 3 workers and North America on 2 (a North America worker peaks at 7 to 10 GB); the wall clocks below are of the final runs, and Europe's search wall clock is not quoted because the Mac slept during it (an uninterrupted run of the same shape earlier that day took 22 minutes).
+
+| | Europe | North America |
+| --- | --- | --- |
+| poles | 104 jobs, 1,062 poles (527 A, 535 B), 37,118 refinements, 7,216 job-seconds; slowest Iceland B 561 s and 1,608 refinements | 128 jobs, 1,584 poles (787 A, 797 B), 413,881 refinements, 33,376 job-seconds, 16,791 s wall; slowest Nunavut B 4,543 s and 66,748 refinements |
+| validate | 3,234 s: check 1 recheck 409 s, check 3 edge bound 264 s, check 4 grid shift 2,465 s, check 5 holes 33 s, check 7 distinct areas 55 s, contact sheet 4 s; 0 blocking failures, 6 warnings, 1 excluded (Georgia A rank 1 at the data edge) | 13,706 s: check 1 recheck 723 s, check 3 edge bound 324 s, check 4 grid shift 12,459 s, check 5 holes 32 s, check 7 distinct areas 158 s, contact sheet 8 s; 0 blocking failures, 21 warnings, 15 excluded (the western Aleutian poles of Alaska, ranks 3 to 9 in A and 3 to 10 in B, at the data edge) |
+| publish (local part) | 87 s: the archives adopted unchanged, 1,061 detail rasters of which all but 191 keys were kept from the day's earlier publish under their identity keys (18.8 s), 2,127 keys verified | 2,126 s: archives adopted, 1,569 detail rasters in 1,939.5 s on 4 workers, 3,141 keys uploaded and 3,143 verified |
+| published | 1,061 poles: 526 A (83 on islands in 15 units) and 535 B (89 in 16 units); 11 units per scenario exhaust below ten (the microstates, Andorra, the Channel Islands, Malta, the Faroes) | 1,569 poles: 780 A (147 on islands in 31 units) and 789 B (156 in 31 units); the District of Columbia exhausts at one |
+
+The bucket held 4,352 objects (0.705 GB) before and 9,852 (0.752 GB) after: nothing was deleted, the rank-keyed rasters of the previous publish and the identity keys of two superseded publishes of the same day are the orphans issue #57's prune removes after the merge. Against the plan's estimates the stages landed inside their brackets (Europe validate under it); the schedule slipped on four full search rounds, each a DECISIONS addendum of 2026-09-05/06: the places layer lost to a disk sweep, the retirement's cost on Turkey, the retirement not biting on the Canadian Shield, and two readings of the island floor before the grid-independent one.
+
 ### 3.4 Class table
 
 The explore layer and detail rasters store one byte per pixel: a class index whose lower edge is the distance. Default table (per-region override allowed): 50 m steps to 2.5 km (classes 0-49), 100 m steps to 10 km (50-124), 250 m steps to 30 km (125-204), 1 km steps to 60 km (205-234), 10 km steps from 60 km to 230 km (235-252), class 253 is "240 km or more", 254 is edge-masked, 255 is no-data. The table ships in `regions.json` so the site decodes without hard-coding it. Monotonicity and round-trip are unit-tested.

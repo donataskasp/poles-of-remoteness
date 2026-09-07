@@ -10,9 +10,11 @@ How far from a road can you get? This project finds, for every country in Europe
 
 | | Farthest from any drivable way (A) | Public roads only (B) |
 |---|---|---|
-| **Europe**, 52 countries | **71.4 km**: Kolbeinsey, an Icelandic islet in the Greenland Sea | **73.4 km**: North Rona, an island north of the Scottish mainland |
-| **North America**, 64 states and provinces | **425.2 km**: northern Victoria Island, Nunavut | **431.9 km**: Nunavut again |
+| **Europe**, 52 countries | **50.5 km**: a 1.3 km2 islet south of Astypalaia in the Dodecanese; the first mainland pole is Iceland's at 42.4 km | **73.3 km**: North Rona, an island north of the Scottish mainland |
+| **North America**, 64 states and provinces | **425.2 km**: northern Victoria Island, Nunavut; the first mainland pole is the Northwest Territories' at 310.5 km | **431.9 km**: Nunavut again |
 | **Lithuania**, the original weekend build | **3.43 km**: Žuvintas biosphere reserve bog | **6.67 km**: Čepkeliai raised bog |
+
+Each unit lists its ten best points on its main landmass and any island points that rank above them, ten apart by a distinct-area rule (two points count as separate places only when every route between them drops below half the nearer one's distance to a road); islands carry their area and can be switched off in the card, which hides the islet headlines above and ranks Europe by Iceland and North America by the Northwest Territories. Points on land smaller than 1 km2 are not published.
 
 Distance is the straight line to the nearest drivable OSM way, sea included, which is why lonely islets win. Scenario A counts every drivable way, forest and field tracks included; scenario B counts public roads only. Roads in neighbouring data always count: a point near the Texas border is only as remote as the nearest Mexican road, and the Europe extract carries Armenia through Syria so its southeastern edge is honest.
 
