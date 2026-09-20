@@ -33,6 +33,7 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, where things 
 - **Tasks live in GitHub Issues** (donataskasp/poles-of-remoteness). One issue per task with acceptance criteria ("what does done look like"). Label `in-progress` when starting work, remove the label and close with a comment when finishing. Search the board before filing so you do not duplicate. Risks, gaps, and improvement ideas spotted mid-task get captured as issues immediately, not just mentioned in conversation.
 - **Delegate discrete hands-on work to subagents** when it preserves main-thread context for orchestration; always review a subagent's diff before committing. Small fixes inline are fine.
 - **Git**: commit after every working change with small descriptive messages; stage explicit paths, never `git add -A`. This repo has a local identity override (Donatas / gmail); the global identity is the work one. Verify the author on the first commit of a session.
+- **Papercuts log (fleet-wide)**: `~/personal/handoffs/papercuts.md` is one log shared by every personal Claude session of anything in tooling or environment that cost time (product bugs still go to GitHub Issues). When you lose time to one mid-session, append one line: `date · symptom · fix · project`. Read it first when tooling fails mysteriously. Append-only, no secrets.
 
 ## Deploying
 
