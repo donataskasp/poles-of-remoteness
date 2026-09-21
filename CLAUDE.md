@@ -34,6 +34,7 @@ Orient first: read docs/OVERVIEW.md (what works, what is not done, where things 
 - **Delegate discrete hands-on work to subagents** when it preserves main-thread context for orchestration; always review a subagent's diff before committing. Small fixes inline are fine.
 - **Git**: commit after every working change with small descriptive messages; stage explicit paths, never `git add -A`. This repo has a local identity override (Donatas / gmail); the global identity is the work one. Verify the author on the first commit of a session.
 - **Papercuts log (fleet-wide)**: `~/personal/handoffs/papercuts.md` is one log shared by every personal Claude session of anything in tooling or environment that cost time (product bugs still go to GitHub Issues). When you lose time to one mid-session, append one line: `date · symptom · fix · project`. Read it first when tooling fails mysteriously. Append-only, no secrets.
+- **Writing in Donatas's voice (fleet-wide)**: Mail or messages in Donatas's name: draft only, never send; load the `draft-voice` skill first (shared profile in `~/personal/claude-shared/voice/`). After he reports it sent, run the skill's capture loop (first draft vs sent).
 
 ## Deploying
 
