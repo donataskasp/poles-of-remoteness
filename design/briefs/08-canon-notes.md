@@ -1,0 +1,31 @@
+# 08-canon notes
+
+- Thesis: the category standard at full craft, what a good map app team would ship for this data. No metaphor; clarity and finish carry it.
+- First view (desktop): a full-bleed satellite map framed by a slim floating bar (brand, a search-like unit pill, region, language with a globe, info). A left floating panel with Place and Ranking tabs puts the unit name, the distance as a 64px hero figure ("The remotest point is / 3.43 km / from anything drivable") and a rank chip at the top. Below them: the scenario segmented control, an islands switch, two action buttons, the pole strip (number plus distance per chip, an island glyph on island poles) and the facts as a hairline list. On the right, a vertical icon stack (zoom, layers popover with Satellite and Map thumbnails, locate). At the bottom centre, a stepped scale with ticks.
+- Signature: the scale is also the readout. The value under the pointer (or the last tap) is printed in the scale's head, and a caret glides along the ramp to where that value sits. Second moment: the selected pole marker pings once.
+- Pill: opens the Ranking tab with a filter field focused. Filtering ignores case and accents, and Enter opens the first match. This is the one new interaction.
+- Phone: an Apple Maps style sheet with a grabber and three detents. The closed face shows the flag, the name, the rank and the distance at 32px with a scenario badge. Place and Ranking tabs sit inside the sheet. The region switch moves to the head of the Ranking tab. The language control becomes one globe button naming the other language.
+- Fonts: Geist variable 400..700 from Google Fonts (latin plus latin-ext, about 50 KB woff2), tabular figures throughout. The brief named it. The detector flags it as overused.
+- Colour: neutral solid surfaces with soft two-layer shadows and one indigo accent (#3a4bd4 light, #7c89ff dark). The data ramp runs pale aqua > teal > blue > indigo > deep violet (`--band-1..6`, alpha 0.70) and stays clear of the greens and browns in the imagery. Dark mode has elevated surfaces (#1a1d23 / #24282f / #2f343c) with a faint top edge highlight.
+- Files changed: index.html, css/app.css (rewritten), js/card.js, js/ranking.js, js/app.js, js/markers.js (30px markers), js/i18n.js (new keys in en and lt: tabPlace, filterLabel, filterPlaceholder, filterEmpty, heroLead, heroTail). JS changed:
+  - app.js: the card lives in the panel at every width; the pill, layers popover and locate button are wired; Leaflet zoom moves into the stack with SVG icons; the scale caret added; `framePad()` fits units into the open map area right of the panel.
+  - ranking.js: tabs and the filter.
+  - card.js: the hero template and a wheel-to-horizontal pole strip that keeps the selected chip in view.
+- Product changes implied:
+  - The ranking is no longer always visible on desktop; it is a tab and the pill.
+  - The basemap switch moves into a layers popover.
+  - The About button becomes an info icon.
+  - Zoom buttons are hidden on phones (pinch only).
+  - The headline sentence is kept whole but visually hidden; the eye reads it as name / lead / figure / tail.
+- Risks:
+  - It looks like many good map apps, by design.
+  - The desktop ranking is one click deeper.
+  - The sheet still animates `height` (inherited; the detector flags it). A transform-based sheet would mean reworking the `--sheet-h` measuring.
+  - The layers thumbnails hotlink one Esri and one OSM tile.
+  - `:has()` hides the scale title on phones while a readout shows.
+  - The detector's clipped-overflow warning is the full-screen `body { overflow: hidden }`, which is intended.
+- To ship:
+  - Self-host Geist (subset latin + latin-ext) inside the 256 KB first-screen budget.
+  - Add the new strings to the LT review.
+  - Update `dev/tests/card.test.mjs` (the headline markup changed: `.card__headline` is now visually hidden inside `.hero`, the islands control is a single `role="switch"` button, facts are wrapped in `.fact` rows) and any ranking tests that assume no filter or tabs.
+  - Add the new `#unit-pill`, `#layers-btn`, `#locate-btn` and `#rank-filter` to whatever DOM smoke checks exist.

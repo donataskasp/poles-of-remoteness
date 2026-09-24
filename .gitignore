@@ -28,3 +28,4 @@ CLAUDE.local.md
 # a local Playwright install for the screenshot routine (node_modules/ above covers dev/node_modules)
 /dev/package.json
 /dev/package-lock.json
+/design/shots/

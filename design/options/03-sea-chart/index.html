@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-i18n="title">Poles of remoteness</title>
+<meta name="description" data-i18n-content="metaDescription" content="The places farthest from any road, computed from OpenStreetMap data.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@400;600&display=swap">
+<link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="hdr__brand">
+    <h1 class="hdr__title"><a class="hdr__home" id="brand-home" href="/" data-i18n="title">Poles of remoteness</a></h1>
+    <p class="hdr__sub" data-i18n="subtitle"></p>
+  </div>
+  <div class="hdr__right">
+    <nav class="seg hdr__regions" id="regions" hidden data-i18n-aria="regionGroup"></nav>
+    <div class="seg seg--lang" role="group" id="lang-seg" data-i18n-aria="langGroup">
+      <button type="button" class="seg__btn" data-lang="en" aria-pressed="true" lang="en">EN</button>
+      <button type="button" class="seg__btn" data-lang="lt" aria-pressed="false" lang="lt">LT</button>
+    </div>
+    <button type="button" class="about-btn" id="about-btn" data-i18n-aria="aboutBtn">
+      <svg class="rose" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <circle class="rose__ring" cx="16" cy="16" r="14.6"/>
+        <circle class="rose__ring" cx="16" cy="16" r="11.2"/>
+        <g class="rose__ticks">
+          <line x1="16" y1="1.4" x2="16" y2="4.8"/><line x1="16" y1="1.4" x2="16" y2="4.8" transform="rotate(90 16 16)"/>
+          <line x1="16" y1="1.4" x2="16" y2="4.8" transform="rotate(180 16 16)"/><line x1="16" y1="1.4" x2="16" y2="4.8" transform="rotate(270 16 16)"/>
+          <line x1="16" y1="1.4" x2="16" y2="3.4" transform="rotate(30 16 16)"/><line x1="16" y1="1.4" x2="16" y2="3.4" transform="rotate(60 16 16)"/>
+          <line x1="16" y1="1.4" x2="16" y2="3.4" transform="rotate(120 16 16)"/><line x1="16" y1="1.4" x2="16" y2="3.4" transform="rotate(150 16 16)"/>
+          <line x1="16" y1="1.4" x2="16" y2="3.4" transform="rotate(210 16 16)"/><line x1="16" y1="1.4" x2="16" y2="3.4" transform="rotate(240 16 16)"/>
+          <line x1="16" y1="1.4" x2="16" y2="3.4" transform="rotate(300 16 16)"/><line x1="16" y1="1.4" x2="16" y2="3.4" transform="rotate(330 16 16)"/>
+        </g>
+        <path class="rose__star" d="M16 2.6 L17.7 14.3 L29.4 16 L17.7 17.7 L16 29.4 L14.3 17.7 L2.6 16 L14.3 14.3 Z"/>
+        <path class="rose__fill" d="M16 2.6 L17.7 14.3 L16 16 Z M29.4 16 L17.7 17.7 L16 16 Z M16 29.4 L14.3 17.7 L16 16 Z M2.6 16 L14.3 14.3 L16 16 Z"/>
+      </svg>
+      <span class="about-btn__text" data-i18n="aboutBtn"></span>
+    </button>
+  </div>
+</header>
+
+<main class="stage">
+  <div id="map" class="map"></div>
+
+  <!-- Task 6 and Task 8: the card. On phones js/app.js moves this element into the sheet body below, where it
+       sits above the ranking; on desktop it stays here, floating over the map. -->
+  <section class="card" id="card" hidden></section>
+
+  <!-- Task 5: map controls and readout -->
+  <div class="mapctl" id="mapctl">
+    <div class="seg seg--sm" role="group" id="basemap-seg" data-i18n-aria="basemapLabel">
+      <button type="button" class="seg__btn" data-base="sat" aria-pressed="true" data-i18n="baseSat"></button>
+      <button type="button" class="seg__btn" data-base="osm" aria-pressed="false" data-i18n="baseOsm"></button>
+    </div>
+    <figure class="scale">
+      <figcaption class="scale__cap" data-i18n="legendLabel"></figcaption>
+      <ul class="legend" id="legend" data-i18n-aria="legendLabel"></ul>
+    </figure>
+    <section class="readout" id="readout" hidden aria-live="polite"></section>
+  </div>
+
+  <!-- Task 7: the ranking -->
+  <aside class="panel panel--collapsed" id="panel" data-i18n-aria="rankingTitle">
+    <!-- The handle is the phone sheet's face, so the card's summary row rides inside it: the whole face is one
+         tap target. Spans only, because a button may carry no flow content. It paints nothing on desktop. -->
+    <button type="button" class="panel__handle" id="panel-handle" aria-expanded="false" aria-controls="panel-body">
+      <span class="panel__grip" aria-hidden="true"></span>
+      <span class="card-summary" id="card-summary" hidden></span>
+      <span class="panel__handle-text" data-i18n="rankingTitle"></span>
+    </button>
+    <div class="panel__body" id="panel-body">
+      <p class="panel__note" id="ranking-note"></p>
+      <ol class="ranking" id="ranking"></ol>
+    </div>
+  </aside>
+</main>
+
+<!-- Task 8: About, both languages inline, toggled by html[lang] -->
+<dialog class="about" id="about">
+  <form method="dialog" class="about__close-form">
+    <button class="about__close" value="close" data-i18n-aria="close"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 3 L13 13 M13 3 L3 13"/></svg></button>
+  </form>
+  <div class="about__body" id="about-body">
+    <div data-lang="en">
+      <h2>About this map</h2>
+      <p>For every country and a few dependent territories of the region, this map shows the place farthest from any road: its pole of remoteness. Two readings are given. <b>A</b> is the distance to anything drivable, forest and field tracks included. <b>B</b> counts public roads only.</p>
+      <h3>How it is computed</h3>
+      <p>Roads come from OpenStreetMap (<span class="snapshot"></span>). The distance to the nearest road is computed on a grid across the whole region, then refined on a <span class="detail-res"></span> m grid around each candidate point, and for each unit the ten best points on its main landmass are kept, together with any island points that rank above them. The coloured layer shows the coarse distances; tap anywhere to read the value. Near the edge of the data a distance is only a lower bound and the cell is grey. <span class="rule-note">Two of the points count as separate places only when every route between them passes within <span class="area-fraction"></span> of the nearer one's distance to a road, over land, and no point may sit on a patch of land smaller than <span class="min-island"></span> km². Points on smaller islands are listed too, and can be switched off in the card.</span></p>
+      <h3>What counts as a road</h3>
+      <p>Physical, not legal: anything a car can physically drive on counts in reading A, including forest and field tracks, private roads and closed roads, because a track that exists still breaks the remoteness whatever the sign says. A is the headline because tracks are the roads that actually reach remote places; B shows what the public road network alone gives. Borders are as mapped in OpenStreetMap; a disputed area belongs to the unit OSM draws it in.</p>
+      <h3>What it is not</h3>
+      <p>A road missing from OpenStreetMap makes a place look remoter than it is, and a mapped track that is gone in reality makes it look less remote. The points are computed, not visited. Check before you go.</p>
+      <h3>Accuracy</h3>
+      <p>Each pole's distance is exact to the 50 m grid around it. The coloured layer is a 250 m grid and the readout gives the class, not the metre. Units within one road-mask width of the data edge are marked; a point near the edge may be closer to a road outside the data than the map can know.</p>
+      <h3>Data and licence</h3>
+      <p>Map data © OpenStreetMap contributors, ODbL. The computed remoteness data on this site is ODbL as well. Satellite imagery: Esri, Maxar, Earthstar Geographics. A hobby project; no tracking beyond a count of page views by country.</p>
+    </div>
+    <div data-lang="lt">
+      <h2>Apie šį žemėlapį</h2>
+      <p>Kiekvienai regiono šaliai ir keliems priklausomiems kraštams žemėlapis rodo vietą, toliausiai nutolusią nuo bet kokio kelio: jos atokumo polių. Pateikiami du atstumai. <b>A</b> yra atstumas iki bet ko, kuo galima pravažiuoti, įskaitant miško ir lauko keliukus. <b>B</b> skaičiuoja tik viešuosius kelius.</p>
+      <h3>Kaip skaičiuojama</h3>
+      <p>Keliai imami iš OpenStreetMap (<span class="snapshot"></span>). Atstumas iki artimiausio kelio skaičiuojamas tinkleliu per visą regioną, tada patikslinamas <span class="detail-res"></span> m tinkleliu aplink kiekvieną kandidatą, ir kiekvienam vienetui paliekama dešimt geriausių pagrindinės sausumos taškų kartu su aukščiau už juos esančiais salų taškais. Spalvotas sluoksnis rodo stambaus tinklelio atstumus; palieskite bet kurią vietą ir pamatysite reikšmę. Prie duomenų krašto atstumas yra tik apatinė riba, tokios vietos pilkos. <span class="rule-note">Du taškai laikomi skirtingomis vietomis tik tada, kai bet kuris kelias tarp jų praeina arčiau kelio nei <span class="area-fraction"></span> artimesniojo taško atstumo, ir tik sausuma; taškas negali būti mažesniame nei <span class="min-island"></span> km² sausumos lopinėlyje. Taškai mažesnėse salose taip pat rodomi, juos galima išjungti kortelėje.</span></p>
+      <h3>Kas laikoma keliu</h3>
+      <p>Fiziškai, ne teisiškai: A variante skaičiuojama viskas, kuo automobilis fiziškai gali pravažiuoti, įskaitant miško ir lauko keliukus, privačius ir uždarytus kelius, nes esantis keliukas atokumą naikina nepriklausomai nuo ženklo. A yra pagrindinis rodiklis, nes būtent keliukai pasiekia atokias vietas; B rodo, ką duoda vien viešųjų kelių tinklas. Sienos tokios, kokios pažymėtos OpenStreetMap; ginčijama teritorija priklauso tam vienetui, kuriame ją piešia OSM.</p>
+      <h3>Kas tai nėra</h3>
+      <p>OpenStreetMap trūkstamas kelias vietą parodo atokesnę, nei ji yra, o pažymėtas, bet realybėje išnykęs keliukas parodo mažiau atokią. Taškai apskaičiuoti, ne aplankyti. Prieš vykdami pasitikrinkite.</p>
+      <h3>Tikslumas</h3>
+      <p>Kiekvieno poliaus atstumas tikslus iki 50 m tinklelio aplink jį. Spalvotas sluoksnis yra 250 m tinklelis, o rodmuo nurodo klasę, ne metrą. Vienetai, esantys arti duomenų krašto, pažymėti; prie krašto esantis taškas gali būti arčiau kelio už duomenų ribos, nei žemėlapis gali žinoti.</p>
+      <h3>Duomenys ir licencija</h3>
+      <p>Žemėlapio duomenys © OpenStreetMap bendraautoriai, ODbL. Šioje svetainėje apskaičiuoti atokumo duomenys taip pat ODbL. Palydovinės nuotraukos: Esri, Maxar, Earthstar Geographics. Laisvalaikio projektas; jokio sekimo, tik lankytojų skaičius pagal šalį.</p>
+    </div>
+  </div>
+</dialog>
+
+<script src="/vendor/leaflet/leaflet.js"></script>
+<script src="/vendor/pmtiles/pmtiles.js"></script>
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>

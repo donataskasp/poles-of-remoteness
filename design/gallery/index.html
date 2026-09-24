@@ -1,0 +1,226 @@
+<title>Poles Redesign Options</title>
+<meta name="description" content="Eight working redesign prototypes of polesofremoteness.com, with screenshots on real data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap">
+<style>
+:root {
+  --ground: #eceeea;
+  --panel: #f8f9f6;
+  --ink: #1b1f1c;
+  --ink-2: #555c56;
+  --hair: rgba(27, 31, 28, .14);
+  --accent: #2f5d50;
+  --accent-soft: rgba(47, 93, 80, .12);
+  --shot-ground: #d9ddd7;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #141715;
+    --panel: #1c201d;
+    --ink: #e7eae5;
+    --ink-2: #a3aaa3;
+    --hair: rgba(231, 234, 229, .14);
+    --accent: #8cc7b3;
+    --accent-soft: rgba(140, 199, 179, .14);
+    --shot-ground: #0e100f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #141715;
+  --panel: #1c201d;
+  --ink: #e7eae5;
+  --ink-2: #a3aaa3;
+  --hair: rgba(231, 234, 229, .14);
+  --accent: #8cc7b3;
+  --accent-soft: rgba(140, 199, 179, .14);
+  --shot-ground: #0e100f;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font: 16px/1.5 "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+::selection { background: var(--accent); color: var(--panel); }
+a { color: var(--accent); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 1320px; margin: 0 auto; padding-inline: 24px; }
+header.top { padding-block: 48px 24px; }
+h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 12px; font-weight: 800; text-wrap: balance; }
+.lede { max-width: 68ch; color: var(--ink-2); margin: 0; font-size: 18px; }
+.rec {
+  margin-top: 28px; background: var(--panel); border: 1px solid var(--hair); border-radius: 14px;
+  padding: 22px 24px; display: grid; gap: 10px; max-width: 900px;
+}
+.rec h2 { margin: 0; font-size: 20px; }
+.rec p { margin: 0; max-width: 75ch; }
+.rec ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+
+/* Overview grid */
+.overview { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; padding-block: 24px 40px; }
+.thumb { display: grid; gap: 8px; text-decoration: none; color: inherit; }
+.thumb img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; border-radius: 10px;
+  border: 1px solid var(--hair); background: var(--shot-ground); display: block; transition: transform .2s ease-out; }
+.thumb:hover img { transform: translateY(-2px); }
+.thumb b { font-weight: 700; }
+.thumb span { color: var(--ink-2); font-size: 14px; }
+
+/* Option sections */
+section.opt { border-top: 1px solid var(--hair); padding-block: 44px; scroll-margin-top: 8px; }
+.opt__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin-bottom: 6px; }
+.opt__num { font-variant-numeric: tabular-nums; color: var(--ink-2); font-weight: 600; }
+.opt h2 { margin: 0; font-size: clamp(24px, 3vw, 32px); letter-spacing: -0.015em; line-height: 1.15; }
+.tag { font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.thesis { margin: 0 0 18px; max-width: 75ch; font-size: 18px; color: var(--ink-2); }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.tabs button {
+  font: inherit; font-size: 14px; border: 1px solid var(--hair); background: var(--panel); color: var(--ink);
+  padding: 5px 12px; border-radius: 999px; cursor: pointer;
+}
+.tabs button[aria-pressed="true"] { background: var(--ink); color: var(--panel); border-color: var(--ink); }
+.stage { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 16px; align-items: start; }
+.stage img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--hair); background: var(--shot-ground); }
+.stage .main img { aspect-ratio: 1440 / 900; object-fit: cover; object-position: top; }
+.stage .phone img { aspect-ratio: 390 / 844; object-fit: cover; object-position: top; }
+.stage figcaption { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+figure { margin: 0; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px 28px; margin-top: 20px; }
+.facts h3 { margin: 0 0 4px; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+.facts p { margin: 0; }
+footer { border-top: 1px solid var(--hair); padding-block: 32px 56px; color: var(--ink-2); }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; background: var(--panel);
+  border: 1px solid var(--hair); padding: 1px 6px; border-radius: 6px; overflow-wrap: anywhere; }
+@media (max-width: 760px) {
+  .wrap { padding-inline: 16px; }
+  .stage { grid-template-columns: 1fr; }
+  .stage .phone { max-width: 260px; }
+}
+@media (prefers-reduced-motion: reduce) { .thumb img { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>Poles of remoteness: eight redesigns</h1>
+    <p class="lede">Each option is a working copy of the site in <code>design/options/</code> on branch <code>ui-options</code>, running on the real published data for both regions and both languages. Every screenshot comes from a live browser with the real satellite imagery: Lithuania, the Scandinavian continent view, zoom 13 on pole 1, the About dialog, and the phone. Nothing is deployed and <code>site/</code> is unchanged.</p>
+    <div class="rec">
+      <h2>My recommendation: 02 Orienteering</h2>
+      <p>It serves both audiences best. Map people read it instantly: poles are controls, the card is a control description sheet. Curious visitors still get a bold, legible site with the satellite imagery kept in full colour. It is the least gimmicky of the bold options and needs no product changes, only new styles, markup and one font.</p>
+      <ol>
+        <li><b>Boldest alternative: 01 Star atlas.</b> The most memorable and the most beautiful on the continent view. The catch: it is dark only, and in low-remoteness countries like Lithuania, where most visitors land, the map is nearly empty.</li>
+        <li><b>Calmest alternative: 07 Survey sheet.</b> A precise map sheet with a live coordinate frame. It costs a little map area.</li>
+      </ol>
+      <p>Tell me the number, or mix (for example "02 with 01's stars"). I then build it properly into <code>site/</code>: self-hosted fonts, the 256 KB budget, the tests, and the screenshot suite.</p>
+    </div>
+  </header>
+
+  <nav class="overview" id="overview" aria-label="All options"></nav>
+  <main id="options"></main>
+
+  <footer>
+    <p>To click through an option locally, from the repo root: <code>node dev/serve.mjs --site design/options/02-orienteering --data site/data --port 8302</code>, then open <code>http://localhost:8302/europe/lt</code>. Each option's notes (fonts, changed files, risks, what shipping takes) are in <code>design/briefs/&lt;option&gt;-notes.md</code>, and the eight briefs are in <code>design/briefs/DIRECTIONS.md</code>.</p>
+  </footer>
+</div>
+
+<script>
+const VIEWS = [
+  ['desktop-lt', 'Desktop'], ['desktop-lt-dark', 'Dark'], ['desktop-continent', 'Continent'],
+  ['desktop-detail', 'Zoom 13'], ['desktop-about', 'About'],
+];
+const PHONES = [['phone-lt', 'Phone'], ['phone-sheet', 'Phone, sheet open']];
+
+const OPTIONS = [
+  { id: '00-current', num: 'Now', name: 'The current site', tag: 'Baseline',
+    thesis: 'Satellite map, rounded white floating cards, one warm brown accent. Shown for comparison.',
+    sig: 'None; a clean, generic map app.', change: 'None.', risk: 'Reads like any map tool; the ranking on desktop opens mid-scroll.', type: 'System fonts.' },
+  { id: '01-star-atlas', num: '01', name: 'Star atlas', tag: 'Boldest',
+    thesis: 'Remoteness is darkness. The site is a night star-atlas plate: poles are stars sized by magnitude, the ranking is a star catalogue, and the quietest land shines brightest.',
+    sig: 'Drawn stars that shrink from pole 1 to 10; selecting one blooms it into a gold glow with rays while the others dim.',
+    change: 'Dark only (the owner allowed single-scheme options). No flag emoji. The satellite is filtered to night, lifting at zoom 12 and closer.',
+    risk: 'Low-remoteness countries (Lithuania) look nearly empty at country zoom. Dark only is hard in bright daylight on phones.',
+    type: 'Bodoni Moda and Jost, about 230 to 260 KB, needs trimming for the budget.' },
+  { id: '02-orienteering', num: '02', name: 'Orienteering map', tag: 'Recommended',
+    thesis: 'Poles are controls in the magenta overprint of an orienteering map, and the card is the control description sheet for the selected pole.',
+    sig: 'Hollow magenta control circles with the number beside them, the finish double circle on the selected pole, drawn in when selected. Bands in orienteering yellow to fight green.',
+    change: 'None beyond a visible ranking title and column headings. Satellite stays the default, in full colour.',
+    risk: 'Casual visitors may not know the form (it still reads as a plain table). The yellow near band is loud at zoom 13.',
+    type: 'Barlow Semi Condensed, about 110 KB.' },
+  { id: '03-sea-chart', num: '03', name: 'Sea chart', tag: 'Striking',
+    thesis: 'Roads are the coastline and remoteness is depth: the land is sounded like an Admiralty chart, in chart blues that deepen away from every road.',
+    sig: 'Poles as chart soundings (3 with a small lowered 43), a depth-scale legend, and a compass rose as the About button.',
+    change: 'Satellite tinted sepia. No flag emoji. About moves to the header.',
+    risk: 'Blue on land can read as water or ice at a glance. Sounding labels collide in tight clusters.',
+    type: 'Libre Caslon Text and Libre Franklin, about 130 to 160 KB.' },
+  { id: '04-park-brochure', num: '04', name: 'Park brochure', tag: 'Clear',
+    thesis: 'The Vignelli Unigrid of national park brochures: a black title band, a strict grid, flat paper panels, and the map as the brochure map panel.',
+    sig: 'The black band carries the live headline: "Lithuania. 3.43 km from any drivable way."',
+    change: 'The headline moves from the card to the band. A metric scale bar. Satellite desaturated.',
+    risk: 'US-parks association for a Europe-first site; the most conservative of the bold options.',
+    type: 'Public Sans, about 55 to 60 KB.' },
+  { id: '05-gps-handheld', num: '05', name: 'Handheld GPS', tag: 'Playful',
+    thesis: 'The viewport is the screen of a handheld GPS: the data-fields page, the map page and the waypoint list, on a grey-green LCD.',
+    sig: 'A compass field pointing from the pole to its nearest settlement, a blinking cursor on the current ranking row, hover preview of a unit on the map.',
+    change: 'Imagery heavily filtered to LCD green. No flag emoji.',
+    risk: 'The most gimmicky; pixel type is dense; the filtered satellite loses its colour cues.',
+    type: 'Tiny5 and Atkinson Hyperlegible, about 120 KB.' },
+  { id: '06-screenprint', num: '06', name: 'Screenprint', tag: 'Loudest',
+    thesis: 'The two readings are two ink passes of one screenprint: A in fluorescent pink, B in blue. Switching the scenario re-inks the whole page.',
+    sig: 'The scenario switch slides the new ink in slightly out of register, then it settles; stencil caps with a misregistered second copy.',
+    change: 'Every accent follows the active scenario. No flag emoji. Satellite turned into a grey base.',
+    risk: 'Loud against the dry, precise voice; heavy pink turns maroon over forest.',
+    type: 'Big Shoulders Stencil and Display plus Archivo, about 170 KB.' },
+  { id: '07-survey-sheet', num: '07', name: 'Survey sheet', tag: 'Calmest',
+    thesis: 'The window is one sheet of a national topographic series, framed by a live coordinate collar, with a title block and an index of sheets in the margin.',
+    sig: 'The collar: black and white graduated edges with degree and minute labels, redrawn live as the map moves, from continent zoom down to zoom 13.',
+    change: 'Flags become unit codes (LT, US-AK). Rank reads "Sheet 39 of 52". Key and credits move to the bottom margin.',
+    risk: 'The frame costs about 125 px of map height; the index shows about 8 rows.',
+    type: 'Source Sans 3, about 80 to 90 KB.' },
+  { id: '08-canon', num: '08', name: 'Modern map app', tag: 'The safe standard',
+    thesis: 'The category standard at full craft: what a top map-app team would ship for this data. No metaphor; clarity and finish carry it.',
+    sig: 'The legend doubles as the readout: a caret glides along the scale to the tapped value. A search pill filters the ranking.',
+    change: 'Ranking becomes a tab; basemap switch moves into a layers popover; About becomes an info icon; new Lithuanian strings to check.',
+    risk: 'It will look like many other good map apps. That is its point.',
+    type: 'Geist, about 50 KB.' },
+];
+
+const img = (o, v) => `img/${o}/${v}.webp`;
+const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+document.getElementById('overview').innerHTML = OPTIONS.map((o) => `
+  <a class="thumb" href="#${o.id}">
+    <img src="${img(o.id, 'desktop-lt')}" alt="${esc(o.name)}, desktop" loading="lazy" width="1440" height="900">
+    <div><b>${esc(o.num)} ${esc(o.name)}</b><br><span>${esc(o.tag)}</span></div>
+  </a>`).join('');
+
+document.getElementById('options').innerHTML = OPTIONS.map((o) => `
+  <section class="opt" id="${o.id}">
+    <div class="opt__head"><span class="opt__num">${esc(o.num)}</span><h2>${esc(o.name)}</h2><span class="tag">${esc(o.tag)}</span></div>
+    <p class="thesis">${esc(o.thesis)}</p>
+    <div class="tabs" role="group" aria-label="Desktop view">
+      ${VIEWS.map(([v, l], i) => `<button type="button" data-opt="${o.id}" data-view="${v}" aria-pressed="${i === 0}">${l}</button>`).join('')}
+      ${PHONES.map(([v, l], i) => `<button type="button" data-opt="${o.id}" data-phone="${v}" aria-pressed="${i === 0}">${l}</button>`).join('')}
+    </div>
+    <div class="stage">
+      <figure class="main"><img id="m-${o.id}" src="${img(o.id, 'desktop-lt')}" alt="${esc(o.name)}, desktop view" loading="lazy" width="1440" height="900"><figcaption>1440 x 900</figcaption></figure>
+      <figure class="phone"><img id="p-${o.id}" src="${img(o.id, 'phone-lt')}" alt="${esc(o.name)}, phone view" loading="lazy" width="390" height="844"><figcaption>390 x 844</figcaption></figure>
+    </div>
+    <div class="facts">
+      <div><h3>Signature</h3><p>${esc(o.sig)}</p></div>
+      <div><h3>Changes to the product</h3><p>${esc(o.change)}</p></div>
+      <div><h3>Risks</h3><p>${esc(o.risk)}</p></div>
+      <div><h3>Type</h3><p>${esc(o.type)}</p></div>
+    </div>
+  </section>`).join('');
+
+document.getElementById('options').addEventListener('click', (e) => {
+  const b = e.target.closest('button[data-opt]');
+  if (!b) return;
+  const id = b.dataset.opt;
+  const phone = !!b.dataset.phone;
+  const key = phone ? b.dataset.phone : b.dataset.view;
+  document.getElementById(`${phone ? 'p' : 'm'}-${id}`).src = img(id, key);
+  b.parentElement.querySelectorAll(phone ? 'button[data-phone]' : 'button[data-view]')
+    .forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+});
+</script>

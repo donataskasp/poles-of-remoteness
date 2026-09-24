@@ -1,0 +1,360 @@
+/* Poles of remoteness, option 03: the sea chart. The road network is the coastline and remoteness is depth:
+   the land is sounded in chart blues, the panels are chart buff, magenta marks notes and the selection, black
+   is the lettering. Tokens first, the night (ECDIS) palette second, then layout. Phone rules live in the
+   media query at the end of the file; desktop rules never go there. */
+:root {
+  --paper:       #f2e7c9;   /* chart buff */
+  --paper-2:     #e8dab1;
+  --sea:         #d3e5ec;   /* shallow water tint: the ranking owns it */
+  --sea-2:       #bcd6e2;
+  --ink:         #17160f;
+  --ink-2:       #4a4433;
+  --ink-sea:     #1f3a4c;   /* secondary lettering set on the blue */
+  --blue:        #0e4678;   /* chart blue ink */
+  --blue-ink:    #0c3f6d;
+  --magenta:     #9c1569;
+  --magenta-soft: rgba(156, 21, 105, .11);
+  --hair:        rgba(23, 22, 15, .2);
+  --hair-strong: rgba(23, 22, 15, .55);
+  --halo:        #f2e7c9;
+  --shadow:      0 1px 2px rgba(40, 32, 10, .16), 0 3px 8px rgba(40, 32, 10, .14);
+  --basemap-filter: sepia(.7) saturate(.42) brightness(1.24) contrast(.74);
+  /* Remoteness as depth, one tint per distance stop (1, 2.5, 5, 10, 20, 50 km). Read by js/palette.js. */
+  --band-1: #c9e3f1;
+  --band-2: #acd1e6;
+  --band-3: #7db3d6;
+  --band-4: #4a8dc0;
+  --band-5: #22649f;
+  --band-6: #0b3f72;
+  --edge:   #8b8574;
+  --band-alpha: 0.68;
+
+  --serif: "Libre Caslon Text", "Iowan Old Style", Georgia, serif;
+  --sans: "Libre Franklin", "Franklin Gothic Book", "Helvetica Neue", Arial, sans-serif;
+
+  --r: 2px;
+  --t: 180ms cubic-bezier(.16, 1, .3, 1);
+  --panel-w: 372px;
+  --hdr-h: 62px;
+  /* The height of the closed phone sheet, measured and written by js/ranking.js. Only the phone rules read it. */
+  --sheet-h: 0px;
+  color-scheme: light;
+}
+
+/* Night: the chart display on a darkened bridge. Deep blue-black ground, dimmed buff lettering, the blues and
+   the magenta turned down so nothing glares. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:       #0c111a;
+    --paper-2:     #151c28;
+    --sea:         #07172a;
+    --sea-2:       #0f2540;
+    --ink:         #dccfae;
+    --ink-2:       #a89e84;
+    --ink-sea:     #9fb3c2;
+    --blue:        #2f6da6;
+    --blue-ink:    #8fbbe3;
+    --magenta:     #e07fbf;
+    --magenta-soft: rgba(224, 127, 191, .14);
+    --hair:        rgba(220, 207, 174, .16);
+    --hair-strong: rgba(220, 207, 174, .45);
+    --halo:        #080c13;
+    --shadow:      0 1px 2px rgba(0, 0, 0, .6), 0 3px 9px rgba(0, 0, 0, .45);
+    --basemap-filter: grayscale(.75) brightness(.5) contrast(1.05) sepia(.3) hue-rotate(180deg);
+    --band-1: #274b72;
+    --band-2: #2a5a8a;
+    --band-3: #255c93;
+    --band-4: #2e72b1;
+    --band-5: #4189cb;
+    --band-6: #66a7e3;
+    --edge:   #5c6470;
+    --band-alpha: 0.78;
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font: 14px/1.45 var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  overflow: hidden;
+  font-variant-numeric: tabular-nums;
+}
+::selection { background: var(--magenta); color: var(--paper); }
+:focus-visible { outline: 2px solid var(--magenta); outline-offset: 2px; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+button { font: inherit; color: inherit; }
+a { color: var(--blue-ink); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+/* The chart's graduated border: alternating black and buff divisions between two rules, as on the neatline
+   of a chart where the latitude scale runs. Used once horizontally (the header's foot) and once vertically
+   (the ranking's edge). */
+.hdr::after, .panel::before {
+  content: ""; position: absolute; pointer-events: none;
+  border: 1px solid var(--ink);
+}
+.hdr::after {
+  left: 0; right: 0; bottom: 0; height: 7px;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 30px, var(--paper) 30px 60px);
+  border-width: 1px 0;
+}
+.panel::before {
+  top: 0; bottom: 0; left: 0; width: 7px;
+  background: repeating-linear-gradient(180deg, var(--ink) 0 30px, var(--paper) 30px 60px);
+  border-width: 0 1px;
+}
+
+/* Header: the chart's top margin strip */
+.hdr {
+  position: fixed; inset: 0 0 auto 0; height: var(--hdr-h); z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 0 20px 7px; background: var(--paper);
+}
+.hdr__brand { display: flex; align-items: baseline; gap: 16px; min-width: 0; }
+.hdr__title { margin: 0; font: 700 16px/1.1 var(--serif); letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; }
+.hdr__home { color: inherit; text-decoration: none; }
+.hdr__sub { margin: 0; font: italic 400 14px/1.2 var(--serif); color: var(--ink-2); white-space: nowrap; }
+.hdr__right { display: flex; align-items: center; gap: 12px; }
+
+/* Segmented controls: square chart boxes, the chosen one lettered and ruled in magenta */
+.seg { display: inline-flex; border: 1px solid var(--hair-strong); border-radius: var(--r); background: var(--paper); }
+.seg__btn { border: 0; background: transparent; padding: 6px 12px; cursor: pointer; color: var(--ink-2);
+  font-size: 13px; transition: background-color var(--t), color var(--t); }
+.seg__btn + .seg__btn { border-left: 1px solid var(--hair); }
+.seg__btn:hover { background: var(--paper-2); color: var(--ink); }
+.seg__btn[aria-pressed="true"], .hdr__regions .seg__btn[aria-current="page"] {
+  color: var(--magenta); font-weight: 600; box-shadow: inset 0 0 0 1.5px var(--magenta); background: var(--magenta-soft); }
+.seg--sm .seg__btn { padding: 4px 10px; font-size: 12px; }
+.hdr__regions[hidden] { display: none; }
+.hdr__regions .seg__btn { text-decoration: none; }
+
+/* The About button wears the chart's one compass rose */
+.about-btn { display: inline-flex; align-items: center; gap: 8px; border: 0; background: none; padding: 2px 4px 2px 2px;
+  cursor: pointer; color: var(--ink); font: italic 400 14px/1 var(--serif); border-radius: var(--r); }
+.about-btn:hover .about-btn__text { text-decoration: underline; text-underline-offset: 3px; }
+.rose { width: 34px; height: 34px; flex: none; transition: transform 600ms cubic-bezier(.16, 1, .3, 1); }
+.about-btn:hover .rose { transform: rotate(-22.5deg); }
+.rose__ring, .rose__ticks line, .rose__star { fill: none; stroke: var(--magenta); stroke-width: .8; }
+.rose__fill { fill: var(--magenta); }
+
+/* Stage and map */
+.stage { position: fixed; inset: var(--hdr-h) 0 0 0; }
+.map { position: absolute; inset: 0; right: var(--panel-w); background: var(--sea); }
+.leaflet-container { font: inherit; background: var(--sea); }
+.leaflet-tile.explore-tile, .detail-overlay { image-rendering: pixelated; }
+.basemap { filter: var(--basemap-filter); }
+.leaflet-bar { border: 1px solid var(--hair-strong) !important; border-radius: var(--r) !important; box-shadow: var(--shadow) !important; }
+.leaflet-bar a, .leaflet-bar a:hover { background: var(--paper); color: var(--ink); border-bottom-color: var(--hair) !important;
+  border-radius: 0 !important; font: 400 20px/30px var(--serif); }
+.leaflet-bar a:hover { background: var(--paper-2); }
+.leaflet-control-attribution { background: color-mix(in srgb, var(--paper) 88%, transparent) !important; color: var(--ink-2); font-size: 11px; }
+.leaflet-control-attribution a { color: var(--blue-ink); }
+
+/* Map controls, bottom left of the map */
+.mapctl {
+  position: absolute; right: calc(var(--panel-w) + 14px); bottom: 30px; z-index: 800; display: flex; flex-direction: column; gap: 8px;
+  align-items: flex-end; pointer-events: none;
+}
+.mapctl > * { pointer-events: auto; }
+
+/* The legend as a depth scale: the road drawn as the shoreline, then six stepped blocks hanging deeper with
+   distance, the figures under them. */
+.scale { margin: 0; padding: 8px 12px 8px; background: var(--paper); border: 1px solid var(--ink); border-radius: var(--r);
+  box-shadow: var(--shadow); }
+.scale__cap { font: italic 400 13px/1.2 var(--serif); margin: 0 0 6px; color: var(--ink); }
+.legend { list-style: none; margin: 0; padding: 0; display: flex; align-items: flex-start; }
+.legend__item { display: flex; flex-direction: column; align-items: flex-start; width: 44px; }
+.legend__swatch { display: block; width: 100%; height: calc(4px + var(--step) * 3px); border-top: 2.5px solid var(--ink);
+  box-shadow: inset 0 -1px 0 var(--hair-strong), inset -1px 0 0 var(--hair); }
+.legend__item:first-child .legend__swatch { border-left: 1px solid var(--hair-strong); }
+.legend__fig { margin-top: 3px; margin-left: -2px; font: italic 400 12px/1 var(--serif); color: var(--ink); }
+.legend__unit { align-self: flex-end; margin-left: 2px; font: italic 400 12px/1 var(--serif); color: var(--ink-2); }
+
+/* Card: the chart's title block, top left of the map */
+.card { position: absolute; left: 14px; top: 14px; z-index: 900; width: min(384px, calc(100% - 28px));
+  max-height: calc(100% - 28px); overflow: auto; scrollbar-width: thin; scrollbar-color: var(--hair-strong) transparent;
+  background: var(--paper); border: 1px solid var(--ink); outline: 1px solid var(--ink); outline-offset: -5px;
+  border-radius: 0; box-shadow: var(--shadow); padding: 18px 20px 16px; }
+.card:focus-visible { outline-offset: 2px; }
+.card-summary { display: none; }
+.cartouche { text-align: center; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--ink); }
+.cartouche__name { margin: 2px 0 4px; font: 700 21px/1.15 var(--serif); letter-spacing: .22em; text-transform: uppercase;
+  text-wrap: balance; }
+.cartouche__sub { margin: 0 0 10px; font: italic 400 13px/1.35 var(--serif); color: var(--blue-ink); text-wrap: balance; }
+.card__headline { margin: 0 0 8px; font: 400 15px/1.4 var(--serif); text-wrap: balance; }
+/* The rank stands where a chart draws its scale line: set between two rules. */
+.card__rank { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 12px; letter-spacing: .06em; color: var(--ink-2); }
+.card__rank::before, .card__rank::after { content: ""; flex: 1; height: 5px; border: 1px solid var(--ink-2); border-width: 1px 0; }
+.card__rank span { flex: none; }
+.card__seg { display: flex; width: 100%; }
+.card__seg .seg__btn { flex: 1; padding: 7px 8px; }
+.card__hint { margin: 5px 0 10px; font: italic 400 12.5px/1.3 var(--serif); color: var(--ink-2); text-align: center; }
+.card__ctl { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+.card__islands { display: flex; align-items: center; gap: 8px; }
+.card__islands-label { font-size: 12px; color: var(--ink-2); }
+.card__actions { display: flex; gap: 6px; }
+.btn { border: 1px solid var(--blue); background: var(--blue); color: #f2e7c9; border-radius: var(--r); padding: 6px 11px;
+  cursor: pointer; font-size: 13px; font-weight: 600; transition: background-color var(--t), color var(--t); }
+.btn:hover { background: var(--blue-ink); }
+.btn--ghost { background: transparent; color: var(--blue-ink); }
+.btn--ghost:hover { background: var(--sea); color: var(--blue-ink); }
+@media (prefers-color-scheme: dark) { .btn { color: #eaf2fa; } .btn:hover { background: #245a8c; } }
+
+/* The pole facts as the chart's numbered NOTES */
+.card__poles { border-top: 1px solid var(--hair); padding-top: 12px; }
+.card__pole-title { margin: 0 0 8px; font: 700 12px/1.3 var(--serif); letter-spacing: .2em; text-transform: uppercase; color: var(--magenta); }
+.card__of { font-weight: 400; letter-spacing: .12em; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+.chip { border: 1px solid var(--hair-strong); background: transparent; border-radius: var(--r); min-width: 27px; height: 25px;
+  padding: 0 6px; cursor: pointer; font: 400 12px/1 var(--sans); color: var(--ink); transition: background-color var(--t); }
+.chip:hover { background: var(--paper-2); }
+.chip--on, .chip--on:hover { background: var(--magenta); border-color: var(--magenta); color: var(--paper); font-weight: 600; }
+.notes { list-style: none; counter-reset: note; margin: 0; padding: 0; font-size: 13px; }
+.notes li { counter-increment: note; display: grid; grid-template-columns: 20px 1fr; column-gap: 4px; padding: 2px 0; }
+.notes li::before { content: counter(note) "."; grid-row: 1 / span 2; color: var(--magenta); font: 400 13px/1.45 var(--serif); }
+.notes__k { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); line-height: 1.5; }
+.notes__v { grid-column: 2; }
+.notes__v--snd { font: italic 400 16px/1.3 var(--serif); }
+.coord { font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+.card__maps { display: block; }
+.card__note { margin: 8px 0 0; font-size: 12px; color: var(--magenta); }
+
+/* The sounding figure: whole units full size, the decimal small and lowered, no separator */
+.snd-fig { font-family: var(--serif); font-style: italic; white-space: nowrap; }
+.snd-fig__d { font-size: .62em; position: relative; top: .34em; margin-left: .04em; }
+
+/* The readout, written as a sounding */
+.readout { padding: 6px 12px 8px; background: var(--paper); border: 1px solid var(--ink); border-radius: var(--r);
+  box-shadow: var(--shadow); font: italic 400 14px/1.35 var(--serif); max-width: 330px; }
+.readout .snd-fig { font-size: 26px; line-height: 1; color: var(--blue-ink); margin: 0 1px; }
+.readout .snd-fig__d { top: .38em; }
+
+/* Pole markers: a circled dot on the spot, the sounding beside it, the pole's number in a small note box.
+   Leaflet positions the marker with an inline transform, so the selected state is said in colour and the
+   ring, never in the element's own transform or size. */
+.pole-marker { display: flex; align-items: center; gap: 1px; height: 22px; white-space: nowrap; color: var(--ink);
+  text-shadow: -1px -1px 0 var(--halo), 1px -1px 0 var(--halo), -1px 1px 0 var(--halo), 1px 1px 0 var(--halo),
+    0 -1.5px 0 var(--halo), 0 1.5px 0 var(--halo), -1.5px 0 0 var(--halo), 1.5px 0 0 var(--halo); }
+.pole-marker__dot { width: 22px; height: 22px; flex: none; overflow: visible; }
+.pole-marker__circ { fill: none; stroke: var(--ink); stroke-width: 1.4; }
+.pole-marker__pt { fill: var(--ink); }
+.pole-marker__ring { fill: none; stroke: var(--magenta); stroke-width: 2; opacity: 0; transform-origin: 11px 11px; transform: scale(.4);
+  transition: opacity 400ms cubic-bezier(.16, 1, .3, 1), transform 400ms cubic-bezier(.16, 1, .3, 1); }
+.pole-marker .snd-fig { font-size: 19px; line-height: 1; }
+.pole-marker__n { align-self: flex-start; margin-left: 3px; margin-top: -3px; padding: 1px 3px; font: 600 9.5px/1.1 var(--sans);
+  text-shadow: none; background: var(--paper); border: 1px solid var(--ink); border-radius: 1px; }
+.pole-marker__dot circle.pole-marker__circ { paint-order: stroke; }
+.pole-marker--active { color: var(--magenta); z-index: 1000; }
+.pole-marker--active .pole-marker__ring { opacity: 1; transform: scale(1); }
+.pole-marker--active .pole-marker__circ { stroke: var(--magenta); }
+.pole-marker--active .pole-marker__pt { fill: var(--magenta); }
+.pole-marker--active .pole-marker__n { background: var(--magenta); border-color: var(--magenta); color: var(--paper); }
+
+/* Side panel (desktop): the tide table, on the chart's water tint. Sheet on phones (see the media query). */
+.panel { position: absolute; top: 0; right: 0; bottom: 0; width: var(--panel-w); background: var(--sea); color: var(--ink);
+  display: flex; flex-direction: column; z-index: 900; padding-left: 7px; }
+.panel__handle { display: none; }
+.panel__body { overflow: auto; padding: 16px 18px 20px 16px; flex: 1;
+  scrollbar-width: thin; scrollbar-color: var(--blue) transparent; }
+.panel__body::-webkit-scrollbar { width: 8px; }
+.panel__body::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 0; }
+.panel__note { margin: 0 0 14px; font: italic 400 13px/1.4 var(--serif); color: var(--ink-sea); }
+.ranking { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--ink); }
+.ranking__head, .ranking__btn { display: grid; grid-template-columns: 34px 1fr 62px 54px; align-items: baseline; gap: 6px; }
+.ranking__head { position: sticky; top: 0; z-index: 1; padding: 8px 6px 6px; margin-top: -2px; background: var(--sea);
+  border-top: 2px solid var(--ink); border-bottom: 1px solid var(--ink);
+  font: 400 11px/1.2 var(--serif); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-sea); }
+.ranking__row + .ranking__row { border-top: 1px solid var(--hair); }
+.ranking__row:nth-child(5n) { border-bottom: 1px solid var(--hair-strong); }
+.ranking__btn { width: 100%; border: 0; background: none; padding: 6px 6px; text-align: left; cursor: pointer;
+  transition: background-color var(--t); }
+.ranking__btn:hover { background: var(--sea-2); }
+.ranking__row--current { scroll-margin-top: 36px; }
+.ranking__row--current .ranking__btn { background: var(--magenta-soft); box-shadow: inset 0 0 0 1.5px var(--magenta); }
+.ranking__row--current .ranking__name, .ranking__row--current .ranking__rank { color: var(--magenta); font-weight: 600; }
+.ranking__rank { color: var(--ink-sea); font-size: 12px; }
+.ranking__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 400 14px/1.35 var(--serif); }
+.ranking__dist, .ranking__other { text-align: right; }
+.ranking__btn .ranking__dist { font: italic 400 15px/1.3 var(--serif); }
+.ranking__btn .ranking__other { font-size: 12px; color: var(--ink-sea); }
+
+/* About dialog: a chart's notes panel */
+.about { width: min(660px, calc(100% - 32px)); max-height: calc(100% - 48px); border: 1px solid var(--ink);
+  outline: 1px solid var(--ink); outline-offset: -6px; border-radius: 0; padding: 26px 34px 22px;
+  background: var(--paper); color: var(--ink); box-shadow: var(--shadow);
+  scrollbar-width: thin; scrollbar-color: var(--blue) transparent; }
+.about::backdrop { background: rgba(10, 20, 32, .5); }
+.about__close-form { position: sticky; top: 0; float: right; margin: -8px -14px 0 0; }
+.about__close { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--hair-strong);
+  border-radius: var(--r); background: var(--paper); cursor: pointer; }
+.about__close:hover { background: var(--paper-2); }
+.about__close svg { width: 14px; height: 14px; fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.about__body { max-width: 68ch; }
+.about__body h2 { font: 700 20px/1.2 var(--serif); letter-spacing: .18em; text-transform: uppercase; margin: 0 0 14px; }
+.about__body h3 { font: 700 12px/1.3 var(--serif); letter-spacing: .18em; text-transform: uppercase; color: var(--magenta);
+  margin: 22px 0 6px; }
+.about__body p { margin: 0 0 10px; font: 400 15px/1.55 var(--serif); }
+.about__body b { font-weight: 700; color: var(--blue-ink); }
+/* The About text carries both languages inline and html[lang] picks one; scoped to the dialog on purpose. */
+html[lang="en"] .about__body [data-lang="lt"], html[lang="lt"] .about__body [data-lang="en"] { display: none; }
+
+/* Phone: the map fills the screen, the card and the tide table live in a bottom sheet. Phone rules only. */
+@media (max-width: 720px) {
+  :root { --hdr-h: 58px; }
+  .map { right: 0; }
+  .hdr { padding: 0 8px 7px 10px; gap: 6px; }
+  .hdr::after { background: repeating-linear-gradient(90deg, var(--ink) 0 20px, var(--paper) 20px 40px); }
+  .hdr__sub { display: none; }
+  .hdr__brand { min-width: 0; flex: 1 1 auto; }
+  .hdr__title { font-size: 11px; line-height: 1.2; letter-spacing: .1em; white-space: normal; max-width: 7em; }
+  .hdr__right { gap: 6px; flex: none; }
+  .hdr .seg__btn { padding: 4px 6px; font-size: 12px; white-space: nowrap; }
+  .hdr__right { gap: 5px; }
+  .pole-marker .snd-fig { font-size: 15px; }
+  .pole-marker__n { font-size: 9px; }
+  .about-btn__text { display: none; }
+  .rose { width: 30px; height: 30px; }
+  .panel { top: auto; left: 0; right: 0; width: auto; padding-left: 0; background: var(--paper);
+    border-top: 1px solid var(--ink); box-shadow: 0 -2px 8px rgba(20, 16, 6, .2); transition: height var(--t); }
+  .panel::before { display: none; }
+  .panel--collapsed { height: var(--sheet-h); }
+  .panel--half { height: 48%; }
+  .panel--full { height: calc(100% - 8px); }
+  .panel__handle { display: flex; flex: none; flex-direction: column; align-items: stretch; gap: 6px; width: 100%;
+    padding: 7px 16px 11px; border: 0; border-bottom: 1px solid var(--hair); background: var(--paper); cursor: pointer; text-align: left; }
+  .panel__grip { align-self: center; width: 40px; height: 5px; border: 1px solid var(--ink-2); border-width: 1px 0; }
+  .card-summary { display: block; }
+  .card-summary[hidden] { display: none; }
+  .card-summary:not([hidden]) ~ .panel__handle-text { display: none; }
+  .card-summary__line { display: flex; align-items: baseline; gap: 8px; }
+  .card-summary__name { flex: 1; min-width: 0; font: 700 15px/1.3 var(--serif); letter-spacing: .18em; text-transform: uppercase; }
+  .card-summary__none { display: block; font: 400 15px/1.3 var(--serif); }
+  .card-summary__dist { flex: none; font-weight: 400; white-space: nowrap; color: var(--blue-ink); }
+  .card-summary__dist .snd-fig { font-size: 26px; line-height: 1; }
+  .card-summary__s, .card-summary__u { font: 400 12px/1 var(--sans); color: var(--ink-2); }
+  .card-summary__rank { display: block; font-size: 12px; color: var(--ink-2); }
+  .panel__handle-text { font: 700 13px/1.3 var(--serif); letter-spacing: .18em; text-transform: uppercase; }
+  .panel--collapsed .panel__body { display: none; }
+  .panel__body { padding: 14px 16px 20px; background: var(--paper); }
+  .panel .card { position: static; width: auto; max-height: none; overflow: visible; padding: 0 0 14px; margin: 0 0 14px;
+    background: none; border: 0; outline: 0; box-shadow: none; border-bottom: 1px solid var(--ink); }
+  .panel .cartouche { padding-bottom: 0; margin-bottom: 12px; border: 0; }
+  .panel .cartouche__name, .panel .card__headline, .panel .card__rank { display: none; }
+  .panel .cartouche__sub { margin: 0; }
+  /* The tide table keeps its water inside the sheet: the buff card above, the blue table below. */
+  .panel .panel__note { margin: 0; padding: 12px 12px 10px; background: var(--sea); }
+  .panel .ranking__head { top: 0; background: var(--sea); padding-left: 12px; padding-right: 12px; }
+  .panel .ranking { background: var(--sea); }
+  .panel .ranking__btn { padding-left: 12px; padding-right: 12px; }
+  .leaflet-top, .leaflet-bottom { z-index: 800; }
+  .mapctl { left: 12px; right: 12px; align-items: flex-start; bottom: calc(var(--sheet-h) + 8px); gap: 6px; }
+  .scale { padding: 6px 10px; }
+  .scale__cap { font-size: 12px; margin-bottom: 4px; }
+  .legend__item { width: 38px; }
+  .mapctl .leaflet-control-attribution { background: var(--paper) !important; color: var(--ink-2); font-size: 10.5px;
+    padding: 3px 8px; border: 1px solid var(--hair-strong); border-radius: var(--r); }
+  .about { padding: 22px 20px 18px; }
+  .about__close-form { margin: -8px -6px 0 0; }
+}

@@ -1,0 +1,345 @@
+/* Poles of remoteness, option 07: the survey sheet. The window is one sheet of a national topographic series:
+   the map inside its graduated collar, and a margin holding the title block, the key and the index of sheets.
+   Tokens first, the dark sheet under a map light, then layout. Phone rules live in the media query at the end. */
+:root {
+  --paper:       #f2f3f0;
+  --paper-2:     #fafaf8;
+  --ink:         #151617;
+  --ink-2:       #45484c;
+  --ink-3:       #63676c;
+  --hair:        rgba(21, 22, 23, .16);
+  --hair-2:      rgba(21, 22, 23, .08);
+  --rule:        #151617;
+  --series:      #9c1a2c;
+  --series-soft: rgba(156, 26, 44, .08);
+  --series-ink:  #fff;
+  /* Remoteness in the hypsometric tints of a Swiss sheet: pale yellow-green through ochre to a warm violet
+     brown, one colour per stop (1, 2.5, 5, 10, 20, 50 km). Read by js/palette.js. */
+  --band-1: #e6ebbd;
+  --band-2: #dbd898;
+  --band-3: #d5bb74;
+  --band-4: #c4965c;
+  --band-5: #a66e5a;
+  --band-6: #7a4c66;
+  --edge:   #8a8d91;
+  --band-alpha: 0.6;
+  --imagery: saturate(.55) contrast(.94) brightness(1.06);
+
+  --sans: "Source Sans 3", "Source Sans Pro", "Segoe UI", sans-serif;
+
+  --t: 180ms cubic-bezier(.2, .8, .2, 1);
+  --margin-w: 384px;
+  --hdr-h: 52px;
+  --collar: 38px;
+  --foot-h: 50px;
+  --sheet-h: 0px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:       #262422;
+    --paper-2:     #2e2c29;
+    --ink:         #ece8e0;
+    --ink-2:       #c3bdb2;
+    --ink-3:       #a19b90;
+    --hair:        rgba(236, 232, 224, .18);
+    --hair-2:      rgba(236, 232, 224, .08);
+    --rule:        #ece8e0;
+    --series:      #f08590;
+    --series-soft: rgba(240, 133, 144, .12);
+    --series-ink:  #231a1a;
+    --band-1: #e9edc2;
+    --band-2: #e0dc9d;
+    --band-3: #dcc07a;
+    --band-4: #cf9f63;
+    --band-5: #b67a63;
+    --band-6: #8e5a78;
+    --edge:   #9ea1a5;
+    --band-alpha: 0.62;
+    --imagery: saturate(.5) brightness(.8) contrast(1.02);
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font: 400 15px/1.45 var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  overflow: hidden;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--series); color: var(--series-ink); }
+:focus-visible { outline: 2px solid var(--series); outline-offset: 2px; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+button { font: inherit; color: inherit; }
+a { color: inherit; }
+
+/* The top margin of the sheet: the series title, and the region and language as boxed choices. */
+.hdr {
+  position: fixed; inset: 0 0 auto 0; height: var(--hdr-h); z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 0 24px 0 var(--collar); background: var(--paper); border-bottom: 1px solid var(--rule);
+}
+.hdr__brand { display: flex; align-items: baseline; gap: 14px; min-width: 0; }
+.hdr__title { margin: 0; font: 700 14px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
+.hdr__home { text-decoration: none; }
+.hdr__home:hover { color: var(--series); }
+.hdr__sub { margin: 0; font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hdr__sub::before { content: ""; display: inline-block; width: 1px; height: 12px; margin-right: 14px; background: var(--hair); vertical-align: -1px; }
+.hdr__right { display: flex; align-items: center; gap: 12px; flex: none; }
+
+/* Boxed choices: one ink rule round the group, the chosen one set in solid ink. */
+.seg { display: inline-flex; border: 1px solid var(--rule); background: var(--paper-2); }
+.seg__btn { border: 0; background: transparent; padding: 5px 12px; cursor: pointer; color: var(--ink-2);
+  font-size: 13px; letter-spacing: .02em; transition: background var(--t), color var(--t); }
+.seg__btn + .seg__btn { border-left: 1px solid var(--rule); }
+.seg__btn:hover { color: var(--ink); background: var(--hair-2); }
+.seg__btn[aria-pressed="true"] { background: var(--ink); color: var(--paper); font-weight: 600; }
+.seg--sm .seg__btn { padding: 3px 10px; font-size: 12.5px; }
+.seg--lang .seg__btn { letter-spacing: .08em; }
+.link-btn { border: 0; background: none; padding: 0; color: var(--ink); cursor: pointer; font-size: 13px;
+  text-decoration: underline; text-decoration-color: var(--series); text-underline-offset: 3px; }
+.link-btn:hover { color: var(--series); }
+.hdr__regions[hidden] { display: none; }
+.hdr__regions .seg__btn { text-decoration: none; }
+.hdr__regions .seg__btn[aria-current="page"] { background: var(--ink); color: var(--paper); font-weight: 600; }
+
+/* The stage: the sheet with its collar on the left, the margin column on the right. */
+.stage { position: fixed; inset: var(--hdr-h) 0 0 0; display: grid; grid-template-columns: minmax(0, 1fr) var(--margin-w); }
+.sheet { position: relative; min-width: 0; }
+.map { position: absolute; inset: var(--collar) var(--collar) calc(var(--collar) + var(--foot-h)) var(--collar); background: var(--paper-2); }
+/* The sheet's bottom margin, under the collar's labels: key left, imprint right. */
+.sheet__foot { position: absolute; left: var(--collar); right: var(--collar); bottom: 0; height: calc(var(--foot-h) + 6px);
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; padding-top: 4px; border-top: 1px solid var(--hair); }
+.sheet__imprint { flex: 0 1 300px; text-align: right; }
+.sheet__imprint .leaflet-control-attribution { float: none; margin: 0; padding: 0; background: none; font-size: 11px; line-height: 1.35; color: var(--ink-3); }
+.sheet__imprint .leaflet-control-attribution a { color: inherit; }
+.collar { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; color: var(--ink); z-index: 1; }
+.collar__band { fill: var(--ink); }
+.collar__neat { fill: none; stroke: var(--ink); stroke-width: 1; shape-rendering: crispEdges; }
+.collar__major { fill: none; stroke: var(--ink); stroke-width: 1; shape-rendering: crispEdges; }
+.collar__minor { fill: none; stroke: var(--ink-2); stroke-width: .75; shape-rendering: crispEdges; }
+.collar__lbl { fill: var(--ink-2); font: 600 10.5px/1 var(--sans); letter-spacing: .02em; font-variant-numeric: tabular-nums; }
+
+.leaflet-container { font: inherit; background: var(--paper-2); }
+.leaflet-tile.explore-tile, .detail-overlay { image-rendering: pixelated; }
+.basemap { filter: var(--imagery); }
+/* Leaflet's zoom buttons, set as two ruled boxes. */
+.leaflet-touch .leaflet-bar, .leaflet-bar { border: 1px solid var(--rule); border-radius: 0; box-shadow: none; }
+.leaflet-bar a, .leaflet-touch .leaflet-bar a { background: var(--paper-2); color: var(--ink); border-bottom-color: var(--rule);
+  border-radius: 0 !important; width: 30px; height: 30px; line-height: 29px; font: 400 18px/29px var(--sans); }
+.leaflet-bar a:hover { background: var(--ink); color: var(--paper); }
+.leaflet-top.leaflet-right { top: 2px; right: 2px; }
+
+/* Map controls, bottom left inside the neatline */
+.mapctl {
+  position: absolute; left: calc(var(--collar) + 12px); bottom: calc(var(--collar) + var(--foot-h) + 12px); z-index: 800;
+  display: flex; flex-direction: column; gap: 8px; align-items: flex-start; pointer-events: none;
+}
+.mapctl > * { pointer-events: auto; }
+
+/* The readout: the reading, and the key in miniature with the tapped class marked. */
+.readout { display: grid; gap: 6px; padding: 8px 10px 9px; background: var(--paper-2); border: 1px solid var(--rule);
+  font-size: 14px; line-height: 1.3; max-width: 320px; }
+.readout__text { font-weight: 600; }
+.minikey { display: flex; align-items: center; }
+.minikey__cell { width: 18px; height: 8px; box-shadow: inset 0 0 0 .5px var(--hair); }
+.minikey__cell--none { background: var(--paper); }
+.minikey__cell--edge { margin-left: 6px; background: var(--edge); }
+.minikey__cell--on { height: 12px; outline: 2px solid var(--series); outline-offset: 0; position: relative; z-index: 1; }
+
+/* The margin: the title block, the key, the index of sheets, the imprint. It starts level with the neatline. */
+.margin { display: flex; flex-direction: column; min-height: 0; padding: calc(var(--collar) - 4px) 24px 0 4px; }
+
+/* The title block */
+.card { flex: none; }
+.card-summary { display: none; }
+.card__title { display: grid; grid-template-columns: minmax(0, 1fr) auto; border: 1px solid var(--rule); background: var(--paper-2); }
+.card__title-main { padding: 11px 14px 12px; min-width: 0; }
+.card__name { margin: 0; font: 700 29px/1.05 var(--sans); letter-spacing: -.012em; text-wrap: balance; }
+.card__sheet { margin: 6px 0 0; font-size: 13px; color: var(--ink-2); line-height: 1.35; }
+.card__sheetno { margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+  min-width: 78px; padding: 8px 10px; border-left: 1px solid var(--rule); text-align: center; }
+.card__sheetno-label { font-size: 10.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+.card__sheetno b { font: 700 30px/1 var(--sans); color: var(--series); }
+.card__sheetno span:not(.card__sheetno-label) { font-size: 12px; color: var(--ink-2); }
+.card__sheetno .card__code { margin-top: 3px; padding-top: 3px; border-top: 1px solid var(--hair); font-weight: 600; letter-spacing: .1em; color: var(--ink); }
+.card__headline { margin: 7px 0 0; font-size: 14.5px; line-height: 1.38; text-wrap: pretty; }
+.card__title + .card__seg { margin-top: 12px; }
+
+.card__seg { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+.card__seg .seg__btn { display: flex; align-items: center; gap: 8px; padding: 7px 10px; text-align: left; line-height: 1.2; font-size: 13.5px; }
+.seg__letter { flex: none; display: inline-grid; place-items: center; width: 18px; height: 18px; border: 1px solid currentColor;
+  font-size: 11px; font-weight: 700; letter-spacing: 0; }
+.card__hint { margin: 4px 0 8px; font-size: 12.5px; color: var(--ink-2); }
+.card__islands { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; }
+.card__islands-label { font-size: 12.5px; color: var(--ink-2); min-width: 44px; }
+.card__actions { display: flex; gap: 8px; margin-bottom: 12px; }
+.btn { border: 1px solid var(--rule); background: var(--paper-2); color: var(--ink); padding: 5px 12px; cursor: pointer;
+  font-size: 13px; font-weight: 600; transition: background var(--t), color var(--t); }
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn--ghost { font-weight: 400; }
+
+.card__poles { border-top: 1px solid var(--rule); padding-top: 10px; }
+.card__poles-title { margin: 0 0 7px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+.chips { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); border: 1px solid var(--rule); margin-bottom: 7px; }
+.chip { display: flex; align-items: center; justify-content: center; gap: 3px; height: 26px; padding: 0; border: 0;
+  background: var(--paper-2); cursor: pointer; font-size: 12.5px; font-weight: 600; color: var(--ink); }
+.chip + .chip { border-left: 1px solid var(--hair); }
+.chip:hover { background: var(--hair-2); }
+.chip__trig { width: 9px; height: 8px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.chip--on { background: var(--series-soft); color: var(--series); }
+.chip--on .chip__trig { fill: var(--series); stroke: var(--series); }
+.card__pole-title { margin: 0 0 4px; font-size: 15px; font-weight: 700; }
+.card__of { font-weight: 400; color: var(--ink-2); font-size: 13px; }
+.card__facts { display: grid; grid-template-columns: minmax(104px, max-content) 1fr; column-gap: 14px; margin: 0; font-size: 13px; line-height: 1.35; }
+.card__facts dt, .card__facts dd { padding: 3px 0; border-top: 1px solid var(--hair); }
+.card__facts dt { color: var(--ink-2); }
+.card__facts dd { margin: 0; }
+.coord { font-weight: 600; letter-spacing: .02em; }
+.card__maps { display: inline-flex; align-items: center; gap: 4px; margin-left: 8px; color: var(--series); font-size: 12.5px;
+  text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.card__note { margin: 8px 0 0; font-size: 12px; color: var(--ink-2); }
+
+/* The key: a graduated scale bar of the seven classes, their lower bounds under the joins. */
+.key { display: grid; grid-template-columns: auto minmax(300px, 380px); grid-template-rows: auto auto; gap: 2px 22px; align-items: start; }
+.key__title { grid-column: 1; margin: 0; font-size: 12.5px; font-weight: 600; white-space: nowrap; }
+.key .legend { grid-column: 2; grid-row: 1 / span 2; margin-top: 3px; }
+.legend { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.legend__item { position: relative; }
+.legend__swatch { display: block; height: 13px; border: 1px solid var(--rule); border-left-width: 0; }
+.legend__item:first-child .legend__swatch { border-left-width: 1px; }
+.legend__swatch--none { background: var(--paper-2); }
+.legend__label { display: block; margin-top: 3px; font-size: 11.5px; color: var(--ink-2); transform: translateX(-2px); }
+.legend__item:first-child .legend__label { transform: none; }
+.legend__item--on .legend__swatch { outline: 2px solid var(--series); outline-offset: 1px; position: relative; z-index: 1; }
+.legend__item--on .legend__label { color: var(--series); font-weight: 700; }
+.key__edge { grid-column: 1; display: flex; align-items: center; gap: 8px; margin: 0; font-size: 12px; color: var(--ink-2); white-space: nowrap; }
+.key__edge-swatch { flex: none; width: 22px; height: 11px; background: var(--edge); border: 1px solid var(--rule); }
+.key__edge--on { color: var(--series); font-weight: 600; }
+.key__edge--on .key__edge-swatch { outline: 2px solid var(--series); outline-offset: 1px; }
+
+/* The index of sheets (desktop column, phone sheet) */
+.panel { flex: 1; min-height: 0; display: flex; flex-direction: column; margin-top: 10px; border-top: 1px solid var(--rule); }
+.panel__head { flex: none; padding: 8px 0 6px; border-bottom: 1px solid var(--hair); }
+.panel__handle { display: none; }
+.panel__body { flex: 1; min-height: 0; overflow: auto; padding: 0 0 8px; scrollbar-width: thin; scrollbar-color: var(--ink-3) transparent; }
+.panel__body::-webkit-scrollbar { width: 8px; }
+.panel__body::-webkit-scrollbar-thumb { background: var(--ink-3); border: 2px solid var(--paper); }
+.panel__title { margin: 0 0 2px; font-size: 12.5px; font-weight: 600; }
+.panel__note { margin: 0; font-size: 12px; line-height: 1.35; color: var(--ink-2); }
+.panel__foot { flex: none; display: flex; flex-direction: column; gap: 4px; padding: 9px 0 14px; border-top: 1px solid var(--rule); }
+.ranking { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--hair); }
+.ranking__row:first-child { border-top: 0; }
+
+/* Ranking rows */
+.ranking__row { border-top: 1px solid var(--hair); }
+.ranking__btn { display: grid; grid-template-columns: 26px 46px minmax(0, 1fr) auto; align-items: baseline; gap: 6px; width: 100%;
+  border: 0; background: none; padding: 5px 6px 5px 2px; text-align: left; cursor: pointer; font-size: 13.5px; }
+.ranking__btn:hover { background: var(--hair-2); }
+.ranking__row--current { scroll-margin-top: 0; }
+.ranking__row--current .ranking__btn { background: var(--series-soft); }
+.ranking__row--current .ranking__name { font-weight: 700; }
+.ranking__row--current .ranking__rank { color: var(--series); font-weight: 700; }
+.ranking__rank { color: var(--ink-2); text-align: right; font-size: 12.5px; }
+.ranking__code { font-size: 11px; font-weight: 600; letter-spacing: .08em; color: var(--ink-3); }
+.ranking__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ranking__dist { display: flex; gap: 10px; align-items: baseline; justify-content: flex-end; }
+.ranking__dist b { font-weight: 600; min-width: 62px; text-align: right; }
+.ranking__dist small { color: var(--ink-3); font-size: 11.5px; min-width: 52px; text-align: right; }
+
+/* About dialog: one ruled sheet of notes */
+.about { width: min(660px, calc(100% - 32px)); max-height: calc(100% - 48px); border: 1px solid var(--rule); border-radius: 0;
+  padding: 26px 32px 22px; background: var(--paper-2); color: var(--ink); scrollbar-width: thin; scrollbar-color: var(--ink-3) transparent; }
+.about::backdrop { background: rgba(21, 22, 23, .38); }
+.about__close-form { position: sticky; top: 0; float: right; margin: -8px -14px 0 0; }
+.about__close { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid var(--rule); background: var(--paper-2); cursor: pointer; }
+.about__close:hover { background: var(--ink); color: var(--paper); }
+.about__body { max-width: 66ch; }
+.about__body h2 { font: 700 24px/1.15 var(--sans); letter-spacing: -.01em; margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+.about__body h3 { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin: 20px 0 6px; }
+.about__body p { margin: 0 0 10px; font-size: 15px; line-height: 1.5; }
+.about__body b { font-weight: 700; color: var(--series); }
+html[lang="en"] .about__body [data-lang="lt"], html[lang="lt"] .about__body [data-lang="en"] { display: none; }
+
+/* Pole markers: trig points. The svg overflows Leaflet's icon box, so the number never shifts the anchor. */
+.pole-marker { background: none; border: 0; overflow: visible; }
+.pole-marker__svg { overflow: visible; display: block; filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, .35)); }
+.pole-marker__tri { fill: var(--paper-2); stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; }
+.pole-marker__dot { fill: var(--ink); }
+.pole-marker__num { font: 700 14px/1 var(--sans); fill: var(--series); stroke: var(--paper-2); stroke-width: 3.2px;
+  stroke-linejoin: round; paint-order: stroke; }
+.pole-marker--active .pole-marker__tri { fill: var(--series); stroke: var(--paper-2); stroke-width: 2; }
+.pole-marker--active .pole-marker__dot { fill: var(--paper-2); }
+.pole-marker--active .pole-marker__num { font-size: 16px; }
+.pole-marker--active .pole-marker__svg { filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .45)); }
+
+@media (max-width: 1180px) and (min-width: 721px) {
+  :root { --margin-w: 340px; --collar: 32px; --foot-h: 62px; }
+  .key { grid-template-columns: minmax(260px, 340px); }
+  .key .legend { grid-column: 1; grid-row: 2; }
+  .key__edge { grid-row: 3; }
+  .card__name { font-size: 25px; }
+  .hdr__sub { display: none; }
+}
+
+/* Phone: the collar keeps its left and bottom edges, the margin becomes the bottom sheet. Phone rules only. */
+@media (max-width: 720px) {
+  :root { --hdr-h: 48px; }
+  .hdr { padding: 0 10px 0 14px; gap: 8px; }
+  .hdr__sub { display: none; }
+  .hdr__title { font-size: 12.5px; letter-spacing: .1em; }
+  .hdr--regions .hdr__brand { min-width: 0; }
+  .hdr--regions .hdr__title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hdr__right { gap: 6px; }
+  .hdr .seg__btn { padding: 4px 7px; font-size: 12px; white-space: nowrap; }
+
+  .stage { display: block; }
+  .sheet { position: absolute; inset: 0 0 var(--sheet-h) 0; }
+  .map { inset: 0 0 22px 26px; }
+  .sheet__foot { display: none; }
+  .margin { display: contents; }
+
+  .leaflet-top, .leaflet-bottom { z-index: 800; }
+  .mapctl { left: 36px; right: 10px; bottom: 30px; }
+  .readout { max-width: none; }
+  .readout .minikey { display: none; }
+  .mapctl .key { display: block; order: 3; margin: 0; padding: 6px 8px 4px; border: 1px solid var(--rule); background: var(--paper-2); width: 100%; max-width: 300px; }
+  .mapctl .key__title { font-size: 11px; margin-bottom: 4px; }
+  .mapctl .key__edge { display: none; }
+  .mapctl .legend__swatch { height: 10px; }
+  .mapctl .legend__label { font-size: 10.5px; margin-top: 2px; }
+  .mapctl .leaflet-control-attribution { order: 4; margin: 0; background: var(--paper-2); color: var(--ink-3); font-size: 10.5px;
+    line-height: 1.3; padding: 3px 7px; border: 1px solid var(--hair); }
+  .mapctl .leaflet-control-attribution a { color: inherit; }
+
+  .panel { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; z-index: 900; background: var(--paper);
+    border-top: 1px solid var(--rule); box-shadow: 0 -6px 20px rgba(0, 0, 0, .14); transition: height var(--t); }
+  .panel--collapsed { height: var(--sheet-h); }
+  .panel--half { height: 48%; }
+  .panel--full { height: calc(100% - 8px); }
+  .panel__handle { display: flex; flex: none; flex-direction: column; align-items: stretch; gap: 5px; width: 100%;
+    padding: 6px 16px 10px; border: 0; background: none; cursor: pointer; text-align: left; }
+  .panel__grip { align-self: center; width: 34px; height: 3px; background: var(--ink-3); }
+  .card-summary { display: block; }
+  .card-summary[hidden] { display: none; }
+  .card-summary:not([hidden]) ~ .panel__handle-text { display: none; }
+  .card-summary__line { display: flex; align-items: baseline; gap: 10px; }
+  .card-summary__name { flex: 1; min-width: 0; font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; }
+  .card-summary__none { display: block; font-size: 15px; font-weight: 600; }
+  .card-summary__dist { flex: none; font-size: 17px; font-weight: 700; color: var(--series); white-space: nowrap; }
+  .card-summary__rank { display: block; font-size: 12.5px; color: var(--ink-2); }
+  .panel--collapsed .panel__body, .panel--collapsed .panel__foot { display: none; }
+  .panel__body { padding: 4px 16px 10px; }
+  .panel__foot { padding: 8px 16px 12px; }
+  .panel .card { padding: 0 0 12px; margin: 0 0 10px; border-bottom: 1px solid var(--rule); }
+  .panel .card__title { display: block; border: 0; background: none; }
+  .panel .card__title-main { padding: 0; }
+  .panel .card__name, .panel .card__sheetno { display: none; }
+  .panel .card__headline { margin: 2px 0 0; font-size: 15px; }
+  .panel__head { padding: 0 0 6px; }
+}

@@ -1,0 +1,30 @@
+# 03-sea-chart: notes
+
+- **Thesis**: roads are the coastline and remoteness is depth, so the land is sounded like an Admiralty chart: chart buff paper, chart blues that deepen away from every road, magenta for notes and the selection, black lettering.
+- **What you see first**: a buff margin strip with a graduated black and buff neatline. Under it the satellite, sepia-filtered toward buff so the blue soundings dominate. Top left is the cartouche: LITHUANIA in spaced caps, the italic subtitle "Soundings in kilometres from the nearest drivable way", the headline sentence, and the rank set between two rules where a chart puts its scale line. On the right is the tide table on a pale water tint, with its own graduated edge.
+- **Signature**: each pole is drawn as a chart sounding (a circled dot, then "3" with a small lowered "43", then the pole number in a small note box). The selected pole gets a magenta ring. The legend is a depth scale: the road drawn as a black shoreline with six stepped blue blocks hanging deeper below it, and the readout is written as a sounding ("about 1₉ km"). A compass rose (authored SVG, magenta, fine lines) is the About button, and it turns a point on hover.
+- **Card**: the NOTES block is a numbered list with magenta numerals and uppercase keys. The pole chips are square boxes, magenta when on.
+- **Ranking**: a tide table. Ruled columns (No. / Unit / A, km / B, km) under a sticky head, tabular figures, a heavier rule every fifth row, and the current unit ringed in magenta.
+- **Dark**: an ECDIS-style night display. Deep blue-black ground, dim buff lettering, dimmed magenta, and the imagery darkened and cooled. The blue ramp inverts (farther from a road is brighter), so the distances read on dark land.
+- **Fonts**: Libre Caslon Text 400, 400 italic and 700 (chart lettering; the italic is used for soundings and water-ish readings), plus Libre Franklin 400 and 600 for the controls. Both come from Google Fonts. Roughly 130 to 160 KB of woff2 with latin-ext.
+- **Colours**: buff #f2e7c9, water tint #d3e5ec, ink #17160f, chart blue #0e4678, magenta #9c1569. Bands run #c9e3f1 to #0b3f72 at alpha 0.68.
+- **Files changed**: index.html, css/app.css (rewritten), js/card.js, js/ranking.js, js/markers.js, js/readout.js, js/app.js (legend markup only), js/i18n.js (new keys chartSubA/B, colRank, colUnit, colKm in en and lt; new helpers fmtKmNum and soundingHtml).
+- **Product changes implied**:
+  - Flags are gone from the card, the summary and the ranking.
+  - The About button moved from the ranking footer to the header (icon only on phones).
+  - The map controls and the depth scale moved to the bottom right of the map on desktop.
+  - The pole facts are an ordered list instead of a dl.
+  - The ranking's other-scenario figure is a column, no longer an "A 3.43 km" line.
+  - The satellite basemap is filtered (sepia by day, darkened at night). The switch is kept.
+- **Risks**:
+  - The pale near bands can still read as water or ice at a glance. The legend caption and the cartouche subtitle state "distance to the nearest road" to counter this.
+  - Poles that sit close together (Lithuania 3/5, 8/10/9 on a phone) collide, because the figures are wider than the old discs.
+  - The sepia filter trades imagery colour for the chart look.
+- **Left from the detector**:
+  - The sheet's height transition is inherited from the incumbent.
+  - The graduated neatline is repeating-linear-gradient stripes. It is the chart border, kept on purpose.
+  - The marker text halo was switched to offset strokes (no zero-offset glow).
+- **To ship**:
+  - Self-host the two faces and subset them to fit the 256 KB budget.
+  - Update dev/tests/card.test.mjs, which asserts the flag in `card__headline` and that the headline markup is the first element. Update the ranking and readout tests too: no flag span, a `ranking__other` column, innerHTML instead of textContent.
+  - Add the budget list entry if soundingHtml ever moves to its own module.

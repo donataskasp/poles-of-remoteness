@@ -1,0 +1,28 @@
+# 07-survey-sheet: notes
+
+- **Thesis:** the window is one sheet of a national topographic series. The map sits inside a live graduated collar, and the margin holds the title block, the index of sheets, the key and the imprint.
+- **First view (desktop):** a cool paper page. The satellite map is framed by a black and white graduated band, with ticks and degree-minute coordinates on all four edges. On the right is a boxed title block: "Lithuania", the headline sentence, and a sheet box reading SHEET 39 of 52 LT. Under it come the A/B switch, the islands switch, the pole table and the index of sheets with the current row marked. The key and the credits sit in the sheet's bottom margin.
+- **Signature:** `js/collar.js` draws the collar in SVG on every Leaflet move. It picks round intervals from 10 degrees down to 1 second, and the black and white segments are tied to the earth, so they stay put when you pan. There are minor ticks, and labels on the left and right edges are turned sideways as on printed sheets. It holds at every zoom from the continent down to 13 and beyond. On a phone it draws only the left and bottom edges.
+- **Readout feature carried over from the rejected instrument-panel direction:** the readout box shows the reading plus a small copy of the key with the tapped class outlined. The class is also outlined in the key itself (desktop bottom margin, phone key strip).
+- **Markers:** trig points, meaning a ringed triangle with a centre dot. The number is set beside it in the series red with a paper halo (SVG paint-order stroke). The selected pole's triangle is filled red. The chips in the card use the same triangles.
+- **Type:** Source Sans 3 400/600/700 from Google Fonts. It is a variable font, latin plus latin-ext, roughly 80 to 90 KB for the upright. Tabular figures throughout, and spaced caps for the small labels.
+- **Colours:** cool paper #f2f3f0, ink #151617, series deep carmine #9c1a2c. Bands use a Swiss hypsometric ramp: pale yellow-green, ochre, then violet-brown (#e6ebbd to #7a4c66), at alpha .6. The satellite is calmed with a CSS filter on `.basemap` (saturate .55).
+- **Dark mode:** a warm dark grey sheet (#262422) with the collar in light ink, series red lifted to #f08590, and the imagery dimmed further.
+- **Files:** `index.html`, `css/app.css` (rewritten), new `js/collar.js`. JS changed in `app.js` (collar, the 7-cell key, where elements go at each width, marking the key), `card.js` (title block, no flags, triangle chips), `ranking.js` (ISO code instead of the flag), `markers.js` (SVG trig icon), `readout.js` (small key, `keyCell`) and `i18n.js` (8 new keys in en and lt).
+- **Product changes:**
+  - Flag emoji are gone. Units are labelled by code (LT, US-AK).
+  - Rank is shown as "Sheet 39 of 52, Europe, by remoteness".
+  - The key moved from a floating pill into the sheet's bottom margin, and it now names the distance for the active scenario.
+  - The attribution became an imprint in the bottom margin on desktop.
+  - The "Poles on this sheet" label was cut to save height.
+- **Risks:**
+  - The collar and bottom margin take about 125 px of map height. On a 900 px screen the index of sheets shows about 8 rows, and fewer when a pole has an island row or a withheld note.
+  - Units with long names or long settlement names wrap in the facts table.
+  - In dark mode, pale band 1 on dim imagery reads faintly at country zoom.
+  - The phone sheet keeps the incumbent's height transition, which the detector flags as a layout transition.
+- **To ship:**
+  - Self-host Source Sans 3 (subset latin plus latin-ext) and add `js/collar.js` to the first-screen budget list.
+  - Update `dev/tests/card.test.mjs`: the flag assertions at lines 90 to 111, and headline markup that now sits inside `.card__title`.
+  - Update `dev/tests/readout.test.mjs`: it asserts `textContent` on a stub element, but the readout now writes child nodes.
+  - Add unit tests for `fmtCoord` and `pickStep`.
+- **Detector:** 2 "layout-transition" warnings on the phone sheet's `transition: height`. This is inherited behaviour driven by the measured `--sheet-h`, so I kept it. I fixed the border-plus-wide-shadow advisories by dropping the shadows, so ruled boxes only.

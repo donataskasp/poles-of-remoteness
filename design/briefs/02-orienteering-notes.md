@@ -1,0 +1,36 @@
+# 02-orienteering: notes
+
+- **Thesis:** the site is an orienteering map. Each pole is a control on the IOF overprint, and the card is the control description sheet for the selected pole.
+- **What a visitor sees first:** a thin black title strip. Below it, satellite imagery with the remoteness layer in ISOM vegetation colours (open yellow near roads, fight green far from them), and hollow magenta control circles with the number set beside each circle. Pole 1 carries the finish double circle. At top left is a boxed, ruled description sheet. On the right is a results list.
+- **Signature:** selecting a pole (chip or marker) draws its finish rings in with a stroke-dashoffset animation, outer then inner, about 420 ms. The pole's control row and fact rows flash overprint tint and fade back to paper. Both are off under reduced motion.
+- **Card as sheet:** a single 8-column grid whose rules are 1px ink showing through the grid gap, so no line ever doubles. The rows are:
+  - the headline sentence, then the rank row
+  - courses A and B as square toggles with a letter box, then the scenario hint
+  - the islands toggle as boxes
+  - See the ranking (ink fill) and Locate me
+  - ten numbered chip boxes, always ten: missing poles leave an empty box, as on a printed sheet
+  - the control row: big magenta number, "Pole n of m", the distance
+  - one row per fact, each with an authored pictogram in column A (island, road as the ISOM double line, settlement, coordinates)
+  - the Maps link
+- **Ranking:** a results list with the column heads "Pl. / Unit / A, km / B, km". The active course is the "time" column and the other course is the split column, all tabular figures. The current unit is tinted and set in magenta.
+- **Fonts:** Barlow Semi Condensed 400/500/600/700 from Google Fonts, about 110 to 120 KB with latin-ext (needed for Lithuanian). Its tabular figures are verified (1111 and 0000 are the same width). It is the only face.
+- **Colours:** paper #fff, ink #111, overprint #B01C83 (6.3:1 on white). The bands run #FFD95C, #CDE8A2, #9DD580, #5FBB57, #2E9A40, #10652A at 0.6 alpha.
+- **Dark ("head torch"):** paper #0E0D10, overprint #FF5CC6, deeper greens, and the imagery dimmed with `filter` on `.basemap`. The light scheme also desaturates the imagery slightly (saturate .78).
+- **Module:** 8px, with a single 1px rule weight. Square corners everywhere, including Leaflet zoom, attribution, legend, readout, About and the phone sheet.
+- **Files changed:**
+  - `index.html`: font link, SVG close icon, ranking title and column-head row
+  - `css/app.css`: rewritten
+  - `favicon.svg`: finish circle
+  - JS: `js/card.js` (sheet markup, icons, flash on pole change), `js/markers.js` (SVG control icon, 64x40, anchor at the circle centre), `js/ranking.js` (split columns, column heads), `js/i18n.js` (new `rankPos` and `rankName`, en and lt)
+  - Behaviour, ids, hash state and the phone move of the card are unchanged.
+- **Product changes:** none. Satellite stays the default and every control is still there. The ranking gains a visible title and column heads on desktop.
+- **Risks:**
+  - Casual visitors may not read the sheet as an orienteering form, but it still works as a plain table.
+  - The yellow 1 km band is loud at zoom 13 (it covers a lot of land in flat countries). Lower it to 0.5 alpha if the owner finds it heavy.
+  - Magenta on dark forest is fine thanks to the paper halo. On snow the halo disappears and the magenta alone carries it (not tested on a snow unit).
+  - Numbers of adjacent controls can collide where poles cluster (Lithuania 8/10), the same as today.
+- **Detector:** one warning left, `transition: height` on the phone sheet. This is inherited behaviour that `js/ranking.js` relies on (measured `--sheet-h`), so I kept it.
+- **To ship:**
+  - Self-host the four Barlow woff2 files and re-check the 256 KB first-screen budget. Dropping 500 is the easy saving.
+  - Update `dev/tests/card.test.mjs`: the fact rows are now `div.desc` with classed `dt`/`dd`, the islands and scenario buttons are `.box`/`.course`, empty chip spans are added, the Maps link sits outside the `dl`, and the summary letter is wrapped (the test at line 122 looks for "B 6.68 km").
+  - Update `dev/tests/ranking.test.mjs` if it pins the old `ranking__dist` markup.

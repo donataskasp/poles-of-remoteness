@@ -1,0 +1,37 @@
+# 05-gps-handheld: notes
+
+- **Thesis:** the whole viewport is the screen of a handheld GPS with a transflective LCD. The left pane is the data-fields page (the card), the middle is the map page, the right is the waypoint list (the ranking). No device frame: the screen is the viewport.
+- **First view:** grey-green LCD glass with dark segment ink. A status bar across the top holds a pixel flag, the title, the region and language keys, "OSM 2026-08-19", a live clock, and pixel satellite and battery glyphs. Under it sit three panes split by 2px rules. The imagery is filtered to pale grey-green, the bands are six ink densities with a checker dither, and the poles are pixel waypoint flags on staffs.
+- **Signature:** a compass field on the data page. Its needle points from the selected pole to its nearest settlement, using the initial great-circle bearing computed from data already published ("village, 3.7 km, bearing 339° N"), and it settles onto the bearing in 900 ms. The current unit in the list is an inverse-video row with a blinking block cursor. Hovering or focusing a list row draws a dotted crosshair and a tag at that unit's remotest point before a click commits. A point off screen gets pinned to the edge.
+- **Other device idioms:** every control is a boxed all-caps hard key, and selected means inverse. Each pane starts with an inverse title bar, and "DIST TO ROAD" is a 60px pixel figure. The map readout is a "CURSOR" field: a reading is set large in the pixel face, a sentence in the plain face. There is a faint 3px pixel matrix over the map, and the zoom keys use pixel-drawn glyphs.
+- **Dark mode** is the backlight: near-black glass with cool green segments. The band ramp runs dim to bright, so the most remote land glows. It is a separate palette, not an inversion.
+- **Fonts:** Tiny5 400 (the pixel face; clear digits, full Lithuanian diacritics, about 20 KB for latin plus latin-ext) and Atkinson Hyperlegible 400/700 for the headline sentence, hints, notes and About (about 4 x 25 KB). Pixelify Sans was tried first and dropped because its 5 reads as S.
+- **Colours:** glass #b8c3a6, status #a9b596, ink #15241d, ink-2 #34453a (5.5:1). Dark: glass #0a120e, ink #9ee8b6 (13:1), ink-2 #6fae88 (7.3:1).
+- **Files:** index.html (status bar, pane title, pixel close key, font link), css/app.css (rewritten), favicon.svg. JS changed:
+  - card.js: new templates, flags dropped, compass, `bearing()` export
+  - ranking.js: `onHover` for the preview
+  - markers.js: the flag icon
+  - readout.js: data-label
+  - palette.js: `paint` gets an optional checker `dither`
+  - explore.js: asks for the dither
+  - app.js: status date and clock, crosshair, readout kind, legend span
+  - i18n.js: 6 new keys in en and lt
+- **Product changes implied:**
+  - Flag emoji removed from the card and hidden in the ranking (monochrome screen).
+  - Satellite stays the default but is heavily filtered, and the OSM map gets the same filter.
+  - The ranking is permanently visible on desktop, so "See the ranking" does nothing visible there (same as today).
+  - The phone header is two rows (74px).
+- **Risks:**
+  - The filtered imagery loses colour cues (water, forest, rock read only as grey levels).
+  - In a low-remoteness country at country zoom (Lithuania), the 1 to 2.5 km bands are only moderately distinct from dark forest, most of all in dark mode.
+  - Pixel type in the ranking is dense at 1440.
+  - Pole flags overlap where poles cluster (8, 9, 10 in LT), as the incumbent's discs do.
+  - The world is the most gimmicky of the set.
+- **Detector:** 2 findings left, both deliberate:
+  - `transition: height` is the incumbent's measured bottom-sheet mechanic.
+  - The grid-line background is the LCD pixel matrix on the map surface, which the rule itself exempts.
+- **To ship:**
+  - Self-host Tiny5 and Atkinson, subset to latin and latin-ext.
+  - Update dev/tests: card.test.mjs expects the flag emoji and old headline and islands markup (the islands markup is kept byte for byte), and ranking or palette tests may need the `dither` option and `onHover`.
+  - Recheck the first-screen budget with the fonts.
+  - Budget: I did 3 screenshot rounds, one over budget. Round 2 showed the bands nearly invisible on the continent view, and fixing them changed every view.

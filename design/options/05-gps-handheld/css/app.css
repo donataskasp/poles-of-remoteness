@@ -1,0 +1,373 @@
+/* Poles of remoteness, option 05: the handheld unit. The viewport is the screen of a handheld GPS with a
+   transflective monochrome LCD: grey-green glass, dark segment ink, boxed hard keys. Dark scheme is the
+   backlight. Tokens first, then the device chrome, then the three pages (data fields, map, waypoint list),
+   phone rules last. */
+:root {
+  /* The glass and its inks. --glass is the lit LCD, --glass-2 the status strip, which reads as the bezel's
+     own row of segments. */
+  --glass:    #b8c3a6;
+  --glass-2:  #a9b596;
+  --ink:      #15241d;
+  --ink-2:    #34453a;
+  --rule:     rgba(21, 36, 29, .38);
+  --hover:    rgba(21, 36, 29, .12);
+  --grid:     rgba(21, 36, 29, .07);
+  --shadow:   0 10px 30px rgba(21, 36, 29, .28);
+  --backdrop: rgba(21, 36, 29, .55);
+  /* The imagery goes through the unit's screen: grey, then pushed into the glass's green. */
+  --imagery:  grayscale(1) contrast(.6) brightness(1.42) sepia(.45) hue-rotate(40deg) saturate(.5);
+  /* Remoteness in six LCD ink densities, lightest nearest the road. Read by js/palette.js. */
+  --band-1: #6e7d68;
+  --band-2: #56654f;
+  --band-3: #3f4d3b;
+  --band-4: #2b382a;
+  --band-5: #1a251b;
+  --band-6: #0a120c;
+  --edge:   #9aa39a;
+  --band-alpha: 0.84;
+
+  --px:   "Tiny5", ui-monospace, "SF Mono", Menlo, monospace;
+  --text: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --hdr-h: 40px;
+  --card-w: 348px;
+  --panel-w: 330px;
+  --line: 2px;
+  --t: 160ms cubic-bezier(.16, 1, .3, 1);
+  /* The height of the closed phone sheet, measured and written by js/ranking.js. */
+  --sheet-h: 0px;
+  color-scheme: light;
+}
+
+/* Backlight: the glass goes dark and the segments glow a cool green. Designed as its own palette, the most
+   remote land the brightest, rather than the light scheme inverted. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --glass:    #0a120e;
+    --glass-2:  #0f1a14;
+    --ink:      #9ee8b6;
+    --ink-2:    #6fae88;
+    --rule:     rgba(158, 232, 182, .34);
+    --hover:    rgba(158, 232, 182, .12);
+    --grid:     rgba(0, 0, 0, .34);
+    --shadow:   0 12px 36px rgba(0, 0, 0, .6);
+    --backdrop: rgba(0, 0, 0, .66);
+    --imagery:  grayscale(1) contrast(.85) brightness(.42) sepia(.9) hue-rotate(88deg) saturate(1.1);
+    --band-1: #3b7a56;
+    --band-2: #4f9868;
+    --band-3: #6cb780;
+    --band-4: #8fd29f;
+    --band-5: #b5e9c1;
+    --band-6: #e2ffe8;
+    --edge:   #56665e;
+    --band-alpha: 0.82;
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font: 15px/1.45 var(--text);
+  color: var(--ink);
+  background: var(--glass);
+  overflow: hidden;
+  font-variant-numeric: tabular-nums;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--ink); color: var(--glass); }
+:focus-visible { outline: var(--line) dashed var(--ink); outline-offset: 2px; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+button { font: inherit; color: inherit; }
+a { color: inherit; text-underline-offset: 3px; }
+.px-ico { display: block; flex: none; }
+
+/* Hard keys. Every control on the unit is a boxed, all-caps key; pressed or selected is inverse video. */
+.seg__btn, .btn, .chip, .key, .leaflet-control-zoom a {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-height: 32px; padding: 5px 10px; border: var(--line) solid var(--ink); border-radius: 0;
+  background: var(--glass); color: var(--ink); cursor: pointer; text-decoration: none;
+  font: 400 14px/1.1 var(--px); letter-spacing: .05em; text-transform: uppercase;
+  transition: background-color var(--t), color var(--t);
+}
+.seg__btn:hover, .btn:hover, .chip:hover, .key:hover, .leaflet-control-zoom a:hover { background: var(--hover); }
+.seg__btn:active, .btn:active, .chip:active, .key:active { transform: translateY(1px); }
+.seg__btn[aria-pressed="true"], .seg__btn[aria-current="page"], .chip--on {
+  background: var(--ink); color: var(--glass);
+}
+.seg { display: inline-flex; gap: 4px; }
+.seg--sm .seg__btn { min-height: 28px; padding: 3px 8px; font-size: 13px; }
+.key--block { width: 100%; }
+
+/* Inverse title bar: how a handheld names the page you are on. */
+.bar {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+  margin: 0; padding: 6px 12px; background: var(--ink); color: var(--glass);
+  font: 400 17px/1.2 var(--px); letter-spacing: .06em; text-transform: uppercase;
+}
+.bar__t { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar__n { flex: none; font-size: 15px; }
+
+/* Status bar */
+.hdr {
+  position: fixed; inset: 0 0 auto 0; height: var(--hdr-h); z-index: 1000;
+  display: flex; align-items: center; gap: 16px; padding: 0 12px;
+  background: var(--glass-2); border-bottom: var(--line) solid var(--ink);
+}
+.hdr__brand { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1; }
+.hdr__title { margin: 0; font: 400 19px/1 var(--px); letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+.hdr__home { text-decoration: none; }
+.hdr__home:hover { text-decoration: underline; }
+.hdr__sub { margin: 0; font: 13px/1.2 var(--text); color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hdr__right { display: flex; align-items: center; gap: 12px; }
+.hdr__right .seg__btn { min-height: 28px; padding: 3px 9px; font-size: 13px; }
+.hdr__regions[hidden] { display: none; }
+.hdr__sys { display: flex; align-items: center; gap: 12px; padding-left: 14px; border-left: var(--line) solid var(--rule); height: 22px;
+  font: 400 15px/1 var(--px); letter-spacing: .04em; }
+.hdr__date:empty, .hdr__clock:empty { display: none; }
+
+/* Stage: three pages side by side, the screen split by 2px segment rules. */
+.stage { position: fixed; inset: var(--hdr-h) 0 0 0; }
+.map { position: absolute; top: 0; bottom: 0; left: var(--card-w); right: var(--panel-w); background: var(--glass); }
+.leaflet-container { font: inherit; background: var(--glass); }
+.leaflet-tile.explore-tile, .detail-overlay { image-rendering: pixelated; }
+.basemap { filter: var(--imagery); }
+/* The LCD's pixel matrix, faint, over the imagery and the data but under the waypoint flags. */
+.map::after {
+  content: ""; position: absolute; inset: 0; z-index: 450; pointer-events: none;
+  background-image: linear-gradient(to right, var(--grid) 1px, transparent 1px), linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+/* Zoom keys, drawn as pixel glyphs rather than Leaflet's text characters. */
+.leaflet-touch .leaflet-bar, .leaflet-bar { border: 0; border-radius: 0; box-shadow: none; display: flex; flex-direction: column; gap: 4px; }
+.leaflet-bar a, .leaflet-touch .leaflet-bar a, .leaflet-control-zoom a {
+  width: 34px; height: 34px; min-height: 34px; padding: 0; border: var(--line) solid var(--ink) !important; border-radius: 0 !important;
+  background: var(--glass); color: var(--ink); line-height: 1;
+}
+.leaflet-control-zoom a span { display: none; }
+.leaflet-control-zoom a::before { content: ""; width: 14px; height: 14px; background: currentColor;
+  -webkit-mask: var(--glyph) center / 14px 14px no-repeat; mask: var(--glyph) center / 14px 14px no-repeat; }
+.leaflet-control-zoom-in { --glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 7'%3E%3Cpath d='M3 0h1v3h3v1H4v3H3V4H0V3h3z'/%3E%3C/svg%3E"); }
+.leaflet-control-zoom-out { --glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 7'%3E%3Cpath d='M0 3h7v1H0z'/%3E%3C/svg%3E"); }
+.leaflet-bar a.leaflet-disabled { opacity: .45; background: var(--glass); }
+
+.leaflet-control-attribution, .leaflet-container .leaflet-control-attribution {
+  background: var(--glass); color: var(--ink-2); font: 11px/1.35 var(--text); padding: 3px 8px; max-width: 340px;
+  border-top: var(--line) solid var(--ink); border-left: var(--line) solid var(--ink);
+}
+.leaflet-control-attribution a { color: var(--ink); }
+
+/* Map furniture, bottom left of the map page: the cursor field, the base map keys, the band scale. */
+.mapctl {
+  position: absolute; left: calc(var(--card-w) + 12px); bottom: 12px; z-index: 800;
+  display: flex; flex-direction: column; gap: 8px; align-items: flex-start; pointer-events: none;
+}
+.mapctl > * { pointer-events: auto; }
+.legend { list-style: none; margin: 0; padding: 6px 8px 5px; display: flex; gap: 2px;
+  background: var(--glass); border: var(--line) solid var(--ink); }
+.legend__item { display: flex; flex-direction: column; align-items: stretch; gap: 3px; width: 44px; }
+.legend__swatch { position: relative; height: 12px; outline: 1px solid var(--rule); outline-offset: -1px; }
+/* The same checker the layer is dithered with, so the key looks like what it explains. */
+.legend__swatch::after { content: ""; position: absolute; inset: 0;
+  background: conic-gradient(var(--glass) 25%, transparent 0 50%, var(--glass) 0 75%, transparent 0) 0 0 / 2px 2px; opacity: .28; }
+.legend__km { font: 400 13px/1 var(--px); text-align: center; white-space: nowrap; }
+
+/* The cursor field: what the map says at the point under the pointer or the last tap. */
+.readout {
+  display: grid; gap: 2px; min-width: 220px; max-width: 340px; padding: 6px 10px 7px;
+  background: var(--glass); border: var(--line) solid var(--ink);
+  font: 14px/1.35 var(--text);
+}
+.readout[data-kind="class"], .readout[data-kind="edge"] { font: 400 26px/1.05 var(--px); letter-spacing: .02em; }
+.readout::before { content: attr(data-label); font: 400 13px/1 var(--px); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
+.readout[hidden] { display: none; }
+
+/* Data-fields page (the card): the left pane. */
+.card {
+  position: absolute; top: 0; bottom: 0; left: 0; width: var(--card-w); z-index: 900; overflow: auto;
+  background: var(--glass); border-right: var(--line) solid var(--ink);
+  scrollbar-width: thin; scrollbar-color: var(--ink) transparent;
+}
+.card-summary { display: none; }
+.card__lede { padding: 10px 14px 12px; border-bottom: var(--line) solid var(--ink); }
+.card__headline { margin: 0 0 6px; font: 700 16px/1.35 var(--text); text-wrap: balance; }
+.card__rank { margin: 0; font: 400 15px/1.2 var(--px); letter-spacing: .04em; color: var(--ink-2); }
+.card__controls { padding: 12px 14px 14px; display: grid; gap: 10px; border-bottom: var(--line) solid var(--ink); }
+.card__seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.card__seg .seg__btn { justify-content: flex-start; align-items: flex-start; text-align: left; padding: 7px 8px; min-height: 48px; }
+.seg__cap { flex: none; display: inline-grid; place-items: center; width: 20px; height: 20px; border: var(--line) solid currentColor;
+  font-size: 15px; letter-spacing: 0; margin-top: -2px; }
+.seg__label { line-height: 1.2; }
+.card__hint { margin: -4px 0 0; font-size: 13px; color: var(--ink-2); }
+.card__islands { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.card__islands-label { font: 400 15px/1 var(--px); letter-spacing: .08em; text-transform: uppercase; }
+.card__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+
+.card__poles { padding-bottom: 14px; }
+.bar--sub { padding: 5px 14px; }
+.card__pole-title { margin: 0; font: inherit; letter-spacing: inherit; }
+.card__of { font-weight: 400; }
+.chips { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; padding: 12px 14px 4px; }
+.chip { min-height: 30px; padding: 0; font-size: 17px; }
+.card__facts { margin: 0; padding: 0 14px; }
+.field { padding: 9px 0; border-bottom: 1px solid var(--rule); }
+.field dt { margin: 0 0 4px; font: 400 13px/1 var(--px); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
+.field dd { margin: 0; font-size: 14px; line-height: 1.35; }
+.field--big { display: flex; align-items: flex-end; justify-content: space-between; padding: 10px 0 8px; }
+.field--big dt { align-self: flex-start; }
+.field--big dd { display: flex; align-items: baseline; gap: 6px; }
+.big { font: 400 60px/.85 var(--px); letter-spacing: -.01em; }
+.big__u { font: 400 22px/1 var(--px); }
+.field--nav { display: flex; align-items: center; gap: 14px; }
+.field__nav-text { min-width: 0; }
+.field__place { display: block; font: 400 21px/1.2 var(--px); letter-spacing: .02em; }
+.field__sub { display: block; font-size: 13px; color: var(--ink-2); }
+.coords { display: block; font: 400 19px/1.3 var(--px); letter-spacing: .03em; margin-bottom: 8px; }
+.card__maps { font-size: 13px; min-height: 30px; }
+.card__note { margin: 10px 14px 0; font-size: 13px; color: var(--ink-2); }
+
+/* The compass: the needle swings onto its bearing once, the way a unit's compass settles. */
+.compass { flex: none; overflow: visible; }
+.compass__rim { fill: none; stroke: var(--ink); stroke-width: 2; }
+.compass__ticks { fill: var(--ink); }
+.compass__n { fill: var(--ink); font: 400 13px/1 var(--px); text-anchor: middle; }
+.compass__needle { fill: var(--ink); transform-origin: 38px 38px; transform: rotate(var(--brg));
+  animation: settle 900ms cubic-bezier(.16, 1, .3, 1) both; }
+.compass__tail { fill: var(--ink-2); opacity: .5; }
+.compass__hub { fill: var(--glass); stroke: var(--ink); stroke-width: 2; }
+@keyframes settle { from { transform: rotate(calc(var(--brg) - 70deg)); } to { transform: rotate(var(--brg)); } }
+
+/* Waypoint list (the ranking): the right pane. */
+.panel {
+  position: absolute; top: 0; right: 0; bottom: 0; width: var(--panel-w); z-index: 900;
+  display: flex; flex-direction: column; background: var(--glass); border-left: var(--line) solid var(--ink);
+}
+.panel__handle { display: none; }
+.panel__body { flex: 1; overflow: auto; scrollbar-width: thin; scrollbar-color: var(--ink) transparent; }
+.panel__body::-webkit-scrollbar, .card::-webkit-scrollbar { width: 10px; }
+.panel__body::-webkit-scrollbar-thumb, .card::-webkit-scrollbar-thumb { background: var(--ink); border: 3px solid var(--glass); }
+.panel__body::-webkit-scrollbar-track, .card::-webkit-scrollbar-track { background: transparent; }
+.panel__title { position: sticky; top: 0; z-index: 2; }
+.panel__note { margin: 0; padding: 8px 12px 10px; font-size: 12px; line-height: 1.4; color: var(--ink-2); border-bottom: var(--line) solid var(--ink); }
+.panel__foot { padding: 14px 12px 16px; }
+.ranking { list-style: none; margin: 0; padding: 0; }
+.ranking__row { border-bottom: 1px solid var(--rule); scroll-margin-top: 36px; }
+.ranking__btn {
+  position: relative; display: grid; grid-template-columns: 30px 1fr auto; align-items: center; gap: 8px; width: 100%;
+  border: 0; background: none; padding: 6px 12px 6px 14px; text-align: left; cursor: pointer; color: var(--ink);
+}
+.ranking__btn:hover { background: var(--hover); }
+.ranking__flag { display: none; }
+.ranking__rank { font: 400 16px/1 var(--px); color: var(--ink-2); text-align: right; }
+.ranking__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; }
+.ranking__dist { display: flex; align-items: baseline; gap: 8px; text-align: right; }
+.ranking__dist b { font: 400 17px/1 var(--px); font-weight: 400; min-width: 66px; }
+.ranking__dist small { font: 400 13px/1 var(--px); color: var(--ink-2); min-width: 58px; }
+/* The current unit: inverse video with a blinking block cursor at the start of the row. */
+.ranking__row--current .ranking__btn { background: var(--ink); color: var(--glass); }
+.ranking__row--current .ranking__rank, .ranking__row--current .ranking__dist small { color: inherit; }
+.ranking__row--current .ranking__btn::before {
+  content: ""; position: absolute; left: 4px; top: 50%; width: 5px; height: 14px; margin-top: -7px;
+  background: var(--glass); animation: blink 1.06s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Waypoint flags. Leaflet writes the marker's size and transform inline, so the active state is said in
+   inverse video on the flag, never in transform or width. */
+.pole-marker { position: relative; }
+.wpt__flag {
+  position: absolute; left: 3px; top: 0; min-width: 24px; height: 22px; padding: 0 5px;
+  display: grid; place-items: center; background: var(--glass); color: var(--ink); border: var(--line) solid var(--ink);
+  font: 400 16px/1 var(--px); box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+}
+.wpt__staff { position: absolute; left: 3px; top: 20px; width: 2px; height: 18px; background: var(--ink); }
+.wpt__foot { position: absolute; left: 0; bottom: 0; width: 8px; height: 3px; background: var(--ink); }
+.pole-marker--active .wpt__flag { background: var(--ink); color: var(--glass); }
+.pole-marker--active .wpt__staff, .pole-marker--active .wpt__foot { box-shadow: 0 0 0 1px var(--glass); }
+
+/* The hover preview: a dotted crosshair and a tag at a unit's remotest point, before a click commits. */
+.xhair { position: absolute; inset: 0; z-index: 640; pointer-events: none; }
+.xhair[hidden] { display: none; }
+.xhair__h { position: absolute; left: 0; right: 0; height: 0; border-top: 2px dotted var(--ink); }
+.xhair__v { position: absolute; top: 0; bottom: 0; width: 0; border-left: 2px dotted var(--ink); }
+.xhair__box { position: absolute; left: -7px; top: -7px; width: 16px; height: 16px; border: var(--line) solid var(--ink); background: var(--hover); }
+.xhair__tag { position: absolute; left: 0; top: 0; padding: 4px 8px; background: var(--ink); color: var(--glass);
+  font: 400 16px/1 var(--px); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.xhair--off .xhair__box { display: none; }
+
+/* About: a full page of the unit, set in the plain face so it reads at length. */
+.about { width: min(680px, calc(100% - 32px)); max-height: calc(100% - 64px); padding: 0; border: var(--line) solid var(--ink); border-radius: 0;
+  background: var(--glass); color: var(--ink); box-shadow: var(--shadow); overflow: auto; scrollbar-color: var(--ink) transparent; }
+.about::backdrop { background: var(--backdrop); }
+.about__close-form { position: sticky; top: 0; float: right; margin: 12px 12px 0 0; z-index: 1; }
+.about__close { width: 36px; height: 36px; padding: 0; }
+.about__body { padding: 20px 28px 26px; }
+.about__body h2 { margin: 2px 56px 16px 0; font: 400 30px/1.15 var(--px); letter-spacing: .03em; text-transform: uppercase; }
+.about__body h3 { margin: 22px 0 6px; padding-top: 10px; border-top: var(--line) solid var(--ink); font: 400 17px/1.2 var(--px); letter-spacing: .08em; text-transform: uppercase; }
+.about__body p { margin: 0 0 10px; max-width: 66ch; font-size: 15px; line-height: 1.55; }
+.about__body b { font-weight: 700; }
+html[lang="en"] .about__body [data-lang="lt"], html[lang="lt"] .about__body [data-lang="en"] { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .compass__needle, .ranking__row--current .ranking__btn::before { animation: none; }
+  * { transition: none !important; }
+}
+
+/* Mid widths: the status line gives up the subtitle before anything else. */
+@media (max-width: 1180px) {
+  .hdr__sub { display: none; }
+  :root { --card-w: 320px; --panel-w: 300px; }
+}
+
+/* Phone: the map page fills the screen, the data fields and the waypoint list live in a bottom sheet. */
+@media (max-width: 720px) {
+  :root { --hdr-h: 74px; }
+  .map { left: 0; right: 0; }
+  .hdr { flex-wrap: wrap; align-content: center; row-gap: 6px; column-gap: 10px; padding: 0 10px; }
+  .hdr__brand { flex: 1 1 auto; order: 1; }
+  .hdr__title { font-size: 17px; overflow: hidden; text-overflow: ellipsis; }
+  .hdr__sub { display: none; }
+  .hdr__sys { order: 2; gap: 8px; padding-left: 0; border-left: 0; height: auto; font-size: 14px; }
+  .hdr__date { display: none; }
+  .hdr__right { order: 3; flex: 1 1 100%; justify-content: space-between; gap: 8px; }
+  .hdr__right .seg__btn { min-height: 28px; padding: 3px 8px; font-size: 12px; white-space: nowrap; }
+
+  .panel { top: auto; left: 0; right: 0; width: auto; border-left: 0; border-top: var(--line) solid var(--ink);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, .18); transition: height var(--t); }
+  .panel--collapsed { height: var(--sheet-h); }
+  .panel--half { height: 52%; }
+  .panel--full { height: calc(100% - 6px); }
+  .panel__handle { display: flex; flex: none; flex-direction: column; align-items: stretch; gap: 6px; width: 100%;
+    padding: 6px 12px 10px; border: 0; background: var(--glass); cursor: pointer; text-align: left; color: var(--ink); }
+  /* The grip: three pixel blocks, the unit's page-scroll mark. */
+  .panel__grip { align-self: center; width: 22px; height: 4px;
+    background: linear-gradient(90deg, var(--ink) 0 4px, transparent 4px 9px, var(--ink) 9px 13px, transparent 13px 18px, var(--ink) 18px); }
+  .panel__handle-text { font: 400 16px/1 var(--px); letter-spacing: .08em; text-transform: uppercase; }
+  .card-summary { display: block; }
+  .card-summary[hidden] { display: none; }
+  .card-summary:not([hidden]) ~ .panel__handle-text { display: none; }
+  .card-summary__line { display: flex; align-items: baseline; gap: 10px; }
+  .card-summary__name { flex: 1; min-width: 0; font: 400 21px/1.1 var(--px); letter-spacing: .04em; text-transform: uppercase;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .card-summary__none { display: block; font: 700 15px/1.3 var(--text); }
+  .card-summary__dist { flex: none; font: 400 28px/1 var(--px); white-space: nowrap; }
+  .card-summary__rank { display: block; margin-top: 4px; font: 400 15px/1 var(--px); letter-spacing: .04em; color: var(--ink-2); }
+  .panel--collapsed .panel__body { display: none; }
+  .panel__body { border-top: var(--line) solid var(--ink); }
+
+  /* The card moved into the sheet body (js/app.js): the data fields page, above the waypoint list. The
+     handle already says the unit, its distance and its rank, so the title bar and the rank line stay behind. */
+  .panel .card { position: static; width: auto; overflow: visible; border-right: 0; border-bottom: var(--line) solid var(--ink); }
+  .panel .card__bar, .panel .card__rank { display: none; }
+  .panel .card__headline { margin: 0; }
+  .panel__title { top: 0; }
+
+  .leaflet-top, .leaflet-bottom { z-index: 800; }
+  .mapctl { left: 10px; right: 10px; bottom: calc(var(--sheet-h) + 8px); }
+  .readout { min-width: 0; max-width: 100%; }
+  .legend__item { width: 40px; }
+  .mapctl .leaflet-control-attribution { max-width: 100%; border: var(--line) solid var(--ink); font-size: 10.5px; }
+  .xhair { display: none; }
+}
