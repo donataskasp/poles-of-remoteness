@@ -59,3 +59,8 @@ The owner enabled R2 in the evening and the publish stage ran its R2 part for bo
 ## 2026-08-24: polesofremoteness.com live, the repo public
 
 Stage 6 cutover in one evening: the domain bought at Hostinger (two years), the zone and nameserver flip automated over the Cloudflare and Hostinger APIs, data on data.polesofremoteness.com, production worker `polesofremoteness` on the apex with www and the old workers.dev URL as permanent redirects, `europe` merged to `main`. The repo renamed to poles-of-remoteness and made public with its full history for the owner's CV: MIT licensed, recruiter-grade README. The LinkedIn post about the Europe version stays the owner's move.
+
+## 2026-09-29: Distinct areas and islands live
+
+Both regions re-searched under the distinct-area rule (#56) and the island floor, tag and toggle (#30), validated with 0 blocking failures, published and merged to `main` (fast-forward to 4a1c50f), live on polesofremoteness.com. Europe publishes 1,061 poles and North America 1,569, with the island poles switchable in the card; poles with a sibling within 20 km fell from 51.6% to 31.6% in Europe and from 67.4% to 27.8% in North America. The headline with islands shown is a 1.3 km2 Dodecanese islet (Europe A, 50.5 km). Getting there took four search rounds over 2026-09-05 to 07, each a DECISIONS entry. The first preview deploy from a branch took over the production domain for two minutes (#58, fixed by an empty `routes` in the preview environment). R2 pruned of the 4,582 rasters no document references: 9,852 objects to 5,270, 0.752 GB to 0.721 GB.
+
