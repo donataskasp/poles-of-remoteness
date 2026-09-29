@@ -1,0 +1,560 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-29T10:07:59+00:00",
+  "title": "Design System: Poles of remoteness",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Chart Buff",
+        "canonical": "oklch(0.929 0.041 90.3)",
+        "tonalRamp": [
+          "#0f0b02",
+          "#292416",
+          "#483f26",
+          "#675d43",
+          "#877d61",
+          "#a89e82",
+          "#cec4a6",
+          "#f5eedc"
+        ],
+        "dark": "#0c111a"
+      },
+      "paper-2": {
+        "role": "neutral",
+        "displayName": "Deeper Buff",
+        "canonical": "#e8dab1",
+        "tonalRamp": [
+          "#0f0b02",
+          "#292416",
+          "#483f26",
+          "#675d43",
+          "#877d61",
+          "#a89e82",
+          "#cec4a6",
+          "#f5eedc"
+        ],
+        "dark": "#151c28"
+      },
+      "sea": {
+        "role": "neutral",
+        "displayName": "Shallow Water",
+        "canonical": "oklch(0.911 0.021 223.0)",
+        "tonalRamp": [
+          "#060c0f",
+          "#1d2529",
+          "#344248",
+          "#516167",
+          "#708087",
+          "#91a2a8",
+          "#b6c8ce",
+          "#e6f1f5"
+        ],
+        "dark": "#07172a"
+      },
+      "sea-2": {
+        "role": "neutral",
+        "displayName": "Sounded Water",
+        "canonical": "#bcd6e2",
+        "tonalRamp": [
+          "#060c0f",
+          "#1d2529",
+          "#344248",
+          "#516167",
+          "#708087",
+          "#91a2a8",
+          "#b6c8ce",
+          "#e6f1f5"
+        ],
+        "dark": "#0f2540"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Lettering Black",
+        "canonical": "oklch(0.199 0.013 100.7)",
+        "tonalRamp": [
+          "#0c0b08",
+          "#252420",
+          "#414038",
+          "#5f5e55",
+          "#7f7e75",
+          "#a09f95",
+          "#c6c4bb",
+          "#efefe9"
+        ],
+        "dark": "#dccfae"
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Faded Lettering",
+        "canonical": "#4a4433",
+        "tonalRamp": [
+          "#0c0b08",
+          "#252420",
+          "#414038",
+          "#5f5e55",
+          "#7f7e75",
+          "#a09f95",
+          "#c6c4bb",
+          "#efefe9"
+        ],
+        "dark": "#a89e84"
+      },
+      "ink-sea": {
+        "role": "neutral",
+        "displayName": "Sea Lettering",
+        "canonical": "#1f3a4c",
+        "tonalRamp": [
+          "#000a23",
+          "#092540",
+          "#074173",
+          "#2c6094",
+          "#4c81b7",
+          "#6da3db",
+          "#92c9ff",
+          "#d1f2ff"
+        ],
+        "dark": "#9fb3c2"
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "Chart Blue Ink",
+        "canonical": "oklch(0.388 0.101 250.6)",
+        "tonalRamp": [
+          "#000a23",
+          "#092540",
+          "#074173",
+          "#2c6094",
+          "#4c81b7",
+          "#6da3db",
+          "#92c9ff",
+          "#d1f2ff"
+        ],
+        "dark": "#2f6da6"
+      },
+      "blue-ink": {
+        "role": "primary",
+        "displayName": "Chart Blue Ink, deep",
+        "canonical": "#0c3f6d",
+        "tonalRamp": [
+          "#000a23",
+          "#092540",
+          "#074173",
+          "#2c6094",
+          "#4c81b7",
+          "#6da3db",
+          "#92c9ff",
+          "#d1f2ff"
+        ],
+        "dark": "#8fbbe3"
+      },
+      "magenta": {
+        "role": "secondary",
+        "displayName": "Chart Magenta",
+        "canonical": "oklch(0.466 0.182 349.2)",
+        "tonalRamp": [
+          "#260012",
+          "#46002c",
+          "#7c004e",
+          "#a11c6d",
+          "#c7448e",
+          "#ed67b0",
+          "#ff8ed6",
+          "#ffd1fa"
+        ],
+        "dark": "#e07fbf"
+      },
+      "magenta-soft": {
+        "role": "secondary",
+        "displayName": "Magenta Wash",
+        "canonical": "rgba(156, 21, 105, .11)",
+        "tonalRamp": [
+          "#260012",
+          "#46002c",
+          "#7c004e",
+          "#a11c6d",
+          "#c7448e",
+          "#ed67b0",
+          "#ff8ed6",
+          "#ffd1fa"
+        ],
+        "dark": "rgba(224, 127, 191, .14)"
+      },
+      "hair": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(23, 22, 15, .2)",
+        "tonalRamp": [
+          "#0c0b08",
+          "#252420",
+          "#414038",
+          "#5f5e55",
+          "#7f7e75",
+          "#a09f95",
+          "#c6c4bb",
+          "#efefe9"
+        ],
+        "dark": "rgba(220, 207, 174, .16)"
+      },
+      "hair-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "rgba(23, 22, 15, .55)",
+        "tonalRamp": [
+          "#0c0b08",
+          "#252420",
+          "#414038",
+          "#5f5e55",
+          "#7f7e75",
+          "#a09f95",
+          "#c6c4bb",
+          "#efefe9"
+        ],
+        "dark": "rgba(220, 207, 174, .45)"
+      },
+      "depth-ink": {
+        "role": "tertiary",
+        "displayName": "Depth Ink",
+        "canonical": "oklch(0.411 0.096 151.8)",
+        "tonalRamp": [
+          "#001101",
+          "#092c15",
+          "#024d24",
+          "#2c6d41",
+          "#4e8e60",
+          "#6fb081",
+          "#94d6a5",
+          "#d3fadc"
+        ],
+        "dark": "#84d48a"
+      },
+      "edge": {
+        "role": "neutral",
+        "displayName": "Survey Edge",
+        "canonical": "#8b8574",
+        "tonalRamp": [
+          "#0c0b08",
+          "#252420",
+          "#414038",
+          "#5f5e55",
+          "#7f7e75",
+          "#a09f95",
+          "#c6c4bb",
+          "#efefe9"
+        ],
+        "dark": "#5c6470"
+      },
+      "band-1": {
+        "role": "tertiary",
+        "displayName": "Depth band 1 (1 km, alpha .50)",
+        "canonical": "var(--band-1)",
+        "tonalRamp": [
+          "#004021",
+          "#15592b",
+          "#337031",
+          "#5d8b3d",
+          "#94b166",
+          "#d1db9f"
+        ],
+        "dark": "#667c50"
+      },
+      "band-2": {
+        "role": "tertiary",
+        "displayName": "Depth band 2 (2.5 km, alpha .58)",
+        "canonical": "var(--band-2)",
+        "tonalRamp": [
+          "#004021",
+          "#15592b",
+          "#337031",
+          "#5d8b3d",
+          "#94b166",
+          "#d1db9f"
+        ],
+        "dark": "#6e905b"
+      },
+      "band-3": {
+        "role": "tertiary",
+        "displayName": "Depth band 3 (5 km, alpha .66)",
+        "canonical": "var(--band-3)",
+        "tonalRamp": [
+          "#004021",
+          "#15592b",
+          "#337031",
+          "#5d8b3d",
+          "#94b166",
+          "#d1db9f"
+        ],
+        "dark": "#73a268"
+      },
+      "band-4": {
+        "role": "tertiary",
+        "displayName": "Depth band 4 (10 km, alpha .72)",
+        "canonical": "var(--band-4)",
+        "tonalRamp": [
+          "#004021",
+          "#15592b",
+          "#337031",
+          "#5d8b3d",
+          "#94b166",
+          "#d1db9f"
+        ],
+        "dark": "#75b375"
+      },
+      "band-5": {
+        "role": "tertiary",
+        "displayName": "Depth band 5 (20 km, alpha .76)",
+        "canonical": "var(--band-5)",
+        "tonalRamp": [
+          "#004021",
+          "#15592b",
+          "#337031",
+          "#5d8b3d",
+          "#94b166",
+          "#d1db9f"
+        ],
+        "dark": "#7cc785"
+      },
+      "band-6": {
+        "role": "tertiary",
+        "displayName": "Depth band 6 (50 km, alpha .80)",
+        "canonical": "var(--band-6)",
+        "tonalRamp": [
+          "#004021",
+          "#15592b",
+          "#337031",
+          "#5d8b3d",
+          "#94b166",
+          "#d1db9f"
+        ],
+        "dark": "#80d994"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Unit name in the cartouche, spaced roman capitals."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "About dialog title."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Site title in the header strip."
+      },
+      "body-serif": {
+        "displayName": "Body Serif",
+        "purpose": "Card headline sentence, About paragraphs, ranking names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Controls and data values; tabular figures."
+      },
+      "sounding": {
+        "displayName": "Sounding",
+        "purpose": "Distances on markers, readout, ranking and notes; decimals .62em lowered .34em."
+      },
+      "note-italic": {
+        "displayName": "Note Italic",
+        "purpose": "Subtitles, captions, hints, the About button."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase note keys."
+      }
+    },
+    "shadows": [
+      {
+        "name": "floating-sheet",
+        "value": "0 1px 2px rgba(40, 32, 10, .16), 0 3px 8px rgba(40, 32, 10, .14)",
+        "purpose": "Paper pieces over the map (card, scale, readout, About, zoom bar). Night: 0 1px 2px rgba(0,0,0,.6), 0 3px 9px rgba(0,0,0,.45)."
+      },
+      {
+        "name": "phone-sheet",
+        "value": "0 -2px 8px rgba(20, 16, 6, .2)",
+        "purpose": "Top edge of the phone bottom sheet."
+      },
+      {
+        "name": "marker-halo",
+        "value": "text-shadow in var(--halo), eight offsets of 1 to 1.5px",
+        "purpose": "Knocks marker lettering out of the imagery."
+      }
+    ],
+    "motion": [
+      {
+        "name": "t",
+        "value": "180ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Colour and sheet-height transitions."
+      },
+      {
+        "name": "marker-ring",
+        "value": "400ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Selected pole ring fading and scaling in from .4."
+      },
+      {
+        "name": "rose-turn",
+        "value": "600ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Compass rose turns -22.5deg on About hover."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "max-width: 720px"
+      }
+    ],
+    "basemapFilter": {
+      "light": "saturate(.42) contrast(.94) brightness(1.03)",
+      "dark": "saturate(.4) brightness(.62) contrast(1.02)"
+    },
+    "bandAlphas": {
+      "light": [
+        0.5,
+        0.58,
+        0.66,
+        0.72,
+        0.76,
+        0.8
+      ],
+      "dark": [
+        0.62,
+        0.66,
+        0.7,
+        0.74,
+        0.77,
+        0.8
+      ],
+      "fallback": {
+        "light": 0.7,
+        "dark": 0.72
+      },
+      "edge": 0.35
+    },
+    "bandStopsKm": [
+      1,
+      2.5,
+      5,
+      10,
+      20,
+      50
+    ]
+  },
+  "components": [
+    {
+      "name": "Segmented control",
+      "kind": "nav",
+      "refersTo": "seg-button",
+      "description": "Square chart boxes; the pressed one ruled and lettered in magenta.",
+      "html": "<div class=\"ds-seg\"><button class=\"ds-seg__btn\" aria-pressed=\"true\">Europe</button><button class=\"ds-seg__btn\" aria-pressed=\"false\">North America</button></div>",
+      "css": ".ds-seg{display:inline-flex;border:1px solid var(--hair-strong,rgba(23,22,15,.55));border-radius:2px;background:var(--paper,#f2e7c9);font-family:\"Libre Franklin\",Arial,sans-serif}.ds-seg__btn{border:0;background:transparent;padding:6px 12px;cursor:pointer;color:var(--ink-2,#4a4433);font-size:13px;transition:background-color 180ms cubic-bezier(.16,1,.3,1),color 180ms cubic-bezier(.16,1,.3,1)}.ds-seg__btn+.ds-seg__btn{border-left:1px solid var(--hair,rgba(23,22,15,.2))}.ds-seg__btn:hover{background:var(--paper-2,#e8dab1);color:var(--ink,#17160f)}.ds-seg__btn[aria-pressed=\"true\"]{color:var(--magenta,#9c1569);font-weight:600;box-shadow:inset 0 0 0 1.5px var(--magenta,#9c1569);background:var(--magenta-soft,rgba(156,21,105,.11))}.ds-seg__btn:focus-visible{outline:2px solid var(--magenta,#9c1569);outline-offset:2px}"
+    },
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Chart blue fill for the card actions.",
+      "html": "<button class=\"ds-btn\">See the ranking</button>",
+      "css": ".ds-btn{border:1px solid var(--blue,#0e4678);background:var(--blue,#0e4678);color:#f2e7c9;border-radius:2px;padding:6px 11px;cursor:pointer;font:600 13px \"Libre Franklin\",Arial,sans-serif;transition:background-color 180ms cubic-bezier(.16,1,.3,1)}.ds-btn:hover{background:var(--blue-ink,#0c3f6d)}.ds-btn:focus-visible{outline:2px solid var(--magenta,#9c1569);outline-offset:2px}"
+    },
+    {
+      "name": "Ghost button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Blue-ruled secondary action.",
+      "html": "<button class=\"ds-btn-ghost\">Locate me</button>",
+      "css": ".ds-btn-ghost{border:1px solid var(--blue,#0e4678);background:transparent;color:var(--blue-ink,#0c3f6d);border-radius:2px;padding:6px 11px;cursor:pointer;font:600 13px \"Libre Franklin\",Arial,sans-serif;transition:background-color 180ms cubic-bezier(.16,1,.3,1)}.ds-btn-ghost:hover{background:var(--sea,#d3e5ec)}.ds-btn-ghost:focus-visible{outline:2px solid var(--magenta,#9c1569);outline-offset:2px}"
+    },
+    {
+      "name": "Pole chips",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Pole number boxes; the active one solid magenta.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip ds-chip--on\">1</button><button class=\"ds-chip\">2</button><button class=\"ds-chip\">3</button></div>",
+      "css": ".ds-chips{display:flex;gap:4px}.ds-chip{border:1px solid var(--hair-strong,rgba(23,22,15,.55));background:transparent;border-radius:2px;min-width:27px;height:25px;padding:0 6px;cursor:pointer;font:400 12px/1 \"Libre Franklin\",Arial,sans-serif;color:var(--ink,#17160f)}.ds-chip:hover{background:var(--paper-2,#e8dab1)}.ds-chip--on,.ds-chip--on:hover{background:var(--magenta,#9c1569);border-color:var(--magenta,#9c1569);color:var(--paper,#f2e7c9);font-weight:600}.ds-chip:focus-visible{outline:2px solid var(--magenta,#9c1569);outline-offset:2px}"
+    },
+    {
+      "name": "Cartouche card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "The chart title block: double-ruled buff sheet with centred spaced-caps name and italic subtitle.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-cart\"><h2 class=\"ds-cart__name\">Lithuania</h2><p class=\"ds-cart__sub\">Soundings in kilometres from the nearest drivable way</p><p class=\"ds-cart__head\">Lithuania: the remotest point is 3.43 km from anything drivable.</p></div></div>",
+      "css": ".ds-card{width:384px;background:var(--paper,#f2e7c9);color:var(--ink,#17160f);border:1px solid var(--ink,#17160f);outline:1px solid var(--ink,#17160f);outline-offset:-5px;border-radius:0;box-shadow:0 1px 2px rgba(40,32,10,.16),0 3px 8px rgba(40,32,10,.14);padding:18px 20px 16px}.ds-cart{text-align:center;padding-bottom:12px;border-bottom:1px solid var(--ink,#17160f)}.ds-cart__name{margin:2px 0 4px;font:400 21px/1.15 \"Libre Caslon Text\",Georgia,serif;letter-spacing:.22em;text-transform:uppercase}.ds-cart__sub{margin:0 0 10px;font:italic 400 13px/1.35 \"Libre Caslon Text\",Georgia,serif;color:var(--depth-ink,#15592f)}.ds-cart__head{margin:0;font:400 15px/1.4 \"Libre Caslon Text\",Georgia,serif}"
+    },
+    {
+      "name": "Tide table row",
+      "kind": "custom",
+      "refersTo": "ranking-row-current",
+      "description": "Ruled ranking on the sea tint; the current row ruled in magenta.",
+      "html": "<div class=\"ds-rank\"><div class=\"ds-rank__row\"><span class=\"ds-rank__n\">38</span><span class=\"ds-rank__name\">Kosovo</span><span class=\"ds-rank__d\">3.53</span><span class=\"ds-rank__o\">8.16</span></div><div class=\"ds-rank__row ds-rank__row--on\"><span class=\"ds-rank__n\">39</span><span class=\"ds-rank__name\">Lithuania</span><span class=\"ds-rank__d\">3.43</span><span class=\"ds-rank__o\">6.68</span></div></div>",
+      "css": ".ds-rank{background:var(--sea,#d3e5ec);width:340px;padding:8px}.ds-rank__row{display:grid;grid-template-columns:34px 1fr 62px 54px;gap:6px;align-items:baseline;padding:6px;border-top:1px solid var(--hair,rgba(23,22,15,.2));cursor:pointer;transition:background-color 180ms cubic-bezier(.16,1,.3,1)}.ds-rank__row:hover{background:var(--sea-2,#bcd6e2)}.ds-rank__n{color:var(--ink-sea,#1f3a4c);font:12px \"Libre Franklin\",Arial,sans-serif}.ds-rank__name{font:400 14px/1.35 \"Libre Caslon Text\",Georgia,serif}.ds-rank__d{text-align:right;font:italic 400 15px/1.3 \"Libre Caslon Text\",Georgia,serif}.ds-rank__o{text-align:right;font:12px \"Libre Franklin\",Arial,sans-serif;color:var(--ink-sea,#1f3a4c);font-variant-numeric:tabular-nums}.ds-rank__row--on{background:var(--magenta-soft,rgba(156,21,105,.11));box-shadow:inset 0 0 0 1.5px var(--magenta,#9c1569)}.ds-rank__row--on .ds-rank__name,.ds-rank__row--on .ds-rank__n{color:var(--magenta,#9c1569)}"
+    },
+    {
+      "name": "Depth scale legend",
+      "kind": "custom",
+      "refersTo": "scale",
+      "description": "Six stepped green blocks under an ink shoreline, italic figures beneath.",
+      "html": "<figure class=\"ds-scale\"><figcaption class=\"ds-scale__cap\">Distance to the nearest road</figcaption><ol class=\"ds-leg\"><li class=\"ds-leg__i\" style=\"--step:0\"><span class=\"ds-leg__sw\" style=\"background:#d1db9f\"></span><span class=\"ds-leg__f\">1.0</span></li><li class=\"ds-leg__i\" style=\"--step:1\"><span class=\"ds-leg__sw\" style=\"background:#94b166\"></span><span class=\"ds-leg__f\">2.5</span></li><li class=\"ds-leg__i\" style=\"--step:2\"><span class=\"ds-leg__sw\" style=\"background:#5d8b3d\"></span><span class=\"ds-leg__f\">5.0</span></li><li class=\"ds-leg__i\" style=\"--step:3\"><span class=\"ds-leg__sw\" style=\"background:#337031\"></span><span class=\"ds-leg__f\">10</span></li><li class=\"ds-leg__i\" style=\"--step:4\"><span class=\"ds-leg__sw\" style=\"background:#15592b\"></span><span class=\"ds-leg__f\">20</span></li><li class=\"ds-leg__i\" style=\"--step:5\"><span class=\"ds-leg__sw\" style=\"background:#004021\"></span><span class=\"ds-leg__f\">50</span></li></ol></figure>",
+      "css": ".ds-scale{display:inline-block;margin:0;padding:8px 12px;background:var(--paper,#f2e7c9);border:1px solid var(--ink,#17160f);border-radius:2px;box-shadow:0 1px 2px rgba(40,32,10,.16),0 3px 8px rgba(40,32,10,.14)}.ds-scale__cap{font:italic 400 13px/1.2 \"Libre Caslon Text\",Georgia,serif;margin:0 0 6px}.ds-leg{list-style:none;margin:0;padding:0;display:flex;align-items:flex-start}.ds-leg__i{display:flex;flex-direction:column;width:44px}.ds-leg__sw{display:block;height:calc(4px + var(--step) * 3px);border-top:2.5px solid var(--ink,#17160f);opacity:.85}.ds-leg__f{margin-top:3px;font:italic 400 12px/1 \"Libre Caslon Text\",Georgia,serif}"
+    },
+    {
+      "name": "Sounding readout",
+      "kind": "custom",
+      "refersTo": "readout",
+      "description": "The tapped distance written as a chart sounding.",
+      "html": "<div class=\"ds-readout\">About <span class=\"ds-snd\">3<span class=\"ds-snd__d\">43</span></span> km from the nearest drivable way</div>",
+      "css": ".ds-readout{display:inline-block;max-width:330px;padding:6px 12px 8px;background:var(--paper,#f2e7c9);border:1px solid var(--ink,#17160f);border-radius:2px;box-shadow:0 1px 2px rgba(40,32,10,.16),0 3px 8px rgba(40,32,10,.14);font:italic 400 14px/1.35 \"Libre Caslon Text\",Georgia,serif;color:var(--ink,#17160f)}.ds-snd{font-size:26px;line-height:1;color:var(--depth-ink,#15592f);white-space:nowrap}.ds-snd__d{font-size:.62em;position:relative;top:.38em;margin-left:.04em}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Depth from the road",
+    "overview": "**Creative North Star: \"Depth from the road\"**\n\nThe site is a nautical chart laid over land. The road network plays the coastline and distance from it plays depth: the ground is sounded in six stepped bands that deepen away from every drivable way, and each pole is written as the chart's deepest sounding. Panels are chart buff paper with black lettering; chart blue draws the controls and links; magenta, as on a real chart, marks notes, cautions and the current selection. The night scheme is a bridge display (ECDIS night palette): blue-black ground, dimmed buff lettering, a ramp that brightens with distance.\n\nOne owner amendment departs from the Admiralty palette: the depth bands are a park-map green, not chart blue, because blue on land read as water or ice. Blue therefore owns the ranking's water tint and the controls, never the land. The satellite basemap stays the default and is desaturated toward buff so the green soundings lead.\n\nDensity is a working chart's: ruled, numbered, small type, tabular figures, no decoration that does not carry a reading.",
+    "keyCharacteristics": [
+      "Chart grammar throughout: title block (cartouche), numbered notes, soundings, depth scale, graduated neatline, one compass rose.",
+      "Upright roman capitals for names, italic for soundings and anything that reads a measurement.",
+      "Square, ruled forms: 2px corners on controls, 0 on the framed sheets.",
+      "Light soft shadow only where a sheet floats over the map.",
+      "Every colour is a CSS custom property on `:root` with a `prefers-color-scheme: dark` counterpart; the map layer reads the band tokens through `js/palette.js`."
+    ],
+    "rules": [
+      {
+        "name": "The Land Is Green Rule",
+        "body": "The remoteness layer is the green ramp only. Blue on land reads as water; blue belongs to the controls and the ranking's water.",
+        "section": "colors"
+      },
+      {
+        "name": "The Magenta Means Selected Rule",
+        "body": "Magenta marks the current thing and the chart's notes, nothing else. Never a decorative accent, never a second call to action.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tokens Drive The Map Rule",
+        "body": "Band colours and alphas are set only in `:root` and its dark block; `js/palette.js` reads them, so the legend and the tiles recolour together.",
+        "section": "colors"
+      },
+      {
+        "name": "The Drawn Weight Rule",
+        "body": "Caslon exists in 400 only; `font-synthesis-weight: none` is set on `html`. Titles are regular roman capitals, as chart titles are. Do not add a Caslon bold: the 700 was cut to keep the first screen under its 256 KB budget.",
+        "section": "typography"
+      },
+      {
+        "name": "The Italic Measures Rule",
+        "body": "A number that is a distance is set in Caslon italic; names are upright.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "**Do** set every colour through the `:root` tokens and give each a value in the dark block.",
+      "**Do** write distances as soundings (Caslon italic, decimals small and lowered) on the map and in the readout.",
+      "**Do** say selection in magenta and an inset rule, never by moving or resizing the element (Leaflet owns marker transforms).",
+      "**Do** keep phone rules inside the single `max-width: 720px` query and verify desktop screenshots stay byte-identical.",
+      "**Do** use the standard easing (`180ms cubic-bezier(.16, 1, .3, 1)`) for colour and height transitions."
+    ],
+    "donts": [
+      "**Don't** paint the land in blue; the depth ramp is green.",
+      "**Don't** use magenta for anything but the selection, notes and cautions.",
+      "**Don't** add a Caslon bold or let the browser synthesise one.",
+      "**Don't** load fonts or assets from a third-party host; the faces are self-hosted and counted in the first-screen budget.",
+      "**Don't** add a second compass rose or another decorative chart ornament; the rose, the neatline and the double-ruled frames are the whole ornament set."
+    ]
+  }
+}
