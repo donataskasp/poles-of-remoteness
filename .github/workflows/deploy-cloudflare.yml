@@ -80,8 +80,8 @@ jobs:
           # The region and unit ids here name the run of record, not a precedent: code never names a region.
           # The fonts are the @font-face files of css/app.css, kept in step with it the same way. A browser fetches
           # a latin-ext file only when a character from it is on screen: in English only Franklin's (the nearest
-          # place, Kumečiai), in Lithuanian (this unit's usual reader) all four, so all eight files are listed.
-          FIRST_SCREEN="/europe/lt /css/app.css /vendor/leaflet/leaflet.css /vendor/leaflet/leaflet.js /vendor/pmtiles/pmtiles.js /js/app.js /js/i18n.js /js/router.js /js/data.js /js/palette.js /js/readout.js /js/map.js /js/explore.js /js/detail.js /js/markers.js /js/card.js /js/ranking.js /js/classes.js /fonts/libre-caslon-text-400-latin.woff2 /fonts/libre-caslon-text-400-italic-latin.woff2 /fonts/libre-caslon-text-700-latin.woff2 /fonts/libre-franklin-var-latin.woff2 /fonts/libre-caslon-text-400-latin-ext.woff2 /fonts/libre-caslon-text-400-italic-latin-ext.woff2 /fonts/libre-caslon-text-700-latin-ext.woff2 /fonts/libre-franklin-var-latin-ext.woff2 /data/regions.json /data/europe/units.json /data/europe/units/lt.json"
+          # place, Kumečiai), in Lithuanian (this unit's usual reader) all three, so all six files are listed.
+          FIRST_SCREEN="/europe/lt /css/app.css /vendor/leaflet/leaflet.css /vendor/leaflet/leaflet.js /vendor/pmtiles/pmtiles.js /js/app.js /js/i18n.js /js/router.js /js/data.js /js/palette.js /js/readout.js /js/map.js /js/explore.js /js/detail.js /js/markers.js /js/card.js /js/ranking.js /js/classes.js /fonts/libre-caslon-text-400-latin.woff2 /fonts/libre-caslon-text-400-italic-latin.woff2 /fonts/libre-franklin-var-latin.woff2 /fonts/libre-caslon-text-400-latin-ext.woff2 /fonts/libre-caslon-text-400-italic-latin-ext.woff2 /fonts/libre-franklin-var-latin-ext.woff2 /data/regions.json /data/europe/units.json /data/europe/units/lt.json"
           total=0
           missing=0
           for p in $FIRST_SCREEN; do
