@@ -78,7 +78,10 @@ jobs:
           # Everything the first screen fetches before it is interactive, compressed bytes as the browser gets them.
           # Keep this list in step with index.html; the data files are the region list and the opening region's units.
           # The region and unit ids here name the run of record, not a precedent: code never names a region.
-          FIRST_SCREEN="/europe/lt /css/app.css /vendor/leaflet/leaflet.css /vendor/leaflet/leaflet.js /vendor/pmtiles/pmtiles.js /js/app.js /js/i18n.js /js/router.js /js/data.js /js/palette.js /js/readout.js /js/map.js /js/explore.js /js/detail.js /js/markers.js /js/card.js /js/ranking.js /js/classes.js /data/regions.json /data/europe/units.json /data/europe/units/lt.json"
+          # The fonts are the @font-face files of css/app.css, kept in step with it the same way. A browser fetches
+          # a latin-ext file only when a character from it is on screen: in English only Franklin's (the nearest
+          # place, Kumečiai), in Lithuanian (this unit's usual reader) all four, so all eight files are listed.
+          FIRST_SCREEN="/europe/lt /css/app.css /vendor/leaflet/leaflet.css /vendor/leaflet/leaflet.js /vendor/pmtiles/pmtiles.js /js/app.js /js/i18n.js /js/router.js /js/data.js /js/palette.js /js/readout.js /js/map.js /js/explore.js /js/detail.js /js/markers.js /js/card.js /js/ranking.js /js/classes.js /fonts/libre-caslon-text-400-latin.woff2 /fonts/libre-caslon-text-400-italic-latin.woff2 /fonts/libre-caslon-text-700-latin.woff2 /fonts/libre-franklin-var-latin.woff2 /fonts/libre-caslon-text-400-latin-ext.woff2 /fonts/libre-caslon-text-400-italic-latin-ext.woff2 /fonts/libre-caslon-text-700-latin-ext.woff2 /fonts/libre-franklin-var-latin-ext.woff2 /data/regions.json /data/europe/units.json /data/europe/units/lt.json"
           total=0
           missing=0
           for p in $FIRST_SCREEN; do
@@ -88,7 +91,7 @@ jobs:
             # The new worker version reaches the edges over a few seconds, and the version check above can be
             # answered by one edge while this fetch lands on another still serving the previous version (seen
             # 2026-08-23: a module new in that version answered 404 for about 40 s). A 404, or an SPA fallback
-            # for a .js or .css, is retried for up to a minute before it counts as missing.
+            # for a .js, .css or .woff2, is retried for up to a minute before it counts as missing.
             for attempt in 1 2 3 4 5 6; do
               out=$(curl -sS --compressed --max-time 20 -o /dev/null -w '%{http_code} %{size_download} %{content_type}' "$LIVE_URL$p?ci=$GITHUB_SHA-$attempt") \
                 || { echo "::error::first-screen fetch failed: $p"; exit 1; }
@@ -97,14 +100,14 @@ jobs:
               n=${rest%% *}
               ct=${rest#* }
               case "$code:$p:$ct" in
-                404:*|200:*.js:text/html*|200:*.css:text/html*)
+                404:*|200:*.js:text/html*|200:*.css:text/html*|200:*.woff2:text/html*)
                   if [ "$attempt" -lt 6 ]; then echo "attempt $attempt: $p not there yet (HTTP $code, $ct), retrying"; sleep 10; fi ;;
                 *) break ;;
               esac
             done
             if [ "$code" != 200 ]; then echo "MISSING (HTTP $code): $p"; missing=1; continue; fi
             case "$p:$ct" in
-              *.js:text/html*|*.css:text/html*)
+              *.js:text/html*|*.css:text/html*|*.woff2:text/html*)
                 echo "MISSING (SPA fallback): $p"; missing=1; continue ;;
               *.json:text/html*)
                 if [ "$JSON_STRICT" = '1' ]; then

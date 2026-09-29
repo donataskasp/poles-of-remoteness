@@ -37,7 +37,9 @@ function syncUrl(replace = false) {
 function renderLegend() {
   if (!ui.legend) return; // the first applyLanguage runs before the map controls are wired
   const rows = legendRows(readTokens());
-  ui.legend.innerHTML = rows.map((r) => `<li class="legend__item"><span class="legend__swatch" style="background:${r.color}"></span>${fmtDist(r.label_m)}</li>`).join('');
+  // A depth scale: the road as the shoreline, then six stepped blocks, each hanging deeper than the last.
+  ui.legend.innerHTML = rows.map((r, i) => `<li class="legend__item" style="--step:${i + 1}"><span class="legend__swatch" style="background:${r.color}"></span><span class="legend__fig">${fmtDist(r.label_m).replace(/\s?km$/, '')}</span></li>`).join('')
+    + '<li class="legend__unit">km</li>';
 }
 
 // The header's region control. Built as elements, not as an HTML string: the name comes from a data file
@@ -93,11 +95,35 @@ function applyLanguage(lang) {
   renderHomeLink();
   if (state.regions) renderRegions();   // the first call runs before the regions are loaded
   if (ui.card) ui.card.refresh();
+  if (ui.markers) ui.markers.refresh();
   if (ui.ranking) ui.ranking.refresh();
   if (ui.refreshAttribution) ui.refreshAttribution();
   if (ui.refreshZoomTitles) ui.refreshZoomTitles();
   if (ui.here) ui.here.setTooltipContent(t('locateHere'));
   if (ui.readout) ui.readout.restate(readoutText(state.sample));
+}
+
+// How a unit is fitted to the map. On desktop the card floats over the map's top left and the controls over
+// its bottom right, so the unit goes into the part they leave clear: to the right of the card, and either above
+// the controls or left of them, whichever lets the unit be drawn larger. Both are measured, so a card that
+// wraps to more lines or a longer legend in another language is allowed for. On a phone the card lives in the
+// sheet and nothing floats over the map, so a flat margin is all the fit needs; so it is while the card has
+// nothing to show and takes no room.
+const FLAT_FIT = { padding: [24, 24] };
+function fitOptions(map, bounds) {
+  if (matchMedia('(max-width: 720px)').matches) return FLAT_FIT;
+  const box = map.getContainer().getBoundingClientRect();
+  const card = document.getElementById('card').getBoundingClientRect();
+  if (!card.width || !box.width) return FLAT_FIT;
+  const topLeft = [Math.max(24, Math.round(card.right - box.left) + 16), 24];
+  // The controls that stay: the base map switch and the legend. The readout comes and goes, so it is left out.
+  const ctl = ['basemap-seg', 'legend'].map((id) => document.getElementById(id))
+    .map((el) => el && el.closest('.seg, .scale')).filter(Boolean).map((el) => el.getBoundingClientRect());
+  if (!ctl.length) return { paddingTopLeft: topLeft, paddingBottomRight: [24, 24] };
+  const above = [24, Math.round(box.bottom - Math.min(...ctl.map((r) => r.top))) + 12];
+  const beside = [Math.round(box.right - Math.min(...ctl.map((r) => r.left))) + 12, 24];
+  const zoomWith = (br) => map.getBoundsZoom(bounds, false, L.point(topLeft).add(br));
+  return { paddingTopLeft: topLeft, paddingBottomRight: zoomWith(beside) > zoomWith(above) ? beside : above };
 }
 
 const middle = (bounds) => [(bounds[0][0] + bounds[1][0]) / 2, (bounds[0][1] + bounds[1][1]) / 2];
@@ -137,19 +163,23 @@ async function main() {
   renderLegend();
   refreshAttribution();
   if (fromHash) map.setView([parsed.lat, parsed.lon], parsed.z);
-  else if (bounds) map.fitBounds(bounds, { padding: [24, 24] });
+  // Not animated: the opening unit's own fit follows as soon as its card is drawn, and a zoom animation still
+  // running then would land after it and put this first, card-blind view back.
+  else if (bounds) map.fitBounds(bounds, { ...fitOptions(map, bounds), animate: false });
 
   const readyFallback = setTimeout(markReady, 8000);
   const explore = {};
   for (const s of ['A', 'B']) {
     explore[s] = await createExploreLayer({ url: archiveUrl(region, s), palette, onReady: () => { clearTimeout(readyFallback); markReady(); } });
   }
-  if (!fromHash && !bounds) map.fitBounds(headerBounds(explore.A.header), { padding: [24, 24] });
+  if (!fromHash && !bounds) map.fitBounds(headerBounds(explore.A.header), { ...fitOptions(map, headerBounds(explore.A.header)), animate: false });
   map.setMinZoom(Math.max(2, explore.A.options.minZoom));
   explore[state.s].addTo(map);
 
-  const detail = createDetailOverlays(map, { region, palette });
+  // The coarse layers leave the detail windows on the map empty, so the two never stack their tint.
+  const detail = createDetailOverlays(map, { region, palette, onHoles: (holes) => Object.values(explore).forEach((l) => l.setHoles(holes)) });
   const markers = createMarkers(map, { onSelect: (pole) => selectPole(pole.rank, { pan: false }) });
+  ui.markers = markers;
   const phone = matchMedia('(max-width: 720px)');
   const card = createCard(document.getElementById('card'), {
     summary: document.getElementById('card-summary'),
@@ -279,7 +309,8 @@ async function main() {
   }
 
   // view: 'unit' fits the unit's bbox, 'pole' flies to pole 1 of the active scenario, 'keep' leaves the map.
-  async function openUnit(code, { push = true, view = 'unit' } = {}) {
+  // animate: false for the opening unit, whose fit only corrects the first one for the card now drawn.
+  async function openUnit(code, { push = true, view = 'unit', animate = true } = {}) {
     const next = units.find((u) => u.code === code);
     if (!next) return;
     let doc;
@@ -301,7 +332,7 @@ async function main() {
     syncUrl(!push);
     const pole1 = polesOf()[0];
     if (view === 'pole' && pole1) map.flyTo([pole1.lat, pole1.lon], 10, { duration: 0.8 });
-    else if (view !== 'keep') map.fitBounds(bboxToBounds(next.bbox), { padding: [24, 24] });
+    else if (view !== 'keep') map.fitBounds(bboxToBounds(next.bbox), { ...fitOptions(map, bboxToBounds(next.bbox)), animate });
     if (ui.ranking) ui.ranking.setCurrent(code);
   }
 
@@ -398,7 +429,7 @@ async function main() {
   });
 
   say({ kind: 'hint' });
-  if (unit) await openUnit(unit.code, { push: false, view: fromHash ? 'keep' : 'unit' });
+  if (unit) await openUnit(unit.code, { push: false, view: fromHash ? 'keep' : 'unit', animate: false });
   syncUrl(true);
 }
 

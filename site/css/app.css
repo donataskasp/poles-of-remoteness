@@ -1,63 +1,134 @@
-/* Poles of remoteness. Tokens first, dark variant, then layout. Phone rules live in the media query at
-   the end of the file; desktop rules never go there. */
+/* Poles of remoteness: the sea chart. The road network is the coastline and remoteness is depth: the land is
+   sounded in a park-map green ramp that deepens away from every road, the panels are chart buff, chart blue
+   draws the controls, magenta marks notes and the selection, black is the lettering. Fonts first, tokens
+   second, the night (ECDIS) palette third, then layout. Phone rules live in the media query at the end of the
+   file; desktop rules never go there. */
+
+/* Self-hosted faces (see fonts/README.md). The unicode ranges are Google's latin and latin-ext subsets, so the
+   latin-ext file is fetched only when a character from it is on screen (Lithuanian copy, OSM place names).
+   Libre Franklin is one variable file per subset, so its rules name the file's whole weight axis. */
+@font-face { font-family: "Libre Caslon Text"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(/fonts/libre-caslon-text-400-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Libre Caslon Text"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(/fonts/libre-caslon-text-400-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Libre Caslon Text"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url(/fonts/libre-caslon-text-400-italic-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Libre Caslon Text"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url(/fonts/libre-caslon-text-400-italic-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Libre Caslon Text"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url(/fonts/libre-caslon-text-700-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Libre Caslon Text"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url(/fonts/libre-caslon-text-700-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Libre Franklin"; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url(/fonts/libre-franklin-var-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Libre Franklin"; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url(/fonts/libre-franklin-var-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
 :root {
-  --ground:      #f3f2ec;
-  --panel:       #faf9f4;
-  --ink:         #22271f;
-  --ink-2:       #5b5f54;
-  --hair:        rgba(34, 39, 31, .12);
-  --hair-strong: rgba(34, 39, 31, .24);
-  --accent:      #a55f1f;
-  --accent-soft: rgba(165, 95, 31, .10);
-  --accent-ink:  #8a4d1b;
-  --shadow:      0 1px 2px rgba(34, 39, 31, .06), 0 8px 24px rgba(34, 39, 31, .10);
-  /* Explore palette, one colour per distance stop (1, 2.5, 5, 10, 20, 50 km). Read by js/palette.js. */
-  --band-1: #efd9a8;
-  --band-2: #e2b86f;
-  --band-3: #d19a4f;
-  --band-4: #b06f2a;
-  --band-5: #8a4d1b;
-  --band-6: #5a2f12;
-  --edge:   #7a7f86;
-  --band-alpha: 0.62;
+  --paper:       #f2e7c9;   /* chart buff */
+  --paper-2:     #e8dab1;
+  --sea:         #d3e5ec;   /* shallow water tint: the ranking owns it */
+  --sea-2:       #bcd6e2;
+  --ink:         #17160f;
+  --ink-2:       #4a4433;
+  --ink-sea:     #1f3a4c;   /* secondary lettering set on the blue */
+  --blue:        #0e4678;   /* chart blue ink */
+  --blue-ink:    #0c3f6d;
+  --magenta:     #9c1569;
+  --magenta-soft: rgba(156, 21, 105, .11);
+  --hair:        rgba(23, 22, 15, .2);
+  --hair-strong: rgba(23, 22, 15, .55);
+  --halo:        #f2e7c9;
+  --shadow:      0 1px 2px rgba(40, 32, 10, .16), 0 3px 8px rgba(40, 32, 10, .14);
+  --basemap-filter: saturate(.42) contrast(.94) brightness(1.03);
+  /* Remoteness as depth, one tint per distance stop (1, 2.5, 5, 10, 20, 50 km). Read by js/palette.js.
+     A park-map ramp: green tan by the road, deepening through olive and leaf to forest green, the hue
+     walking from 116 to 155 in OKLCH. The near bands are the thinnest (alpha .50 rising to .80), so the
+     forest shows through them; the colours are set so that, laid over the ground, the ramp still steps
+     evenly darker with distance (OKLCH lightness .87 to .325 before the blend). */
+  --band-1: #d1db9f;
+  --band-2: #94b166;
+  --band-3: #5d8b3d;
+  --band-4: #337031;
+  --band-5: #15592b;
+  --band-6: #004021;
+  --band-alpha-1: 0.50;
+  --band-alpha-2: 0.58;
+  --band-alpha-3: 0.66;
+  --band-alpha-4: 0.72;
+  --band-alpha-5: 0.76;
+  --band-alpha-6: 0.80;
+  --edge:   #8b8574;
+  --band-alpha: 0.70;   /* the fallback for a band without its own */
+  /* Lettering that names or quotes a sounding (the chart subtitle, the readout, the sheet's distance): the
+     ramp's deep end, dark enough for text on the buff. */
+  --depth-ink:   #15592f;
 
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --serif: "Libre Caslon Text", "Iowan Old Style", Georgia, serif;
+  --sans: "Libre Franklin", "Franklin Gothic Book", "Helvetica Neue", Arial, sans-serif;
 
-  --r-sm: 6px;
-  --r-md: 10px;
-  --r-lg: 14px;
-  --t: 170ms cubic-bezier(.3, .7, .3, 1);
-  --panel-w: 360px;
-  --hdr-h: 56px;
-  /* The height of the closed phone sheet, measured and written by js/ranking.js because it depends on what
-     the card's summary row wraps to. Only the phone rules read it; the zero is what the page looks like
-     before the sheet has been measured, never a layout figure. */
+  --r: 2px;
+  --t: 180ms cubic-bezier(.16, 1, .3, 1);
+  --panel-w: 372px;
+  --hdr-h: 62px;
+  /* The height of the closed phone sheet, measured and written by js/ranking.js. Only the phone rules read it. */
   --sheet-h: 0px;
   color-scheme: light;
 }
 
+/* Night: the chart display on a darkened bridge. Deep blue-black ground, dimmed buff lettering, the blues and
+   the magenta turned down so nothing glares. The imagery is dimmed further than by day and the green ramp
+   inverts: a muted sage by the road, brightening with distance (OKLCH lightness .556 to .81, alpha .62 to .80),
+   so the remote ground reads on the dark land. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --ground:      #151812;
-    --panel:       #1c211a;
-    --ink:         #e8e8dd;
-    --ink-2:       #a8ad9d;
-    --hair:        rgba(232, 232, 221, .12);
-    --hair-strong: rgba(232, 232, 221, .26);
-    --accent:      #d98a3f;
-    --accent-soft: rgba(217, 138, 63, .12);
-    --accent-ink:  #e6a15e;
-    --shadow:      0 1px 2px rgba(0, 0, 0, .5), 0 10px 28px rgba(0, 0, 0, .45);
-    --band-1: #f3e0b5;
-    --band-2: #ecc27a;
-    --band-3: #e0a356;
-    --band-4: #c97f36;
-    --band-5: #a55f1f;
-    --band-6: #7a3f12;
-    --edge:   #9aa0a8;
-    --band-alpha: 0.58;
+    --paper:       #0c111a;
+    --paper-2:     #151c28;
+    --sea:         #07172a;
+    --sea-2:       #0f2540;
+    --ink:         #dccfae;
+    --ink-2:       #a89e84;
+    --ink-sea:     #9fb3c2;
+    --blue:        #2f6da6;
+    --blue-ink:    #8fbbe3;
+    --magenta:     #e07fbf;
+    --magenta-soft: rgba(224, 127, 191, .14);
+    --hair:        rgba(220, 207, 174, .16);
+    --hair-strong: rgba(220, 207, 174, .45);
+    --halo:        #080c13;
+    --shadow:      0 1px 2px rgba(0, 0, 0, .6), 0 3px 9px rgba(0, 0, 0, .45);
+    --basemap-filter: saturate(.4) brightness(.62) contrast(1.02);
+    --band-1: #667c50;
+    --band-2: #6e905b;
+    --band-3: #73a268;
+    --band-4: #75b375;
+    --band-5: #7cc785;
+    --band-6: #80d994;
+    --band-alpha-1: 0.62;
+    --band-alpha-2: 0.66;
+    --band-alpha-3: 0.70;
+    --band-alpha-4: 0.74;
+    --band-alpha-5: 0.77;
+    --band-alpha-6: 0.80;
+    --edge:   #5c6470;
+    --band-alpha: 0.72;
+    --depth-ink:   #84d48a;
     color-scheme: dark;
   }
 }
@@ -65,194 +136,297 @@
 *, *::before, *::after { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
 body {
-  font: 15px/1.45 var(--sans);
+  font: 14px/1.45 var(--sans);
   color: var(--ink);
-  background: var(--ground);
+  background: var(--paper);
   overflow: hidden;
+  font-variant-numeric: tabular-nums;
 }
+::selection { background: var(--magenta); color: var(--paper); }
+:focus-visible { outline: 2px solid var(--magenta); outline-offset: 2px; }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 button { font: inherit; color: inherit; }
+a { color: var(--blue-ink); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 
-/* Header */
+/* The chart's graduated border: alternating black and buff divisions between two rules, as on the neatline
+   of a chart where the latitude scale runs. Used once horizontally (the header's foot) and once vertically
+   (the ranking's edge). */
+.hdr::after, .panel::before {
+  content: ""; position: absolute; pointer-events: none;
+  border: 1px solid var(--ink);
+}
+.hdr::after {
+  left: 0; right: 0; bottom: 0; height: 7px;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 30px, var(--paper) 30px 60px);
+  border-width: 1px 0;
+}
+.panel::before {
+  top: 0; bottom: 0; left: 0; width: 7px;
+  background: repeating-linear-gradient(180deg, var(--ink) 0 30px, var(--paper) 30px 60px);
+  border-width: 0 1px;
+}
+
+/* Header: the chart's top margin strip */
 .hdr {
   position: fixed; inset: 0 0 auto 0; height: var(--hdr-h); z-index: 1000;
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: 0 16px; background: var(--panel); border-bottom: 1px solid var(--hair);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 0 20px 7px; background: var(--paper);
 }
-.hdr__title { margin: 0; font: 600 19px/1.2 var(--serif); }
+.hdr__brand { display: flex; align-items: baseline; gap: 16px; min-width: 0; }
+.hdr__title { margin: 0; font: 700 16px/1.1 var(--serif); letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; }
 .hdr__home { color: inherit; text-decoration: none; }
-.hdr__sub { margin: 0; font-size: 12px; color: var(--ink-2); }
-.hdr__right { display: flex; align-items: center; gap: 10px; }
+.hdr__sub { margin: 0; font: italic 400 14px/1.2 var(--serif); color: var(--ink-2); white-space: nowrap; }
+.hdr__right { display: flex; align-items: center; gap: 12px; }
 
-/* Segmented buttons */
-.seg { display: inline-flex; border: 1px solid var(--hair-strong); border-radius: var(--r-md); overflow: hidden; background: var(--panel); }
-.seg__btn { border: 0; background: transparent; padding: 6px 12px; cursor: pointer; color: var(--ink-2); }
+/* Segmented controls: square chart boxes, the chosen one lettered and ruled in magenta */
+.seg { display: inline-flex; border: 1px solid var(--hair-strong); border-radius: var(--r); background: var(--paper); }
+.seg__btn { border: 0; background: transparent; padding: 6px 12px; cursor: pointer; color: var(--ink-2);
+  font-size: 13px; transition: background-color var(--t), color var(--t); }
 .seg__btn + .seg__btn { border-left: 1px solid var(--hair); }
-.seg__btn[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
-.seg--sm .seg__btn { padding: 4px 10px; font-size: 13px; }
-.link-btn { border: 0; background: none; padding: 0; color: var(--accent-ink); cursor: pointer; text-decoration: underline; }
-
-/* The region control: links wearing the segmented look, absent while there is only one region. [hidden] is
-   a user agent rule and .seg sets display, so the hidden state is spelled out or the empty control would
-   still paint its border. */
+.seg__btn:hover { background: var(--paper-2); color: var(--ink); }
+.seg__btn[aria-pressed="true"], .hdr__regions .seg__btn[aria-current="page"] {
+  color: var(--magenta); font-weight: 600; box-shadow: inset 0 0 0 1.5px var(--magenta); background: var(--magenta-soft); }
+.seg--sm .seg__btn { padding: 4px 10px; font-size: 12px; }
 .hdr__regions[hidden] { display: none; }
 .hdr__regions .seg__btn { text-decoration: none; }
-.hdr__regions .seg__btn[aria-current="page"] { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
+
+/* The About button wears the chart's one compass rose */
+.about-btn { display: inline-flex; align-items: center; gap: 8px; border: 0; background: none; padding: 2px 4px 2px 2px;
+  cursor: pointer; color: var(--ink); font: italic 400 14px/1 var(--serif); border-radius: var(--r); }
+.about-btn:hover .about-btn__text { text-decoration: underline; text-underline-offset: 3px; }
+.rose { width: 34px; height: 34px; flex: none; transition: transform 600ms cubic-bezier(.16, 1, .3, 1); }
+.about-btn:hover .rose { transform: rotate(-22.5deg); }
+.rose__ring, .rose__ticks line, .rose__star { fill: none; stroke: var(--magenta); stroke-width: .8; }
+.rose__fill { fill: var(--magenta); }
 
 /* Stage and map */
 .stage { position: fixed; inset: var(--hdr-h) 0 0 0; }
-.map { position: absolute; inset: 0; right: var(--panel-w); background: var(--ground); }
-.leaflet-container { font: inherit; }
+.map { position: absolute; inset: 0; right: var(--panel-w); background: var(--sea); }
+.leaflet-container { font: inherit; background: var(--sea); }
 .leaflet-tile.explore-tile, .detail-overlay { image-rendering: pixelated; }
+.basemap { filter: var(--basemap-filter); }
+.leaflet-bar { border: 1px solid var(--hair-strong) !important; border-radius: var(--r) !important; box-shadow: var(--shadow) !important; }
+.leaflet-bar a, .leaflet-bar a:hover { background: var(--paper); color: var(--ink); border-bottom-color: var(--hair) !important;
+  border-radius: 0 !important; font: 400 20px/30px var(--serif); }
+.leaflet-bar a:hover { background: var(--paper-2); }
+.leaflet-control-attribution { background: color-mix(in srgb, var(--paper) 88%, transparent) !important; color: var(--ink-2); font-size: 11px; }
+.leaflet-control-attribution a { color: var(--blue-ink); }
 
 /* Map controls, bottom left of the map */
 .mapctl {
-  position: absolute; left: 12px; bottom: 28px; z-index: 800; display: flex; flex-direction: column; gap: 8px;
-  align-items: flex-start; pointer-events: none;
+  position: absolute; right: calc(var(--panel-w) + 14px); bottom: 30px; z-index: 800; display: flex; flex-direction: column; gap: 8px;
+  align-items: flex-end; pointer-events: none;
 }
 .mapctl > * { pointer-events: auto; }
-.legend { list-style: none; margin: 0; padding: 6px 10px; display: flex; gap: 10px; font-size: 12px;
-  background: var(--panel); border-radius: var(--r-md); box-shadow: var(--shadow); }
-.legend__item { display: flex; align-items: center; gap: 4px; }
-.legend__swatch { width: 12px; height: 12px; border-radius: 3px; }
 
-/* Card (task 6 and 8) */
-.card { position: absolute; left: 12px; top: 12px; z-index: 900; width: min(380px, calc(100% - 24px));
-  background: var(--panel); border-radius: var(--r-lg); box-shadow: var(--shadow); padding: 14px 16px; }
-/* The card's summary row belongs to the phone sheet's handle (see the media query). On desktop the card
-   itself says all of it at the top of the map, so the row is not painted at all. */
+/* The legend as a depth scale: the road drawn as the shoreline, then six stepped blocks hanging deeper with
+   distance, the figures under them. */
+.scale { margin: 0; padding: 8px 12px 8px; background: var(--paper); border: 1px solid var(--ink); border-radius: var(--r);
+  box-shadow: var(--shadow); }
+.scale__cap { font: italic 400 13px/1.2 var(--serif); margin: 0 0 6px; color: var(--ink); }
+.legend { list-style: none; margin: 0; padding: 0; display: flex; align-items: flex-start; }
+.legend__item { display: flex; flex-direction: column; align-items: flex-start; width: 44px; }
+.legend__swatch { display: block; width: 100%; height: calc(4px + var(--step) * 3px); border-top: 2.5px solid var(--ink);
+  box-shadow: inset 0 -1px 0 var(--hair-strong), inset -1px 0 0 var(--hair); }
+.legend__item:first-child .legend__swatch { border-left: 1px solid var(--hair-strong); }
+.legend__fig { margin-top: 3px; margin-left: -2px; font: italic 400 12px/1 var(--serif); color: var(--ink); }
+.legend__unit { align-self: flex-end; margin-left: 2px; font: italic 400 12px/1 var(--serif); color: var(--ink-2); }
+
+/* Card: the chart's title block, top left of the map */
+.card { position: absolute; left: 14px; top: 14px; z-index: 900; width: min(384px, calc(100% - 28px));
+  max-height: calc(100% - 28px); overflow: auto; scrollbar-width: thin; scrollbar-color: var(--hair-strong) transparent;
+  background: var(--paper); border: 1px solid var(--ink); outline: 1px solid var(--ink); outline-offset: -5px;
+  border-radius: 0; box-shadow: var(--shadow); padding: 18px 20px 16px; }
+.card:focus-visible { outline-offset: 2px; }
 .card-summary { display: none; }
+.cartouche { text-align: center; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--ink); }
+.cartouche__name { margin: 2px 0 4px; font: 700 21px/1.15 var(--serif); letter-spacing: .22em; text-transform: uppercase;
+  text-wrap: balance; }
+.cartouche__sub { margin: 0 0 10px; font: italic 400 13px/1.35 var(--serif); color: var(--depth-ink); text-wrap: balance; }
+.card__headline { margin: 0 0 8px; font: 400 15px/1.4 var(--serif); text-wrap: balance; }
+/* The rank stands where a chart draws its scale line: set between two rules. */
+.card__rank { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 12px; letter-spacing: .06em; color: var(--ink-2); }
+.card__rank::before, .card__rank::after { content: ""; flex: 1; height: 5px; border: 1px solid var(--ink-2); border-width: 1px 0; }
+.card__rank span { flex: none; }
+.card__seg { display: flex; width: 100%; }
+/* Each segment as wide as its words, the spare room shared out, so a long Lithuanian label keeps one line. */
+.card__seg .seg__btn { flex: 1 1 auto; padding: 7px 8px; }
+.card__hint { margin: 5px 0 10px; font: italic 400 12.5px/1.3 var(--serif); color: var(--ink-2); text-align: center; }
+.card__ctl { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+.card__islands { display: flex; align-items: center; gap: 8px; }
+.card__islands-label { font-size: 12px; color: var(--ink-2); }
+.card__actions { display: flex; gap: 6px; }
+.btn { border: 1px solid var(--blue); background: var(--blue); color: #f2e7c9; border-radius: var(--r); padding: 6px 11px;
+  cursor: pointer; font-size: 13px; font-weight: 600; transition: background-color var(--t), color var(--t); }
+.btn:hover { background: var(--blue-ink); }
+.btn--ghost { background: transparent; color: var(--blue-ink); }
+.btn--ghost:hover { background: var(--sea); color: var(--blue-ink); }
+@media (prefers-color-scheme: dark) { .btn { color: #eaf2fa; } .btn:hover { background: #245a8c; } }
 
-/* Readout (task 5) */
-.readout { padding: 8px 12px; background: var(--panel); border-radius: var(--r-md); box-shadow: var(--shadow);
-  font-size: 14px; line-height: 1.35; max-width: 320px; }
+/* The pole facts as the chart's numbered NOTES */
+.card__poles { border-top: 1px solid var(--hair); padding-top: 12px; }
+.card__pole-title { margin: 0 0 8px; font: 700 12px/1.3 var(--serif); letter-spacing: .2em; text-transform: uppercase; color: var(--magenta); }
+.card__of { font-weight: 400; letter-spacing: .12em; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+.chip { border: 1px solid var(--hair-strong); background: transparent; border-radius: var(--r); min-width: 27px; height: 25px;
+  padding: 0 6px; cursor: pointer; font: 400 12px/1 var(--sans); color: var(--ink); transition: background-color var(--t); }
+.chip:hover { background: var(--paper-2); }
+.chip--on, .chip--on:hover { background: var(--magenta); border-color: var(--magenta); color: var(--paper); font-weight: 600; }
+.notes { list-style: none; counter-reset: note; margin: 0; padding: 0; font-size: 13px; }
+.notes li { counter-increment: note; display: grid; grid-template-columns: 20px 1fr; column-gap: 4px; padding: 2px 0; }
+.notes li::before { content: counter(note) "."; grid-row: 1 / span 2; color: var(--magenta); font: 400 13px/1.45 var(--serif); }
+.notes__k { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); line-height: 1.5; }
+.notes__v { grid-column: 2; }
+.notes__v--snd { font: italic 400 16px/1.3 var(--serif); }
+.coord { font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+.card__maps { display: block; }
+.card__note { margin: 8px 0 0; font-size: 12px; color: var(--magenta); }
 
-/* Side panel (desktop) and sheet (phone, see the media query) */
-.panel { position: absolute; top: 0; right: 0; bottom: 0; width: var(--panel-w); background: var(--panel);
-  border-left: 1px solid var(--hair); display: flex; flex-direction: column; z-index: 900; }
+/* The sounding figure: whole units full size, the decimal small and lowered, no separator */
+.snd-fig { font-family: var(--serif); font-style: italic; white-space: nowrap; }
+.snd-fig__d { font-size: .62em; position: relative; top: .34em; margin-left: .04em; }
+
+/* The readout, written as a sounding */
+.readout { padding: 6px 12px 8px; background: var(--paper); border: 1px solid var(--ink); border-radius: var(--r);
+  box-shadow: var(--shadow); font: italic 400 14px/1.35 var(--serif); max-width: 330px; }
+.readout .snd-fig { font-size: 26px; line-height: 1; color: var(--depth-ink); margin: 0 1px; }
+.readout .snd-fig__d { top: .38em; }
+
+/* Pole markers: a circled dot on the spot, the sounding beside it, the pole's number in a small note box.
+   Leaflet positions the marker with an inline transform, so the selected state is said in colour and the
+   ring, never in the element's own transform or size. */
+.pole-marker { display: flex; align-items: center; gap: 1px; height: 22px; white-space: nowrap; color: var(--ink);
+  text-shadow: -1px -1px 0 var(--halo), 1px -1px 0 var(--halo), -1px 1px 0 var(--halo), 1px 1px 0 var(--halo),
+    0 -1.5px 0 var(--halo), 0 1.5px 0 var(--halo), -1.5px 0 0 var(--halo), 1.5px 0 0 var(--halo); }
+.pole-marker__dot { width: 22px; height: 22px; flex: none; overflow: visible; }
+.pole-marker__circ { fill: none; stroke: var(--ink); stroke-width: 1.4; }
+.pole-marker__pt { fill: var(--ink); }
+.pole-marker__ring { fill: none; stroke: var(--magenta); stroke-width: 2; opacity: 0; transform-origin: 11px 11px; transform: scale(.4);
+  transition: opacity 400ms cubic-bezier(.16, 1, .3, 1), transform 400ms cubic-bezier(.16, 1, .3, 1); }
+.pole-marker .snd-fig { font-size: 19px; line-height: 1; }
+.pole-marker__n { align-self: flex-start; margin-left: 3px; margin-top: -3px; padding: 1px 3px; font: 600 9.5px/1.1 var(--sans);
+  text-shadow: none; background: var(--paper); border: 1px solid var(--ink); border-radius: 1px; }
+.pole-marker__dot circle.pole-marker__circ { paint-order: stroke; }
+/* A figure that would print over a better pole's is left out (js/markers.js); the dot and the number stay. */
+.pole-marker--hush .snd-fig { display: none; }
+.pole-marker--active { color: var(--magenta); z-index: 1000; }
+.pole-marker--active .pole-marker__ring { opacity: 1; transform: scale(1); }
+.pole-marker--active .pole-marker__circ { stroke: var(--magenta); }
+.pole-marker--active .pole-marker__pt { fill: var(--magenta); }
+.pole-marker--active .pole-marker__n { background: var(--magenta); border-color: var(--magenta); color: var(--paper); }
+
+/* Side panel (desktop): the tide table, on the chart's water tint. Sheet on phones (see the media query). */
+.panel { position: absolute; top: 0; right: 0; bottom: 0; width: var(--panel-w); background: var(--sea); color: var(--ink);
+  display: flex; flex-direction: column; z-index: 900; padding-left: 7px; }
 .panel__handle { display: none; }
-.panel__body { overflow: auto; padding: 12px 16px 16px; flex: 1; }
-.panel__note { margin: 0 0 10px; font-size: 12px; color: var(--ink-2); }
-.panel__foot { margin-top: 16px; font-size: 13px; }
-.ranking { list-style: none; margin: 0; padding: 0; }
+/* The body's top padding is a variable so the sticky head can undo it: a sticky box stops at the scroll
+   container's padding edge, and the rows scrolled under it would show through that strip. */
+.panel__body { --pad-top: 16px; overflow: auto; padding: var(--pad-top) 18px 20px 16px; flex: 1;
+  scrollbar-width: thin; scrollbar-color: var(--blue) transparent; }
+.panel__body::-webkit-scrollbar { width: 8px; }
+.panel__body::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 0; }
+.panel__note { margin: 0 0 14px; font: italic 400 13px/1.4 var(--serif); color: var(--ink-sea); }
+.ranking { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--ink); }
+.ranking__head, .ranking__btn { display: grid; grid-template-columns: 34px 1fr 62px 54px; align-items: baseline; gap: 6px; }
+.ranking__head { position: sticky; top: calc(-1 * var(--pad-top)); z-index: 1; padding: 8px 6px 6px; margin-top: -2px; background: var(--sea);
+  border-top: 2px solid var(--ink); border-bottom: 1px solid var(--ink);
+  font: 400 11px/1.2 var(--serif); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-sea); }
+.ranking__row + .ranking__row { border-top: 1px solid var(--hair); }
+.ranking__row:nth-child(5n) { border-bottom: 1px solid var(--hair-strong); }
+.ranking__btn { width: 100%; border: 0; background: none; padding: 6px 6px; text-align: left; cursor: pointer;
+  transition: background-color var(--t); }
+.ranking__btn:hover { background: var(--sea-2); }
+.ranking__row--current { scroll-margin-top: 36px; }
+.ranking__row--current .ranking__btn { background: var(--magenta-soft); box-shadow: inset 0 0 0 1.5px var(--magenta); }
+.ranking__row--current .ranking__name, .ranking__row--current .ranking__rank { color: var(--magenta); font-weight: 600; }
+.ranking__rank { color: var(--ink-sea); font-size: 12px; }
+.ranking__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 400 14px/1.35 var(--serif); }
+.ranking__dist, .ranking__other { text-align: right; }
+.ranking__btn .ranking__dist { font: italic 400 15px/1.3 var(--serif); }
+.ranking__btn .ranking__other { font-size: 12px; color: var(--ink-sea); }
 
-/* About dialog */
-.about { width: min(640px, calc(100% - 32px)); max-height: calc(100% - 32px); border: 0; border-radius: var(--r-lg);
-  padding: 20px 24px; background: var(--panel); color: var(--ink); box-shadow: var(--shadow); }
-.about::backdrop { background: rgba(0, 0, 0, .4); }
-.about__close-form { position: sticky; top: 0; float: right; }
-.about__close { border: 0; background: none; font-size: 24px; cursor: pointer; line-height: 1; }
-.about__body h2 { font: 600 22px/1.2 var(--serif); margin: 0 0 12px; }
-.about__body h3 { font: 600 16px/1.3 var(--serif); margin: 18px 0 6px; }
-.about__body p { margin: 0 0 10px; }
-/* The About text carries both languages inline and html[lang] picks one. Scoped to the dialog on purpose:
-   unscoped it also matches the language switcher, which hides the button for the language you would
-   switch to and leaves only the one already active. */
+/* About dialog: a chart's notes panel */
+.about { width: min(660px, calc(100% - 32px)); max-height: calc(100% - 48px); border: 1px solid var(--ink);
+  outline: 1px solid var(--ink); outline-offset: -6px; border-radius: 0; padding: 26px 34px 22px;
+  background: var(--paper); color: var(--ink); box-shadow: var(--shadow);
+  scrollbar-width: thin; scrollbar-color: var(--blue) transparent; }
+.about::backdrop { background: rgba(10, 20, 32, .5); }
+.about__close-form { position: sticky; top: 0; float: right; margin: -8px -14px 0 0; }
+.about__close { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--hair-strong);
+  border-radius: var(--r); background: var(--paper); cursor: pointer; }
+.about__close:hover { background: var(--paper-2); }
+.about__close svg { width: 14px; height: 14px; fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.about__body { max-width: 68ch; }
+.about__body h2 { font: 700 20px/1.2 var(--serif); letter-spacing: .18em; text-transform: uppercase; margin: 0 0 14px; }
+.about__body h3 { font: 700 12px/1.3 var(--serif); letter-spacing: .18em; text-transform: uppercase; color: var(--magenta);
+  margin: 22px 0 6px; }
+.about__body p { margin: 0 0 10px; font: 400 15px/1.55 var(--serif); }
+.about__body b { font-weight: 700; color: var(--blue-ink); }
+/* The About text carries both languages inline and html[lang] picks one; scoped to the dialog on purpose. */
 html[lang="en"] .about__body [data-lang="lt"], html[lang="lt"] .about__body [data-lang="en"] { display: none; }
 
-/* Card internals */
-.card__headline { margin: 0 0 4px; font: 600 17px/1.3 var(--serif); }
-.card__rank { margin: 0 0 10px; color: var(--ink-2); font-size: 13px; }
-.card__seg { display: flex; width: 100%; }
-.card__seg .seg__btn { flex: 1; }
-.card__hint { margin: 4px 0 10px; font-size: 12px; color: var(--ink-2); }
-/* The islands toggle: a secondary reading, so it wears the small segmented look with its label beside it
-   rather than the scenario switch's full width. It sits under the scenario hint, not between the switch and
-   its hint, so the hint stays attached to the buttons it explains. */
-.card__islands { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; }
-.card__islands-label { font-size: 12px; color: var(--ink-2); }
-.card__actions { display: flex; gap: 8px; margin-bottom: 12px; }
-.btn { border: 1px solid var(--accent); background: var(--accent); color: #fff; border-radius: var(--r-md); padding: 7px 12px; cursor: pointer; font-weight: 600; }
-.btn--ghost { background: transparent; color: var(--accent-ink); }
-.card__poles { border-top: 1px solid var(--hair); padding-top: 10px; }
-.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
-.chip { border: 1px solid var(--hair-strong); background: transparent; border-radius: 999px; min-width: 26px; height: 26px; padding: 0 8px; cursor: pointer; font-size: 12px; }
-.chip--on { background: var(--accent); border-color: var(--accent); color: #fff; }
-.card__pole-title { margin: 4px 0 6px; font: 600 15px/1.3 var(--serif); }
-.card__of { font-weight: 400; color: var(--ink-2); font-size: 12px; }
-.card__facts { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; margin: 0; font-size: 13px; }
-.card__facts dt { color: var(--ink-2); }
-.card__facts dd { margin: 0; }
-.card__maps { display: block; color: var(--accent-ink); }
-.card__note { margin: 8px 0 0; font-size: 12px; color: var(--ink-2); }
-.mono { font-family: var(--mono); font-size: 12px; }
-
-/* Pole markers. Leaflet writes the marker's size, margins and transform inline (that is how it positions
-   them), so the active state is said in colour and a ring, never in transform or width. */
-.pole-marker { display: flex; align-items: center; justify-content: center; border-radius: 50%;
-  background: var(--panel); border: 2px solid var(--accent); color: var(--accent-ink); font: 600 12px/1 var(--sans);
-  box-shadow: var(--shadow); }
-.pole-marker--active { background: var(--accent); color: #fff; box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow); }
-
-/* Ranking rows */
-.ranking__row + .ranking__row { border-top: 1px solid var(--hair); }
-.ranking__btn { display: grid; grid-template-columns: 28px 24px 1fr auto; align-items: center; gap: 6px; width: 100%;
-  border: 0; background: none; padding: 7px 4px; text-align: left; cursor: pointer; border-radius: var(--r-sm); }
-/* Hover is neutral and the current unit is the only row tinted with the accent: sharing one colour made a
-   row under the pointer look selected. */
-.ranking__btn:hover { background: var(--hair); }
-.ranking__row--current { scroll-margin-top: 12px; } /* the panel body's top padding, kept when scrolled to */
-.ranking__row--current .ranking__btn { background: var(--accent-soft); }
-.ranking__rank { color: var(--ink-2); font-variant-numeric: tabular-nums; font-size: 13px; }
-.ranking__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ranking__dist { text-align: right; font-variant-numeric: tabular-nums; }
-.ranking__dist b { display: block; font-weight: 600; }
-.ranking__dist small { color: var(--ink-2); font-size: 11px; }
-
-.about__body b { font-weight: 600; }
-
-/* Phone: ranking becomes a bottom sheet, the map fills the screen. Phone rules only in here. */
+/* Phone: the map fills the screen, the card and the tide table live in a bottom sheet. Phone rules only. */
 @media (max-width: 720px) {
+  :root { --hdr-h: 58px; }
   .map { right: 0; }
+  .hdr { padding: 0 8px 7px 10px; gap: 6px; }
+  .hdr::after { background: repeating-linear-gradient(90deg, var(--ink) 0 20px, var(--paper) 20px 40px); }
   .hdr__sub { display: none; }
-  /* Only when the control is there: two region names beside the language control do not fit a 390px header
-     next to a full-size title. A one-region site keeps the header it has, byte for byte. */
-  .hdr--regions { gap: 8px; padding: 0 10px; }
-  .hdr--regions .hdr__brand { min-width: 0; }
-  .hdr--regions .hdr__title { font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .hdr--regions .seg__btn { padding: 4px 8px; font-size: 12px; white-space: nowrap; }
-  .panel { top: auto; left: 0; right: 0; width: auto; border-left: 0; border-top: 1px solid var(--hair);
-    border-radius: var(--r-lg) var(--r-lg) 0 0; box-shadow: var(--shadow); transition: height var(--t); }
-  /* The closed sheet is exactly its handle, whatever the summary row inside it wraps to; js/ranking.js
-     measures that and writes --sheet-h. A missing variable leaves the height at auto, which is the same
-     figure without the transition, so the sheet is never wrong, only unanimated. */
+  .hdr__brand { min-width: 0; flex: 1 1 auto; }
+  .hdr__title { font-size: 11px; line-height: 1.2; letter-spacing: .1em; white-space: normal; max-width: 7em; }
+  .hdr__right { gap: 6px; flex: none; }
+  .hdr .seg__btn { padding: 4px 6px; font-size: 12px; white-space: nowrap; }
+  .hdr__right { gap: 5px; }
+  .pole-marker .snd-fig { font-size: 15px; }
+  /* At phone width a country's ten soundings collide (Lithuania's 8, 10 and 9 sit within a finger's width), so
+     only the selected pole writes its sounding; the others keep the dot and the number box. */
+  .pole-marker:not(.pole-marker--active) .snd-fig { display: none; }
+  .pole-marker__n { font-size: 9px; }
+  .about-btn__text { display: none; }
+  .rose { width: 30px; height: 30px; }
+  .panel { top: auto; left: 0; right: 0; width: auto; padding-left: 0; background: var(--paper);
+    border-top: 1px solid var(--ink); box-shadow: 0 -2px 8px rgba(20, 16, 6, .2); transition: height var(--t); }
+  .panel::before { display: none; }
   .panel--collapsed { height: var(--sheet-h); }
-  .panel--half { height: 45%; }
+  .panel--half { height: 48%; }
   .panel--full { height: calc(100% - 8px); }
-  /* The handle is the sheet's face: the grip, then the card's summary row. The button is the whole face, so
-     the tap target is as wide as the screen and as tall as the summary needs. It never shrinks: the panel's
-     height is derived from it, and a handle that gave way to a stale height would keep it stale. */
   .panel__handle { display: flex; flex: none; flex-direction: column; align-items: stretch; gap: 6px; width: 100%;
-    padding: 8px 14px 10px; border: 0; background: none; cursor: pointer; text-align: left; }
-  .panel__grip { align-self: center; width: 36px; height: 4px; border-radius: 2px; background: var(--hair-strong); }
-  /* The summary row, the card's first two lines said in one: the unit, its distance in the active scenario,
-     its rank. With it on the handle the word "Ranking" would only repeat what the body says, so it goes. */
+    padding: 7px 16px 11px; border: 0; border-bottom: 1px solid var(--hair); background: var(--paper); cursor: pointer; text-align: left; }
+  .panel__grip { align-self: center; width: 40px; height: 5px; border: 1px solid var(--ink-2); border-width: 1px 0; }
   .card-summary { display: block; }
   .card-summary[hidden] { display: none; }
   .card-summary:not([hidden]) ~ .panel__handle-text { display: none; }
   .card-summary__line { display: flex; align-items: baseline; gap: 8px; }
-  .card-summary__name { flex: 1; min-width: 0; font: 600 15px/1.3 var(--serif); }
-  .card-summary__none { display: block; font: 600 15px/1.3 var(--serif); }
-  .card-summary__dist { flex: none; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .card-summary__name { flex: 1; min-width: 0; font: 700 15px/1.3 var(--serif); letter-spacing: .18em; text-transform: uppercase; }
+  .card-summary__none { display: block; font: 400 15px/1.3 var(--serif); }
+  .card-summary__dist { flex: none; font-weight: 400; white-space: nowrap; color: var(--depth-ink); }
+  /* The closed sheet states the figure plainly, in the headline's decimal: the sounding stays on the map. */
+  .card-summary__km { font: italic 400 21px/1 var(--serif); }
+  .card-summary__s { font: 400 12px/1 var(--sans); color: var(--ink-2); }
   .card-summary__rank { display: block; font-size: 12px; color: var(--ink-2); }
+  .panel__handle-text { font: 700 13px/1.3 var(--serif); letter-spacing: .18em; text-transform: uppercase; }
   .panel--collapsed .panel__body { display: none; }
-  /* The card is moved into the sheet body here (js/app.js), so it stops being a box over the map and becomes
-     the body's first section, scrolling with the ranking under it. Its headline and rank line stay behind:
-     the summary row on the handle says both, and says them whether the sheet is open or shut. */
-  .panel .card { position: static; width: auto; padding: 0 0 12px; margin: 0 0 12px; background: none;
-    border-radius: 0; box-shadow: none; border-bottom: 1px solid var(--hair); }
-  .panel .card__headline, .panel .card__rank { display: none; }
-  /* The bottom stack on a phone, from the screen edge up: the sheet at its measured height, then one column
-     holding the base map switch, the legend, the readout pill and the Leaflet attribution, which js/app.js
-     moves in here. Stacking the attribution rather than lifting the controls over it is what takes its
-     rendered height out of the layout: it wraps to as many lines as the width needs and the column grows
-     with it (#32). Leaflet parks its control corners at z-index 1000, above the sheet, so all four corners
-     drop to this column's layer: an open sheet has to cover the map's own furniture, not be sliced by it.
-     The zoom control is the corner that matters, sitting where the full sheet's summary row lands. */
+  .panel__body { --pad-top: 14px; padding: var(--pad-top) 16px 20px; background: var(--paper); }
+  .panel .card { position: static; width: auto; max-height: none; overflow: visible; padding: 0 0 14px; margin: 0 0 14px;
+    background: none; border: 0; outline: 0; box-shadow: none; border-bottom: 1px solid var(--ink); }
+  .panel .cartouche { padding-bottom: 0; margin-bottom: 12px; border: 0; }
+  .panel .cartouche__name, .panel .card__headline, .panel .card__rank { display: none; }
+  .panel .cartouche__sub { margin: 0; }
+  /* The tide table keeps its water inside the sheet: the buff card above, the blue table below. */
+  .panel .panel__note { margin: 0; padding: 12px 12px 10px; background: var(--sea); }
+  .panel .ranking__head { background: var(--sea); padding-left: 12px; padding-right: 12px; }
+  .panel .ranking { background: var(--sea); }
+  .panel .ranking__btn { padding-left: 12px; padding-right: 12px; }
   .leaflet-top, .leaflet-bottom { z-index: 800; }
-  .mapctl { right: 12px; bottom: calc(var(--sheet-h) + 8px); }
-  /* Out of .leaflet-container the attribution loses Leaflet's own background, which was white in both
-     schemes anyway; here it wears the skin the legend and the readout wear. */
-  .mapctl .leaflet-control-attribution { background: var(--panel); color: var(--ink-2); font-size: 11px;
-    padding: 4px 8px; border-radius: var(--r-md); box-shadow: var(--shadow); }
+  .mapctl { left: 12px; right: 12px; align-items: flex-start; bottom: calc(var(--sheet-h) + 8px); gap: 6px; }
+  .scale { padding: 4px 8px 5px; }
+  .scale__cap { font-size: 11.5px; margin-bottom: 3px; }
+  .legend__item { width: 38px; }
+  .legend__swatch { height: calc(3px + var(--step) * 2px); }
+  /* The attribution is a plain small line in the margin under the controls: no rule, no shadow, only a thin
+     wash of paper behind the letters so they read on the imagery. */
+  .mapctl .leaflet-control-attribution { background: color-mix(in srgb, var(--paper) 80%, transparent) !important;
+    color: var(--ink-2); font-size: 10px; line-height: 1.35; padding: 1px 4px; border: 0; border-radius: 0; box-shadow: none; }
+  .about { padding: 22px 20px 18px; }
+  .about__close-form { margin: -8px -6px 0 0; }
 }

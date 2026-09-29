@@ -1,6 +1,6 @@
 // The ranking: every unit of the region sorted by the active scenario, the other scenario in small type.
 // On phones the container is a bottom sheet with three heights; on desktop it is the side panel.
-import { t, unitName, flag, fmtKmExact, esc } from './i18n.js';
+import { t, unitName, fmtKmNum, esc } from './i18n.js';
 import { summaryKey } from './data.js';
 
 const STATES = ['collapsed', 'half', 'full'];
@@ -69,24 +69,33 @@ export function createRanking(el, { onPick }) {
     const other = s === 'A' ? 'B' : 'A';
     // A unit can have no summary for a scenario or for the reading, and a summary can carry no distance:
     // all of them render empty.
-    const km = (key) => (u[key] ? fmtKmExact(u[key].dist_m) : '');
+    const km = (key) => (u[key] ? fmtKmNum(u[key].dist_m) : '');
     const key = summaryKey(s, view.islands);
     const main = km(key);
-    const otherKm = km(summaryKey(other, view.islands));
-    const side = otherKm ? `${t(`scenarioShort_${other}`)} ${otherKm}` : '';
+    const side = km(summaryKey(other, view.islands));
     const rank = u[key] ? u[key].rank : '';
     const cur = u.code === view.current ? ' ranking__row--current' : '';
     return `<li class="ranking__row${cur}">
       <button type="button" class="ranking__btn" data-code="${esc(u.code)}" aria-current="${u.code === view.current}">
         <span class="ranking__rank">${rank}</span>
-        <span class="ranking__flag">${esc(flag(u.code))}</span>
         <span class="ranking__name">${esc(unitName(u))}</span>
-        <span class="ranking__dist"><b>${esc(main)}</b><small>${esc(side)}</small></span>
+        <span class="ranking__dist">${esc(main)}</span>
+        <span class="ranking__other">${esc(side)}</span>
       </button></li>`;
   }
 
+  // The tide table's column heads, above the ruled rows: they carry the unit so the figures need not.
+  const head = document.createElement('div');
+  head.className = 'ranking__head';
+  head.setAttribute('aria-hidden', 'true');
+  list.before(head);
+
   function render() {
     note.textContent = t('rankingNote');
+    const other = view.scenario === 'A' ? 'B' : 'A';
+    head.innerHTML = `<span>${esc(t('colRank'))}</span><span>${esc(t('colUnit'))}</span>
+      <span class="ranking__dist">${esc(t('colKm', { s: t(`scenarioShort_${view.scenario}`) }))}</span>
+      <span class="ranking__other">${esc(t('colKm', { s: t(`scenarioShort_${other}`) }))}</span>`;
     list.innerHTML = sortUnits(view.units, view.scenario, view.islands).map(row).join('');
   }
 

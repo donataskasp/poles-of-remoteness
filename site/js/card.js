@@ -1,7 +1,7 @@
 // The card: the headline sentence for the unit, the scenario toggle, the two actions, and the selected pole.
 // The summary element is the same facts in one row, for the phone sheet's handle; it is optional, so a
 // caller with nowhere to put it can leave it out.
-import { t, unitName, regionLabel, flag, fmtDist, fmtKmExact, fmtKm2, highwayLabel, placeLabel, esc } from './i18n.js';
+import { t, unitName, regionLabel, fmtDist, fmtKmExact, fmtKm2, highwayLabel, placeLabel, esc } from './i18n.js';
 import { summaryKey, visiblePoles } from './data.js';
 
 export function createCard(el, { summary, onScenario, onRanking, onLocate, onPole, onIslands }) {
@@ -26,11 +26,9 @@ export function createCard(el, { summary, onScenario, onRanking, onLocate, onPol
     return visiblePoles(block && block.poles, { islands: v.islands });
   };
 
-  // The unit's name, and the flag ahead of it. A unit below country level has no flag (the emoji is built
-  // from a two-letter country code), so the slot and the space after it go away rather than render empty.
+  // The unit's name. The chart world sets no flags: the cartouche carries the name in lettering instead.
   function names(v) {
-    const mark = flag(v.unit.code);
-    return { name: unitName(v.unit), lead: mark ? `${esc(mark)} ` : '' };
+    return { name: unitName(v.unit), lead: '' };
   }
 
   // Why a unit shows no distance for this scenario: held back by validation, or nothing found at all.
@@ -42,14 +40,19 @@ export function createCard(el, { summary, onScenario, onRanking, onLocate, onPol
   // How many units of the region have a result in this scenario and this reading: the "of 52" in the rank line.
   const ranked = (v) => v.units.filter((u) => u[summaryKey(v.scenario, v.islands)]).length;
 
+  // The chart's title block: the unit in spaced capitals, the chart's subtitle saying what the soundings
+  // measure, the headline sentence, and the rank where a chart would draw its scale line.
   function headline(v) {
     const { name, lead } = names(v);
     const sum = summaryOf(v);
-    if (!sum) return `<p class="card__headline">${lead}${esc(t('noPoles', { name, reason: reasonFor(v) }))}</p>`;
+    const top = `<h2 class="cartouche__name">${esc(name)}</h2>
+      <p class="cartouche__sub">${esc(t(v.scenario === 'A' ? 'chartSubA' : 'chartSubB'))}</p>`;
+    if (!sum) return `<header class="cartouche">${top}<p class="card__headline">${lead}${esc(t('noPoles', { name, reason: reasonFor(v) }))}</p></header>`;
     const what = t(v.scenario === 'A' ? 'headlineA' : 'headlineB');
     const count = ranked(v);
-    return `<p class="card__headline">${lead}${esc(t('headline', { name, km: fmtKmExact(sum.dist_m), what }))}</p>
-      <p class="card__rank">${esc(t('rankOf', { rank: sum.rank, count, region: regionLabel(v.region) }))}</p>`;
+    return `<header class="cartouche">${top}
+      <p class="card__headline">${lead}${esc(t('headline', { name, km: fmtKmExact(sum.dist_m), what }))}</p>
+      <p class="card__rank"><span>${esc(t('rankOf', { rank: sum.rank, count, region: regionLabel(v.region) }))}</span></p></header>`;
   }
 
   // The one row the phone sheet carries while it is closed: who, how far, and where that ranks. It says what
@@ -61,7 +64,7 @@ export function createCard(el, { summary, onScenario, onRanking, onLocate, onPol
     if (!sum) return `<span class="card-summary__none">${lead}${esc(t('noPoles', { name, reason: reasonFor(v) }))}</span>`;
     // The line breaks below fall between block level boxes and inside a flex row, so none of them paints.
     return `<span class="card-summary__line"><span class="card-summary__name">${lead}${esc(name)}</span>
-      <b class="card-summary__dist">${esc(t(`scenarioShort_${v.scenario}`))} ${esc(fmtKmExact(sum.dist_m))}</b></span>
+      <b class="card-summary__dist"><span class="card-summary__s">${esc(t(`scenarioShort_${v.scenario}`))}</span> <span class="card-summary__km">${esc(fmtKmExact(sum.dist_m))}</span></b></span>
       <span class="card-summary__rank">${esc(t('rankOf', { rank: sum.rank, count: ranked(v), region: regionLabel(v.region) }))}</span>`;
   }
 
@@ -84,17 +87,18 @@ export function createCard(el, { summary, onScenario, onRanking, onLocate, onPol
     const lat = pole.lat.toFixed(5);
     const lon = pole.lon.toFixed(5);
     const island = Number.isFinite(pole.island_km2)
-      ? `<dt>${esc(t('islandFact'))}</dt><dd>${esc(fmtKm2(pole.island_km2))}</dd>` : '';
+      ? `<li><span class="notes__k">${esc(t('islandFact'))}</span> <span class="notes__v">${esc(fmtKm2(pole.island_km2))}</span></li>` : '';
+    // The pole's facts as the chart's numbered NOTES block.
     return `<div class="card__poles">
+      <h3 class="card__pole-title">${esc(t('poleHeading', { rank: pole.display ?? pole.rank }))} <span class="card__of">${esc(t('poleOf', { count: poles.length }))}</span></h3>
       <div class="chips" role="group" aria-label="${esc(t('polesLabel'))}">${chips}</div>
-      <h2 class="card__pole-title">${esc(t('poleHeading', { rank: pole.display ?? pole.rank }))} <span class="card__of">${esc(t('poleOf', { count: poles.length }))}</span></h2>
-      <dl class="card__facts">
-        <dt>${esc(t('distance'))}</dt><dd>${esc(fmtKmExact(pole.dist_m))}</dd>
-        ${island}<dt>${esc(t('nearestRoad'))}</dt><dd>${esc(highwayLabel(way.highway || 'road'))}, ${esc(roadName)}</dd>
-        <dt>${esc(t('nearestPlace'))}</dt><dd>${placeText}</dd>
-        <dt>${esc(t('coordinates'))}</dt><dd><span class="mono">${lat}, ${lon}</span>
-          <a class="card__maps" href="https://www.google.com/maps?q=${lat},${lon}" target="_blank" rel="noopener">${esc(t('openMaps'))}</a></dd>
-      </dl>${withheld}</div>`;
+      <ol class="notes">
+        <li><span class="notes__k">${esc(t('distance'))}</span> <span class="notes__v notes__v--snd">${esc(fmtKmExact(pole.dist_m))}</span></li>
+        ${island}<li><span class="notes__k">${esc(t('nearestRoad'))}</span> <span class="notes__v">${esc(highwayLabel(way.highway || 'road'))}, ${esc(roadName)}</span></li>
+        <li><span class="notes__k">${esc(t('nearestPlace'))}</span> <span class="notes__v">${placeText}</span></li>
+        <li><span class="notes__k">${esc(t('coordinates'))}</span> <span class="notes__v"><span class="coord">${lat}, ${lon}</span>
+          <a class="card__maps" href="https://www.google.com/maps?q=${lat},${lon}" target="_blank" rel="noopener">${esc(t('openMaps'))}</a></span></li>
+      </ol>${withheld}</div>`;
   }
 
   function renderSummary() {
@@ -113,6 +117,7 @@ export function createCard(el, { summary, onScenario, onRanking, onLocate, onPol
         <button type="button" class="seg__btn" data-s="B" aria-pressed="${v.scenario === 'B'}">${esc(t('scenarioB'))}</button>
       </div>
       <p class="card__hint">${esc(t(v.scenario === 'A' ? 'scenarioAHint' : 'scenarioBHint'))}</p>
+      <div class="card__ctl">
       <div class="card__islands">
         <span class="card__islands-label" id="islands-label">${esc(t('islandsGroup'))}</span>
         <div class="seg seg--sm" role="group" aria-labelledby="islands-label">
@@ -123,7 +128,7 @@ export function createCard(el, { summary, onScenario, onRanking, onLocate, onPol
       <div class="card__actions">
         <button type="button" class="btn" data-act="ranking">${esc(t('rankingBtn'))}</button>
         <button type="button" class="btn btn--ghost" data-act="locate">${esc(t('locateBtn'))}</button>
-      </div>
+      </div></div>
       ${poleBlock(v)}`;
     el.hidden = false;
   }

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { pickLang, setLang, getLang, t, regionName, regionLabel, unitName, flag, fmtDist, fmtKmExact, fmtKm2, fmtInt, highwayLabel, placeLabel, esc } from '../../site/js/i18n.js';
+import { pickLang, setLang, getLang, t, regionName, regionLabel, unitName, flag, fmtDist, fmtKmExact, fmtKmNum, fmtKm2, fmtInt, highwayLabel, placeLabel, esc, soundingHtml } from '../../site/js/i18n.js';
 
 test('i18n: pickLang order is hash, stored, browser, default en', () => {
   assert.equal(pickLang({ hash: 'lt', stored: 'en', navigator: { languages: ['en-GB'] } }), 'lt');
@@ -120,4 +120,32 @@ test('i18n: the island and toggle strings are said in both languages', () => {
   assert.deepEqual(lt, ['Saloje', 'Salos', '\u012Eskaitomos', 'Ne\u012Fskaitomos']);
   keys.forEach((k, n) => assert.notEqual(en[n], lt[n], `${k} falls back to English`));
   setLang('en');
+});
+
+test('i18n: the chart figures, a bare km figure for the ranking columns and a sounding for the map', () => {
+  setLang('en');
+  assert.equal(fmtKmNum(3426), '3.43');
+  assert.equal(fmtKmNum(NaN), '');
+  setLang('lt');
+  assert.equal(fmtKmNum(3426), '3,43');
+  setLang('en');
+  // A sounding: the whole kilometres, then the hundredths in their own span, and between them the language's
+  // decimal separator, visually hidden, so the text a screen reader gets is the number itself.
+  const snd = (w, sep, d) => `<span class="snd-fig"><span class="snd-fig__w">${w}</span><span class="vh">${sep}</span><span class="snd-fig__d">${d}</span></span>`;
+  const text = (html) => html.replace(/<[^>]+>/g, '');
+  assert.equal(soundingHtml(3426), snd('3', '.', '43'));
+  assert.equal(text(soundingHtml(3426)), '3.43');
+  assert.equal(soundingHtml(425200), snd('425', '.', '20'));
+  assert.equal(soundingHtml(1004), snd('1', '.', '00'));
+  assert.equal(soundingHtml(Infinity), '');
+  setLang('lt');
+  assert.equal(soundingHtml(3426), snd('3', ',', '43'));
+  assert.equal(text(soundingHtml(3426)), '3,43');
+  assert.equal(text(soundingHtml(3426, 'en')), '3.43', 'an explicit language wins');
+  setLang('en');
+  // Rounded exactly as the card rounds, so the marker and the card agree to the hundredth.
+  for (const m of [6675, 1005, 999.5, 3406.4]) {
+    const [w, d] = fmtKmExact(m).replace(' km', '').split('.');
+    assert.equal(soundingHtml(m), snd(w, '.', d), String(m));
+  }
 });

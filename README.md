@@ -28,7 +28,7 @@ Distance is the straight line to the nearest drivable OSM way, sea included, whi
 
 ## How it was built
 
-AI agents (Claude) wrote effectively all of this end to end: the pipeline, the site, the tests, the CI, the docs. My role was direction and verification: choosing what to build, making the product calls, reviewing diffs, and checking results against reality. The repo is the record of that process: `docs/EUROPE_SPEC.md` (the design), `docs/EUROPE_PLAN.md` (the staged plan), `docs/DECISIONS.md` (a dated decision log), `docs/diagrams/` (how the pieces connect), and a history of small reviewed commits. Tests: 436 for the pipeline, 59 for the site tooling.
+AI agents (Claude) wrote effectively all of this end to end: the pipeline, the site, the tests, the CI, the docs. My role was direction and verification: choosing what to build, making the product calls, reviewing diffs, and checking results against reality. The repo is the record of that process: `docs/EUROPE_SPEC.md` (the design), `docs/EUROPE_PLAN.md` (the staged plan), `docs/DECISIONS.md` (a dated decision log), `docs/diagrams/` (how the pieces connect), and a history of small reviewed commits. Tests: 436 for the pipeline, 91 for the site tooling.
 
 ## How it works
 

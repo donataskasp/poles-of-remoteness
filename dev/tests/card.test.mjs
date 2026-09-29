@@ -87,19 +87,49 @@ test('card: a withheld count is shown next to the poles that did survive', () =>
   setLang('en'); // the language is module state, so leave it as found and keep the file order-independent
 });
 
+// The chart world sets no flags: a regional indicator pair anywhere in the markup would be one.
+const FLAG = /[\u{1F1E6}-\u{1F1FF}]/u;
+
 test('card: a unit below country level opens with its own name and no empty flag slot', () => {
   setLang('en');
   const unit = { code: 'xx-1', country: 'xx', name: 'Šiaurė', name_en: 'North', A: { dist_m: 3426, rank: 2 } };
   const el = render({ unit, units: [unit], doc: { A: { poles: [pole(1)], withheld: 0 } }, scenario: 'A', rank: 1 });
   assert.ok(el.innerHTML.includes('<p class="card__headline">North: the remotest point is'));
-  assert.ok(!el.innerHTML.includes('card__headline"> '), 'no space where the flag would have been');
+  assert.ok(!el.innerHTML.includes('card__headline"> '), 'no space where a flag would have been');
 });
 
-test('card: a country unit still carries its flag', () => {
+test('card: the headline is the chart title block: the name, the subtitle, the sentence, the rank, no flag', () => {
   setLang('en');
-  const unit = { code: 'lt', country: 'lt', name: 'Lietuva', name_en: 'Lithuania', A: { dist_m: 3426, rank: 1 } };
+  const unit = { code: 'lt', country: 'lt', name: 'Lietuva', name_en: 'Lithuania', A: { dist_m: 3426, rank: 1 }, B: { dist_m: 6675, rank: 3 } };
   const el = render({ unit, units: [unit], doc: { A: { poles: [pole(1)], withheld: 0 } }, scenario: 'A', rank: 1 });
-  assert.ok(el.innerHTML.includes('<p class="card__headline">\u{1F1F1}\u{1F1F9} Lithuania: '));
+  const head = el.innerHTML.split('card__seg')[0];
+  assert.ok(head.startsWith('<header class="cartouche"><h2 class="cartouche__name">Lithuania</h2>'), 'the block opens the card with the name');
+  assert.ok(head.includes(`<p class="cartouche__sub">${t('chartSubA')}</p>`), 'the subtitle says what the soundings measure');
+  assert.ok(head.includes('<p class="card__headline">Lithuania: the remotest point is 3.43 km'));
+  assert.ok(head.includes('<p class="card__rank"><span>#1 of 1 in Europe</span></p></header>'), 'the rank closes the block');
+  assert.ok(!FLAG.test(el.innerHTML), 'a country unit carries no flag either');
+  // The subtitle follows the scenario: B measures to public roads only.
+  const b = render({ unit, units: [unit], doc: { B: { poles: [pole(1)], withheld: 0 } }, scenario: 'B', rank: 1 });
+  assert.ok(b.innerHTML.includes(`<p class="cartouche__sub">${t('chartSubB')}</p>`));
+  assert.ok(b.innerHTML.includes('6.68 km'));
+  // A unit with no result keeps the block and its name, and says why in the sentence's place.
+  const none = render({ unit: { code: 'xx', name_en: 'Nowhere' }, units: [unit], doc: { A: { poles: [], withheld: 0 } }, scenario: 'A', rank: 1 });
+  assert.ok(none.innerHTML.startsWith('<header class="cartouche"><h2 class="cartouche__name">Nowhere</h2>'));
+  assert.ok(!none.innerHTML.includes('card__rank'), 'and no rank where there is none');
+});
+
+test('card: the pole facts are the chart NOTES, an ordered list of key and value, under the pole title', () => {
+  setLang('en');
+  const unit = { code: 'xx', name_en: 'Nowhere', A: { dist_m: 3426, rank: 1 } };
+  const el = render({ unit, units: [unit], doc: { A: { poles: [pole(1)], withheld: 0 } }, scenario: 'A', rank: 1 });
+  const poles = el.innerHTML.split('<div class="card__poles">')[1];
+  assert.ok(poles.indexOf('card__pole-title') < poles.indexOf('class="chips"'), 'the title comes before the chips');
+  assert.ok(poles.includes('<ol class="notes">'));
+  assert.ok(poles.includes(`<li><span class="notes__k">${t('distance')}</span> <span class="notes__v notes__v--snd">3.43 km</span></li>`));
+  assert.ok(poles.includes(`<span class="notes__k">${t('coordinates')}</span> <span class="notes__v"><span class="coord">54.44148, 23.53703</span>`));
+  assert.ok(poles.includes('href="https://www.google.com/maps?q=54.44148,23.53703"'));
+  assert.equal((poles.match(/<li>/g) || []).length, 4, 'distance, road, settlement, coordinates');
+  assert.ok(!poles.includes('<dl') && !poles.includes('<dt>'), 'no description list is left');
 });
 
 test('card: the summary row says the unit, the scenario distance and the rank, and nothing else', () => {
@@ -108,8 +138,13 @@ test('card: the summary row says the unit, the scenario distance and the rank, a
   const units = [unit, { code: 'ee', name_en: 'Estonia', A: { dist_m: 4000, rank: 1 }, B: { dist_m: 5000, rank: 1 } }];
   const s = renderSummary({ unit, units, doc: { A: { poles: [pole(1)], withheld: 0 } }, scenario: 'A', rank: 1 });
   assert.equal(s.hidden, false);
-  assert.ok(s.innerHTML.includes('\u{1F1F1}\u{1F1F9} Lithuania'), 'the flag and the name');
-  assert.ok(s.innerHTML.includes('A 3.43 km'), 'the distance, said with the scenario it belongs to');
+  assert.ok(s.innerHTML.includes('<span class="card-summary__name">Lithuania</span>'), 'the name, with no flag');
+  assert.ok(!FLAG.test(s.innerHTML));
+  // The distance is stated plainly, as the headline writes it, with the scenario it belongs to: the closed
+  // sheet is read at a glance, so the sounding stays on the map.
+  assert.ok(s.innerHTML.includes('<b class="card-summary__dist"><span class="card-summary__s">A</span> '
+    + '<span class="card-summary__km">3.43 km</span></b>'));
+  assert.ok(!s.innerHTML.includes('snd-fig'), 'no sounding in the sheet');
   assert.ok(s.innerHTML.includes('#42 of 2 in Europe'));
   // The headline sentence belongs to the card, not to the one row the closed sheet shows.
   assert.ok(!s.innerHTML.includes('the remotest point is'));
@@ -119,8 +154,12 @@ test('card: the summary follows the scenario', () => {
   setLang('en');
   const unit = { code: 'lt', name_en: 'Lithuania', A: { dist_m: 3426, rank: 42 }, B: { dist_m: 6675, rank: 7 } };
   const s = renderSummary({ unit, units: [unit], doc: { B: { poles: [pole(1)], withheld: 0 } }, scenario: 'B', rank: 1 });
-  assert.ok(s.innerHTML.includes('B 6.68 km'));
+  assert.ok(s.innerHTML.includes('<span class="card-summary__s">B</span> <span class="card-summary__km">6.68 km</span>'));
   assert.ok(s.innerHTML.includes('#7 of 1 in Europe'));
+  setLang('lt');
+  const lt = renderSummary({ unit, units: [unit], doc: { B: { poles: [pole(1)], withheld: 0 } }, scenario: 'B', rank: 1 });
+  assert.ok(lt.innerHTML.includes('<span class="card-summary__km">6,68 km</span>'), 'in the language\'s own decimal');
+  setLang('en');
 });
 
 test('card: a unit with no result for the scenario summarises the reason and shows no rank', () => {
@@ -155,13 +194,13 @@ test('card: a pole on an island says so, right under the distance, in both langu
   const unit = { code: 'xx', name_en: 'Nowhere', A: { dist_m: 3426, rank: 1 } };
   const view = { unit, units: [unit], doc: { A: { poles: [pole(1, { island_km2: 357.2 })], withheld: 0 } }, scenario: 'A', rank: 1 };
   const en = render(view);
-  assert.ok(en.innerHTML.includes('<dt>On an island</dt><dd>357 km\u00B2</dd>'));
+  assert.ok(en.innerHTML.includes('<li><span class="notes__k">On an island</span> <span class="notes__v">357 km\u00B2</span></li>'));
   // Right after the distance row and before the road row, which is where the reader is already looking.
   assert.ok(en.innerHTML.indexOf('On an island') > en.innerHTML.indexOf(t('distance')));
   assert.ok(en.innerHTML.indexOf('On an island') < en.innerHTML.indexOf('Nearest road'));
   setLang('lt');
   const lt = render(view);
-  assert.ok(lt.innerHTML.includes('<dt>Saloje</dt><dd>357 km\u00B2</dd>'));
+  assert.ok(lt.innerHTML.includes('<li><span class="notes__k">Saloje</span> <span class="notes__v">357 km\u00B2</span></li>'));
   setLang('en');
 });
 

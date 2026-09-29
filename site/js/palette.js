@@ -5,13 +5,17 @@ import { EDGE } from './classes.js';
 export const STOPS_M = [1000, 2500, 5000, 10000, 20000, 50000];
 const EDGE_ALPHA = 0.35;
 
+// Each band may carry its own opacity (--band-alpha-1 to -6), so the near bands can let the ground show through
+// while the far ones hold their colour; a band without one uses --band-alpha.
 export function readTokens(el = document.documentElement) {
   const cs = getComputedStyle(el);
   const get = (name) => cs.getPropertyValue(name).trim();
+  const alpha = Number(get('--band-alpha')) || 0.6;
   return {
     bands: STOPS_M.map((_, i) => get(`--band-${i + 1}`)),
+    alphas: STOPS_M.map((_, i) => Number(get(`--band-alpha-${i + 1}`)) || alpha),
     edge: get('--edge'),
-    alpha: Number(get('--band-alpha')) || 0.6,
+    alpha,
   };
 }
 
@@ -24,14 +28,14 @@ export function hexToRgb(hex) {
 
 export function makePalette(table, tokens) {
   const pal = new Uint8ClampedArray(256 * 4);
-  const a = Math.round(tokens.alpha * 255);
+  const alphaOf = (band) => Math.round(((tokens.alphas && tokens.alphas[band]) || tokens.alpha) * 255);
   for (let c = 0; c < EDGE; c += 1) {
     const lower = table.lower(c);
     let band = -1;
     for (let i = 0; i < STOPS_M.length; i += 1) if (lower >= STOPS_M[i]) band = i;
     if (band < 0) continue;
     const [r, g, b] = hexToRgb(tokens.bands[band]);
-    pal.set([r, g, b, a], c * 4);
+    pal.set([r, g, b, alphaOf(band)], c * 4);
   }
   const [r, g, b] = hexToRgb(tokens.edge);
   pal.set([r, g, b, Math.round(EDGE_ALPHA * 255)], EDGE * 4);

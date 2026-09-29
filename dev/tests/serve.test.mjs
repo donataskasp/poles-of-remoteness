@@ -18,6 +18,8 @@ function fixture() {
   writeFileSync(join(site, 'data', 'site-only.json'), '{"from":"site"}');
   writeFileSync(join(data, 'regions.json'), '{"from":"dev"}');
   writeFileSync(join(r2, 'A.pmtiles'), Buffer.from('0123456789abcdef'));
+  mkdirSync(join(site, 'fonts'));
+  writeFileSync(join(site, 'fonts', 'face.woff2'), Buffer.from('wOF2'));
   return { site, data, r2 };
 }
 
@@ -33,6 +35,10 @@ test('serve: SPA fallback, dev data first, range on r2', async () => {
 
     const regions = await fetch(`${base}/data/regions.json`);
     assert.equal((await regions.json()).from, 'dev');
+
+    // The self-hosted fonts come with their own type, as the production assets layer answers them.
+    const font = await fetch(`${base}/fonts/face.woff2`);
+    assert.equal(font.headers.get('content-type'), 'font/woff2');
 
     const missing = await fetch(`${base}/js/nope.js`);
     assert.equal(missing.status, 404);

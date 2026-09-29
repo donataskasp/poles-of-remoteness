@@ -58,9 +58,12 @@ async function fetchDetail(region, pole) {
   return { meta, classes, canvas, bounds: L.latLngBounds([[e.south, e.west], [e.north, e.east]]) };
 }
 
-export function createDetailOverlays(map, { region, palette }) {
+// onHoles, when given, hears the windows of the overlays on the map each time that set changes, so the coarse
+// layer can leave them empty rather than tint the ground under them a second time.
+export function createDetailOverlays(map, { region, palette, onHoles }) {
   const entries = new Map(); // pole.detail -> { pole, promise, data, overlay, failed }
   let pal = palette;
+  let holesKey = '';
 
   function approxBounds(pole) {
     const half = region.detail_window_m / 2;
@@ -98,6 +101,16 @@ export function createDetailOverlays(map, { region, palette }) {
         if (!want && map.hasLayer(entry.overlay)) map.removeLayer(entry.overlay);
       }
     }
+    reportHoles();
+  }
+
+  function reportHoles() {
+    if (!onHoles) return;
+    const holes = [...entries.values()].filter((e) => e.overlay && map.hasLayer(e.overlay)).map((e) => e.data.bounds);
+    const key = holes.map((b) => b.toBBoxString()).join(';');
+    if (key === holesKey) return;
+    holesKey = key;
+    onHoles(holes);
   }
 
   // A pole without a detail raster (nothing to fetch) is simply not an entry: the z9 tile answers for it.

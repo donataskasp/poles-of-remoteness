@@ -65,6 +65,11 @@ const DICT = {
     attributionSat: 'Imagery: Esri, Maxar, Earthstar Geographics',
     scenarioShort_A: 'A',
     scenarioShort_B: 'B',
+    chartSubA: 'Soundings in kilometres from the nearest drivable way',
+    chartSubB: 'Soundings in kilometres from the nearest public road',
+    colRank: 'No.',
+    colUnit: 'Unit',
+    colKm: '{s}, km',
     hw_motorway: 'motorway', hw_trunk: 'trunk road', hw_primary: 'primary road', hw_secondary: 'secondary road',
     hw_tertiary: 'tertiary road', hw_unclassified: 'minor road', hw_residential: 'residential street',
     hw_living_street: 'living street', hw_service: 'service road', hw_track: 'track', hw_road: 'road',
@@ -134,6 +139,11 @@ const DICT = {
     attributionSat: 'Vaizdai: Esri, Maxar, Earthstar Geographics',
     scenarioShort_A: 'A',
     scenarioShort_B: 'B',
+    chartSubA: 'Atstumai kilometrais iki artimiausio pravažiuojamo kelio',
+    chartSubB: 'Atstumai kilometrais iki artimiausio viešojo kelio',
+    colRank: 'Nr.',
+    colUnit: 'Vienetas',
+    colKm: '{s}, km',
     hw_motorway: 'automagistralė', hw_trunk: 'magistralinis kelias', hw_primary: 'krašto kelias', hw_secondary: 'rajoninis kelias',
     hw_tertiary: 'vietinis kelias', hw_unclassified: 'nedidelis kelias', hw_residential: 'gyvenamoji gatvė',
     hw_living_street: 'gyvenamoji zona', hw_service: 'privažiavimo kelias', hw_track: 'miško ar lauko keliukas', hw_road: 'kelias',
@@ -235,6 +245,25 @@ export function fmtDist(m, lang = current) {
 export function fmtKmExact(m, lang = current) {
   if (!Number.isFinite(m)) return '';
   return `${nf(lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(m / 1000)} km`;
+}
+
+// The same distance without its unit, for the ranking's columns, whose headings carry the "km".
+export function fmtKmNum(m, lang = current) {
+  if (!Number.isFinite(m)) return '';
+  return nf(lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(m / 1000);
+}
+
+// A distance written as a chart sounding: the whole kilometres full size, the hundredths small and lowered,
+// the way a chart writes 3 with 43 beneath it. The language's decimal separator is there but visually hidden
+// (.vh), so the page shows the chart's figure while its text, which is what a screen reader announces, is
+// "3.43" or "3,43". Rounded by the same formatter as fmtKmExact, not toFixed: 6675 m is 6.68 there and 6.67
+// by toFixed's binary rounding, and a sounding must never disagree with the card by a hundredth.
+export function soundingHtml(m, lang = current) {
+  if (!Number.isFinite(m)) return '';
+  const parts = nf(lang, { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: false }).formatToParts(m / 1000);
+  const of = (type) => parts.filter((p) => p.type === type).map((p) => p.value).join('');
+  return `<span class="snd-fig"><span class="snd-fig__w">${esc(of('minusSign') + of('integer'))}</span>`
+    + `<span class="vh">${esc(of('decimal'))}</span><span class="snd-fig__d">${esc(of('fraction'))}</span></span>`;
 }
 
 // An island's area, for the card's island row. One decimal under 10 km2 and none above, the same shape and
