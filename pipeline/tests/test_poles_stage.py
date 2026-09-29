@@ -852,7 +852,9 @@ def test_a_raster_fragment_of_the_mainland_is_merged_into_it_and_not_dropped_as_
     assert keep.all() and is_main.all()                     # one body: nothing dropped, nothing tagged
     # With the lake running the whole column, the land under the fragment ends at its own shore: an island
     # of 2.5 km2, kept and tagged (Keyesport's 0.04 km2 in Carlyle Lake was this shape, under the floor).
-    write_fgb(tmp_path / "water2.fgb", "water", [box_of(1, 11, 6, 7)], {"fid": [0]})
+    # The lake overruns the land by a row at each end: edges that coincide exactly leave the difference a
+    # sliver along the seam on some GEOS builds (the CI container's did), which joins the two parts again.
+    write_fgb(tmp_path / "water2.fgb", "water", [box_of(0, 12, 6, 7)], {"fid": [0]})
     areas, merges = poles_mod.vector_component_areas(field, comps, labels, tmp_path / "land_idx.fgb", unit, frame, to_frame,
                                                      water_big=tmp_path / "water2.fgb")
     assert merges == {} and areas[frag] == pytest.approx(2.5, rel=0.02)
