@@ -4,7 +4,7 @@
 
 ```mermaid
 flowchart LR
-    push["push (main: production, other branches: preview)"] --> ci["deploy-cloudflare.yml"] --> wd["wrangler deploy"] --> worker["Worker and static assets"]
+    push["push (main: production, europe or a manual run: preview)"] --> ci["deploy-cloudflare.yml"] --> wd["wrangler deploy"] --> worker["Worker and static assets"]
     ci --> verify["verify: version.json, first-screen budget"]
     worker --> browser["the visitor's browser"]
     worker --> ae[("Workers Analytics Engine")]
@@ -25,7 +25,7 @@ flowchart LR
     stamp --> deploy["wrangler deploy, plus --env preview off main"]
     deploy --> prod["main: polesofremoteness on polesofremoteness.com and www, dataset poles_views"]
     deploy --> redir["main only, after verify: atokiausia-lietuva, a permanent redirect to /europe/lt"]
-    deploy --> prev["other branches: atokiausia-lietuva-preview, dataset poles_preview_views"]
+    deploy --> prev["europe or a manual run: atokiausia-lietuva-preview, dataset poles_preview_views"]
     prod --> ver["verify: poll /version.json until it carries this commit"]
     prev --> ver
     ver --> budget["preview only: first screen under 256 KB compressed"]

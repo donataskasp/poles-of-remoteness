@@ -136,7 +136,7 @@ flowchart LR
 
 ## What leaves the machine
 
-Everything under `work/` is regenerable and gitignored. Two things travel:
+Everything under `work/` is gitignored and cannot be rebuilt from its snapshot once Geofabrik rotates that snapshot's PBFs; a rebuild means a fresh snapshot through the current pipeline. Two things travel:
 
 | Destination | Keys or paths | Written by |
 |---|---|---|
