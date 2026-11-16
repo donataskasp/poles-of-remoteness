@@ -18,7 +18,7 @@
 - Tag sets, class table, accuracy tiers exactly as spec 2.3, 3.4, 2.4.
 - Identifiers: `<region>` lowercase slug; `<snapshot>` is `YYYY-MM-DD` of the primary extract's `Last-Modified` in GMT; unit codes lowercase ISO.
 - Stage functions: `run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict | None`; the returned dict is stage-specific metadata; the runner adds timing and resource numbers and writes `done.json`. Idempotent: the runner skips a stage whose `done.json` exists unless `--force`.
-- Branch `europe` only. Commit after every green task with explicit paths, identity Donatas / donatas.kasparavicius@gmail.com (repo-local override; verify with `git config user.email` before the first commit).
+- Branch `europe` only. Commit after every green task with explicit paths, identity Donatas (repo-local override; verify with `git config user.email` before the first commit).
 - Python: `pipeline/.venv` (created with `uv venv pipeline/.venv --python 3.12`). Run tests as `cd pipeline && .venv/bin/python -m pytest -q`. CLI tools from `/opt/homebrew/bin` (osmium, ogr2ogr, ogrinfo, gdal_rasterize, gdalwarp, gdal_translate, gdaladdo, pmtiles). `export PATH=/opt/homebrew/bin:$PATH` in every shell.
 - Work data lives in `work/<region>/<snapshot>/<stage>/` under the repo root, gitignored. The Europe snapshot is `2026-08-19`; its six PBFs and `.md5` files were pre-downloaded into `work/europe/2026-08-19/fetch/` with curl, so the fetch stage must adopt existing complete files (verify, do not re-download).
 

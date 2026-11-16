@@ -19,7 +19,7 @@
 - Identifiers: `<region>` lowercase slug; `<snapshot>` `YYYY-MM-DD`; unit codes lowercase ISO 3166-1 alpha-2 (`lt`) or ISO 3166-2 (`us-ak`).
 - Stage functions: `run(cfg: RegionConfig, ws: Workspace, log: logging.Logger) -> dict | None`; idempotent; the runner writes `done.json`. Long sub-steps inside a stage are guarded by `<artefact>.ok` markers exactly like `poles.extract._ensure` so a crash resumes at the first missing piece.
 - Every extract layer is opened through its `<layer>.vrt` handle (`highways.vrt`, `places.vrt`, `water.vrt`, `work/shared/land.vrt`); `boundaries.pbf` is read with osmium because the FlatGeobuf export lacks relation membership and the incomplete relations (issue #15).
-- Branch `europe` only. Commit after every green task with explicit paths, identity Donatas / donatas.kasparavicius@gmail.com (repo-local override; verify with `git config user.email` before the first commit). Never `git add -A`.
+- Branch `europe` only. Commit after every green task with explicit paths, identity Donatas (repo-local override; verify with `git config user.email` before the first commit). Never `git add -A`.
 - Python: `pipeline/.venv`. Run tests as `cd pipeline && .venv/bin/python -m pytest -q`. CLI tools from `/opt/homebrew/bin`; `export PATH=/opt/homebrew/bin:$PATH` in every shell.
 - Work data: `work/europe/2026-08-19/` holds fetch, extract, classify, grid with `done.json`; **do not recompute them**. New outputs go to `work/europe/2026-08-19/poles/` and `validate/`. Disk: about 96 GB free at planning time; the highways tiles add about 25 GB.
 - Memory: 24 GB machine. The poles stage pool uses `POLES_WORKERS` (default 4). Stop colima before the grid-shift check (check 4 reruns the tiled EDT).
