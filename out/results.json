@@ -20,9 +20,9 @@
           "osm_way": 1385319417,
           "url": "https://www.openstreetmap.org/way/1385319417",
           "highway": "track",
-          "surface": NaN,
-          "name": NaN,
-          "ref": NaN,
+          "surface": null,
+          "name": null,
+          "ref": null,
           "country": "Lithuania"
         }
       },
@@ -42,9 +42,9 @@
             "osm_way": 259109636,
             "url": "https://www.openstreetmap.org/way/259109636",
             "highway": "track",
-            "surface": NaN,
-            "name": NaN,
-            "ref": NaN,
+            "surface": null,
+            "name": null,
+            "ref": null,
             "country": "Lithuania"
           }
         },
@@ -63,9 +63,9 @@
             "osm_way": 522616588,
             "url": "https://www.openstreetmap.org/way/522616588",
             "highway": "track",
-            "surface": NaN,
-            "name": NaN,
-            "ref": NaN,
+            "surface": null,
+            "name": null,
+            "ref": null,
             "country": "Lithuania"
           }
         },
@@ -84,9 +84,9 @@
             "osm_way": 1242509661,
             "url": "https://www.openstreetmap.org/way/1242509661",
             "highway": "track",
-            "surface": NaN,
-            "name": NaN,
-            "ref": NaN,
+            "surface": null,
+            "name": null,
+            "ref": null,
             "country": "Russia (Kaliningrad)"
           }
         },
@@ -106,7 +106,7 @@
             "url": "https://www.openstreetmap.org/way/372603129",
             "highway": "tertiary",
             "surface": "gravel",
-            "name": NaN,
+            "name": null,
             "ref": "1610",
             "country": "Lithuania"
           }
@@ -126,9 +126,9 @@
             "osm_way": 365677728,
             "url": "https://www.openstreetmap.org/way/365677728",
             "highway": "track",
-            "surface": NaN,
-            "name": NaN,
-            "ref": NaN,
+            "surface": null,
+            "name": null,
+            "ref": null,
             "country": "Lithuania"
           }
         }
@@ -159,7 +159,7 @@
           "highway": "unclassified",
           "surface": "unpaved",
           "name": "Baublių g.",
-          "ref": NaN,
+          "ref": null,
           "country": "Lithuania"
         }
       },
@@ -180,8 +180,8 @@
             "url": "https://www.openstreetmap.org/way/376660293",
             "highway": "residential",
             "surface": "unpaved",
-            "name": NaN,
-            "ref": NaN,
+            "name": null,
+            "ref": null,
             "country": "Lithuania"
           }
         },
@@ -201,8 +201,8 @@
             "url": "https://www.openstreetmap.org/way/397437293",
             "highway": "service",
             "surface": "grass",
-            "name": NaN,
-            "ref": NaN,
+            "name": null,
+            "ref": null,
             "country": "Lithuania"
           }
         },
@@ -221,9 +221,9 @@
             "osm_way": 1498216824,
             "url": "https://www.openstreetmap.org/way/1498216824",
             "highway": "service",
-            "surface": NaN,
-            "name": NaN,
-            "ref": NaN,
+            "surface": null,
+            "name": null,
+            "ref": null,
             "country": "Lithuania"
           }
         },
@@ -243,8 +243,8 @@
             "url": "https://www.openstreetmap.org/way/447977712",
             "highway": "unclassified",
             "surface": "unpaved",
-            "name": NaN,
-            "ref": NaN,
+            "name": null,
+            "ref": null,
             "country": "Lithuania"
           }
         },
@@ -264,7 +264,7 @@
             "url": "https://www.openstreetmap.org/way/1295978209",
             "highway": "secondary",
             "surface": "asphalt",
-            "name": NaN,
+            "name": null,
             "ref": "5014",
             "country": "Lithuania"
           }

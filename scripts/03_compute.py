@@ -201,9 +201,9 @@ def nearest_road_info(tree, roads, x, y):
         "osm_way": oid,
         "url": f"https://www.openstreetmap.org/way/{oid}",
         "highway": row.get("highway"),
-        "surface": None if str(row.get("surface")) == "None" else row.get("surface"),
-        "name": None if str(row.get("name")) == "None" else row.get("name"),
-        "ref": None if str(row.get("ref")) == "None" else row.get("ref"),
+        "surface": None if pd.isna(row.get("surface")) else row.get("surface"),
+        "name": None if pd.isna(row.get("name")) else row.get("name"),
+        "ref": None if pd.isna(row.get("ref")) else row.get("ref"),
         "country": row["country"],
     }
 
@@ -334,7 +334,7 @@ def main():
     assert a <= bmax + 0.01, f"sanity fail: A ({a}) > B ({bmax})"
     results["sanity_A_le_B"] = True
 
-    (OUT / "results.json").write_text(json.dumps(results, indent=2, ensure_ascii=False))
+    (OUT / "results.json").write_text(json.dumps(results, indent=2, ensure_ascii=False, allow_nan=False))
     log("wrote out/results.json")
     for tag in ("A", "B"):
         w = results["scenarios"][tag]["winner"]
